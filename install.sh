@@ -8,17 +8,17 @@
 # ändern für gscheites vsync
 
 sudo pacman -Syyu
-sudo pacman -R manjaro-browser-settings ms-office-online thunderbird vlc 
+sudo pacman -R manjaro-browser-settings ms-office-online thunderbird vlc
 
-sudo pacman -S yay youtube-dl mpv gimp nextcloud-client keepassxc cmatrix lolcat neofetch cava 
+sudo pacman -S yay youtube-dl mpv gimp nextcloud-client keepassxc cmatrix lolcat neofetch cava ripgrep fzf
 
 sudo pacman -S libreoffice-fresh libreoffice-fresh-de texlive-most
 
 sudo pacman -S git make gcc docker docker-compose jdk8-openjdk maven vim neovim
 yay -S vscodium-bin tty-clock
 
-git config --global user.name "clemak27" 
-git config --global user.email clemak27@mailbox.org 
+git config --global user.name "clemak27"
+git config --global user.email clemak27@mailbox.org
 git config --global alias.lol 'log --graph --decorate --oneline --all'
 git config --global core.autocrlf input
 
