@@ -1,4 +1,39 @@
 #!/bin/bash
 
-# todo
-# allg manjaro stuff
+# Manjaro KDE installiert 15.03.2019
+
+# laptop only:
+# in der grub config /etc/default/grub zeile auf (aber besser nach diesem script xD)
+# GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nvidia-drm.modeset=1 nouveau.runpm=0"
+# ändern für gscheites vsync
+
+sudo pacman -Syyu
+sudo pacman -R manjaro-browser-settings ms-office-online thunderbird vlc 
+
+sudo pacman -S yay youtube-dl mpv gimp nextcloud-client keepassxc cmatrix lolcat neofetch cava 
+
+sudo pacman -S libreoffice-fresh libreoffice-fresh-de texlive-most
+
+sudo pacman -S git make gcc docker docker-compose jdk8-openjdk maven vim neovim
+yay -S vscodium-bin tty-clock
+
+git config --global user.name "clemak27" 
+git config --global user.email clemak27@mailbox.org 
+git config --global alias.lol 'log --graph --decorate --oneline --all'
+git config --global core.autocrlf input
+
+code --install-extension akamud.vscode-theme-onedark
+code --install-extension dakara.transformer
+code --install-extension eamodio.gitlens
+code --install-extension ms-python.python
+code --install-extension magicstack.magicpython
+code --install-extension visualstudioexptteam.vscodeintellicode
+code --install-extension james-yu.latex-workshop
+
+
+sudo pacman -S gwine-staging lutris
+
+# nextcloud symlinken wenn ordner runtergeladen
+# rm ~/Documents/ -R && ln -s ~/Nextcloud/Documents/ ~/Documents
+# rm ~/Pictures/ -R && ln -s ~/Nextcloud/Pictures/ ~/Pictures
+
