@@ -30,8 +30,19 @@ code --install-extension magicstack.magicpython
 code --install-extension visualstudioexptteam.vscodeintellicode
 code --install-extension james-yu.latex-workshop
 
+echo "" >> ~/.bashrc
+echo "use aliases from file" >> ~/.bashrc
+echo "if [ -f ~/.bash_aliases ]; then" >> ~/.bashrc
+echo "        . ~/.bash_aliases" >> ~/.bashrc
+echo "fi" >> ~/.bashrc
+echo "" >> ~/.bashrc
+echo "use ripgrep with fzf" >> ~/.bashrc
+echo "export FZF_DEFAULT_COMMAND='rg --files --hidden'" >> ~/.bashrc
 
-sudo pacman -S gwine-staging lutris
+cp vimrc ~/.vimrc
+cp bash_aliases ~/.bash_aliases
+
+sudo pacman -S wine-staging lutris
 
 # nextcloud symlinken wenn ordner runtergeladen
 # rm ~/Documents/ -R && ln -s ~/Nextcloud/Documents/ ~/Documents

@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# todo
-# kde stuff themes usw in ordner
-
 sudo pacman -R yakuake
 
 sudo pacman -S latte-dock mpd cantata kid3 gimp nextcloud-client redshift papirus-icon-theme plasma-browser-integration

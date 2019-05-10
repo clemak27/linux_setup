@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sudo pacman -R yakuake
+# run manjaro default gnome thing first
 
-sudo pacman -S tilix evolution
+sudo pacman -S tilix evolution kvantum-qt5
 
 # stand ubuntu 18.10.
 sudo pacman -R remove aisleriot cheese gnome-mahjongg gnome-mines remmina shotwell gnome-sudoku thunderbird totem transmission-common
@@ -22,6 +22,10 @@ chmod a+x ./gnome-shell-extension-installer.sh
 # ./gnome-shell-extension-installer.sh 131 # touchpad-indicator
 
 # vimix + kvDark
+
+echo "" >> ~/.bashrc
+echo "use kvantum theme engine" >> ~/.bashrc
+echo "export QT_STYLE_OVERRIDE=kvantum" >> ~/.bashrc
 
 mkdir -p ~/.config/tilix/schemes/
 cp one-dark.json ~/.config/tilix/schemes/
