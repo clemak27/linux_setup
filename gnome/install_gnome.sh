@@ -18,6 +18,7 @@ chmod a+x ./gnome-shell-extension-installer.sh
 ./gnome-shell-extension-installer.sh 943 # Workspace Scroll
 ./gnome-shell-extension-installer.sh 1439 # Never Close Calendar Event
 ./gnome-shell-extension-installer.sh 657 # ShellTile
+./gnome-shell-extension-installer.sh 1319 # GSConnect
 # nicht am PC:
 # ./gnome-shell-extension-installer.sh 131 # touchpad-indicator
 
