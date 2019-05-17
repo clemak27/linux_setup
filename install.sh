@@ -8,9 +8,9 @@
 # ändern für gscheites vsync
 
 sudo pacman -Syyu
-sudo pacman -R manjaro-browser-settings ms-office-online thunderbird vlc
+sudo pacman -R manjaro-browser-settings ms-office-online
 
-sudo pacman -S yay youtube-dl mpv gimp nextcloud-client keepassxc cmatrix lolcat neofetch cava ripgrep fzf
+sudo pacman -S yay youtube-dl mpv gimp nextcloud-client keepassxc cmatrix lolcat neofetch ripgrep fzf
 
 sudo pacman -S libreoffice-fresh libreoffice-fresh-de texlive-most
 
