@@ -21,6 +21,7 @@ git config --global user.name "clemak27"
 git config --global user.email clemak27@mailbox.org
 git config --global alias.lol 'log --graph --decorate --oneline --all'
 git config --global core.autocrlf input
+git config --global credential.helper "cache --timeout=18000"
 
 code --install-extension akamud.vscode-theme-onedark
 code --install-extension dakara.transformer
