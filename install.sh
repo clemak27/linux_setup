@@ -10,10 +10,13 @@
 sudo pacman -Syyu
 sudo pacman -R manjaro-browser-settings ms-office-online
 
-sudo pacman -S yay youtube-dl mpv gimp keepassxc cmatrix lolcat neofetch ripgrep fzf syncthing-gtk
+sudo pacman -S --noconfirm yay youtube-dl mpv  keepassxc  ripgrep fzf syncthing-gtk mps-youtube
 
-sudo pacman -S git make gcc docker docker-compose jdk8-openjdk maven vim neovim nodejs npm yarn
-yay -S vscodium-bin skypeforlinux-stable-bin
+sudo pacman -S --noconfirm cmatrix lolcat neofetch
+
+sudo pacman -S --noconfirm git make gcc docker docker-compose jdk8-openjdk maven vim neovim nodejs npm yarn
+
+yay -S --noconfirm vscodium-bin skypeforlinux-stable-bin
 
 # git config
 git config --global user.name "clemak27"
@@ -44,7 +47,7 @@ cp vimrc ~/.vimrc
 cp bash_aliases ~/.bash_aliases
 
 # gaming
-sudo pacman -S wine-staging lutris
+sudo pacman -S --noconfirm wine-staging lutris
 
 # office
-sudo pacman -S libreoffice-fresh libreoffice-fresh-de texlive-most
+sudo pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most
