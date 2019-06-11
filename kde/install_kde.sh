@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sudo pacman -R yakuake
+sudo pacman -R --noconfirm yakuake
 
-sudo pacman -S latte-dock mpd cantata kid3 gimp nextcloud-client redshift papirus-icon-theme plasma-browser-integration
+sudo pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-integration kvantum-qt5
 
 cp redshift.conf ~/.config
 
@@ -13,10 +13,6 @@ cp topbar.layout .config/latte/
 cp WIM.layout .config/latte/
 cp winStyle2019.layout .config/latte/
 
-# plasma theme deepin
-# colors zion custom
-# icons papirus dark (ändern?)
-# gtk style breeze dark, prefer dark, icons auch ändern
 # screen locking bild rein
 # window switcher meta
 # sddm theme chili
