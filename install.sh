@@ -2,11 +2,6 @@
 
 # Manjaro KDE installiert 15.03.2019
 
-# laptop only:
-# in der grub config /etc/default/grub zeile auf (aber besser nach diesem script xD)
-# GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nvidia-drm.modeset=1 nouveau.runpm=0"
-# ändern für gscheites vsync
-
 sudo pacman -Syyu
 sudo pacman -R manjaro-browser-settings ms-office-online
 
@@ -35,6 +30,7 @@ code --install-extension visualstudioexptteam.vscodeintellicode
 code --install-extension james-yu.latex-workshop
 
 # gaming
+# https://github.com/lutris/lutris/wiki/Installing-drivers
 sudo pacman -S --noconfirm wine-staging lutris
 
 # office
