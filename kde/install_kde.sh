@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# https://zren.github.io/kde/
+
 sudo pacman -R --noconfirm yakuake
 
 sudo pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-integration kvantum-qt5
@@ -48,6 +50,10 @@ cd vimix-gtk-themes
 # suru++
 cd ~/Projects
 wget -qO- https://raw.githubusercontent.com/gusbemacbe/suru-plus/master/install.sh | sh
+
+# meta key latte menu
+kwriteconfig5 --file ~/.config/kwinrc --group ModifierOnlyShortcuts --key Meta "org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu"
+qdbus org.kde.KWin /KWin reconfigure
 
 # screen locking bild rein
 # window switcher meta
