@@ -5,11 +5,11 @@
 sudo pacman -Syyu
 sudo pacman -R manjaro-browser-settings ms-office-online
 
-sudo pacman -S --noconfirm yay youtube-dl mpv  keepassxc  ripgrep fzf syncthing-gtk mps-youtube
+sudo pacman -S --noconfirm yay youtube-dl mpv keepassxc ripgrep fzf syncthing-gtk mps-youtube
 
 sudo pacman -S --noconfirm cmatrix lolcat neofetch
 
-sudo pacman -S --noconfirm git make gcc docker docker-compose jdk8-openjdk maven vim neovim nodejs npm yarn
+sudo pacman -S --noconfirm git make gcc docker docker-compose jdk8-openjdk maven neovim nodejs npm yarn
 
 yay -S --noconfirm vscodium-bin skypeforlinux-stable-bin
 

@@ -152,5 +152,5 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden'
 # use kvantum theme engine
 export QT_STYLE_OVERRIDE=kvantum
 
-# use user-owned folder for gloabl npm modules
-export PATH=~/.npm-global/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+# use neovim
+export EDITOR=nvim

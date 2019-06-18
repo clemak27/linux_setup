@@ -1,11 +1,12 @@
 #!/bin/bash
 
-cp ~/.vimrc ~/.dotfiles/vimrc_bu
-cp ~/.bash_aliases ~/.dotfiles/bash_aliases_bu
-cp ~/.bash_profile ~/.dotfiles/bash_profile_bu
-cp ~/.bashrc ~/.dotfiles/bashrc_bu
+cp ~/.config/nvim/init.vim nvim_bu
+cp ~/.bash_aliases bash_aliases_bu
+cp ~/.bash_profile bash_profile_bu
+cp ~/.bashrc bashrc_bu
 
-cp vimrc ~/.vimrc
+mkdir ~/./config/nvim
+cp vimrc ~/.config/nvim/init.vim
 cp bash_aliases ~/.bash_aliases
 cp bash_profile ~/.bash_profile
 cp bashrc ~/.bashrc
