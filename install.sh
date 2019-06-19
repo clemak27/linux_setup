@@ -11,7 +11,8 @@ sudo pacman -S --noconfirm cmatrix lolcat neofetch
 
 sudo pacman -S --noconfirm git make gcc docker docker-compose jdk8-openjdk maven neovim nodejs npm yarn
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
- 
+# :call coc#util#install()
+
 yay -S --noconfirm vscodium-bin skypeforlinux-stable-bin
 
 # git config
