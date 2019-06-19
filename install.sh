@@ -9,9 +9,10 @@ sudo pacman -S --noconfirm yay youtube-dl mpv keepassxc ripgrep fzf syncthing-gt
 
 sudo pacman -S --noconfirm cmatrix lolcat neofetch
 
-sudo pacman -S --noconfirm git make gcc docker docker-compose jdk8-openjdk maven neovim nodejs npm yarn
+sudo pacman -S --noconfirm git make gcc docker docker-compose jdk8-openjdk maven neovim nodejs npm yarn python-neovim xclip
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # :call coc#util#install()
+# :CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-snippets
 
 yay -S --noconfirm vscodium-bin skypeforlinux-stable-bin
 
