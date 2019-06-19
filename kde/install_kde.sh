@@ -8,13 +8,6 @@ sudo pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-i
 
 cp redshift.conf ~/.config
 
-mkdir -p .local/share/color-schemes/
-cp Zion_custom.colors .local/share/color-schemes/
-mkdir -p .config/latte/
-cp topbar.layout .config/latte/
-cp WIM.layout .config/latte/
-cp winStyle2019.layout .config/latte/
-
 # latte addons
 mkdir ~/Projects
 
@@ -35,17 +28,8 @@ git clone https://github.com/psifidotos/applet-window-appmenu.git
 cd applet-window-appmenu
 sh install.sh
 
-# vimix theme
-cd ~/Projects
-git clone https://github.com/vinceliuice/vimix-kde.git
-cd vimix-kde
-./install.sh
-
-cd ~/Projects
-pacman -S gtk-engine-murrine gtk-engines
-git clone https://github.com/vinceliuice/vimix-gtk-themes.git
-cd vimix-gtk-themes
-./install.sh
+# breeze-gtk theme
+sudo pacman -S --noconfirm breeze-gtk
 
 # suru++
 cd ~/Projects

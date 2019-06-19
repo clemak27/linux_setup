@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Manjaro KDE installiert 15.03.2019
+# Manjaro KDE installiert 19.06.2019
 
 sudo pacman -Syyu
 sudo pacman -R manjaro-browser-settings ms-office-online
@@ -21,13 +21,13 @@ git config --global core.autocrlf input
 git config --global credential.helper "cache --timeout=18000"
 
 # vs code
-code --install-extension akamud.vscode-theme-onedark
-code --install-extension dakara.transformer
-code --install-extension eamodio.gitlens
-code --install-extension ms-python.python
-code --install-extension magicstack.magicpython
-code --install-extension visualstudioexptteam.vscodeintellicode
-code --install-extension james-yu.latex-workshop
+vscodium --install-extension akamud.vscode-theme-onedark
+vscodium --install-extension dakara.transformer
+vscodium --install-extension eamodio.gitlens
+vscodium --install-extension ms-python.python
+vscodium --install-extension magicstack.magicpython
+vscodium --install-extension visualstudioexptteam.vscodeintellicode
+vscodium --install-extension james-yu.latex-workshop
 
 # gaming
 # https://github.com/lutris/lutris/wiki/Installing-drivers
