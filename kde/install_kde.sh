@@ -4,7 +4,7 @@
 
 sudo pacman -R --noconfirm yakuake
 
-sudo pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-integration kvantum-qt5
+sudo pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-integration kvantum-qt5 cava gtk3-nocsd
 
 cp redshift.conf ~/.config/redshift.conf
 cp one_dark.colorscheme ~/.local/share/konsole/one_dark.colorscheme
