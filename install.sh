@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Manjaro KDE installiert 19.06.2019
-
 sudo pacman -Syyu
 sudo pacman -R manjaro-browser-settings ms-office-online
 
