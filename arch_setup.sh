@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # setup internet connection, then
-# run with  curl -sL https://<git-url> | bash
+# run with  curl -sL https://<git-url> | tr -d '\r' | bash
 
 set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
@@ -18,6 +18,10 @@ clear
 
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
 device=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) || exit 1
+clear
+
+architecture="mbr"
+# efi or mbr
 clear
 
 ### Set up logging ###
@@ -56,7 +60,7 @@ mount "${device}1" /mnt/
 
 # Select the mirrors
 
-vi /etc/pacman.d/mirrorlist
+vim /etc/pacman.d/mirrorlist
 
 # Install the base packages
 pacstrap /mnt base
@@ -69,39 +73,55 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 arch-chroot /mnt
 
+arch-chroot /mnt pacman -S --noconfirm vim
 # timezone
 
-ln -sf /usr/share/zoneinfo/Europe/Vienna /etc/localtime
-hwclock --systohc
+arch-chroot /mnt ln -sf /usr/share/zoneinfo/Europe/Vienna /etc/localtime
+arch-chroot /mnt hwclock --systohc
 
 # Localization
 
 # Uncomment en_US.UTF-8 UTF-8 and other needed locales
-vi /etc/locale.gen
-locale-gen
-echo "LANG=en_GB.UTF-8" > /etc/locale.conf
-echo "KEXMAP=de-latin1" > /etc/vconsole.conf
+arch-chroot /mnt vi /etc/locale.gen
+arch-chroot /mnt locale-gen
+arch-chroot /mnt echo "LANG=en_GB.UTF-8" > /etc/locale.conf
+arch-chroot /mnt echo "KEXMAP=de-latin1" > /etc/vconsole.conf
 
 # Network config
 
-echo "${hostname}" > /etc/hostname
+arch-chroot /mnt echo "${hostname}" > /etc/hostname
 
-echo "" >> /etc/hosts
-echo "127.0.0.1  localhost" >> /etc/hosts
-echo "::1		localhost" >> /etc/hosts
-echo "127.0.1.1	${hostname}.localdomain	${hostname}" >> /etc/hosts
-
-# set password
-passwd
+arch-chroot /mnt echo "" >> /etc/hosts
+arch-chroot /mnt echo "127.0.0.1  localhost" >> /etc/hosts
+arch-chroot /mnt echo "::1		localhost" >> /etc/hosts
+arch-chroot /mnt echo "127.0.1.1	${hostname}.localdomain	${hostname}" >> /etc/hosts
 
 # bootloader
-pacman -S grub efibootmgr intel-ucode
+arch-chroot /mnt pacman -S --noconfirm grub efibootmgr intel-ucode
 # grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
-grub-install --target=i386-pc "${device}"
-grub-mkconfig -o /boot/grub/grub.cfg
+arch-chroot /mnt grub-install --target=i386-pc "${device}"
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
-# arch-chroot /mnt useradd -mU -s /usr/bin/zsh -G wheel,uucp,video,audio,storage,games,input "$user"
-# arch-chroot /mnt chsh -s /usr/bin/zsh
+# DE
+arch-chroot /mnt pacman -S --noconfirm xorg-server
+# plasma
+arch-chroot /mnt pacman -S --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-browser-integration plasma-desktop plasma-integration plasma-nm plasma-pa plasma-workspace plasma-workspace-wallpapers polkit-kde-agent powerdevil sddm-kcm systemsettings user-manager
+# kde-applications
+arch-chroot /mnt pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kamera kate kcalc kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks kfind kget khelpcenter kio-extras konsole ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle
 
-# echo "$user:$password" | chpasswd --root /mnt
-# echo "root:$password" | chpasswd --root /mnt
+# add user and set passwords
+arch-chroot /mnt useradd -m $user
+arch-chroot /mnt echo "$user password:"
+arch-chroot /mnt passwd $user
+arch-chroot /mnt echo "root password"
+arch-chroot /mnt passwd
+
+arch-chroot /mnt pacman -S --noconfirm sudo
+arch-chroot /mnt visudo
+arch-chroot /mnt pacman -R vim
+# enable sddm
+arch-chroot /mnt systemctl enable sddm
+arch-chroot /mnt systemctl enable NetworkManager
+
+# pick a god and pray
+shutdown
