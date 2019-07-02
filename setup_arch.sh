@@ -103,6 +103,7 @@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # DE
 arch-chroot /mnt pacman -S --noconfirm xorg-server
+arch-chroot /mnt localectl set-keymap de
 # plasma
 echo "Setup KDE Plasma"
 arch-chroot /mnt pacman -S --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-browser-integration plasma-desktop plasma-integration plasma-nm plasma-pa plasma-workspace plasma-workspace-wallpapers polkit-kde-agent powerdevil sddm-kcm systemsettings user-manager
