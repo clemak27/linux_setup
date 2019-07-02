@@ -11,7 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " installed plugins:
-Plugin 'joshdick/onedark.vim' " atom one dark theme
+Plugin 'https://github.com/cocopon/iceberg.vim' "color theme
 Plugin 'bling/vim-airline' " better looking tab/statusline
 Plugin 'vim-airline/vim-airline-themes' " airline themes
 
@@ -53,7 +53,7 @@ filetype plugin indent on    " required
 
 set number " line number
 let g:AutoClosePreserveDotReg = 0 " autoclose bugfix
-let g:airline_theme='deus'
+let g:airline_theme='iceberg'
 let g:airline#extensions#whitespace#enabled = 0
 
 " use system clipboard
@@ -147,7 +147,7 @@ endif
 
 " set colorscheme
 try
-    colorscheme onedark
+    colorscheme iceberg
 catch
 endtry
 
