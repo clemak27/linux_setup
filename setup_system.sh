@@ -41,3 +41,4 @@ sudo pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-m
 # 144Hz
 # Add MaxFPS=144 to your ~/.config/kwinrc
 # Add xrandr --rate 144 to /usr/share/sddm/scripts/Xsetup
+# about:config layout.frame_rate 144
