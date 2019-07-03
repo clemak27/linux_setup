@@ -6,10 +6,7 @@ user="cle"
 password="1234"
 partitions="mbr"
 gpu="false"
-
-devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
-device=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) || exit 1
-clear
+device="/dev/vda"
 
 pacman -S --noconfirm vim
 
@@ -20,9 +17,9 @@ hwclock --systohc
 
 # Localization
 
-echo "de_AT.UTF-8" >> /etc/locale.gen
-echo "en_GB.UTF-8" >> /etc/locale.gen
-echo "en_US.UTF-8" >> /etc/locale.gen
+echo "de_AT.UTF-8 UTF-8" >> /etc/locale.gen
+echo "en_GB.UTF-8 UTF-8" >> /etc/locale.gen
+echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 locale-gen
 echo "LANG=en_GB.UTF-8" > /etc/locale.conf
 echo "KEYMAP=de-latin1" > /etc/vconsole.conf
@@ -31,11 +28,11 @@ echo "KEYMAP=de-latin1" > /etc/vconsole.conf
 
 echo "${hostname}" > /etc/hostname
 
-echo "" >> /mnt/etc/hosts
-echo "127.0.0.1  localhost" >> /mnt/etc/hosts
-echo "::1		localhost" >> /mnt/etc/hosts
-echo "127.0.1.1	${hostname}.localdomain	${hostname}" >> /mnt/etc/hosts
-read -n 1 s
+echo "" >> /etc/hosts
+echo "127.0.0.1  localhost" >> /etc/hosts
+echo "::1		localhost" >> /etc/hosts
+echo "127.0.1.1	${hostname}.localdomain	${hostname}" >> /etc/hosts
+
 # bootloader
 pacman -S --noconfirm grub efibootmgr intel-ucode
 
@@ -48,8 +45,8 @@ fi
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # DE
-pacman -S --noconfirm xorg-server
-localectl set-keymap de
+pacman -S --noconfirm xorg-server fakeroot
+
 # plasma
 echo "Setup KDE Plasma"
 pacman -S --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-browser-integration plasma-desktop plasma-integration plasma-nm plasma-pa plasma-workspace plasma-workspace-wallpapers polkit-kde-agent powerdevil sddm-kcm systemsettings user-manager
@@ -69,9 +66,9 @@ if [[ $gpu == "true" ]]; then
   pacman -S --noconfirm vulkan-icd-loader lib32-vulkan-icd-loader
 fi
 
-
 # default programs
-pacman -S --noconfirm yay youtube-dl mpv keepassxc ripgrep fzf syncthing-gtk mps-youtube
+
+pacman -S --noconfirm youtube-dl mpv keepassxc ripgrep fzf syncthing-gtk mps-youtube
 pacman -S --noconfirm cmatrix lolcat neofetch
 pacman -S --noconfirm git make gcc docker docker-compose jdk8-openjdk maven neovim nodejs npm yarn python-neovim xclip
 
@@ -81,13 +78,13 @@ pacman -S --noconfirm wine-staging lutris
 # office
 pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most
 
-chmod +x setup_user.sh
-su -c ./setup_user.sh $user
+localectl set-keymap de
+useradd -m $user
+sudo -c 'localectl set-keymap de' $user
 
 # add user and set passwords
 pacman -S --noconfirm sudo
-useradd -m $user
-sudo usermod -aG sudo $user
+sudo usermod -aG wheel $user
 echo "$user:$password" | chpasswd
 echo "root:$password" | chpasswd
 

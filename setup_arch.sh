@@ -9,10 +9,7 @@ user="cle"
 password="1234"
 partitions="mbr"
 gpu="false"
-
-devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
-device=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) || exit 1
-clear
+device="/dev/vda"
 
 ### Set up logging ###
 exec 1> >(tee "stdout.log")
@@ -54,8 +51,7 @@ else
 fi
 
 # Select the mirrors
-clear
-vim /etc/pacman.d/mirrorlist
+cp pacman_mirrorlist /etc/pacman.d/mirrorlist
 
 # Install the base packages
 pacstrap /mnt base
@@ -65,8 +61,12 @@ pacstrap /mnt base
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # chroot
-chmod +x setup_chroot.sh
-arch-chroot /mnt setup_chroot.sh
+cp setup_chroot.sh /mnt/setup_chroot.sh
+cp setup_user.sh /mnt/setup_user.sh
+arch-chroot /mnt chmod +x setup_chroot.sh
+arch-chroot /mnt ./setup_chroot.sh
+rm /mnt/setup_chroot.sh
+rm /mnt/setup_user.sh
 
 # pick a god and pray
 shutdown 0
