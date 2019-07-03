@@ -78,8 +78,8 @@ arch-chroot /mnt hwclock --systohc
 # Uncomment en_US.UTF-8 UTF-8 and other needed locales
 arch-chroot /mnt vim /etc/locale.gen
 arch-chroot /mnt locale-gen
-arch-chroot /mnt echo "LANG=en_GB.UTF-8" > /etc/locale.conf
-arch-chroot /mnt echo "KEYMAP=de-latin1" > /etc/vconsole.conf
+echo "LANG=en_GB.UTF-8" > /mnt/etc/locale.conf
+echo "KEYMAP=de-latin1" > /mnt/etc/vconsole.conf
 
 # Network config
 
