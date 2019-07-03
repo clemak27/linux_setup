@@ -65,76 +65,8 @@ pacstrap /mnt base
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # chroot
-
-arch-chroot /mnt pacman -S --noconfirm vim
-
-# timezone
-
-arch-chroot /mnt ln -sf /usr/share/zoneinfo/Europe/Vienna /etc/localtime
-arch-chroot /mnt hwclock --systohc
-
-# Localization
-
-# Uncomment en_US.UTF-8 UTF-8 and other needed locales
-arch-chroot /mnt vim /etc/locale.gen
-arch-chroot /mnt locale-gen
-echo "LANG=en_GB.UTF-8" > /mnt/etc/locale.conf
-echo "KEYMAP=de-latin1" > /mnt/etc/vconsole.conf
-
-# Network config
-
-echo "${hostname}" > /mnt/etc/hostname
-
-echo "" >> /mnt/etc/hosts
-echo "127.0.0.1  localhost" >> /mnt/etc/hosts
-echo "::1		localhost" >> /mnt/etc/hosts
-echo "127.0.1.1	${hostname}.localdomain	${hostname}" >> /mnt/etc/hosts
-read -n 1 s
-# bootloader
-arch-chroot /mnt pacman -S --noconfirm grub efibootmgr intel-ucode
-
-if [[ $partitions == "mbr" ]]; then
-  arch-chroot /mnt grub-install --target=i386-pc "${device}"
-elif [[ $partitions == "gpt" ]]; then
-  arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
-fi
-
-arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
-
-# DE
-arch-chroot /mnt pacman -S --noconfirm xorg-server
-arch-chroot /mnt localectl set-keymap de
-# plasma
-echo "Setup KDE Plasma"
-arch-chroot /mnt pacman -S --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-browser-integration plasma-desktop plasma-integration plasma-nm plasma-pa plasma-workspace plasma-workspace-wallpapers polkit-kde-agent powerdevil sddm-kcm systemsettings user-manager
-# kde-applications
-echo "Setup KDE Applications"
-arch-chroot /mnt pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kamera kate kcalc kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks kfind kget khelpcenter kio-extras konsole ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle
-
-# gpu
-if [[ $gpu == "true" ]]; then
-  #statements
-  echo "To enable multilib repository, uncomment the [multilib] section in /etc/pacman.conf"
-  read -n 1 s
-  clear
-  arch-chroot /mnt vim /etc/pacman.conf
-	arch-chroot /mnt pacman -Syu
-  arch-chroot /mnt pacman -S --noconfirm nvidia nvidia-utils lib32-nvidia-utils nvidia-settings
-  arch-chroot /mnt pacman -S --noconfirm vulkan-icd-loader lib32-vulkan-icd-loader
-fi
-
-# add user and set passwords
-arch-chroot /mnt pacman -S --noconfirm sudo
-arch-chroot /mnt useradd -m $user
-echo "$user:$password" | chpasswd --root /mnt
-echo "root:$password" | chpasswd --root /mnt
-clear
-arch-chroot /mnt visudo
-arch-chroot /mnt pacman -R --noconfirm vim
-
-# enable systemd modules
-arch-chroot /mnt systemctl enable sddm
-arch-chroot /mnt systemctl enable NetworkManager
+chmod +x setup_chroot.sh
+arch-chroot /mnt setup_chroot.sh
 
 # pick a god and pray
 shutdown 0

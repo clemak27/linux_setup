@@ -1,12 +1,5 @@
 #!/bin/bash
 
-sudo pacman -Syyu
-
-sudo pacman -S --noconfirm yay youtube-dl mpv keepassxc ripgrep fzf syncthing-gtk mps-youtube
-
-sudo pacman -S --noconfirm cmatrix lolcat neofetch
-
-sudo pacman -S --noconfirm git make gcc docker docker-compose jdk8-openjdk maven neovim nodejs npm yarn python-neovim xclip
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 nvim -c q PluginInstall
 nvim -c q call coc#util#install()
@@ -30,13 +23,6 @@ vscodium --install-extension ms-python.python
 vscodium --install-extension magicstack.magicpython
 vscodium --install-extension visualstudioexptteam.vscodeintellicode
 vscodium --install-extension james-yu.latex-workshop
-
-# gaming
-# https://github.com/lutris/lutris/wiki/Installing-drivers
-sudo pacman -S --noconfirm wine-staging lutris
-
-# office
-sudo pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most
 
 # 144Hz
 # Add MaxFPS=144 to your ~/.config/kwinrc
