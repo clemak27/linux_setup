@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# su root -> visudo -> whell uncommenten
+localectl set-keymap de
 xdg-user-dirs-update
 
 # nvim config
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-nvim -c q PluginInstall
-nvim -c q call coc#util#install()
-nvim -c q CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-snippets
+#PluginInstall
+#call coc#util#install()
+#CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-snippets
 
 # dotfiles
 cp ~/.config/nvim/init.vim nvim_bu
@@ -15,7 +15,7 @@ cp ~/.bash_aliases bash_aliases_bu
 cp ~/.bash_profile bash_profile_bu
 cp ~/.bashrc bashrc_bu
 
-mkdir ~/./config/nvim
+mkdir -p ~/./config/nvim
 cp dotfiles/vimrc ~/.config/nvim/init.vim
 cp dotfiles/bash_aliases ~/.bash_aliases
 cp dotfiles/bash_profile ~/.bash_profile
@@ -89,6 +89,7 @@ qdbus org.kde.KWin /KWin reconfigure
 # usermanager bild ändern
 # regional format us region, alles ändere österreich
 # power management anpassen
+# redshift zu autostart
 
 # 144Hz
 # Add MaxFPS=144 to your ~/.config/kwinrc

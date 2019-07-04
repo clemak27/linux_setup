@@ -34,6 +34,7 @@ echo "::1		localhost" >> /etc/hosts
 echo "127.0.1.1	${hostname}.localdomain	${hostname}" >> /etc/hosts
 
 # bootloader
+pacman -S --noconfirm linux-lts
 pacman -S --noconfirm grub efibootmgr intel-ucode
 
 if [[ $partitions == "mbr" ]]; then
@@ -45,7 +46,7 @@ fi
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # DE
-pacman -S --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config
+pacman -S --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget
 
 # plasma
 echo "Setup KDE Plasma"
@@ -85,6 +86,8 @@ pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most
 
 # kde-specifics
 pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-integration kvantum-qt5 seahorse kmail korganizer kaddressbook
+
+pacman -R --noconfirm vim
 
 # add user and set passwords
 useradd -m $user
