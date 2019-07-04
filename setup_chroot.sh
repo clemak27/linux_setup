@@ -67,8 +67,8 @@ if [[ $gpu == "true" ]]; then
 fi
 
 # default programs
-
-pacman -S --noconfirm youtube-dl mpv keepassxc ripgrep fzf syncthing-gtk mps-youtube
+pacman -S --noconfirm firefox steam
+pacman -S --noconfirm youtube-dl mpv keepassxc ripgrep fzf mps-youtube
 pacman -S --noconfirm cmatrix lolcat neofetch
 pacman -S --noconfirm git make gcc docker docker-compose jdk8-openjdk maven neovim nodejs npm yarn python-neovim xclip
 
@@ -81,6 +81,9 @@ pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most
 localectl set-keymap de
 useradd -m $user
 sudo -c 'localectl set-keymap de' $user
+
+# kde-specifics
+pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-integration kvantum-qt5 cava gtk3-nocsd seahorse
 
 # add user and set passwords
 pacman -S --noconfirm sudo
