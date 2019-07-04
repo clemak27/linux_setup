@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# su root -> visudo -> whell uncommenten
+xdg-user-dirs-update
+
 # nvim config
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 nvim -c q PluginInstall
@@ -32,7 +35,7 @@ cd yay
 makepkg -si
 
 # aur
-yay -S --noconfirm vscodium-bin skypeforlinux-stable-bin syncthingtray
+yay -S --noconfirm vscodium-bin skypeforlinux-stable-bin syncthingtray gtk3-nocsd-git
 
 # git config
 git config --global user.name "clemak27"

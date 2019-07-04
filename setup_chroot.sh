@@ -45,7 +45,7 @@ fi
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # DE
-pacman -S --noconfirm xorg-server fakeroot
+pacman -S --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config
 
 # plasma
 echo "Setup KDE Plasma"
@@ -54,40 +54,42 @@ pacman -S --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tool
 echo "Setup KDE Applications"
 pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kamera kate kcalc kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks kfind kget khelpcenter kio-extras konsole ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle
 
+echo "To enable multilib repository, uncomment the [multilib] section in /etc/pacman.conf"
+read -n 1 s
+clear
+vim /etc/pacman.conf
+echo "To enable sudo access, uncomment the wheel group"
+read -n 1 s
+clear
+visudo
+
+pacman -Syyu
+
 # gpu
 if [[ $gpu == "true" ]]; then
   #statements
-  echo "To enable multilib repository, uncomment the [multilib] section in /etc/pacman.conf"
-  read -n 1 s
-  clear
-  vim /etc/pacman.conf
-	pacman -Syu
   pacman -S --noconfirm nvidia nvidia-utils lib32-nvidia-utils nvidia-settings
   pacman -S --noconfirm vulkan-icd-loader lib32-vulkan-icd-loader
 fi
 
 # default programs
-pacman -S --noconfirm firefox steam
-pacman -S --noconfirm youtube-dl mpv keepassxc ripgrep fzf mps-youtube
+pacman -S --noconfirm firefox youtube-dl mpv keepassxc ripgrep fzf mps-youtube
 pacman -S --noconfirm cmatrix lolcat neofetch
 pacman -S --noconfirm git make gcc docker docker-compose jdk8-openjdk maven neovim nodejs npm yarn python-neovim xclip
 
 # gaming
-pacman -S --noconfirm wine-staging lutris
+pacman -S --noconfirm wine-staging lutris steam
 
 # office
 pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most
 
-localectl set-keymap de
-useradd -m $user
-sudo -c 'localectl set-keymap de' $user
-
 # kde-specifics
-pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-integration kvantum-qt5 cava gtk3-nocsd seahorse
+pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-integration kvantum-qt5 seahorse kmail korganizer kaddressbook
 
 # add user and set passwords
-pacman -S --noconfirm sudo
+useradd -m $user
 sudo usermod -aG wheel $user
+localectl set-keymap de
 echo "$user:$password" | chpasswd
 echo "root:$password" | chpasswd
 

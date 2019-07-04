@@ -68,7 +68,5 @@ arch-chroot /mnt ./setup_chroot.sh
 rm /mnt/setup_chroot.sh
 rm /mnt/setup_user.sh
 
-mkdir /mnt/home/$user/Desktop/linux_setup
-cp -R . /mnt/home/$user/Desktop/linux_setup
-
 # pick a god and pray
+shutdown
