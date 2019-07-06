@@ -57,7 +57,15 @@ vscodium --install-extension magicstack.magicpython
 vscodium --install-extension visualstudioexptteam.vscodeintellicode
 vscodium --install-extension james-yu.latex-workshop
 
+# syncthing deamon
 systemctl --user enable syncthing.service
+
+#mpv config
+cp -r /usr/share/doc/mpv/ ~/.config/
+sed -i 's/#autofit-larger=90%x90%/autofit-larger=40%x40%/g' ~/.config/mpv/mpv.conf
+sed -i 's/#keep-open=yes/keep-open=yes/g' ~/.config/mpv/mpv.conf
+echo "" >> ~/.config/mpv/mpv.conf
+echo 'ytdl-format="bestvideo[height<=?1080]+bestaudio/best"' >> ~/.config/mpv/mpv.conf
 
 # latte addons
 sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons
