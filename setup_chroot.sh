@@ -35,25 +35,20 @@ echo "127.0.1.1	${hostname}.localdomain	${hostname}" >> /etc/hosts
 
 # bootloader
 pacman -S --noconfirm linux-lts
-pacman -S --noconfirm grub efibootmgr intel-ucode
+pacman -S --noconfirm grub
 
 if [[ $partitions == "mbr" ]]; then
+  pacman -S --noconfirm intel-ucode
   grub-install --target=i386-pc "${device}"
 elif [[ $partitions == "gpt" ]]; then
-  grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
+  pacman -S --noconfirm efibootmgr amd-ucode
+  grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 fi
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
 # DE
 pacman -S --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget
-
-# plasma
-echo "Setup KDE Plasma"
-pacman -S --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-browser-integration plasma-desktop plasma-integration plasma-nm plasma-pa plasma-workspace plasma-workspace-wallpapers polkit-kde-agent powerdevil sddm-kcm systemsettings user-manager
-# kde-applications
-echo "Setup KDE Applications"
-pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kamera kate kcalc kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks kfind kget khelpcenter kio-extras konsole ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle
 
 echo "To enable multilib repository, uncomment the [multilib] section in /etc/pacman.conf"
 read -n 1 s
@@ -63,6 +58,13 @@ echo "To enable sudo access, uncomment the wheel group"
 read -n 1 s
 clear
 visudo
+
+# plasma
+echo "Setup KDE Plasma"
+pacman -S --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-browser-integration plasma-desktop plasma-integration plasma-nm plasma-pa plasma-workspace plasma-workspace-wallpapers polkit-kde-agent powerdevil sddm-kcm systemsettings user-manager
+# kde-applications
+echo "Setup KDE Applications"
+pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kamera kate kcalc kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks kfind kget khelpcenter kio-extras konsole ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle kdeconnect
 
 pacman -Syyu
 
@@ -74,18 +76,18 @@ if [[ $gpu == "true" ]]; then
 fi
 
 # default programs
-pacman -S --noconfirm firefox youtube-dl mpv keepassxc ripgrep fzf mps-youtube
+pacman -S --noconfirm firefox youtube-dl mpv keepassxc ripgrep fzf mps-youtube rsync
 pacman -S --noconfirm cmatrix lolcat neofetch
 pacman -S --noconfirm git make gcc docker docker-compose jdk8-openjdk maven neovim nodejs npm yarn python-neovim xclip
 
 # gaming
 pacman -S --noconfirm wine-staging lutris steam
 
-# office
-pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most
-
 # kde-specifics
 pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-integration kvantum-qt5 seahorse kmail korganizer kaddressbook
+
+# office
+pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most
 
 pacman -R --noconfirm vim
 

@@ -4,11 +4,7 @@ set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
 ### Setup infomation from user ###
-hostname="virtual"
-user="cle"
-password="1234"
 partitions="mbr"
-gpu="false"
 device="/dev/vda"
 
 ### Set up logging ###
@@ -35,8 +31,8 @@ if [[ $partitions == "gpt" ]]; then
   mkfs.ext4 "${device}2"
 
   mount "${device}2" /mnt/
-  mkdir /mnt/efi
-  mount "${device}1" /mnt/efi/
+  mkdir -p /mnt/boot/efi
+  mount "${device}1" /mnt/boot/efi/
 elif [[ $partitions == "mbr" ]]; then
   parted --script "${device}" -- mklabel msdos \
     mkpart primary ext4 1MiB 100% \
@@ -62,11 +58,9 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 # chroot
 cp setup_chroot.sh /mnt/setup_chroot.sh
-cp setup_user.sh /mnt/setup_user.sh
 arch-chroot /mnt chmod +x setup_chroot.sh
 arch-chroot /mnt ./setup_chroot.sh
 rm /mnt/setup_chroot.sh
-rm /mnt/setup_user.sh
 
 # pick a god and pray
 shutdown

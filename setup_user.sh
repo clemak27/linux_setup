@@ -3,19 +3,13 @@
 localectl set-keymap de
 xdg-user-dirs-update
 
-# nvim config
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-#PluginInstall
-#call coc#util#install()
-#CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-snippets
-
 # dotfiles
 cp ~/.config/nvim/init.vim nvim_bu
 cp ~/.bash_aliases bash_aliases_bu
 cp ~/.bash_profile bash_profile_bu
 cp ~/.bashrc bashrc_bu
 
-mkdir -p ~/./config/nvim
+mkdir -p ~/.config/nvim
 cp dotfiles/vimrc ~/.config/nvim/init.vim
 cp dotfiles/bash_aliases ~/.bash_aliases
 cp dotfiles/bash_profile ~/.bash_profile
@@ -26,6 +20,19 @@ source .bash_aliases
 source .bash_profile
 source .bashrc
 
+# nvim config
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+nvim -c PluginInstall -c q -c q!
+nvim -c "call coc#util#install()" -c q!
+nvim -c "CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-snippets" -c q! -c q!
+
+# git config
+git config --global user.name "clemak27"
+git config --global user.email clemak27@mailbox.org
+git config --global alias.lol 'log --graph --decorate --oneline --all'
+git config --global core.autocrlf input
+git config --global credential.helper "cache --timeout=18000"
+
 mkdir ~/Projects
 
 #yay
@@ -35,16 +42,10 @@ cd yay
 makepkg -si
 
 # aur
-yay -S --noconfirm vscodium-bin skypeforlinux-stable-bin syncthingtray gtk3-nocsd-git
-
-# git config
-git config --global user.name "clemak27"
-git config --global user.email clemak27@mailbox.org
-git config --global alias.lol 'log --graph --decorate --oneline --all'
-git config --global core.autocrlf input
-git config --global credential.helper "cache --timeout=18000"
-
+yay -S --noconfirm syncthingtray gtk3-nocsd-git
+yay -S --noconfirm skypeforlinux-stable-bin
 # vs code
+yay -S --noconfirm vscodium-bin
 vscodium --install-extension akamud.vscode-theme-onedark
 vscodium --install-extension dakara.transformer
 vscodium --install-extension eamodio.gitlens
