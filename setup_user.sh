@@ -1,4 +1,5 @@
 #!/bin/bash
+# https://zren.github.io/kde/
 
 localectl set-keymap de
 xdg-user-dirs-update
@@ -14,6 +15,7 @@ cp dotfiles/vimrc ~/.config/nvim/init.vim
 cp dotfiles/bash_aliases ~/.bash_aliases
 cp dotfiles/bash_profile ~/.bash_profile
 cp dotfiles/bashrc ~/.bashrc
+cp kde/redshift.conf ~/.config/redshift.conf
 
 cd ~
 source .bash_aliases
@@ -44,6 +46,7 @@ makepkg -si
 # aur
 yay -S --noconfirm syncthingtray gtk3-nocsd-git
 yay -S --noconfirm skypeforlinux-stable-bin
+
 # vs code
 yay -S --noconfirm vscodium-bin
 vscodium --install-extension akamud.vscode-theme-onedark
@@ -54,9 +57,7 @@ vscodium --install-extension magicstack.magicpython
 vscodium --install-extension visualstudioexptteam.vscodeintellicode
 vscodium --install-extension james-yu.latex-workshop
 
-# https://zren.github.io/kde/
-
-cp kde/redshift.conf ~/.config/redshift.conf
+systemctl --user enable syncthing.service
 
 # latte addons
 sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons
@@ -76,13 +77,13 @@ git clone https://github.com/psifidotos/applet-window-appmenu.git
 cd applet-window-appmenu
 sh install.sh
 
-# suru++
-cd ~/Projects
-wget -qO- https://raw.githubusercontent.com/gusbemacbe/suru-plus/master/install.sh | sh
-
 # meta key latte menu
 kwriteconfig5 --file ~/.config/kwinrc --group ModifierOnlyShortcuts --key Meta "org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu"
 qdbus org.kde.KWin /KWin reconfigure
+
+# suru++
+cd ~/Projects
+wget -qO- https://raw.githubusercontent.com/gusbemacbe/suru-plus/master/install.sh | sh
 
 # screen locking bild rein
 # window switcher meta
