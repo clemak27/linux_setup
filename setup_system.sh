@@ -74,7 +74,7 @@ fi
 # default programs
 pacman -S --noconfirm firefox youtube-dl mpv keepassxc ripgrep fzf mps-youtube rsync
 pacman -S --noconfirm cmatrix lolcat neofetch
-pacman -S --noconfirm git make gcc docker docker-compose jdk8-openjdk maven neovim nodejs npm yarn python-neovim xclip
+pacman -S --noconfirm git make gcc docker docker-compose neovim nodejs npm yarn python-neovim xclip jdk-openjdk intellij-idea-community-edition maven
 
 # gaming
 pacman -S --noconfirm wine-staging lutris steam
