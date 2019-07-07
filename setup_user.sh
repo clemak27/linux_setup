@@ -44,7 +44,8 @@ cd yay
 makepkg -si
 
 # aur
-yay -S --noconfirm syncthingtray gtk3-nocsd-git
+pacman -S --noconfirm automake autoconf
+yay -S --noconfirm syncthingtray gtk3-nocsd-git cava tty-clock
 yay -S --noconfirm skypeforlinux-stable-bin
 
 # vs code
