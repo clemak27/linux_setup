@@ -15,6 +15,9 @@ alias mpvnv='mpv --no-video'
 # accidents happen
 alias cd..="cd .."
 
+# shorter quitting
+alias q="exit"
+
 # one letter
 alias vim="nvim"
 
