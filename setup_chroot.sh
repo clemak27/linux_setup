@@ -17,9 +17,10 @@ hwclock --systohc
 
 # Localization
 
-echo "de_AT.UTF-8 UTF-8" >> /etc/locale.gen
-echo "en_GB.UTF-8 UTF-8" >> /etc/locale.gen
-echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+sed -i 's/#de_AT.UTF-8 UTF-8/de_AT.UTF-8 UTF-8' /etc/locale.gen
+sed -i 's/#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8' /etc/locale.gen
+sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8' /etc/locale.gen
+
 locale-gen
 echo "LANG=en_GB.UTF-8" > /etc/locale.conf
 echo "KEYMAP=de-latin1" > /etc/vconsole.conf
@@ -34,7 +35,6 @@ echo "::1		localhost" >> /etc/hosts
 echo "127.0.1.1	${hostname}.localdomain	${hostname}" >> /etc/hosts
 
 # bootloader
-pacman -S --noconfirm linux-lts
 pacman -S --noconfirm grub
 
 if [[ $partitions == "mbr" ]]; then
@@ -50,14 +50,10 @@ grub-mkconfig -o /boot/grub/grub.cfg
 # DE
 pacman -S --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget
 
-echo "To enable multilib repository, uncomment the [multilib] section in /etc/pacman.conf"
-read -n 1 s
-clear
-vim /etc/pacman.conf
-echo "To enable sudo access, uncomment the wheel group"
-read -n 1 s
-clear
-visudo
+sed -i 's/#[multilib]/[multilib]/g' /etc/pacman.conf
+sed -i 's/#Include = \/etc\/pacman.d\/mirrorlist/Include = \/etc\/pacman.d\/mirrorlist/g' /etc/pacman.conf
+
+sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
 # plasma
 echo "Setup KDE Plasma"
