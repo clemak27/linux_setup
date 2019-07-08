@@ -45,7 +45,7 @@ makepkg -si
 
 # aur
 pacman -S --noconfirm automake autoconf
-yay -S --noconfirm syncthingtray gtk3-nocsd-git cava tty-clock
+yay -S --noconfirm syncthingtray gtk3-nocsd-git cava tty-clock steam-fonts
 yay -S --noconfirm skypeforlinux-stable-bin
 
 # vs code
