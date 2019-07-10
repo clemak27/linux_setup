@@ -80,10 +80,10 @@ pacman -S --noconfirm git make gcc docker docker-compose neovim nodejs npm yarn 
 pacman -S --noconfirm wine-staging lutris steam
 
 # kde-specifics
-pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-integration kvantum-qt5 seahorse kmail korganizer kaddressbook
+pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-integration kvantum-qt5 seahorse
 
 # office
-pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most
+pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most thunderbird
 
 pacman -R --noconfirm vim
 
