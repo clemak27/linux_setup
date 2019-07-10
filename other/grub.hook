@@ -1,0 +1,11 @@
+[Trigger]
+Operation=Install
+Operation=Upgrade
+Type=Package
+Target=grub
+
+[Action]
+Description=Update grub config on update just to be sure.
+When=PostTransaction
+NeedsTargets
+Exec = /bin/sh -c 'grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB && grub-mkconfig -o /boot/grub/grub.cfg'

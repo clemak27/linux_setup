@@ -17,6 +17,10 @@ cp dotfiles/bash_profile ~/.bash_profile
 cp dotfiles/bashrc ~/.bashrc
 cp kde/redshift.conf ~/.config/redshift.conf
 
+
+sudo mkdir -p /etc/pacman.d/hooks/
+sudo cp other/grub.hook /etc/pacman.d/hooks/grub.hook
+
 cd ~
 source .bash_aliases
 source .bash_profile
