@@ -64,6 +64,9 @@ pacman -S --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tool
 echo "Setup KDE Applications"
 pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kamera kate kcalc kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks kfind kget khelpcenter kio-extras konsole ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle kdeconnect
 
+systemctl enable sddm
+systemctl enable NetworkManager
+
 # gpu
 if [[ $gpu == "true" ]]; then
   #statements
@@ -73,6 +76,18 @@ fi
 
 # fonts
 pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji  noto-fonts-extra
+
+# virtualization
+# https://computingforgeeks.com/complete-installation-of-kvmqemu-and-virt-manager-on-arch-linux-and-manjaro/
+pacman -S --noconfirm qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat
+pacman -S --noconfirm ebtables iptables
+systemctl enable libvirtd.service
+systemctl start libvirtd.service
+
+sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/g' /etc/libvirt/libvirtd.conf
+sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvirt/libvirtd.conf
+
+newgrp libvirt
 
 # default programs
 pacman -S --noconfirm firefox youtube-dl mpv keepassxc ripgrep fzf mps-youtube rsync
@@ -97,11 +112,9 @@ pacman -R --noconfirm vim
 # add user and set passwords
 useradd -m $user
 sudo usermod -aG wheel $user
+sudo usermod -aG libvirt $user
 localectl set-keymap de
 echo "$user:$password" | chpasswd
 echo "root:$password" | chpasswd
 
-# enable systemd modules
-systemctl enable sddm
-systemctl enable NetworkManager
 exit
