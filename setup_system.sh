@@ -71,6 +71,9 @@ if [[ $gpu == "true" ]]; then
   pacman -S --noconfirm vulkan-icd-loader lib32-vulkan-icd-loader
 fi
 
+# fonts
+pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji  noto-fonts-extra
+
 # default programs
 pacman -S --noconfirm firefox youtube-dl mpv keepassxc ripgrep fzf mps-youtube rsync
 
