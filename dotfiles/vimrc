@@ -15,7 +15,7 @@ Plugin 'https://github.com/cocopon/iceberg.vim' "color theme
 Plugin 'bling/vim-airline' " better looking tab/statusline
 Plugin 'vim-airline/vim-airline-themes' " airline themes
 
-Plugin 'scrooloose/nerdtree' " fileexplorer
+Plugin 'tpope/vim-vinegar' " fileexplorer
 
 Plugin 'sirver/ultisnips' " snipped support
 Plugin 'honza/vim-snippets' "collection of snippets
