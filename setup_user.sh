@@ -26,6 +26,11 @@ source .bash_aliases
 source .bash_profile
 source .bashrc
 
+# nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+source .bashrc
+nvm install --lts
+
 # nvim config
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 nvim -c PluginInstall -c q -c q!
