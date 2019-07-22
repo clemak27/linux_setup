@@ -57,10 +57,10 @@ pacstrap /mnt base
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # chroot
-cp setup_chroot.sh /mnt/setup_chroot.sh
-arch-chroot /mnt chmod +x setup_chroot.sh
-arch-chroot /mnt ./setup_chroot.sh
-rm /mnt/setup_chroot.sh
+cp setup_system.sh /mnt/setup_system.sh
+arch-chroot /mnt chmod +x setup_system.sh
+arch-chroot /mnt ./setup_system.sh
+rm /mnt/setup_system.sh
 
 # pick a god and pray
 shutdown
