@@ -4,9 +4,7 @@
 hostname="virtual"
 user="cle"
 password="1234"
-partitions="mbr"
 gpu="false"
-device="/dev/vda"
 
 pacman -S --noconfirm vim
 
@@ -33,19 +31,6 @@ echo "" >> /etc/hosts
 echo "127.0.0.1  localhost" >> /etc/hosts
 echo "::1		localhost" >> /etc/hosts
 echo "127.0.1.1	${hostname}.localdomain	${hostname}" >> /etc/hosts
-
-# bootloader
-pacman -S --noconfirm grub
-
-if [[ $partitions == "mbr" ]]; then
-  pacman -S --noconfirm intel-ucode
-  grub-install --target=i386-pc "${device}"
-elif [[ $partitions == "gpt" ]]; then
-  pacman -S --noconfirm efibootmgr amd-ucode
-  grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
-fi
-
-grub-mkconfig -o /boot/grub/grub.cfg
 
 # DE
 pacman -S --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget
