@@ -6,8 +6,6 @@ user="cle"
 password="1234"
 gpu="false"
 
-pacman -S --noconfirm vim
-
 # timezone
 
 ln -sf /usr/share/zoneinfo/Europe/Vienna /etc/localtime
@@ -91,8 +89,6 @@ pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-integr
 
 # office
 pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most thunderbird
-
-pacman -R --noconfirm vim
 
 # add user and set passwords
 useradd -m $user
