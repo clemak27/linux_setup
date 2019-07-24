@@ -23,7 +23,7 @@ immutability=1
 plugin=org.kde.plasma.eventcalendar
 
 [Containments][1][Applets][19][Configuration]
-PreloadWeight=0
+PreloadWeight=14
 
 [Containments][1][Applets][19][Configuration][ConfigDialog]
 DialogHeight=600
@@ -33,9 +33,10 @@ DialogWidth=800
 enabledCalendarPlugins=/usr/lib/x86_64-linux-gnu/qt5/plugins/plasmacalendarplugins/pimevents.so,/usr/lib/qt/plugins/plasmacalendarplugins/pimevents.so
 
 [Containments][1][Applets][19][Configuration][General]
+clock_maxheight=22
 clock_mousewheel_down=
 clock_mousewheel_up=
-clock_timeformat=hh:mm\s
+clock_timeformat=MMM d, HH:mm\s
 clock_timeformat_2=dd.MM.yyyy
 widget_show_meteogram=false
 
@@ -56,6 +57,9 @@ useCustomButtonImage=true
 immutability=1
 plugin=org.kde.windowappmenu
 
+[Containments][1][Applets][31][Configuration]
+PreloadWeight=26
+
 [Containments][1][Applets][31][Configuration][ConfigDialog]
 DialogHeight=540
 DialogWidth=720
@@ -67,6 +71,9 @@ containmentType=Plasma
 immutability=1
 plugin=org.kde.windowtitle
 
+[Containments][1][Applets][33][Configuration]
+PreloadWeight=26
+
 [Containments][1][Applets][33][Configuration][ConfigDialog]
 DialogHeight=540
 DialogWidth=720
@@ -76,38 +83,43 @@ capitalFont=false
 containmentType=Plasma
 iconFillThickness=false
 iconSize=28
-style=ApplicationTitle
+lengthFirstMargin=5
+lengthLastMargin=5
+showIcon=false
+subsMatch="Telegram Desktop","Gimp-.*","Default"
+subsReplace="Telegram","Gimp",""
 
 [Containments][1][Applets][4]
 immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][1][Applets][4][Configuration]
-PreloadWeight=12
+PreloadWeight=28
 SystrayContainmentId=5
 
 [Containments][1][Applets][41]
 immutability=1
 plugin=org.kde.windowbuttons
 
+[Containments][1][Applets][41][Configuration]
+PreloadWeight=26
+
 [Containments][1][Applets][41][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
+DialogHeight=603
+DialogWidth=783
 
 [Containments][1][Applets][41][Configuration][General]
-buttons=3|4|5|10|2
 containmentType=Plasma
-disabledMaximizedBorders=ShowBorders
-lengthFirstMargin=5
-lengthLastMargin=5
+disabledMaximizedBorders=NoBorders
+lengthFirstMargin=4
+lengthLastMargin=4
 slideAnimation=true
-spacing=3
-thicknessMargin=5
+spacing=2
+thicknessMargin=4
 visibility=ActiveMaximizedWindow
 
-[Containments][1][Applets][42]
-immutability=1
-plugin=audoban.applet.separator
+[Containments][1][Applets][45][Configuration][General]
+favoritesPortedToKAstats=true
 
 [Containments][1][ConfigDialog]
 DialogHeight=698
@@ -119,7 +131,7 @@ PreloadWeight=0
 [Containments][1][General]
 activeIndicator=None
 advanced=true
-appletOrder=33;42;31;4;19;41
+appletOrder=41;33;31;4;19
 autoDecreaseIconSize=false
 durationTime=None
 iconMargin=20
@@ -140,29 +152,22 @@ zoomLevel=0
 activityId=
 dockWindowBehavior=true
 enableKWinEdges=true
-formfactor=2
+formfactor=3
 immutability=1
 lastScreen=-1
-location=4
+location=5
 onPrimary=true
 plugin=org.kde.latte.containment
 raiseOnActivityChange=false
 raiseOnDesktopChange=false
-timerHide=700
+timerHide=0
 timerShow=0
-visibility=2
+visibility=4
 wallpaperplugin=org.kde.image
 
 [Containments][34][Applets][35][Configuration][General]
 isInLatteDock=true
 launchers59=file:///latte-separator1.desktop
-
-[Containments][34][Applets][37]
-immutability=1
-plugin=org.kde.plasma.kickerdash
-
-[Containments][34][Applets][37][Configuration]
-PreloadWeight=100
 
 [Containments][34][Applets][37][Configuration][General]
 favoritesPortedToKAstats=true
@@ -171,21 +176,55 @@ favoritesPortedToKAstats=true
 immutability=1
 plugin=org.kde.latte.plasmoid
 
+[Containments][34][Applets][39][Configuration]
+PreloadWeight=26
+
 [Containments][34][Applets][39][Configuration][General]
 isInLatteDock=true
-launchers59=applications:org.kde.dolphin.desktop,applications:firefox.desktop,[9e0592f9-fe41-4b1c-9ce9-7b15132dc4d1]\napplications:org.kde.konsole.desktop
+launchers59=applications:org.kde.dolphin.desktop,applications:firefox.desktop,applications:org.kde.konsole.desktop,applications:cantata.desktop
 
-[Containments][34][Applets][40]
+[Containments][34][Applets][44][Configuration][General]
+customButtonImage=/home/cle/Projects/linux_setup/logo.png
+favoritesPortedToKAstats=true
+useCustomButtonImage=true
+
+[Containments][34][Applets][46]
 immutability=1
-plugin=audoban.applet.separator
+plugin=org.kde.plasma.kicker
+
+[Containments][34][Applets][46][Configuration]
+PreloadWeight=100
+
+[Containments][34][Applets][46][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][34][Applets][46][Configuration][General]
+customButtonImage=/home/cle/Projects/linux_setup/logo.png
+favoritesPortedToKAstats=true
+useCustomButtonImage=true
 
 [Containments][34][ConfigDialog]
 DialogHeight=698
 DialogWidth=601
 
+[Containments][34][Configuration]
+PreloadWeight=26
+
 [Containments][34][General]
+activeIndicator=None
 advanced=true
-appletOrder=39;40;37
+appletOrder=46;39
+autoDecreaseIconSize=false
+iconSize=48
+panelPosition=10
+panelSize=100
+panelTransparency=80
+shadows=None
+solidBackgroundForMaximized=true
+splitterPosition=2
+splitterPosition2=3
+zoomLevel=0
 
 [Containments][5]
 PreloadWeight=0
@@ -209,7 +248,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][5][Applets][11][Configuration]
-PreloadWeight=0
+PreloadWeight=12
 
 [Containments][5][Applets][12]
 immutability=1
@@ -236,6 +275,12 @@ PreloadWeight=0
 immutability=1
 plugin=org.kde.plasma.battery
 
+[Containments][5][Applets][30][Configuration]
+PreloadWeight=26
+
+[Containments][5][Applets][43][Configuration]
+PreloadWeight=42
+
 [Containments][5][Applets][6]
 immutability=1
 plugin=org.kde.plasma.volume
@@ -252,14 +297,14 @@ immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][5][Applets][8][Configuration]
-PreloadWeight=0
+PreloadWeight=5
 
 [Containments][5][Applets][9]
 immutability=1
 plugin=org.kde.kdeconnect
 
 [Containments][5][Applets][9][Configuration]
-PreloadWeight=2
+PreloadWeight=0
 
 [Containments][5][ConfigDialog]
 DialogHeight=600
@@ -268,7 +313,7 @@ DialogWidth=800
 [Containments][5][General]
 extraItems=org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.discovernotifier,org.kde.plasma.notifications,org.kde.kdeconnect,org.kde.plasma.keyboardindicator,org.kde.plasma.printmanager,org.kde.plasma.volume,org.kde.plasma.battery,org.kde.plasma.networkmanagement
 hiddenItems=redshift-gtk
-knownItems=org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.discovernotifier,org.kde.plasma.notifications,org.kde.kdeconnect,org.kde.plasma.keyboardindicator,org.kde.plasma.printmanager,org.kde.plasma.volume,org.kde.plasma.battery,org.kde.plasma.networkmanagement,org.kde.plasma.vault
+knownItems=org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.discovernotifier,org.kde.plasma.notifications,org.kde.kdeconnect,org.kde.plasma.keyboardindicator,org.kde.plasma.printmanager,org.kde.plasma.volume,org.kde.plasma.battery,org.kde.plasma.networkmanagement,org.kde.plasma.vault,martchus.syncthingplasmoid
 shownItems=keepassxc,Nextcloud,redshift
 
 [LayoutSettings]

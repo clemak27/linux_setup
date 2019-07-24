@@ -23,7 +23,7 @@ immutability=1
 plugin=org.kde.plasma.eventcalendar
 
 [Containments][1][Applets][19][Configuration]
-PreloadWeight=5
+PreloadWeight=0
 
 [Containments][1][Applets][19][Configuration][ConfigDialog]
 DialogHeight=600
@@ -38,7 +38,6 @@ clock_mousewheel_down=
 clock_mousewheel_up=
 clock_timeformat=d.MM., HH:mm\s
 clock_timeformat_2=dd.MM.yyyy
-widget_show_agenda=false
 widget_show_meteogram=false
 
 [Containments][1][Applets][19][Configuration][Google Calendar]
@@ -52,7 +51,6 @@ plugin=org.kde.latte.plasmoid
 PreloadWeight=0
 
 [Containments][1][Applets][2][Configuration][General]
-isInLatteDock=true
 launchers59=applications:org.kde.dolphin.desktop,applications:firefox.desktop,applications:org.kde.konsole.desktop,applications:cantata.desktop
 
 [Containments][1][Applets][3]
@@ -60,15 +58,16 @@ immutability=1
 plugin=org.kde.plasma.kicker
 
 [Containments][1][Applets][3][Configuration]
-PreloadWeight=100
+PreloadWeight=84
 
 [Containments][1][Applets][3][Configuration][ConfigDialog]
 DialogHeight=540
 DialogWidth=720
 
 [Containments][1][Applets][3][Configuration][General]
-customButtonImage=manjaro
+customButtonImage=/home/cle/Projects/linux_setup/logo.png
 favoritesPortedToKAstats=true
+hiddenApplications=steam-native.desktop
 useCustomButtonImage=true
 
 [Containments][1][Applets][4]
@@ -76,12 +75,12 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][1][Applets][4][Configuration]
-PreloadWeight=56
+PreloadWeight=63
 SystrayContainmentId=5
 
 [Containments][1][ConfigDialog]
-DialogHeight=665
-DialogWidth=573
+DialogHeight=698
+DialogWidth=601
 
 [Containments][1][Configuration]
 PreloadWeight=0
@@ -131,7 +130,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][5][Applets][11][Configuration]
-PreloadWeight=0
+PreloadWeight=48
 
 [Containments][5][Applets][12]
 immutability=1
@@ -147,12 +146,34 @@ plugin=org.kde.plasma.networkmanagement
 [Containments][5][Applets][15][Configuration]
 PreloadWeight=0
 
+[Containments][5][Applets][15][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
 [Containments][5][Applets][20]
+immutability=1
+plugin=org.kde.kdeconnect
+
+[Containments][5][Applets][20][Configuration]
+PreloadWeight=0
+
+[Containments][5][Applets][21]
+immutability=1
+plugin=martchus.syncthingplasmoid
+
+[Containments][5][Applets][21][Configuration]
+PreloadWeight=0
+brightColors=false
+passiveStates=
+selectedConfig=0
+size=25,25
+
+[Containments][5][Applets][22]
 immutability=1
 plugin=org.kde.plasma.battery
 
-[Containments][5][Applets][20][Configuration]
-PreloadWeight=34
+[Containments][5][Applets][22][Configuration]
+PreloadWeight=42
 
 [Containments][5][Applets][6]
 immutability=1
@@ -161,18 +182,15 @@ plugin=org.kde.plasma.volume
 [Containments][5][Applets][6][Configuration]
 PreloadWeight=0
 
+[Containments][5][Applets][6][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
 [Containments][5][Applets][8]
 immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][5][Applets][8][Configuration]
-PreloadWeight=37
-
-[Containments][5][Applets][9]
-immutability=1
-plugin=org.kde.kdeconnect
-
-[Containments][5][Applets][9][Configuration]
 PreloadWeight=0
 
 [Containments][5][ConfigDialog]
@@ -180,9 +198,9 @@ DialogHeight=600
 DialogWidth=800
 
 [Containments][5][General]
-extraItems=org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.discovernotifier,org.kde.plasma.notifications,org.kde.kdeconnect,org.kde.plasma.keyboardindicator,org.kde.plasma.printmanager,org.kde.plasma.volume,org.kde.plasma.battery,org.kde.plasma.networkmanagement
-hiddenItems=Syncthing,redshift-gtk
-knownItems=org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.discovernotifier,org.kde.plasma.notifications,org.kde.kdeconnect,org.kde.plasma.keyboardindicator,org.kde.plasma.printmanager,org.kde.plasma.volume,org.kde.plasma.battery,org.kde.plasma.networkmanagement,org.kde.plasma.vault
+extraItems=org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.discovernotifier,org.kde.plasma.notifications,org.kde.kdeconnect,org.kde.plasma.keyboardindicator,org.kde.plasma.printmanager,org.kde.plasma.volume,org.kde.plasma.battery,org.kde.plasma.networkmanagement,martchus.syncthingplasmoid
+hiddenItems=Syncthing,redshift-gtk,martchus.syncthingplasmoid
+knownItems=org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.discovernotifier,org.kde.plasma.notifications,org.kde.kdeconnect,org.kde.plasma.keyboardindicator,org.kde.plasma.printmanager,org.kde.plasma.volume,org.kde.plasma.battery,org.kde.plasma.networkmanagement,org.kde.plasma.vault,martchus.syncthingplasmoid
 shownItems=keepassxc,Nextcloud,redshift
 
 [LayoutSettings]
