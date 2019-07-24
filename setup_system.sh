@@ -5,6 +5,7 @@ hostname="virtual"
 user="cle"
 password="1234"
 gpu="false"
+de="kde"
 
 # timezone
 
@@ -40,14 +41,32 @@ sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
 pacman -Syyu
 
+if [[ $de == "kde" ]]; then
+
 # plasma
-echo "Setup KDE Plasma"
 pacman -S --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-browser-integration plasma-desktop plasma-integration plasma-nm plasma-pa plasma-workspace plasma-workspace-wallpapers polkit-kde-agent powerdevil sddm-kcm systemsettings user-manager
+
 # kde-applications
-echo "Setup KDE Applications"
 pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kamera kate kcalc kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks kfind kget khelpcenter kio-extras konsole ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle kdeconnect
 
+# kde-specifics
+pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-integration kvantum-qt5 seahorse
+
 systemctl enable sddm
+
+elif [[ $de == "gnome" ]]; then
+
+# gnome
+sudo pacman -S --noconfirm baobab eog epiphany evince file-roller gdm gedit gnome-backgrounds gnome-books gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-color-manager gnome-contacts gnome-control-center gnome-dictionary gnome-disk-utility gnome-font-viewer gnome-keyring gnome-logs gnome-maps gnome-menus gnome-photos gnome-remote-desktop gnome-screenshot gnome-session gnome-settings-daemon gnome-shell gnome-shell-extensions gnome-system-monitor gnome-terminal gnome-themes-extra gnome-todo gnome-user-docs gnome-user-share gnome-video-effects gnome-weather grilo-plugins gvfs gvfs-afc gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb mousetweaks mutter nautilus networkmanager orca rygel sushi tracker tracker-miners vino xdg-user-dirs-gtk yelp gnome-software simple-scan
+
+# pther gnome
+pacman -S --noconfirm lollypop kvantum-qt5 tilix
+
+systemctl enable gdm
+
+fi
+
+pacman -S --noconfirm networkmanager
 systemctl enable NetworkManager
 
 # gpu
@@ -83,9 +102,6 @@ pacman -S --noconfirm git make gcc docker docker-compose neovim nodejs npm yarn 
 
 # gaming
 pacman -S --noconfirm wine-staging lutris steam
-
-# kde-specifics
-pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-integration kvantum-qt5 seahorse
 
 # office
 pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most thunderbird
