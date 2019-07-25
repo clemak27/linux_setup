@@ -1,7 +1,13 @@
 #!/bin/bash
+
+set -uo pipefail
+trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
+
+#------
+
 # https://zren.github.io/kde/
 
-localectl set-keymap de
+localectl set-keymap de # TODO:  fix running this in chroot (polkit?)#
 xdg-user-dirs-update
 
 # dotfiles

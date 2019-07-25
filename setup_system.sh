@@ -1,11 +1,16 @@
 #!/bin/bash
 
-### Setup infomation from user ###
+set -uo pipefail
+trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
+
+### Setup infomation ###
 hostname="virtual"
 user="cle"
 password="1234"
 gpu="false"
 de="kde"
+
+#------
 
 # timezone
 
@@ -14,9 +19,9 @@ hwclock --systohc
 
 # Localization
 
-sed -i 's/#de_AT.UTF-8 UTF-8/de_AT.UTF-8 UTF-8' /etc/locale.gen
-sed -i 's/#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8' /etc/locale.gen
-sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8' /etc/locale.gen
+sed -i 's/#de_AT.UTF-8 UTF-8/de_AT.UTF-8 UTF-8/g' /etc/locale.gen
+sed -i 's/#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/g' /etc/locale.gen
+sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 
 locale-gen
 echo "LANG=en_GB.UTF-8" > /etc/locale.conf
@@ -57,10 +62,10 @@ systemctl enable sddm
 elif [[ $de == "gnome" ]]; then
 
 # gnome
-sudo pacman -S --noconfirm baobab eog epiphany evince file-roller gdm gedit gnome-backgrounds gnome-books gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-color-manager gnome-contacts gnome-control-center gnome-dictionary gnome-disk-utility gnome-font-viewer gnome-keyring gnome-logs gnome-maps gnome-menus gnome-photos gnome-remote-desktop gnome-screenshot gnome-session gnome-settings-daemon gnome-shell gnome-shell-extensions gnome-system-monitor gnome-terminal gnome-themes-extra gnome-todo gnome-user-docs gnome-user-share gnome-video-effects gnome-weather grilo-plugins gvfs gvfs-afc gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb mousetweaks mutter nautilus networkmanager orca rygel sushi tracker tracker-miners vino xdg-user-dirs-gtk yelp gnome-software simple-scan
+pacman -S --noconfirm baobab eog epiphany evince file-roller gdm gedit gnome-backgrounds gnome-books gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-color-manager gnome-contacts gnome-control-center gnome-dictionary gnome-disk-utility gnome-font-viewer gnome-keyring gnome-logs gnome-maps gnome-menus gnome-photos gnome-remote-desktop gnome-screenshot gnome-session gnome-settings-daemon gnome-shell gnome-shell-extensions gnome-system-monitor gnome-terminal gnome-themes-extra gnome-todo gnome-user-docs gnome-user-share gnome-video-effects gnome-weather grilo-plugins gvfs gvfs-afc gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb mousetweaks mutter nautilus networkmanager orca rygel sushi tracker tracker-miners vino xdg-user-dirs-gtk yelp gnome-software simple-scan
 
 # pther gnome
-pacman -S --noconfirm lollypop kvantum-qt5 tilix
+pacman -S --noconfirm lollypop kvantum-qt5 tilix gnome-tweaks
 
 systemctl enable gdm
 
@@ -106,11 +111,17 @@ pacman -S --noconfirm wine-staging lutris steam
 # office
 pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most thunderbird
 
-# add user and set passwords
+# add user and set groups
 useradd -m $user
 sudo usermod -aG wheel $user
 sudo usermod -aG libvirt $user
 localectl set-keymap de
+
+# setup user settings, apps etc
+chmod +x /home/$user/linux_setup_usb/setup_user.sh
+sudo -H -u $user bash -c /home/$user/linux_setup_usb/setup_user.sh
+
+# set password
 echo "$user:$password" | chpasswd
 echo "root:$password" | chpasswd
 

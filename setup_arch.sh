@@ -3,13 +3,9 @@
 set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
-### Setup infomation from user ###
+### Setup infomation ###
 partitions="mbr"
 device="/dev/vda"
-
-### Set up logging ###
-exec 1> >(tee "stdout.log")
-exec 2> >(tee "stderr.log")
 
 #------
 
@@ -53,7 +49,6 @@ cp pacman_mirrorlist /etc/pacman.d/mirrorlist
 pacstrap /mnt base
 
 # Configure the system
-
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # install bootloader
@@ -69,11 +64,11 @@ fi
 
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
-# chroot
-cp setup_system.sh /mnt/setup_system.sh
-arch-chroot /mnt chmod +x setup_system.sh
-arch-chroot /mnt ./setup_system.sh
-rm /mnt/setup_system.sh
+# further setup
+mkdir -p /mnt/home/cle/linux_setup_usb
+cp -R * /mnt/home/cle/linux_setup_usb
+arch-chroot /mnt /home/cle/linux_setup_usb/setup_system.sh
+rm -rf /mnt/home/cle/linux_setup_usb
 
 # pick a god and pray
 shutdown
