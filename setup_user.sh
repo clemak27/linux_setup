@@ -57,16 +57,6 @@ pacman -S --noconfirm automake autoconf
 yay -S --noconfirm syncthingtray gtk3-nocsd-git cava tty-clock steam-fonts
 yay -S --noconfirm skypeforlinux-stable-bin
 
-# vs code
-yay -S --noconfirm vscodium-bin
-vscodium --install-extension akamud.vscode-theme-onedark
-vscodium --install-extension dakara.transformer
-vscodium --install-extension eamodio.gitlens
-vscodium --install-extension ms-python.python
-vscodium --install-extension magicstack.magicpython
-vscodium --install-extension visualstudioexptteam.vscodeintellicode
-vscodium --install-extension james-yu.latex-workshop
-
 # syncthing deamon
 systemctl --user enable syncthing.service
 
