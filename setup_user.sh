@@ -69,7 +69,6 @@ sed -i 's/#autofit-larger=90%x90%/autofit-larger=40%x40%/g' ~/.config/mpv/mpv.co
 echo "" >> ~/.config/mpv/mpv.conf
 echo 'ytdl-format="bestvideo[height<=?1080]+bestaudio/best"' >> ~/.config/mpv/mpv.conf
 
-
 ## kde
 
 cp kde/redshift.conf ~/.config/redshift.conf
@@ -119,12 +118,9 @@ wget -qO- https://raw.githubusercontent.com/gusbemacbe/suru-plus/master/install.
 
 sudo pacman -S tilix evolution kvantum-qt5
 
-# stand ubuntu 18.10.
-sudo pacman -R remove aisleriot cheese gnome-mahjongg gnome-mines remmina shotwell gnome-sudoku thunderbird totem transmission-common
-
 # gnome extensions
 sudo pacman -S install gnome-tweak-tool curl
-chmod a+x ./gnome-shell-extension-installer.sh
+chmod a+x ./gnome/gnome-shell-extension-installer.sh
 ./gnome/gnome-shell-extension-installer.sh 15 # alternatetab
 ./gnome/gnome-shell-extension-installer.sh 615 # appindicator-support
 ./gnome/gnome-shell-extension-installer.sh 307 # dash-to-dock
