@@ -127,6 +127,6 @@ chmod a+x ./gnome/gnome-shell-extension-installer.sh
 ./gnome/gnome-shell-extension-installer.sh 19 # user-themes
 ./gnome/gnome-shell-extension-installer.sh 943 # Workspace Scroll
 ./gnome/gnome-shell-extension-installer.sh 1319 # GSConnect
-
+./gnome/gnome-shell-extension-installer.sh 1011 # dynamic panel transparency
 mkdir -p ~/.config/tilix/schemes/
 cp gnome/one-dark.json ~/.config/tilix/schemes/

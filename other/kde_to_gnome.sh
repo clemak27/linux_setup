@@ -30,10 +30,12 @@ sudo systemctl enable NetworkManager
 # ./gnome/gnome-shell-extension-installer.sh 19 # user-themes
 # ./gnome/gnome-shell-extension-installer.sh 943 # Workspace Scroll
 # ./gnome/gnome-shell-extension-installer.sh 1319 # GSConnect
+# ./gnome/gnome-shell-extension-installer.sh 1011 # dynamic panel transparency
 
 mkdir -p ~/.config/tilix/schemes/
 cp gnome/one-dark.json ~/.config/tilix/schemes/
 
 rm -R ~/.themes/*
 # install vimix-kde and gtk
+# eventually move these to the appropiate places
 sudo pacman -Rs systemsettings gnome-books partitionmanager systemsettings gnome-software ksysguard gnome-maps syncthingtray epiphany thunderbird plasma-desktop kde-gtk-config
