@@ -7,7 +7,7 @@ trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
 # https://zren.github.io/kde/
 
-localectl set-keymap de # TODO:  fix running this in chroot (polkit?)#
+localectl set-keymap de
 xdg-user-dirs-update
 
 # dotfiles
@@ -21,8 +21,6 @@ cp dotfiles/vimrc ~/.config/nvim/init.vim
 cp dotfiles/bash_aliases ~/.bash_aliases
 cp dotfiles/bash_profile ~/.bash_profile
 cp dotfiles/bashrc ~/.bashrc
-cp kde/redshift.conf ~/.config/redshift.conf
-
 
 sudo mkdir -p /etc/pacman.d/hooks/
 sudo cp other/grub.hook /etc/pacman.d/hooks/grub.hook
@@ -60,17 +58,23 @@ makepkg -si
 
 # aur
 pacman -S --noconfirm automake autoconf
-yay -S --noconfirm syncthingtray gtk3-nocsd-git cava tty-clock steam-fonts
+yay -S --noconfirm cava tty-clock steam-fonts
 yay -S --noconfirm skypeforlinux-stable-bin
 
 # syncthing deamon
 systemctl --user enable syncthing.service
 
-#mpv config
+# mpv config
 cp -r /usr/share/doc/mpv/ ~/.config/
 sed -i 's/#autofit-larger=90%x90%/autofit-larger=40%x40%/g' ~/.config/mpv/mpv.conf
 echo "" >> ~/.config/mpv/mpv.conf
 echo 'ytdl-format="bestvideo[height<=?1080]+bestaudio/best"' >> ~/.config/mpv/mpv.conf
+
+
+## kde
+
+cp kde/redshift.conf ~/.config/redshift.conf
+yay -S --noconfirm syncthingtray gtk3-nocsd-git
 
 # latte addons
 sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons
@@ -110,3 +114,24 @@ wget -qO- https://raw.githubusercontent.com/gusbemacbe/suru-plus/master/install.
 # Add MaxFPS=144 to your ~/.config/kwinrc
 # Add xrandr --rate 144 to /usr/share/sddm/scripts/Xsetup
 # about:config layout.frame_rate 144
+
+
+## gnome
+
+sudo pacman -S tilix evolution kvantum-qt5
+
+# stand ubuntu 18.10.
+sudo pacman -R remove aisleriot cheese gnome-mahjongg gnome-mines remmina shotwell gnome-sudoku thunderbird totem transmission-common
+
+# gnome extensions
+sudo pacman -S install gnome-tweak-tool curl
+chmod a+x ./gnome-shell-extension-installer.sh
+./gnome/gnome-shell-extension-installer.sh 15 # alternatetab
+./gnome/gnome-shell-extension-installer.sh 615 # appindicator-support
+./gnome/gnome-shell-extension-installer.sh 307 # dash-to-dock
+./gnome/gnome-shell-extension-installer.sh 19 # user-themes
+./gnome/gnome-shell-extension-installer.sh 943 # Workspace Scroll
+./gnome/gnome-shell-extension-installer.sh 1319 # GSConnect
+
+mkdir -p ~/.config/tilix/schemes/
+cp gnome/one-dark.json ~/.config/tilix/schemes/

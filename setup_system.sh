@@ -119,7 +119,7 @@ localectl set-keymap de
 
 # setup user settings, apps etc
 chmod +x /home/$user/linux_setup_usb/setup_user.sh
-sudo -H -u $user bash -c /home/$user/linux_setup_usb/setup_user.sh
+su -c "bash /home/$user/linux_setup_usb/setup_user.sh" -s /bin/bash $user
 
 # set password
 echo "$user:$password" | chpasswd
