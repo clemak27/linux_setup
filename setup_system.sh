@@ -65,7 +65,7 @@ elif [[ $de == "gnome" ]]; then
 pacman -S --noconfirm baobab eog epiphany evince file-roller gdm gedit gnome-backgrounds gnome-books gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-color-manager gnome-contacts gnome-control-center gnome-dictionary gnome-disk-utility gnome-font-viewer gnome-keyring gnome-logs gnome-maps gnome-menus gnome-photos gnome-remote-desktop gnome-screenshot gnome-session gnome-settings-daemon gnome-shell gnome-shell-extensions gnome-system-monitor gnome-terminal gnome-themes-extra gnome-todo gnome-user-docs gnome-user-share gnome-video-effects gnome-weather grilo-plugins gvfs gvfs-afc gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb mousetweaks mutter nautilus networkmanager orca rygel sushi tracker tracker-miners vino xdg-user-dirs-gtk yelp gnome-software simple-scan
 
 # pther gnome
-pacman -S --noconfirm lollypop kvantum-qt5 tilix gnome-tweaks
+pacman -S --noconfirm lollypop kvantum-qt5 tilix gnome-tweaks syncthing-gtk
 
 systemctl enable gdm
 
@@ -116,10 +116,6 @@ useradd -m $user
 sudo usermod -aG wheel $user
 sudo usermod -aG libvirt $user
 localectl set-keymap de
-
-# setup user settings, apps etc
-chmod +x /home/$user/linux_setup_usb/setup_user.sh
-su -c "bash /home/$user/linux_setup_usb/setup_user.sh" -s /bin/bash $user
 
 # set password
 echo "$user:$password" | chpasswd

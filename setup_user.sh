@@ -11,7 +11,6 @@ localectl set-keymap de
 xdg-user-dirs-update
 
 # dotfiles
-cp ~/.config/nvim/init.vim nvim_bu
 cp ~/.bash_aliases bash_aliases_bu
 cp ~/.bash_profile bash_profile_bu
 cp ~/.bashrc bashrc_bu

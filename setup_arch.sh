@@ -64,11 +64,11 @@ fi
 
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
-# further setup
-mkdir -p /mnt/home/cle/linux_setup_usb
-cp -R * /mnt/home/cle/linux_setup_usb
-arch-chroot /mnt /home/cle/linux_setup_usb/setup_system.sh
-rm -rf /mnt/home/cle/linux_setup_usb
+# setup_system
+cp setup_system.sh /mnt/setup_system.sh
+arch-chroot /mnt chmod +x setup_system.sh
+arch-chroot /mnt ./setup_system.sh
+rm /mnt/setup_system.sh
 
 # pick a god and pray
 shutdown
