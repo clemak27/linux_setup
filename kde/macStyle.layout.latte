@@ -18,17 +18,6 @@ timerShow=200
 visibility=0
 wallpaperplugin=org.kde.image
 
-[Containments][1][Applets][19]
-immutability=1
-plugin=org.kde.plasma.eventcalendar
-
-[Containments][1][Applets][19][Configuration]
-PreloadWeight=21
-
-[Containments][1][Applets][19][Configuration][ConfigDialog]
-DialogHeight=600
-DialogWidth=800
-
 [Containments][1][Applets][19][Configuration][Events]
 enabledCalendarPlugins=/usr/lib/x86_64-linux-gnu/qt5/plugins/plasmacalendarplugins/pimevents.so,/usr/lib/qt/plugins/plasmacalendarplugins/pimevents.so
 
@@ -48,7 +37,7 @@ immutability=1
 plugin=org.kde.windowappmenu
 
 [Containments][1][Applets][31][Configuration]
-PreloadWeight=18
+PreloadWeight=0
 
 [Containments][1][Applets][31][Configuration][ConfigDialog]
 DialogHeight=540
@@ -62,7 +51,7 @@ immutability=1
 plugin=org.kde.windowtitle
 
 [Containments][1][Applets][33][Configuration]
-PreloadWeight=23
+PreloadWeight=4
 
 [Containments][1][Applets][33][Configuration][ConfigDialog]
 DialogHeight=540
@@ -84,7 +73,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][1][Applets][4][Configuration]
-PreloadWeight=35
+PreloadWeight=31
 SystrayContainmentId=5
 
 [Containments][1][Applets][41]
@@ -92,7 +81,7 @@ immutability=1
 plugin=org.kde.windowbuttons
 
 [Containments][1][Applets][41][Configuration]
-PreloadWeight=18
+PreloadWeight=0
 
 [Containments][1][Applets][41][Configuration][ConfigDialog]
 DialogHeight=603
@@ -102,32 +91,42 @@ DialogWidth=783
 buttons=5|3|4|10|2|9
 containmentType=Plasma
 disabledMaximizedBorders=NoBorders
-lengthFirstMargin=4
-lengthLastMargin=4
 slideAnimation=true
 spacing=2
 thicknessMargin=4
 visibility=ActiveMaximizedWindow
 
-[Containments][1][Applets][48]
+[Containments][1][Applets][52][Configuration][General]
+showFullName=false
+showTechnicalInfo=true
+
+[Containments][1][Applets][54]
 immutability=1
 plugin=org.kde.plasma.kicker
 
-[Containments][1][Applets][48][Configuration]
+[Containments][1][Applets][54][Configuration]
 PreloadWeight=100
 
-[Containments][1][Applets][48][Configuration][ConfigDialog]
+[Containments][1][Applets][54][Configuration][General]
+favoritesPortedToKAstats=true
+
+[Containments][1][Applets][55]
+immutability=1
+plugin=org.kde.plasma.eventcalendar
+
+[Containments][1][Applets][55][Configuration][ConfigDialog]
 DialogHeight=540
 DialogWidth=720
 
-[Containments][1][Applets][48][Configuration][General]
-customButtonImage=/home/cle/Projects/linux_setup/logo.png
-favoritesPortedToKAstats=true
-useCustomButtonImage=true
+[Containments][1][Applets][55][Configuration][General]
+clock_maxheight=26
+clock_timeformat=HH:mm:ss\s
+clock_timeformat_2=d. MMMM yyyy
+widget_show_meteogram=false
 
 [Containments][1][ConfigDialog]
-DialogHeight=663
-DialogWidth=571
+DialogHeight=631
+DialogWidth=544
 
 [Containments][1][Configuration]
 PreloadWeight=0
@@ -135,7 +134,7 @@ PreloadWeight=0
 [Containments][1][General]
 activeIndicator=None
 advanced=true
-appletOrder=41;48;33;31;4;19
+appletOrder=54;41;33;31;4;55
 autoDecreaseIconSize=false
 durationTime=None
 iconMargin=20
@@ -174,23 +173,18 @@ immutability=1
 plugin=org.kde.latte.plasmoid
 
 [Containments][34][Applets][39][Configuration]
-PreloadWeight=18
+PreloadWeight=0
 
 [Containments][34][Applets][39][Configuration][General]
 isInLatteDock=true
 launchers59=applications:org.kde.dolphin.desktop,applications:firefox.desktop,applications:org.kde.konsole.desktop,applications:cantata.desktop
-
-[Containments][34][Applets][46][Configuration][General]
-customButtonImage=/home/cle/Projects/linux_setup/logo.png
-favoritesPortedToKAstats=true
-useCustomButtonImage=true
 
 [Containments][34][ConfigDialog]
 DialogHeight=663
 DialogWidth=571
 
 [Containments][34][Configuration]
-PreloadWeight=18
+PreloadWeight=0
 
 [Containments][34][General]
 advanced=true
@@ -224,7 +218,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][5][Applets][11][Configuration]
-PreloadWeight=4
+PreloadWeight=5
 
 [Containments][5][Applets][12]
 immutability=1
@@ -240,7 +234,7 @@ plugin=org.kde.plasma.networkmanagement
 [Containments][5][Applets][15][Configuration]
 PreloadWeight=0
 
-[Containments][5][Applets][47]
+[Containments][5][Applets][53]
 immutability=1
 plugin=org.kde.plasma.battery
 
