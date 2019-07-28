@@ -78,6 +78,7 @@ gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D69
 
 cp kde/redshift.conf ~/.config/redshift.conf
 yay -S --noconfirm syncthingtray gtk3-nocsd-git
+yay -S --noconfirm syncthing
 
 # latte addons
 sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons
@@ -101,10 +102,6 @@ sh install.sh
 kwriteconfig5 --file ~/.config/kwinrc --group ModifierOnlyShortcuts --key Meta "org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu"
 qdbus org.kde.KWin /KWin reconfigure
 
-# suru++
-cd ~/Projects
-wget -qO- https://raw.githubusercontent.com/gusbemacbe/suru-plus/master/install.sh | sh
-
 # screen locking bild rein
 # window switcher meta
 # logout: confirmen, end current session, start with empty
@@ -117,21 +114,3 @@ wget -qO- https://raw.githubusercontent.com/gusbemacbe/suru-plus/master/install.
 # Add MaxFPS=144 to your ~/.config/kwinrc
 # Add xrandr --rate 144 to /usr/share/sddm/scripts/Xsetup
 # about:config layout.frame_rate 144
-
-
-## gnome
-
-sudo pacman -S tilix evolution kvantum-qt5
-
-# gnome extensions
-sudo pacman -S install gnome-tweak-tool curl
-chmod a+x ./gnome/gnome-shell-extension-installer.sh
-./gnome/gnome-shell-extension-installer.sh 15 # alternatetab
-./gnome/gnome-shell-extension-installer.sh 615 # appindicator-support
-./gnome/gnome-shell-extension-installer.sh 307 # dash-to-dock
-./gnome/gnome-shell-extension-installer.sh 19 # user-themes
-./gnome/gnome-shell-extension-installer.sh 943 # Workspace Scroll
-./gnome/gnome-shell-extension-installer.sh 1319 # GSConnect
-./gnome/gnome-shell-extension-installer.sh 1011 # dynamic panel transparency
-mkdir -p ~/.config/tilix/schemes/
-cp gnome/one-dark.json ~/.config/tilix/schemes/
