@@ -69,12 +69,7 @@ sed -i 's/#autofit-larger=90%x90%/autofit-larger=40%x40%/g' ~/.config/mpv/mpv.co
 echo "" >> ~/.config/mpv/mpv.conf
 echo 'ytdl-format="bestvideo[height<=?1080]+bestaudio/best"' >> ~/.config/mpv/mpv.conf
 
-# rvm
-
-gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-\curl -sSL https://get.rvm.io | bash -s stable --rails
-
-## kde
+# kde
 
 cp kde/redshift.conf ~/.config/redshift.conf
 yay -S --noconfirm syncthingtray gtk3-nocsd-git
