@@ -149,8 +149,5 @@ fi
 # use ripgrep with fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
-# use kvantum theme engine
-export QT_STYLE_OVERRIDE=kvantum
-
 # use neovim
 export EDITOR=nvim
