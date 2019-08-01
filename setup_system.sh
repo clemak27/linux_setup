@@ -83,7 +83,7 @@ sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvi
 newgrp libvirt
 
 # default programs
-pacman -S --noconfirm firefox youtube-dl mpv keepassxc ripgrep fzf mps-youtube rsync
+pacman -S --noconfirm firefox youtube-dl mpv keepassxc ripgrep fzf mps-youtube rsync nextcloud-client
 
 # xD
 pacman -S --noconfirm cmatrix lolcat neofetch

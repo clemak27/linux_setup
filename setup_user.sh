@@ -60,9 +60,6 @@ pacman -S --noconfirm automake autoconf
 yay -S --noconfirm cava tty-clock steam-fonts
 yay -S --noconfirm skypeforlinux-stable-bin
 
-# syncthing deamon
-systemctl --user enable syncthing.service
-
 # mpv config
 cp -r /usr/share/doc/mpv/ ~/.config/
 sed -i 's/#autofit-larger=90%x90%/autofit-larger=40%x40%/g' ~/.config/mpv/mpv.conf
@@ -72,8 +69,7 @@ echo 'ytdl-format="bestvideo[height<=?1080]+bestaudio/best"' >> ~/.config/mpv/mp
 # kde
 
 cp kde/redshift.conf ~/.config/redshift.conf
-yay -S --noconfirm syncthingtray gtk3-nocsd-git
-yay -S --noconfirm syncthing
+yay -S --noconfirm gtk3-nocsd-git
 
 # latte addons
 sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons
