@@ -57,7 +57,7 @@ makepkg -si
 
 # aur
 pacman -S --noconfirm automake autoconf
-yay -S --noconfirm cava tty-clock steam-fonts
+yay -S --noconfirm cava tty-clock steam-fonts systemd-kcm
 yay -S --noconfirm skypeforlinux-stable-bin
 
 # mpv config
