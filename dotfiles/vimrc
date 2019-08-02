@@ -12,6 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " installed plugins:
 Plugin 'joshdick/onedark.vim' " atom one dark theme
+
 Plugin 'bling/vim-airline' " better looking tab/statusline
 Plugin 'vim-airline/vim-airline-themes' " airline themes
 
@@ -37,24 +38,15 @@ Plugin 'tpope/vim-surround' " brackets around words ysiw(
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
 " ---------------------------------------------
 
 set number " line number
 let g:AutoClosePreserveDotReg = 0 " autoclose bugfix
-let g:airline_theme='deus'
+let g:airline_theme='onedark'
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 
 " use system clipboard
 set clipboard+=unnamedplus
@@ -134,26 +126,6 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" Add a bit extra margin to the left
-set foldcolumn=1
-
-" Enable syntax highlighting
-syntax enable 
-
-" Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
-
-" set colorscheme
-try
-    colorscheme onedark
-catch
-endtry
-
-set background=dark
-
-" source: onedark-theme
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
@@ -169,6 +141,20 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
+
+" Add a bit extra margin to the left
+set foldcolumn=1
+
+" Enable syntax highlighting
+syntax enable 
+
+" set colorscheme
+try
+    colorscheme onedark
+catch
+endtry
+
+set background=dark
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
