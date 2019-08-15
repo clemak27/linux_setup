@@ -95,7 +95,7 @@ pacman -S --noconfirm git make gcc docker docker-compose neovim nodejs npm yarn 
 pacman -S --noconfirm wine-staging lutris steam
 
 # office
-pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most thunderbird
+pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most
 
 # printer
 pacman -S --noconfirm cups
