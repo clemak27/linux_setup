@@ -97,6 +97,11 @@ pacman -S --noconfirm wine-staging lutris steam
 # office
 pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most thunderbird
 
+# printer
+pacman -S --noconfirm cups
+systemctl enable org.cups.cupsd.service
+systemctl start org.cups.cupsd.service
+
 # add user and set groups
 useradd -m $user
 sudo usermod -aG wheel $user
