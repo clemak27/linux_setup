@@ -36,9 +36,9 @@ nvm install --lts
 
 # nvim config
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-nvim -c PluginInstall -c q -c q!
-nvim -c "call coc#util#install()" -c q!
-nvim -c "CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-snippets"
+# PluginInstall
+# call coc#util#install()
+# CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-snippets coc-highlight
 
 # git config
 git config --global user.name "clemak27"
