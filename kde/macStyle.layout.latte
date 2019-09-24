@@ -3,34 +3,24 @@ RightButton;NoModifier=org.kde.latte.contextmenu
 
 [Containments][1]
 activityId=
+byPassWM=false
 dockWindowBehavior=true
 enableKWinEdges=true
 formfactor=2
 immutability=1
+isPreferredForShortcuts=false
 lastScreen=12
 location=3
 onPrimary=true
 plugin=org.kde.latte.containment
 raiseOnActivityChange=false
 raiseOnDesktopChange=false
+settingsComplexity=4
 timerHide=700
 timerShow=200
+viewType=1
 visibility=0
 wallpaperplugin=org.kde.image
-
-[Containments][1][Applets][19][Configuration][Events]
-enabledCalendarPlugins=/usr/lib/x86_64-linux-gnu/qt5/plugins/plasmacalendarplugins/pimevents.so,/usr/lib/qt/plugins/plasmacalendarplugins/pimevents.so
-
-[Containments][1][Applets][19][Configuration][General]
-clock_maxheight=22
-clock_mousewheel_down=
-clock_mousewheel_up=
-clock_timeformat=MMM d, HH:mm\s
-clock_timeformat_2=dd.MM.yyyy
-widget_show_meteogram=false
-
-[Containments][1][Applets][19][Configuration][Google Calendar]
-calendar_list=W10=
 
 [Containments][1][Applets][31]
 immutability=1
@@ -44,22 +34,24 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][1][Applets][31][Configuration][General]
-containmentType=Plasma
+containmentType=Latte
+windowTitleIsPresent=true
 
 [Containments][1][Applets][33]
 immutability=1
 plugin=org.kde.windowtitle
 
 [Containments][1][Applets][33][Configuration]
-PreloadWeight=4
+PreloadWeight=0
 
 [Containments][1][Applets][33][Configuration][ConfigDialog]
 DialogHeight=540
 DialogWidth=720
 
 [Containments][1][Applets][33][Configuration][General]
+appMenuIsPresent=true
 capitalFont=false
-containmentType=Plasma
+containmentType=Latte
 iconFillThickness=false
 iconSize=28
 lengthFirstMargin=5
@@ -73,7 +65,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][1][Applets][4][Configuration]
-PreloadWeight=36
+PreloadWeight=84
 SystrayContainmentId=5
 
 [Containments][1][Applets][41]
@@ -89,44 +81,66 @@ DialogWidth=783
 
 [Containments][1][Applets][41][Configuration][General]
 buttons=5|3|4|10|2|9
-containmentType=Plasma
+containmentType=Latte
 disabledMaximizedBorders=NoBorders
 slideAnimation=true
-spacing=2
-thicknessMargin=4
+spacing=0
+thicknessMargin=5
+useCurrentDecoration=false
 visibility=ActiveMaximizedWindow
-
-[Containments][1][Applets][52][Configuration][General]
-showFullName=false
-showTechnicalInfo=true
-
-[Containments][1][Applets][54]
-immutability=1
-plugin=org.kde.plasma.kicker
-
-[Containments][1][Applets][54][Configuration]
-PreloadWeight=100
-
-[Containments][1][Applets][54][Configuration][General]
-favoritesPortedToKAstats=true
 
 [Containments][1][Applets][55]
 immutability=1
 plugin=org.kde.plasma.eventcalendar
 
+[Containments][1][Applets][55][Configuration]
+PreloadWeight=60
+
+[Containments][1][Applets][55][Configuration][Agenda]
+agenda_weather_show_text=true
+
 [Containments][1][Applets][55][Configuration][ConfigDialog]
 DialogHeight=540
 DialogWidth=720
 
+[Containments][1][Applets][55][Configuration][Events]
+enabledCalendarPlugins=/usr/lib/x86_64-linux-gnu/qt5/plugins/plasmacalendarplugins/holidaysevents.so,/usr/lib/qt/plugins/plasmacalendarplugins/pimevents.so
+
 [Containments][1][Applets][55][Configuration][General]
-clock_maxheight=26
+clock_line_2_height_ratio=0.3
+clock_maxheight=23
+clock_mousewheel_down=
+clock_mousewheel_up=
 clock_timeformat=HH:mm:ss\s
 clock_timeformat_2=d. MMMM yyyy
 widget_show_meteogram=false
 
+[Containments][1][Applets][55][Configuration][Google Calendar]
+calendar_list=W10=
+events_pollinterval=60
+
+[Containments][1][Applets][55][Configuration][Weather]
+weather_city_id=2761369
+
+[Containments][1][Applets][60]
+immutability=1
+plugin=org.kde.plasma.kicker
+
+[Containments][1][Applets][60][Configuration]
+PreloadWeight=92
+
+[Containments][1][Applets][60][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][1][Applets][60][Configuration][General]
+customButtonImage=/home/cle/Projects/linux_setup/logo.png
+favoritesPortedToKAstats=true
+useCustomButtonImage=true
+
 [Containments][1][ConfigDialog]
-DialogHeight=665
-DialogWidth=573
+DialogHeight=909
+DialogWidth=539
 
 [Containments][1][Configuration]
 PreloadWeight=0
@@ -134,14 +148,20 @@ PreloadWeight=0
 [Containments][1][General]
 activeIndicator=None
 advanced=true
-appletOrder=54;41;33;31;4;55
+appletOrder=41;60;33;31;4;55
 autoDecreaseIconSize=false
+blurEnabled=false
+disablePanelShadowForMaximized=true
+dragActiveWindowEnabled=true
 durationTime=None
 iconMargin=20
-iconSize=28
+iconSize=21
+inConfigureAppletsMode=true
 panelPosition=10
 panelShadows=false
 panelSize=100
+panelTransparency=25
+plasmaBackgroundForPopups=true
 shadowOpacity=60
 shadowSize=45
 shadows=None
@@ -151,21 +171,32 @@ splitterPosition=4
 splitterPosition2=5
 zoomLevel=0
 
+[Containments][1][Indicator]
+customType=
+enabled=true
+enabledForApplets=true
+padding=0.07999999821186066
+type=org.kde.latte.default
+
 [Containments][34]
 activityId=
+byPassWM=false
 dockWindowBehavior=true
 enableKWinEdges=true
 formfactor=2
 immutability=1
+isPreferredForShortcuts=false
 lastScreen=-1
 location=4
 onPrimary=true
 plugin=org.kde.latte.containment
 raiseOnActivityChange=false
 raiseOnDesktopChange=false
-timerHide=0
+settingsComplexity=4
+timerHide=150
 timerShow=0
-visibility=4
+viewType=0
+visibility=2
 wallpaperplugin=org.kde.image
 
 [Containments][34][Applets][39]
@@ -180,8 +211,8 @@ isInLatteDock=true
 launchers59=applications:org.kde.dolphin.desktop,applications:firefox.desktop,applications:org.kde.konsole.desktop,applications:cantata.desktop
 
 [Containments][34][ConfigDialog]
-DialogHeight=663
-DialogWidth=571
+DialogHeight=909
+DialogWidth=539
 
 [Containments][34][Configuration]
 PreloadWeight=0
@@ -189,12 +220,24 @@ PreloadWeight=0
 [Containments][34][General]
 advanced=true
 appletOrder=39
-backgroundOnlyOnMaximized=true
+blurEnabled=false
 iconSize=48
-panelTransparency=80
+inConfigureAppletsMode=true
+leftClickAction=CycleThroughTasks
+panelShadows=false
+panelSize=5
+panelTransparency=25
 shrinkThickMargins=false
-solidBackgroundForMaximized=true
-zoomLevel=0
+splitterPosition=2
+splitterPosition2=3
+zoomLevel=5
+
+[Containments][34][Indicator]
+customType=
+enabled=true
+enabledForApplets=true
+padding=0.07999999821186066
+type=org.kde.latte.default
 
 [Containments][5]
 PreloadWeight=0
@@ -218,7 +261,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][5][Applets][11][Configuration]
-PreloadWeight=10
+PreloadWeight=70
 
 [Containments][5][Applets][12]
 immutability=1
@@ -234,9 +277,12 @@ plugin=org.kde.plasma.networkmanagement
 [Containments][5][Applets][15][Configuration]
 PreloadWeight=0
 
-[Containments][5][Applets][53]
+[Containments][5][Applets][59]
 immutability=1
 plugin=org.kde.plasma.battery
+
+[Containments][5][Applets][59][Configuration]
+PreloadWeight=42
 
 [Containments][5][Applets][6]
 immutability=1
@@ -254,7 +300,7 @@ immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][5][Applets][8][Configuration]
-PreloadWeight=0
+PreloadWeight=1
 
 [Containments][5][Applets][9]
 immutability=1
@@ -276,10 +322,11 @@ shownItems=keepassxc,Nextcloud,redshift
 [LayoutSettings]
 activities=
 background=
-color=purple
+color=pink
 disableBordersForMaximizedWindows=false
 lastUsedActivity=
 launchers=applications:org.kde.dolphin.desktop,applications:firefox.desktop,applications:org.kde.konsole.desktop,applications:cantata.desktop
+preferredForShortcutsTouched=false
 showInMenu=false
 textColor=
 version=2
