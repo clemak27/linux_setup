@@ -1,54 +1,68 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" setup vim-plug
+" curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin(stdpath('data') . '/plugged')
 
-" installed plugins:
-Plugin 'joshdick/onedark.vim' " atom one dark theme
-Plugin 'bling/vim-airline' " better looking tab/statusline
+Plug 'joshdick/onedark.vim' " atom one dark theme
+" Plug 'bling/vim-airline' " better looking tab/statusline
+Plug 'tpope/vim-vinegar' " fileexplorer
+Plug 'tpope/vim-fugitive' " git diff etc inside vim
+Plug 'tpope/vim-commentary' " comment with gc
+Plug 'junegunn/fzf' " fuzzy file search
+Plug 'junegunn/fzf.vim' " fuzzy file search
+Plug 'townk/vim-autoclose' " autocomplete ({[, etc
+Plug 'tpope/vim-surround' " brackets around words ysiw(
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " everything
+" :CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-highlight coc-lists coc-git
 
-Plugin 'tpope/vim-vinegar' " fileexplorer
-
-Plugin 'sirver/ultisnips' " snipped support
-Plugin 'honza/vim-snippets' "collection of snippets
-
-Plugin 'neoclide/coc.nvim' " autocomplete
-" :CocInstall coc-snippets
-
-Plugin 'tpope/vim-fugitive' " git diff etc inside vim
-Plugin 'airblade/vim-gitgutter' " shwos git diffs next to line
-
-Plugin 'tpope/vim-commentary' " comment with gc
-
-Plugin 'junegunn/fzf' " fuzzy file search
-Plugin 'junegunn/fzf.vim' " fuzzy file search
-
-Plugin 'townk/vim-autoclose' " autocomplete ({[, etc
-Plugin 'tpope/vim-surround' " brackets around words ysiw(
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" Put your non-Plugin stuff after this line
+call plug#end()
 
 " ---------------------------------------------
 
-set number " line number
-let g:AutoClosePreserveDotReg = 0 " autoclose bugfix
+" line number
+set number 
 
-let g:airline_theme='onedark'
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#tabline#enabled = 1
+" autoclose bugfix
+let g:AutoClosePreserveDotReg = 0 
+
+" let g:airline_theme='onedark'
+" let g:airline#extensions#whitespace#enabled = 0
+" let g:airline#extensions#tabline#enabled = 1
 
 " use system clipboard
 set clipboard+=unnamedplus
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " based on basic .vimrc 
 " https://github.com/amix/vimrc
@@ -195,7 +209,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+set statusline=[%n]\ %<%F\ \ %=\ line:%l/%L\ col:%c\ \ \ %p%%\ \ \ %{get(g:,'coc_git_status','')}
 
 " Remap VIM 0 to first non-blank character
 map 0 ^
