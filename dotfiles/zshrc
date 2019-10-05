@@ -175,7 +175,7 @@ function +vi-git-st() {
     hook_com[misc]+=${(j:/:)gitstatus}
 }
 
-zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[green]}%}%s%{${fg[cyan]}%}][%{${fg[blue]}%}%b%{${fg[yellow]}%}%m%u%c%{${fg[cyan]}%}]%{$reset_color%}"
+zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[blue]}%}%b%{${fg[yellow]}%}%m%u%c%{${fg[cyan]}%}]%{$reset_color%}"
 
 setprompt() {
   setopt prompt_subst
@@ -194,11 +194,11 @@ setprompt() {
     %F{cyan}][%f
     %F{blue}%~%f
     %F{cyan}]%f
+    ${vcs_info_msg_0_}
     %(!.%F{red}%#%f.%F{green}%#%f)
     " "
   '}}
 
   PS2=$'%_>'
-  RPROMPT=$'${vcs_info_msg_0_}'
 }
 setprompt
