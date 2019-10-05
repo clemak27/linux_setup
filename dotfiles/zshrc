@@ -37,6 +37,7 @@ alias gs='git status'
 alias gus='git reset HEAD'
 alias ll="ls --color -lh"
 alias ls="ls --color -F"
+alias lsa="ls --color -F -hal"
 alias mpvnv='mpv --no-video'
 alias q="exit"
 alias rsync-copy='rsync -avzh --progress '
