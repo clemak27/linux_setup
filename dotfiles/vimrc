@@ -8,7 +8,6 @@ filetype off                  " required
 call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'joshdick/onedark.vim' " atom one dark theme
-" Plug 'bling/vim-airline' " better looking tab/statusline
 Plug 'tpope/vim-vinegar' " fileexplorer
 Plug 'tpope/vim-fugitive' " git diff etc inside vim
 Plug 'tpope/vim-commentary' " comment with gc
@@ -28,10 +27,6 @@ set number
 
 " autoclose bugfix
 let g:AutoClosePreserveDotReg = 0 
-
-" let g:airline_theme='onedark'
-" let g:airline#extensions#whitespace#enabled = 0
-" let g:airline#extensions#tabline#enabled = 1
 
 " use system clipboard
 set clipboard+=unnamedplus
@@ -53,10 +48,7 @@ endfunction
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
