@@ -22,11 +22,6 @@ cd ~
 chsh -s /usr/bin/zsh
 source .zshrc
 
-# nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-source .bashrc
-nvm install --lts
-
 # plug-vi
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
