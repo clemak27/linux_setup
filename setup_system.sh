@@ -55,7 +55,7 @@ pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenvie
 pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-integration seahorse sshfs unrar libebur128
 
 # kde pim
-pacman -S --noconfirm kmail kaddressbook korganizer kdepim-addon
+pacman -S --noconfirm kmail kaddressbook korganizer kdepim-addons
 
 systemctl enable sddm
 
