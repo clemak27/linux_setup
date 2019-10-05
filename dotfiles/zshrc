@@ -159,18 +159,18 @@ colors
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr ' !'
-zstyle ':vcs_info:*' stagedstr ' s'
+zstyle ':vcs_info:*' unstagedstr ' *'
+zstyle ':vcs_info:*' stagedstr ' +'
 zstyle ':vcs_info:git*+set-message:*' hooks git-st
 function +vi-git-st() {
     local ahead behind
     local -a gitstatus
 
     ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
-    (( $ahead )) && gitstatus+=( " +${ahead}" )
+    (( $ahead )) && gitstatus+=( " ↑${ahead}" )
 
     behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
-    (( $behind )) && gitstatus+=( " -${behind}" )
+    (( $behind )) && gitstatus+=( " ↓${behind}" )
 
     hook_com[misc]+=${(j:/:)gitstatus}
 }
