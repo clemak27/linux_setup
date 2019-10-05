@@ -34,11 +34,9 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 source .bashrc
 nvm install --lts
 
-# nvim config
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-# PluginInstall
-# call coc#util#install()
-# CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-snippets coc-highlight
+# plug-vi
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# :CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-highlight coc-lists coc-git
 
 # git config
 git config --global user.name "clemak27"
