@@ -6,4 +6,5 @@ setup_system:
   image: archlinux/base
   script:
     - chmod +x setup_system.sh
+    - pacman -Sy
     - ./setup_system.sh
