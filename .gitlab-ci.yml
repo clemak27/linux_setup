@@ -1,0 +1,9 @@
+stages:
+  - test
+
+compile_pdf:
+  stage: test
+  image: archlinux/base
+  script:
+    - chmod +x setup_system.sh
+    - ./setup_system.sh
