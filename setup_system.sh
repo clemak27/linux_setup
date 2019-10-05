@@ -88,6 +88,9 @@ newgrp libvirt
 # default programs
 pacman -S --noconfirm firefox youtube-dl mpv keepassxc ripgrep fzf mps-youtube rsync nextcloud-client parallel ntfs-3g
 
+# zsh
+pacman -S --noconfirm zsh zsh-completions
+
 # xD
 pacman -S --noconfirm cmatrix lolcat neofetch
 

@@ -11,23 +11,16 @@ localectl set-keymap de
 xdg-user-dirs-update
 
 # dotfiles
-cp ~/.bash_aliases bash_aliases_bu
-cp ~/.bash_profile bash_profile_bu
-cp ~/.bashrc bashrc_bu
-
+cp ~/.zshrc zshrc_bu
 mkdir -p ~/.config/nvim
 cp dotfiles/vimrc ~/.config/nvim/init.vim
-cp dotfiles/bash_aliases ~/.bash_aliases
-cp dotfiles/bash_profile ~/.bash_profile
-cp dotfiles/bashrc ~/.bashrc
 
 sudo mkdir -p /etc/pacman.d/hooks/
 sudo cp other/grub.hook /etc/pacman.d/hooks/grub.hook
 
 cd ~
-source .bash_aliases
-source .bash_profile
-source .bashrc
+chsh -s /usr/bin/zsh
+source .zshrc
 
 # nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
@@ -36,7 +29,6 @@ nvm install --lts
 
 # plug-vi
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-# :CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-highlight coc-lists coc-git
 
 # git config
 git config --global user.name "clemak27"
