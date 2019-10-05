@@ -1,7 +1,7 @@
 stages:
   - test
 
-compile_pdf:
+setup_system:
   stage: test
   image: archlinux/base
   script:
