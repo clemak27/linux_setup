@@ -42,7 +42,7 @@ makepkg -si
 
 # aur
 pacman -S --noconfirm automake autoconf
-yay -S --noconfirm cava tty-clock steam-fonts systemd-kcm
+yay -S --noconfirm cava tty-clock steam-fonts
 yay -S --noconfirm skypeforlinux-stable-bin
 
 # mpv config
@@ -51,9 +51,12 @@ sed -i 's/#autofit-larger=90%x90%/autofit-larger=40%x40%/g' ~/.config/mpv/mpv.co
 echo "" >> ~/.config/mpv/mpv.conf
 echo 'ytdl-format="bestvideo[height<=?1080]+bestaudio/best"' >> ~/.config/mpv/mpv.conf
 
-# kde
-
+# fix most gtk3 borders on kde
 yay -S --noconfirm gtk3-nocsd-git
+
+# syncthing
+yay -S --noconfirm syncthingtray
+yay -S --noconfirm syncthing
 
 # latte addons
 sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons

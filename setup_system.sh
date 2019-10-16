@@ -83,7 +83,7 @@ sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvi
 newgrp libvirt
 
 # default programs
-pacman -S --noconfirm firefox youtube-dl mpv keepassxc ripgrep fzf mps-youtube rsync nextcloud-client parallel ntfs-3g
+pacman -S --noconfirm firefox youtube-dl mpv keepassxc ripgrep fzf mps-youtube rsync parallel ntfs-3g
 
 # zsh
 pacman -S --noconfirm zsh zsh-completions
