@@ -53,7 +53,6 @@ echo 'ytdl-format="bestvideo[height<=?1080]+bestaudio/best"' >> ~/.config/mpv/mp
 
 # kde
 
-cp kde/redshift.conf ~/.config/redshift.conf
 yay -S --noconfirm gtk3-nocsd-git
 
 # latte addons
@@ -84,7 +83,6 @@ qdbus org.kde.KWin /KWin reconfigure
 # usermanager bild ändern
 # regional format us region, alles ändere österreich
 # power management anpassen
-# redshift zu autostart
 
 # 144Hz
 # Add MaxFPS=144 to your ~/.config/kwinrc
