@@ -54,9 +54,6 @@ pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenvie
 # kde-specifics
 pacman -S --noconfirm latte-dock mpd cantata kid3 redshift plasma-browser-integration seahorse sshfs unrar libebur128
 
-# kde pim
-pacman -S --noconfirm kmail kaddressbook korganizer kdepim-addons
-
 systemctl enable sddm
 
 # networkmanager, just to be sure
