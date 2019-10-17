@@ -46,7 +46,7 @@ fi
 cp pacman_mirrorlist /etc/pacman.d/mirrorlist
 
 # Install the base packages
-pacstrap /mnt base
+pacstrap /mnt base linux linux-firmware
 
 # Configure the system
 genfstab -U /mnt >> /mnt/etc/fstab
