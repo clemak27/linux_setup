@@ -89,7 +89,7 @@ pacman -S --noconfirm firefox youtube-dl mpv keepassxc ripgrep fzf mps-youtube r
 pacman -S --noconfirm zsh zsh-completions
 
 # xD
-pacman -S --noconfirm cmatrix lolcat neofetch
+pacman -S --noconfirm cmatrix lolcat neofetch sl
 
 # development
 pacman -S --noconfirm git make gcc docker docker-compose neovim nodejs npm yarn python-neovim xclip jdk-openjdk intellij-idea-community-edition maven
