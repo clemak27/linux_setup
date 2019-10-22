@@ -27,6 +27,7 @@ alias gcb='git checkout -b'
 alias gcl='git clone'
 alias gcm='git commit -v -m'
 alias gco='git checkout'
+alias gcrm='git checkout -- '
 alias gd='git diff'
 alias gf='git fetch --all --prune'
 alias gg="git log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
