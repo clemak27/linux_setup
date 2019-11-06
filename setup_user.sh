@@ -50,6 +50,7 @@ cp -r /usr/share/doc/mpv/ ~/.config/
 sed -i 's/#autofit-larger=90%x90%/autofit-larger=40%x40%/g' ~/.config/mpv/mpv.conf
 echo "" >> ~/.config/mpv/mpv.conf
 echo 'ytdl-format="bestvideo[height<=?1080]+bestaudio/best"' >> ~/.config/mpv/mpv.conf
+echo 'no-keepaspect-window' >> ~/.config/mpv/mpv.conf
 
 # fix most gtk3 borders on kde
 yay -S --noconfirm gtk3-nocsd-git
