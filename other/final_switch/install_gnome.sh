@@ -17,19 +17,25 @@ sudo pacman -Rs --noconfirm gnome-software sddm
 sudo pacman -S --noconfirm networkmanager
 sudo systemctl enable NetworkManager
 
+echo "update grub config with nomodeset!!!"
+echo "sudo nvim /etc/default/grub"
+echo "sudo grub-mkconfig -o /boot/grub/grub.cfg"
+
+# run after reboot
+
 # gnome extensions
-sudo pacman -S --noconfirm gnome-tweak-tool curl
+# sudo pacman -S --noconfirm gnome-tweak-tool curl
 
-chmod a+x ./gnome-shell-extension-installer.sh
-# ./gnome-shell-extension-installer.sh 15 # alternatetab
-./gnome-shell-extension-installer.sh 615 # appindicator-support
-./gnome-shell-extension-installer.sh 307 # dash-to-dock
-./gnome-shell-extension-installer.sh 19 # user-themes
+# chmod a+x ./gnome-shell-extension-installer.sh
+# # ./gnome-shell-extension-installer.sh 15 # alternatetab
+# ./gnome-shell-extension-installer.sh 615 # appindicator-support
+# ./gnome-shell-extension-installer.sh 307 # dash-to-dock
+# ./gnome-shell-extension-installer.sh 19 # user-themes
 # ./gnome-shell-extension-installer.sh 943 # Workspace Scroll
-./gnome-shell-extension-installer.sh 1319 # GSConnect
+# ./gnome-shell-extension-installer.sh 1319 # GSConnect
 
-mkdir -p ~/.config/tilix/schemes/
-cp one-dark.json ~/.config/tilix/schemes/
+# mkdir -p ~/.config/tilix/schemes/
+# cp one-dark.json ~/.config/tilix/schemes/
 
-rm -R ~/.themes/*
-# install vimix-kde and gtk
+# rm -R ~/.themes/*
+# # install vimix-kde and gtk
