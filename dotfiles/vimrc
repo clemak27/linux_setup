@@ -7,7 +7,7 @@ filetype off                  " required
 
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'hzchirs/vim-material' " theme
 Plug 'tpope/vim-vinegar' " fileexplorer
 Plug 'tpope/vim-fugitive' " git diff etc inside vim
 Plug 'tpope/vim-commentary' " comment with gc
@@ -159,9 +159,10 @@ set foldcolumn=1
 syntax enable 
 
 " set colorscheme
+let g:material_style='oceanic'
 set background=dark
 try
-    colorscheme dracula
+    colorscheme vim-material
 catch
 endtry
 
