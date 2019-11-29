@@ -37,35 +37,12 @@ DialogWidth=720
 containmentType=Latte
 windowTitleIsPresent=true
 
-[Containments][1][Applets][33]
-immutability=1
-plugin=org.kde.windowtitle
-
-[Containments][1][Applets][33][Configuration]
-PreloadWeight=0
-
-[Containments][1][Applets][33][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
-[Containments][1][Applets][33][Configuration][General]
-appMenuIsPresent=true
-capitalFont=false
-containmentType=Latte
-iconFillThickness=false
-iconSize=28
-lengthFirstMargin=5
-lengthLastMargin=5
-showIcon=false
-subsMatch="Telegram Desktop","Gimp-.*","Default"
-subsReplace="Telegram","Gimp",""
-
 [Containments][1][Applets][4]
 immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][1][Applets][4][Configuration]
-PreloadWeight=89
+PreloadWeight=77
 SystrayContainmentId=5
 
 [Containments][1][Applets][41]
@@ -97,7 +74,7 @@ immutability=1
 plugin=org.kde.plasma.eventcalendar
 
 [Containments][1][Applets][55][Configuration]
-PreloadWeight=24
+PreloadWeight=5
 
 [Containments][1][Applets][55][Configuration][Agenda]
 agenda_weather_show_text=true
@@ -131,7 +108,7 @@ immutability=1
 plugin=org.kde.plasma.kicker
 
 [Containments][1][Applets][60][Configuration]
-PreloadWeight=94
+PreloadWeight=100
 
 [Containments][1][Applets][60][Configuration][ConfigDialog]
 DialogHeight=540
@@ -141,6 +118,24 @@ DialogWidth=720
 customButtonImage=/home/cle/Projects/linux_setup/logo.png
 favoritesPortedToKAstats=true
 useCustomButtonImage=true
+
+[Containments][1][Applets][64]
+immutability=1
+plugin=org.kde.windowtitle
+
+[Containments][1][Applets][64][Configuration]
+PreloadWeight=42
+
+[Containments][1][Applets][64][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][1][Applets][64][Configuration][General]
+appMenuIsPresent=true
+containmentType=Latte
+lengthFirstMargin=4
+lengthLastMargin=4
+showIcon=false
 
 [Containments][1][ConfigDialog]
 DialogHeight=903
@@ -153,7 +148,7 @@ PreloadWeight=0
 activeIndicator=None
 advanced=true
 animationsEnabled=false
-appletOrder=41;60;33;31;4;55
+appletOrder=41;60;64;31;4;55
 autoDecreaseIconSize=false
 blurEnabled=false
 disablePanelShadowForMaximized=true
@@ -230,20 +225,19 @@ animationWindowAddedInGroup=false
 animationWindowInAttention=false
 animationWindowRemovedFromGroup=false
 appletOrder=39
+backgroundOnlyOnMaximized=true
 blurEnabled=false
 durationTime=x1
 iconSize=52
 inConfigureAppletsMode=true
 leftClickAction=CycleThroughTasks
-maxLength=30
-panelPosition=10
 panelShadows=false
 panelSize=100
 panelTransparency=25
 shrinkThickMargins=false
+solidBackgroundForMaximized=true
 splitterPosition=0
 splitterPosition2=2
-useThemePanel=false
 zoomLevel=0
 
 [Containments][34][Indicator]
@@ -275,7 +269,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][5][Applets][11][Configuration]
-PreloadWeight=72
+PreloadWeight=50
 
 [Containments][5][Applets][12]
 immutability=1
@@ -289,7 +283,7 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][5][Applets][15][Configuration]
-PreloadWeight=7
+PreloadWeight=0
 
 [Containments][5][Applets][6]
 immutability=1
@@ -302,10 +296,7 @@ PreloadWeight=0
 DialogHeight=540
 DialogWidth=720
 
-[Containments][5][Applets][62][Configuration]
-PreloadWeight=42
-
-[Containments][5][Applets][63]
+[Containments][5][Applets][65]
 immutability=1
 plugin=org.kde.plasma.battery
 
@@ -336,7 +327,7 @@ shownItems=keepassxc,Nextcloud,redshift,Syncthing Tray,martchus.syncthingplasmoi
 [LayoutSettings]
 activities=
 background=
-color=pink
+color=purple
 disableBordersForMaximizedWindows=false
 lastUsedActivity=
 launchers=applications:org.kde.dolphin.desktop,applications:firefox.desktop,applications:org.kde.konsole.desktop,applications:cantata.desktop
