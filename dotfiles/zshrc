@@ -1,5 +1,5 @@
 # https://github.com/MrElendig/dotfiles-alice/blob/master/.zshrc
-
+#
 # ---------- zsh-newuser-install ----------
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -78,6 +78,8 @@ zstyle ':completion:*:kill:*'   force-list always
 
 zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*'   force-list always
+
+source usr/share/fzf/key-bindings.zsh
 
 # ---------- Keybindings ----------
 # https://wiki.archlinux.org/index.php/Zsh#Key_bindings
