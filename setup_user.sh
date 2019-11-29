@@ -96,3 +96,6 @@ qdbus org.kde.KWin /KWin reconfigure
 # Add MaxFPS=144 to your ~/.config/kwinrc
 # Add xrandr --rate 144 to /usr/share/sddm/scripts/Xsetup
 # about:config layout.frame_rate 144
+
+# intellij: material deep ocean + A312E9
+# kde theme: sweet+candy-icons + sweet-dark [gtk]
