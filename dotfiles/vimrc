@@ -7,7 +7,7 @@ filetype off                  " required
 
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'joshdick/onedark.vim' " atom one dark theme
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-vinegar' " fileexplorer
 Plug 'tpope/vim-fugitive' " git diff etc inside vim
 Plug 'tpope/vim-commentary' " comment with gc
@@ -161,7 +161,7 @@ syntax enable
 " set colorscheme
 set background=dark
 try
-    colorscheme onedark
+    colorscheme dracula
 catch
 endtry
 
