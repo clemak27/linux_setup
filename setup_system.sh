@@ -92,7 +92,7 @@ pacman -S --noconfirm zsh zsh-completions
 pacman -S --noconfirm cmatrix lolcat neofetch sl
 
 # development
-pacman -S --noconfirm git make gcc docker docker-compose neovim nodejs npm python-neovim xclip jdk-openjdk intellij-idea-community-edition maven
+pacman -S --noconfirm git make gcc docker docker-compose neovim nodejs npm python-pynvim xclip jdk-openjdk intellij-idea-community-edition maven
 
 # gaming
 pacman -S --noconfirm wine-staging lutris steam
