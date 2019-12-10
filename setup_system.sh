@@ -83,7 +83,7 @@ sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvi
 newgrp libvirt
 
 # default programs
-pacman -S --noconfirm firefox youtube-dl mpv keepassxc ripgrep fzf mps-youtube rsync parallel ntfs-3g
+pacman -S --noconfirm firefox youtube-dl mpv keepassxc ripgrep fzf mps-youtube rsync parallel ntfs-3g nnn
 
 # zsh
 pacman -S --noconfirm zsh zsh-completions
@@ -98,7 +98,7 @@ pacman -S --noconfirm git make gcc docker docker-compose neovim nodejs npm yarn 
 pacman -S --noconfirm wine-staging lutris steam
 
 # office
-pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most
+pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most kmail
 
 # printer
 pacman -S --noconfirm cups

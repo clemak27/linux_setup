@@ -56,6 +56,9 @@ echo 'x11-bypass-compositor=no' >> ~/.config/mpv/mpv.conf
 # fix most gtk3 borders on kde
 yay -S --noconfirm gtk3-nocsd-git
 
+# gotop
+yay -S --noconfirm gotop-bin
+
 # syncthing
 yay -S --noconfirm syncthingtray
 yay -S --noconfirm syncthing
