@@ -5,6 +5,7 @@ setup_system:
   stage: test
   image: archlinux
   script:
-    - chmod +x setup_system.sh
-    - pacman -Sy
-    - ./setup_system.sh
+    - echo 'nothing to do here'
+    # - chmod +x setup_system.sh
+    # - pacman -Sy
+    # - ./setup_system.sh
