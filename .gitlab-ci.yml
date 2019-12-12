@@ -1,0 +1,10 @@
+stages:
+  - test
+
+setup_system:
+  stage: test
+  image: archlinux
+  script:
+    - chmod +x setup_system.sh
+    - pacman -Sy
+    - ./setup_system.sh
