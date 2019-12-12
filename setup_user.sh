@@ -91,7 +91,7 @@ qdbus org.kde.KWin /KWin reconfigure
 
 # screen locking bild rein
 # window switcher meta
-# logout: confirmen, end current session, start with empty
+# logout: confirmen, end current session, start with manually saved
 # usermanager bild ändern
 # regional format us region, alles ändere österreich
 # power management anpassen
@@ -101,5 +101,5 @@ qdbus org.kde.KWin /KWin reconfigure
 # Add xrandr --rate 144 to /usr/share/sddm/scripts/Xsetup
 # about:config layout.frame_rate 144
 
-# intellij: material deep ocean + A312E9
-# kde theme: sweet+candy-icons + sweet-dark [gtk]
+# intellij: onedark
+# kde theme: Breeze AlphaBlack, colorscheme for konsole + kde in folder
