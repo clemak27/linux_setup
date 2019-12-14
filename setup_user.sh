@@ -102,4 +102,9 @@ qdbus org.kde.KWin /KWin reconfigure
 # about:config layout.frame_rate 144
 
 # intellij: onedark
-# kde theme: Breeze AlphaBlack, colorscheme for konsole + kde in folder
+# kde theme: 
+    # Breeze AlphaBlack mit highlight color #2b5278
+    # colorscheme for konsole on dark in folder
+    # colors, plasma theme aritim dark
+    # window decorations sierra breeze
+    # icons papirus
