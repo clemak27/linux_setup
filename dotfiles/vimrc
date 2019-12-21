@@ -1,7 +1,8 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" setup vim-plug
+" ---------- vim-plug ----------
+
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 "     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -13,26 +14,14 @@ Plug 'tpope/vim-fugitive' " git diff etc inside vim
 Plug 'tpope/vim-commentary' " comment with gc
 Plug 'junegunn/fzf' " fuzzy file search
 Plug 'junegunn/fzf.vim' " fuzzy file search
-Plug 'townk/vim-autoclose' " autocomplete ({[, etc
 Plug 'tpope/vim-surround' " brackets around words ysiw(
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " everything
-" :CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-highlight coc-lists coc-git
+" :CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-highlight coc-lists coc-git coc-pairs
 
 call plug#end()
 
-" ---------------------------------------------
+" ---------- coc-Keybindings ----------
 
-" line number
-set number 
-
-" autoclose bugfix
-let g:AutoClosePreserveDotReg = 0 
-
-" use system clipboard
-set clipboard+=unnamedplus
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -44,29 +33,44 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Triger `autoread` when files changes on disk
-" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
-" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+" ---------- autoload ----------
+
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
-" Notification after file change
-" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-" based on basic .vimrc 
-" https://github.com/amix/vimrc
+" ---------- theme ----------
+
+if (has("nvim"))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+syntax enable 
+
+set background=dark
+try
+    colorscheme onedark
+catch
+endtry
+
+" line number
+set number 
+
+" use system clipboard
+set clipboard+=unnamedplus
 
 " ---------------------------------------------
 
@@ -140,25 +144,10 @@ set novisualbell
 set t_vb=
 set tm=500
 
-if (has("nvim"))
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-
-if (has("termguicolors"))
-  set termguicolors
-endif
 
 " Add a bit extra margin to the left
 set foldcolumn=1
 
-" Enable syntax highlighting
-syntax enable 
-
-set background=dark
-try
-    colorscheme onedark
-catch
-endtry
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
