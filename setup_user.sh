@@ -59,9 +59,6 @@ yay -S --noconfirm gtk3-nocsd-git
 # gotop
 yay -S --noconfirm gotop-bin
 
-# sierra breeze
-yay -S --noconfirm sierrabreeze-kwin-decoration-git
-
 # syncthing
 yay -S --noconfirm syncthingtray
 yay -S --noconfirm syncthing
@@ -106,8 +103,9 @@ qdbus org.kde.KWin /KWin reconfigure
 
 # intellij: onedark
 # kde theme:
-    # Breeze AlphaBlack mit highlight color #2b5278
-    # colorscheme for konsole on dark in folder
-    # colors, plasma theme aritim dark
+    # Aritim dark
+    # colorscheme for konsole one dark in folder
+    # colors -> aritim dark unified
+    # plasma theme aritim dark
     # window decorations sierra breeze
-    # icons papirus
+    # icons papirus-dark
