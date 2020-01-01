@@ -19,10 +19,11 @@ sudo mkdir -p /etc/pacman.d/hooks/
 sudo cp other/grub.hook /etc/pacman.d/hooks/grub.hook
 
 cd ~
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 chsh -s /usr/bin/zsh
 source .zshrc
 
-# plug-vi
+# plug-vim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # git config
