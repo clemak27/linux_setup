@@ -26,6 +26,9 @@ source .zshrc
 # plug-vim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# python dev packages
+pip install jedi pylint --user
+
 # git config
 git config --global user.name "clemak27"
 git config --global user.email clemak27@mailbox.org
@@ -42,7 +45,7 @@ cd yay
 makepkg -si
 
 # aur
-pacman -S --noconfirm automake autoconf
+sudo pacman -S --noconfirm automake autoconf
 yay -S --noconfirm cava tty-clock steam-fonts
 yay -S --noconfirm skypeforlinux-stable-bin
 
