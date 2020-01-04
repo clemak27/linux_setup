@@ -20,6 +20,7 @@ sudo cp other/grub.hook /etc/pacman.d/hooks/grub.hook
 
 cd ~
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 chsh -s /usr/bin/zsh
 source .zshrc
 
@@ -36,7 +37,7 @@ git config --global alias.lol 'log --graph --decorate --oneline --all'
 git config --global core.autocrlf input
 git config --global credential.helper "cache --timeout=86400"
 
-mkdir ~/Projects
+mkdir -p ~/Projects
 
 #yay
 cd ~/Projects
