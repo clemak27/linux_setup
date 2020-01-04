@@ -38,6 +38,7 @@ pacman -S --noconfirm arch-install-scripts b43-fwcutter broadcom-wl clonezilla c
 # DE
 pacman -S --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget
 
+# TODO these two seds need fixing!
 sed -i 's/#[multilib]/[multilib]/g' /etc/pacman.conf
 sed -i 's/#Include = \/etc\/pacman.d\/mirrorlist/Include = \/etc\/pacman.d\/mirrorlist/g' /etc/pacman.conf
 
@@ -75,7 +76,6 @@ pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji  noto-fonts-ext
 pacman -S --noconfirm qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat
 pacman -S --noconfirm ebtables iptables
 systemctl enable libvirtd.service
-systemctl start libvirtd.service
 
 sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/g' /etc/libvirt/libvirtd.conf
 sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvirt/libvirtd.conf
@@ -103,7 +103,6 @@ pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most k
 # printer
 pacman -S --noconfirm cups
 systemctl enable org.cups.cupsd.service
-systemctl start org.cups.cupsd.service
 
 # add user and set groups
 useradd -m $user
