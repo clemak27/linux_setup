@@ -94,6 +94,10 @@ qdbus org.kde.KWin /KWin reconfigure
 kwriteconfig5 --file ~/.config/kwinrc --group Windows --key BorderlessMaximizedWindows true
 qdbus org.kde.KWin /KWin reconfigure
 
+# konsole
+cp kde/TheProfile.profile ~/.local/share/konsole
+cp kde/one_dark.colorscheme ~/.local/share/konsole
+
 # screen locking bild rein
 # window switcher meta
 # logout: confirmen, end current session, start with manually saved

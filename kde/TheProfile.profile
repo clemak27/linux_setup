@@ -2,7 +2,7 @@
 ColorScheme=one_dark
 
 [General]
-Name=ZshProfile
+Name=TheProfile
 Parent=FALLBACK/
 TerminalColumns=125
 TerminalRows=25
