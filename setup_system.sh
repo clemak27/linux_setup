@@ -38,10 +38,10 @@ pacman -S --noconfirm b43-fwcutter broadcom-wl crda darkhttpd ddrescue dhclient 
 # DE
 pacman -S --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget
 
-# TODO these two seds need fixing!
-sed -i 's/#[multilib]/[multilib]/g' /etc/pacman.conf
-sed -i 's/#Include = \/etc\/pacman.d\/mirrorlist/Include = \/etc\/pacman.d\/mirrorlist/g' /etc/pacman.conf
+# activate multilib
+sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 
+# grant su permissions to wheel group
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
 pacman -Syyu --noconfirm
@@ -57,13 +57,12 @@ pacman -S --noconfirm latte-dock mpd cantata kid3 plasma-browser-integration sea
 
 systemctl enable sddm
 
-# networkmanager, just to be sure
+# networkmanager
 pacman -S --noconfirm networkmanager
 systemctl enable NetworkManager
 
 # gpu
 if [[ $gpu == "true" ]]; then
-  #statements
   pacman -S --noconfirm dkms linux-headers nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings
   pacman -S --noconfirm vulkan-icd-loader lib32-vulkan-icd-loader
 fi
