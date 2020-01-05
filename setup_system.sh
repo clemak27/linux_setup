@@ -35,8 +35,8 @@ echo "127.0.1.1	${hostname}.localdomain	${hostname}" >> /etc/hosts
 # packages.x86_64
 pacman -S --noconfirm b43-fwcutter broadcom-wl crda darkhttpd ddrescue dhclient dialog dnsutils elinks ethtool exfat-utils f2fs-tools fsarchiver grml-zsh-config hdparm ipw2100-fw ipw2200-fw irssi iwd lftp lsscsi mc mtools ndisc6 nfs-utils nilfs-utils nmap ntp openconnect openvpn partclone partimage pptpclient rp-pppoe sdparm sg3_utils tcpdump testdisk usb_modeswitch vpnc wireless-regdb wireless_tools wvdial xl2tpd
 
-# DE
-pacman -S --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget
+# some important stuff
+pacman -S --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget ntfs-3g
 
 # activate multilib
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
@@ -68,7 +68,7 @@ if [[ $gpu == "true" ]]; then
 fi
 
 # fonts
-pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji  noto-fonts-extra ttf-ibm-plex
+pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji  noto-fonts-extra
 
 # virtualization
 # https://computingforgeeks.com/complete-installation-of-kvmqemu-and-virt-manager-on-arch-linux-and-manjaro/
@@ -82,7 +82,10 @@ sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvi
 newgrp libvirt
 
 # default programs
-pacman -S --noconfirm firefox youtube-dl mpv keepassxc ripgrep fzf mps-youtube rsync parallel ntfs-3g nnn unrar
+pacman -S --noconfirm firefox mpv keepassxc
+
+# terminal
+pacman -S --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unrar
 
 # zsh
 pacman -S --noconfirm zsh zsh-completions
@@ -97,7 +100,7 @@ pacman -S --noconfirm git make gcc docker docker-compose neovim nodejs npm pytho
 pacman -S --noconfirm wine-staging lutris steam
 
 # office
-pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most kmail
+pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most
 
 # printer
 pacman -S --noconfirm cups
