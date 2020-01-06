@@ -7,7 +7,9 @@ trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
 # https://zren.github.io/kde/
 
-localectl set-keymap de
+# are those two lines even needed?
+localectl set-keymap de-latin1
+localectl set-locale en_US.UTF-8
 xdg-user-dirs-update
 
 # dotfiles
