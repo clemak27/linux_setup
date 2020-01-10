@@ -13,21 +13,21 @@ localectl set-locale en_US.UTF-8
 xdg-user-dirs-update
 
 # dotfiles
-cp ~/.zshrc zshrc_bu
 mkdir -p ~/.config/nvim
 cp dotfiles/vimrc ~/.config/nvim/init.vim
 
+# plug-vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# pacman hooks
 sudo mkdir -p /etc/pacman.d/hooks/
 sudo cp other/grub.hook /etc/pacman.d/hooks/grub.hook
 
-cd ~
-git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+# zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+cp dotfiles/zshrc ~/.zshrc
 chsh -s /usr/bin/zsh
-source .zshrc
-
-# plug-vim
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # python dev packages
 pip install jedi pylint --user
