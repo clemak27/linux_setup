@@ -26,6 +26,7 @@ sudo cp other/grub.hook /etc/pacman.d/hooks/grub.hook
 # zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+cp dotfiles/p10k ~/.p10k.zsh
 cp dotfiles/zshrc ~/.zshrc
 chsh -s /usr/bin/zsh
 
@@ -49,7 +50,7 @@ makepkg -si
 
 # aur
 sudo pacman -S --noconfirm automake autoconf
-yay -S --noconfirm cava tty-clock steam-fonts
+yay -S --noconfirm cava tty-clock steam-fonts ddgr
 yay -S --noconfirm skypeforlinux-stable-bin
 
 # mpv config
