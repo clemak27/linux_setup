@@ -84,7 +84,7 @@ newgrp libvirt
 pacman -S --noconfirm firefox mpv keepassxc
 
 # terminal
-pacman -S --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unrar
+pacman -S --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unrar htop
 
 # zsh
 pacman -S --noconfirm zsh zsh-completions
