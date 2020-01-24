@@ -25,6 +25,9 @@ setopt appendhistory
 unsetopt beep
 bindkey -e
 
+# https://unix.stackexchange.com/questions/167582/why-zsh-ends-a-line-with-a-highlighted-percent-symbol
+PROMPT_EOL_MARK=''
+
 # ---------- Environment Variables ----------
 export BROWSER="firefox"
 export EDITOR="nvim"
