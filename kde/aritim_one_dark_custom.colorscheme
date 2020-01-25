@@ -1,11 +1,11 @@
 [Background]
-Color=40,44,52
+Color=16,21,26
 
 [BackgroundFaint]
-Color=40,44,52
+Color=16,21,26
 
 [BackgroundIntense]
-Color=40,44,52
+Color=16,21,26
 
 [Color0]
 Color=40,44,52
@@ -89,6 +89,8 @@ Color=92,99,112
 Color=130,137,151
 
 [General]
-Description=One Dark
+Blur=false
+ColorRandomization=false
+Description=Aritim One Dark Custom
 Opacity=1
 Wallpaper=

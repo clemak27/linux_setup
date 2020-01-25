@@ -1,8 +1,9 @@
 [Appearance]
-ColorScheme=one_dark
+ColorScheme=one_dark_custom
+Font=MesloLGS NF,9,-1,5,50,0,0,0,0,0,Regular
 
 [General]
-Name=TheProfile
+Name=ZshProfile
 Parent=FALLBACK/
 TerminalColumns=125
 TerminalRows=25
