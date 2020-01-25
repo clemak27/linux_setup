@@ -34,7 +34,7 @@
 
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-      # os_icon               # os identifier
+      os_icon               # os identifier
       dir                     # current directory
       vcs                     # git status
       prompt_char             # prompt symbol
@@ -99,7 +99,7 @@
   # POWERLEVEL9K_MODE=compatible, or install the recommended Powerlevel10k font from
   # https://github.com/romkatv/powerlevel10k/#recommended-meslo-nerd-font-patched-for-powerlevel10k
   # and set POWERLEVEL9K_MODE=nerdfont-complete.
-  typeset -g POWERLEVEL9K_MODE=powerline
+  typeset -g POWERLEVEL9K_MODE=nerdfont-complete
 
   # When set to true, icons appear before content on both sides of the prompt. When set
   # to false, icons go after content. If empty or not set, icons go before content in the left
@@ -338,7 +338,7 @@
 
     # If local branch name or tag is at most 32 characters long, show it in full.
     # Otherwise show the first 12 … the last 12.
-    (( $#where > 32 )) && where[13,-13]="…"
+    # (( $#where > 32 )) && where[13,-13]="…"
     res+="${clean}${where//\%/%%}"  # escape %
 
     # Display the current Git commit if there is no branch or tag.
