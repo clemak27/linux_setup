@@ -9,6 +9,7 @@ filetype off                  " required
 call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'joshdick/onedark.vim' " atom one dark theme
+Plug 'haishanh/night-owl.vim'
 Plug 'tpope/vim-vinegar' " fileexplorer
 Plug 'tpope/vim-fugitive' " git diff etc inside vim
 Plug 'tpope/vim-commentary' " comment with gc
@@ -16,7 +17,7 @@ Plug 'junegunn/fzf' " fuzzy file search
 Plug 'junegunn/fzf.vim' " fuzzy file search
 Plug 'tpope/vim-surround' " brackets around words ysiw(
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " everything
-" :CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-highlight coc-lists coc-git coc-pairs
+" :CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-highlight coc-lists coc-git coc-pairs coc-go
 
 call plug#end()
 
