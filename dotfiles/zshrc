@@ -11,7 +11,7 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
 
-plugins=(git npm ripgrep fzf archlinux docker)
+plugins=(git npm ripgrep fzf archlinux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -33,7 +33,7 @@ export BROWSER="firefox"
 export EDITOR="nvim"
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export GOPATH=$HOME/.go
-export PATH=$PATH:~/.go/bin
+export PATH=$PATH:$HOME/.go/bin
 
 # ---------- Dircolors ----------
 LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
