@@ -11,7 +11,7 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
 
-plugins=(git npm ripgrep fzf archlinux)
+plugins=(git npm ripgrep fzf archlinux docker)
 
 source $ZSH/oh-my-zsh.sh
 
