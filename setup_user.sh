@@ -122,8 +122,8 @@ kwriteconfig5 --file ~/.config/kwinrc --group Windows --key BorderlessMaximizedW
 qdbus org.kde.KWin /KWin reconfigure
 
 # konsole
-cp kde/TheProfile.profile ~/.local/share/konsole
-cp kde/one_dark.colorscheme ~/.local/share/konsole
+cp kde/ZshProfile.profile ~/.local/share/konsole
+cp kde/aritim_one_dark_custom.colorscheme ~/.local/share/konsole
 
 # screen locking bild rein
 # window switcher meta
