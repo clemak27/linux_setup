@@ -75,7 +75,6 @@ makepkg -si
 # aur
 sudo pacman -S --noconfirm automake autoconf
 yay -S --noconfirm cava tty-clock steam-fonts ddgr
-yay -S --noconfirm skypeforlinux-stable-bin
 
 # mpv config
 cp -r /usr/share/doc/mpv/ ~/.config/
@@ -84,9 +83,6 @@ echo "" >> ~/.config/mpv/mpv.conf
 echo 'ytdl-format="bestvideo[height<=?1080]+bestaudio/best"' >> ~/.config/mpv/mpv.conf
 echo 'no-keepaspect-window' >> ~/.config/mpv/mpv.conf
 echo 'x11-bypass-compositor=no' >> ~/.config/mpv/mpv.conf
-
-# fix most gtk3 borders on kde
-yay -S --noconfirm gtk3-nocsd-git
 
 # gotop
 yay -S --noconfirm gotop-bin
@@ -123,7 +119,7 @@ qdbus org.kde.KWin /KWin reconfigure
 
 # konsole
 cp kde/ZshProfile.profile ~/.local/share/konsole
-cp kde/aritim_one_dark_custom.colorscheme ~/.local/share/konsole
+cp kde/one_black.colorscheme ~/.local/share/konsole
 
 # screen locking bild rein
 # window switcher meta
@@ -137,11 +133,10 @@ cp kde/aritim_one_dark_custom.colorscheme ~/.local/share/konsole
 # Add xrandr --rate 144 to /usr/share/sddm/scripts/Xsetup
 # about:config layout.frame_rate 144
 
-# intellij: onedark
+# intellij: material theme
 # kde theme:
-    # Aritim dark
     # colorscheme for konsole one dark in folder
-    # colors -> aritim dark unified
-    # plasma theme aritim dark
-    # window decorations sierra breeze
-    # icons papirus-dark
+    # colors -> brezze black custom
+    # plasma theme breeze
+    # window decorations breeze
+    # icons candy icons

@@ -16,6 +16,7 @@ Plug 'tpope/vim-commentary' " comment with gc
 Plug 'junegunn/fzf' " fuzzy file search
 Plug 'junegunn/fzf.vim' " fuzzy file search
 Plug 'tpope/vim-surround' " brackets around words ysiw(
+Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " everything
 " :CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-highlight coc-lists coc-git coc-pairs coc-go
 
@@ -106,7 +107,7 @@ endif
 syntax enable 
 
 let g:lightline = {'colorscheme': 'onedark'}
-let g:onedark_color_overrides = {"black": {"gui": "#10151A", "cterm": "255", "cterm16": "0" }}
+let g:onedark_color_overrides = {"black": {"gui": "#000000", "cterm": "255", "cterm16": "0" }}
 
 set background=dark
 try

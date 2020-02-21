@@ -1,11 +1,11 @@
 [Background]
-Color=16,21,26
+Color=0,0,0
 
 [BackgroundFaint]
-Color=16,21,26
+Color=0,0,0
 
 [BackgroundIntense]
-Color=16,21,26
+Color=0,0,0
 
 [Color0]
 Color=40,44,52
@@ -91,6 +91,6 @@ Color=130,137,151
 [General]
 Blur=false
 ColorRandomization=false
-Description=Aritim One Dark Custom
+Description=One Black
 Opacity=1
 Wallpaper=
