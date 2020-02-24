@@ -120,6 +120,7 @@ qdbus org.kde.KWin /KWin reconfigure
 # konsole
 cp kde/ZshProfile.profile ~/.local/share/konsole
 cp kde/one_black.colorscheme ~/.local/share/konsole
+cp kde/BreezeBlackCustom.colors ~/.local/share/color-schemes
 
 # screen locking bild rein
 # window switcher meta
