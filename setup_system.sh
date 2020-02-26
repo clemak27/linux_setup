@@ -7,7 +7,6 @@ trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 hostname="virtual"
 user="cle"
 password="1234"
-gpu="false"
 
 #------------------------------
 
@@ -49,7 +48,7 @@ pacman -Syyu --noconfirm
 pacman -S --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-browser-integration plasma-desktop plasma-integration plasma-nm plasma-pa plasma-workspace plasma-workspace-wallpapers polkit-kde-agent powerdevil sddm-kcm systemsettings user-manager
 
 # kde-applications
-pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kamera kate kcalc kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks kfind kget khelpcenter kio-extras konsole ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle kdeconnect partitionmanager
+pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kamera kate kcalc kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks kfind kget khelpcenter kio-extras konsole ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle kdeconnect partitionmanager krita
 
 # kde-specifics
 pacman -S --noconfirm latte-dock mpd cantata kid3 plasma-browser-integration seahorse sshfs unrar libebur128
@@ -61,10 +60,17 @@ pacman -S --noconfirm networkmanager
 systemctl enable NetworkManager
 
 # gpu
-if [[ $gpu == "true" ]]; then
-  pacman -S --noconfirm dkms linux-headers nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings
-  pacman -S --noconfirm vulkan-icd-loader lib32-vulkan-icd-loader
-fi
+pacman -S --noconfirm mesa
+pacman -S --noconfirm dkms linux-headers nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings
+pacman -S --noconfirm vulkan-icd-loader lib32-vulkan-icd-loader
+pacman -S --noconfirm nvidia-prime
+
+# touchpad
+pacman -S --noconfirm xf86-input-libinput
+
+# power management
+pacman -S --noconfirm tlp
+systemctl enable tlp.service
 
 # fonts
 pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji  noto-fonts-extra
@@ -90,7 +96,7 @@ pacman -S --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unrar htop
 pacman -S --noconfirm zsh zsh-completions
 
 # xD
-pacman -S --noconfirm cmatrix lolcat neofetch sl
+pacman -S --noconfirm cmatrix lolcat neofetch sl cloc
 
 # development
 pacman -S --noconfirm git make gcc docker docker-compose neovim nodejs npm python-pynvim xclip jdk-openjdk intellij-idea-community-edition maven python-pip go
@@ -102,7 +108,7 @@ groupadd docker
 pacman -S --noconfirm wine-staging lutris steam
 
 # office
-pacman -S --noconfirm gimp libreoffice-fresh libreoffice-fresh-de texlive-most
+pacman -S --noconfirm libreoffice-fresh libreoffice-fresh-de texlive-most
 
 # printer
 pacman -S --noconfirm cups
