@@ -53,7 +53,7 @@ alias lsa="ls --color -F -hal"
 
 alias mpvnv='mpv --no-video'
 alias q="exit"
-alias rsync-copy='rsync -avzh --progress '
+alias rsync-copy='rsync -avzzh --progress '
 alias spm="sudo pacman"
 alias vim="nvim"
 alias youtube-dl-music='youtube-dl --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s"'
