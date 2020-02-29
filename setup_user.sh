@@ -130,6 +130,9 @@ cp ./kde/BreezeBlackCustom.colors ~/.local/share/color-schemes
 # regional format us region, alles ändere österreich
 # power management anpassen
 
+# deep-sleep:
+# add mem_sleep_default=deep to the GRUB_CMDLINE_LINUX_DEFAULT entry in /etc/default/grub
+
 # 144Hz
 # Add MaxFPS=144 to your ~/.config/kwinrc
 # Add xrandr --rate 144 to /usr/share/sddm/scripts/Xsetup
