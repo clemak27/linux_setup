@@ -99,7 +99,7 @@ pacman -S --noconfirm zsh zsh-completions
 pacman -S --noconfirm cmatrix lolcat neofetch sl cloc
 
 # development
-pacman -S --noconfirm git make gcc docker docker-compose neovim nodejs npm python-pynvim xclip jdk-openjdk intellij-idea-community-edition maven python-pip go
+pacman -S --noconfirm git make gcc docker docker-compose neovim nodejs npm python-pynvim xclip jdk-openjdk maven python-pip go
 
 systemctl enable docker.service
 groupadd docker
