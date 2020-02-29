@@ -111,6 +111,9 @@ pacman -S --noconfirm libreoffice-fresh libreoffice-fresh-de texlive-most
 pacman -S --noconfirm cups
 systemctl enable org.cups.cupsd.service
 
+# enable bluetooth
+systemctl enable bluetooth.service
+
 # add user and set groups
 useradd -m $user
 sudo usermod -aG wheel $user
