@@ -18,7 +18,7 @@ Plug 'junegunn/fzf.vim' " fuzzy file search
 Plug 'tpope/vim-surround' " brackets around words ysiw(
 Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " everything
-" :CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-highlight coc-lists coc-git coc-pairs coc-go
+" :CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-highlight coc-lists coc-git coc-pairs coc-go coc-rls
 
 call plug#end()
 

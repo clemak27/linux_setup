@@ -58,6 +58,10 @@ go get honnef.co/go/tools/cmd/keyify
 go get github.com/fatih/motion
 go get github.com/koron/iferr
 
+# rust dev
+# path schon in zshrc
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 # git config
 git config --global user.name "clemak27"
 git config --global user.email clemak27@mailbox.org
