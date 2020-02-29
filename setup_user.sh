@@ -22,6 +22,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 # pacman hooks
 sudo mkdir -p /etc/pacman.d/hooks/
 sudo cp other/grub.hook /etc/pacman.d/hooks/grub.hook
+sudo ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
 
 # zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended

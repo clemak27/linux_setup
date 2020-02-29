@@ -88,7 +88,7 @@ sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvi
 pacman -S --noconfirm firefox mpv keepassxc
 
 # terminal
-pacman -S --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unrar htop
+pacman -S --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unrar htop arch-audit
 
 # zsh
 pacman -S --noconfirm zsh zsh-completions
