@@ -55,6 +55,7 @@ alias mpvnv='mpv --no-video'
 alias q="exit"
 alias rsync-copy='rsync -avzzh --progress '
 alias spm="sudo pacman"
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias vim="nvim"
 alias youtube-dl-music='youtube-dl --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s"'
 
