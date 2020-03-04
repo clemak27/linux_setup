@@ -21,12 +21,16 @@ parted --script "${device}" -- mklabel gpt \
   set 1 esp on \
   mkpart primary ext4 261MiB 100%
 
-mkfs.fat -F32 "${device}1"
-mkfs.ext4 "${device}2"
+# TODO automate YES and passphrase?
+cryptsetup -y -v luksFormat "${device}2"
+cryptsetup open "${device}2" cryptroot
 
-mount "${device}2" /mnt/
+mkfs.fat -F32 "${device}1"
+mkfs.ext4 /dev/mapper/cryptroot
+
 mkdir -p /mnt/boot/efi
-mount "${device}1" /mnt/boot/efi/
+mount "${device}1" /mnt/boot/
+mount /dev/mapper/cryptroot /mnt/
 
 # Select the mirrors
 cp pacman_mirrorlist /etc/pacman.d/mirrorlist
