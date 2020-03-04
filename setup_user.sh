@@ -134,6 +134,7 @@ cp ./kde/BreezeBlackCustom.colors ~/.local/share/color-schemes
 # usermanager bild ändern
 # regional format us region, alles ändere österreich
 # power management anpassen
+# autostart: latte, syncthing, keepass
 
 # deep-sleep:
 # add mem_sleep_default=deep to the GRUB_CMDLINE_LINUX_DEFAULT entry in /etc/default/grub
