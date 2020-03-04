@@ -22,20 +22,11 @@ parted --script "${device}" -- mklabel gpt \
   mkpart primary ext4 261MiB 100%
 
 mkfs.fat -F32 "${device}1"
-
-# WIP encrypt root
-# cryptsetup -y -v luksFormat /dev/"${device}2"
-# cryptsetup open /dev/"${device}2" cryptroot
-# mkfs.ext4 /dev/mapper/cryptroot
-# mount /dev/mapper/cryptroot /mnt/
-
 mkfs.ext4 "${device}2"
 
 mount "${device}2" /mnt/
 mkdir -p /mnt/boot/efi
 mount "${device}1" /mnt/boot/efi/
-# WIP
-# mount "${device}1" /mnt/boot/
 
 # Select the mirrors
 cp pacman_mirrorlist /etc/pacman.d/mirrorlist
@@ -47,7 +38,9 @@ pacstrap /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # install bootloader
-arch-chroot /mnt pacman -S --noconfirm grub efibootmgr intel-ucode
+arch-chroot /mnt pacman -S --noconfirm grub
+
+arch-chroot /mnt pacman -S --noconfirm efibootmgr intel-ucode
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
