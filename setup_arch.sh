@@ -52,6 +52,3 @@ cp setup_system.sh /mnt/setup_system.sh
 arch-chroot /mnt chmod +x setup_system.sh
 arch-chroot /mnt ./setup_system.sh
 rm /mnt/setup_system.sh
-
-# pick a god and pray
-shutdown
