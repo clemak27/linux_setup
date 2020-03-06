@@ -5,6 +5,7 @@ trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
 ### Setup infomation ###
 device="/dev/vda"
+passphrase="abcd"
 
 #------
 
@@ -21,9 +22,8 @@ parted --script "${device}" -- mklabel gpt \
   set 1 esp on \
   mkpart primary ext4 261MiB 100%
 
-# TODO automate YES and passphrase?
-cryptsetup -y -v luksFormat "${device}2"
-cryptsetup open "${device}2" cryptroot
+echo -n "${passphrase}" | cryptsetup -v luksFormat "${device}2" -
+echo -n "${passphrase}" | cryptsetup open "${device}2" cryptroot -
 
 mkfs.fat -F32 "${device}1"
 mkfs.ext4 /dev/mapper/cryptroot
@@ -44,7 +44,6 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # install bootloader
 arch-chroot /mnt pacman -S --noconfirm grub efibootmgr intel-ucode
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
-
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # setup_system
