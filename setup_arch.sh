@@ -24,7 +24,7 @@ parted --script "${device}" -- mklabel gpt \
   mkpart primary ext4 512MiB 100%
 
 # encrypt root
-echo -n "${passphrase}" | cryptsetup -v luksFormat "${device}3" -
+echo -n "${passphrase}" | cryptsetup -v --type luks1 luksFormat "${device}3" -
 echo -n "${passphrase}" | cryptsetup open "${device}3" cryptroot -
 
 # create filesystems
