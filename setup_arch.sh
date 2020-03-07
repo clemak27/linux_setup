@@ -17,20 +17,24 @@ timedatectl set-ntp true
 
 # Setup the disk and partitions
 parted --script "${device}" -- mklabel gpt \
-  mkpart primary fat32 1MiB 261MiB \
+  mkpart primary fat32 1MiB 128MiB \
   set 1 esp on \
-  mkpart primary ext4 261MiB 100%
+  mkpart primary ext4 128MiB 512MiB \
+  set 2 boot on \
+  mkpart primary ext4 512MiB 100%
 
 # encrypt root
-echo -n "${passphrase}" | cryptsetup -v luksFormat "${device}2" -
-echo -n "${passphrase}" | cryptsetup open "${device}2" cryptroot -
+echo -n "${passphrase}" | cryptsetup -v luksFormat "${device}3" -
+echo -n "${passphrase}" | cryptsetup open "${device}3" cryptroot -
 
 # create filesystems
 mkfs.fat -F32 "${device}1"
+mkfs.ext4 "${device}2"
 mkfs.ext4 /dev/mapper/cryptroot
 
 # mount partitions
-mount "${device}1" /mnt/boot/
+mkdir -p /mnt/boot
+mount "${device}2" /mnt/boot/
 mount /dev/mapper/cryptroot /mnt/
 
 # Select the mirrors
@@ -43,15 +47,16 @@ pacstrap /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # install bootloader
-mkdir -p /mnt/boot/efi
+mkdir -p /mnt/efi
+mount "${device}1" /mnt/efi
 arch-chroot /mnt pacman -S --noconfirm grub efibootmgr intel-ucode
-arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # setup boot for encrypted device
-sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt filesystems fsck)/g' /etc/mkinitcpio.conf
+arch-chroot /mnt sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt filesystems fsck)/g' /etc/mkinitcpio.conf
 arch-chroot /mnt mkinitcpio -p linux
-sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cryptdevice="'${device}'2":luks:allow-discards"/g' /etc/default/grub
+arch-chroot /mnt sed -i 's,GRUB_CMDLINE_LINUX="",GRUB_CMDLINE_LINUX="cryptdevice='${device}'2:luks:allow-discards,/g' /etc/default/grub
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # setup_system
