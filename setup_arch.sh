@@ -33,24 +33,23 @@ mkfs.ext4 "${device}2"
 mkfs.ext4 /dev/mapper/cryptroot
 
 # mount partitions
+mount /dev/mapper/cryptroot /mnt/
+mkdir -p /mnt/efi
+mount "${device}1" /mnt/efi
 mkdir -p /mnt/boot
 mount "${device}2" /mnt/boot/
-mount /dev/mapper/cryptroot /mnt/
 
 # Select the mirrors
 cp pacman_mirrorlist /etc/pacman.d/mirrorlist
 
 # Install the base packages
-pacstrap /mnt base linux linux-firmware
+pacstrap /mnt base linux linux-firmware grub efibootmgr intel-ucode
 
 # Configure the system
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # install bootloader
-mkdir -p /mnt/efi
-mount "${device}1" /mnt/efi
-arch-chroot /mnt pacman -S --noconfirm grub efibootmgr intel-ucode
-arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
+arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=ArchLinux
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # setup boot for encrypted device
