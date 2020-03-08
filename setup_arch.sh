@@ -51,7 +51,7 @@ mount "${device}2" /mnt/boot/
 cp pacman_mirrorlist /etc/pacman.d/mirrorlist
 
 # Install the base packages
-pacstrap /mnt base linux linux-firmware grub efibootmgr intel-ucode
+pacstrap /mnt base linux linux-firmware grub efibootmgr intel-ucode lvm2
 
 # Configure the system
 genfstab -U /mnt >> /mnt/etc/fstab
