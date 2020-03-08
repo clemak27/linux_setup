@@ -27,13 +27,20 @@ parted --script "${device}" -- mklabel gpt \
 echo -n "${passphrase}" | cryptsetup -v luksFormat "${device}3" -
 echo -n "${passphrase}" | cryptsetup open "${device}3" cryptroot -
 
+# create logical volumes
+pvcreate /dev/mapper/cryptroot
+vgcreate rootVolumes /dev/mapper/cryptroot
+lvcreate -L 8G rootVolumes -n swap
+lvcreate -l 100%FREE rootVolumes -n root
+
 # create filesystems
 mkfs.fat -F32 "${device}1"
 mkfs.ext4 "${device}2"
-mkfs.ext4 /dev/mapper/cryptroot
+mkfs.ext4 /dev/rootVolumes/root
+mkswap /dev/rootVolumes/swap
 
 # mount partitions
-mount /dev/mapper/cryptroot /mnt/
+mount /dev/mapper/rootVolumes/root /mnt
 mkdir -p /mnt/efi
 mount "${device}1" /mnt/efi
 mkdir -p /mnt/boot
