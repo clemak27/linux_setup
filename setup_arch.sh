@@ -46,10 +46,10 @@ arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot/efi --bo
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # setup_system
-cp setup_system.sh /mnt/setup_system.sh
-arch-chroot /mnt chmod +x setup_system.sh
-arch-chroot /mnt ./setup_system.sh
-rm /mnt/setup_system.sh
+cp setup_system.sh /mnt/tmp/setup_system.sh
+arch-chroot /mnt chmod +x /tmp/setup_system.sh
+arch-chroot /mnt bin/bash /tmp/setup_system.sh
+rm /mnt/tmp/*
 
 # pick a god and pray
 shutdown
