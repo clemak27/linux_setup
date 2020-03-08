@@ -30,18 +30,15 @@ echo -n "${passphrase}" | cryptsetup open "${device}3" cryptroot -
 # create logical volumes
 pvcreate /dev/mapper/cryptroot
 vgcreate vg1 /dev/mapper/cryptroot
-lvcreate -L 8G vg1 -n swap
 lvcreate -l 100%FREE vg1 -n root
 
 # create filesystems
 mkfs.fat -F32 "${device}1"
 mkfs.ext4 "${device}2"
 mkfs.ext4 /dev/vg1/root
-mkswap /dev/vg1/swap
 
 # mount partitions
 mount /dev/vg1/root /mnt
-swapon /dev/vg1/swap
 mkdir -p /mnt/efi
 mount "${device}1" /mnt/efi
 mkdir -p /mnt/boot
