@@ -60,9 +60,10 @@ arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloa
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # setup boot for encrypted device
+rootUUID=$(lsblk -dno UUID "${device}3")
 arch-chroot /mnt sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt filesystems fsck)/g' /etc/mkinitcpio.conf
 arch-chroot /mnt mkinitcpio -p linux
-arch-chroot /mnt sed -i 's,GRUB_CMDLINE_LINUX="",GRUB_CMDLINE_LINUX="cryptdevice='${device}'3:luks:allow-discards",g' /etc/default/grub
+arch-chroot /mnt sed -i 's,GRUB_CMDLINE_LINUX="",GRUB_CMDLINE_LINUX="cryptdevice=UUID='${rootUUID}':luks:allow-discards",g' /etc/default/grub
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # setup_system
