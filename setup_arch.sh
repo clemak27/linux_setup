@@ -23,7 +23,7 @@ parted --script "${device}" -- mklabel gpt \
   set 2 boot on \
   mkpart primary ext4 512MiB 100%
 
-# encrypt root
+# encrypt root partition
 echo -n "${passphrase}" | cryptsetup -v luksFormat "${device}3" -
 echo -n "${passphrase}" | cryptsetup open "${device}3" cryptroot -
 
@@ -40,7 +40,8 @@ mkfs.ext4 /dev/rootVolumes/root
 mkswap /dev/rootVolumes/swap
 
 # mount partitions
-mount /dev/mapper/rootVolumes/root /mnt
+mount /dev/rootVolumes/root /mnt
+swapon /dev/rootVolumes/swap
 mkdir -p /mnt/efi
 mount "${device}1" /mnt/efi
 mkdir -p /mnt/boot
