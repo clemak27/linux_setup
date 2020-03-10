@@ -8,6 +8,9 @@ if [ -f ./config.sh ]; then
     source ./config.sh
 fi
 
+luksPartition="cryptroot"
+volumeGroup="vg1"
+
 # Set the keyboard layout
 loadkeys de-latin1
 
@@ -24,20 +27,20 @@ parted --script "${device}" -- mklabel gpt \
 
 # encrypt root partition
 echo -n "${passphrase}" | cryptsetup -v luksFormat "${device}3" -
-echo -n "${passphrase}" | cryptsetup open "${device}3" cryptroot -
+echo -n "${passphrase}" | cryptsetup open "${device}3" "${luksPartition}" -
 
 # create logical volumes
-pvcreate /dev/mapper/cryptroot
-vgcreate vg1 /dev/mapper/cryptroot
-lvcreate -l 100%FREE vg1 -n root
+pvcreate /dev/mapper/"${luksPartition}"
+vgcreate "${volumeGroup}" /dev/mapper/"${luksPartition}"
+lvcreate -l 100%FREE "${volumeGroup}" -n root
 
 # create filesystems
 mkfs.fat -F32 "${device}1"
 mkfs.ext4 "${device}2"
-mkfs.ext4 /dev/vg1/root
+mkfs.ext4 /dev/"${volumeGroup}"/root
 
 # mount partitions
-mount /dev/vg1/root /mnt
+mount /dev/"${volumeGroup}"/root /mnt
 mkdir -p /mnt/efi
 mount "${device}1" /mnt/efi
 mkdir -p /mnt/boot
