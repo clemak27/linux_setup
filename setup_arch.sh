@@ -8,9 +8,6 @@ if [ -f ./config.sh ]; then
     source ./config.sh
 fi
 
-luksPartition="cryptroot"
-volumeGroup="vg1"
-
 # Set the keyboard layout
 loadkeys de-latin1
 
