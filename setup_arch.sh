@@ -3,11 +3,10 @@
 set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
-### Setup infomation ###
-device="/dev/vda"
-passphrase="abcd"
-
-#------
+# Load config
+if [ -f ./config.sh ]; then
+    source ./config.sh
+fi
 
 # Set the keyboard layout
 loadkeys de-latin1
