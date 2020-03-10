@@ -65,14 +65,14 @@ pacman -S --noconfirm vulkan-icd-loader lib32-vulkan-icd-loader
 pacman -S --noconfirm nvidia-prime
 
 # touchpad
-pacman -S --noconfirm xf86-input-libinput
+pacman -S --noconfirm xf86-input-libinput xf86-input-synaptics
 
 # power management
 pacman -S --noconfirm tlp
 systemctl enable tlp.service
 
 # fonts
-pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji  noto-fonts-extra
+pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
 
 # virtualization
 # https://computingforgeeks.com/complete-installation-of-kvmqemu-and-virt-manager-on-arch-linux-and-manjaro/
