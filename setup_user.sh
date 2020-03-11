@@ -140,7 +140,7 @@ cp ./kde/BreezeBlackCustom.colors ~/.local/share/color-schemes
 # add mem_sleep_default=deep to the GRUB_CMDLINE_LINUX_DEFAULT entry in /etc/default/grub
 
 # 144Hz
-# Add MaxFPS=144 to your ~/.config/kwinrc
+# Add MaxFPS=144 to your ~/.config/kwinrc under [Compositing]
 # Add xrandr --rate 144 to /usr/share/sddm/scripts/Xsetup
 # about:config layout.frame_rate 144
 
