@@ -3,12 +3,13 @@
 set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
-### Setup infomation ###
-hostname="virtual"
-user="cle"
-password="1234"
-
-#------------------------------
+# Load config
+if [ -f ./config.sh ]; then
+    source ./config.sh
+else
+   echo "Config file could not be found!"
+   exit 1
+fi
 
 # timezone
 ln -sf /usr/share/zoneinfo/Europe/Vienna /etc/localtime
