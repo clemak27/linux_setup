@@ -68,6 +68,7 @@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # setup_system
 cp setup_system.sh /mnt/tmp/setup_system.sh
+cp config.sh /mnt/tmp/config.sh
 arch-chroot /mnt chmod +x /tmp/setup_system.sh
 arch-chroot /mnt bin/bash /tmp/setup_system.sh
 rm /mnt/tmp/*
