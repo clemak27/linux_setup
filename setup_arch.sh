@@ -27,11 +27,11 @@ parted --script "${device}" -- mklabel gpt \
 
 # encrypt root partition
 echo -n "${passphrase}" | cryptsetup -v luksFormat "${rootPartition}" -
-echo -n "${passphrase}" | cryptsetup open "${rootPartition}" "${luksPartition}" -
+echo -n "${passphrase}" | cryptsetup open "${rootPartition}" "${luksMapper}" -
 
 # create logical volumes
-pvcreate /dev/mapper/"${luksPartition}"
-vgcreate "${volumeGroup}" /dev/mapper/"${luksPartition}"
+pvcreate /dev/mapper/"${luksMapper}"
+vgcreate "${volumeGroup}" /dev/mapper/"${luksMapper}"
 lvcreate -l 100%FREE "${volumeGroup}" -n root
 
 # create filesystems

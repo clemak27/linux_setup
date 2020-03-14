@@ -2,7 +2,7 @@
 
 device="/dev/vda"
 passphrase="abcd"
-luksPartition="cryptroot"
+luksMapper="cryptroot"
 volumeGroup="vg1"
 hostname="virtual"
 user="cle"
