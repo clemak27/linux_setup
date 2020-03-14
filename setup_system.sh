@@ -35,7 +35,7 @@ echo "127.0.1.1	${hostname}.localdomain	${hostname}" >> /etc/hosts
 pacman -S --noconfirm b43-fwcutter broadcom-wl crda darkhttpd ddrescue dhclient dialog dnsutils elinks ethtool exfat-utils f2fs-tools fsarchiver hdparm ipw2100-fw ipw2200-fw irssi iwd lftp lsscsi mc mtools ndisc6 nfs-utils nilfs-utils nmap ntp openconnect openvpn partclone partimage pptpclient rp-pppoe sdparm sg3_utils tcpdump testdisk usb_modeswitch vpnc wireless-regdb wireless_tools wvdial xl2tpd man
 
 # some important stuff
-pacman -S --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget ntfs-3g
+pacman -S --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget ntfs-3g pacman-contrib
 
 # activate multilib
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
@@ -112,6 +112,11 @@ systemctl enable org.cups.cupsd.service
 
 # enable bluetooth
 systemctl enable bluetooth.service
+
+# pacman hooks
+mkdir -p /etc/pacman.d/hooks/
+cp other/grub.hook /etc/pacman.d/hooks/grub.hook
+ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
 
 # add user and set groups
 useradd -m $user

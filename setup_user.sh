@@ -19,11 +19,6 @@ cp dotfiles/vimrc ~/.config/nvim/init.vim
 # plug-vim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# pacman hooks
-sudo mkdir -p /etc/pacman.d/hooks/
-sudo cp other/grub.hook /etc/pacman.d/hooks/grub.hook
-sudo ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
-
 # zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
@@ -93,8 +88,8 @@ echo 'x11-bypass-compositor=no' >> ~/.config/mpv/mpv.conf
 yay -S --noconfirm gotop-bin
 
 # syncthing
-yay -S --noconfirm syncthingtray
 yay -S --noconfirm syncthing
+yay -S --noconfirm syncthingtray
 
 # latte addons
 sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons
