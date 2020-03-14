@@ -93,8 +93,8 @@ echo 'x11-bypass-compositor=no' >> ~/.config/mpv/mpv.conf
 yay -S --noconfirm gotop-bin
 
 # syncthing
-yay -S --noconfirm syncthingtray
 yay -S --noconfirm syncthing
+yay -S --noconfirm syncthingtray
 
 # latte addons
 sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons
