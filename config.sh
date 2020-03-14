@@ -12,14 +12,11 @@ password="1234"
 
 if [[ $device =~ "nvme" ]]
 then
-  efiVolume="${device}p1"
-  bootVolume="${device}p2"
-  rootVolume="${device}p3"
+  efiPartition="${device}p1"
+  bootPartition="${device}p2"
+  rootPartition="${device}p3"
 else
-  efiVolume="${device}1"
-  bootVolume="${device}2"
-  rootVolume="${device}3"
+  efiPartition="${device}1"
+  bootPartition="${device}2"
+  rootPartition="${device}3"
 fi
-
-
-
