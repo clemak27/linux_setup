@@ -113,6 +113,11 @@ systemctl enable org.cups.cupsd.service
 # enable bluetooth
 systemctl enable bluetooth.service
 
+# pacman hooks
+mkdir -p /etc/pacman.d/hooks/
+cp other/grub.hook /etc/pacman.d/hooks/grub.hook
+ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
+
 # add user and set groups
 useradd -m $user
 sudo usermod -aG wheel $user
