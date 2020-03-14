@@ -10,7 +10,7 @@ password="1234"
 
 #---------------------------
 
-efiPartition="${device}1"
-bootPartition="${device}2"
-rootPartition="${device}3"
+efiGroup="${device}1"
+bootGroup="${device}2"
+rootGroup="${device}3"
 
