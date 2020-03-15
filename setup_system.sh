@@ -115,7 +115,8 @@ systemctl enable bluetooth.service
 
 # pacman hooks
 mkdir -p /etc/pacman.d/hooks/
-cp other/grub.hook /etc/pacman.d/hooks/grub.hook
+cp pacman-hooks/grub.hook /etc/pacman.d/hooks/grub.hook
+cp pacman-hooks/cleanup.hook /etc/pacman.d/hooks/cleanup.hook
 ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
 
 # add user and set groups

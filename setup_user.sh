@@ -93,21 +93,7 @@ yay -S --noconfirm syncthingtray
 
 # latte addons
 sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons
-
-cd ~/Projects
-git clone https://github.com/psifidotos/applet-window-title.git
-cd applet-window-title
-plasmapkg2 -i .
-
-cd ~/Projects
-git clone https://github.com/psifidotos/applet-window-buttons.git
-cd applet-window-buttons
-sh install.sh
-
-cd ~/Projects
-git clone https://github.com/psifidotos/applet-window-appmenu.git
-cd applet-window-appmenu
-sh install.sh
+/bin/bash/ ./kde/latte_addons.sh
 
 # meta key latte menu
 kwriteconfig5 --file ~/.config/kwinrc --group ModifierOnlyShortcuts --key Meta "org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu"
