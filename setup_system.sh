@@ -111,6 +111,7 @@ pacman -S --noconfirm cups
 systemctl enable org.cups.cupsd.service
 
 # enable bluetooth
+pacman -S --noconfirm pulseaudio-bluetooth
 systemctl enable bluetooth.service
 
 # pacman hooks
