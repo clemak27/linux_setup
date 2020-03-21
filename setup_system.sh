@@ -101,7 +101,7 @@ pacman -S --noconfirm git make gcc docker docker-compose neovim nodejs npm pytho
 systemctl enable docker.service
 
 # gaming
-pacman -S --noconfirm wine-staging lutris steam
+pacman -S --noconfirm wine-staging lutris steam discord
 
 # office
 pacman -S --noconfirm libreoffice-fresh libreoffice-fresh-de texlive-most
