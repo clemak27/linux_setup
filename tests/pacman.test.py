@@ -3,6 +3,7 @@
 import subprocess
 
 packages = []
+fails = []
 
 for line in open('../setup_system.sh'):
     if 'pacman -S --noconfirm' in line:
@@ -11,12 +12,18 @@ for line in open('../setup_system.sh'):
         for package in packaP:
             packages.append(package)
 
-print(packages)
+print("Checking availability of", len(packages), "packages.")
 
 for package in packages:
-    searchTerm = '^'+package+'-'
+    searchTerm = '^'+package+'$'
     result = subprocess.run(['pacman', '-Ss', searchTerm], stdout=subprocess.PIPE).stdout.decode('utf-8')
-    # if not result
-    #     print('oh no')
-    # else
-    #     print('ok')
+    if not result:
+        print('oh no')
+        fails.append(package)
+
+if len(fails) > 0:
+    print("Test failed;", len(fails) , "packages not found:")
+    print(fails)
+    raise AssertionError()
+else:
+    print("Test successful, all packages found.")
