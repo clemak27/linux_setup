@@ -1,11 +1,11 @@
 stages:
   - test
 
-setup_system:
+pacman:
   stage: test
   image: archlinux
   script:
-    - echo 'nothing to do here'
-    # - chmod +x setup_system.sh
-    # - pacman -Sy
-    # - ./setup_system.sh
+    - echo 'Running pacman test script...'
+    - pacman -Sy
+    - chmod +x ./test/pacman.test.py
+    - /bin/sh ./test/pacman.test.py
