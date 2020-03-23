@@ -17,6 +17,6 @@ copy-test:
   script:
     - echo 'Running cp test script...'
     - pacman -Sy
-    - pacman -S --noconfirm python3
+    - pacman -S --noconfirm python3 mpv
     - chmod +x tests/copy.test.py
     - python3 tests/copy.test.py
