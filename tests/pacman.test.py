@@ -5,7 +5,7 @@ import subprocess
 packages = []
 fails = []
 
-for line in open('../setup_system.sh'):
+for line in open('./setup_system.sh'):
     if 'pacman -S --noconfirm' in line:
         packagesInLine = line.replace('pacman -S --noconfirm ', '').replace('\n','')
         packaP = packagesInLine.split(' ')
