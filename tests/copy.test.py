@@ -8,7 +8,7 @@ fails = []
 def scanFile(filepath):
     for line in open(filepath):
         if 'cp ' in line:
-            packagesInLine = line.replace('cp ', '').replace('cp -R', '').replace('cp -r', '').replace('\n','')
+            packagesInLine = line.replace('cp -R ', '').replace('cp -r ', '').replace('cp ', '').replace('\n','')
             commandPaths = packagesInLine.split(' ')
             commands.append(commandPaths[0])
 
