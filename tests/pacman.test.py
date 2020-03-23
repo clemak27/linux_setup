@@ -18,7 +18,6 @@ for package in packages:
     searchTerm = '^'+package+'$'
     result = subprocess.run(['pacman', '-Ss', searchTerm], stdout=subprocess.PIPE).stdout.decode('utf-8')
     if not result:
-        print('oh no')
         fails.append(package)
 
 if len(fails) > 0:
