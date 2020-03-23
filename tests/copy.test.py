@@ -3,6 +3,7 @@
 import os.path
 
 commands = []
+ignored = ['/usr/share/doc/mpv/']
 fails = []
 
 def scanFile(filepath):
@@ -19,7 +20,7 @@ scanFile('./setup_system.sh')
 scanFile('./setup_user.sh')
 
 for filePath in commands:
-    if not os.path.exists(filePath):
+    if not os.path.exists(filePath) and filePath not in ignored:
         fails.append(filePath)
 
 if len(fails) > 0:
