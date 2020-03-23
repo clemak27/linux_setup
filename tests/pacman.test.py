@@ -3,6 +3,7 @@
 import subprocess
 
 packages = []
+ignored = ['lib32-nvidia-utils', 'lib32-vulkan-icd-loader', 'wine-staging', 'steam']
 fails = []
 
 for line in open('./setup_system.sh'):
@@ -12,13 +13,14 @@ for line in open('./setup_system.sh'):
         for package in packaP:
             packages.append(package)
 
-print("Checking availability of", len(packages), "packages.")
+print("Checking availability of", len(packages)-len(ignored), "packages.")
 
 for package in packages:
-    searchTerm = '^'+package+'$'
-    result = subprocess.run(['pacman', '-Ss', searchTerm], stdout=subprocess.PIPE).stdout.decode('utf-8')
-    if not result:
-        fails.append(package)
+    if package not in ignored:
+        searchTerm = '^'+package+'$'
+        result = subprocess.run(['pacman', '-Ss', searchTerm], stdout=subprocess.PIPE).stdout.decode('utf-8')
+        if not result:
+            fails.append(package)
 
 if len(fails) > 0:
     print("Test failed;", len(fails) , "packages not found:")

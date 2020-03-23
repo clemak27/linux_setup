@@ -8,9 +8,5 @@ pacman:
     - echo 'Running pacman test script...'
     - pacman -Sy
     - pacman -S --noconfirm python3
-    - cat /etc/pacman.conf
-    - sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-    - cat /etc/pacman.conf
-    - pacman -Syyu --noconfirm
     - chmod +x tests/pacman.test.py
     - python3 tests/pacman.test.py
