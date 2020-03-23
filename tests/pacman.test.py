@@ -9,8 +9,8 @@ fails = []
 for line in open('./setup_system.sh'):
     if 'pacman -S --noconfirm' in line:
         packagesInLine = line.replace('pacman -S --noconfirm ', '').replace('\n','')
-        packaP = packagesInLine.split(' ')
-        for package in packaP:
+        packagesInCommand = packagesInLine.split(' ')
+        for package in packagesInCommand:
             packages.append(package)
 
 print("Checking availability of", len(packages)-len(ignored), "packages.")
@@ -23,7 +23,7 @@ for package in packages:
             fails.append(package)
 
 if len(fails) > 0:
-    print("Test failed;", len(fails) , "packages not found:")
+    print("Test failed:", len(fails) , "packages not found:")
     print(fails)
     raise AssertionError()
 else:
