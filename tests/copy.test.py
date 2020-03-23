@@ -14,9 +14,9 @@ def scanFile(filepath):
 
 print("Checking if all files that should be copied exist.")
 
-scanFile('./setup_arch')
-scanFile('./setup_system')
-scanFile('./setup_user')
+scanFile('./setup_arch.sh')
+scanFile('./setup_system.sh')
+scanFile('./setup_user.sh')
 
 for filePath in commands:
     if not os.path.exists(filePath):
