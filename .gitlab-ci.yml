@@ -7,5 +7,5 @@ pacman:
   script:
     - echo 'Running pacman test script...'
     - pacman -Sy
-    - chmod +x test/pacman.test.py
-    - /bin/sh test/pacman.test.py
+    - chmod +x tests/pacman.test.py
+    - /bin/sh tests/pacman.test.py
