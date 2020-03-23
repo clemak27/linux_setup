@@ -8,4 +8,4 @@ pacman:
     - echo 'Running pacman test script...'
     - pacman -Sy
     - chmod +x tests/pacman.test.py
-    - python3 tests/pacman.test.py
+    - python tests/pacman.test.py
