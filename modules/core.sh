@@ -37,6 +37,10 @@ pacman -S --noconfirm b43-fwcutter broadcom-wl crda darkhttpd ddrescue dhclient 
 # some important stuff
 pacman -S --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget ntfs-3g pacman-contrib
 
+# networkmanager
+pacman -S --noconfirm networkmanager
+systemctl enable NetworkManager
+
 # activate multilib
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 
@@ -44,20 +48,6 @@ sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
 pacman -Syyu --noconfirm
-
-# plasma
-pacman -S --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-browser-integration plasma-desktop plasma-integration plasma-nm plasma-pa plasma-workspace plasma-workspace-wallpapers polkit-kde-agent powerdevil sddm-kcm systemsettings user-manager
-
-# kde-applications
-pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kamera kate kcalc kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks kfind kget khelpcenter kio-extras konsole ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle kdeconnect partitionmanager krita
-
-# kde-specifics
-pacman -S --noconfirm latte-dock mpd cantata kid3 plasma-browser-integration seahorse sshfs unrar libebur128
-systemctl enable sddm
-
-# networkmanager
-pacman -S --noconfirm networkmanager
-systemctl enable NetworkManager
 
 # gpu
 pacman -S --noconfirm mesa
