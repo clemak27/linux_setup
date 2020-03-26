@@ -1,11 +1,22 @@
 stages:
   - test
 
-setup_system:
+pacman-test:
   stage: test
   image: archlinux
   script:
-    - echo 'nothing to do here'
-    # - chmod +x setup_system.sh
-    # - pacman -Sy
-    # - ./setup_system.sh
+    - echo 'Running pacman test script...'
+    - pacman -Sy
+    - pacman -S --noconfirm python3
+    - chmod +x tests/pacman.test.py
+    - python3 tests/pacman.test.py
+
+copy-test:
+  stage: test
+  image: archlinux
+  script:
+    - echo 'Running cp test script...'
+    - pacman -Sy
+    - pacman -S --noconfirm python3 mpv
+    - chmod +x tests/copy.test.py
+    - python3 tests/copy.test.py
