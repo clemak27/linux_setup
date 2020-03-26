@@ -1,17 +1,22 @@
 #!/bin/python3
 
 import subprocess
+from os import listdir
+from os.path import isfile, join
 
 packages = []
 ignored = ['lib32-nvidia-utils', 'lib32-vulkan-icd-loader', 'wine-staging', 'steam']
 fails = []
+modulePath = './modules'
 
-for line in open('./setup_system.sh'):
-    if 'pacman -S --noconfirm' in line:
-        packagesInLine = line.replace('pacman -S --noconfirm ', '').replace('\n','')
-        packagesInCommand = packagesInLine.split(' ')
-        for package in packagesInCommand:
-            packages.append(package)
+for file in listdir(modulePath):
+    if isfile(join(modulePath, file)):
+        for line in open(join(modulePath, file)):
+            if 'pacman -S --noconfirm' in line:
+                packagesInLine = line.replace('pacman -S --noconfirm ', '').replace('\n','')
+                packagesInCommand = packagesInLine.split(' ')
+                for package in packagesInCommand:
+                    packages.append(package)
 
 print("Checking availability of", len(packages)-len(ignored), "packages.")
 

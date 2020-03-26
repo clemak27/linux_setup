@@ -1,10 +1,13 @@
 #!/bin/python3
 
 import os.path
+from os import listdir
+from os.path import isfile, join
 
 commands = []
 ignored = ['/usr/share/doc/mpv/']
 fails = []
+modulePath = './modules'
 
 def scanFile(filepath):
     for line in open(filepath):
@@ -16,8 +19,11 @@ def scanFile(filepath):
 print("Checking if all files that should be copied exist.")
 
 scanFile('./setup_arch.sh')
-scanFile('./setup_system.sh')
 scanFile('./setup_user.sh')
+
+for file in listdir(modulePath):
+    if isfile(join(modulePath, file)):
+        scanFile(join(modulePath, file))
 
 for filePath in commands:
     if not os.path.exists(filePath) and filePath not in ignored:
