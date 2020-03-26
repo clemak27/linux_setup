@@ -4,8 +4,8 @@ set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
 # Load config
-if [ -f ./config.sh ]; then
-    source ./config.sh
+if [ -f ../config.sh ]; then
+    source ../config.sh
 else
    echo "Config file could not be found!"
    exit 1
