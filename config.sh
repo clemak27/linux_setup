@@ -7,7 +7,7 @@ volumeGroup="vg1"
 hostname="virtual"
 user="cle"
 password="1234"
-modules=(core plasma)
+modules=(core plasma mesa nvidia nvidia-prime)
 
 #---------------------------
 

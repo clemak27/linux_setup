@@ -49,12 +49,6 @@ sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
 pacman -Syyu --noconfirm
 
-# gpu
-pacman -S --noconfirm mesa
-pacman -S --noconfirm dkms linux-headers nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings
-pacman -S --noconfirm vulkan-icd-loader lib32-vulkan-icd-loader
-pacman -S --noconfirm nvidia-prime
-
 # touchpad
 pacman -S --noconfirm xf86-input-libinput xf86-input-synaptics
 
