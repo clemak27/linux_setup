@@ -72,6 +72,6 @@ cp -R . /mnt/tmp/linux_setup
 for module in ${modules[@]}
 do
   arch-chroot /mnt chmod +x /tmp/linux_setup/modules/${module}.sh
-  arch-chroot /mnt bin/bash /tmp/linux_setup/modules/${module}.sh
+  arch-chroot /mnt /bin/bash /tmp/linux_setup/modules/${module}.sh
 done
 rm /mnt/tmp/*
