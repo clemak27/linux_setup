@@ -68,10 +68,6 @@ pacman -S --noconfirm cmatrix lolcat neofetch sl cloc
 pacman -S --noconfirm git make gcc docker docker-compose neovim nodejs npm python-pynvim xclip jdk-openjdk maven python-pip go
 systemctl enable docker.service
 
-# enable bluetooth
-pacman -S --noconfirm pulseaudio-bluetooth
-systemctl enable bluetooth.service
-
 # pacman hooks
 mkdir -p /etc/pacman.d/hooks/
 cp pacman-hooks/grub.hook /etc/pacman.d/hooks/grub.hook
