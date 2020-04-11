@@ -71,9 +71,6 @@ systemctl enable docker.service
 # gaming
 pacman -S --noconfirm wine-staging lutris steam discord
 
-# office
-pacman -S --noconfirm libreoffice-fresh libreoffice-fresh-de texlive-most
-
 # printer
 pacman -S --noconfirm cups
 systemctl enable org.cups.cupsd.service
