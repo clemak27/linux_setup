@@ -71,10 +71,6 @@ systemctl enable docker.service
 # gaming
 pacman -S --noconfirm wine-staging lutris steam discord
 
-# printer
-pacman -S --noconfirm cups
-systemctl enable org.cups.cupsd.service
-
 # enable bluetooth
 pacman -S --noconfirm pulseaudio-bluetooth
 systemctl enable bluetooth.service
