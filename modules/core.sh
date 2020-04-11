@@ -68,9 +68,6 @@ pacman -S --noconfirm cmatrix lolcat neofetch sl cloc
 pacman -S --noconfirm git make gcc docker docker-compose neovim nodejs npm python-pynvim xclip jdk-openjdk maven python-pip go
 systemctl enable docker.service
 
-# gaming
-pacman -S --noconfirm wine-staging lutris steam discord
-
 # enable bluetooth
 pacman -S --noconfirm pulseaudio-bluetooth
 systemctl enable bluetooth.service
