@@ -74,7 +74,7 @@ makepkg -si
 
 # aur
 sudo pacman -S --noconfirm automake autoconf
-yay -S --noconfirm cava tty-clock steam-fonts ddgr
+yay -S --noconfirm cava tty-clock steam-fonts ddgr spotify
 
 # mpv config
 cp -r /usr/share/doc/mpv/ ~/.config/
