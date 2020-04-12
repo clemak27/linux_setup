@@ -31,6 +31,17 @@ cp dotfiles/p10k ~/.p10k.zsh
 cp dotfiles/zshrc ~/.zshrc
 chsh -s /usr/bin/zsh
 
+# git config
+git config --global user.name "clemak27"
+git config --global user.email clemak27@mailbox.org
+git config --global alias.lol 'log --graph --decorate --oneline --all'
+git config --global core.autocrlf input
+git config --global credential.helper "cache --timeout=86400"
+
+mkdir -p ~/Projects
+
+#--------------------module dependencies--------------------
+
 # python dev packages
 if [[ " ${modules[@]} " =~ "python" ]]; then
   pip install jedi pylint --user
@@ -65,15 +76,6 @@ fi
 # rust dev
 # path schon in zshrc
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# git config
-git config --global user.name "clemak27"
-git config --global user.email clemak27@mailbox.org
-git config --global alias.lol 'log --graph --decorate --oneline --all'
-git config --global core.autocrlf input
-git config --global credential.helper "cache --timeout=86400"
-
-mkdir -p ~/Projects
 
 #yay
 cd ~/Projects
