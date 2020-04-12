@@ -153,6 +153,3 @@ if [[ " ${modules[@]} " =~ "latte-dock" ]]; then
   kwriteconfig5 --file ~/.config/kwinrc --group Windows --key BorderlessMaximizedWindows true
   qdbus org.kde.KWin /KWin reconfigure
 fi
-
-# deep-sleep:
-# add mem_sleep_default=deep to the GRUB_CMDLINE_LINUX_DEFAULT entry in /etc/default/grub
