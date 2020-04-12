@@ -74,8 +74,10 @@ if [[ " ${modules[@]} " =~ "go" ]]; then
 fi
 
 # rust dev
-# path schon in zshrc
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+if [[ " ${modules[@]} " =~ "rust" ]]; then
+  # path schon in zshrc
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
 
 #yay
 cd ~/Projects
