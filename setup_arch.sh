@@ -69,6 +69,9 @@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 # setup_system
 arch-chroot mkdir -p /tmp/linux_setup
 cp -R . /mnt/tmp/linux_setup
-arch-chroot /mnt chmod +x /tmp/linux_setup/setup_system.sh
-arch-chroot /mnt bin/bash /tmp/linux_setup/setup_system.sh
+for module in ${modules[@]}
+do
+  arch-chroot /mnt chmod +x /tmp/linux_setup/modules/${module}.sh
+  arch-chroot /mnt /bin/bash /tmp/linux_setup/modules/${module}.sh
+done
 rm /mnt/tmp/*
