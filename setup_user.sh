@@ -105,9 +105,11 @@ if [[ " ${modules[@]} " =~ "gui" ]]; then
   echo 'x11-bypass-compositor=no' >> ~/.config/mpv/mpv.conf
 fi
 
-# syncthing
-yay -S --noconfirm syncthing
-yay -S --noconfirm syncthingtray
+if [[ " ${modules[@]} " =~ "syncthing" ]]; then
+  # syncthing
+  yay -S --noconfirm syncthing
+  yay -S --noconfirm syncthingtray
+fi
 
 # latte addons
 sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons
