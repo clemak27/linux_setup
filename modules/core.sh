@@ -65,7 +65,7 @@ pacman -S --noconfirm zsh zsh-completions
 pacman -S --noconfirm cmatrix lolcat neofetch sl cloc
 
 # development
-pacman -S --noconfirm git make gcc neovim nodejs npm python-pynvim xclip go
+pacman -S --noconfirm git make gcc neovim nodejs npm python-pynvim xclip
 
 # pacman hooks
 mkdir -p /etc/pacman.d/hooks/
