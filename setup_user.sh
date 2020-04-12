@@ -111,6 +111,35 @@ if [[ " ${modules[@]} " =~ "syncthing" ]]; then
   yay -S --noconfirm syncthingtray
 fi
 
+if [[ " ${modules[@]} " =~ "plasma" ]]; then
+  # konsole
+  cp ./kde/ZshProfile.profile ~/.local/share/konsole
+  cp ./kde/one_black.colorscheme ~/.local/share/konsole
+  mkdir -p ~/.local/share/color-schemes
+  cp ./kde/BreezeBlackCustom.colors ~/.local/share/color-schemes
+
+  # screen locking change picture
+  # window switcher meta
+  # logout: confirm, end current session, start with manually saved
+  # usermanager change picture
+  # regional format us region, everything else österreich
+  # power management anpassen
+  # autostart: latte, syncthing, keepass
+
+  # 144Hz
+  # Add MaxFPS=144 to your ~/.config/kwinrc under [Compositing]
+  # Add xrandr --rate 144 to /usr/share/sddm/scripts/Xsetup
+  # about:config layout.frame_rate 144
+
+  # intellij: material theme
+  # kde theme:
+  # colorscheme for konsole one dark in folder
+  # colors -> brezze black custom
+  # plasma theme breeze
+  # window decorations breeze
+  # icons candy icons
+fi
+
 # latte addons
 sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons
 sh ./kde/latte_addons.sh
@@ -119,36 +148,9 @@ sh ./kde/latte_addons.sh
 kwriteconfig5 --file ~/.config/kwinrc --group ModifierOnlyShortcuts --key Meta "org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu"
 qdbus org.kde.KWin /KWin reconfigure
 
-# Hide titlebars when maximized
+# Hide titlebars when maximized (useful for topbar-layout)
 kwriteconfig5 --file ~/.config/kwinrc --group Windows --key BorderlessMaximizedWindows true
 qdbus org.kde.KWin /KWin reconfigure
 
-# konsole
-cp ./kde/ZshProfile.profile ~/.local/share/konsole
-cp ./kde/one_black.colorscheme ~/.local/share/konsole
-mkdir -p ~/.local/share/color-schemes
-cp ./kde/BreezeBlackCustom.colors ~/.local/share/color-schemes
-
-# screen locking bild rein
-# window switcher meta
-# logout: confirmen, end current session, start with manually saved
-# usermanager bild ändern
-# regional format us region, alles ändere österreich
-# power management anpassen
-# autostart: latte, syncthing, keepass
-
 # deep-sleep:
 # add mem_sleep_default=deep to the GRUB_CMDLINE_LINUX_DEFAULT entry in /etc/default/grub
-
-# 144Hz
-# Add MaxFPS=144 to your ~/.config/kwinrc under [Compositing]
-# Add xrandr --rate 144 to /usr/share/sddm/scripts/Xsetup
-# about:config layout.frame_rate 144
-
-# intellij: material theme
-# kde theme:
-# colorscheme for konsole one dark in folder
-# colors -> brezze black custom
-# plasma theme breeze
-# window decorations breeze
-# icons candy icons
