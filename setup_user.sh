@@ -40,6 +40,16 @@ git config --global credential.helper "cache --timeout=86400"
 
 mkdir -p ~/Projects
 
+#yay
+cd ~/Projects
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+# aur
+sudo pacman -S --noconfirm automake autoconf
+yay -S --noconfirm cava tty-clock gotop-bin ddgr
+
 #--------------------module dependencies--------------------
 
 # python dev packages
@@ -79,15 +89,11 @@ if [[ " ${modules[@]} " =~ "rust" ]]; then
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
-#yay
-cd ~/Projects
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
+if [[ " ${modules[@]} " =~ "gaming" ]]; then
+  yay -S --noconfirm steam-fonts
+fi
 
-# aur
-sudo pacman -S --noconfirm automake autoconf
-yay -S --noconfirm cava tty-clock steam-fonts ddgr spotify
+yay -S --noconfirm spotify
 
 # mpv config
 cp -r /usr/share/doc/mpv/ ~/.config/
@@ -97,16 +103,13 @@ echo 'ytdl-format="bestvideo[height<=?1080]+bestaudio/best"' >> ~/.config/mpv/mp
 echo 'no-keepaspect-window' >> ~/.config/mpv/mpv.conf
 echo 'x11-bypass-compositor=no' >> ~/.config/mpv/mpv.conf
 
-# gotop
-yay -S --noconfirm gotop-bin
-
 # syncthing
 yay -S --noconfirm syncthing
 yay -S --noconfirm syncthingtray
 
 # latte addons
 sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons
-/bin/bash/ ./kde/latte_addons.sh
+sh ./kde/latte_addons.sh
 
 # meta key latte menu
 kwriteconfig5 --file ~/.config/kwinrc --group ModifierOnlyShortcuts --key Meta "org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu"
