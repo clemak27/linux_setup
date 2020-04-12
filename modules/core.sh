@@ -49,12 +49,6 @@ sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
 pacman -Syyu --noconfirm
 
-# fonts
-pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
-
-# default programs
-pacman -S --noconfirm firefox mpv keepassxc
-
 # terminal
 pacman -S --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unrar htop arch-audit
 
