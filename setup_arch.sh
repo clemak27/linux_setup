@@ -66,7 +66,7 @@ arch-chroot /mnt mkinitcpio -p linux
 arch-chroot /mnt sed -i 's,GRUB_CMDLINE_LINUX="",GRUB_CMDLINE_LINUX="cryptdevice=UUID='${rootUUID}':cryptlvm:allow-discards",g' /etc/default/grub
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
-# setup_system
+# setup system
 arch-chroot mkdir -p /tmp/linux_setup
 cp -R . /mnt/tmp/linux_setup
 for module in ${modules[@]}
@@ -74,4 +74,7 @@ do
   arch-chroot /mnt chmod +x /tmp/linux_setup/modules/${module}.sh
   arch-chroot /mnt /bin/bash /tmp/linux_setup/modules/${module}.sh
 done
+
+arch-chroot /mnt cp /tmp/linux_setup/modules/setup_user.sh /home/${user}
+
 rm /mnt/tmp/*

@@ -12,3 +12,5 @@ pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenvie
 # kde-specifics
 pacman -S --noconfirm plasma-browser-integration seahorse sshfs unrar libebur128
 systemctl enable sddm
+
+# https://zren.github.io/kde/
