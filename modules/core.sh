@@ -73,14 +73,6 @@ ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
 useradd -m $user
 sudo usermod -aG wheel $user
 
-if [[ " ${modules[@]} " =~ "virtual" ]]; then
-sudo usermod -aG libvirt $user
-fi
-
-if [[ " ${modules[@]} " =~ "docker" ]]; then
-sudo usermod -aG docker $user
-fi
-
 localectl set-keymap de
 
 # set password
