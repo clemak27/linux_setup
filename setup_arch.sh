@@ -75,5 +75,7 @@ do
 done
 
 arch-chroot /mnt cp /linux_setup/modules/setup_user.sh /home/${user}
+arch-chroot /mnt chmod +x /home/${user}/setup_user.sh
+arch-chroot /mnt chown ${user}:${user} /home/${user}/setup_user.sh
 
 rm -rf /mnt/linux_setup
