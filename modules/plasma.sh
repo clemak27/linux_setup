@@ -12,3 +12,35 @@ pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenvie
 # kde-specifics
 pacman -S --noconfirm plasma-browser-integration seahorse sshfs unrar libebur128
 systemctl enable sddm
+
+#------user------
+# https://zren.github.io/kde/
+
+cat <<EOT >> setup_user.sh
+# konsole
+cp ./kde/ZshProfile.profile ~/.local/share/konsole
+cp ./kde/one_black.colorscheme ~/.local/share/konsole
+mkdir -p ~/.local/share/color-schemes
+cp ./kde/BreezeBlackCustom.colors ~/.local/share/color-schemes
+
+# screen locking change picture
+# window switcher meta
+# logout: confirm, end current session, start with manually saved
+# usermanager change picture
+# regional format us region, everything else österreich
+# power management anpassen
+# autostart: latte, syncthing, keepass
+
+# 144Hz
+# Add MaxFPS=144 to your ~/.config/kwinrc under [Compositing]
+# Add xrandr --rate 144 to /usr/share/sddm/scripts/Xsetup
+# about:config layout.frame_rate 144
+
+# intellij: material theme
+# kde theme:
+# colorscheme for konsole one dark in folder
+# colors -> brezze black custom
+# plasma theme breeze
+# window decorations breeze
+# icons candy icons
+EOT

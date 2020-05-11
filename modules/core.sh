@@ -4,6 +4,8 @@ set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
 # Load config
+# https://stackoverflow.com/a/16349776
+cd "${0%/*}"
 if [ -f ../config.sh ]; then
     source ../config.sh
 else
@@ -63,21 +65,13 @@ pacman -S --noconfirm git make gcc neovim nodejs npm python-pynvim xclip
 
 # pacman hooks
 mkdir -p /etc/pacman.d/hooks/
-cp pacman-hooks/grub.hook /etc/pacman.d/hooks/grub.hook
-cp pacman-hooks/cleanup.hook /etc/pacman.d/hooks/cleanup.hook
+cp ../pacman-hooks/grub.hook /etc/pacman.d/hooks/grub.hook
+cp ../pacman-hooks/cleanup.hook /etc/pacman.d/hooks/cleanup.hook
 ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
 
 # add user and set groups
 useradd -m $user
 sudo usermod -aG wheel $user
-
-if [[ " ${modules[@]} " =~ "virtual" ]]; then
-sudo usermod -aG libvirt $user
-fi
-
-if [[ " ${modules[@]} " =~ "docker" ]]; then
-sudo usermod -aG docker $user
-fi
 
 localectl set-keymap de
 
@@ -85,4 +79,44 @@ localectl set-keymap de
 echo "$user:$password" | chpasswd
 echo "root:$password" | chpasswd
 
-exit
+#------user------
+
+cat <<EOT >> setup_user.sh
+#!/bin/bash
+
+xdg-user-dirs-update
+
+# nvim config
+mkdir -p ~/.config/nvim
+cp dotfiles/vimrc ~/.config/nvim/init.vim
+
+# plug-vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# zsh
+sh -c $"curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)( """ --unattended
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+cp dotfiles/p10k ~/.p10k.zsh
+cp dotfiles/zshrc ~/.zshrc
+chsh -s /usr/bin/zsh
+
+# git config
+git config --global user.name "clemak27"
+git config --global user.email clemak27@mailbox.org
+git config --global alias.lol log --graph --decorate --oneline --all''
+git config --global core.autocrlf input
+git config --global credential.helper cache --timeout=86400""
+
+mkdir -p ~/Projects
+
+#yay
+cd ~/Projects
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+# aur
+sudo pacman -S --noconfirm automake autoconf
+yay -S --noconfirm cava tty-clock gotop-bin ddgr"')"
+
+EOT
