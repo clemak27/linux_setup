@@ -1,5 +1,5 @@
 [Appearance]
-ColorScheme=aritim_one_dark_custom
+ColorScheme=one_grey
 Font=MesloLGS NF,9,-1,5,50,0,0,0,0,0,Regular
 
 [General]
