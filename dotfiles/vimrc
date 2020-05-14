@@ -121,9 +121,6 @@ set number
 " use system clipboard
 set clipboard+=unnamedplus
 
-" mouse support
-set mouse=a
-
 " ---------------------------------------------
 
 " Sets how many lines of history VIM has to remember
