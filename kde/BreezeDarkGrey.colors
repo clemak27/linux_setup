@@ -2,9 +2,9 @@
 Color=56,56,56
 ColorAmount=0
 ColorEffect=0
-ContrastAmount=0.6000000000000001
+ContrastAmount=0.65
 ContrastEffect=1
-IntensityAmount=0.2
+IntensityAmount=0.1
 IntensityEffect=2
 
 [ColorEffects:Inactive]
@@ -20,9 +20,9 @@ IntensityEffect=0
 
 [Colors:Button]
 BackgroundAlternate=77,77,77
-BackgroundNormal=0,0,0
-DecorationFocus=29,153,243
-DecorationHover=77,77,77
+BackgroundNormal=49,49,49
+DecorationFocus=42,122,162
+DecorationHover=42,122,162
 ForegroundActive=61,174,233
 ForegroundInactive=189,195,199
 ForegroundLink=41,128,185
@@ -34,7 +34,7 @@ ForegroundVisited=127,140,141
 
 [Colors:Complementary]
 BackgroundAlternate=59,64,69
-BackgroundNormal=22,22,22
+BackgroundNormal=49,54,59
 DecorationFocus=30,146,255
 DecorationHover=61,174,230
 ForegroundActive=246,116,0
@@ -48,9 +48,9 @@ ForegroundVisited=61,174,230
 
 [Colors:Selection]
 BackgroundAlternate=29,153,243
-BackgroundNormal=52,73,94
-DecorationFocus=29,153,243
-DecorationHover=77,77,77
+BackgroundNormal=36,102,136
+DecorationFocus=42,122,162
+DecorationHover=42,122,162
 ForegroundActive=252,252,252
 ForegroundInactive=239,240,241
 ForegroundLink=253,188,75
@@ -62,9 +62,9 @@ ForegroundVisited=189,195,199
 
 [Colors:Tooltip]
 BackgroundAlternate=77,77,77
-BackgroundNormal=0,0,0
-DecorationFocus=29,153,243
-DecorationHover=77,77,77
+BackgroundNormal=49,54,59
+DecorationFocus=42,122,162
+DecorationHover=42,122,162
 ForegroundActive=61,174,233
 ForegroundInactive=189,195,199
 ForegroundLink=41,128,185
@@ -75,10 +75,10 @@ ForegroundPositive=39,174,96
 ForegroundVisited=127,140,141
 
 [Colors:View]
-BackgroundAlternate=22,22,22
-BackgroundNormal=0,0,0
-DecorationFocus=29,153,243
-DecorationHover=77,77,77
+BackgroundAlternate=49,54,59
+BackgroundNormal=35,38,41
+DecorationFocus=42,122,162
+DecorationHover=42,122,162
 ForegroundActive=61,174,233
 ForegroundInactive=189,195,199
 ForegroundLink=41,128,185
@@ -90,9 +90,9 @@ ForegroundVisited=127,140,141
 
 [Colors:Window]
 BackgroundAlternate=77,77,77
-BackgroundNormal=9,9,9
-DecorationFocus=29,153,243
-DecorationHover=77,77,77
+BackgroundNormal=49,49,49
+DecorationFocus=42,122,162
+DecorationHover=42,122,162
 ForegroundActive=61,174,233
 ForegroundInactive=189,195,199
 ForegroundLink=41,128,185
@@ -104,7 +104,7 @@ ForegroundVisited=127,140,141
 
 [General]
 ColorScheme=Breeze Dark
-Name=Breeze Black Custom
+Name=Breeze Dark Grez
 shadeSortColumn=true
 
 [KDE]
