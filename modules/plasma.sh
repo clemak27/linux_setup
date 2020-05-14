@@ -21,7 +21,7 @@ cat <<EOT >> setup_user.sh
 cp ./kde/ZshProfile.profile ~/.local/share/konsole
 cp ./kde/one_black.colorscheme ~/.local/share/konsole
 mkdir -p ~/.local/share/color-schemes
-cp ./kde/BreezeBlackCustom.colors ~/.local/share/color-schemes
+cp ./kde/BreezeDarkGrey.colors ~/.local/share/color-schemes
 
 # screen locking change picture
 # window switcher meta
