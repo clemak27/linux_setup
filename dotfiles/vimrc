@@ -107,7 +107,7 @@ endif
 syntax enable 
 
 let g:lightline = {'colorscheme': 'onedark'}
-let g:onedark_color_overrides = {"black": {"gui": "#000000", "cterm": "255", "cterm16": "0" }}
+let g:onedark_color_overrides = {"black": {"gui": "#2a2a2e", "cterm": "255", "cterm16": "0" }}
 
 set background=dark
 try

@@ -19,9 +19,9 @@ systemctl enable sddm
 cat <<EOT >> setup_user.sh
 # konsole
 cp ./kde/ZshProfile.profile ~/.local/share/konsole
-cp ./kde/one_black.colorscheme ~/.local/share/konsole
+cp ./kde/one_custom.colorscheme ~/.local/share/konsole
 mkdir -p ~/.local/share/color-schemes
-cp ./kde/BreezeDarkGrey.colors ~/.local/share/color-schemes
+cp ./kde/BreezeDarkCustom.colors ~/.local/share/color-schemes
 
 # screen locking change picture
 # window switcher meta

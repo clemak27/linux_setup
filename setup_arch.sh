@@ -74,7 +74,7 @@ do
   arch-chroot /mnt /bin/bash /linux_setup/modules/${module}.sh
 done
 
-if [[ " ${modules[@]} " =~ "kde" ]]; then
+if [[ " ${modules[@]} " =~ "plasma" ]]; then
   cp -R /mnt/linux_setup/kde /home/${user}/kde
 fi
 

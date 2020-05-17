@@ -1,20 +1,20 @@
 [Background]
-Color=44,44,44
+Color=42,42,46
 
 [BackgroundFaint]
-Color=44,44,44
+Color=42,42,46
 
 [BackgroundIntense]
-Color=44,44,44
+Color=42,42,46
 
 [Color0]
-Color=40,44,52
+Color=32,32,35
 
 [Color0Faint]
-Color=40,44,52
+Color=32,32,35
 
 [Color0Intense]
-Color=40,44,52
+Color=32,32,35
 
 [Color1]
 Color=224,108,117
@@ -91,6 +91,6 @@ Color=130,137,151
 [General]
 Blur=false
 ColorRandomization=false
-Description=One Grey
+Description=One Custom
 Opacity=1
 Wallpaper=

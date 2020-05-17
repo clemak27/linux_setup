@@ -1,6 +1,6 @@
 [Appearance]
-ColorScheme=one_grey
-Font=MesloLGS NF,9,-1,5,50,0,0,0,0,0,Regular
+ColorScheme=one_custom
+Font=MesloLGS NF,10,-1,5,50,0,0,0,0,0
 
 [General]
 Name=ZshProfile
