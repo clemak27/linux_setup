@@ -11,4 +11,7 @@ pacman -S --noconfirm wine-staging lutris steam discord
 cat <<EOT >> setup_user.sh
 yay -S --noconfirm steam-fonts
 
+# kill all gta V processes
+# killall -9 -r ".*\.exe|.*SocialClub.*|.*Rockstar.*" && kill -9 $(ps aux | grep '.*PlayGTA.*' | awk '{print $2}')
+
 EOT
