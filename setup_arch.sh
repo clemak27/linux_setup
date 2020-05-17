@@ -74,7 +74,12 @@ do
   arch-chroot /mnt /bin/bash /linux_setup/modules/${module}.sh
 done
 
+if [[ " ${modules[@]} " =~ "kde" ]]; then
+  cp -R /mnt/linux_setup/kde /home/${user}/kde
+fi
+
 arch-chroot /mnt cp /linux_setup/modules/setup_user.sh /home/${user}
+cp -R /mnt/linux_setup/dotfiles /home/${user}/dotfiles
 arch-chroot /mnt chmod +x /home/${user}/setup_user.sh
 arch-chroot /mnt chown ${user}:${user} /home/${user}/setup_user.sh
 
