@@ -50,7 +50,12 @@ mount "${bootPartition}" /mnt/boot/
 cp pacman_mirrorlist /etc/pacman.d/mirrorlist
 
 # Install the base packages
-pacstrap /mnt base linux linux-firmware grub efibootmgr intel-ucode lvm2
+
+if [ $cpu == "amd" ]; then
+  pacstrap /mnt base linux linux-firmware grub efibootmgr amd-ucode lvm2
+else
+  pacstrap /mnt base linux linux-firmware grub efibootmgr intel-ucode lvm2
+fi
 
 # Configure the system
 genfstab -U /mnt >> /mnt/etc/fstab
