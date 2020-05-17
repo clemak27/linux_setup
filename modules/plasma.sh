@@ -43,4 +43,5 @@ cp ./kde/BreezeDarkGrey.colors ~/.local/share/color-schemes
 # plasma theme breeze
 # window decorations breeze
 # icons candy icons
+
 EOT

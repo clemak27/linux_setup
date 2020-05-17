@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -uo pipefail
+trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
+
 # fonts
 pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
 
@@ -18,4 +21,5 @@ echo "" >> ~/.config/mpv/mpv.conf
 echo 'ytdl-format="bestvideo[height<=?1080]+bestaudio/best"' >> ~/.config/mpv/mpv.conf
 echo 'no-keepaspect-window' >> ~/.config/mpv/mpv.conf
 echo 'x11-bypass-compositor=no' >> ~/.config/mpv/mpv.conf
+
 EOT

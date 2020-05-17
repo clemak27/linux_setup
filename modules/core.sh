@@ -94,7 +94,7 @@ cp dotfiles/vimrc ~/.config/nvim/init.vim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # zsh
-sh -c $"curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)( """ --unattended
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 cp dotfiles/p10k ~/.p10k.zsh
 cp dotfiles/zshrc ~/.zshrc
@@ -103,9 +103,9 @@ chsh -s /usr/bin/zsh
 # git config
 git config --global user.name "clemak27"
 git config --global user.email clemak27@mailbox.org
-git config --global alias.lol log --graph --decorate --oneline --all''
+git config --global alias.lol 'log --graph --decorate --oneline --all'
 git config --global core.autocrlf input
-git config --global credential.helper cache --timeout=86400""
+git config --global credential.helper cache --timeout=86400
 
 mkdir -p ~/Projects
 
@@ -117,6 +117,6 @@ makepkg -si
 
 # aur
 sudo pacman -S --noconfirm automake autoconf
-yay -S --noconfirm cava tty-clock gotop-bin ddgr"')"
+yay -S --noconfirm cava tty-clock gotop-bin ddgr
 
 EOT

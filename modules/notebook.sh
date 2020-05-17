@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -uo pipefail
+trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
+
 # touchpad
 pacman -S --noconfirm xf86-input-libinput xf86-input-synaptics
 
