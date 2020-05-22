@@ -63,6 +63,9 @@ pacman -S --noconfirm cmatrix lolcat neofetch sl cloc
 # development
 pacman -S --noconfirm git make gcc neovim nodejs npm python-pynvim xclip
 
+# ssh
+pacman -S --noconfirm openssh
+
 # pacman hooks
 mkdir -p /etc/pacman.d/hooks/
 cp ../pacman-hooks/grub.hook /etc/pacman.d/hooks/grub.hook
@@ -118,5 +121,10 @@ makepkg -si
 # aur
 sudo pacman -S --noconfirm automake autoconf
 yay -S --noconfirm cava tty-clock gotop-bin ddgr
+
+# ssh
+cp systemd-units/ssh-agent.service ~/.config/systemd/user/ssh-agent.service
+echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"'
+systemctl --user enable ssh-agent.service
 
 EOT
