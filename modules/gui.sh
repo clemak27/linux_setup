@@ -12,6 +12,13 @@ pacman -S --noconfirm firefox mpv keepassxc
 #------user------
 
 cat <<EOT >> setup_user.sh
+
+cd ~/.mozilla/firefox
+ff_profile=find . -regextype sed -regex ".*.default-release"
+cp -R ff/chrome $ff_profile
+cp ff/user.js $ff_profile
+cd
+
 yay -S --noconfirm spotify
 
 # mpv config
