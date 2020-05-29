@@ -1,4 +1,4 @@
-a aaaaaa
+a 888888
 
 k w ff0000
 k s ff0000
@@ -22,11 +22,13 @@ k z 0000aa
 k < 0000aa
 
 k f 00ff00
+k r 00ff00
 k space 00ff00
 k x 00ff00
 
-k i 00aaaa
-k h 00aaaa
-k m 00aaaa
+k i 00ffff
+k h 00ffff
+k m 00ffff
+k g 00ffff
 
 c
