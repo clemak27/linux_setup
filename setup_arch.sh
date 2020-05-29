@@ -85,7 +85,7 @@ fi
 
 arch-chroot /mnt cp /linux_setup/modules/setup_user.sh /home/${user}
 cp -R /mnt/linux_setup/dotfiles /home/${user}/dotfiles
-cp -R /mnt/linux_setup/dotfiles /home/${user}/systemd-units
+cp -R /mnt/linux_setup/systemd-units /home/${user}/systemd-units
 cp -R /mnt/linux_setup/ff /home/${user}/ff
 arch-chroot /mnt chmod +x /home/${user}/setup_user.sh
 arch-chroot /mnt chown ${user}:${user} /home/${user}/setup_user.sh
