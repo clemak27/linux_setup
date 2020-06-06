@@ -19,8 +19,8 @@ source $ZSH/oh-my-zsh.sh
 
 # ---------- zsh-newuser-install ----------
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=5000
+SAVEHIST=5000
 setopt appendhistory
 unsetopt beep
 bindkey -e
