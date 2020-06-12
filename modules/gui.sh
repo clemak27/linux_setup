@@ -9,6 +9,9 @@ pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extr
 # default programs
 pacman -S --noconfirm firefox mpv keepassxc
 
+# telegram
+pacman -S --noconfirm community/telegram-desktop
+
 #------user------
 
 cat <<EOT >> setup_user.sh
