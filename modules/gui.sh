@@ -9,8 +9,8 @@ pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extr
 # default programs
 pacman -S --noconfirm firefox mpv keepassxc
 
-# telegram
-pacman -S --noconfirm community/telegram-desktop
+# messaging
+pacman -S --noconfirm community/telegram-desktop community/signal-desktop
 
 #------user------
 
