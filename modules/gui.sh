@@ -10,7 +10,7 @@ pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extr
 pacman -S --noconfirm firefox mpv keepassxc
 
 # messaging
-pacman -S --noconfirm community/telegram-desktop community/signal-desktop
+pacman -S --noconfirm telegram-desktop signal-desktop
 
 #------user------
 
