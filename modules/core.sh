@@ -125,7 +125,7 @@ yay -S --noconfirm cava tty-clock gotop-bin ddgr
 
 # ssh
 cp systemd-units/ssh-agent.service ~/.config/systemd/user/ssh-agent.service
-echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"'
+echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"' > ~/.pam_environment
 systemctl --user enable ssh-agent.service
 
 EOT
