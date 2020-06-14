@@ -82,6 +82,6 @@ done
 # prepare user setup
 arch-chroot /mnt cp /linux_setup/modules/setup_user.sh /home/${user}
 arch-chroot /mnt chmod +x /home/${user}/setup_user.sh
-arch-chroot /mnt chown ${user}:${user} /home/${user}/setup_user.sh
+arch-chroot /mnt chown -R ${user}:${user} /home/${user}
 
 rm -rf /mnt/linux_setup

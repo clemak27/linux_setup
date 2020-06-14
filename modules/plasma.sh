@@ -26,19 +26,21 @@ systemctl enable sddm
 # latte-dock
 pacman -S --noconfirm latte-dock
 
-mkdir /home/${user}/kde
-cp -R ../kde /home/${user}/kde
+# konsole
+mkdir -p /home/$user/.local/share/konsole
+cp ./kde/ZshProfile.profile /home/$user/.local/share/konsole
+cp ./kde/one_custom.colorscheme /home/$user/.local/share/konsole
+
+# colorscheme
+mkdir -p /home/$user/.local/share/color-schemes
+cp ./kde/BreezeDarkCustom.colors /home/$user/.local/share/color-schemes
 
 #------user------
 # https://zren.github.io/kde/
 
-cat << 'EOT' >> setup_user.sh
+# TODO: replace with cat ./plasma_user.sh >> ./setup_user.sh
 
-# konsole
-cp ./kde/ZshProfile.profile ~/.local/share/konsole
-cp ./kde/one_custom.colorscheme ~/.local/share/konsole
-mkdir -p ~/.local/share/color-schemes
-cp ./kde/BreezeDarkCustom.colors ~/.local/share/color-schemes
+cat << 'EOT' >> setup_user.sh
 
 # latte addons
 sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons
