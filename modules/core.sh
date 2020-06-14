@@ -76,6 +76,7 @@ ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
 # add user and set groups
 useradd -m $user
 sudo usermod -aG wheel $user
+sudo usermod --shell /usr/bin/zsh $user
 
 localectl set-keymap de
 
@@ -102,7 +103,6 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 cp dotfiles/p10k ~/.p10k.zsh
 cp dotfiles/zshrc ~/.zshrc
-chsh -s /usr/bin/zsh
 
 # git config
 git config --global user.name "clemak27"

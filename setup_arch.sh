@@ -52,9 +52,9 @@ cp pacman_mirrorlist /etc/pacman.d/mirrorlist
 # Install the base packages
 
 if [ $cpu == "amd" ]; then
-  pacstrap /mnt base linux linux-firmware grub efibootmgr amd-ucode lvm2
+  pacstrap /mnt base linux linux-firmware grub efibootmgr amd-ucode lvm2 base-devel
 else
-  pacstrap /mnt base linux linux-firmware grub efibootmgr intel-ucode lvm2
+  pacstrap /mnt base linux linux-firmware grub efibootmgr intel-ucode lvm2 base-devel
 fi
 
 # Configure the system
