@@ -70,7 +70,7 @@ qdbus org.kde.KWin /KWin reconfigure
 # kde theme:
 # colorscheme for konsole one dark in folder
 # colors -> brezze black custom
-# plasma theme breeze
+# plasma theme breeze alpha black
 # window decorations breeze
 # icons candy icons
 
