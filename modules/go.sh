@@ -7,7 +7,8 @@ pacman -S --noconfirm go
 
 #------user------
 
-cat <<EOT >> setup_user.sh
+cat << 'EOT' >> setup_user.sh
+
 echo "Installing go packages"
 mkdir -p ~/.go
 export GOPATH=~/.go

@@ -7,7 +7,8 @@ pacman -S --noconfirm piper
 
 #------user------
 
-cat <<EOT >> setup_user.sh
+cat << 'EOT' >> setup_user.sh
+
 yay -S g810-led-git
 
 EOT

@@ -7,7 +7,8 @@ pacman -S --noconfirm latte-dock
 
 #------user------
 
-cat <<EOT >> setup_user.sh
+cat << 'EOT' >> setup_user.sh
+
 # latte addons
 sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons
 sh ./kde/latte_addons.sh

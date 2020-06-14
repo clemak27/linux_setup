@@ -65,6 +65,7 @@ pacman -S --noconfirm git make gcc neovim nodejs npm python-pynvim xclip
 
 # ssh
 pacman -S --noconfirm openssh
+cp systemd-units/ssh-agent.service ~/.config/systemd/user/ssh-agent.service
 
 # pacman hooks
 mkdir -p /etc/pacman.d/hooks/
@@ -84,7 +85,7 @@ echo "root:$password" | chpasswd
 
 #------user------
 
-cat <<EOT >> setup_user.sh
+cat << 'EOT' >> setup_user.sh
 #!/bin/bash
 
 xdg-user-dirs-update
@@ -124,8 +125,7 @@ sudo pacman -S --noconfirm automake autoconf
 yay -S --noconfirm cava tty-clock gotop-bin ddgr
 
 # ssh
-cp systemd-units/ssh-agent.service ~/.config/systemd/user/ssh-agent.service
-echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"' > ~/.pam_environment
+echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"' >> ~/.pam_environment
 systemctl --user enable ssh-agent.service
 
 EOT

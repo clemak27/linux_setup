@@ -16,7 +16,8 @@ systemctl enable sddm
 #------user------
 # https://zren.github.io/kde/
 
-cat <<EOT >> setup_user.sh
+cat << 'EOT' >> setup_user.sh
+
 # konsole
 cp ./kde/ZshProfile.profile ~/.local/share/konsole
 cp ./kde/one_custom.colorscheme ~/.local/share/konsole

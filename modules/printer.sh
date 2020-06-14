@@ -9,7 +9,8 @@ systemctl enable org.cups.cupsd.service
 
 #------user------
 
-cat <<EOT >> setup_user.sh
+cat << 'EOT' >> setup_user.sh
+
 yay -S brother-dcpj572dw
 
 EOT

@@ -14,13 +14,7 @@ pacman -S --noconfirm telegram-desktop signal-desktop
 
 #------user------
 
-cat <<EOT >> setup_user.sh
-
-cd ~/.mozilla/firefox
-ff_profile=find . -regextype sed -regex ".*.default-release"
-cp -R ff/chrome $ff_profile
-cp ff/user.js $ff_profile
-cd
+cat << 'EOT' >> setup_user.sh
 
 yay -S --noconfirm spotify
 
