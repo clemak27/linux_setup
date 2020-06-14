@@ -3,6 +3,16 @@
 set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
+# Load config
+# https://stackoverflow.com/a/16349776
+cd "${0%/*}"
+if [ -f ../config.sh ]; then
+    source ../config.sh
+else
+   echo "Config file could not be found!"
+   exit 1
+fi
+
 # plasma
 pacman -S --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-browser-integration plasma-desktop plasma-integration plasma-nm plasma-pa plasma-workspace plasma-workspace-wallpapers polkit-kde-agent powerdevil sddm-kcm systemsettings user-manager
 
@@ -15,6 +25,9 @@ systemctl enable sddm
 
 # latte-dock
 pacman -S --noconfirm latte-dock
+
+mkdir /home/${user}/kde
+cp -R ../kde /home/${user}/kde
 
 #------user------
 # https://zren.github.io/kde/
@@ -39,6 +52,7 @@ qdbus org.kde.KWin /KWin reconfigure
 kwriteconfig5 --file ~/.config/kwinrc --group Windows --key BorderlessMaximizedWindows true
 qdbus org.kde.KWin /KWin reconfigure
 
+# install event calendar widget
 # screen locking change picture
 # window switcher meta
 # logout: confirm, end current session, start with manually saved

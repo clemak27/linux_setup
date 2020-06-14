@@ -65,7 +65,6 @@ pacman -S --noconfirm git make gcc neovim nodejs npm python-pynvim xclip
 
 # ssh
 pacman -S --noconfirm openssh
-cp systemd-units/ssh-agent.service ~/.config/systemd/user/ssh-agent.service
 
 # pacman hooks
 mkdir -p /etc/pacman.d/hooks/
@@ -83,6 +82,12 @@ localectl set-keymap de
 # set password
 echo "$user:$password" | chpasswd
 echo "root:$password" | chpasswd
+
+mkdir /home/${user}/dotfiles
+cp -R ../dotfiles /home/${user}/dotfiles
+
+mkdir /home/${user}/systemd-units
+cp -R ../systemd-units /home/${user}/systemd-units
 
 #------user------
 
@@ -125,6 +130,8 @@ sudo pacman -S --noconfirm automake autoconf
 yay -S --noconfirm cava tty-clock gotop-bin ddgr
 
 # ssh
+cd ~
+cp systemd-units/ssh-agent.service ~/.config/systemd/user/ssh-agent.service
 echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"' >> ~/.pam_environment
 systemctl --user enable ssh-agent.service
 

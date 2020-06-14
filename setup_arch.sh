@@ -80,14 +80,7 @@ do
 done
 
 # prepare user setup
-if [[ " ${modules[@]} " =~ "plasma" ]]; then
-  arch-chroot /mnt mkdir /home/${user}/kde
-  arch-chroot /mnt cp -R /mnt/linux_setup/kde /home/${user}/kde
-fi
-
 arch-chroot /mnt cp /linux_setup/modules/setup_user.sh /home/${user}
-arch-chroot /mnt mkdir /home/${user}/dotfiles
-arch-chroot /mnt cp -R /linux_setup/dotfiles /home/${user}/dotfiles
 arch-chroot /mnt chmod +x /home/${user}/setup_user.sh
 arch-chroot /mnt chown ${user}:${user} /home/${user}/setup_user.sh
 
