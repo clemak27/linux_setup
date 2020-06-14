@@ -9,7 +9,7 @@ user="cle"
 password="1234"
 modules=(core)
 cpu="amd"
-# modules=(core plasma latte-dock gui mesa nvidia nvidia-prime virtual notebook office printer gaming docker java python go rust syncthing logitech)
+# modules=(core plasma gui mesa nvidia nvidia-prime virtual notebook office printer gaming docker java python go rust syncthing logitech)
 
 #---------------------------
 

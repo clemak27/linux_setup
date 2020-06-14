@@ -13,6 +13,9 @@ pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenvie
 pacman -S --noconfirm plasma-browser-integration seahorse sshfs unrar libebur128
 systemctl enable sddm
 
+# latte-dock
+pacman -S --noconfirm latte-dock
+
 #------user------
 # https://zren.github.io/kde/
 
@@ -23,6 +26,18 @@ cp ./kde/ZshProfile.profile ~/.local/share/konsole
 cp ./kde/one_custom.colorscheme ~/.local/share/konsole
 mkdir -p ~/.local/share/color-schemes
 cp ./kde/BreezeDarkCustom.colors ~/.local/share/color-schemes
+
+# latte addons
+sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons
+sh ./kde/latte_addons.sh
+
+# meta key latte menu
+kwriteconfig5 --file ~/.config/kwinrc --group ModifierOnlyShortcuts --key Meta "org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu"
+qdbus org.kde.KWin /KWin reconfigure
+
+# Hide titlebars when maximized (useful for topbar-layout)
+kwriteconfig5 --file ~/.config/kwinrc --group Windows --key BorderlessMaximizedWindows true
+qdbus org.kde.KWin /KWin reconfigure
 
 # screen locking change picture
 # window switcher meta
