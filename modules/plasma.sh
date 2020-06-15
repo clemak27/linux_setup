@@ -35,45 +35,4 @@ cp ./kde/one_custom.colorscheme /home/$user/.local/share/konsole
 mkdir -p /home/$user/.local/share/color-schemes
 cp ./kde/BreezeDarkCustom.colors /home/$user/.local/share/color-schemes
 
-#------user------
-# https://zren.github.io/kde/
-
-# TODO: replace with cat ./plasma_user.sh >> ./setup_user.sh
-
-cat << 'EOT' >> setup_user.sh
-
-# latte addons
-sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons
-sh ./kde/latte_addons.sh
-
-# meta key latte menu
-kwriteconfig5 --file ~/.config/kwinrc --group ModifierOnlyShortcuts --key Meta "org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu"
-qdbus org.kde.KWin /KWin reconfigure
-
-# Hide titlebars when maximized (useful for topbar-layout)
-kwriteconfig5 --file ~/.config/kwinrc --group Windows --key BorderlessMaximizedWindows true
-qdbus org.kde.KWin /KWin reconfigure
-
-# install event calendar widget
-# screen locking change picture
-# window switcher meta
-# logout: confirm, end current session, start with manually saved
-# usermanager change picture
-# regional format us region, everything else österreich
-# power management anpassen
-# autostart: latte, syncthing, keepass
-
-# 144Hz
-# Add MaxFPS=144 to your ~/.config/kwinrc under [Compositing]
-# Add xrandr --rate 144 to /usr/share/sddm/scripts/Xsetup
-# about:config layout.frame_rate 144
-
-# intellij: material theme
-# kde theme:
-# colorscheme for konsole one dark in folder
-# colors -> brezze black custom
-# plasma theme breeze alpha black
-# window decorations breeze
-# icons candy icons
-
-EOT
+cat ./plasma_user.sh >> ./setup_user.sh
