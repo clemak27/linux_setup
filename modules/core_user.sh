@@ -5,8 +5,6 @@ xdg-user-dirs-update
 # zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
-mv p10k ~/.p10k.zsh
-mv zshrc ~/.zshrc.zsh
 
 # git config
 git config --global user.name "clemak27"

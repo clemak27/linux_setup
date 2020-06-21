@@ -87,11 +87,11 @@ echo "root:$password" | chpasswd
 
 # nvim
 mkdir -p /home/$user/.config/nvim
-cp dotfiles/vimrc /home/$user/.config/nvim/init.vim
+cp ../dotfiles/vimrc /home/$user/.config/nvim/init.vim
 curl -fLo /home/$user/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-cp dotfiles/p10k /home/$user/p10k
-cp dotfiles/zshrc /home/$user/zshrc
+cp ../dotfiles/p10k /home/$user/.p10k.zsh
+cp ../dotfiles/zshrc /home/$user/.zshrc
 
 cp systemd-units/ssh-agent.service /home/$user/.config/systemd/user/ssh-agent.service
 echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"' >> /home/$user/.pam_environment
