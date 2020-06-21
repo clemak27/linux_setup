@@ -93,7 +93,7 @@ curl -fLo /home/$user/.local/share/nvim/site/autoload/plug.vim --create-dirs htt
 cp ../dotfiles/p10k /home/$user/.p10k.zsh
 cp ../dotfiles/zshrc /home/$user/.zshrc
 
-cp systemd-units/ssh-agent.service /home/$user/.config/systemd/user/ssh-agent.service
+cp ../systemd-units/ssh-agent.service /home/$user/.config/systemd/user/ssh-agent.service
 echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"' >> /home/$user/.pam_environment
 
 #------user------
