@@ -82,7 +82,7 @@ curl -fLo /home/$user/.local/share/nvim/site/autoload/plug.vim --create-dirs htt
 cp ../dotfiles/p10k /home/$user/.p10k.zsh
 cp ../dotfiles/zshrc /home/$user/.zshrc
 git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.gi/home/$usert ~/home/$user/.oh-my-zsh/custom/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.gi/home/$usert /home/$user/.oh-my-zsh/custom/themes/powerlevel10k
 
 # ssh
 cp ../systemd-units/ssh-agent.service /home/$user/.config/systemd/user/ssh-agent.service
