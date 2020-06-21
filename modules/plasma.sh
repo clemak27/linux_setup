@@ -28,11 +28,11 @@ pacman -S --noconfirm latte-dock
 
 # konsole
 mkdir -p /home/$user/.local/share/konsole
-cp ./kde/ZshProfile.profile /home/$user/.local/share/konsole
-cp ./kde/one_custom.colorscheme /home/$user/.local/share/konsole
+cp ../kde/ZshProfile.profile /home/$user/.local/share/konsole
+cp ../kde/one_custom.colorscheme /home/$user/.local/share/konsole
 
 # colorscheme
 mkdir -p /home/$user/.local/share/color-schemes
-cp ./kde/BreezeDarkCustom.colors /home/$user/.local/share/color-schemes
+cp ../kde/BreezeDarkCustom.colors /home/$user/.local/share/color-schemes
 
 cat ./plasma_user.sh >> ./setup_user.sh
