@@ -18,9 +18,14 @@ Plug 'junegunn/fzf.vim' " fuzzy file search
 Plug 'tpope/vim-surround' " brackets around words ysiw(
 Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " everything
+Plug 'antoinemadec/coc-fzf' " fzf coc integration
 " :CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-highlight coc-lists coc-git coc-pairs coc-go coc-rls
 
 call plug#end()
+
+" ---------- fzf-preview window ----------
+
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 " ---------- coc-Keybindings ----------
 
@@ -70,23 +75,25 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
-" Using CocList
+" Using Coc(Fzf)List
 " Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>a  :<C-u>CocFzfList diagnostics<CR>
+" Show diagnostics in current Buffer
+nnoremap <silent> <space>b  :<C-u>CocFzfList diagnostics --current-buf<CR>
 " Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent> <space>c  :<C-u>CocFzfList commands<CR>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocFzfList extensions<CR>
 " Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>o  :<C-u>CocFzfList outline<CR>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>s  :<C-u>CocFzfList symbols<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocFzfListResume<CR>
 " Do default action for next item.
 nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " ---------- autoload ----------
 
