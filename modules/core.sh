@@ -72,6 +72,22 @@ cp ../pacman-hooks/grub.hook /etc/pacman.d/hooks/grub.hook
 cp ../pacman-hooks/cleanup.hook /etc/pacman.d/hooks/cleanup.hook
 ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
 
+# nvim
+mkdir -p /home/$user/.config/nvim
+mkdir -p /home/$user/.local/share/nvim/site/autoload
+cp ../dotfiles/vimrc /home/$user/.config/nvim/init.vim
+curl -fLo /home/$user/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# zsh
+cp ../dotfiles/p10k /home/$user/.p10k.zsh
+cp ../dotfiles/zshrc /home/$user/.zshrc
+git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.gi/home/$usert /home/$user/.oh-my-zsh/custom/themes/powerlevel10k
+
+# ssh
+cp ../systemd-units/ssh-agent.service /home/$user/.config/systemd/user/ssh-agent.service
+echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"' >> /home/$user/.pam_environment
+
 # add user and set groups
 useradd -m $user
 sudo usermod -aG wheel $user
@@ -83,56 +99,6 @@ localectl set-keymap de
 echo "$user:$password" | chpasswd
 echo "root:$password" | chpasswd
 
-mkdir /home/${user}/dotfiles
-cp -R ../dotfiles /home/${user}/dotfiles
-
-mkdir /home/${user}/systemd-units
-cp -R ../systemd-units /home/${user}/systemd-units
-
 #------user------
 
-cat << 'EOT' >> setup_user.sh
-#!/bin/bash
-
-xdg-user-dirs-update
-
-# nvim config
-mkdir -p ~/.config/nvim
-cp dotfiles/vimrc ~/.config/nvim/init.vim
-
-# plug-vim
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
-cp dotfiles/p10k ~/.p10k.zsh
-cp dotfiles/zshrc ~/.zshrc
-
-# git config
-git config --global user.name "clemak27"
-git config --global user.email clemak27@mailbox.org
-git config --global alias.lol 'log --graph --decorate --oneline --all'
-git config --global core.autocrlf input
-git config --global pull.rebase false
-git config --global credential.helper cache --timeout=86400
-
-mkdir -p ~/Projects
-
-#yay
-cd ~/Projects
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-
-# aur
-sudo pacman -S --noconfirm automake autoconf
-yay -S --noconfirm cava tty-clock gotop-bin ddgr
-
-# ssh
-cd ~
-cp systemd-units/ssh-agent.service ~/.config/systemd/user/ssh-agent.service
-echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"' >> ~/.pam_environment
-systemctl --user enable ssh-agent.service
-
-EOT
+cat ./core_user.sh >> setup_user.sh

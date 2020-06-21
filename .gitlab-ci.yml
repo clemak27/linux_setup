@@ -10,3 +10,12 @@ pacman-test:
     - pacman -S --noconfirm python3
     - chmod +x tests/pacman.test.py
     - python3 tests/pacman.test.py
+home-test:
+  stage: test
+  image: archlinux
+  script:
+    - echo 'Running home test script...'
+    - pacman -Sy
+    - pacman -S --noconfirm python3
+    - chmod +x tests/home.test.py
+    - python3 tests/home.test.py
