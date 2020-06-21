@@ -90,8 +90,11 @@ mkdir -p /home/$user/.config/nvim
 cp ../dotfiles/vimrc /home/$user/.config/nvim/init.vim
 curl -fLo /home/$user/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# zsh
 cp ../dotfiles/p10k /home/$user/.p10k.zsh
 cp ../dotfiles/zshrc /home/$user/.zshrc
+git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.gi/home/$usert ~/home/$user/.oh-my-zsh/custom/themes/powerlevel10k
 
 cp ../systemd-units/ssh-agent.service /home/$user/.config/systemd/user/ssh-agent.service
 echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"' >> /home/$user/.pam_environment
