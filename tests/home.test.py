@@ -15,7 +15,7 @@ for file in listdir(modulePath):
 
 if len(fails) > 0:
     print("Test failed:", len(fails) , "~ symbols found:")
-    print(fails)
+    print(*fails, sep='\n')
     raise AssertionError()
 else:
     print("No unexpected characters found.")
