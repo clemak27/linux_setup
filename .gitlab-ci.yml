@@ -10,3 +10,5 @@ pacman-test:
     - pacman -S --noconfirm python3
     - chmod +x tests/pacman.test.py
     - python3 tests/pacman.test.py
+    - chmod +x tests/home.test.py
+    - python3 tests/home.test.py
