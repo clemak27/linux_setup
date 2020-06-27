@@ -52,9 +52,9 @@ cp pacman_mirrorlist /etc/pacman.d/mirrorlist
 # Install the base packages
 
 if [ $cpu == "amd" ]; then
-  pacstrap /mnt base linux linux-firmware grub efibootmgr amd-ucode lvm2 base-devel
+  pacstrap /mnt base linux linux-lts linux-firmware grub efibootmgr amd-ucode lvm2 base-devel
 else
-  pacstrap /mnt base linux linux-firmware grub efibootmgr intel-ucode lvm2 base-devel
+  pacstrap /mnt base linux linux-lts linux-firmware grub efibootmgr intel-ucode lvm2 base-devel
 fi
 
 # Configure the system
@@ -68,6 +68,7 @@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 rootUUID=$(lsblk -dno UUID "${rootPartition}")
 arch-chroot /mnt sed -i 's/HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)/HOOKS=(base udev autodetect keyboard keymap modconf block encrypt lvm2 filesystems fsck)/g' /etc/mkinitcpio.conf
 arch-chroot /mnt mkinitcpio -p linux
+arch-chroot /mnt mkinitcpio -p linux-lts
 arch-chroot /mnt sed -i 's,GRUB_CMDLINE_LINUX="",GRUB_CMDLINE_LINUX="cryptdevice=UUID='${rootUUID}':cryptlvm:allow-discards",g' /etc/default/grub
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
