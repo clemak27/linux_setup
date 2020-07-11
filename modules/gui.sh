@@ -19,7 +19,7 @@ pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extr
 pacman -S --noconfirm firefox mpv keepassxc
 
 # messaging
-pacman -S --noconfirm telegram-desktop signal-desktop
+pacman -S --noconfirm signal-desktop
 
 # mpv config
 cp -r /usr/share/doc/mpv/ /home/$user/.config/
