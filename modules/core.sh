@@ -85,6 +85,7 @@ git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
 curl -fsSL https://starship.rs/install.sh | bash
 
 # ssh
+mkdir -p /home/$user/.config/systemd/user
 cp ../systemd-units/ssh-agent.service /home/$user/.config/systemd/user/ssh-agent.service
 echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"' >> /home/$user/.pam_environment
 
