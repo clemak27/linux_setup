@@ -65,6 +65,7 @@ symbol = " "
 symbol = " "
 
 [java]
+disabled = true
 symbol = " "
 
 [julia]
