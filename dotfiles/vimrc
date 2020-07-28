@@ -76,6 +76,8 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Using Coc(Fzf)List
+" Lists
+nnoremap <silent> <space>l  :<C-u>CocFzfList<CR>
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocFzfList diagnostics<CR>
 " Show diagnostics in current Buffer
