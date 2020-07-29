@@ -10,12 +10,12 @@ do
   pacman -S --noconfirm $i
 done
 
-commands=($((jq -rc '.plasma | .commands| @sh' system_config.json)))
+user_packages=($((jq -rc '.plasma | .user_packages | @sh' system_config.json) | tr -d \'))
 
-echo "Array size: " ${#commands[@]}
+echo "Array size: " ${#user_packages[@]}
 
-for i in "${commands[@]}"
+for i in "${user_packages[@]}"
 do
-  echo "Executing $i"
-  $i
+  echo "Adding $i to user_setup"
+  echo "yay -S $i" >> user_setup.sh
 done
