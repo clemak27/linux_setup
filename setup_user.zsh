@@ -1,3 +1,0 @@
-echo "core"
-echo "aaaaaaaaaaaaa"
-
