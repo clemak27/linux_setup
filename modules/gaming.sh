@@ -1,18 +1,22 @@
-#!/bin/bash
+#!/bin/zsh
 
-set -uo pipefail
-trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
+# ------------------------ Gaming ------------------------
 
 # gaming
 pacman -S --noconfirm wine-staging lutris steam discord obs-studio
 
-#------user------
+# user-setup
+declare -a user_commands
+user_commands=(
+  'yay -S --noconfirm steam-fonts'
+  ''
+  '# kill all gta V processes'
+  '# killall -9 -r ".*\.exe|.*SocialClub.*|.*Rockstar.*" && kill -9 $(ps aux | grep '.*PlayGTA.*' | awk '{print $2}')'
+)
+declare -r user_commands
+IFS=$SAVEIFS
 
-cat << 'EOT' >> setup_user.sh
-
-yay -S --noconfirm steam-fonts
-
-# kill all gta V processes
-# killall -9 -r ".*\.exe|.*SocialClub.*|.*Rockstar.*" && kill -9 $(ps aux | grep '.*PlayGTA.*' | awk '{print $2}')
-
-EOT
+for task in "${user_commands[@]}"
+do
+  echo "$task" >> setup_user.zsh
+done
