@@ -21,6 +21,8 @@ echo 'x11-bypass-compositor=no' >> /home/$user/.config/mpv/mpv.conf
 
 # user-setup
 declare -a user_commands
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
 user_commands=(
   'yay -S --noconfirm spotify'
   ''

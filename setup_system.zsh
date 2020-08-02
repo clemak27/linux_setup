@@ -106,7 +106,6 @@ declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
-declare -a user_commands
 user_commands=(
   'xdg-user-dirs-update'
   ''
@@ -133,6 +132,7 @@ user_commands=(
   '# ssh'
   'systemctl --user enable ssh-agent.service'
 )
+
 declare -r user_commands
 IFS=$SAVEIFS
 

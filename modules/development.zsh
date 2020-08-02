@@ -13,6 +13,8 @@ pacman -S --noconfirm go
 
 # user-setup
 declare -a user_commands
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
 user_commands=(
 '# python dev packages'
 'pip install jedi pylint --user'

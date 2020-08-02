@@ -7,6 +7,8 @@ pacman -S --noconfirm wine-staging lutris steam discord obs-studio
 
 # user-setup
 declare -a user_commands
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
 user_commands=(
   'yay -S --noconfirm steam-fonts'
   ''

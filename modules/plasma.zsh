@@ -26,6 +26,8 @@ cp ../kde/BreezeDarkCustom.colors /home/$user/.local/share/color-schemes
 
 # user-setup
 declare -a user_commands
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
 user_commands=(
   '# https://zren.github.io/kde/'
   ''
