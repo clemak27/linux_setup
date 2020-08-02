@@ -1,36 +1,31 @@
 #!/bin/zsh
 
-# ------------------------ plasma ------------------------
+# ------------------------ KDE Plasma ------------------------
 
-declare -a plasma_commands
-plasma_commands=(
-  # plasma
-  'pacman -S --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-browser-integration plasma-desktop plasma-integration plasma-nm plasma-pa plasma-workspace plasma-workspace-wallpapers polkit-kde-agent powerdevil sddm-kcm systemsettings user-manager'
+# plasma
+pacman -S --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-browser-integration plasma-desktop plasma-integration plasma-nm plasma-pa plasma-workspace plasma-workspace-wallpapers polkit-kde-agent powerdevil sddm-kcm systemsettings user-manager
 
-  # kde-applications
-  'pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kamera kate kcalc kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks kfind kget khelpcenter kio-extras konsole ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle kdeconnect partitionmanager krita'
+# kde-applications
+pacman -S --noconfirm ark dolphin dolphin-plugins ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kamera kate kcalc kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks kfind kget khelpcenter kio-extras konsole ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle kdeconnect partitionmanager krita
 
-  # kde-specifics
-  'pacman -S --noconfirm plasma-browser-integration seahorse sshfs unrar libebur128'
-  'systemctl enable sddm'
+# kde-specifics
+pacman -S --noconfirm plasma-browser-integration seahorse sshfs unrar libebur128
+systemctl enable sddm
 
-  # latte-dock
-  'pacman -S --noconfirm latte-dock'
+# latte-dock
+pacman -S --noconfirm latte-dock
 
-  # konsole
-  'mkdir -p /home/$user/.local/share/konsole'
-  'cp ../kde/ZshProfile.profile /home/$user/.local/share/konsole'
-  'cp ../kde/one_custom.colorscheme /home/$user/.local/share/konsole'
+# konsole
+mkdir -p /home/$user/.local/share/konsole
+cp ../kde/ZshProfile.profile /home/$user/.local/share/konsole
+cp ../kde/one_custom.colorscheme /home/$user/.local/share/konsole
 
-  # colorscheme
-  'mkdir -p /home/$user/.local/share/color-schemes'
-  'cp ../kde/BreezeDarkCustom.colors /home/$user/.local/share/color-schemes'
-)
-declare -r plasma_commands
-setup_commands[plasma]=$plasma_commands
+# colorscheme
+mkdir -p /home/$user/.local/share/color-schemes
+cp ../kde/BreezeDarkCustom.colors /home/$user/.local/share/color-schemes
 
-declare -a plasma_user_commands
-plasma_user_commands=(
+declare -a user_commands
+user_commands=(
   '# https://zren.github.io/kde/'
   ''
   '# latte addons'
@@ -85,5 +80,10 @@ plasma_user_commands=(
   '# window decorations breeze'
   '# icons candy icons'
 )
-declare -r plasma_user_commands
-user_commands[plasma]=$plasma_user_commands
+declare -r user_commands
+IFS=$SAVEIFS
+
+for task in "${user_commands[@]}"
+do
+  echo "$task" >> setup_user.zsh
+done

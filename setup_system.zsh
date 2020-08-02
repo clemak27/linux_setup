@@ -102,8 +102,41 @@ echo "$user:$password" | chpasswd
 echo "root:$password" | chpasswd
 
 # ------------------------ user_core ------------------------
+declare -a user_commands
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
 
-for task in "${user_commands[core][@]}"
+declare -a user_commands
+user_commands=(
+  'xdg-user-dirs-update'
+  ''
+  '# git config'
+  'git config --global user.name "clemak27"'
+  'git config --global user.email clemak27@mailbox.org'
+  'git config --global alias.lol 'log --graph --decorate --oneline --all''
+  'git config --global core.autocrlf input'
+  'git config --global pull.rebase false'
+  'git config --global credential.helper cache --timeout=86400'
+  ''
+  'mkdir -p ~/Projects'
+  ''
+  '#yay'
+  'cd ~/Projects'
+  'git clone https://aur.archlinux.org/yay.git'
+  'cd yay'
+  'makepkg -si'
+  ''
+  '# aur'
+  'sudo pacman -S --noconfirm automake autoconf'
+  'yay -S --noconfirm cava tty-clock gotop-bin ddgr'
+  ''
+  '# ssh'
+  'systemctl --user enable ssh-agent.service'
+)
+declare -r user_commands
+IFS=$SAVEIFS
+
+for task in "${user_commands[@]}"
 do
   echo "$task" >> setup_user.zsh
 done
@@ -113,13 +146,6 @@ done
 for module in "${system_modules[@]}"
 do
   echo "Setting up module "$module
-  source "./modules/$module.zsh"
-  for task in "${setup_commands[$module][@]}"
-  do
-    /bin/zsh -i -c $task
-  done
-  for task in "${user_commands[$module][@]}"
-  do
-    echo "$task" >> setup_user.zsh
-  done
+  chmod +x "./modules/$module.zsh"
+  /bin/zsh -i -c  "./modules/$module.zsh"
 done
