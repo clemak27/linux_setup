@@ -18,4 +18,8 @@ do
   do
     /bin/zsh -i -c $task
   done
+  for task in "${user_commands[$module][@]}"
+  do
+    echo "$task" >> setup_user.zsh
+  done
 done
