@@ -25,7 +25,6 @@ system_modules=(
 #  go
 #  rust
 #  logitech
-#  printer
 )
 declare -r system_modules
 
