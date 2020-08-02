@@ -12,6 +12,7 @@ gpu="nvidia"
 
 declare -a system_modules
 system_modules=(
+asdasdasd
 #  plasma
 #  gpu
 #  gui
@@ -37,3 +38,13 @@ else
   bootPartition="${device}2"
   rootPartition="${device}3"
 fi
+
+# ------------------------ checks ------------------------
+
+for module in "${system_modules[@]}"
+do
+  if [ ! -f "./modules/$module.zsh" ]; then
+     echo "Module file for "$module" could not be found!"
+     exit 1
+  fi
+done

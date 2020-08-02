@@ -12,14 +12,6 @@ else
    exit 1
 fi
 
-for module in "${system_modules[@]}"
-do
-  if [ ! -f "./modules/$module.zsh" ]; then
-     echo "Module file for "$module" could not be found!"
-     exit 1
-  fi
-done
-
 # ------------------------ core ------------------------
 echo "Setting up core"
 
