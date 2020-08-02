@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-# ------------------------ Gaming ------------------------
+# ------------------------ Docker ------------------------
 
 # docker
 pacman -S --noconfirm docker docker-compose

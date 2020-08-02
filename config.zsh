@@ -20,10 +20,7 @@ system_modules=(
 #  office
 #  gaming
 #  docker
-#  java
-#  python
-#  go
-#  rust
+#  development
 #  logitech
 )
 declare -r system_modules

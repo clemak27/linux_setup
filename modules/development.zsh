@@ -1,5 +1,23 @@
+#!/bin/zsh
 
-echo "Installing go packages"
+# ------------------------ Development Tools ------------------------
+
+# java
+pacman -S --noconfirm jdk-openjdk maven intellij-idea-community-edition
+
+#python
+pacman -S --noconfirm python-pip
+
+#golang
+pacman -S --noconfirm go
+
+# user-setup
+declare -a user_commands
+user_commands=(
+# python dev packages
+pip install jedi pylint --user
+
+# go dev packages
 mkdir -p ~/.go
 export GOPATH=~/.go
 go get -v github.com/klauspost/asmfmt/cmd/asmfmt
@@ -23,3 +41,19 @@ go get -v honnef.co/go/tools/cmd/keyify
 go get -v github.com/fatih/motion
 go get -v github.com/koron/iferr
 
+#rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# rust path is set in .zshrc already, use these options
+# default host triple: x86_64-unknown-linux-gnu
+# default toolchain: stable
+# profile: default
+# modify PATH variable: no
+)
+declare -r user_commands
+IFS=$SAVEIFS
+
+for task in "${user_commands[@]}"
+do
+  echo "$task" >> setup_user.zsh
+done
