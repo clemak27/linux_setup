@@ -23,6 +23,11 @@ echo 'x11-bypass-compositor=no' >> /home/$user/.config/mpv/mpv.conf
 declare -a user_commands
 user_commands=(
   'yay -S --noconfirm spotify'
+  ''
+  'yay -S --noconfirm syncthing'
+  'yay -S --noconfirm syncthingtray'
+  'systemctl --user enable syncthing.service'
+  'systemctl --user start syncthing.service'
 )
 declare -r user_commands
 IFS=$SAVEIFS

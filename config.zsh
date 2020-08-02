@@ -24,7 +24,6 @@ system_modules=(
 #  python
 #  go
 #  rust
-#  syncthing
 #  logitech
 #  printer
 )
