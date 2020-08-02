@@ -73,9 +73,11 @@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # setup system
 cp -R . /mnt/linux_setup
+arch-chroot /mnt chmod +x /linux_setup/setup_system.zsh
+arch-chroot /mnt /bin/zsh /linux_setup/setup_system.zsh
 
 # prepare user setup
-arch-chroot /mnt cp /linux_setup/modules/setup_user.sh /home/${user}
+arch-chroot /mnt cp /linux_setup/setup_user.sh /home/${user}
 arch-chroot /mnt chmod +x /home/${user}/setup_user.sh
 arch-chroot /mnt chown -R ${user}:${user} /home/${user}
 

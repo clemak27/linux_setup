@@ -12,8 +12,7 @@ cpu="amd"
 declare -a system_modules
 system_modules=(
   plasma
-#  plasma
-  gui
+#  gui
 #  mesa
 #  nvidia
 #  nvidia-prime
@@ -32,7 +31,7 @@ system_modules=(
 )
 declare -r system_modules
 
-# map device type
+# ------------------------ map device type ------------------------
 
 if [[ $device =~ "nvme" ]]
 then
@@ -51,6 +50,15 @@ declare -A setup_commands
 declare -A user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
+
+# ------------------------ core ------------------------
+# only user commands
+declare -a core_user_commands
+core_user_commands=(
+    'echo "core"'
+)
+declare -r core_user_commands
+user_commands[core]=$core_user_commands
 
 # ------------------------ plasma ------------------------
 
