@@ -3,13 +3,22 @@
 set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
-# Load config
+# ------------------------ Load config ------------------------
+echo "Loading config"
 if [ -f ./config.zsh ]; then
     source ./config.zsh
 else
    echo "Config file could not be found!"
    exit 1
 fi
+
+for module in "${system_modules[@]}"
+do
+  if [ ! -f "./modules/$module.zsh" ]; then
+     echo "Module file for "$module" could not be found!"
+     exit 1
+  fi
+done
 
 # ------------------------ core ------------------------
 echo "Setting up core"
