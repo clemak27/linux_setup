@@ -83,23 +83,6 @@ core_user_commands=(
 declare -r core_user_commands
 user_commands[core]=$core_user_commands
 
-# ------------------------ plasma ------------------------
-
-declare -a plasma_commands
-plasma_commands=(
-    'echo "asdf"'
-    ''
-)
-declare -r plasma_commands
-setup_commands[plasma]=$plasma_commands
-
-declare -a plasma_user_commands
-plasma_user_commands=(
-    'echo "aaaaaaaaaaaaa"'
-)
-declare -r plasma_user_commands
-user_commands[plasma]=$plasma_user_commands
-
 # ------------------------ gui ------------------------
 
 declare -a gui_commands
