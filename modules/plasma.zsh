@@ -24,6 +24,7 @@ cp ../kde/one_custom.colorscheme /home/$user/.local/share/konsole
 mkdir -p /home/$user/.local/share/color-schemes
 cp ../kde/BreezeDarkCustom.colors /home/$user/.local/share/color-schemes
 
+# user-setup
 declare -a user_commands
 user_commands=(
   '# https://zren.github.io/kde/'
