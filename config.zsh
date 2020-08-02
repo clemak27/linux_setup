@@ -8,18 +8,16 @@ hostname="virtual"
 user="cle"
 password="1234"
 cpu="amd"
+gpu="nvidia"
 
 declare -a system_modules
 system_modules=(
-  plasma
+#  plasma
+#  gpu
 #  gui
-#  mesa
-#  nvidia
-#  nvidia-prime
 #  virtual
 #  notebook
 #  office
-#  printer
 #  gaming
 #  docker
 #  java
@@ -28,6 +26,7 @@ system_modules=(
 #  rust
 #  syncthing
 #  logitech
+#  printer
 )
 declare -r system_modules
 
