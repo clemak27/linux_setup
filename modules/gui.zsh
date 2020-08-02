@@ -1,17 +1,7 @@
-#!/bin/bash
+#!/bin/zsh
 
-set -uo pipefail
-trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
+# ------------------------ GUI programs ------------------------
 
-# Load config
-# https://stackoverflow.com/a/16349776
-cd "${0%/*}"
-if [ -f ../config.sh ]; then
-  source ../config.sh
-else
-  echo "Config file could not be found!"
-  exit 1
-fi
 # fonts
 pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
 
@@ -29,6 +19,22 @@ echo 'ytdl-format="bestvideo[height<=?1080]+bestaudio/best"' >> /home/$user/.con
 echo 'no-keepaspect-window' >> /home/$user/.config/mpv/mpv.conf
 echo 'x11-bypass-compositor=no' >> /home/$user/.config/mpv/mpv.conf
 
-#------user------
+# user-setup
+declare -a user_commands
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+user_commands=(
+  'yay -S --noconfirm spotify'
+  ''
+  'yay -S --noconfirm syncthing'
+  'yay -S --noconfirm syncthingtray'
+  'systemctl --user enable syncthing.service'
+  'systemctl --user start syncthing.service'
+)
+declare -r user_commands
+IFS=$SAVEIFS
 
-cat ./gui_user.sh >> ./setup_user.sh
+for task in "${user_commands[@]}"
+do
+  echo "$task" >> setup_user.zsh
+done

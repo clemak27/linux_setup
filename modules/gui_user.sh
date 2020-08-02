@@ -1,3 +1,0 @@
-
-yay -S --noconfirm spotify
-

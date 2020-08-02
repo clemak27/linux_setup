@@ -19,3 +19,12 @@ home-test:
     - pacman -S --noconfirm python3
     - chmod +x tests/home.test.py
     - python3 tests/home.test.py
+config-test:
+  stage: test
+  image: archlinux
+  script:
+    - echo 'Running config test script...'
+    - pacman -Sy
+    - pacman -S --noconfirm python3
+    - chmod +x tests/home.test.py
+    - python3 tests/home.test.py

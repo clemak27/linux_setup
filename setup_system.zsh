@@ -1,17 +1,19 @@
-#!/bin/bash
+#!/bin/zsh
 
 set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
-# Load config
-# https://stackoverflow.com/a/16349776
-cd "${0%/*}"
-if [ -f ../config.sh ]; then
-    source ../config.sh
+# ------------------------ Load config ------------------------
+echo "Loading config"
+if [ -f ./config.zsh ]; then
+    source ./config.zsh
 else
    echo "Config file could not be found!"
    exit 1
 fi
+
+# ------------------------ core ------------------------
+echo "Setting up core"
 
 # timezone
 ln -sf /usr/share/zoneinfo/Europe/Vienna /etc/localtime
@@ -68,25 +70,25 @@ pacman -S --noconfirm openssh
 
 # pacman hooks
 mkdir -p /etc/pacman.d/hooks/
-cp ../pacman-hooks/grub.hook /etc/pacman.d/hooks/grub.hook
-cp ../pacman-hooks/cleanup.hook /etc/pacman.d/hooks/cleanup.hook
+cp ./pacman-hooks/grub.hook /etc/pacman.d/hooks/grub.hook
+cp ./pacman-hooks/cleanup.hook /etc/pacman.d/hooks/cleanup.hook
 ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
 
 # nvim
 mkdir -p /home/$user/.config/nvim
 mkdir -p /home/$user/.local/share/nvim/site/autoload
-cp ../dotfiles/vimrc /home/$user/.config/nvim/init.vim
+cp ./dotfiles/vimrc /home/$user/.config/nvim/init.vim
 curl -fLo /home/$user/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # zsh
-cp ../dotfiles/starship.toml /home/$user/.starship.toml
-cp ../dotfiles/zshrc /home/$user/.zshrc
+cp ./dotfiles/starship.toml /home/$user/.starship.toml
+cp ./dotfiles/zshrc /home/$user/.zshrc
 git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
 curl -fsSL https://starship.rs/install.sh | bash
 
 # ssh
 mkdir -p /home/$user/.config/systemd/user
-cp ../systemd-units/ssh-agent.service /home/$user/.config/systemd/user/ssh-agent.service
+cp ./systemd-units/ssh-agent.service /home/$user/.config/systemd/user/ssh-agent.service
 echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"' >> /home/$user/.pam_environment
 
 # add user and set groups
@@ -100,6 +102,51 @@ localectl set-keymap de
 echo "$user:$password" | chpasswd
 echo "root:$password" | chpasswd
 
-#------user------
+# ------------------------ user_core ------------------------
+declare -a user_commands
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
 
-cat ./core_user.sh >> setup_user.sh
+user_commands=(
+  'xdg-user-dirs-update'
+  ''
+  '# git config'
+  'git config --global user.name "clemak27"'
+  'git config --global user.email clemak27@mailbox.org'
+  'git config --global alias.lol "log --graph --decorate --oneline --all"'
+  'git config --global core.autocrlf input'
+  'git config --global pull.rebase false'
+  'git config --global credential.helper cache --timeout=86400'
+  ''
+  'mkdir -p ~/Projects'
+  ''
+  '#yay'
+  'cd ~/Projects'
+  'git clone https://aur.archlinux.org/yay.git'
+  'cd yay'
+  'makepkg -si'
+  ''
+  '# aur'
+  'sudo pacman -S --noconfirm automake autoconf'
+  'yay -S --noconfirm cava tty-clock gotop-bin ddgr'
+  ''
+  '# ssh'
+  'systemctl --user enable ssh-agent.service'
+)
+
+declare -r user_commands
+IFS=$SAVEIFS
+
+for task in "${user_commands[@]}"
+do
+  echo "$task" >> setup_user.zsh
+done
+
+# ------------------------ modules ------------------------
+
+for module in "${system_modules[@]}"
+do
+  echo "Setting up module "$module
+  chmod +x "./modules/$module.zsh"
+  /bin/zsh -i -c  "./modules/$module.zsh"
+done

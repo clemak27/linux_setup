@@ -1,15 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
 
-set -uo pipefail
-trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
-
-cd "${0%/*}"
-if [ -f ../config.sh ]; then
-    source ../config.sh
-else
-   echo "Config file could not be found!"
-   exit 1
-fi
+# ------------------------ Virtual Machines ------------------------
 
 # virtualization
 # https://computingforgeeks.com/complete-installation-of-kvmqemu-and-virt-manager-on-arch-linux-and-manjaro/

@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/zsh
 
 set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
 # Load config
-if [ -f ./config.sh ]; then
-    source ./config.sh
+if [ -f ./config.zsh ]; then
+    source ./config.zsh
 else
    echo "Config file could not be found!"
    exit 1
@@ -73,14 +73,11 @@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # setup system
 cp -R . /mnt/linux_setup
-for module in ${modules[@]}
-do
-  arch-chroot /mnt chmod +x /linux_setup/modules/${module}.sh
-  arch-chroot /mnt /bin/bash /linux_setup/modules/${module}.sh
-done
+arch-chroot /mnt chmod +x /linux_setup/setup_system.zsh
+arch-chroot /mnt /bin/zsh /linux_setup/setup_system.zsh
 
 # prepare user setup
-arch-chroot /mnt cp /linux_setup/modules/setup_user.sh /home/${user}
+arch-chroot /mnt cp /linux_setup/setup_user.sh /home/${user}
 arch-chroot /mnt chmod +x /home/${user}/setup_user.sh
 arch-chroot /mnt chown -R ${user}:${user} /home/${user}
 
