@@ -113,6 +113,7 @@ done
 for module in "${system_modules[@]}"
 do
   echo "Setting up module "$module
+  source "./modules/$module.zsh"
   for task in "${setup_commands[$module][@]}"
   do
     /bin/zsh -i -c $task
