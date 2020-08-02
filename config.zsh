@@ -102,4 +102,3 @@ if [ "$gpu" != "nvidia" ] | [ "$gpu" != "amd" ]; then
   echo "gpu set to unknown value!"
   exit 1
 fi
-exit 0

@@ -9,7 +9,7 @@ def checkReplacement(original, replacement):
     for line in fileinput.input(configPath, inplace = 1):
         print(line.replace(original, replacement).rstrip())
 
-    result = subprocess.run(["../setup_system.zsh"], stdout=subprocess.PIPE)
+    result = subprocess.run(["./setup_system.zsh"], stdout=subprocess.PIPE)
     rc = result.returncode
     if rc != 1:
         fails = fails + 1
@@ -17,7 +17,7 @@ def checkReplacement(original, replacement):
     for line in fileinput.input(configPath, inplace = 1):
           print(line.replace(replacement, original).rstrip())
 
-configPath = '../config.zsh'
+configPath = './config.zsh'
 fails = 0
 
 print("Checking config tests:")
