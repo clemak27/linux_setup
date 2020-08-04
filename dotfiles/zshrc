@@ -39,6 +39,7 @@ LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;3
 export LS_COLORS
 
 # ---------- Aliases ----------
+alias cat='bat'
 alias cd..="cd .."
 
 alias gcm='git commit -v -m'
@@ -48,9 +49,8 @@ alias gs='git status'
 alias gus='git reset HEAD'
 alias gcf="git for-each-ref --format='%(refname:short)' refs/heads | fzf | xargs git checkout"
 
-alias ll="ls --color -lh"
-alias ls="ls --color -F"
-alias lsa="ls --color -F -hal"
+alias ls="exa"
+alias lsa="exa -hal"
 
 alias mpvnv='mpv --no-video'
 alias q="exit"

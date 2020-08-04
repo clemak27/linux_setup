@@ -54,7 +54,7 @@ sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 pacman -Syyu --noconfirm
 
 # terminal
-pacman -S --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unrar htop arch-audit android-tools jq
+pacman -S --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unrar htop arch-audit android-tools jq bat exa
 
 # zsh
 pacman -S --noconfirm zsh zsh-completions
