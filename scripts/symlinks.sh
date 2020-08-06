@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ln -sf ~/Projects/linux_setup/dotfiles/vimrc ~/.config/nvim/init.vim
+ln -sf ~/Projects/linux_setup/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
 ln -sf ~/Projects/linux_setup/dotfiles/zshrc ~/.zshrc
 ln -sf ~/Projects/linux_setup/dotfiles/starship.toml ~/.starship.toml
 
