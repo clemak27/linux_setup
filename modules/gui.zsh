@@ -24,6 +24,8 @@ declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
+  'yay -S --noconfirm scrcpy'
+  ''
   'yay -S --noconfirm spotify'
   ''
   'yay -S --noconfirm syncthing'
