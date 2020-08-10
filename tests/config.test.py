@@ -5,7 +5,7 @@ from os import listdir
 from os.path import isfile, join
 import fileinput
 
-setupPath = './setup_system.zsh'
+setupPath = '../setup_system.zsh'
 configPath = './config.zsh'
 fails = 0
 
