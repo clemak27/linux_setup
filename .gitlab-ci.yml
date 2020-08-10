@@ -26,5 +26,5 @@ config-test:
     - echo 'Running config test script...'
     - pacman -Sy
     - pacman -S --noconfirm python3
-    - chmod +x tests/home.test.py
-    - python3 tests/home.test.py
+    - chmod +x tests/config.test.py
+    - python3 tests/config.test.py
