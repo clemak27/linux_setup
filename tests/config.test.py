@@ -1,9 +1,9 @@
 #!/bin/python3
 
 import subprocess
+import fileinput
 from os import listdir
 from os.path import isfile, join
-import fileinput
 
 setupPath = './setup_system.zsh'
 configPath = './config.zsh'
@@ -13,7 +13,7 @@ def checkReplacement(original, replacement):
     for line in fileinput.input(configPath, inplace = 1):
         print(line.replace(original, replacement).rstrip())
 
-    result = subprocess.run(['zsh', setupPath], stdout=subprocess.PIPE)
+    result = subprocess.run(setupPath, stdout=subprocess.PIPE)
     rc = result.returncode
     if rc != 1:
         fails = fails + 1
