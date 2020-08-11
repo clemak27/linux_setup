@@ -4,6 +4,7 @@
 
 # java
 pacman -S --noconfirm jdk-openjdk maven intellij-idea-community-edition
+cp ../dotfiles/ideavimrc /home/$user/.ideavimrc
 
 #python
 pacman -S --noconfirm python-pip
