@@ -13,7 +13,7 @@ def checkReplacement(original, replacement):
     for line in fileinput.input(configPath, inplace = 1):
         print(line.replace(original, replacement).rstrip())
 
-    result = subprocess.run(setupPath, stdout=subprocess.PIPE)
+    result = subprocess.run(['sh', setupPath], stdout=subprocess.PIPE)
     rc = result.returncode
     if rc != 1:
         fails = fails + 1
