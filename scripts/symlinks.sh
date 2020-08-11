@@ -5,6 +5,8 @@ ln -sf ~/Projects/linux_setup/dotfiles/coc-settings.json ~/.config/nvim/coc-sett
 ln -sf ~/Projects/linux_setup/dotfiles/zshrc ~/.zshrc
 ln -sf ~/Projects/linux_setup/dotfiles/starship.toml ~/.starship.toml
 
+ln -sf ~/Projects/linux_setup/dotfiles/spicetify ~/.config/spicetify/config.ini
+
 ffProfilePath="/home/cle/.mozilla/firefox/72zvuvdy.default-release"
 
 ln -sf ~/Projects/linux_setup/ff/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
