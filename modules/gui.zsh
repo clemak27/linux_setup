@@ -19,6 +19,8 @@ echo 'ytdl-format="bestvideo[height<=?1080]+bestaudio/best"' >> /home/$user/.con
 echo 'no-keepaspect-window' >> /home/$user/.config/mpv/mpv.conf
 echo 'x11-bypass-compositor=no' >> /home/$user/.config/mpv/mpv.conf
 
+cp ../dotfiles/spicetify /home/$user/.config/spicetify/config.ini
+
 # user-setup
 declare -a user_commands
 SAVEIFS=$IFS
@@ -27,6 +29,10 @@ user_commands=(
   'yay -S --noconfirm scrcpy'
   ''
   'yay -S --noconfirm spotify'
+  'sudo chmod a+wr /opt/spotify'
+  'sudo chmod a+wr /opt/spotify/Apps -R'
+  'yay -S spicetify-cli'
+  'spicetify apply'
   ''
   'yay -S --noconfirm syncthing'
   'yay -S --noconfirm syncthingtray'
