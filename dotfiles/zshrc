@@ -44,6 +44,7 @@ alias cd..="cd .."
 
 alias gcm='git commit -v -m'
 alias gcmld='git checkout master && git pull && comm -12 <(git branch | sed "s/ *//g") <(git remote prune origin --dry-run | sed "s/^.*origin\///g") | xargs -I{} git branch -D {}'
+alias gfmm='git fetch origin && git merge origin/master'
 alias gpskip='git push -o ci.skip'
 alias gs='git status'
 alias gus='git reset HEAD'
