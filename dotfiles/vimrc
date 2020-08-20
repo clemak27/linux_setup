@@ -13,13 +13,11 @@ Plug 'itchyny/lightline.vim' " nice statusline
 Plug 'tpope/vim-vinegar' " fileexplorer
 Plug 'tpope/vim-fugitive' " git diff etc inside vim
 Plug 'tpope/vim-commentary' " comment with gc
-Plug 'junegunn/fzf' " fuzzy file search
-Plug 'junegunn/fzf.vim' " fuzzy file search
+Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file search
 Plug 'tpope/vim-surround' " brackets around words ysiw(
 Plug 'fatih/vim-go' " go dev stuff
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " everything
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-highlight coc-lists coc-git coc-pairs coc-go coc-rls'} " everything
 Plug 'antoinemadec/coc-fzf' " fzf coc integration
-" :CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-highlight coc-lists coc-git coc-pairs coc-go coc-rls
 
 call plug#end()
 
