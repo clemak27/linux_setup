@@ -45,6 +45,9 @@ pacman -S --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget nt
 pacman -S --noconfirm networkmanager
 systemctl enable NetworkManager
 
+# colorful output
+sed -i 's/#colors/Color/g' /etc/pacman.conf
+
 # activate multilib
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 
