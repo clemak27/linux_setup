@@ -46,7 +46,7 @@ pacman -S --noconfirm networkmanager
 systemctl enable NetworkManager
 
 # colorful output
-sed -i 's/#colors/Color/g' /etc/pacman.conf
+sed -i 's/#Color/Color/g' /etc/pacman.conf
 
 # activate multilib
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
