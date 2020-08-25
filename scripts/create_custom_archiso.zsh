@@ -1,11 +1,12 @@
 #!/bin/zsh
 
-pacman -S archiso
+sudo pacman -S archiso
 
-mkdir archiso
-cp -r /usr/share/archiso/configs/releng/ archiso
-cd archiso
+sudo mkdir archiso
 
-bash ./build.sh -v -w /tmp/archiso-tmp -o /home/cle/Desktop
+sudo cp -r /usr/share/archiso/configs/releng/ archiso
+sudo cd archiso
 
-pacman -Rns archiso
+sudo bash ./build.sh -v -w /tmp/archiso-tmp -o /home/cle/Desktop
+
+sudo pacman -Rns archiso
