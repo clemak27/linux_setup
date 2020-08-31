@@ -2,13 +2,18 @@
 
 cd ~/Projects
 
-mkdir jbm
-cd jbm
+mkdir font
+cd font
 curl -L -O https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
 unzip JetBrainsMono.zip
-mkdir fonts
-cp *Mono.ttf fonts
-rm fonts/JetBrains\ Mono\ Medium\ Med\ Ita\ Nerd\ Font\ Complete Mono.ttf
-rm fonts/JetBrains\ Mono\ Medium\ Medium\ Nerd\ Font\ Complete\ Mono.ttf
-rm fonts/JetBrains\ Mono\ ExtraBold\ ExtBd\ Nerd\ Font\ Complete\ Mono.ttf
-rm fonts/JetBrains\ Mono\ ExtraBold\ ExBd\ I\ Nerd\ Font\ Complete Mono.ttf
+mkdir jbm
+cp *Complete.ttf jbm
+
+rm jbm/JetBrains\ Mono\ Medium\ Med\ Ita\ Nerd\ Font\ Complete.ttf
+rm jbm/JetBrains\ Mono\ Medium\ Medium\ Nerd\ Font\ Complete.ttf
+rm jbm/JetBrains\ Mono\ ExtraBold\ ExtBd\ Nerd\ Font\ Complete.ttf
+rm jbm/JetBrains\ Mono\ ExtraBold\ ExBd\ I\ Nerd\ Font\ Complete.ttf
+
+cp -R jbm ~/.fonts
+
+rm -rf ~/Projects/font
