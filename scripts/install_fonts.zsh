@@ -1,11 +1,11 @@
 #!/bin/zsh
 
-cd ~/Projects
-
 mkdir font
 cd font
+
 curl -L -O https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
 unzip JetBrainsMono.zip
+
 mkdir jbm
 cp *Complete.ttf jbm
 
@@ -16,4 +16,5 @@ rm jbm/JetBrains\ Mono\ ExtraBold\ ExBd\ I\ Nerd\ Font\ Complete.ttf
 
 cp -R jbm ~/.fonts
 
-rm -rf ~/Projects/font
+cd ..
+rm -rf font
