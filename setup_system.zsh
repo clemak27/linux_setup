@@ -60,7 +60,7 @@ pacman -Syyu --noconfirm
 pacman -S --noconfirm zsh zsh-completions
 
 # terminal
-pacman -S --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unrar htop arch-audit android-tools jq bat exa hyperfine tokei reflector
+pacman -S --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unrar htop arch-audit android-tools jq bat exa hyperfine tokei reflector sd
 
 # xD
 pacman -S --noconfirm cmatrix lolcat neofetch sl
