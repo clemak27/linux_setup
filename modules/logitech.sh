@@ -10,5 +10,6 @@ pacman -S --noconfirm piper
 cat << 'EOT' >> setup_user.sh
 
 yay -S g810-led-git
+yay -S headsetcontrol
 
 EOT
