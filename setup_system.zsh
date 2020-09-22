@@ -132,6 +132,8 @@ user_commands=(
   '# aur'
   'sudo pacman -S --noconfirm automake autoconf'
   'yay -S --noconfirm cava tty-clock gotop-bin ddgr informant'
+  'sudo informant check'
+  'sudo informant read --all'
   "sudo usermod -a -G informant $user"
   ''
   '# ssh'
