@@ -131,7 +131,8 @@ user_commands=(
   ''
   '# aur'
   'sudo pacman -S --noconfirm automake autoconf'
-  'yay -S --noconfirm cava tty-clock gotop-bin ddgr'
+  'yay -S --noconfirm cava tty-clock gotop-bin ddgr informant'
+  "sudo usermod -a -G informant $user"
   ''
   '# ssh'
   'systemctl --user enable ssh-agent.service'
