@@ -19,3 +19,4 @@ set ideajoin
 " Remap 0 and § to first non-blank character
 map § ^
 map 0 ^
+map ß $
