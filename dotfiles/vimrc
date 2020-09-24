@@ -14,6 +14,7 @@ Plug 'tpope/vim-vinegar' " fileexplorer
 Plug 'tpope/vim-fugitive' " git diff etc inside vim
 Plug 'tpope/vim-commentary' " comment with gc
 Plug 'tpope/vim-surround' " brackets around words ysiw(
+Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
 Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file search
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-highlight coc-lists coc-git coc-pairs coc-go coc-rls coc-prettier coc-vetur'} " everything
 Plug 'antoinemadec/coc-fzf' " fzf coc integration
@@ -244,8 +245,11 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Always show the status line
 set laststatus=2
 
-" Remap § to first non-blank character
+" Remap 0 and § to first non-blank character
 map § ^
+map 0 ^
+" Remap ß to end of line
+map ß $
 
 " Move a line of text using ALT+[jk]
 nmap <M-j> mz:m+<cr>`z
