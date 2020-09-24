@@ -21,3 +21,11 @@ map § ^
 map 0 ^
 " Remap ß to end of line
 map ß $
+" Remap yss to surround until end of line
+map yss ys$
+" display list of all actions
+map <silent> <space>c  :<C-u>actionlist<CR>
+" go to definition
+map <silent> gd :action GotoDeclaration<CR>
+" go to implementation
+map <silent> gi :action GotoImplementation<CR>
