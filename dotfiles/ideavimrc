@@ -18,3 +18,6 @@ set ideastatusicon=gray
 set idearefactormode=keep
 
 """ Mappings --------------------------------
+" Remap 0 and § to first non-blank character
+map § ^
+map 0 ^
