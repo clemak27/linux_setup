@@ -14,8 +14,6 @@ set so=5
 
 """ Idea specific settings ------------------
 set ideajoin
-set ideastatusicon=gray
-set idearefactormode=keep
 
 """ Mappings --------------------------------
 " Remap 0 and § to first non-blank character
