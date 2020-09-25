@@ -29,3 +29,9 @@ map <silent> <space>c  :<C-u>actionlist<CR>
 map <silent> gd :action GotoDeclaration<CR>
 " go to implementation
 map <silent> gi :action GotoImplementation<CR>
+" run current config
+map <silent> rr :action Run<CR>
+" run current debug config
+map <silent> rr :action Debug<CR>
+" run class
+map <silent> rr :action RunClass<CR>
