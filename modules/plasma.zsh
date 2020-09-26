@@ -31,6 +31,10 @@ IFS=$(echo -en "\n\b")
 user_commands=(
   '# https://zren.github.io/kde/'
   ''
+  '# fix nvidia black flickering issue'
+  '# set compositing to full screen repaints'
+  'sudo cp kde/kwin_triple_buffer.sh /etc/profile.d'
+  ''
   '# latte addons'
   'sudo pacman -S --noconfirm cmake extra-cmake-modules kwindowsystem kdecoration kcoreaddons'
   ''
