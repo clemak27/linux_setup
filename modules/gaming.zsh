@@ -4,6 +4,7 @@
 
 # gaming
 pacman -S --noconfirm wine-staging lutris steam discord obs-studio
+pacman -S --noconfirm retroarch retroarch-assets-xmb
 
 # user-setup
 declare -a user_commands
