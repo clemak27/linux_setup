@@ -35,3 +35,5 @@ map <silent> rr :action Run<CR>
 map <silent> rr :action Debug<CR>
 " run class
 map <silent> rr :action RunClass<CR>
+" reformat code
+map <silent> == :action ReformatCode<CR>
