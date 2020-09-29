@@ -24,8 +24,6 @@ map 0 ^
 map ß $
 " Remap yss to surround until end of line
 map yss ys$
-" display list of all actions
-map <silent> <space>c  :<C-u>actionlist<CR>
 " go to definition
 map <silent> gd :action GotoDeclaration<CR>
 " go to implementation
@@ -33,8 +31,12 @@ map <silent> gi :action GotoImplementation<CR>
 " run current config
 map <silent> rr :action Run<CR>
 " run current debug config
-map <silent> rr :action Debug<CR>
+map <silent> rd :action Debug<CR>
 " run class
-map <silent> rr :action RunClass<CR>
+map <silent> rc :action RunClass<CR>
 " reformat code
 map <silent> == :action ReformatCode<CR>
+" move tab to right
+map <C-l> :action NextTab<CR>
+" move tab to left
+map <C-h> :action PreviousTab<CR>
