@@ -11,6 +11,7 @@ set nu
 set showmode
 set smartcase
 set so=5
+set clipboard+=unnamedplus
 
 """ Idea specific settings ------------------
 set ideajoin
