@@ -31,10 +31,6 @@ IFS=$(echo -en "\n\b")
 user_commands=(
   '# https://zren.github.io/kde/'
   ''
-  '# fix nvidia black flickering issue'
-  '# set compositing to full screen repaints'
-  'sudo cp kde/kwin_triple_buffer.sh /etc/profile.d'
-  ''
   'kde widgets'
   'yay -S plasma5-applets-eventcalendar'
   'yay -S plasma5-applets-window-appmenu plasma5-applets-window-buttons plasma5-applets-window-title'
