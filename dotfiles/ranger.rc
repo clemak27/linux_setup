@@ -29,3 +29,6 @@ set update_title true
 
 # Abbreviate $HOME with ~ in the titlebar (first line) of ranger?
 set tilde_in_titlebar true
+
+# search with fzf
+map <C-f> fzf_select
