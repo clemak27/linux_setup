@@ -16,7 +16,7 @@ ln -sf ~/Projects/linux_setup/dotfiles/ranger.rc ~/.config/ranger/rc.conf
 ln -sf ~/Projects/linux_setup/dotfiles/ranger.commands ~/.config/ranger/commands.py
 
 # rofi
-ln -sf ~/Projects/linux_setup/rofi/clean.rasi ~/.config/rofi/themes/clean.rasi
+ln -sf ~/Projects/linux_setup/rofi/app.rasi ~/.config/rofi/themes/app.rasi
 ln -sf ~/Projects/linux_setup/rofi/colors.rasi ~/.config/rofi/themes/colors.rasi
 ln -sf ~/Projects/linux_setup/rofi/onedark.rasi ~/.config/rofi/themes/onedark.rasi
 

@@ -1,3 +1,3 @@
 #!/bin/zsh
 
-rofi drun -show drun -modi drun -theme clean
+rofi drun -show drun -modi drun -theme app
