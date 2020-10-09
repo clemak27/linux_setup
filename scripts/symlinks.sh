@@ -18,7 +18,7 @@ ln -sf ~/Projects/linux_setup/dotfiles/ranger.commands ~/.config/ranger/commands
 # rofi
 ln -sf ~/Projects/linux_setup/rofi/app.rasi ~/.config/rofi/themes/app.rasi
 ln -sf ~/Projects/linux_setup/rofi/combo.rasi ~/.config/rofi/themes/combo.rasi
-ln -sf ~/Projects/linux_setup/rofi/colors.rasi ~/.config/rofi/themes/colors.rasi
+ln -sf ~/Projects/linux_setup/rofi/common.rasi ~/.config/rofi/themes/common.rasi
 
 # spicetify
 ln -sf ~/Projects/linux_setup/dotfiles/spicetify ~/.config/spicetify/config.ini
