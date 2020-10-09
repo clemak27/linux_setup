@@ -13,6 +13,8 @@ pacman -S --noconfirm signal-desktop
 
 # rofi
 pacman -S --noconfirm rofi dmenu
+mkdir -p /home/$user/.config/rofi/themes
+cp ../rofi/onedark.rasi /home/$user/.config/rofi/themes
 
 # mpv config
 cp -r /usr/share/doc/mpv/ /home/$user/.config/
