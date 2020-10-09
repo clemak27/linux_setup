@@ -5,6 +5,8 @@ ln -sf ~/Projects/linux_setup/dotfiles/coc-settings.json ~/.config/nvim/coc-sett
 ln -sf ~/Projects/linux_setup/dotfiles/zshrc ~/.zshrc
 ln -sf ~/Projects/linux_setup/dotfiles/starship.toml ~/.starship.toml
 ln -sf ~/Projects/linux_setup/dotfiles/ideavimrc ~/.ideavimrc
+ln -sf ~/Projects/linux_setup/dotfiles/ranger.rc ~/.config/ranger/rc.conf
+ln -sf ~/Projects/linux_setup/dotfiles/ranger.commands ~/.config/ranger/commands.py
 
 ln -sf ~/Projects/linux_setup/dotfiles/spicetify ~/.config/spicetify/config.ini
 
