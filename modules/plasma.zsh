@@ -63,7 +63,9 @@ user_commands=(
   '# colors -> brezze black custom'
   '# plasma theme breeze alpha black'
   '# window decorations breeze'
-  '# icons candy icons'
+  ''
+  '# add .../rofi/combo.sh as custom shortcut'
+  '# use alt+space'
 )
 declare -r user_commands
 IFS=$SAVEIFS
