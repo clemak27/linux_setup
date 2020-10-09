@@ -4,9 +4,9 @@
   text-alt:   #b2b2b2;
 
   foreground:         #abb2bf;
-  background:         #282c34;
-  background-alt:          #282c34;
-  background-ib: #151515FF;
+  background:         #000000;
+  background-alt:          #000000;
+  background-ib: #282c34ff;
   
   urgent: #eb6e67;
 
