@@ -1,3 +1,3 @@
 #!/bin/zsh
 
-rofi -combi-modi window,drun -show combi -modi combi -theme onedark
+rofi -combi-modi window,drun -show combi -modi combi -theme combo
