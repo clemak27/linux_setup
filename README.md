@@ -8,14 +8,25 @@ I use arch btw. [![pipeline status](https://gitlab.com/clemak27/linux_setup/badg
 
 ![clear](./screenshots/clear.png)
 
+### fullscreen
+
+![fullscreen](./screenshots/fullscreen.png)
+
 ### neofetch
 
 ![neofetch](./screenshots/neofetch.png)
 
-### busy
+### rofi
 
-![busy](./screenshots/busy.png)
+## krunner-replacement
 
-### fullscreen
+![rofi_runner](./screenshots/rofi_runner.png)
 
-![neofetch](./screenshots/fullscreen.png)
+## app launcher
+
+![rofi_app](./screenshots/rofi_app.png)
+
+## power menu
+
+![rofi_power](./screenshots/rofi_power.png)
+
