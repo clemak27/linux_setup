@@ -11,6 +11,10 @@ pacman -S --noconfirm firefox mpv keepassxc
 # messaging
 pacman -S --noconfirm signal-desktop
 
+# rofi
+pacman -S --noconfirm rofi dmenu
+mkdir -p /home/$user/.config/rofi/themes
+
 # mpv config
 cp -r /usr/share/doc/mpv/ /home/$user/.config/
 sed -i 's/#autofit-larger=90%x90%/autofit-larger=40%x40%/g' /home/$user/.config/mpv/mpv.conf

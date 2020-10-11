@@ -1,0 +1,18 @@
+* {
+  emphasis:   #50536b;
+  text:       #dfdfdf;
+  text-alt:   #b2b2b2;
+
+  foreground:         #abb2bf;
+  background:         #000000;
+  background-alt:          #000000;
+  background-ib: #282c34ff;
+  
+  urgent: #eb6e67;
+
+  spacing: 0;
+  text-color: @text;
+
+  font: "Noto Sans 10";
+	icon-theme: "Papirus";
+}
