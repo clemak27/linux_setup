@@ -21,6 +21,9 @@ ln -sf ~/Projects/linux_setup/rofi/combo.rasi ~/.config/rofi/themes/combo.rasi
 ln -sf ~/Projects/linux_setup/rofi/powermenu.rasi ~/.config/rofi/themes/powermenu.rasi
 ln -sf ~/Projects/linux_setup/rofi/common.rasi ~/.config/rofi/themes/common.rasi
 
+# mpv
+ln -sf ~/Projects/linux_setup/dotfiles/mpv.conf ~/.config/mpv/mpv.conf
+
 # spicetify
 ln -sf ~/Projects/linux_setup/dotfiles/spicetify ~/.config/spicetify/config.ini
 
