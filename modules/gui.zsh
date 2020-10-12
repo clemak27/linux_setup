@@ -16,12 +16,7 @@ pacman -S --noconfirm rofi dmenu
 mkdir -p /home/$user/.config/rofi/themes
 
 # mpv config
-cp -r /usr/share/doc/mpv/ /home/$user/.config/
-sed -i 's/#autofit-larger=90%x90%/autofit-larger=40%x40%/g' /home/$user/.config/mpv/mpv.conf
-echo "" >> /home/$user/.config/mpv/mpv.conf
-echo 'ytdl-format="bestvideo[height<=?1080]+bestaudio/best"' >> /home/$user/.config/mpv/mpv.conf
-echo 'no-keepaspect-window' >> /home/$user/.config/mpv/mpv.conf
-echo 'x11-bypass-compositor=no' >> /home/$user/.config/mpv/mpv.conf
+mkdir -p /home/$user/.config/mpv
 
 cp ../dotfiles/spicetify /home/$user/.config/spicetify/config.ini
 
