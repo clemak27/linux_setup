@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # zsh
 ln -sf ~/Projects/linux_setup/dotfiles/zshrc ~/.zshrc
