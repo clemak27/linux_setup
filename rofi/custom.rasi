@@ -92,6 +92,16 @@ mode-switcher {
   background-color:  @background;
 }
 
+button {
+  padding:          5px 5px 5px 5px;
+    background-color: 			@background;
+    text-color:       			@foreground;
+}
+
+button.selected {
+    background-color: 			@background-ib;
+}
+
 listview {
   background-color:  @background;
   columns:           1;
