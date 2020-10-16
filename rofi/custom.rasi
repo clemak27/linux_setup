@@ -83,9 +83,19 @@ case-indicator {
 
 mainbox {
   background-color: @background;
-  children: [ inputbar, listview, mode-switcher ];
+  children: [ inputbar, message, listview, mode-switcher ];
   spacing: 8px;
   padding: 8px 8px 8px 8px;
+}
+
+message {
+  background-color: @background;
+  text-color: @foreground;
+}
+
+textbox {
+  background-color: @background;
+  text-color: @foreground;
 }
 
 mode-switcher {

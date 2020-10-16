@@ -12,7 +12,7 @@ pacman -S --noconfirm firefox mpv keepassxc
 pacman -S --noconfirm signal-desktop
 
 # rofi
-pacman -S --noconfirm rofi dmenu
+pacman -S --noconfirm rofi rofi-calc dmenu
 mkdir -p /home/$user/.config/rofi/themes
 
 # mpv config
