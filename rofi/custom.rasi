@@ -1,0 +1,165 @@
+configuration {
+  show-icons: true;
+  display-drun: "launch";
+  drun-display-format: "{name}";
+  display-window: "switch to";
+  window-display-format: "{name}";
+  display-combi: "combi";
+  combi-display-format: "{name}";
+  threads: 0;
+  scroll-method: 0;
+  disable-history: false;
+  fullscreen: false;
+  hide-scrollbar: true;
+  sidebar-mode: false;
+}
+
+* {
+  textcolor: #abb2bf;
+  background: #000000;
+  highlighted: #282c34ff;
+  urgent: #eb6e67;
+
+  spacing: 0;
+  text-color: @textcolor;
+
+  font: "Noto Sans 10";
+  icon-theme: "Papirus";
+}
+
+window {
+  transparency: "real";
+  background-color: @background;
+  text-color: @textcolor;
+  border-radius: 0px;
+  height: 40%;
+  width: 40%;
+  location: center;
+  anchor: center;
+  x-offset: 0;
+  y-offset: 0;
+}
+
+prompt {
+  enabled: true;
+  padding: 0px 14px 0px 4px;
+  background-color: @highlighted;
+  text-color: @textcolor;
+  font: "Jetbrains Mono Nerd Font 12";
+}
+
+
+inputbar {
+  background-color: @highlighted;
+  text-color: @textcolor;
+  expand: false;
+  margin: 0px 0px 0px 0px;
+  padding: 5px 5px 5px 5px;
+  position: center;
+}
+
+
+entry {
+  background-color: @highlighted;
+  text-color: @textcolor;
+  placeholder-color: @textcolor;
+  expand: true;
+  horizontal-align: 0;
+  placeholder: "Search";
+  blink: true;
+}
+
+case-indicator {
+  background-color: @background;
+  text-color: @textcolor;
+  spacing: 0;
+}
+
+mainbox {
+  background-color: @background;
+  children: [ inputbar, message, listview, mode-switcher ];
+  spacing: 8px;
+  padding: 8px 8px 8px 8px;
+}
+
+message {
+  background-color: @background;
+  text-color: @textcolor;
+}
+
+textbox {
+  background-color: @background;
+  text-color: @textcolor;
+}
+
+mode-switcher {
+  background-color: @background;
+}
+
+button {
+  padding: 5px 5px 5px 5px;
+  background-color: @background;
+  text-color: @textcolor;
+}
+
+button.selected {
+  background-color: @highlighted;
+}
+
+listview {
+  background-color: @background;
+  columns: 1;
+  spacing: 4px;
+  cycle: false;
+  dynamic: true;
+  layout: vertical;
+}
+
+element {
+  background-color: @background;
+  text-color: @textcolor;
+  orientation: horizontal;
+  padding: 4px 4px 4px 4px;
+}
+
+element-icon {
+  size: 24px;
+  border: 0px;
+}
+
+element-text {
+  expand: true;
+  horizontal-align: 0;
+  vertical-align: 0;
+  margin: 2px 0px 2px 2px;
+}
+
+element normal.urgent,
+element alternate.urgent {
+  background-color: @urgent;
+  text-color: @textcolor;
+  border-radius: 9px;
+}
+
+element normal.active,
+element alternate.active {
+  background-color: @background;
+  text-color: @textcolor;
+}
+
+element selected {
+  background-color: @highlighted;
+  text-color: @textcolor;
+}
+
+element selected.urgent {
+  background-color: @urgent;
+  text-color: @textcolor;
+}
+
+element selected.active {
+  background-color: @highlighted;
+  color: @textcolor;
+}
+
+/* vim:ft=css

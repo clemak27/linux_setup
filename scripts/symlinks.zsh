@@ -16,10 +16,7 @@ ln -sf ~/Projects/linux_setup/dotfiles/ranger.rc ~/.config/ranger/rc.conf
 ln -sf ~/Projects/linux_setup/dotfiles/ranger.commands ~/.config/ranger/commands.py
 
 # rofi
-ln -sf ~/Projects/linux_setup/rofi/app.rasi ~/.config/rofi/themes/app.rasi
-ln -sf ~/Projects/linux_setup/rofi/combo.rasi ~/.config/rofi/themes/combo.rasi
-ln -sf ~/Projects/linux_setup/rofi/powermenu.rasi ~/.config/rofi/themes/powermenu.rasi
-ln -sf ~/Projects/linux_setup/rofi/common.rasi ~/.config/rofi/themes/common.rasi
+ln -sf ~/Projects/linux_setup/rofi/custom.rasi ~/.config/rofi/themes/custom.rasi
 
 # mpv
 ln -sf ~/Projects/linux_setup/dotfiles/mpv.conf ~/.config/mpv/mpv.conf
