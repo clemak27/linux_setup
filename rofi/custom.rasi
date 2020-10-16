@@ -15,17 +15,13 @@ configuration {
 }
 
 * {
-  emphasis: #50536b;
-  text: #dfdfdf;
-
-  foreground: #abb2bf;
+  textcolor: #abb2bf;
   background: #000000;
-  background-ib: #282c34ff;
-
+  highlighted: #282c34ff;
   urgent: #eb6e67;
 
   spacing: 0;
-  text-color: @foreground;
+  text-color: @textcolor;
 
   font: "Noto Sans 10";
   icon-theme: "Papirus";
@@ -34,7 +30,7 @@ configuration {
 window {
   transparency: "real";
   background-color: @background;
-  text-color: @foreground;
+  text-color: @textcolor;
   border-radius: 0px;
   height: 40%;
   width: 40%;
@@ -47,15 +43,15 @@ window {
 prompt {
   enabled: true;
   padding: 0px 14px 0px 4px;
-  background-color: @background-ib;
-  text-color: @foreground;
+  background-color: @highlighted;
+  text-color: @textcolor;
   font: "Jetbrains Mono Nerd Font 12";
 }
 
 
 inputbar {
-  background-color: @background-ib;
-  text-color: @foreground;
+  background-color: @highlighted;
+  text-color: @textcolor;
   expand: false;
   margin: 0px 0px 0px 0px;
   padding: 5px 5px 5px 5px;
@@ -64,9 +60,9 @@ inputbar {
 
 
 entry {
-  background-color: @background-ib;
-  text-color: @foreground;
-  placeholder-color: @foreground;
+  background-color: @highlighted;
+  text-color: @textcolor;
+  placeholder-color: @textcolor;
   expand: true;
   horizontal-align: 0;
   placeholder: "Search";
@@ -75,7 +71,7 @@ entry {
 
 case-indicator {
   background-color: @background;
-  text-color: @foreground;
+  text-color: @textcolor;
   spacing: 0;
 }
 
@@ -88,12 +84,12 @@ mainbox {
 
 message {
   background-color: @background;
-  text-color: @foreground;
+  text-color: @textcolor;
 }
 
 textbox {
   background-color: @background;
-  text-color: @foreground;
+  text-color: @textcolor;
 }
 
 mode-switcher {
@@ -103,11 +99,11 @@ mode-switcher {
 button {
   padding: 5px 5px 5px 5px;
   background-color: @background;
-  text-color: @foreground;
+  text-color: @textcolor;
 }
 
 button.selected {
-  background-color: @background-ib;
+  background-color: @highlighted;
 }
 
 listview {
@@ -121,7 +117,7 @@ listview {
 
 element {
   background-color: @background;
-  text-color: @foreground;
+  text-color: @textcolor;
   orientation: horizontal;
   padding: 4px 4px 4px 4px;
 }
@@ -141,29 +137,29 @@ element-text {
 element normal.urgent,
 element alternate.urgent {
   background-color: @urgent;
-  text-color: @foreground;
+  text-color: @textcolor;
   border-radius: 9px;
 }
 
 element normal.active,
 element alternate.active {
   background-color: @background;
-  text-color: @foreground;
+  text-color: @textcolor;
 }
 
 element selected {
-  background-color: @background-ib;
-  text-color: @foreground;
+  background-color: @highlighted;
+  text-color: @textcolor;
 }
 
 element selected.urgent {
   background-color: @urgent;
-  text-color: @foreground;
+  text-color: @textcolor;
 }
 
 element selected.active {
-  background-color: @background-ib;
-  color: @foreground;
+  background-color: @highlighted;
+  color: @textcolor;
 }
 
 /* vim:ft=css
