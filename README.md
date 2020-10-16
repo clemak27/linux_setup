@@ -16,17 +16,6 @@ I use arch btw. [![pipeline status](https://gitlab.com/clemak27/linux_setup/badg
 
 ![neofetch](./screenshots/neofetch.png)
 
-### rofi
+## rofi
 
-## krunner-replacement
-
-![rofi_runner](./screenshots/rofi_runner.png)
-
-## app launcher
-
-![rofi_app](./screenshots/rofi_app.png)
-
-## power menu
-
-![rofi_power](./screenshots/rofi_power.png)
-
+![rofi](./screenshots/rofi.png)
