@@ -125,7 +125,6 @@ element {
   background-color: @background;
   text-color: @foreground;
   orientation: horizontal;
-  border-radius: 4px;
   padding: 4px 4px 4px 4px;
 }
 
@@ -165,7 +164,7 @@ element selected.urgent {
 }
 
 element selected.active {
-  background-color: @background-alt;
+  background-color: @background-ib;
   color: @foreground;
 }
 
