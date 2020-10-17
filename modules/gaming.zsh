@@ -3,7 +3,7 @@
 # ------------------------ Gaming ------------------------
 
 # gaming
-pacman -S --noconfirm wine-staging lutris steam discord obs-studio
+pacman -S --noconfirm wine-staging lutris steam discord 
 pacman -S --noconfirm retroarch retroarch-assets-xmb
 
 # user-setup
