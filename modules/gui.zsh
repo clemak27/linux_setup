@@ -11,12 +11,12 @@ pacman -S --noconfirm firefox mpv keepassxc
 # messaging
 pacman -S --noconfirm signal-desktop
 
+# videos
+pacman -S --noconfirm obs-studio kdenlive
+
 # rofi
 pacman -S --noconfirm rofi rofi-calc dmenu
 mkdir -p /home/$user/.config/rofi/themes
-
-# mpv config
-mkdir -p /home/$user/.config/mpv
 
 # user-setup
 declare -a user_commands
