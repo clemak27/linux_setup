@@ -22,5 +22,8 @@ set update_title true
 # Abbreviate $HOME with ~ in the titlebar (first line) of ranger?
 set tilde_in_titlebar true
 
+# Avoid previewing files larger than this size, in bytes.  Use a value of 0 to disable this feature.
+set preview_max_size 5000000
+
 # search with fzf
 map <C-f> fzf_select
