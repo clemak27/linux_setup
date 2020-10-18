@@ -25,6 +25,8 @@ IFS=$(echo -en "\n\b")
 user_commands=(
   'yay -S --noconfirm scrcpy'
   ''
+  'yay -S todotxt'
+  ''
   'yay -S --noconfirm spotify'
   'sudo chmod a+wr /opt/spotify'
   'sudo chmod a+wr /opt/spotify/Apps -R'

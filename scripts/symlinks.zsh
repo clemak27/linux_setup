@@ -18,6 +18,9 @@ ln -sf ~/Projects/linux_setup/dotfiles/ranger.commands ~/.config/ranger/commands
 # rofi
 ln -sf ~/Projects/linux_setup/rofi/custom.rasi ~/.config/rofi/themes/custom.rasi
 
+# todo.txt
+ln -sf ~/Projects/linux_setup/dotfiles/todo.cfg ~/.todo/config
+
 # mpv
 ln -sf ~/Projects/linux_setup/dotfiles/mpv.conf ~/.config/mpv/mpv.conf
 
