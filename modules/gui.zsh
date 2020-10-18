@@ -25,6 +25,7 @@ IFS=$(echo -en "\n\b")
 user_commands=(
   'yay -S --noconfirm scrcpy'
   ''
+  'mkdir ~/.todo'
   'yay -S todotxt'
   ''
   'yay -S --noconfirm spotify'
