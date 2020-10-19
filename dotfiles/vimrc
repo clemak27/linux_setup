@@ -130,7 +130,7 @@ let g:vimwiki_list = [{'path': '~/Notes',
 
 let g:vimwiki_global_ext = 0
 
-map VW \ww
+map VW <leader>ww
 
 " ----------------default stuff----------------
 
