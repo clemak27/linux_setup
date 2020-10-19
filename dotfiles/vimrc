@@ -18,6 +18,7 @@ Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
 Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file search
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-highlight coc-lists coc-git coc-pairs coc-go coc-rls coc-prettier coc-vetur'} " everything
 Plug 'antoinemadec/coc-fzf' " fzf coc integration
+Plug 'vimwiki/vimwiki' " vim wiki
 
 call plug#end()
 
@@ -122,13 +123,23 @@ try
 catch
 endtry
 
+" -------------------vimwiki-------------------
+
+let g:vimwiki_list = [{'path': '~/Notes',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
+let g:vimwiki_global_ext = 0
+
+map VW \ww
+
+" ----------------default stuff----------------
+
 " line number
 set number 
 
 " use system clipboard
 set clipboard+=unnamedplus
 
-" ---------------------------------------------
 
 " Sets how many lines of history VIM has to remember
 set history=500
