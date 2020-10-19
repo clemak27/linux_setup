@@ -25,8 +25,12 @@ IFS=$(echo -en "\n\b")
 user_commands=(
   'yay -S --noconfirm scrcpy'
   ''
-  'mkdir ~/.todo'
   'yay -S todotxt'
+  'mkdir ~/.todo'
+  'mkdir ~/.todo.actions.d'
+  'cd ~/.todo.actions.d'
+  'git clone https://github.com/rebeccamorgan/due.git'
+  'chmod +x due/due'
   ''
   'yay -S --noconfirm spotify'
   'sudo chmod a+wr /opt/spotify'
