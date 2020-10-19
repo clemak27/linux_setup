@@ -80,3 +80,5 @@ prompt_context(){}
 
 # ---------- fzf keybindings ----------
 source /usr/share/fzf/key-bindings.zsh
+
+todo due
