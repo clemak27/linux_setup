@@ -16,7 +16,7 @@ Plug 'tpope/vim-commentary' " comment with gc
 Plug 'tpope/vim-surround' " brackets around words ysiw(
 Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
 Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file search
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocInstall coc-json coc-tsserver coc-html coc-css coc-yaml coc-python coc-highlight coc-lists coc-git coc-pairs coc-go coc-rls coc-prettier coc-vetur'} " everything
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " code-completion
 Plug 'antoinemadec/coc-fzf' " fzf coc integration
 Plug 'vimwiki/vimwiki' " vim wiki
 
@@ -25,6 +25,25 @@ call plug#end()
 " ---------- fzf-preview window ----------
 
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
+" ------------coc-extensions--------------
+
+let g:coc_global_extensions = [
+  \ 'coc-json',
+  \ 'coc-tsserver',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-yaml',
+  \ 'coc-python',
+  \ 'coc-highlight',
+  \ 'coc-lists',
+  \ 'coc-git',
+  \ 'coc-pairs',
+  \ 'coc-go',
+  \ 'coc-rls',
+  \ 'coc-prettier',
+  \ 'coc-vetur'
+	\ ]
 
 " ---------- coc-Keybindings ----------
 
