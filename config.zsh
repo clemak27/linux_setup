@@ -2,28 +2,34 @@
 
 device="/dev/vda"
 passphrase="abcd"
-luksMapper="cryptroot"
-volumeGroup="vg1"
-hostname="virtual"
-user="cle"
 password="1234"
+
+# ------------------------ lazarus ------------------------
+
+hostname="lazarus"
 cpu="amd"
 gpu="nvidia"
 
 declare -a system_modules
 system_modules=(
-#  plasma
-#  gpu
-#  gui
-#  virtual
+ plasma
+ gpu
+ gui
+ virtual
+ office
+ gaming
+ docker
+ development
+ logitech
 #  notebook
-#  office
-#  gaming
-#  docker
-#  development
-#  logitech
 )
 declare -r system_modules
+
+# ------------------------ common options ------------------------
+
+user="clemens"
+luksMapper="cryptroot"
+volumeGroup="vg1"
 
 # ------------------------ map device type ------------------------
 
