@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-device="/dev/vda"
+device="/dev/nvme0n1"
 passphrase="abcd"
 password="1234"
 
