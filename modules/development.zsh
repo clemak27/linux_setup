@@ -17,6 +17,9 @@ declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
+  '# insomnia'
+  'yay -S insomnia-bin'
+  ''
   '# python dev packages'
   'pip install jedi pylint --user'
   ''
