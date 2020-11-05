@@ -20,8 +20,6 @@ declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
-  '# https://zren.github.io/kde/'
-  ''
   'kde widgets'
   'yay -S plasma5-applets-eventcalendar'
   'yay -S plasma5-applets-window-appmenu plasma5-applets-window-buttons plasma5-applets-window-title'
@@ -48,9 +46,8 @@ user_commands=(
   ''
   '# intellij: material theme'
   '# kde theme:'
-  '# colorscheme for konsole one dark in folder'
-  '# colors -> brezze black custom'
-  '# plasma theme breeze alpha black'
+  '# colors -> breeze black custom'
+  '# plasma theme breeze'
   '# window decorations breeze'
   ''
   '# add .../rofi/combo.sh as custom shortcut'
