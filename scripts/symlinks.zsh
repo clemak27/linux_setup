@@ -24,6 +24,13 @@ ln -sf ~/Projects/linux_setup/dotfiles/todo.cfg ~/.todo/config
 # mpv
 ln -sf ~/Projects/linux_setup/dotfiles/mpv.conf ~/.config/mpv/mpv.conf
 
+# kde
+mkdir -p /home/$user/.local/share/konsole
+mkdir -p /home/$user/.local/share/color-schemes
+ln -sf ~/Projects/linux_setup/kde/ZshProfile.profile /home/$user/.local/share/konsole/ZshProfile.profile
+ln -sf ~/Projects/linux_setup/kde/one_custom.colorscheme /home/$user/.local/share/konsole/one_custom.colorscheme
+ln -sf ~/Projects/linux_setup/kde/BreezeDarkCustom.colors /home/$user/.local/share/color-schemes/BreezeDarkCustom.colors
+
 # firefox
 ffProfilePath="~/.mozilla/firefox/72zvuvdy.default-release"
 ln -sf ~/Projects/linux_setup/ff/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
