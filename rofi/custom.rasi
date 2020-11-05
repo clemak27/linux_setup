@@ -15,9 +15,9 @@ configuration {
 }
 
 * {
-  textcolor: #abb2bf;
-  background: #000000;
-  highlighted: #282c34ff;
+  textcolor: #eff0f1;
+  background: #2a2a2e;
+  highlighted: #246688;
   urgent: #eb6e67;
 
   spacing: 0;
@@ -31,7 +31,9 @@ window {
   transparency: "real";
   background-color: @background;
   text-color: @textcolor;
+  border: 1;
   border-radius: 0px;
+  border-color: @highlighted;
   height: 40%;
   width: 40%;
   location: center;
