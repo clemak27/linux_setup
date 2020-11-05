@@ -15,22 +15,11 @@ systemctl enable sddm
 # latte-dock
 pacman -S --noconfirm latte-dock
 
-# konsole
-mkdir -p /home/$user/.local/share/konsole
-cp ../kde/ZshProfile.profile /home/$user/.local/share/konsole
-cp ../kde/one_custom.colorscheme /home/$user/.local/share/konsole
-
-# colorscheme
-mkdir -p /home/$user/.local/share/color-schemes
-cp ../kde/BreezeDarkCustom.colors /home/$user/.local/share/color-schemes
-
 # user-setup
 declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
-  '# https://zren.github.io/kde/'
-  ''
   'kde widgets'
   'yay -S plasma5-applets-eventcalendar'
   'yay -S plasma5-applets-window-appmenu plasma5-applets-window-buttons plasma5-applets-window-title'
@@ -43,9 +32,7 @@ user_commands=(
   'kwriteconfig5 --file ~/.config/kwinrc --group Windows --key BorderlessMaximizedWindows true'
   'qdbus org.kde.KWin /KWin reconfigure'
   ''
-  '# install event calendar widget'
   '# screen locking change picture'
-  '# window switcher meta'
   '# logout: confirm, end current session, start with manually saved'
   '# usermanager change picture'
   '# regional format us region, everything else österreich'
@@ -59,9 +46,8 @@ user_commands=(
   ''
   '# intellij: material theme'
   '# kde theme:'
-  '# colorscheme for konsole one dark in folder'
-  '# colors -> brezze black custom'
-  '# plasma theme breeze alpha black'
+  '# colors -> breeze black custom'
+  '# plasma theme breeze'
   '# window decorations breeze'
   ''
   '# add .../rofi/combo.sh as custom shortcut'

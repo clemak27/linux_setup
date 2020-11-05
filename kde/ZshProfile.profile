@@ -1,5 +1,5 @@
 [Appearance]
-ColorScheme=one_custom
+ColorScheme=kustom
 Font=JetBrainsMono Nerd Font,10,-1,5,50,0,0,0,0,0
 
 [General]
