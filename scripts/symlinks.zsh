@@ -28,7 +28,7 @@ ln -sf ~/Projects/linux_setup/dotfiles/mpv.conf ~/.config/mpv/mpv.conf
 mkdir -p /home/$user/.local/share/konsole
 mkdir -p /home/$user/.local/share/color-schemes
 ln -sf ~/Projects/linux_setup/kde/ZshProfile.profile /home/$user/.local/share/konsole/ZshProfile.profile
-ln -sf ~/Projects/linux_setup/kde/one_custom.colorscheme /home/$user/.local/share/konsole/one_custom.colorscheme
+ln -sf ~/Projects/linux_setup/kde/kustom.colorscheme /home/$user/.local/share/konsole/kustom.colorscheme
 ln -sf ~/Projects/linux_setup/kde/BreezeDarkCustom.colors /home/$user/.local/share/color-schemes/BreezeDarkCustom.colors
 
 # firefox
