@@ -12,6 +12,9 @@ pacman -S --noconfirm ark dolphin ffmpegthumbs filelight gwenview kaccounts-inte
 pacman -S --noconfirm plasma-browser-integration sshfs unrar
 systemctl enable sddm
 
+# kontact
+pacman -S --noconfirm kontact kaddressbook korganizer kmail kmail-account-wizard
+
 # latte-dock
 pacman -S --noconfirm latte-dock
 
