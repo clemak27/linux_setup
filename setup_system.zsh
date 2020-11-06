@@ -105,6 +105,49 @@ localectl set-keymap de
 echo "$user:$password" | chpasswd
 echo "root:$password" | chpasswd
 
+# ------------------------ AUR ------------------------
+
+# setup
+
+cd /
+mkdir /home/aurBuilder
+chgrp nobody /home/aurBuilder
+chmod g+ws /home/aurBuilder
+setfacl -m u::rwx,g::rwx /home/aurBuilder
+setfacl -d --set u::rwx,g::rwx,o::- /home/aurBuilder
+usermod -d /home/aurBuilder nobody
+echo '%nobody ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+cd /home/aurBuilder
+
+# install packages
+
+declare -a aur_packages
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+
+aur_packages=(
+  'paru-bin'
+)
+
+declare -r aur_packages
+IFS=$SAVEIFS
+
+for package in "${aur_packages[@]}"
+do
+  git clone https://aur.archlinux.org/$package.git
+  chmod -R g+w $package
+  cd $package
+  sudo -u nobody mkpkg -sri --noconfirm
+  cd ..
+done
+
+# cleanup
+
+sed '$d' /etc/sudoers
+cd /
+usermod -d / nobody
+rm -rf /home/aurBuilder
+
 # ------------------------ user_core ------------------------
 declare -a user_commands
 SAVEIFS=$IFS
