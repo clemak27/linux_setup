@@ -127,6 +127,10 @@ IFS=$(echo -en "\n\b")
 
 aur_packages=(
   'paru-bin'
+  'cava'
+  'tty-clock'
+  'ddgr'
+  'informant'
 )
 
 declare -r aur_packages
@@ -148,38 +152,27 @@ cd /
 usermod -d / nobody
 rm -rf /home/aurBuilder
 
-# ------------------------ user_core ------------------------
+# additional steps
+
+informant check
+informant read --all
+usermod -a -G informant $user
+
+# ------------------------ user ------------------------
+
 declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
 user_commands=(
   'xdg-user-dirs-update'
-  ''
-  '# git config'
-  'git config --global user.name "clemak27"'
+  'mkdir -p ~/Projects'
+  'git config --global user.name "clemak27"' # git config
   'git config --global user.email clemak27@mailbox.org'
   'git config --global alias.lol "log --graph --decorate --oneline --all"'
   'git config --global core.autocrlf input'
   'git config --global pull.rebase false'
   'git config --global credential.helper cache --timeout=86400'
-  ''
-  'mkdir -p ~/Projects'
-  ''
-  '#yay'
-  'cd ~/Projects'
-  'git clone https://aur.archlinux.org/yay.git'
-  'cd yay'
-  'makepkg -si'
-  ''
-  '# aur'
-  'sudo pacman -S --noconfirm automake autoconf'
-  'yay -S --noconfirm cava tty-clock gotop-bin ddgr informant'
-  'sudo informant check'
-  'sudo informant read --all'
-  "sudo usermod -a -G informant $user"
-  ''
-  '# ssh'
   'systemctl --user enable ssh-agent.service'
 )
 
@@ -188,14 +181,14 @@ IFS=$SAVEIFS
 
 for task in "${user_commands[@]}"
 do
-  echo "$task" >> setup_user.zsh
+  su - $user -c $task
 done
 
 # ------------------------ modules ------------------------
 
 for module in "${system_modules[@]}"
 do
-  echo "Setting up module "$module
+  echo "Setting up module $module"
   chmod +x "./modules/$module.zsh"
   /bin/zsh -i -c  "./modules/$module.zsh"
 done
