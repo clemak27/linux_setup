@@ -95,7 +95,7 @@ cp ./systemd-units/ssh-agent.service /home/$user/.config/systemd/user/ssh-agent.
 echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"' >> /home/$user/.pam_environment
 
 # add user and set groups
-useradd -m $user
+useradd -M $user
 sudo usermod -aG wheel $user
 sudo usermod --shell /usr/bin/zsh $user
 
