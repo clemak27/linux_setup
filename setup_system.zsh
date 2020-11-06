@@ -137,13 +137,13 @@ do
   git clone https://aur.archlinux.org/$package.git
   chmod -R g+w $package
   cd $package
-  sudo -u nobody mkpkg -sri --noconfirm
+  sudo -u nobody makepkg -sri --noconfirm
   cd ..
 done
 
 # cleanup
 
-sed '$d' /etc/sudoers
+sed -i '$d' /etc/sudoers
 cd /
 usermod -d / nobody
 rm -rf /home/aurBuilder
