@@ -76,10 +76,4 @@ cp -R . /mnt/linux_setup
 arch-chroot /mnt chmod +x /linux_setup/setup_system.zsh
 arch-chroot /mnt /bin/zsh -c "cd /linux_setup && ./setup_system.zsh"
 
-# user setup
-# arch-chroot /mnt chmod +x /linux_setup/setup_user.zsh
-# arch-chroot /mnt cp /linux_setup/setup_user.zsh /home/$user/setup_user.zsh
-# arch-chroot -u $user /mnt /bin/zsh -c "HOME=/home/$user && cd /home/$user && ./setup_user.zsh"
-# arch-chroot /mnt chown -R $user:$user /home/$user
-
-# rm -rf /mnt/linux_setup
+rm -rf /mnt/linux_setup

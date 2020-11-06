@@ -96,8 +96,10 @@ echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"' >> /home/$use
 
 # add user and set groups
 useradd -M $user
-sudo usermod -aG wheel $user
-sudo usermod --shell /usr/bin/zsh $user
+chown -R $user:$user /home/$user
+usermod -d /home/$user $user
+usermod -aG wheel $user
+usermod --shell /usr/bin/zsh $user
 
 localectl set-keymap de
 
@@ -167,7 +169,7 @@ IFS=$(echo -en "\n\b")
 user_commands=(
   'xdg-user-dirs-update'
   'mkdir -p ~/Projects'
-  'git config --global user.name "clemak27"' # git config
+  'git config --global user.name "clemak27"'
   'git config --global user.email clemak27@mailbox.org'
   'git config --global alias.lol "log --graph --decorate --oneline --all"'
   'git config --global core.autocrlf input'
