@@ -52,9 +52,9 @@ cp pacman_mirrorlist /etc/pacman.d/mirrorlist
 # Install the base packages
 if [[ $cpu =~ "amd" ]]
 then
-  pacstrap /mnt base linux linux-firmware grub efibootmgr amd-ucode lvm2 base-devel
+  pacstrap /mnt base linux linux-firmware grub efibootmgr amd-ucode lvm2 base-devel zsh
 else
-  pacstrap /mnt base linux linux-firmware grub efibootmgr intel-ucode lvm2 base-devel
+  pacstrap /mnt base linux linux-firmware grub efibootmgr intel-ucode lvm2 base-devel zsh
 fi
 
 # Configure the system
@@ -74,7 +74,7 @@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 # setup system
 cp -R . /mnt/linux_setup
 arch-chroot /mnt chmod +x /linux_setup/setup_system.zsh
-arch-chroot /mnt /bin/zsh /linux_setup/setup_system.zsh
+arch-chroot /mnt /bin/zsh -c "cd /linux_setup && ./setup_system.zsh"
 
 # user setup
 arch-chroot /mnt chmod +x /linux_setup/setup_user.sh
