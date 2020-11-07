@@ -87,7 +87,7 @@ curl -fLo /home/$user/.local/share/nvim/site/autoload/plug.vim --create-dirs htt
 cp ./dotfiles/starship.toml /home/$user/.starship.toml
 cp ./dotfiles/zshrc /home/$user/.zshrc
 git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
-curl -fsSL https://starship.rs/install.sh -y | bash
+curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 
 # ssh
 mkdir -p /home/$user/.config/systemd/user
