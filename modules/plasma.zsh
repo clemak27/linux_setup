@@ -60,7 +60,7 @@ done
 # cleanup
 
 sed -i '$d' /etc/sudoers
-cd /
+cd /linux_setup
 usermod -d / nobody
 rm -rf /home/aurBuilder
 
