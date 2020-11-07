@@ -132,7 +132,6 @@ aur_packages=(
   'cava'
   'tty-clock'
   'ddgr'
-  'informant'
 )
 
 declare -r aur_packages
@@ -153,12 +152,6 @@ sed -i '$d' /etc/sudoers
 cd /
 usermod -d / nobody
 rm -rf /home/aurBuilder
-
-# additional steps
-
-informant check
-informant read --all
-usermod -a -G informant $user
 
 # ------------------------ user ------------------------
 
