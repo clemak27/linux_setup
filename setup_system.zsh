@@ -175,7 +175,7 @@ user_commands=(
   'git config --global core.autocrlf input'
   'git config --global pull.rebase false'
   'git config --global credential.helper cache --timeout=86400'
-  'systemctl --user enable ssh-agent.service'
+# 'systemctl --user enable ssh-agent.service'
 )
 
 declare -r user_commands
