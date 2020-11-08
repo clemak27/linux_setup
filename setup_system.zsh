@@ -190,5 +190,5 @@ for module in "${system_modules[@]}"
 do
   echo "Setting up module $module"
   chmod +x "./modules/$module.zsh"
-  /bin/zsh -i -c  "./modules/$module.zsh"
+  /bin/zsh -c "./modules/$module.zsh"
 done
