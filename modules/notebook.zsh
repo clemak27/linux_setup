@@ -1,5 +1,16 @@
 #!/bin/zsh
 
+# ------------------------ Notebook enhancements ------------------------
+
+# ------------------------ Load config ------------------------
+echo "Loading config"
+if [ -f ./config.zsh ]; then
+    source ./config.zsh
+else
+   echo "Config file could not be found!"
+   exit 1
+fi
+
 # ------------------------ pacman ------------------------
 
 # touchpad

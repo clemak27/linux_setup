@@ -1,5 +1,16 @@
 #!/bin/zsh
 
+# ------------------------ KDE Plasma ------------------------
+
+# ------------------------ Load config ------------------------
+echo "Loading config"
+if [ -f ./config.zsh ]; then
+    source ./config.zsh
+else
+   echo "Config file could not be found!"
+   exit 1
+fi
+
 # ------------------------ pacman ------------------------
 
 # plasma
@@ -77,6 +88,8 @@ IFS=$SAVEIFS
 
 for task in "${user_commands[@]}"
 do
+  echo "user"
+  echo $user
   su - $user -c $task
 done
 

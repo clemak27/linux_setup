@@ -3,6 +3,10 @@
 set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
+cd /linux_setup
+
+# ------------------------ core system setup ------------------------
+
 # ------------------------ Load config ------------------------
 echo "Loading config"
 if [ -f ./config.zsh ]; then
@@ -12,8 +16,7 @@ else
    exit 1
 fi
 
-# ------------------------ core ------------------------
-echo "Setting up core"
+# ------------------------ general config ------------------------
 
 # timezone
 ln -sf /usr/share/zoneinfo/Europe/Vienna /etc/localtime
@@ -34,6 +37,8 @@ echo "" >> /etc/hosts
 echo "127.0.0.1  localhost" >> /etc/hosts
 echo "::1		localhost" >> /etc/hosts
 echo "127.0.1.1	${hostname}.localdomain	${hostname}" >> /etc/hosts
+
+# ------------------------ pacman ------------------------
 
 # base packages
 pacman -S --noconfirm b43-fwcutter broadcom-wl crda darkhttpd ddrescue dhclient dialog dnsutils elinks ethtool exfat-utils f2fs-tools fsarchiver hdparm ipw2100-fw ipw2200-fw irssi iwd lftp lsscsi mc mtools ndisc6 nfs-utils nilfs-utils nmap ntp openconnect openvpn partclone partimage pptpclient rp-pppoe sdparm sg3_utils tcpdump testdisk usb_modeswitch vpnc wireless-regdb wireless_tools wvdial xl2tpd man
