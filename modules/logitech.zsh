@@ -1,15 +1,55 @@
 #!/bin/zsh
 
-set -uo pipefail
-trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
+# ------------------------ pacman ------------------------
+
+# logitech mouse customization
 
 pacman -S --noconfirm piper
 
-#------user------
+# ------------------------ AUR ------------------------
 
-cat << 'EOT' >> setup_user.sh
+# setup
 
-yay -S g810-led-git
-yay -S headsetcontrol
+cd /
+mkdir /home/aurBuilder
+chgrp nobody /home/aurBuilder
+chmod g+ws /home/aurBuilder
+setfacl -m u::rwx,g::rwx /home/aurBuilder
+setfacl -d --set u::rwx,g::rwx,o::- /home/aurBuilder
+usermod -d /home/aurBuilder nobody
+echo '%nobody ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+cd /home/aurBuilder
 
-EOT
+# install packages
+
+declare -a aur_packages
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+
+aur_packages=(
+  'g810-led-git'
+  'headsetcontrol'
+)
+
+declare -r aur_packages
+IFS=$SAVEIFS
+
+for package in "${aur_packages[@]}"
+do
+  git clone https://aur.archlinux.org/$package.git
+  chmod -R g+w $package
+  cd $package
+  sudo -u nobody makepkg -sri --noconfirm
+  cd ..
+done
+
+# cleanup
+
+sed -i '$d' /etc/sudoers
+cd /linux_setup
+usermod -d / nobody
+rm -rf /home/aurBuilder
+
+# ------------------------ user ------------------------
+
+# ------------------------ notes ------------------------

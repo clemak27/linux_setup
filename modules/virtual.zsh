@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-# ------------------------ Virtual Machines ------------------------
+# ------------------------ pacman ------------------------
 
 # virtualization
 # https://computingforgeeks.com/complete-installation-of-kvmqemu-and-virt-manager-on-arch-linux-and-manjaro/
@@ -11,4 +11,10 @@ systemctl enable libvirtd.service
 sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/g' /etc/libvirt/libvirtd.conf
 sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvirt/libvirtd.conf
 
-sudo usermod -aG libvirt $user
+usermod -aG libvirt $user
+
+# ------------------------ AUR ------------------------
+
+# ------------------------ user ------------------------
+
+# ------------------------ notes ------------------------
