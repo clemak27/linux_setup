@@ -89,13 +89,7 @@ user_commands=(
   'go get -v github.com/fatih/motion'
   'go get -v github.com/koron/iferr'
   # rust
-  'curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh'
-  ''
-  '# rust path is set in .zshrc already, use these options'
-  '# default host triple: x86_64-unknown-linux-gnu'
-  '# default toolchain: stable'
-  '# profile: default'
-  '# modify PATH variable: no'
+  'curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path'
 )
 declare -r user_commands
 IFS=$SAVEIFS
