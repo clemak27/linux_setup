@@ -4,7 +4,6 @@
 
 # java
 pacman -S --noconfirm jdk-openjdk maven intellij-idea-community-edition
-cp ../dotfiles/ideavimrc /home/$user/.ideavimrc
 
 #python
 pacman -S --noconfirm python-pip
@@ -12,18 +11,61 @@ pacman -S --noconfirm python-pip
 #golang
 pacman -S --noconfirm go
 
+
+# ------------------------ AUR ------------------------
+
+# setup
+
+cd /
+mkdir /home/aurBuilder
+chgrp nobody /home/aurBuilder
+chmod g+ws /home/aurBuilder
+setfacl -m u::rwx,g::rwx /home/aurBuilder
+setfacl -d --set u::rwx,g::rwx,o::- /home/aurBuilder
+usermod -d /home/aurBuilder nobody
+echo '%nobody ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+cd /home/aurBuilder
+
+# install packages
+
+declare -a aur_packages
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+
+aur_packages=(
+  'insomnia-bin'
+)
+
+declare -r aur_packages
+IFS=$SAVEIFS
+
+for package in "${aur_packages[@]}"
+do
+  git clone https://aur.archlinux.org/$package.git
+  chmod -R g+w $package
+  cd $package
+  sudo -u nobody makepkg -sri --noconfirm
+  cd ..
+done
+
+# cleanup
+
+sed -i '$d' /etc/sudoers
+cd /linux_setup
+usermod -d / nobody
+rm -rf /home/aurBuilder
+
+# ------------------------ user ------------------------
+
+
 # user-setup
 declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
-  '# insomnia'
-  'yay -S insomnia-bin'
-  ''
-  '# python dev packages'
+  # python dev packages
   'pip install jedi pylint --user'
-  ''
-  '# go dev packages'
+  # go dev packages
   'mkdir -p ~/.go'
   'export GOPATH=~/.go'
   'go get -v github.com/klauspost/asmfmt/cmd/asmfmt'
@@ -46,8 +88,7 @@ user_commands=(
   'go get -v honnef.co/go/tools/cmd/keyify'
   'go get -v github.com/fatih/motion'
   'go get -v github.com/koron/iferr'
-  ''
-  '#rust'
+  # rust
   'curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh'
   ''
   '# rust path is set in .zshrc already, use these options'
@@ -61,5 +102,7 @@ IFS=$SAVEIFS
 
 for task in "${user_commands[@]}"
 do
-  echo "$task" >> setup_user.zsh
+  su - $user -c $task
 done
+
+# ------------------------ notes ------------------------
