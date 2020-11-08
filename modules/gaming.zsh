@@ -3,29 +3,53 @@
 # ------------------------ Gaming ------------------------
 
 # gaming
+
 pacman -S --noconfirm wine-staging lutris steam discord 
 pacman -S --noconfirm retroarch retroarch-assets-xmb
 
-# user-setup
-declare -a user_commands
+# ------------------------ AUR ------------------------
+
+# setup
+
+cd /
+mkdir /home/aurBuilder
+chgrp nobody /home/aurBuilder
+chmod g+ws /home/aurBuilder
+setfacl -m u::rwx,g::rwx /home/aurBuilder
+setfacl -d --set u::rwx,g::rwx,o::- /home/aurBuilder
+usermod -d /home/aurBuilder nobody
+echo '%nobody ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+cd /home/aurBuilder
+
+# install packages
+
+declare -a aur_packages
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
-user_commands=(
-  'yay -S --noconfirm steam-fonts'
+
+aur_packages=(
+  'steam-fonts'
 )
-declare -r user_commands
+
+declare -r aur_packages
 IFS=$SAVEIFS
 
-for task in "${user_commands[@]}"
+for package in "${aur_packages[@]}"
 do
-  echo "$task" >> setup_user.zsh
+  git clone https://aur.archlinux.org/$package.git
+  chmod -R g+w $package
+  cd $package
+  sudo -u nobody makepkg -sri --noconfirm
+  cd ..
 done
 
-# ------------------------ Notes ------------------------
+# cleanup
 
-# kill all gta V processes
-# killall -9 -r ".*\.exe|.*SocialClub.*|.*Rockstar.*" && kill -9 $(ps aux | grep '.*PlayGTA.*' | awk '{print $2}')
-#
-# I've fixed this issue by changing the pointing launcher link of the game.
-# Actually in steam the game is launched through the gameguide launcher that causes some troubles. Indeed, the gameguide launcher works but the play button in it won't launch the game.
-# So to start it directly from the game launcher instead of the gameguide launcher, go to steam/common/Sid Meier's Civilization VI/ and edit "Civ6" file and change the line "./GameGuide/Civ6" to "./Civ6Sub"
+sed -i '$d' /etc/sudoers
+cd /linux_setup
+usermod -d / nobody
+rm -rf /home/aurBuilder
+
+# ------------------------ user ------------------------
+
+# ------------------------ Notes ------------------------
