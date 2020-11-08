@@ -24,6 +24,9 @@ systemctl enable tlp.service
 pacman -S --noconfirm pulseaudio-bluetooth
 systemctl enable bluetooth.service
 
+# nvidia optimus
+pacman -S --noconfirm nvidia-prime
+
 # ------------------------ AUR ------------------------
 
 # ------------------------ user ------------------------
