@@ -81,7 +81,17 @@ declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
-  'kwriteconfig5 --file ~/.config/kwinrc --group Windows --key BorderlessMaximizedWindows true' # Hide titlebars when maximized (useful for topbar-layout)
+  # kde
+  'mkdir -p ~/.local/share/konsole'
+  'mkdir -p ~/.local/share/color-schemes'
+  'mkdir -p ~/.config/latte'
+  'cp ~/.config/latte/Default.layout.latte ~/.config/latte/Default.bu.layout.latte'
+  'ln -sf ~/Projects/linux_setup/kde/ZshProfile.profile ~/.local/share/konsole/ZshProfile.profile'
+  'ln -sf ~/Projects/linux_setup/kde/kustom.colorscheme ~/.local/share/konsole/kustom.colorscheme'
+  'ln -sf ~/Projects/linux_setup/kde/BreezeDarkCustom.colors ~/.local/share/color-schemes/BreezeDarkCustom.colors'
+  'ln -sf ~/Projects/linux_setup/kde/united.layout.latte ~/.config/latte/Default.layout.latte'
+  # Hide titlebars when maximized
+  'kwriteconfig5 --file ~/.config/kwinrc --group Windows --key BorderlessMaximizedWindows true' 
 )
 declare -r user_commands
 IFS=$SAVEIFS

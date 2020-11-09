@@ -4,6 +4,8 @@ set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
 cd /linux_setup
+mkdir -p /home/$user/Projects
+cp -R . /home/$user/Projects/linux_setup
 
 # ------------------------ core system setup ------------------------
 
@@ -85,15 +87,19 @@ ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
 # nvim
 mkdir -p /home/$user/.config/nvim
 mkdir -p /home/$user/.local/share/nvim/site/autoload
-cp ./dotfiles/vimrc /home/$user/.config/nvim/init.vim
 curl -fLo /home/$user/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+ln -sf /home/$user/Projects/linux_setup/dotfiles/vimrc /home/$user/.config/nvim/init.vim
+ln -sf /home/$user/Projects/linux_setup/dotfiles/coc-settings.json /home/$user/.config/nvim/coc-settings.json
 
 # zsh
-cp ./dotfiles/starship.toml /home/$user/.starship.toml
-cp ./dotfiles/zshrc /home/$user/.zshrc
 git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
 curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+ln -sf /home/$user/Projects/linux_setup/dotfiles/zshrc /home/$user/.zshrc
+ln -sf /home/$user/Projects/linux_setup/dotfiles/starship.toml /home/$user/.starship.toml
 
+# ranger config
+ln -sf /home/$user/Projects/linux_setup/dotfiles/ranger.rc /home/$user/.config/ranger/rc.conf
+ln -sf /home/$user/Projects/linux_setup/dotfiles/ranger.commands /home/$user/.config/ranger/commands.py
 # ssh
 mkdir -p /home/$user/.config/systemd/user
 cp ./systemd-units/ssh-agent.service /home/$user/.config/systemd/user/ssh-agent.service
@@ -137,6 +143,7 @@ aur_packages=(
   'cava'
   'tty-clock'
   'ddgr'
+  'todotxt'
 )
 
 declare -r aur_packages
@@ -166,13 +173,18 @@ IFS=$(echo -en "\n\b")
 
 user_commands=(
   'xdg-user-dirs-update'
-  'mkdir -p ~/Projects'
   'git config --global user.name "clemak27"'
   'git config --global user.email clemak27@mailbox.org'
   'git config --global alias.lol "log --graph --decorate --oneline --all"'
   'git config --global core.autocrlf input'
   'git config --global pull.rebase false'
   'git config --global credential.helper cache --timeout=86400'
+  'mkdir ~/.todo'
+  'mkdir ~/.todo.actions.d'
+  'cd ~/.todo.actions.d'
+  'git clone https://github.com/rebeccamorgan/due.git'
+  'chmod +x due/due'
+  'ln -sf ~/Projects/linux_setup/dotfiles/todo.cfg ~/.todo/config'
 # 'systemctl --user enable ssh-agent.service'
 )
 
@@ -192,3 +204,6 @@ do
   chmod +x "./modules/$module.zsh"
   /bin/zsh -c "./modules/$module.zsh"
 done
+
+chown -R $user:$user /home/$user
+su - $user -c "cd ~/Projects/linux_setup && git restore ."

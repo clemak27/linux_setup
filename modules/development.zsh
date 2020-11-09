@@ -69,6 +69,8 @@ declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
+  # ideavim config
+  'ln -sf ~/Projects/linux_setup/dotfiles/ideavimrc ~/.ideavimrc'
   # python dev packages
   'pip install jedi pylint --user'
   # rust

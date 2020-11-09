@@ -50,7 +50,6 @@ IFS=$(echo -en "\n\b")
 
 aur_packages=(
   'scrcpy'
-  'todotxt'
   'spotify'
   'syncthing'
   'syncthingtray'
@@ -87,12 +86,11 @@ declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
-  'mkdir ~/.todo'
-  'mkdir ~/.todo.actions.d'
-  'cd ~/.todo.actions.d'
-  'git clone https://github.com/rebeccamorgan/due.git'
-  'chmod +x due/due'
   'mkdir -p /home/$user/.config/rofi/themes'
+  # rofi
+  'ln -sf ~/Projects/linux_setup/rofi/custom.rasi ~/.config/rofi/themes/custom.rasi'
+  # mpv
+  'ln -sf ~/Projects/linux_setup/dotfiles/mpv.conf ~/.config/mpv/mpv.conf'
 #  'systemctl --user enable syncthing.service'
 #  'systemctl --user start syncthing.service'
 )
