@@ -10,7 +10,7 @@ modulePath = './modules'
 for file in listdir(modulePath):
     if isfile(join(modulePath, file)):
         for line in open(join(modulePath, file)):
-            if '~' in line and not line.startswith("  '"):
+            if '~' in line and not line.startswith("  '") or not line.startswith("#"):
                 fails.append( "Found ~ in " + file + "  in line :" + line)
 
 if len(fails) > 0:
