@@ -4,8 +4,6 @@ set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
 cd /linux_setup
-mkdir -p /home/$user/Projects
-cp -R . /home/$user/Projects/linux_setup
 
 # ------------------------ core system setup ------------------------
 
@@ -83,6 +81,11 @@ mkdir -p /etc/pacman.d/hooks/
 cp ./pacman-hooks/grub.hook /etc/pacman.d/hooks/grub.hook
 cp ./pacman-hooks/cleanup.hook /etc/pacman.d/hooks/cleanup.hook
 ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
+
+# create dirs for user
+mkdir -p /home/$user/Projects
+mkdir -p /home/$user/Notes
+cp -R . /home/$user/Projects/linux_setup
 
 # nvim
 mkdir -p /home/$user/.config/nvim
