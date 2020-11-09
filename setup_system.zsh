@@ -103,6 +103,14 @@ ln -sf /home/$user/Projects/linux_setup/dotfiles/starship.toml /home/$user/.star
 # ranger config
 ln -sf /home/$user/Projects/linux_setup/dotfiles/ranger.rc /home/$user/.config/ranger/rc.conf
 ln -sf /home/$user/Projects/linux_setup/dotfiles/ranger.commands /home/$user/.config/ranger/commands.py
+
+# todo.sh config
+mkdir /home/$user/.todo
+mkdir /home/$user/todo.actions.d
+cd /home/$user/todo.actions.d
+git clone https://github.com/rebeccamorgan/due.git
+chmod +x due/due
+
 # ssh
 mkdir -p /home/$user/.config/systemd/user
 cp ./systemd-units/ssh-agent.service /home/$user/.config/systemd/user/ssh-agent.service
@@ -182,11 +190,6 @@ user_commands=(
   'git config --global core.autocrlf input'
   'git config --global pull.rebase false'
   'git config --global credential.helper cache --timeout=86400'
-  'mkdir ~/.todo'
-  'mkdir ~/.todo.actions.d'
-  'cd ~/.todo.actions.d'
-  'git clone https://github.com/rebeccamorgan/due.git'
-  'chmod +x due/due'
   'ln -sf ~/Projects/linux_setup/dotfiles/todo.cfg ~/.todo/config'
 # 'systemctl --user enable ssh-agent.service'
 )
