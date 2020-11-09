@@ -102,5 +102,3 @@ if [ -z "$gpu" ]; then
   echo "gpu not set!"
   exit 1
 fi
-
-exit 0
