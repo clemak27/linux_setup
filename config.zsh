@@ -21,7 +21,6 @@ system_modules=(
  docker
  development
  logitech
-#  notebook
 )
 declare -r system_modules
 
@@ -104,7 +103,4 @@ if [ -z "$gpu" ]; then
   exit 1
 fi
 
-if [ "$gpu" != "nvidia" ] | [ "$gpu" != "amd" ]; then
-  echo "gpu set to unknown value!"
-  exit 1
-fi
+exit 0
