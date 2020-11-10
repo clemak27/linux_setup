@@ -101,6 +101,7 @@ ln -sf /home/$user/Projects/linux_setup/dotfiles/zshrc /home/$user/.zshrc
 ln -sf /home/$user/Projects/linux_setup/dotfiles/starship.toml /home/$user/.starship.toml
 
 # ranger config
+mkdir /home/$user/.config/ranger
 ln -sf /home/$user/Projects/linux_setup/dotfiles/ranger.rc /home/$user/.config/ranger/rc.conf
 ln -sf /home/$user/Projects/linux_setup/dotfiles/ranger.commands /home/$user/.config/ranger/commands.py
 
