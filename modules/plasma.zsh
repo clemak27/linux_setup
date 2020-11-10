@@ -78,8 +78,6 @@ IFS=$SAVEIFS
 
 for task in "${user_commands[@]}"
 do
-  echo "user"
-  echo $user
   su - $user -c $task
 done
 
