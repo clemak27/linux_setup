@@ -141,7 +141,6 @@ setfacl -m u::rwx,g::rwx /home/aurBuilder
 setfacl -d --set u::rwx,g::rwx,o::- /home/aurBuilder
 usermod -d /home/aurBuilder nobody
 echo '%nobody ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
-cd /home/aurBuilder
 
 # install packages
 
@@ -162,19 +161,14 @@ IFS=$SAVEIFS
 
 for package in "${aur_packages[@]}"
 do
+  cd /home/aurBuilder
   git clone https://aur.archlinux.org/$package.git
   chmod -R g+w $package
   cd $package
   sudo -u nobody makepkg -sri --noconfirm
-  cd ..
+  cd /linux_setup
 done
 
-# cleanup
-
-sed -i '$d' /etc/sudoers
-cd /linux_setup
-usermod -d / nobody
-rm -rf /home/aurBuilder
 
 # ------------------------ user ------------------------
 
@@ -211,5 +205,10 @@ do
   /bin/zsh -c "./modules/$module.zsh"
 done
 
+# cleanup
+
+sed -i '$d' /etc/sudoers
+usermod -d / nobody
+rm -rf /home/aurBuilder
 chown -R $user:$user /home/$user
 su - $user -c "cd ~/Projects/linux_setup && git restore ."
