@@ -59,7 +59,7 @@ sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 # grant su permissions to wheel group
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
-pacman -S --quiet --noprogressbaryyu --noconfirm
+pacman -Syyu --quiet --noprogressbar --noconfirm
 
 # zsh
 pacman -S --quiet --noprogressbar --noconfirm zsh zsh-completions
