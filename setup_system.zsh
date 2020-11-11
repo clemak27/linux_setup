@@ -41,13 +41,13 @@ echo "127.0.1.1	${hostname}.localdomain	${hostname}" >> /etc/hosts
 # ------------------------ pacman ------------------------
 
 # base packages
-pacman -S --noconfirm b43-fwcutter broadcom-wl crda darkhttpd ddrescue dhclient dialog dnsutils elinks ethtool exfat-utils f2fs-tools fsarchiver hdparm ipw2100-fw ipw2200-fw irssi iwd lftp lsscsi mc mtools ndisc6 nfs-utils nilfs-utils nmap ntp openconnect openvpn partclone partimage pptpclient rp-pppoe sdparm sg3_utils tcpdump testdisk usb_modeswitch vpnc wireless-regdb wireless_tools wvdial xl2tpd man
+pacman -S --quiet --noprogressbar --noconfirm b43-fwcutter broadcom-wl crda darkhttpd ddrescue dhclient dialog dnsutils elinks ethtool exfat-utils f2fs-tools fsarchiver hdparm ipw2100-fw ipw2200-fw irssi iwd lftp lsscsi mc mtools ndisc6 nfs-utils nilfs-utils nmap ntp openconnect openvpn partclone partimage pptpclient rp-pppoe sdparm sg3_utils tcpdump testdisk usb_modeswitch vpnc wireless-regdb wireless_tools wvdial xl2tpd man
 
 # some important stuff
-pacman -S --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget ntfs-3g pacman-contrib
+pacman -S --quiet --noprogressbar --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget ntfs-3g pacman-contrib
 
 # networkmanager
-pacman -S --noconfirm networkmanager
+pacman -S --quiet --noprogressbar --noconfirm networkmanager
 systemctl enable NetworkManager
 
 # colorful output
@@ -59,22 +59,22 @@ sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 # grant su permissions to wheel group
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
-pacman -Syyu --noconfirm
+pacman -S --quiet --noprogressbaryyu --noconfirm
 
 # zsh
-pacman -S --noconfirm zsh zsh-completions
+pacman -S --quiet --noprogressbar --noconfirm zsh zsh-completions
 
 # terminal
-pacman -S --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unrar htop arch-audit android-tools jq bat exa hyperfine tokei reflector sd
+pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unrar htop arch-audit android-tools jq bat exa hyperfine tokei reflector sd
 
 # xD
-pacman -S --noconfirm cmatrix lolcat neofetch sl
+pacman -S --quiet --noprogressbar --noconfirm cmatrix lolcat neofetch sl
 
 # development
-pacman -S --noconfirm git make gcc neovim nodejs npm python-pynvim xclip
+pacman -S --quiet --noprogressbar --noconfirm git make gcc neovim nodejs npm python-pynvim xclip
 
 # ssh
-pacman -S --noconfirm openssh
+pacman -S --quiet --noprogressbar --noconfirm openssh
 
 # pacman hooks
 mkdir -p /etc/pacman.d/hooks/

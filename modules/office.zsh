@@ -14,10 +14,10 @@ fi
 # ------------------------ pacman ------------------------
 
 # office
-pacman -S --noconfirm libreoffice-fresh libreoffice-fresh-de texlive-most
+pacman -S --quiet --noprogressbar --noconfirm libreoffice-fresh libreoffice-fresh-de texlive-most
 
 # printer
-pacman -S --noconfirm cups system-config-printer
+pacman -S --quiet --noprogressbar --noconfirm cups system-config-printer
 systemctl enable org.cups.cupsd.service
 
 # ------------------------ AUR ------------------------

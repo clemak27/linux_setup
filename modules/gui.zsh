@@ -14,19 +14,19 @@ fi
 # ------------------------ pacman ------------------------
 
 # fonts
-pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
+pacman -S --quiet --noprogressbar --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
 
 # default programs
-pacman -S --noconfirm firefox mpv keepassxc
+pacman -S --quiet --noprogressbar --noconfirm firefox mpv keepassxc
 
 # messaging
-pacman -S --noconfirm signal-desktop
+pacman -S --quiet --noprogressbar --noconfirm signal-desktop
 
 # videos
-pacman -S --noconfirm obs-studio kdenlive
+pacman -S --quiet --noprogressbar --noconfirm obs-studio kdenlive
 
 # rofi
-pacman -S --noconfirm rofi rofi-calc dmenu
+pacman -S --quiet --noprogressbar --noconfirm rofi rofi-calc dmenu
 
 # JetBrainsMono
 mkdir font

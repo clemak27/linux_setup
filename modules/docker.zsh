@@ -14,7 +14,7 @@ fi
 # ------------------------ pacman ------------------------
 # docker
 
-pacman -S --noconfirm docker docker-compose
+pacman -S --quiet --noprogressbar --noconfirm docker docker-compose
 systemctl enable docker.service
 
 # additional steps

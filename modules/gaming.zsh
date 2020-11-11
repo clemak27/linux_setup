@@ -14,8 +14,8 @@ fi
 # ------------------------ pacman ------------------------
 # gaming
 
-pacman -S --noconfirm wine-staging lutris steam discord 
-pacman -S --noconfirm retroarch retroarch-assets-xmb
+pacman -S --quiet --noprogressbar --noconfirm wine-staging lutris steam discord 
+pacman -S --quiet --noprogressbar --noconfirm retroarch retroarch-assets-xmb
 
 # ------------------------ AUR ------------------------
 

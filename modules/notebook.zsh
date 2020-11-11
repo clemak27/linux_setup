@@ -14,18 +14,18 @@ fi
 # ------------------------ pacman ------------------------
 
 # touchpad
-pacman -S --noconfirm xf86-input-libinput xf86-input-synaptics
+pacman -S --quiet --noprogressbar --noconfirm xf86-input-libinput xf86-input-synaptics
 
 # power management
-pacman -S --noconfirm tlp
+pacman -S --quiet --noprogressbar --noconfirm tlp
 systemctl enable tlp.service
 
 # enable bluetooth
-pacman -S --noconfirm pulseaudio-bluetooth
+pacman -S --quiet --noprogressbar --noconfirm pulseaudio-bluetooth
 systemctl enable bluetooth.service
 
 # nvidia optimus
-pacman -S --noconfirm nvidia-prime
+pacman -S --quiet --noprogressbar --noconfirm nvidia-prime
 
 # ------------------------ AUR ------------------------
 

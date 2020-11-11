@@ -15,7 +15,7 @@ fi
 
 # logitech mouse customization
 
-pacman -S --noconfirm piper
+pacman -S --quiet --noprogressbar --noconfirm piper
 
 # ------------------------ AUR ------------------------
 

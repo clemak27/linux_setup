@@ -14,20 +14,20 @@ fi
 # ------------------------ pacman ------------------------
 
 # plasma
-pacman -S --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-browser-integration plasma-desktop plasma-integration plasma-nm plasma-pa plasma-workspace plasma-workspace-wallpapers polkit-kde-agent powerdevil sddm-kcm systemsettings
+pacman -S --quiet --noprogressbar --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-browser-integration plasma-desktop plasma-integration plasma-nm plasma-pa plasma-workspace plasma-workspace-wallpapers polkit-kde-agent powerdevil sddm-kcm systemsettings
 
 # kde-applications
-pacman -S --noconfirm ark dolphin ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks khelpcenter kio-extras konsole ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle kdeconnect partitionmanager krita
+pacman -S --quiet --noprogressbar --noconfirm ark dolphin ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks khelpcenter kio-extras konsole ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle kdeconnect partitionmanager krita
 
 # kde-specifics
-pacman -S --noconfirm plasma-browser-integration sshfs unrar
+pacman -S --quiet --noprogressbar --noconfirm plasma-browser-integration sshfs unrar
 systemctl enable sddm
 
 # kontact
-pacman -S --noconfirm kontact kaddressbook korganizer kmail kmail-account-wizard
+pacman -S --quiet --noprogressbar --noconfirm kontact kaddressbook korganizer kmail kmail-account-wizard
 
 # latte-dock
-pacman -S --noconfirm latte-dock
+pacman -S --quiet --noprogressbar --noconfirm latte-dock
 
 # ------------------------ AUR ------------------------
 

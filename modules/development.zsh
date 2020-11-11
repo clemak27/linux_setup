@@ -13,10 +13,10 @@ fi
 
 # ------------------------ pacman ------------------------
 # java
-pacman -S --noconfirm jdk-openjdk maven intellij-idea-community-edition
+pacman -S --quiet --noprogressbar --noconfirm jdk-openjdk maven intellij-idea-community-edition
 
 #python
-pacman -S --noconfirm python-pip
+pacman -S --quiet --noprogressbar --noconfirm python-pip
 
 # ------------------------ AUR ------------------------
 
