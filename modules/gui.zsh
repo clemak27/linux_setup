@@ -17,7 +17,8 @@ fi
 pacman -S --quiet --noprogressbar --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
 
 # default programs
-pacman -S --quiet --noprogressbar --noconfirm firefox mpv keepassxc
+pacman -S --quiet --noprogressbar --noconfirm firefox mpv keepassxc syncthing
+ln -sf /home/$user/Projects/linux_setup/dotfiles/mpv.conf  /home/$user/.config/mpv/mpv.conf
 
 # messaging
 pacman -S --quiet --noprogressbar --noconfirm signal-desktop
@@ -27,6 +28,8 @@ pacman -S --quiet --noprogressbar --noconfirm obs-studio kdenlive
 
 # rofi
 pacman -S --quiet --noprogressbar --noconfirm rofi rofi-calc dmenu
+mkdir -p /home/$user/.config/rofi/themes
+ln -sf  /home/$user/Projects/linux_setup/rofi/custom.rasi /home/$user/.config/rofi/themes/custom.rasi
 
 # JetBrainsMono
 mkdir font
@@ -52,7 +55,6 @@ IFS=$(echo -en "\n\b")
 aur_packages=(
   'scrcpy'
   'spotify'
-  'syncthing'
   'syncthingtray'
 )
 
@@ -81,11 +83,6 @@ declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
-  'mkdir -p /home/$user/.config/rofi/themes'
-  # rofi
-  'ln -sf ~/Projects/linux_setup/rofi/custom.rasi ~/.config/rofi/themes/custom.rasi'
-  # mpv
-  'ln -sf ~/Projects/linux_setup/dotfiles/mpv.conf ~/.config/mpv/mpv.conf'
 #  'systemctl --user enable syncthing.service'
 #  'systemctl --user start syncthing.service'
 )
