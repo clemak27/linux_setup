@@ -37,7 +37,6 @@ checkReplacement('password="1234"', 'password=""')
 checkReplacement('cpu="amd"', 'cpu=""')
 checkReplacement('cpu="amd"', 'cpu="aaaaaaaa"')
 checkReplacement('gpu="nvidia"', 'gpu=""')
-checkReplacement('gpu="nvidia"', 'gpu="aaaaaaaa"')
 
 if fails > 0:
     print("Test failed!")
