@@ -106,8 +106,8 @@ ln -sf /home/$user/Projects/linux_setup/dotfiles/ranger.commands /home/$user/.co
 
 # todo.sh config
 mkdir /home/$user/.todo
-mkdir /home/$user/todo.actions.d
-cd /home/$user/todo.actions.d
+mkdir /home/$user/.todo.actions.d
+cd /home/$user/.todo.actions.d
 git clone https://github.com/rebeccamorgan/due.git
 chmod +x due/due
 cd /linux_setup
