@@ -48,6 +48,9 @@ rm -rf font
 
 # ------------------------ AUR ------------------------
 
+# import spotify gpg key
+curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
+
 declare -a aur_packages
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
