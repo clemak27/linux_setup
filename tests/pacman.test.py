@@ -12,8 +12,8 @@ modulePath = './modules'
 for file in listdir(modulePath):
     if isfile(join(modulePath, file)):
         for line in open(join(modulePath, file)):
-            if 'pacman -S --noconfirm' in line and not line.startswith("  '"):
-                packagesInLine = line.replace('pacman -S --noconfirm ', '').replace('\n','')
+            if 'pacman -S --quiet --noprogressbar --noconfirm' in line and not line.startswith("  '"):
+                packagesInLine = line.replace('pacman -S --quiet --noprogressbar --noconfirm ', '').replace('\n','')
                 packagesInCommand = packagesInLine.split(' ')
                 for package in packagesInCommand:
                     packages.append(package)

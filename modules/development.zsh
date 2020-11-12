@@ -2,64 +2,66 @@
 
 # ------------------------ Development Tools ------------------------
 
+# ------------------------ Load config ------------------------
+echo "Loading config"
+if [ -f ./config.zsh ]; then
+    source ./config.zsh
+else
+   echo "Config file could not be found!"
+   exit 1
+fi
+
+# ------------------------ pacman ------------------------
 # java
-pacman -S --noconfirm jdk-openjdk maven intellij-idea-community-edition
-cp ../dotfiles/ideavimrc /home/$user/.ideavimrc
+pacman -S --quiet --noprogressbar --noconfirm jdk-openjdk maven intellij-idea-community-edition
 
 #python
-pacman -S --noconfirm python-pip
+pacman -S --quiet --noprogressbar --noconfirm python-pip
 
-#golang
-pacman -S --noconfirm go
+# ------------------------ AUR ------------------------
+
+declare -a aur_packages
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+
+aur_packages=(
+  'insomnia-bin'
+)
+
+declare -r aur_packages
+IFS=$SAVEIFS
+
+for package in "${aur_packages[@]}"
+do
+  cd /home/aurBuilder
+  git clone https://aur.archlinux.org/$package.git
+  chmod -R g+w $package
+  cd $package
+  sudo -u nobody makepkg -sri --noconfirm
+  cd /linux_setup
+done
+
+# ------------------------ user ------------------------
+
 
 # user-setup
 declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
-  '# insomnia'
-  'yay -S insomnia-bin'
-  ''
-  '# python dev packages'
+  # ideavim config
+  'ln -sf ~/Projects/linux_setup/dotfiles/ideavimrc ~/.ideavimrc'
+  # python dev packages
   'pip install jedi pylint --user'
-  ''
-  '# go dev packages'
-  'mkdir -p ~/.go'
-  'export GOPATH=~/.go'
-  'go get -v github.com/klauspost/asmfmt/cmd/asmfmt'
-  'go get -v github.com/go-delve/delve/cmd/dlv'
-  'go get -v github.com/kisielk/errcheck'
-  'go get -v github.com/davidrjenni/reftools/cmd/fillstruct'
-  'go get -v github.com/mdempsky/gocode'
-  'go get -v github.com/stamblerre/gocode'
-  'go get -v github.com/rogpeppe/godef'
-  'go get -v github.com/zmb3/gogetdoc'
-  'go get -v golang.org/x/tools/cmd/goimports'
-  'go get -v golang.org/x/lint/golint'
-  'go get -v golang.org/x/tools/gopls'
-  'go get -v github.com/golangci/golangci-lint/cmd/golangci-lint'
-  'go get -v github.com/fatih/gomodifytags'
-  'go get -v golang.org/x/tools/cmd/gorename'
-  'go get -v github.com/jstemmer/gotags'
-  'go get -v golang.org/x/tools/cmd/guru'
-  'go get -v github.com/josharian/impl'
-  'go get -v honnef.co/go/tools/cmd/keyify'
-  'go get -v github.com/fatih/motion'
-  'go get -v github.com/koron/iferr'
-  ''
-  '#rust'
-  'curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh'
-  ''
-  '# rust path is set in .zshrc already, use these options'
-  '# default host triple: x86_64-unknown-linux-gnu'
-  '# default toolchain: stable'
-  '# profile: default'
-  '# modify PATH variable: no'
+  # rust
+  'curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path'
 )
 declare -r user_commands
 IFS=$SAVEIFS
 
 for task in "${user_commands[@]}"
 do
-  echo "$task" >> setup_user.zsh
+  su - $user -c $task
 done
+
+# ------------------------ notes ------------------------

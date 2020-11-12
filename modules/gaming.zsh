@@ -2,30 +2,45 @@
 
 # ------------------------ Gaming ------------------------
 
-# gaming
-pacman -S --noconfirm wine-staging lutris steam discord 
-pacman -S --noconfirm retroarch retroarch-assets-xmb
+# ------------------------ Load config ------------------------
+echo "Loading config"
+if [ -f ./config.zsh ]; then
+    source ./config.zsh
+else
+   echo "Config file could not be found!"
+   exit 1
+fi
 
-# user-setup
-declare -a user_commands
+# ------------------------ pacman ------------------------
+# gaming
+
+pacman -S --quiet --noprogressbar --noconfirm wine-staging lutris steam discord 
+pacman -S --quiet --noprogressbar --noconfirm retroarch retroarch-assets-xmb
+
+# ------------------------ AUR ------------------------
+
+declare -a aur_packages
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
-user_commands=(
-  'yay -S --noconfirm steam-fonts'
+
+aur_packages=(
+  'steam-fonts'
 )
-declare -r user_commands
+
+declare -r aur_packages
 IFS=$SAVEIFS
 
-for task in "${user_commands[@]}"
+for package in "${aur_packages[@]}"
 do
-  echo "$task" >> setup_user.zsh
+  cd /home/aurBuilder
+  git clone https://aur.archlinux.org/$package.git
+  chmod -R g+w $package
+  cd $package
+  sudo -u nobody makepkg -sri --noconfirm
+  cd /linux_setup
 done
 
-# ------------------------ Notes ------------------------
 
-# kill all gta V processes
-# killall -9 -r ".*\.exe|.*SocialClub.*|.*Rockstar.*" && kill -9 $(ps aux | grep '.*PlayGTA.*' | awk '{print $2}')
-#
-# I've fixed this issue by changing the pointing launcher link of the game.
-# Actually in steam the game is launched through the gameguide launcher that causes some troubles. Indeed, the gameguide launcher works but the play button in it won't launch the game.
-# So to start it directly from the game launcher instead of the gameguide launcher, go to steam/common/Sid Meier's Civilization VI/ and edit "Civ6" file and change the line "./GameGuide/Civ6" to "./Civ6Sub"
+# ------------------------ user ------------------------
+
+# ------------------------ Notes ------------------------

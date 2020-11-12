@@ -1,7 +1,10 @@
 #!/bin/zsh
 
 set -uo pipefail
-trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
+
+cd /linux_setup
+
+# ------------------------ core system setup ------------------------
 
 # ------------------------ Load config ------------------------
 echo "Loading config"
@@ -12,8 +15,7 @@ else
    exit 1
 fi
 
-# ------------------------ core ------------------------
-echo "Setting up core"
+# ------------------------ general config ------------------------
 
 # timezone
 ln -sf /usr/share/zoneinfo/Europe/Vienna /etc/localtime
@@ -35,14 +37,16 @@ echo "127.0.0.1  localhost" >> /etc/hosts
 echo "::1		localhost" >> /etc/hosts
 echo "127.0.1.1	${hostname}.localdomain	${hostname}" >> /etc/hosts
 
+# ------------------------ pacman ------------------------
+
 # base packages
-pacman -S --noconfirm b43-fwcutter broadcom-wl crda darkhttpd ddrescue dhclient dialog dnsutils elinks ethtool exfat-utils f2fs-tools fsarchiver hdparm ipw2100-fw ipw2200-fw irssi iwd lftp lsscsi mc mtools ndisc6 nfs-utils nilfs-utils nmap ntp openconnect openvpn partclone partimage pptpclient rp-pppoe sdparm sg3_utils tcpdump testdisk usb_modeswitch vpnc wireless-regdb wireless_tools wvdial xl2tpd man
+pacman -S --quiet --noprogressbar --noconfirm b43-fwcutter broadcom-wl crda darkhttpd ddrescue dhclient dialog dnsutils elinks ethtool exfat-utils f2fs-tools fsarchiver hdparm ipw2100-fw ipw2200-fw irssi iwd lftp lsscsi mc mtools ndisc6 nfs-utils nilfs-utils nmap ntp openconnect openvpn partclone partimage pptpclient rp-pppoe sdparm sg3_utils tcpdump testdisk usb_modeswitch vpnc wireless-regdb wireless_tools wvdial xl2tpd man
 
 # some important stuff
-pacman -S --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget ntfs-3g pacman-contrib
+pacman -S --quiet --noprogressbar --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget ntfs-3g pacman-contrib
 
 # networkmanager
-pacman -S --noconfirm networkmanager
+pacman -S --quiet --noprogressbar --noconfirm networkmanager
 systemctl enable NetworkManager
 
 # colorful output
@@ -54,22 +58,22 @@ sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 # grant su permissions to wheel group
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
-pacman -Syyu --noconfirm
+pacman -Syyu --quiet --noprogressbar --noconfirm
 
 # zsh
-pacman -S --noconfirm zsh zsh-completions
+pacman -S --quiet --noprogressbar --noconfirm zsh zsh-completions
 
 # terminal
-pacman -S --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unrar htop arch-audit android-tools jq bat exa hyperfine tokei reflector sd
+pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unzip unrar htop arch-audit android-tools jq bat exa hyperfine tokei reflector sd
 
 # xD
-pacman -S --noconfirm cmatrix lolcat neofetch sl
+pacman -S --quiet --noprogressbar --noconfirm cmatrix lolcat neofetch sl
 
 # development
-pacman -S --noconfirm git make gcc neovim nodejs npm python-pynvim xclip
+pacman -S --quiet --noprogressbar --noconfirm git make gcc neovim nodejs npm python-pynvim xclip
 
 # ssh
-pacman -S --noconfirm openssh
+pacman -S --quiet --noprogressbar --noconfirm openssh
 
 # pacman hooks
 mkdir -p /etc/pacman.d/hooks/
@@ -77,17 +81,36 @@ cp ./pacman-hooks/grub.hook /etc/pacman.d/hooks/grub.hook
 cp ./pacman-hooks/cleanup.hook /etc/pacman.d/hooks/cleanup.hook
 ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
 
+# create dirs for user
+mkdir -p /home/$user/Projects
+mkdir -p /home/$user/Notes
+cp -R . /home/$user/Projects/linux_setup
+
 # nvim
 mkdir -p /home/$user/.config/nvim
 mkdir -p /home/$user/.local/share/nvim/site/autoload
-cp ./dotfiles/vimrc /home/$user/.config/nvim/init.vim
 curl -fLo /home/$user/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+ln -sf /home/$user/Projects/linux_setup/dotfiles/vimrc /home/$user/.config/nvim/init.vim
+ln -sf /home/$user/Projects/linux_setup/dotfiles/coc-settings.json /home/$user/.config/nvim/coc-settings.json
 
 # zsh
-cp ./dotfiles/starship.toml /home/$user/.starship.toml
-cp ./dotfiles/zshrc /home/$user/.zshrc
 git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
-curl -fsSL https://starship.rs/install.sh | bash
+curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+ln -sf /home/$user/Projects/linux_setup/dotfiles/zshrc /home/$user/.zshrc
+ln -sf /home/$user/Projects/linux_setup/dotfiles/starship.toml /home/$user/.starship.toml
+
+# ranger config
+mkdir /home/$user/.config/ranger
+ln -sf /home/$user/Projects/linux_setup/dotfiles/ranger.rc /home/$user/.config/ranger/rc.conf
+ln -sf /home/$user/Projects/linux_setup/dotfiles/ranger.commands /home/$user/.config/ranger/commands.py
+
+# todo.sh config
+mkdir /home/$user/.todo
+mkdir /home/$user/.todo.actions.d
+cd /home/$user/.todo.actions.d
+git clone https://github.com/rebeccamorgan/due.git
+chmod +x due/due
+cd /linux_setup
 
 # ssh
 mkdir -p /home/$user/.config/systemd/user
@@ -95,9 +118,11 @@ cp ./systemd-units/ssh-agent.service /home/$user/.config/systemd/user/ssh-agent.
 echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"' >> /home/$user/.pam_environment
 
 # add user and set groups
-useradd -m $user
-sudo usermod -aG wheel $user
-sudo usermod --shell /usr/bin/zsh $user
+useradd -M $user
+chown -R $user:$user /home/$user
+usermod -d /home/$user $user
+usermod -aG wheel $user
+usermod --shell /usr/bin/zsh $user
 
 localectl set-keymap de
 
@@ -105,39 +130,62 @@ localectl set-keymap de
 echo "$user:$password" | chpasswd
 echo "root:$password" | chpasswd
 
-# ------------------------ user_core ------------------------
+# ------------------------ AUR ------------------------
+
+# setup
+
+cd /
+mkdir /home/aurBuilder
+chgrp nobody /home/aurBuilder
+chmod g+ws /home/aurBuilder
+setfacl -m u::rwx,g::rwx /home/aurBuilder
+setfacl -d --set u::rwx,g::rwx,o::- /home/aurBuilder
+usermod -d /home/aurBuilder nobody
+echo '%nobody ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+
+# install packages
+
+declare -a aur_packages
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+
+aur_packages=(
+  'paru-bin'
+  'cava'
+  'tty-clock'
+  'ddgr'
+  'todotxt'
+)
+
+declare -r aur_packages
+IFS=$SAVEIFS
+
+for package in "${aur_packages[@]}"
+do
+  cd /home/aurBuilder
+  git clone https://aur.archlinux.org/$package.git
+  chmod -R g+w $package
+  cd $package
+  sudo -u nobody makepkg -sri --noconfirm
+  cd /linux_setup
+done
+
+
+# ------------------------ user ------------------------
+
 declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
 user_commands=(
   'xdg-user-dirs-update'
-  ''
-  '# git config'
   'git config --global user.name "clemak27"'
   'git config --global user.email clemak27@mailbox.org'
   'git config --global alias.lol "log --graph --decorate --oneline --all"'
   'git config --global core.autocrlf input'
   'git config --global pull.rebase false'
   'git config --global credential.helper cache --timeout=86400'
-  ''
-  'mkdir -p ~/Projects'
-  ''
-  '#yay'
-  'cd ~/Projects'
-  'git clone https://aur.archlinux.org/yay.git'
-  'cd yay'
-  'makepkg -si'
-  ''
-  '# aur'
-  'sudo pacman -S --noconfirm automake autoconf'
-  'yay -S --noconfirm cava tty-clock gotop-bin ddgr informant'
-  'sudo informant check'
-  'sudo informant read --all'
-  "sudo usermod -a -G informant $user"
-  ''
-  '# ssh'
-  'systemctl --user enable ssh-agent.service'
+  'ln -sf ~/Projects/linux_setup/dotfiles/todo.cfg ~/.todo/config'
 )
 
 declare -r user_commands
@@ -145,14 +193,22 @@ IFS=$SAVEIFS
 
 for task in "${user_commands[@]}"
 do
-  echo "$task" >> setup_user.zsh
+  su - $user -c $task
 done
 
 # ------------------------ modules ------------------------
 
 for module in "${system_modules[@]}"
 do
-  echo "Setting up module "$module
+  echo "Setting up module $module"
   chmod +x "./modules/$module.zsh"
-  /bin/zsh -i -c  "./modules/$module.zsh"
+  /bin/zsh -e -c "./modules/$module.zsh"
 done
+
+# cleanup
+
+sed -i '$d' /etc/sudoers
+usermod -d / nobody
+rm -rf /home/aurBuilder
+chown -R $user:$user /home/$user
+su - $user -c "cd ~/Projects/linux_setup && git restore ."

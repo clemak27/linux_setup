@@ -1,15 +1,46 @@
 #!/bin/zsh
 
-set -uo pipefail
-trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
+# ------------------------ logitech hardware tools ------------------------
 
-pacman -S --noconfirm piper
+# ------------------------ Load config ------------------------
+echo "Loading config"
+if [ -f ./config.zsh ]; then
+    source ./config.zsh
+else
+   echo "Config file could not be found!"
+   exit 1
+fi
 
-#------user------
+# ------------------------ pacman ------------------------
 
-cat << 'EOT' >> setup_user.sh
+# logitech mouse customization
 
-yay -S g810-led-git
-yay -S headsetcontrol
+pacman -S --quiet --noprogressbar --noconfirm piper
 
-EOT
+# ------------------------ AUR ------------------------
+
+declare -a aur_packages
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+
+aur_packages=(
+  'g810-led-git'
+  'headsetcontrol'
+)
+
+declare -r aur_packages
+IFS=$SAVEIFS
+for package in "${aur_packages[@]}"
+do
+  cd /home/aurBuilder
+  git clone https://aur.archlinux.org/$package.git
+  chmod -R g+w $package
+  cd $package
+  sudo -u nobody makepkg -sri --noconfirm
+  cd /linux_setup
+done
+
+
+# ------------------------ user ------------------------
+
+# ------------------------ notes ------------------------
