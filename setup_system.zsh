@@ -1,7 +1,6 @@
 #!/bin/zsh
 
 set -uo pipefail
-trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
 cd /linux_setup
 
@@ -204,7 +203,7 @@ for module in "${system_modules[@]}"
 do
   echo "Setting up module $module"
   chmod +x "./modules/$module.zsh"
-  /bin/zsh -c "./modules/$module.zsh"
+  /bin/zsh -e -c "./modules/$module.zsh"
 done
 
 # cleanup
