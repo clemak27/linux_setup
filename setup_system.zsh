@@ -111,6 +111,7 @@ mkdir /home/$user/todo.actions.d
 cd /home/$user/todo.actions.d
 git clone https://github.com/rebeccamorgan/due.git
 chmod +x due/due
+cd /linux_setup
 
 # ssh
 mkdir -p /home/$user/.config/systemd/user
