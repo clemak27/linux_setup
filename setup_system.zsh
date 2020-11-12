@@ -186,7 +186,6 @@ user_commands=(
   'git config --global pull.rebase false'
   'git config --global credential.helper cache --timeout=86400'
   'ln -sf ~/Projects/linux_setup/dotfiles/todo.cfg ~/.todo/config'
-# 'systemctl --user enable ssh-agent.service'
 )
 
 declare -r user_commands

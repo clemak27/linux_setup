@@ -86,8 +86,6 @@ declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
-#  'systemctl --user enable syncthing.service'
-#  'systemctl --user start syncthing.service'
 )
 declare -r user_commands
 IFS=$SAVEIFS
