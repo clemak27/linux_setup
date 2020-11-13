@@ -8,3 +8,4 @@ I use arch btw. [![pipeline status](https://gitlab.com/clemak27/linux_setup/badg
 - `systemctl --user enable syncthing.service`
 - `systemctl --user start syncthing.service`
 - spotify setup fails with PGP key import
+- event calendar gets installed but is missing?
