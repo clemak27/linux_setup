@@ -23,7 +23,7 @@ map 0 ^
 " Remap ß to end of line
 map ß $
 " Remap yss to surround until end of line
-map yss ys$
+map yss 0ys$
 " go to definition
 map <silent> gd :action GotoDeclaration<CR>
 " go to implementation
