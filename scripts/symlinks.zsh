@@ -30,6 +30,7 @@ ln -sf ~/Projects/linux_setup/kde/ZshProfile.profile ~/.local/share/konsole/ZshP
 ln -sf ~/Projects/linux_setup/kde/kustom.colorscheme ~/.local/share/konsole/kustom.colorscheme
 ln -sf ~/Projects/linux_setup/kde/BreezeDarkCustom.colors ~/.local/share/color-schemes/BreezeDarkCustom.colors
 ln -sf ~/Projects/linux_setup/kde/united.layout.latte ~/.config/latte/Default.layout.latte
+ln -sf ~/Projects/linux_setup/kde/krunnerrc ~/.config/krunnerrc
 
 # firefox
 ffProfilePath="~/.mozilla/firefox/72zvuvdy.default-release"
