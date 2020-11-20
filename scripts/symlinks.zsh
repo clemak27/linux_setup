@@ -15,9 +15,6 @@ ln -sf ~/Projects/linux_setup/dotfiles/ideavimrc ~/.ideavimrc
 ln -sf ~/Projects/linux_setup/dotfiles/ranger.rc ~/.config/ranger/rc.conf
 ln -sf ~/Projects/linux_setup/dotfiles/ranger.commands ~/.config/ranger/commands.py
 
-# rofi
-ln -sf ~/Projects/linux_setup/rofi/custom.rasi ~/.config/rofi/themes/custom.rasi
-
 # todo.txt
 ln -sf ~/Projects/linux_setup/dotfiles/todo.cfg ~/.todo/config
 
@@ -33,6 +30,7 @@ ln -sf ~/Projects/linux_setup/kde/ZshProfile.profile ~/.local/share/konsole/ZshP
 ln -sf ~/Projects/linux_setup/kde/kustom.colorscheme ~/.local/share/konsole/kustom.colorscheme
 ln -sf ~/Projects/linux_setup/kde/BreezeDarkCustom.colors ~/.local/share/color-schemes/BreezeDarkCustom.colors
 ln -sf ~/Projects/linux_setup/kde/united.layout.latte ~/.config/latte/Default.layout.latte
+ln -sf ~/Projects/linux_setup/kde/krunnerrc ~/.config/krunnerrc
 
 # firefox
 ffProfilePath="~/.mozilla/firefox/72zvuvdy.default-release"

@@ -70,6 +70,7 @@ user_commands=(
   'ln -sf ~/Projects/linux_setup/kde/kustom.colorscheme ~/.local/share/konsole/kustom.colorscheme'
   'ln -sf ~/Projects/linux_setup/kde/BreezeDarkCustom.colors ~/.local/share/color-schemes/BreezeDarkCustom.colors'
   'ln -sf ~/Projects/linux_setup/kde/united.layout.latte ~/.config/latte/Default.layout.latte'
+  'ln -sf ~/Projects/linux_setup/kde/krunnerrc ~/.config/krunnerrc'
   # Hide titlebars when maximized
   'kwriteconfig5 --file ~/.config/kwinrc --group Windows --key BorderlessMaximizedWindows true' 
 )
