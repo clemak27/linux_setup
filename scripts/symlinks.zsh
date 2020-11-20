@@ -15,9 +15,6 @@ ln -sf ~/Projects/linux_setup/dotfiles/ideavimrc ~/.ideavimrc
 ln -sf ~/Projects/linux_setup/dotfiles/ranger.rc ~/.config/ranger/rc.conf
 ln -sf ~/Projects/linux_setup/dotfiles/ranger.commands ~/.config/ranger/commands.py
 
-# rofi
-ln -sf ~/Projects/linux_setup/rofi/custom.rasi ~/.config/rofi/themes/custom.rasi
-
 # todo.txt
 ln -sf ~/Projects/linux_setup/dotfiles/todo.cfg ~/.todo/config
 
