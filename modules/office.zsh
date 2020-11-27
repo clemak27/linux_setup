@@ -23,6 +23,27 @@ systemctl enable org.cups.cupsd.service
 # ------------------------ AUR ------------------------
 # brother-dcpj572dw
 
+declare -a aur_packages
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+
+aur_packages=(
+  'pandoc-bin'
+)
+
+declare -r aur_packages
+IFS=$SAVEIFS
+
+for package in "${aur_packages[@]}"
+do
+  cd /home/aurBuilder
+  git clone https://aur.archlinux.org/$package.git
+  chmod -R g+w $package
+  cd $package
+  sudo -u nobody makepkg -sri --noconfirm
+  cd /linux_setup
+done
+
 # ------------------------ user ------------------------
 
 # ------------------------ notes ------------------------
