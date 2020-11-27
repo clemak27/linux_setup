@@ -15,8 +15,11 @@ fi
 # java
 pacman -S --quiet --noprogressbar --noconfirm jdk-openjdk maven intellij-idea-community-edition
 
-#python
+# python
 pacman -S --quiet --noprogressbar --noconfirm python-pip
+
+# uml
+pacman -S --quiet --noprogressbar --noconfirm plantuml graphviz
 
 # ------------------------ AUR ------------------------
 
