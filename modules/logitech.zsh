@@ -17,6 +17,8 @@ fi
 
 pacman -S --quiet --noprogressbar --noconfirm piper
 
+cp ../systemd-units/openrgb.service /home/$user/.config/systemd/user/openrgb.service
+
 # ------------------------ AUR ------------------------
 
 declare -a aur_packages
