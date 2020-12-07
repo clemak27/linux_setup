@@ -5,7 +5,7 @@ from os import listdir
 from os.path import isfile, join
 
 packages = []
-ignored = ['lib32-nvidia-utils', 'lib32-vulkan-icd-loader', 'wine-staging', 'steam', '']
+ignored = ['lib32-nvidia-utils', 'lib32-vulkan-icd-loader', 'wine-staging', 'steam', '', 'lib32-gamemode']
 fails = []
 modulePath = './modules'
 
