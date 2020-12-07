@@ -24,8 +24,7 @@ SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
 aur_packages=(
-  'g810-led-git'
-  'headsetcontrol'
+  'openrgb'
 )
 
 declare -r aur_packages
