@@ -16,6 +16,7 @@ fi
 
 pacman -S --quiet --noprogressbar --noconfirm wine-staging lutris steam discord 
 pacman -S --quiet --noprogressbar --noconfirm retroarch retroarch-assets-xmb
+pacman -S --quiet --noprogressbar --noconfirm gamemode lib32-gamemode
 
 # ------------------------ AUR ------------------------
 
