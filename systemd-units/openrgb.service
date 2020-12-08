@@ -3,7 +3,7 @@ Description=OpenRGB control
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/openrgb --nodetect -m cycle
+ExecStart=/usr/bin/openrgb -m cycle
 User=nobody
 Group=i2c
 
