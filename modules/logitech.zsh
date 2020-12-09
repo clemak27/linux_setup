@@ -18,6 +18,7 @@ fi
 pacman -S --quiet --noprogressbar --noconfirm piper
 
 cp ../systemd-units/openrgb.service /home/$user/.config/systemd/user/openrgb.service
+cp ../scripts/60-openrgb.rules /etc/udev/rules.d/60-openrgb.rules
 
 # ------------------------ AUR ------------------------
 
