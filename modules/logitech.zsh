@@ -17,6 +17,9 @@ fi
 
 pacman -S --quiet --noprogressbar --noconfirm piper
 
+cp ../systemd-units/openrgb.service /home/$user/.config/systemd/user/openrgb.service
+cp ../scripts/60-openrgb.rules /etc/udev/rules.d/60-openrgb.rules
+
 # ------------------------ AUR ------------------------
 
 declare -a aur_packages
@@ -24,8 +27,7 @@ SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
 aur_packages=(
-  'g810-led-git'
-  'headsetcontrol'
+  'openrgb'
 )
 
 declare -r aur_packages
