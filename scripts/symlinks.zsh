@@ -28,8 +28,8 @@ ln -sf ~/Projects/linux_setup/dotfiles/mpv.conf ~/.config/mpv/mpv.conf
 mkdir -p ~/.local/share/konsole
 mkdir -p ~/.local/share/color-schemes
 ln -sf ~/Projects/linux_setup/kde/ZshProfile.profile ~/.local/share/konsole/ZshProfile.profile
-ln -sf ~/Projects/linux_setup/kde/kustom.colorscheme ~/.local/share/konsole/kustom.colorscheme
-ln -sf ~/Projects/linux_setup/kde/BreezeDarkCustom.colors ~/.local/share/color-schemes/BreezeDarkCustom.colors
+ln -sf ~/Projects/linux_setup/kde/base16-solar-dark.colorscheme ~/.local/share/konsole/base16-solar-dark.colorscheme
+ln -sf ~/Projects/linux_setup/kde/SolarDark.colors ~/.local/share/color-schemes/SolarDark.colors
 
 # firefox
 ffProfilePath="~/.mozilla/firefox/72zvuvdy.default-release"
