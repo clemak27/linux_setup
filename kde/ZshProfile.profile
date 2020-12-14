@@ -1,5 +1,5 @@
 [Appearance]
-ColorScheme=kustom
+ColorScheme=base16-solar-dark
 Font=JetBrainsMono Nerd Font,10,-1,5,50,0,0,0,0,0
 
 [General]
