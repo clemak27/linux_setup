@@ -1,0 +1,25 @@
+<mtTheme>
+  <id>69</id>
+  <editorColorsScheme>solar-dark</editorColorsScheme>
+  <dark>true</dark>
+  <name>Solar Dark</name>
+  <colors>
+    <color id="background" value="1f1f1fff"/>
+    <color id="foreground" value="93a1a1ff"/>
+    <color id="text" value="93a1a1ff"/>
+    <color id="highlight" value="313131ff"/>
+    <color id="selectionBackground" value="1f1f1fff"/>
+    <color id="selectionForeground" value="fdf6e3ff"/>
+    <color id="button" value="1f1f1fff"/>
+    <color id="secondaryBackground" value="1f1f1fff"/>
+    <color id="disabled" value="545454ff"/>
+    <color id="contrast" value="1a1a1aff"/>
+    <color id="tableSelected" value="313131ff"/>
+    <color id="secondBorder" value="313131ff"/>
+    <color id="treeSelection" value="2466887d"/>
+    <color id="notifications" value="1f1f1fff"/>
+    <color id="accent" value="268bd2ff"/>
+    <color id="excluded" value="dc322fff"/>
+  </colors>
+  <themeId>69</themeId>
+</mtTheme>
