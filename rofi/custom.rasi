@@ -15,10 +15,10 @@ configuration {
 }
 
 * {
-  textcolor: #eff0f1;
-  background: #2a2a2e;
+  textcolor: #fdf6e3;
+  background: #1a1a1a;
   highlighted: #246688;
-  urgent: #eb6e67;
+  urgent: #dc322f;
 
   spacing: 0;
   text-color: @textcolor;
