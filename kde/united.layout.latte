@@ -43,7 +43,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][1][Applets][4][Configuration]
-PreloadWeight=99
+PreloadWeight=100
 SystrayContainmentId=5
 
 [Containments][1][Applets][41]
@@ -100,6 +100,7 @@ PreloadWeight=92
 twoColumns=false
 
 [Containments][1][Applets][72][Configuration][Calendar]
+monthShowWeekNumbers=true
 month_show_weeknumbers=true
 
 [Containments][1][Applets][72][Configuration][ConfigDialog]
@@ -110,10 +111,18 @@ DialogWidth=1060
 enabledCalendarPlugins=/usr/lib/x86_64-linux-gnu/qt5/plugins/plasmacalendarplugins/holidaysevents.so
 
 [Containments][1][Applets][72][Configuration][General]
+clockMaxHeight=16
+clockMouseWheelDown=
+clockMouseWheelUp=
+clockTimeFormat1=MMM d, HH:mm:ss\s
 clock_maxheight=16
 clock_mousewheel_down=
 clock_mousewheel_up=
 clock_timeformat=MMM d, HH:mm:ss\s
+v71Migration=true
+widgetShowAgenda=false
+widgetShowMeteogram=false
+widgetShowTimer=false
 widget_show_agenda=false
 widget_show_meteogram=false
 widget_show_timer=false
@@ -123,7 +132,9 @@ calendar_list=W10=
 tasklistList=W10=
 
 [Containments][1][Applets][72][Configuration][Weather]
+meteogramHours=48
 meteogram_hours=48
+openWeatherMapCityId=2761369
 weather_city_id=2761369
 
 [Containments][1][Applets][73]
@@ -173,7 +184,7 @@ customType=
 enabled=true
 enabledForApplets=true
 padding=0.07999999821186066
-type=org.kde.latte.plasma
+type=org.kde.latte.default
 
 [Containments][1][Indicator][org.kde.latte.plasma][General]
 clickedAnimationEnabled=true
@@ -247,7 +258,7 @@ customType=org.kde.latte.dashtopanel
 enabled=true
 enabledForApplets=true
 padding=0.05000000074505806
-type=org.kde.latte.plasma
+type=org.kde.latte.default
 
 [Containments][34][Indicator][org.kde.latte.dashtopanel][General]
 maxBackgroundOpacity=0.2
@@ -282,7 +293,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][5][Applets][11][Configuration]
-PreloadWeight=99
+PreloadWeight=100
 
 [Containments][5][Applets][12]
 immutability=1
@@ -378,7 +389,7 @@ activities=
 background=
 color=purple
 disableBordersForMaximizedWindows=true
-lastUsedActivity=344b7d75-a8a0-470b-8809-c7dc8305eb99
+lastUsedActivity=
 launchers=applications:org.kde.dolphin.desktop,applications:firefox.desktop,applications:org.kde.konsole.desktop,applications:cantata.desktop
 preferredForShortcutsTouched=false
 sharedLayout=

@@ -1,0 +1,25 @@
+<mtTheme>
+  <id>69</id>
+  <editorColorsScheme>DarkDev</editorColorsScheme>
+  <dark>true</dark>
+  <name>Dark Dev</name>
+  <colors>
+    <color id="background" value="000000ff"/>
+    <color id="foreground" value="979fadff"/>
+    <color id="text" value="979fadff"/>
+    <color id="highlight" value="383d48ff"/>
+    <color id="selectionBackground" value="4d515dff"/>
+    <color id="selectionForeground" value="ffffffff"/>
+    <color id="button" value="3a3f4bff"/>
+    <color id="secondaryBackground" value="2f333dff"/>
+    <color id="disabled" value="6b727dff"/>
+    <color id="contrast" value="000000ff"/>
+    <color id="tableSelected" value="383e49ff"/>
+    <color id="secondBorder" value="282c34ff"/>
+    <color id="treeSelection" value="3a3f4b80"/>
+    <color id="notifications" value="282c34ff"/>
+    <color id="accent" value="8a2be2ff"/>
+    <color id="excluded" value="3c4150ff"/>
+  </colors>
+  <themeId>69</themeId>
+</mtTheme>

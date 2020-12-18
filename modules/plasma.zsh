@@ -37,9 +37,6 @@ IFS=$(echo -en "\n\b")
 
 aur_packages=(
   'plasma5-applets-eventcalendar'
-  'plasma5-applets-window-appmenu'
-  'plasma5-applets-window-buttons'
-  'plasma5-applets-window-title'
 )
 
 declare -r aur_packages
@@ -65,11 +62,9 @@ user_commands=(
   'mkdir -p ~/.local/share/konsole'
   'mkdir -p ~/.local/share/color-schemes'
   'mkdir -p ~/.config/latte'
-  'cp ~/.config/latte/Default.layout.latte ~/.config/latte/Default.bu.layout.latte'
   'ln -sf ~/Projects/linux_setup/kde/ZshProfile.profile ~/.local/share/konsole/ZshProfile.profile'
-  'ln -sf ~/Projects/linux_setup/kde/kustom.colorscheme ~/.local/share/konsole/kustom.colorscheme'
-  'ln -sf ~/Projects/linux_setup/kde/BreezeDarkCustom.colors ~/.local/share/color-schemes/BreezeDarkCustom.colors'
-  'ln -sf ~/Projects/linux_setup/kde/united.layout.latte ~/.config/latte/Default.layout.latte'
+  'ln -sf ~/Projects/linux_setup/kde/DarkDev.colorscheme ~/.local/share/konsole/DarkDev.colorscheme'
+  'ln -sf ~/Projects/linux_setup/kde/DarkDev.colors ~/.local/share/color-schemes/DarkDev.colors'
   # Hide titlebars when maximized
   'kwriteconfig5 --file ~/.config/kwinrc --group Windows --key BorderlessMaximizedWindows true' 
 )
