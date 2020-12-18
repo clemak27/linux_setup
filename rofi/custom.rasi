@@ -15,10 +15,11 @@ configuration {
 }
 
 * {
-  textcolor: #fdf6e3;
-  background: #1a1a1a;
-  highlighted: #246688;
-  urgent: #dc322f;
+  textcolor: #97a4b3;
+  background: #000000;
+  highlighted: #262626;
+  urgent: #8a2be2;
+  border: #8a2be2;
 
   spacing: 0;
   text-color: @textcolor;
@@ -33,7 +34,7 @@ window {
   text-color: @textcolor;
   border: 1;
   border-radius: 0px;
-  border-color: @highlighted;
+  border-color: @border;
   height: 40%;
   width: 40%;
   location: center;
