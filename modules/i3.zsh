@@ -13,8 +13,8 @@ fi
 
 # ------------------------ pacman ------------------------
 
-# office
-pacman -S --quiet --noprogressbar --noconfirm <packages>
+# kitty
+pacman -S --quiet --noprogressbar --noconfirm kitty
 
 # ------------------------ AUR ------------------------
 
