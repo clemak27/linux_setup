@@ -14,7 +14,7 @@ fi
 # ------------------------ pacman ------------------------
 
 # fonts
-pacman -S --quiet --noprogressbar --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
+pacman -S --quiet --noprogressbar --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation
 
 # default programs
 pacman -S --quiet --noprogressbar --noconfirm firefox mpv keepassxc syncthing
