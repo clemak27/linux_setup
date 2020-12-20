@@ -16,7 +16,9 @@ fi
 # kitty
 pacman -S --quiet --noprogressbar --noconfirm kitty
 mkdir -p /home/$user/.config/kitty
-ln -sf /home/$user/Projects/linux_setup/dotfiles/kitty.conf /home/$user/.config/kitty/kitty.conf
+ln -sf /home/$user/Projects/linux_setup/kitty/kitty.conf /home/$user/.config/kitty/kitty.conf
+cp /home/$user/Projects/linux_setup/kitty/scroll_mark.py /home/$user/.config/kitty
+cp /home/$user/Projects/linux_setup/kitty/search.py /home/$user/.config/kitty
 
 # ------------------------ AUR ------------------------
 
