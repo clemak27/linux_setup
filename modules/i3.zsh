@@ -13,8 +13,10 @@ fi
 
 # ------------------------ pacman ------------------------
 
-# office
-pacman -S --quiet --noprogressbar --noconfirm <packages>
+# kitty
+pacman -S --quiet --noprogressbar --noconfirm kitty
+mkdir -p /home/$user/.config/kitty
+ln -sf /home/$user/Projects/linux_setup/dotfiles/kitty.conf /home/$user/.config/kitty/kitty.conf
 
 # ------------------------ AUR ------------------------
 
@@ -23,7 +25,7 @@ SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
 aur_packages=(
-  'pandoc-bin'
+  ''
 )
 
 declare -r aur_packages
