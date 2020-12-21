@@ -15,11 +15,7 @@ logout=""
 
 # Confirmation
 confirm_exit() {
-	rofi -dmenu\
-		-i\
-		-no-fixed-num-lines\
-		-p "Are You Sure? : "\
-		-theme ./confirm.rasi
+  ./confirm.sh
 }
 
 # Message
