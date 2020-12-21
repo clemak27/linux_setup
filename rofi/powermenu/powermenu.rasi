@@ -8,9 +8,9 @@
  */
 
 configuration {
-  font:      "Jetbrains Mono Nerd Font 12";
-    disable-history:                false;
-    fullscreen:                     false;
+  font: "Noto Sans 10";
+  disable-history:                false;
+  fullscreen:                     false;
 	hide-scrollbar: 				true;
 	sidebar-mode: 					false;
 }
@@ -25,10 +25,10 @@ configuration {
 window {
     transparency:                   "real";
     border-radius:                  0px;
-    location:                       southeast;
+    location:                       northeast;
 	width:							420px;
-    x-offset:                       -15px;
-    y-offset:                       -45px;
+    x-offset:                       -25px;
+    y-offset:                       45px;
 }
 
 prompt {
@@ -87,9 +87,9 @@ element {
 }
 
 element-text {
-	font:							"feather 20";
+    font:      "Jetbrains Mono Nerd Font 19";
     expand:                         true;
-    horizontal-align:               0.5;
+    horizontal-align:               0.37;
     vertical-align:                 0;
     margin:                         5px 10px 15px 10px;
 }
