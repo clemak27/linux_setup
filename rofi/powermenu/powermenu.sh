@@ -42,7 +42,8 @@ case $chosen in
     fi
     ;;
   $lock)
-    loginctl lock-session;;
+    loginctl lock-session
+    ;;
   $suspend)
     ans=$(confirm_exit &)
     if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
@@ -55,9 +56,8 @@ case $chosen in
     ans=$(confirm_exit &)
     if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
       loginctl terminate-session
-    fi
-  elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
-    exit 0
+    elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
+      exit 0
     fi
     ;;
 esac
