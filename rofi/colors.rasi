@@ -8,6 +8,9 @@
   accent: #8a2be2;
   border: #8a2be2;
 
+  on: #86de74;
+  off: #ff7de9;
+
   spacing: 0;
   text-color: @textcolor;
 
