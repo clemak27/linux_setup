@@ -5,4 +5,4 @@ rofi -combi-modi window,drun \
      -modi combi,calc,'power:~/Projects/linux_setup/rofi/power.zsh' \
      -me-select-entry '' \
      -me-accept-entry 'MousePrimary' \
-     -theme custom
+     -theme ./custom.rasi
