@@ -17,7 +17,7 @@ logout=""
 
 # Confirmation
 confirm_exit() {
-  ../confirm/confirm.sh
+  $rofi_path/confirm/confirm.sh
 }
 
 # Variable passed to rofi
