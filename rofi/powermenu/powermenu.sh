@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-## Author  : Aditya Shakya
-## Mail    : adi1090x@gmail.com
-## Github  : @adi1090x
-## Twitter : @adi1090x
-
 rofi_command="rofi -theme ./powermenu.rasi"
 
 uptime=$(uptime -p | sed -e 's/up //g')
@@ -24,12 +19,12 @@ confirm_exit() {
 		-i\
 		-no-fixed-num-lines\
 		-p "Are You Sure? : "\
-		-theme $HOME/.config/rofi/applets/styles/confirm.rasi
+		-theme ./confirm.rasi
 }
 
 # Message
 msg() {
-	rofi -theme "$HOME/.config/rofi/applets/styles/message.rasi" -e "Available Options  -  yes / y / no / n"
+	rofi -theme "./message.rasi" -e "Available Options  -  yes / y / no / n"
 }
 
 # Variable passed to rofi
