@@ -1,8 +1,10 @@
 #!/bin/zsh
 
+rofi_path=$HOME/Projects/linux_setup/rofi
+
 rofi -combi-modi window,drun \
      -show combi \
-     -modi combi,calc,'power:~/Projects/linux_setup/rofi/power.zsh' \
+     -modi combi,calc,"menus:$rofi_path/runner/menus.sh" \
      -me-select-entry '' \
      -me-accept-entry 'MousePrimary' \
-     -theme custom
+     -theme ./runner.rasi

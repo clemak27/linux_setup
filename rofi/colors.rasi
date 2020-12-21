@@ -1,0 +1,17 @@
+* {
+  textcolor: #97a4b3;
+  foreground: #97a4b3;
+  background: #000000;
+  highlighted: #232323;
+  background-light: #232323;
+  urgent: #8a2be2;
+  accent: #8a2be2;
+  border: #8a2be2;
+
+  spacing: 0;
+  text-color: @textcolor;
+
+  font: "Noto Sans 10";
+  icon-theme: "Papirus";
+}
+
