@@ -15,7 +15,7 @@ configuration {
 	sidebar-mode: 					false;
 }
 
-@import "./colors.rasi"
+@import "../colors.rasi"
 
 * {
     background-color:               @background;
@@ -24,7 +24,9 @@ configuration {
 
 window {
     transparency:                   "real";
-    border-radius:                  0px;
+  border: 1;
+  border-radius: 0px;
+  border-color: @border;
     location:                       northeast;
 	width:							420px;
     x-offset:                       -25px;

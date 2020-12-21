@@ -14,19 +14,7 @@ configuration {
   sidebar-mode: false;
 }
 
-* {
-  textcolor: #97a4b3;
-  background: #000000;
-  highlighted: #262626;
-  urgent: #8a2be2;
-  border: #8a2be2;
-
-  spacing: 0;
-  text-color: @textcolor;
-
-  font: "Noto Sans 10";
-  icon-theme: "Papirus";
-}
+@import "./colors.rasi"
 
 window {
   transparency: "real";
@@ -50,7 +38,6 @@ prompt {
   text-color: @textcolor;
   font: "Jetbrains Mono Nerd Font 12";
 }
-
 
 inputbar {
   background-color: @highlighted;
