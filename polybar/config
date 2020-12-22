@@ -27,7 +27,7 @@ font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular"
 
 modules-left = i3
 modules-center = xwindow
-modules-right = wlan eth1 pulseaudio backlight battery cpu date powermenu
+modules-right = wlan pulseaudio backlight battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -99,7 +99,8 @@ type = internal/network
 interface = wlan0
 interval = 5.0
 
-format-connected = ﬉ <label-connected>
+; https://askubuntu.com/a/1089561
+format-connected = %{A1:~/Projects/linux_setup/rofi/network/network.sh &:}﬉%{A}
 format-connected-padding = 1
 format-connected-underline = #58508D
 label-connected = %essid% %local_ip%
@@ -108,8 +109,6 @@ format-disconnected =  <label-disconnected>
 format-disconnected-padding = 1
 label-disconnected = WiFi disconnected
 format-disconnected-underline = #58508D
-
-click-left = ~/Projects/linux_setup/rofi/network/network.sh &
 
 [module/eth1]
 type = internal/network
@@ -146,8 +145,8 @@ type = custom/text
 
 content = ⏻
 
-content-background = ${color.background}
-content-foreground = ${color.foreground}
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
 
 click-left = ~/Projects/linux_setup/rofi/powermenu/powermenu.sh &
 
