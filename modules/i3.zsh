@@ -18,13 +18,16 @@ pacman -S --quiet --noprogressbar --noconfirm i3-gaps i3blocks i3lock i3status i
 mkdir -p /home/$user/.config/i3
 ln -sf /home/$user/Projects/linux_setup/i3/config /home/$user/.config/i3/config
 
+# xss-lock
+pacman -S --quiet --noprogressbar --noconfirm xss-lock
+
 # kitty
 pacman -S --quiet --noprogressbar --noconfirm kitty
 mkdir -p /home/$user/.config/kitty
 ln -sf /home/$user/Projects/linux_setup/dotfiles/kitty.conf /home/$user/.config/kitty/kitty.conf
 
 # networking
-pacman -S --quiet --noprogressbar --noconfirm networkmanager nm-connection-editor bmon
+pacman -S --quiet --noprogressbar --noconfirm networkmanager nm-connection-editor bmon network-manager-applet
 
 # ------------------------ AUR ------------------------
 
