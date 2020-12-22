@@ -21,6 +21,8 @@ ln -sf /home/$user/Projects/linux_setup/i3/config /home/$user/.config/i3/config
 # link Xresources
 ln -sf /home/$user/Projects/linux_setup/DarkDev.Xresources /home/$user/.Xresources
 
+# feh for wallpaper
+pacman -S --quiet --noprogressbar --noconfirm feh
 # xss-lock
 pacman -S --quiet --noprogressbar --noconfirm xss-lock
 

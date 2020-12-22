@@ -37,6 +37,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 # bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
+# set wallpaper
+exec --no-startup-id feh --bg-scale ~/Projects/linux_setup/wallpaper.jpg
+
 # window borders
 new_float normal
 hide_edge_borders both
