@@ -18,6 +18,9 @@ pacman -S --quiet --noprogressbar --noconfirm kitty
 mkdir -p /home/$user/.config/kitty
 ln -sf /home/$user/Projects/linux_setup/dotfiles/kitty.conf /home/$user/.config/kitty/kitty.conf
 
+# networking
+pacman -S --quiet --noprogressbar --noconfirm networkmanager nm-connection-editor bmon
+
 # ------------------------ AUR ------------------------
 
 declare -a aur_packages
