@@ -15,6 +15,8 @@ fi
 
 # i3 gaps
 pacman -S --quiet --noprogressbar --noconfirm i3-gaps i3blocks i3lock i3status i3status rofi rofi-calc
+mkdir -p /home/$user/.config/i3
+ln -sf /home/$user/Projects/linux_setup/i3/config /home/$user/.config/i3/config
 
 # kitty
 pacman -S --quiet --noprogressbar --noconfirm kitty

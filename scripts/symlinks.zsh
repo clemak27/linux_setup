@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+# i3
+mkdir -p ~/.config/i3
+ln -sf /home/$user/Projects/linux_setup/i3/config /home/$user/.config/i3/config
+
 # zsh
 ln -sf ~/Projects/linux_setup/dotfiles/zshrc ~/.zshrc
 ln -sf ~/Projects/linux_setup/dotfiles/starship.toml ~/.starship.toml
@@ -9,6 +13,7 @@ ln -sf ~/Projects/linux_setup/dotfiles/vimrc ~/.config/nvim/init.vim
 ln -sf ~/Projects/linux_setup/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
 
 # kitty
+mkdir -p ~/.config/kitty
 ln -sf ~/Projects/linux_setup/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
 
 # intelliJ
