@@ -13,6 +13,9 @@ fi
 
 # ------------------------ pacman ------------------------
 
+# i3 gaps
+pacman -S --quiet --noprogressbar --noconfirm i3-gaps i3blocks i3lock i3status i3status rofi rofi-calc
+
 # kitty
 pacman -S --quiet --noprogressbar --noconfirm kitty
 mkdir -p /home/$user/.config/kitty
@@ -28,7 +31,7 @@ SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
 aur_packages=(
-  ''
+  'rofi-dmenu'
 )
 
 declare -r aur_packages
@@ -51,7 +54,7 @@ SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
   # kde
-  'mkdir -p ~/.local/share/konsole'
+  ''
 )
 declare -r user_commands
 IFS=$SAVEIFS
