@@ -7,4 +7,4 @@ rofi -combi-modi window,drun \
      -modi combi,calc,"menus:$rofi_path/runner/menus.sh" \
      -me-select-entry '' \
      -me-accept-entry 'MousePrimary' \
-     -theme ./runner.rasi
+     -theme $rofi_path/runner/runner.rasi
