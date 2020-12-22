@@ -2,7 +2,10 @@
 
 # i3
 mkdir -p ~/.config/i3
-ln -sf /home/$user/Projects/linux_setup/i3/config /home/$user/.config/i3/config
+ln -sf ~/Projects/linux_setup/i3/config ~/.config/i3/config
+
+# Xresources
+ln -sf ~/Projects/linux_setup/DarkDev.Xresources ~/.Xresources
 
 # zsh
 ln -sf ~/Projects/linux_setup/dotfiles/zshrc ~/.zshrc

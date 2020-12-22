@@ -18,6 +18,9 @@ pacman -S --quiet --noprogressbar --noconfirm i3-gaps i3blocks i3lock i3status i
 mkdir -p /home/$user/.config/i3
 ln -sf /home/$user/Projects/linux_setup/i3/config /home/$user/.config/i3/config
 
+# link Xresources
+ln -sf /home/$user/Projects/linux_setup/DarkDev.Xresources /home/$user/.Xresources
+
 # xss-lock
 pacman -S --quiet --noprogressbar --noconfirm xss-lock
 

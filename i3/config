@@ -58,6 +58,7 @@ bindsym $mod+Shift+q kill
 
 # start rofi
 bindsym $mod+d exec --no-startup-id /home/clemens/Projects/linux_setup/rofi/runner/runner.sh
+bindsym Mod1+space exec --no-startup-id /home/clemens/Projects/linux_setup/rofi/runner/runner.sh
 
 # change focus
 bindsym $mod+j focus left
@@ -72,16 +73,16 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Mod1+j move left
+bindsym $mod+Mod1+k move down
+bindsym $mod+Mod1+l move up
+bindsym $mod+Mod1+semicolon move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Mod1+Left move left
+bindsym $mod+Mod1+Down move down
+bindsym $mod+Mod1+Up move up
+bindsym $mod+Mod1+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -134,6 +135,10 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
+# move to adjacent workspace
+bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+Right workspace next
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -145,6 +150,10 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# move focused container adjacent workspace
+bindsym $mod+Shift+Left move container to workspace prev
+bindsym $mod+Shift+Right move container to workspace next
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -184,5 +193,40 @@ gaps inner 15
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+  position top
+  status_command i3status
 }
+
+# Colors
+
+# Create variables from Xresources for i3's look.
+set_from_resource $focused.color.border i3-wm.accent "#8a2be2"
+set_from_resource $focused.color.background i3-wm.background "#000000"
+set_from_resource $focused.color.text i3-wm.foreground "#97a4b3"
+set_from_resource $focused.color.indicator i3-wm.cursorColor "#75bfff"
+set_from_resource $focused.color.child_border i3-wm.accent
+
+set_from_resource $focused_inactive.color.border i3-wm.color8 "#232323"
+set_from_resource $focused_inactive.color.background i3-wm.background "#000000"
+set_from_resource $focused_inactive.color.text i3-wm.color7 "#737373"
+set_from_resource $focused_inactive.color.indicator i3-wm.cursorColor "#75bfff"
+set_from_resource $focused_inactive.color.child_border i3-wm.color8
+
+set_from_resource $unfocused.color.border i3-wm.color8 "#232323"
+set_from_resource $unfocused.color.background i3-wm.background "#000000"
+set_from_resource $unfocused.color.text i3-wm.color7 "#737373"
+set_from_resource $unfocused.color.indicator i3-wm.cursorColor "#75bfff"
+set_from_resource $unfocused.color.child_border i3-wm.color8
+
+set_from_resource $urgent.color.border i3-wm.color8 "#232323"
+set_from_resource $urgent.color.background i3-wm.color1 "#000000"
+set_from_resource $urgent.color.text i3-wm.color7 "#737373"
+set_from_resource $urgent.color.indicator i3-wm.cursorColor "#75bfff"
+set_from_resource $urgent.color.child_border i3-wm.color8
+
+# Window Border color
+# class                 border                             background                         text                               indicator                          child_border
+client.focused          $focused.color.border              $focused.color.background          $focused.color.text                $focused.color.indicator           $focused.color.child_border
+client.focused_inactive $focused_inactive.color.border     $focused_inactive.color.background $focused_inactive.color.text       $focused_inactive.color.indicator  $focused_inactive.color.child_border
+client.unfocused        $unfocused.color.border            $unfocused.color.background        $unfocused.color.text              $unfocused.color.indicator         $unfocused.color.child_border
+client.urgent           $urgent.color.border               $urgent.color.background           $urgent.color.text                 $urgent.color.indicator            $urgent.color.child_border
