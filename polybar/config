@@ -27,11 +27,13 @@ font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular"
 
 modules-left = i3
 modules-center = xwindow
-modules-right = wlan pulseaudio backlight battery date powermenu
+modules-right = trayplaceholder wlan pulseaudio backlight battery date powermenu
 
+tray-detached = true
 tray-position = right
 tray-padding = 2
 tray-maxsize = 24
+tray-offset-x = -31%
 
 [module/filler]
 type = custom/text
@@ -143,12 +145,20 @@ screenchange-reload = true
 [module/powermenu]
 type = custom/text
 
-content = ⏻
-
+content =⏻ 
+content-padding = 1
 content-background = ${colors.background}
 content-foreground = ${colors.foreground}
 
 click-left = ~/Projects/linux_setup/rofi/powermenu/powermenu.sh &
+
+[module/trayplaceholder]
+type = custom/text
+
+content = t
+content-padding = 1
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
 
 [module/networkmenu]
 type = custom/menu
@@ -199,8 +209,8 @@ label-mode = %mode%
 label-mode-background = #e60053
 
 label-focused = %index%
-label-focused-foreground = #ffffff
-label-focused-underline = #fba922
+label-focused-foreground = ${colors.foreground}
+label-focused-underline = ${colors.primary}
 label-focused-padding = 2 
 
 label-unfocused = %index%
@@ -210,9 +220,9 @@ label-visible = %index%
 label-visible-padding = 2
 
 label-urgent = %index%
-label-urgent-foreground = #ffffff
-label-urgent-background = #bd2c40
+label-urgent-foreground = ${colors.foreground}
+label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
 label-separator = |
-label-separator-foreground = #ffb52a
+label-separator-foreground = ${colors.primary}
