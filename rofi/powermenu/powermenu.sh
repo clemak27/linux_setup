@@ -55,7 +55,7 @@ case $chosen in
   $logout)
     ans=$(confirm_exit &)
     if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-      loginctl terminate-session
+      loginctl | egrep -v "root|SESSION|listed" | awk '{print $1}' | xargs loginctl terminate-session
     elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
       exit 0
     fi
