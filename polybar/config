@@ -1,19 +1,19 @@
 [colors]
-background = #111
-background-alt = #444
-foreground = #dfdfdf
-foreground-alt = #888
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+background = ${xrdb:background}
+background-alt = ${xrdb:color8}
+foreground = ${xrdb:foreground}
+foreground-alt = ${xrdb:color7}
+primary = ${xrdb:accent}
+secondary = ${xrdb:color1}
+alert = ${xrdb:accent-light}
 
 [bar/eDP-1]
 monitor = ${env:MONITOR:eDP-1}
 width = 100%
-height = 2.5%
-radius = 6.0
+height = 24px
+radius = 0.0
 fixed-center = false
-bottom = true
+bottom = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -21,13 +21,13 @@ foreground = ${colors.foreground}
 border-size = 0
 line-size = 2
 
-separator = " / "
+separator = " | "
 
 font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular"
 
-modules-left = i3 xwindow
-modules-center =
-modules-right = wlan eth1 pulseaudio backlight battery cpu date
+modules-left = i3
+modules-center = xwindow
+modules-right = wlan eth1 pulseaudio backlight battery cpu date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -44,7 +44,7 @@ label-padding = 2
 
 [module/battery]
 type = internal/battery
-battery = BAT1
+battery = BAT0
 full-at = 95
 format-charging =  <label-charging>
 format-charging-underline = #3CAEA3
@@ -79,7 +79,7 @@ animation-charging-6 = 
 
 [module/backlight]
 type = internal/backlight
-card = acpi_video0
+card = intel_backlight
 format =  <label>
 format-underline = #ffb300
 format-padding = 1
@@ -96,7 +96,7 @@ label = %percentage:2%%
 
 [module/wlan]
 type = internal/network
-interface = wlo1
+interface = wlan0
 interval = 5.0
 
 format-connected = ﬉ <label-connected>
@@ -108,6 +108,8 @@ format-disconnected =  <label-disconnected>
 format-disconnected-padding = 1
 label-disconnected = WiFi disconnected
 format-disconnected-underline = #58508D
+
+click-left = ~/Projects/linux_setup/rofi/network/network.sh &
 
 [module/eth1]
 type = internal/network
@@ -140,20 +142,14 @@ label = %date% %time%
 screenchange-reload = true
 
 [module/powermenu]
-type = custom/menu
+type = custom/text
 
-label-open = ⏻
-label-open-padding = 2
-label-open-underline = #173F5F
-label-close = x
-label-separator = |
+content = ⏻
 
-menu-0-0 = Suspend 
-menu-0-0-exec = i3lock & systemctl suspend
-menu-0-1 = Power Off 
-menu-0-1-exec = poweroff
-menu-0-2 = Reboot 
-menu-0-2-exec = systemctl reboot
+content-background = ${color.background}
+content-foreground = ${color.foreground}
+
+click-left = ~/Projects/linux_setup/rofi/powermenu/powermenu.sh &
 
 [module/networkmenu]
 type = custom/menu
