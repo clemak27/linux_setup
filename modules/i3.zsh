@@ -27,7 +27,7 @@ mkdir -p /home/$user/.config/kitty
 ln -sf /home/$user/Projects/linux_setup/dotfiles/kitty.conf /home/$user/.config/kitty/kitty.conf
 
 # networking
-pacman -S --quiet --noprogressbar --noconfirm networkmanager nm-connection-editor bmon network-manager-applet
+pacman -S --quiet --noprogressbar --noconfirm networkmanager nm-connection-editor bmon network-manager-applet gnome-keyring libsecret seahorse
 
 # ------------------------ AUR ------------------------
 
