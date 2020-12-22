@@ -14,9 +14,12 @@ fi
 # ------------------------ pacman ------------------------
 
 # i3 gaps
-pacman -S --quiet --noprogressbar --noconfirm i3-gaps i3blocks i3lock i3status i3status rofi rofi-calc
+pacman -S --quiet --noprogressbar --noconfirm i3-gaps i3blocks i3lock i3status i3status
 mkdir -p /home/$user/.config/i3
 ln -sf /home/$user/Projects/linux_setup/i3/config /home/$user/.config/i3/config
+
+#rofi
+pacman -S --quiet --noprogressbar --noconfirm rofi rofi-calc
 
 # link Xresources
 ln -sf /home/$user/Projects/linux_setup/DarkDev.Xresources /home/$user/.Xresources
