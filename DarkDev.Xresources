@@ -3,6 +3,8 @@
 *.background:   #000000
 *.cursorColor:  #97a4b3
 *.accent:       #8a2be2
+*.accent-light: #a312e9
+*.accent-dark:  #5200aa
 
 ! black
 *.color0:       #000000
