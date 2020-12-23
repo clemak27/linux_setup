@@ -18,7 +18,10 @@ pacman -S --quiet --noprogressbar --noconfirm i3-gaps i3blocks i3lock i3status i
 mkdir -p /home/$user/.config/i3
 ln -sf /home/$user/Projects/linux_setup/i3/config /home/$user/.config/i3/config
 
-#rofi
+# polybar
+ln -sf /home/$user/Projects/linux_setup/polybar/config /home/$user/.config/polybar/config
+
+# rofi
 pacman -S --quiet --noprogressbar --noconfirm rofi rofi-calc
 
 # link Xresources
@@ -45,6 +48,7 @@ IFS=$(echo -en "\n\b")
 
 aur_packages=(
   'rofi-dmenu'
+  'polybar'
 )
 
 declare -r aur_packages
