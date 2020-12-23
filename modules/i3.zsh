@@ -29,8 +29,14 @@ ln -sf /home/$user/Projects/linux_setup/DarkDev.Xresources /home/$user/.Xresourc
 
 # feh for wallpaper
 pacman -S --quiet --noprogressbar --noconfirm feh
+
 # xss-lock
 pacman -S --quiet --noprogressbar --noconfirm xss-lock
+
+# notfications
+pacman -S --quiet --noprogressbar --noconfirm dunst
+mkdir -p /home/$user/.config/dunst
+ln -sf /home/$user/Projects/linux_setup/dunst/dunstrc /home/$user/.config/dunst/dunstrc
 
 # kitty
 pacman -S --quiet --noprogressbar --noconfirm kitty
