@@ -17,7 +17,7 @@ fi
 pacman -S --quiet --noprogressbar --noconfirm bluedevil breeze breeze-gtk kactivitymanagerd kde-cli-tools kde-gtk-config kdecoration kdeplasma-addons kgamma5 khotkeys kinfocenter kmenuedit knetattach kscreen kscreenlocker ksshaskpass ksysguard kwallet-pam kwayland-integration kwin kwrited libkscreen libksysguard milou plasma-browser-integration plasma-desktop plasma-integration plasma-nm plasma-pa plasma-workspace plasma-workspace-wallpapers polkit-kde-agent powerdevil sddm-kcm systemsettings
 
 # kde-applications
-pacman -S --quiet --noprogressbar --noconfirm ark dolphin ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks khelpcenter kio-extras konsole ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle kdeconnect partitionmanager krita
+pacman -S --quiet --noprogressbar --noconfirm ark dolphin ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks khelpcenter kio-extras ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle kdeconnect partitionmanager krita
 
 # kde-specifics
 pacman -S --quiet --noprogressbar --noconfirm plasma-browser-integration sshfs unrar
@@ -36,7 +36,6 @@ SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
 aur_packages=(
-  'plasma5-applets-eventcalendar'
 )
 
 declare -r aur_packages
@@ -59,11 +58,7 @@ SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
   # kde
-  'mkdir -p ~/.local/share/konsole'
   'mkdir -p ~/.local/share/color-schemes'
-  'mkdir -p ~/.config/latte'
-  'ln -sf ~/Projects/linux_setup/kde/ZshProfile.profile ~/.local/share/konsole/ZshProfile.profile'
-  'ln -sf ~/Projects/linux_setup/kde/DarkDev.colorscheme ~/.local/share/konsole/DarkDev.colorscheme'
   'ln -sf ~/Projects/linux_setup/kde/DarkDev.colors ~/.local/share/color-schemes/DarkDev.colors'
   # Hide titlebars when maximized
   'kwriteconfig5 --file ~/.config/kwinrc --group Windows --key BorderlessMaximizedWindows true' 

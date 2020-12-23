@@ -26,11 +26,7 @@ pacman -S --quiet --noprogressbar --noconfirm picom
 mkdir -p /home/$user/.config/picom
 ln -sf /home/$user/Projects/linux_setup/picom/picom.conf /home/$user/.config/picom/picom.conf
 
-# rofi
-pacman -S --quiet --noprogressbar --noconfirm rofi rofi-calc
-
-# link Xresources
-ln -sf /home/$user/Projects/linux_setup/DarkDev.Xresources /home/$user/.Xresources
+pacman -Rns --quiet --noprogressbar --noconfirm dmenu
 
 # feh for wallpaper
 pacman -S --quiet --noprogressbar --noconfirm feh
@@ -42,11 +38,6 @@ pacman -S --quiet --noprogressbar --noconfirm xss-lock
 pacman -S --quiet --noprogressbar --noconfirm dunst
 mkdir -p /home/$user/.config/dunst
 ln -sf /home/$user/Projects/linux_setup/dunst/dunstrc /home/$user/.config/dunst/dunstrc
-
-# kitty
-pacman -S --quiet --noprogressbar --noconfirm kitty
-mkdir -p /home/$user/.config/kitty
-ln -sf /home/$user/Projects/linux_setup/dotfiles/kitty.conf /home/$user/.config/kitty/kitty.conf
 
 # networking
 pacman -S --quiet --noprogressbar --noconfirm networkmanager nm-connection-editor bmon network-manager-applet gnome-keyring libsecret seahorse

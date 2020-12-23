@@ -28,7 +28,14 @@ pacman -S --quiet --noprogressbar --noconfirm obs-studio kdenlive
 
 # rofi
 pacman -S --quiet --noprogressbar --noconfirm rofi rofi-calc dmenu
-mkdir -p /home/$user/.config/rofi/themes
+
+# kitty
+pacman -S --quiet --noprogressbar --noconfirm kitty
+mkdir -p /home/$user/.config/kitty
+ln -sf /home/$user/Projects/linux_setup/dotfiles/kitty.conf /home/$user/.config/kitty/kitty.conf
+
+# link Xresources
+ln -sf /home/$user/Projects/linux_setup/DarkDev.Xresources /home/$user/.Xresources
 
 # ------------------------ AUR ------------------------
 
