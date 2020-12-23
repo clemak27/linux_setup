@@ -33,6 +33,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Notifications
 exec --no-startup-id dunst
 
+# Notifications
+exec --no-startup-id kdeconnect-indicator
+
 # set wallpaper
 exec --no-startup-id feh --bg-scale ~/Projects/linux_setup/wallpaper.jpg
 
