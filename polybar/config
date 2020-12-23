@@ -7,7 +7,7 @@ primary = ${xrdb:accent}
 secondary = ${xrdb:color1}
 alert = ${xrdb:accent-light}
 
-[bar/eDP-1]
+[bar/topbar]
 monitor = ${env:MONITOR:eDP-1}
 width = 100%
 height = 24px
@@ -21,19 +21,17 @@ foreground = ${colors.foreground}
 border-size = 0
 line-size = 2
 
-separator = " | "
-
 font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular"
 
-modules-left = i3 xwindow
-modules-center = 
-modules-right = trayplaceholder wlan pulseaudio backlight battery date powermenu
+modules-left = i3
+modules-center = xwindow
+modules-right = battery pulseaudio wlan date powermenu
 
 tray-detached = true
 tray-position = right
 tray-padding = 2
-tray-maxsize = 24
-tray-offset-x = -31%
+tray-maxsize = 16
+tray-offset-x = -22%
 
 [module/filler]
 type = custom/text
@@ -49,15 +47,12 @@ type = internal/battery
 battery = BAT0
 full-at = 95
 format-charging =  <label-charging>
-format-charging-underline = #3CAEA3
 format-charging-padding = 1
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = #3CAEA3
 format-discharging-padding = 1
 
-format-full =  <label-full>
-format-full-underline = #3CAEA3
+format-full = 
 format-full-padding = 1
 
 ramp-capacity-0 = 
@@ -87,15 +82,6 @@ format-underline = #ffb300
 format-padding = 1
 label = %percentage%%
 
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #20639B
-format = <label>
-format-padding = 1
-label = %percentage:2%%
-
 [module/wlan]
 type = internal/network
 interface = wlan0
@@ -104,24 +90,22 @@ interval = 5.0
 ; https://askubuntu.com/a/1089561
 format-connected = %{A1:~/Projects/linux_setup/rofi/network/network.sh &:}﬉%{A}
 format-connected-padding = 1
-format-connected-underline = #58508D
 label-connected = %essid% %local_ip%
 
 format-disconnected =  <label-disconnected>
 format-disconnected-padding = 1
 label-disconnected = WiFi disconnected
-format-disconnected-underline = #58508D
+format-disconnected-underline = ${colors.alert}
 
 [module/eth1]
 type = internal/network
 interface = enp60s0
 interval = 3.0
 
-format-connected-underline = #BC5090
 label-connected =  %local_ip%
 format-connected-padding = 1
 
-format-disconnected-underline = #BC5090
+format-disconnected-underline = ${colors.alert}
 label-disconnected = disconnected
 
 [module/date]
@@ -129,13 +113,10 @@ type = internal/date
 interval = 1
 
 date = %a %d
-date-alt = %a %d
 
-time = %H:%M
-time-alt = %H:%M:%S
+time = %H:%M:%S
 
 format-padding = 1
-format-underline = #363636
 
 label = %date% %time%
 
@@ -152,32 +133,10 @@ content-foreground = ${colors.foreground}
 
 click-left = ~/Projects/linux_setup/rofi/powermenu/powermenu.sh &
 
-[module/trayplaceholder]
-type = custom/text
-
-content = t
-content-padding = 1
-content-background = ${colors.background}
-content-foreground = ${colors.foreground}
-
-[module/networkmenu]
-type = custom/menu
-
-label-open = 慎
-label-open-padding = 2
-label-open-underline = #173F5F
-label-close = x
-label-separator = |
-
-menu-0-0 = 
-menu-0-1 = ﬉ 
-menu-0-2 = ﯱ 
-
 [module/pulseaudio]
 type = internal/pulseaudio
 sink = alsa_output.pci-0000_00_1f.3.analog-stereo
 format-volume = <ramp-volume> <label-volume>
-format-volume-underline = #ff6f69
 format-volume-padding = 1
 label-volume = %percentage%%
 label-muted = 婢 muted
