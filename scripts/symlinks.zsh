@@ -7,6 +7,9 @@ ln -sf ~/Projects/linux_setup/i3/config ~/.config/i3/config
 # polybar
 ln -sf ~/Projects/linux_setup/polybar/config ~/.config/polybar/config
 
+# picom
+ln -sf ~/Projects/linux_setup/picom/picom.conf ~/.config/picom/picom.conf
+
 # Xresources
 ln -sf ~/Projects/linux_setup/DarkDev.Xresources ~/.Xresources
 

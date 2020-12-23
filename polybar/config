@@ -21,7 +21,7 @@ foreground = ${colors.foreground}
 border-size = 0
 line-size = 2
 
-font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular"
+font-0 = "JetbrainsMono Nerd Font:style=Retina:size=11:antialias=true"
 
 modules-left = i3
 modules-center = xwindow
