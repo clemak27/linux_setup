@@ -1,5 +1,18 @@
 #!/bin/zsh
 
+# i3
+mkdir -p ~/.config/i3
+ln -sf ~/Projects/linux_setup/i3/config ~/.config/i3/config
+
+# polybar
+ln -sf ~/Projects/linux_setup/polybar/config ~/.config/polybar/config
+
+# picom
+ln -sf ~/Projects/linux_setup/picom/picom.conf ~/.config/picom/picom.conf
+
+# Xresources
+ln -sf ~/Projects/linux_setup/DarkDev.Xresources ~/.Xresources
+
 # zsh
 ln -sf ~/Projects/linux_setup/dotfiles/zshrc ~/.zshrc
 ln -sf ~/Projects/linux_setup/dotfiles/starship.toml ~/.starship.toml
@@ -8,15 +21,19 @@ ln -sf ~/Projects/linux_setup/dotfiles/starship.toml ~/.starship.toml
 ln -sf ~/Projects/linux_setup/dotfiles/vimrc ~/.config/nvim/init.vim
 ln -sf ~/Projects/linux_setup/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
 
+# dunst
+ln -sf ~/Projects/linux_setup/dunst/dunstrc ~/.config/dunst/dunstrc
+
+# kitty
+mkdir -p ~/.config/kitty
+ln -sf ~/Projects/linux_setup/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
+
 # intelliJ
 ln -sf ~/Projects/linux_setup/dotfiles/ideavimrc ~/.ideavimrc
 
 # ranger
 ln -sf ~/Projects/linux_setup/dotfiles/ranger.rc ~/.config/ranger/rc.conf
 ln -sf ~/Projects/linux_setup/dotfiles/ranger.commands ~/.config/ranger/commands.py
-
-# rofi
-ln -sf ~/Projects/linux_setup/rofi/custom.rasi ~/.config/rofi/themes/custom.rasi
 
 # todo.txt
 ln -sf ~/Projects/linux_setup/dotfiles/todo.cfg ~/.todo/config

@@ -29,7 +29,6 @@ pacman -S --quiet --noprogressbar --noconfirm obs-studio kdenlive
 # rofi
 pacman -S --quiet --noprogressbar --noconfirm rofi rofi-calc dmenu
 mkdir -p /home/$user/.config/rofi/themes
-ln -sf  /home/$user/Projects/linux_setup/rofi/custom.rasi /home/$user/.config/rofi/themes/custom.rasi
 
 # ------------------------ AUR ------------------------
 
