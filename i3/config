@@ -30,10 +30,12 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 # bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
+# compositor
+exec --no-startup-id picom
 # Notifications
 exec --no-startup-id dunst
 
-# Notifications
+# kde-connect
 exec --no-startup-id kdeconnect-indicator
 
 # set wallpaper

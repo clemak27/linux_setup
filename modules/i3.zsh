@@ -21,6 +21,11 @@ ln -sf /home/$user/Projects/linux_setup/i3/config /home/$user/.config/i3/config
 # polybar
 ln -sf /home/$user/Projects/linux_setup/polybar/config /home/$user/.config/polybar/config
 
+# compositor
+pacman -S --quiet --noprogressbar --noconfirm picom
+mkdir -p /home/$user/.config/picom
+ln -sf /home/$user/Projects/linux_setup/picom/picom.conf /home/$user/.config/picom/picom.conf
+
 # rofi
 pacman -S --quiet --noprogressbar --noconfirm rofi rofi-calc
 
