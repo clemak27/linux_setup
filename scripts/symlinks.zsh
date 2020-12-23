@@ -18,6 +18,9 @@ ln -sf ~/Projects/linux_setup/dotfiles/starship.toml ~/.starship.toml
 ln -sf ~/Projects/linux_setup/dotfiles/vimrc ~/.config/nvim/init.vim
 ln -sf ~/Projects/linux_setup/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
 
+# dunst
+ln -sf ~/Projects/linux_setup/dunst/dunstrc ~/.config/dunst/dunstrc
+
 # kitty
 mkdir -p ~/.config/kitty
 ln -sf ~/Projects/linux_setup/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
