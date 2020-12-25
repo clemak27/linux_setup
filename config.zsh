@@ -93,11 +93,6 @@ if [ -z "$cpu" ]; then
   exit 1
 fi
 
-if [ "$cpu" != "intel" ] | [ "$cpu" != "amd" ]; then
-  echo "cpu set to unknown value!"
-  exit 1
-fi
-
 if [ -z "$gpu" ]; then
   echo "gpu not set!"
   exit 1

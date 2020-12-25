@@ -35,7 +35,6 @@ checkReplacement('hostname="lazarus"', 'hostname=""')
 checkReplacement('user="clemens"', 'user=""')
 checkReplacement('password="1234"', 'password=""')
 checkReplacement('cpu="amd"', 'cpu=""')
-checkReplacement('cpu="amd"', 'cpu="aaaaaaaa"')
 checkReplacement('gpu="nvidia"', 'gpu=""')
 
 if fails > 0:
