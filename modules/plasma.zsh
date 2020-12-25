@@ -34,9 +34,6 @@ pacman -Rns --quiet --noprogressbar --noconfirm dunst
 pacman -S --quiet --noprogressbar --noconfirm plasma-browser-integration sshfs unrar
 systemctl enable sddm
 
-# kontact
-pacman -S --quiet --noprogressbar --noconfirm kontact kaddressbook korganizer kmail kmail-account-wizard
-
 # latte-dock
 pacman -S --quiet --noprogressbar --noconfirm latte-dock
 
