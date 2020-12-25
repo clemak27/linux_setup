@@ -102,8 +102,8 @@ ln -sf /home/$user/Projects/linux_setup/dotfiles/starship.toml /home/$user/.star
 
 # ranger config
 mkdir /home/$user/.config/ranger
-ln -sf /home/$user/Projects/linux_setup/dotfiles/ranger.rc /home/$user/.config/ranger/rc.conf
-ln -sf /home/$user/Projects/linux_setup/dotfiles/ranger.commands /home/$user/.config/ranger/commands.py
+ln -sf /home/$user/Projects/linux_setup/ranger/ranger.rc /home/$user/.config/ranger/rc.conf
+ln -sf /home/$user/Projects/linux_setup/ranger/ranger.commands /home/$user/.config/ranger/commands.py
 
 # todo.sh config
 mkdir /home/$user/.todo
