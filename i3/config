@@ -17,7 +17,30 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
+
+# Plasma compatibility improvements
+
+exec --no-startup-id wmctrl -c Plasma
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+for_window [class="yakuake"] floating enable
+for_window [class="systemsettings"] floating enable
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="win7"] floating enable; border none
+for_window [class="krunner"] floating enable; border none
+for_window [class="Kmix"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
+no_focus [class="plasmashell" window_type="notification"]
+
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -32,17 +55,18 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # compositor
 exec --no-startup-id picom
+
 # Notifications
-exec --no-startup-id dunst
+# exec --no-startup-id dunst
 
 # kde-connect
-exec --no-startup-id kdeconnect-indicator
+# exec --no-startup-id kdeconnect-indicator
 
 # set wallpaper
 exec --no-startup-id feh --bg-scale ~/Projects/linux_setup/wallpaper.jpg
 
 # start polybar
-exec --no-startup-id ~/Projects/linux_setup/polybar/launch.sh
+# exec --no-startup-id ~/Projects/linux_setup/polybar/launch.sh
 
 # window borders
 new_float normal
