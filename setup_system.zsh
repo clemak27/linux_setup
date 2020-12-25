@@ -107,6 +107,7 @@ ln -sf /home/$user/Projects/linux_setup/ranger/ranger.commands /home/$user/.conf
 
 # todo.sh config
 mkdir /home/$user/.todo
+ln -sf  /home/$user/Projects/linux_setup/todo.sh/todo.cfg  /home/$user/.todo/config
 mkdir /home/$user/.todo.actions.d
 cd /home/$user/.todo.actions.d
 git clone https://github.com/rebeccamorgan/due.git
@@ -186,7 +187,6 @@ user_commands=(
   'git config --global core.autocrlf input'
   'git config --global pull.rebase false'
   'git config --global credential.helper cache --timeout=86400'
-  'ln -sf ~/Projects/linux_setup/dotfiles/todo.cfg ~/.todo/config'
 )
 
 declare -r user_commands

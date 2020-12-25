@@ -31,10 +31,10 @@ ln -sf ~/Projects/linux_setup/ranger/ranger.rc ~/.config/ranger/rc.conf
 ln -sf ~/Projects/linux_setup/ranger/ranger.commands ~/.config/ranger/commands.py
 
 # todo.txt
-ln -sf ~/Projects/linux_setup/dotfiles/todo.cfg ~/.todo/config
+ln -sf ~/Projects/linux_setup/todo.sh/todo.cfg ~/.todo/config
 
 # mpv
-ln -sf ~/Projects/linux_setup/dotfiles/mpv.conf ~/.config/mpv/mpv.conf
+ln -sf ~/Projects/linux_setup/mpv/mpv.conf ~/.config/mpv/mpv.conf
 
 # kde
 mkdir -p ~/.local/share/konsole
