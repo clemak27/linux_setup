@@ -15,11 +15,8 @@ ln -sf ~/Projects/linux_setup/zsh/zshrc ~/.zshrc
 ln -sf ~/Projects/linux_setup/zsh/starship.toml ~/.starship.toml
 
 # nvim
-ln -sf ~/Projects/linux_setup/dotfiles/vimrc ~/.config/nvim/init.vim
-ln -sf ~/Projects/linux_setup/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
-
-# dunst
-ln -sf ~/Projects/linux_setup/dunst/dunstrc ~/.config/dunst/dunstrc
+ln -sf ~/Projects/linux_setup/nvim/vimrc ~/.config/nvim/init.vim
+ln -sf ~/Projects/linux_setup/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 
 # kitty
 mkdir -p ~/.config/kitty
