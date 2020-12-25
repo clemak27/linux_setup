@@ -56,6 +56,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # compositor
 exec --no-startup-id picom
 
+# Steam floating
+for_window [class="Steam"] floating enable; border none
+
 # Notifications
 # exec --no-startup-id dunst
 
