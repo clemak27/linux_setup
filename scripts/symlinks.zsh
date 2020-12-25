@@ -1,50 +1,52 @@
 #!/bin/zsh
 
+user=$USER
+
 # i3
-mkdir -p ~/.config/i3
-ln -sf ~/Projects/linux_setup/i3/config ~/.config/i3/config
+mkdir -p /home/$user/.config/i3
+ln -sf /home/$user/Projects/linux_setup/i3/config /home/$user/.config/i3/config
 
 # picom
-ln -sf ~/Projects/linux_setup/picom/picom.conf ~/.config/picom/picom.conf
+mkdir -p /home/$user/.config/picom
+ln -sf /home/$user/Projects/linux_setup/picom/picom.conf /home/$user/.config/picom/picom.conf
 
 # Xresources
-ln -sf ~/Projects/linux_setup/Xresources ~/.Xresources
+ln -sf /home/$user/Projects/linux_setup/Xresources /home/$user/.Xresources
 
 # zsh
-ln -sf ~/Projects/linux_setup/zsh/zshrc ~/.zshrc
-ln -sf ~/Projects/linux_setup/zsh/starship.toml ~/.starship.toml
+ln -sf /home/$user/Projects/linux_setup/zsh/zshrc /home/$user/.zshrc
+ln -sf /home/$user/Projects/linux_setup/zsh/starship.toml /home/$user/.starship.toml
 
 # nvim
-ln -sf ~/Projects/linux_setup/nvim/vimrc ~/.config/nvim/init.vim
-ln -sf ~/Projects/linux_setup/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
+mkdir -p /home/$user/.config/nvim
+ln -sf /home/$user/Projects/linux_setup/nvim/vimrc /home/$user/.config/nvim/init.vim
+ln -sf /home/$user/Projects/linux_setup/nvim/coc-settings.json /home/$user/.config/nvim/coc-settings.json
 
 # kitty
-mkdir -p ~/.config/kitty
-ln -sf ~/Projects/linux_setup/kitty/kitty.conf ~/.config/kitty/kitty.conf
+mkdir -p /home/$user/.config/kitty
+ln -sf /home/$user/Projects/linux_setup/kitty/kitty.conf /home/$user/.config/kitty/kitty.conf
 
 # intelliJ
-ln -sf ~/Projects/linux_setup/intelliJ/ideavimrc ~/.ideavimrc
+ln -sf /home/$user/Projects/linux_setup/intelliJ/ideavimrc /home/$user/.ideavimrc
 
 # ranger
-mkdir -p ~/.config/ranger
-ln -sf ~/Projects/linux_setup/ranger/ranger.rc ~/.config/ranger/rc.conf
-ln -sf ~/Projects/linux_setup/ranger/ranger.commands ~/.config/ranger/commands.py
+mkdir -p /home/$user/.config/ranger
+ln -sf /home/$user/Projects/linux_setup/ranger/ranger.rc /home/$user/.config/ranger/rc.conf
+ln -sf /home/$user/Projects/linux_setup/ranger/ranger.commands /home/$user/.config/ranger/commands.py
 
 # todo.txt
-ln -sf ~/Projects/linux_setup/todo.sh/todo.cfg ~/.todo/config
+mkdir -p /home/$user/.todo
+ln -sf /home/$user/Projects/linux_setup/todo.sh/todo.cfg /home/$user/.todo/config
 
 # mpv
-ln -sf ~/Projects/linux_setup/mpv/mpv.conf ~/.config/mpv/mpv.conf
+mkdir -p /home/$user/.config/mpv
+ln -sf /home/$user/Projects/linux_setup/mpv/mpv.conf /home/$user/.config/mpv/mpv.conf
 
-# kde
-mkdir -p ~/.local/share/konsole
-mkdir -p ~/.local/share/color-schemes
-ln -sf ~/Projects/linux_setup/kde/ZshProfile.profile ~/.local/share/konsole/ZshProfile.profile
-ln -sf ~/Projects/linux_setup/kde/DarkDev.colorscheme ~/.local/share/konsole/DarkDev.colorscheme
-ln -sf ~/Projects/linux_setup/kde/DarkDev.colors ~/.local/share/color-schemes/DarkDev.colors
-
+# plasma color scheme
+mkdir -p /home/$user/.local/share/color-schemes
+ln -sf /home/$user/Projects/linux_setup/kde/DarkDev.colors /home/$user/.local/share/color-schemes/DarkDev.colors
 
 # firefox
-ffProfilePath="~/.mozilla/firefox/72zvuvdy.default-release"
-ln -sf ~/Projects/linux_setup/ff/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
-ln -sf ~/Projects/linux_setup/ff/chrome/userContent.css $ffProfilePath/chrome/userContent.css
+#ffProfilePath="/home/$user/.mozilla/firefox/72zvuvdy.default-release"
+#ln -sf /home/$user/Projects/linux_setup/ff/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
+#ln -sf /home/$user/Projects/linux_setup/ff/chrome/userContent.css $ffProfilePath/chrome/userContent.css
