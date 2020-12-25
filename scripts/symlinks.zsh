@@ -29,7 +29,7 @@ mkdir -p ~/.config/kitty
 ln -sf ~/Projects/linux_setup/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
 
 # intelliJ
-ln -sf ~/Projects/linux_setup/dotfiles/ideavimrc ~/.ideavimrc
+ln -sf ~/Projects/linux_setup/intelliJ/ideavimrc ~/.ideavimrc
 
 # ranger
 ln -sf ~/Projects/linux_setup/dotfiles/ranger.rc ~/.config/ranger/rc.conf
