@@ -15,6 +15,9 @@ fi
 # java
 pacman -S --quiet --noprogressbar --noconfirm jdk-openjdk maven intellij-idea-community-edition
 
+# ideavim config
+ln -sf /home/$user/Projects/linux_setup/intelliJ/ideavimrc /home/$user/.ideavimrc
+
 # python
 pacman -S --quiet --noprogressbar --noconfirm python-pip
 
@@ -52,8 +55,6 @@ declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
-  # ideavim config
-  'ln -sf ~/Projects/linux_setup/dotfiles/ideavimrc ~/.ideavimrc'
   # python dev packages
   'pip install jedi pylint --user'
   # rust

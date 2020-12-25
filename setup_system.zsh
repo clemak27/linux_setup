@@ -91,22 +91,23 @@ cp -R . /home/$user/Projects/linux_setup
 mkdir -p /home/$user/.config/nvim
 mkdir -p /home/$user/.local/share/nvim/site/autoload
 curl -fLo /home/$user/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-ln -sf /home/$user/Projects/linux_setup/dotfiles/vimrc /home/$user/.config/nvim/init.vim
-ln -sf /home/$user/Projects/linux_setup/dotfiles/coc-settings.json /home/$user/.config/nvim/coc-settings.json
+ln -sf /home/$user/Projects/linux_setup/nvim/vimrc /home/$user/.config/nvim/init.vim
+ln -sf /home/$user/Projects/linux_setup/nvim/coc-settings.json /home/$user/.config/nvim/coc-settings.json
 
 # zsh
 git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
 curl -fsSL https://starship.rs/install.sh | bash -s -- -y
-ln -sf /home/$user/Projects/linux_setup/dotfiles/zshrc /home/$user/.zshrc
-ln -sf /home/$user/Projects/linux_setup/dotfiles/starship.toml /home/$user/.starship.toml
+ln -sf /home/$user/Projects/linux_setup/zsh/zshrc /home/$user/.zshrc
+ln -sf /home/$user/Projects/linux_setup/zsh/starship.toml /home/$user/.starship.toml
 
 # ranger config
 mkdir /home/$user/.config/ranger
-ln -sf /home/$user/Projects/linux_setup/dotfiles/ranger.rc /home/$user/.config/ranger/rc.conf
-ln -sf /home/$user/Projects/linux_setup/dotfiles/ranger.commands /home/$user/.config/ranger/commands.py
+ln -sf /home/$user/Projects/linux_setup/ranger/ranger.rc /home/$user/.config/ranger/rc.conf
+ln -sf /home/$user/Projects/linux_setup/ranger/ranger.commands /home/$user/.config/ranger/commands.py
 
 # todo.sh config
 mkdir /home/$user/.todo
+ln -sf  /home/$user/Projects/linux_setup/todo.sh/todo.cfg  /home/$user/.todo/config
 mkdir /home/$user/.todo.actions.d
 cd /home/$user/.todo.actions.d
 git clone https://github.com/rebeccamorgan/due.git
@@ -186,7 +187,6 @@ user_commands=(
   'git config --global core.autocrlf input'
   'git config --global pull.rebase false'
   'git config --global credential.helper cache --timeout=86400'
-  'ln -sf ~/Projects/linux_setup/dotfiles/todo.cfg ~/.todo/config'
 )
 
 declare -r user_commands

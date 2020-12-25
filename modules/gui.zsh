@@ -18,7 +18,7 @@ pacman -S --quiet --noprogressbar --noconfirm noto-fonts noto-fonts-cjk noto-fon
 
 # default programs
 pacman -S --quiet --noprogressbar --noconfirm firefox mpv keepassxc syncthing
-ln -sf /home/$user/Projects/linux_setup/dotfiles/mpv.conf  /home/$user/.config/mpv/mpv.conf
+ln -sf /home/$user/Projects/linux_setup/mpv/mpv.conf  /home/$user/.config/mpv/mpv.conf
 
 # messaging
 pacman -S --quiet --noprogressbar --noconfirm signal-desktop
@@ -32,7 +32,7 @@ pacman -S --quiet --noprogressbar --noconfirm rofi rofi-calc dmenu
 # kitty
 pacman -S --quiet --noprogressbar --noconfirm kitty
 mkdir -p /home/$user/.config/kitty
-ln -sf /home/$user/Projects/linux_setup/dotfiles/kitty.conf /home/$user/.config/kitty/kitty.conf
+ln -sf /home/$user/Projects/linux_setup/kitty/kitty.conf /home/$user/.config/kitty/kitty.conf
 
 # link Xresources
 ln -sf /home/$user/Projects/linux_setup/DarkDev.Xresources /home/$user/.Xresources
