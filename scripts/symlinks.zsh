@@ -23,12 +23,13 @@ ln -sf ~/Projects/linux_setup/dunst/dunstrc ~/.config/dunst/dunstrc
 
 # kitty
 mkdir -p ~/.config/kitty
-ln -sf ~/Projects/linux_setup/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
+ln -sf ~/Projects/linux_setup/kitty/kitty.conf ~/.config/kitty/kitty.conf
 
 # intelliJ
 ln -sf ~/Projects/linux_setup/intelliJ/ideavimrc ~/.ideavimrc
 
 # ranger
+mkdir -p ~/.config/ranger
 ln -sf ~/Projects/linux_setup/ranger/ranger.rc ~/.config/ranger/rc.conf
 ln -sf ~/Projects/linux_setup/ranger/ranger.commands ~/.config/ranger/commands.py
 
