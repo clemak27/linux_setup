@@ -97,8 +97,8 @@ ln -sf /home/$user/Projects/linux_setup/dotfiles/coc-settings.json /home/$user/.
 # zsh
 git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
 curl -fsSL https://starship.rs/install.sh | bash -s -- -y
-ln -sf /home/$user/Projects/linux_setup/dotfiles/zshrc /home/$user/.zshrc
-ln -sf /home/$user/Projects/linux_setup/dotfiles/starship.toml /home/$user/.starship.toml
+ln -sf /home/$user/Projects/linux_setup/zsh/zshrc /home/$user/.zshrc
+ln -sf /home/$user/Projects/linux_setup/zsh/starship.toml /home/$user/.starship.toml
 
 # ranger config
 mkdir /home/$user/.config/ranger

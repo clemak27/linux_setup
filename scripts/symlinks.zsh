@@ -11,8 +11,8 @@ ln -sf ~/Projects/linux_setup/picom/picom.conf ~/.config/picom/picom.conf
 ln -sf ~/Projects/linux_setup/Xresources ~/.Xresources
 
 # zsh
-ln -sf ~/Projects/linux_setup/dotfiles/zshrc ~/.zshrc
-ln -sf ~/Projects/linux_setup/dotfiles/starship.toml ~/.starship.toml
+ln -sf ~/Projects/linux_setup/zsh/zshrc ~/.zshrc
+ln -sf ~/Projects/linux_setup/zsh/starship.toml ~/.starship.toml
 
 # nvim
 ln -sf ~/Projects/linux_setup/dotfiles/vimrc ~/.config/nvim/init.vim
