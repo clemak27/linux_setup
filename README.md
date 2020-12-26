@@ -11,3 +11,4 @@ I use arch btw. [![pipeline status](https://gitlab.com/clemak27/linux_setup/badg
 - spotify setup fails with PGP key import
 - event calendar gets installed but is missing?
 - manually run `spicetify update`
+- `systemctl --user enable redshift.service`
