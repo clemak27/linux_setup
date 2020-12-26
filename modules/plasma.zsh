@@ -22,15 +22,15 @@ pacman -S --quiet --noprogressbar --noconfirm ark dolphin ffmpegthumbs filelight
 # dolphin settings
 cp /home/$user/Projects/linux_setup/kde/dolphinrc /home/$user/.config/dolphinrc
 
-# kde color scheme
+# plasma color scheme
 mkdir -p /home/$user/.local/share/color-schemes
-ln -sf /home/$user/Projects/linux_setup/kde/DarkDev.colors /home/$user/.local/share/color-schemes/DarkDev.colors
+ln -sf /home/$user/Projects/linux_setup/plasma/Darplasmav.colors /home/$user/.local/share/color-schemes/Darplasmav.colors
 
 # plasma + i3 session
-cp /home/$user/Projects/linux_setup/kde/plasma-i3.desktop /usr/share/xsessions
+cp /home/$user/Projects/linux_setup/plasma/plasma-i3.desktop /usr/share/xsessions
 pacman -Rns --quiet --noprogressbar --noconfirm dunst
 
-# kde-specifics
+# plasma-specifics
 pacman -S --quiet --noprogressbar --noconfirm plasma-browser-integration sshfs unrar
 systemctl enable sddm
 
@@ -66,9 +66,6 @@ SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
   'plasma5-applets-virtual-desktop-bar-git'
-  # kde
-  # Hide titlebars when maximized
-  'kwriteconfig5 --file ~/.config/kwinrc --group Windows --key BorderlessMaximizedWindows true' 
 )
 declare -r user_commands
 IFS=$SAVEIFS
