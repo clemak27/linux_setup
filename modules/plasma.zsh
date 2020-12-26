@@ -24,7 +24,7 @@ cp /home/$user/Projects/linux_setup/kde/dolphinrc /home/$user/.config/dolphinrc
 
 # plasma color scheme
 mkdir -p /home/$user/.local/share/color-schemes
-ln -sf /home/$user/Projects/linux_setup/plasma/Darplasmav.colors /home/$user/.local/share/color-schemes/Darplasmav.colors
+ln -sf /home/$user/Projects/linux_setup/plasma/Kustom.colors /home/$user/.local/share/color-schemes/Kustom.colors
 
 # plasma + i3 session
 cp /home/$user/Projects/linux_setup/plasma/plasma-i3.desktop /usr/share/xsessions
