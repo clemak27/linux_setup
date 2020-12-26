@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-# ------------------------ KDE Plasma ------------------------
+# ------------------------ KDE Plasma + i3 with gaps ------------------------
 
 # ------------------------ Load config ------------------------
 echo "Loading config"
@@ -37,6 +37,22 @@ systemctl enable sddm
 # latte-dock
 pacman -S --quiet --noprogressbar --noconfirm latte-dock
 
+# i3 gaps
+pacman -S --quiet --noprogressbar --noconfirm i3-gaps
+mkdir -p /home/$user/.config/i3
+ln -sf /home/$user/Projects/linux_setup/i3/config /home/$user/.config/i3/config
+
+# wmctrl
+pacman -S --quiet --noprogressbar --noconfirm wmctrl
+
+# compositor
+pacman -S --quiet --noprogressbar --noconfirm picom
+mkdir -p /home/$user/.config/picom
+ln -sf /home/$user/Projects/linux_setup/picom/picom.conf /home/$user/.config/picom/picom.conf
+
+# feh for wallpaper
+pacman -S --quiet --noprogressbar --noconfirm feh
+
 # ------------------------ AUR ------------------------
 
 declare -a aur_packages
@@ -65,6 +81,7 @@ declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
+  'plasma5-applets-eventcalendar'
   'plasma5-applets-virtual-desktop-bar-git'
 )
 declare -r user_commands
@@ -77,12 +94,11 @@ done
 
 # ------------------------ notes ------------------------
 
-# screen locking change picture
 # logout: confirm, end current session, start with manually saved
 # usermanager change picture
 # regional format us region, everything else österreich
 # power management anpassen
-# autostart: latte, syncthing, keepass
+# autostart: latte, syncthing
 
 # 144Hz
 # Add MaxFPS=144 to your ~/.config/kwinrc under [Compositing]

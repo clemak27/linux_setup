@@ -12,15 +12,16 @@ gpu="nvidia"
 
 declare -a system_modules
 system_modules=(
- plasma
- gpu
+ plasma_i3
  gui
+ gpu
  virtual
  office
  gaming
  docker
  development
- logitech
+ # logitech
+ # notebook
 )
 declare -r system_modules
 
