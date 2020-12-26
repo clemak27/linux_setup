@@ -23,6 +23,9 @@ ln -sf /home/$user/Projects/linux_setup/mpv/mpv.conf  /home/$user/.config/mpv/mp
 # messaging
 pacman -S --quiet --noprogressbar --noconfirm signal-desktop
 
+# redshift
+pacman -S --quiet --noprogressbar --noconfirm redshift
+
 # videos
 pacman -S --quiet --noprogressbar --noconfirm obs-studio kdenlive
 
