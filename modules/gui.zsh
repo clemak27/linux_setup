@@ -66,10 +66,18 @@ do
   cd /linux_setup
 done
 
-# additional steps
+# additional step for spicetify
 
 chmod a+wr /opt/spotify
 chmod a+wr /opt/spotify/Apps -R
+
+# symlink spicetify stuff
+mkdir -p /home/$user/.config/spicetify
+mkdir -p /home/$user/.config/spicetify/Themes/Kustom
+
+ln -sf /home/$user/Projects/linux_setup/spicetify/config.ini /home/$user/.config/spicetify/config.ini
+ln -sf /home/$user/Projects/linux_setup/spicetify/color.ini /home/$user/.config/spicetify/Themes/Kustom/color.ini
+ln -sf /home/$user/Projects/linux_setup/spicetify/user.css /home/$user/.config/spicetify/Themes/Kustom/user.css
 
 # ------------------------ user ------------------------
 
@@ -78,6 +86,8 @@ declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
+  'export SPICETIFY_INSTALL=~/.spicetify-cli'
+  'curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh'
 )
 declare -r user_commands
 IFS=$SAVEIFS
