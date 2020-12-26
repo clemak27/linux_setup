@@ -46,6 +46,13 @@ ln -sf /home/$user/Projects/linux_setup/mpv/mpv.conf /home/$user/.config/mpv/mpv
 mkdir -p /home/$user/.local/share/color-schemes
 ln -sf /home/$user/Projects/linux_setup/plasma/Kustom.colors /home/$user/.local/share/color-schemes/Kustom.colors
 
+# spicetify
+mkdir -p /home/$user/.config/spicetify
+mkdir -p /home/$user/.config/spicetify/Themes/Kustom
+ln -sf /home/$user/Projects/linux_setup/spicetify/config.ini /home/$user/.config/spicetify/config.ini
+ln -sf /home/$user/Projects/linux_setup/spicetify/color.ini /home/$user/.config/spicetify/Themes/Kustom/color.ini
+ln -sf /home/$user/Projects/linux_setup/spicetify/user.css /home/$user/.config/spicetify/Themes/Kustom/user.css
+
 # firefox
 #ffProfilePath="/home/$user/.mozilla/firefox/72zvuvdy.default-release"
 #ln -sf /home/$user/Projects/linux_setup/ff/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
