@@ -46,6 +46,10 @@ ln -sf /home/$user/Projects/linux_setup/mpv/mpv.conf /home/$user/.config/mpv/mpv
 mkdir -p /home/$user/.local/share/color-schemes
 ln -sf /home/$user/Projects/linux_setup/plasma/Kustom.colors /home/$user/.local/share/color-schemes/Kustom.colors
 
+# redshift
+mkdir -p /home/$user/.config/redshift
+ln -sf /home/$user/Projects/linux_setup/redshift/redshift.conf /home/$user/.config/redshift/redshift.conf
+
 # spicetify
 mkdir -p /home/$user/.config/spicetify
 mkdir -p /home/$user/.config/spicetify/Themes/Kustom

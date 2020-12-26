@@ -25,6 +25,8 @@ pacman -S --quiet --noprogressbar --noconfirm signal-desktop
 
 # redshift
 pacman -S --quiet --noprogressbar --noconfirm redshift
+mkdir -p /home/$user/.config/redshift
+ln -sf /home/$user/Projects/linux_setup/redshift/redshift.conf /home/$user/.config/redshift/redshift.conf
 
 # videos
 pacman -S --quiet --noprogressbar --noconfirm obs-studio kdenlive
