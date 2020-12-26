@@ -18,6 +18,9 @@ pacman -S --quiet --noprogressbar --noconfirm i3-gaps
 mkdir -p /home/$user/.config/i3
 ln -sf /home/$user/Projects/linux_setup/i3/config /home/$user/.config/i3/config
 
+# wmctrl
+pacman -S --quiet --noprogressbar --noconfirm wmctrl
+
 # compositor
 pacman -S --quiet --noprogressbar --noconfirm picom
 mkdir -p /home/$user/.config/picom
