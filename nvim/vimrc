@@ -22,6 +22,11 @@ Plug 'vimwiki/vimwiki' " vim wiki
 
 call plug#end()
 
+" ---------- fzf-bindings ----------
+
+map <C-f> :<C-u>Files<CR>
+map <C-b> :<C-u>Buffers<CR>
+
 " ---------- fzf-preview window ----------
 
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
@@ -39,7 +44,7 @@ let g:coc_global_extensions = [
   \ 'coc-lists',
   \ 'coc-git',
   \ 'coc-pairs',
-  \ 'coc-go',
+  \ 'coc-java',
   \ 'coc-rls',
   \ 'coc-prettier',
   \ 'coc-vetur'
@@ -96,12 +101,14 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Using Coc(Fzf)List
 " Lists
 nnoremap <silent> <space>l  :<C-u>CocFzfList<CR>
-" Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocFzfList diagnostics<CR>
-" Show diagnostics in current Buffer
-nnoremap <silent> <space>b  :<C-u>CocFzfList diagnostics --current-buf<CR>
+" Show Buffers
+nnoremap <silent> <space>a  :<C-u>CocFzfList actions<CR>
 " Show commands
 nnoremap <silent> <space>c  :<C-u>CocFzfList commands<CR>
+" Show all diagnostics
+nnoremap <silent> <space>d  :<C-u>CocFzfList diagnostics<CR>
+" Show all diagnostics in current buffer
+nnoremap <silent> <space>dc  :<C-u>CocFzfList diagnostics --current-buf<CR>
 " Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocFzfList extensions<CR>
 " Find symbol of current document
