@@ -90,32 +90,26 @@ bindsym $mod+Return exec kitty
 # start browser
 bindsym $mod+b exec firefox
 
+# start browser
+bindsym $mod+e exec dolphin
+
+# start keepass
+bindsym $mod+k exec keepassxc
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start rofi
-bindsym $mod+d exec --no-startup-id /home/clemens/Projects/linux_setup/rofi/runner/runner.sh
-bindsym Mod1+space exec --no-startup-id /home/clemens/Projects/linux_setup/rofi/runner/runner.sh
+bindsym $mod+d exec --no-startup-id ~/Projects/linux_setup/rofi/runner/runner.sh
+bindsym Mod1+space exec --no-startup-id ~/Projects/linux_setup/rofi/runner/runner.sh
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
+# focus with cursor keys
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
-bindsym $mod+Mod1+j move left
-bindsym $mod+Mod1+k move down
-bindsym $mod+Mod1+l move up
-bindsym $mod+Mod1+semicolon move right
-
-# alternatively, you can use the cursor keys:
+# move focused window with cursor keys
 bindsym $mod+Mod1+Left move left
 bindsym $mod+Mod1+Down move down
 bindsym $mod+Mod1+Up move up
@@ -133,7 +127,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+l layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -197,8 +191,6 @@ bindsym $mod+shift+p move workspace to output right
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
