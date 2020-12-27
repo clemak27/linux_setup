@@ -96,6 +96,7 @@ ln -sf /home/$user/Projects/linux_setup/nvim/coc-settings.json /home/$user/.conf
 
 # zsh
 git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
+git clone git://github.com/gradle/gradle-completion ~/.oh-my-zsh/plugins/gradle-completion
 curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 ln -sf /home/$user/Projects/linux_setup/zsh/zshrc /home/$user/.zshrc
 ln -sf /home/$user/Projects/linux_setup/zsh/starship.toml /home/$user/.starship.toml
