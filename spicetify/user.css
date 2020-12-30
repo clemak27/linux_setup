@@ -169,7 +169,7 @@ Collage of 3 album covers is usually seen in Browse and Chart.
 
 .card-puff.pressed .card-puff__image-wrapper,
 .card-puff.pressed .card-puff__info-container {
-	opacity: 0.7 !imprtant;
+	opacity: 0.7 !important;
 }
 
 .card-puff__title {
@@ -254,7 +254,6 @@ Change text color in playlist
 .card-type-episode .card-info-title {
   	font-size: 15px;
   	font-weight: 900 !important;
-	text-align: center !important;
 	width: 100% !important;
 }
 
@@ -262,7 +261,6 @@ Change text color in playlist
 .card-type-track .card-info-subtitle-links,
 .card-type-collection-album .card-info-subtitle-links,
 .card-type-episode .card-info-subtitle-links {
-	text-align: center !important;
 	width: 100% !important;
 }
 
@@ -443,7 +441,7 @@ body:not(.body-container--windows) .content-top-bar__profile-menu-button .dropdo
 }
 
 .tracklist-podcast .tl-progress .row-progress__bar {
-    background-color: #var(--modspotify_main_fg);
+    background-color: var(--modspotify_main_fg);
 }
 
 .Header__background-color{
@@ -553,7 +551,6 @@ span.glue-page-header__title-text {
 	/*margin : 0 !important;*/
 	margin-left: auto;
 	margin-right: auto;
-	background-color:
 }
 
 .glue-page-header__p2s-details,
@@ -617,8 +614,10 @@ body.remotebar .view-player .player-bar-wrapper {
 	height: 100%;
 }
 
-
 .Header__image-inner {
 	box-shadow: unset;
 }
-o
+
+.TableRow:hover {
+  background-color: #232323 !important;
+}
