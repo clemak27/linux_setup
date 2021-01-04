@@ -49,6 +49,7 @@ alias gfmm='git fetch origin && git merge origin/master'
 alias gpskip='git push -o ci.skip'
 alias gs='git status'
 alias gus='git reset HEAD'
+alias init-gradle-completion='source ~/.zsh/gradle-completion/_gradle 1>&2 2>/dev/null; __gradle-completion-init'
 alias ls="exa"
 alias lsa="exa -hal"
 alias mpvnv='mpv --no-video'
