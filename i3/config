@@ -42,17 +42,6 @@ no_focus [class="plasmashell" window_type="notification"]
 
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# backlight keys
-# bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-# bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-
 # compositor
 exec --no-startup-id picom -b
 
@@ -62,24 +51,15 @@ for_window [class="Steam"] floating enable; border none
 # keepass floating
 for_window [class="KeePassXC"] floating enable; border none
 
-# Notifications
-# exec --no-startup-id dunst
-
-# kde-connect
-# exec --no-startup-id kdeconnect-indicator
-
 # set wallpaper
 exec --no-startup-id feh --bg-scale ~/Projects/linux_setup/wallpaper.jpg
-
-# start polybar
-# exec --no-startup-id ~/Projects/linux_setup/polybar/launch.sh
 
 # window borders
 new_float normal
 hide_edge_borders both
 
-# ???
-new_window 1pixel
+# default border size
+default_border pixel 1
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -102,6 +82,9 @@ bindsym $mod+Shift+q kill
 # start rofi
 bindsym $mod+d exec --no-startup-id ~/Projects/linux_setup/rofi/runner/runner.sh
 bindsym Mod1+space exec --no-startup-id ~/Projects/linux_setup/rofi/runner/runner.sh
+
+# switch picom on/off
+bindsym Mod1+Shift+F12 exec --no-startup-id ~/Projects/linux_setup/scripts/picom_toggle.sh
 
 # focus with cursor keys
 bindsym $mod+Left focus left
