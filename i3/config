@@ -54,7 +54,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # compositor
-exec --no-startup-id picom
+exec --no-startup-id picom -b
 
 # Steam floating
 for_window [class="Steam"] floating enable; border none
@@ -135,12 +135,6 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
-
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -220,7 +214,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # gaps
-gaps inner 15
+gaps inner 10
+
+# Only enable gaps on a workspace when there is at least one container
+smart_gaps on
+
+# Activate smart borders (always)
+smart_borders on
 
 # firefox picture in picture window on all workspaces
 for_window [title="Picture-in-Picture"] sticky enable
