@@ -13,7 +13,7 @@ fi
 
 # ------------------------ pacman ------------------------
 # java
-pacman -S --quiet --noprogressbar --noconfirm jdk-openjdk maven intellij-idea-community-edition
+pacman -S --quiet --noprogressbar --noconfirm jdk11-openjdk gradle intellij-idea-community-edition
 
 # ideavim config
 ln -sf /home/$user/Projects/linux_setup/intelliJ/ideavimrc /home/$user/.ideavimrc
