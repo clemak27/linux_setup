@@ -14,6 +14,7 @@ Plug 'tpope/vim-vinegar' " fileexplorer
 Plug 'tpope/vim-fugitive' " git diff etc inside vim
 Plug 'tpope/vim-commentary' " comment with gc
 Plug 'tpope/vim-surround' " brackets around words ysiw(
+Plug 'tpope/vim-repeat' " working repeat for surround
 Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
 Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file search
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " code-completion
