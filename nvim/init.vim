@@ -20,6 +20,7 @@ Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file search
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " code-completion
 Plug 'antoinemadec/coc-fzf' " fzf coc integration
 Plug 'vimwiki/vimwiki' " vim wiki
+Plug 'puremourning/vimspector' " vim debugging
 
 call plug#end()
 
@@ -46,6 +47,7 @@ let g:coc_global_extensions = [
   \ 'coc-git',
   \ 'coc-pairs',
   \ 'coc-java',
+  \ 'coc-java-debug',
   \ 'coc-rls',
   \ 'coc-prettier',
   \ 'coc-vetur'
@@ -141,8 +143,6 @@ endif
 
 syntax enable 
 
-let g:lightline = {'colorscheme': 'onedark'}
-
 let g:onedark_color_overrides = {
 \  "black": {"gui": "#000000", "cterm": "235", "cterm16": "0" },
 \  "red": {"gui": "#ff7de9", "cterm": "204", "cterm16": "1" },
@@ -153,6 +153,9 @@ let g:onedark_color_overrides = {
 \  "grey": {"gui": "#737373", "cterm": "236", "cterm16": "6" },
 \  "white": {"gui": "#97a4b3", "cterm": "145", "cterm16": "7" }
 \}
+
+let g:onedark_hide_endofbuffer = 1
+let g:lightline = {'colorscheme': 'onedark'}
 
 set background=dark
 try
@@ -169,7 +172,41 @@ let g:vimwiki_global_ext = 0
 
 map VW <leader>ww
 
+" ----------------vimspector----------------
+
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_install_gadgets = [ 'vscode-java-debug' ]
+
+" default HUMAN mappings
+"
+" | Key          | Function                                                  | API                                                          |
+" | ---          | ---                                                       | ---                                                          |
+" | `F5`         | When debugging, continue. Otherwise start debugging.      | `vimspector#Continue()`                                      |
+" | `F3`         | Stop debugging.                                           | `vimspector#Stop()`                                          |
+" | `F4`         | Restart debugging with the same configuration.            | `vimspector#Restart()`                                       |
+" | `F6`         | Pause debugee.                                            | `vimspector#Pause()`                                         |
+" | `F9`         | Toggle line breakpoint on the current line.               | `vimspector#ToggleBreakpoint()`                              |
+" | `<leader>F9` | Toggle conditional line breakpoint on the current line.   | `vimspector#ToggleBreakpoint( { trigger expr, hit count expr } )` |
+" | `F8`         | Add a function breakpoint for the expression under cursor | `vimspector#AddFunctionBreakpoint( '<cexpr>' )`              |
+" | `<leader>F8` | Run to Cursor                                             | `vimspector#RunToCursor()`                                   |
+" | `F10`        | Step Over                                                 | `vimspector#StepOver()`                                      |
+" | `F11`        | Step Into                                                 | `vimspector#StepInto()`                                      |
+" | `F12`        | Step out of current function scope                        | `vimspector#StepOut()`                                       |
+
+nnoremap <F2> :<C-u>CocCommand java.debug.vimspector.start<CR>
+nmap <F7> :<C-u>VimspectorReset<CR>
+
+" run with
+" ./gradlew --info --rerun-tasks test --tests=TestApplicationTests.prints
+
+" debug with
+" ./gradlew --info --rerun-tasks test --debug-jvm --tests=TestApplicationTests.prints
+
+"
 " ----------------default stuff----------------
+
+" enable mouse support
+set mouse=a
 
 " line number
 set number 
