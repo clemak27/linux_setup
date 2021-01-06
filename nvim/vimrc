@@ -193,9 +193,16 @@ let g:vimspector_install_gadgets = [ 'vscode-java-debug' ]
 " | `F11`        | Step Into                                                 | `vimspector#StepInto()`                                      |
 " | `F12`        | Step out of current function scope                        | `vimspector#StepOut()`                                       |
 
-" nnoremap <F1> :<C-u>CocCommand java.debug.vimspector.start<CR>
+nnoremap <F2> :<C-u>CocCommand java.debug.vimspector.start<CR>
 nmap <F7> :<C-u>VimspectorReset<CR>
 
+" run with
+" ./gradlew --info --rerun-tasks test --tests=TestApplicationTests.prints
+
+" debug with
+" ./gradlew --info --rerun-tasks test --debug-jvm --tests=TestApplicationTests.prints
+
+"
 " ----------------default stuff----------------
 
 " enable mouse support
