@@ -228,10 +228,6 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
-" :W sudo saves the file 
-" (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
-
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
