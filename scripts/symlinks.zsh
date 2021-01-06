@@ -19,7 +19,7 @@ ln -sf /home/$user/Projects/linux_setup/zsh/starship.toml /home/$user/.starship.
 
 # nvim
 mkdir -p /home/$user/.config/nvim
-ln -sf /home/$user/Projects/linux_setup/nvim/vimrc /home/$user/.config/nvim/init.vim
+ln -sf /home/$user/Projects/linux_setup/nvim/init.vim /home/$user/.config/nvim/init.vim
 ln -sf /home/$user/Projects/linux_setup/nvim/coc-settings.json /home/$user/.config/nvim/coc-settings.json
 
 # kitty
