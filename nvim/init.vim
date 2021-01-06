@@ -3,24 +3,27 @@ filetype off                  " required
 
 " ---------- vim-plug ----------
 
-" curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'joshdick/onedark.vim' " atom one dark theme
+Plug 'antoinemadec/coc-fzf' " fzf coc integration
 Plug 'itchyny/lightline.vim' " nice statusline
-Plug 'tpope/vim-vinegar' " fileexplorer
-Plug 'tpope/vim-fugitive' " git diff etc inside vim
-Plug 'tpope/vim-commentary' " comment with gc
-Plug 'tpope/vim-surround' " brackets around words ysiw(
-Plug 'tpope/vim-repeat' " working repeat for surround
-Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
+Plug 'joshdick/onedark.vim' " atom one dark theme
 Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file search
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " code-completion
-Plug 'antoinemadec/coc-fzf' " fzf coc integration
-Plug 'vimwiki/vimwiki' " vim wiki
 Plug 'puremourning/vimspector' " vim debugging
+Plug 'tpope/vim-commentary' " comment with gc
+Plug 'tpope/vim-fugitive' " git diff etc inside vim
+Plug 'tpope/vim-repeat' " working repeat for surround
+Plug 'tpope/vim-surround' " brackets around words ysiw(
+Plug 'tpope/vim-vinegar' " fileexplorer
+Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
+Plug 'vimwiki/vimwiki' " vim wiki
 
 call plug#end()
 
@@ -224,10 +227,6 @@ filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
-
-" :W sudo saves the file 
-" (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
