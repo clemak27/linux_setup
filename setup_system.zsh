@@ -89,8 +89,6 @@ cp -R . /home/$user/Projects/linux_setup
 
 # nvim
 mkdir -p /home/$user/.config/nvim
-mkdir -p /home/$user/.local/share/nvim/site/autoload
-curl -fLo /home/$user/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ln -sf /home/$user/Projects/linux_setup/nvim/init.vim /home/$user/.config/nvim/init.vim
 ln -sf /home/$user/Projects/linux_setup/nvim/coc-settings.json /home/$user/.config/nvim/coc-settings.json
 
