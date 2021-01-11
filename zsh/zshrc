@@ -40,6 +40,7 @@ export LS_COLORS
 
 # ---------- Aliases ----------
 alias cat='bat'
+alias cmatrix='cmatrix -C magenta'
 alias cd..="cd .."
 alias gcf="git for-each-ref --format='%(refname:short)' refs/heads | fzf | xargs git checkout"
 alias gcm='git commit -v -m'
@@ -80,5 +81,8 @@ prompt_context(){}
 
 # ---------- fzf keybindings ----------
 source /usr/share/fzf/key-bindings.zsh
+
+# ---------- Completion for kitty ----------
+kitty + complete setup zsh | source /dev/stdin
 
 todo due
