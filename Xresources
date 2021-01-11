@@ -5,6 +5,9 @@
 *.accent:       #8a2be2
 *.accent-light: #a312e9
 *.accent-dark:  #5200aa
+*.background-highlight: #232323
+*.background-focus:  #121212
+*.foreground-alt:   #C8C8C8
 
 ! black
 *.color0:       #000000
