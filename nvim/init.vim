@@ -24,6 +24,7 @@ Plug 'tpope/vim-surround' " brackets around words ysiw(
 Plug 'tpope/vim-vinegar' " fileexplorer
 Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
 Plug 'vimwiki/vimwiki' " vim wiki
+Plug 'lervag/vimtex' " latex support
 
 call plug#end()
 
@@ -53,7 +54,8 @@ let g:coc_global_extensions = [
   \ 'coc-java-debug',
   \ 'coc-rls',
   \ 'coc-prettier',
-  \ 'coc-vetur'
+  \ 'coc-vetur',
+  \ 'coc-vimtex'
 	\ ]
 
 " ---------- coc-Keybindings ----------
