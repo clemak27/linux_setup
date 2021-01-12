@@ -13,6 +13,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'antoinemadec/coc-fzf' " fzf coc integration
 Plug 'itchyny/lightline.vim' " nice statusline
+Plug 'mengelbrecht/lightline-bufferline' " show buffer in tabline
 Plug 'joshdick/onedark.vim' " atom one dark theme
 Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file search
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " code-completion
@@ -157,16 +158,41 @@ let g:onedark_color_overrides = {
 \  "purple": {"gui": "#b98eff", "cterm": "170", "cterm16": "5" },
 \  "grey": {"gui": "#737373", "cterm": "236", "cterm16": "6" },
 \  "white": {"gui": "#97a4b3", "cterm": "145", "cterm16": "7" }
-\}
+\ }
 
 let g:onedark_hide_endofbuffer = 1
-let g:lightline = {'colorscheme': 'onedark'}
 
 set background=dark
 try
     colorscheme onedark
 catch
 endtry
+
+" ---------- lightline ----------
+
+let g:lightline = {
+\ 'colorscheme': 'onedark',
+\ 'active': {
+\   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
+\ },
+\ 'tabline': {
+\   'left': [ ['buffers'] ],
+\   'right': [ [] ]
+\ },
+\ 'component_expand': {
+\   'buffers': 'lightline#bufferline#buffers'
+\ },
+\ 'component_type': {
+\   'buffers': 'tabsel'
+\ },
+\ 'component_raw': {
+\   'buffers': 1
+\ }
+\ }
+
+let g:lightline#bufferline#clickable = 1
+let g:lightline#bufferline#min_buffer_count = 2
+let g:lightline#bufferline#enable_nerdfont = 1
 
 " -------------------vimwiki-------------------
 
@@ -331,9 +357,16 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Always show the status line
 set laststatus=2
 
+" Always show the tab/buffer line
+set showtabline=2
+
+" Dont show mode in statusline
+set noshowmode
+
 " Remap 0 and § to first non-blank character
 map § ^
 map 0 ^
+
 " Remap ß to end of line
 map ß $
 
