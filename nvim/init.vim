@@ -22,7 +22,6 @@ Plug 'tpope/vim-commentary' " comment with gc
 Plug 'tpope/vim-fugitive' " git diff etc inside vim
 Plug 'tpope/vim-repeat' " working repeat for surround
 Plug 'tpope/vim-surround' " brackets around words ysiw(
-" Plug 'tpope/vim-vinegar' " fileexplorer
 Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
 Plug 'vimwiki/vimwiki' " vim wiki
 Plug 'lervag/vimtex' " latex support
@@ -38,10 +37,10 @@ let g:ranger_replace_netrw = 1
 let g:ranger_map_keys = 0
 map - :Ranger<CR>
 
-" ---------- fzf-bindings ----------
+" ---------- fzf-preview-bindings ----------
 
-map <C-f> :<C-u>Files<CR>
-map <C-b> :<C-u>Buffers<CR>
+map <C-f> :<C-u>CocCommand fzf-preview.ProjectFiles<CR>
+map <C-b> :<C-u>CocCommand fzf-preview.AllBuffers<CR>
 
 " ---------- fzf-preview window ----------
 
@@ -65,7 +64,8 @@ let g:coc_global_extensions = [
   \ 'coc-rls',
   \ 'coc-prettier',
   \ 'coc-vetur',
-  \ 'coc-vimtex'
+  \ 'coc-vimtex',
+  \ 'coc-fzf-preview'
 	\ ]
 
 " ---------- coc-Keybindings ----------
