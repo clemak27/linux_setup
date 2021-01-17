@@ -64,8 +64,13 @@ pacman -Syyu --quiet --noprogressbar --noconfirm
 # zsh
 pacman -S --quiet --noprogressbar --noconfirm zsh zsh-completions
 
+# bat
+pacman -S --quiet --noprogressbar --noconfirm bat
+mkdir -p /home/$user/.config/bat
+ln -sf /home/$user/Projects/linux_setup/bat/config /home/$user/.config/bat/config
+
 # terminal
-pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unzip unrar htop arch-audit android-tools jq bat exa hyperfine tokei reflector sd bottom
+pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unzip unrar htop arch-audit android-tools jq exa hyperfine tokei reflector sd bottom
 
 # xD
 pacman -S --quiet --noprogressbar --noconfirm cmatrix lolcat neofetch sl
@@ -100,14 +105,14 @@ ln -sf /home/$user/Projects/linux_setup/zsh/zshrc /home/$user/.zshrc
 ln -sf /home/$user/Projects/linux_setup/zsh/starship.toml /home/$user/.starship.toml
 
 # ranger config
-mkdir /home/$user/.config/ranger
+mkdir -p /home/$user/.config/ranger
 ln -sf /home/$user/Projects/linux_setup/ranger/ranger.rc /home/$user/.config/ranger/rc.conf
 ln -sf /home/$user/Projects/linux_setup/ranger/ranger.commands /home/$user/.config/ranger/commands.py
 
 # todo.sh config
-mkdir /home/$user/.todo
+mkdir -p /home/$user/.todo
 ln -sf  /home/$user/Projects/linux_setup/todo.sh/todo.cfg  /home/$user/.todo/config
-mkdir /home/$user/.todo.actions.d
+mkdir -p /home/$user/.todo.actions.d
 cd /home/$user/.todo.actions.d
 git clone https://github.com/rebeccamorgan/due.git
 chmod +x due/due
