@@ -50,7 +50,7 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 let g:coc_global_extensions = [
   \ 'coc-css',
-  \ 'coc-fzf-preview'
+  \ 'coc-fzf-preview',
   \ 'coc-git',
   \ 'coc-highlight',
   \ 'coc-html',
@@ -64,7 +64,7 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-vetur',
   \ 'coc-vimtex',
-  \ 'coc-yaml',
+  \ 'coc-yaml'
 	\ ]
 
 " ---------- coc-Keybindings ----------
