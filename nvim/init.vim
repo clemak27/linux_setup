@@ -12,21 +12,21 @@ endif
 call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'antoinemadec/coc-fzf' " fzf coc integration
+Plug 'francoiscabrol/ranger.vim' "ranger integration
 Plug 'itchyny/lightline.vim' " nice statusline
-Plug 'mengelbrecht/lightline-bufferline' " show buffer in tabline
 Plug 'joshdick/onedark.vim' " atom one dark theme
 Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file search
+Plug 'lervag/vimtex' " latex support
+Plug 'mengelbrecht/lightline-bufferline' " show buffer in tabline
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " code-completion
 Plug 'puremourning/vimspector' " vim debugging
+Plug 'rbgrouleff/bclose.vim' " ranger integration
 Plug 'tpope/vim-commentary' " comment with gc
 Plug 'tpope/vim-fugitive' " git diff etc inside vim
 Plug 'tpope/vim-repeat' " working repeat for surround
 Plug 'tpope/vim-surround' " brackets around words ysiw(
 Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
 Plug 'vimwiki/vimwiki' " vim wiki
-Plug 'lervag/vimtex' " latex support
-Plug 'rbgrouleff/bclose.vim' " ranger integration
-Plug 'francoiscabrol/ranger.vim' "ranger integration
 
 
 call plug#end()
@@ -49,23 +49,22 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 " ------------coc-extensions--------------
 
 let g:coc_global_extensions = [
-  \ 'coc-json',
-  \ 'coc-tsserver',
-  \ 'coc-html',
   \ 'coc-css',
-  \ 'coc-yaml',
-  \ 'coc-python',
-  \ 'coc-highlight',
-  \ 'coc-lists',
+  \ 'coc-fzf-preview'
   \ 'coc-git',
-  \ 'coc-pairs',
+  \ 'coc-highlight',
+  \ 'coc-html',
   \ 'coc-java',
   \ 'coc-java-debug',
-  \ 'coc-rls',
+  \ 'coc-json',
+  \ 'coc-pairs',
   \ 'coc-prettier',
+  \ 'coc-python',
+  \ 'coc-rls',
+  \ 'coc-tsserver',
   \ 'coc-vetur',
   \ 'coc-vimtex',
-  \ 'coc-fzf-preview'
+  \ 'coc-yaml',
 	\ ]
 
 " ---------- coc-Keybindings ----------
@@ -119,7 +118,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Using Coc(Fzf)List
 " Lists
 nnoremap <silent> <space>l  :<C-u>CocFzfList<CR>
-" Show Buffers
+" Show actions
 nnoremap <silent> <space>a  :<C-u>CocFzfList actions<CR>
 " Show commands
 nnoremap <silent> <space>c  :<C-u>CocFzfList commands<CR>
@@ -127,18 +126,9 @@ nnoremap <silent> <space>c  :<C-u>CocFzfList commands<CR>
 nnoremap <silent> <space>d  :<C-u>CocFzfList diagnostics<CR>
 " Show all diagnostics in current buffer
 nnoremap <silent> <space>dc  :<C-u>CocFzfList diagnostics --current-buf<CR>
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocFzfList extensions<CR>
-" Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocFzfList outline<CR>
+
 " Search workspace symbols
 nnoremap <silent> <space>s  :<C-u>CocFzfList symbols<CR>
-" Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocFzfListResume<CR>
-" Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 
 " ---------- autoload ----------
 
@@ -209,8 +199,6 @@ let g:vimwiki_list = [{'path': '~/Notes',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 let g:vimwiki_global_ext = 0
-
-map VW <leader>ww
 
 " ----------------vimspector----------------
 
