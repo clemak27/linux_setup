@@ -17,6 +17,10 @@ ln -sf /home/$user/Projects/linux_setup/Xresources /home/$user/.Xresources
 ln -sf /home/$user/Projects/linux_setup/zsh/zshrc /home/$user/.zshrc
 ln -sf /home/$user/Projects/linux_setup/zsh/starship.toml /home/$user/.starship.toml
 
+# bat
+mkdir -p /home/$user/.config/bat
+ln -sf /home/$user/Projects/linux_setup/bat/config /home/$user/.config/bat/config
+
 # nvim
 mkdir -p /home/$user/.config/nvim
 ln -sf /home/$user/Projects/linux_setup/nvim/init.vim /home/$user/.config/nvim/init.vim
