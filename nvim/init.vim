@@ -277,6 +277,7 @@ let g:coc_global_extensions = [
       \ 'coc-prettier',
       \ 'coc-python',
       \ 'coc-rls',
+      \ 'coc-snippets',
       \ 'coc-tsserver',
       \ 'coc-vetur',
       \ 'coc-vimtex',
