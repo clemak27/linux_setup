@@ -5,7 +5,7 @@ filetype off                  " required
 
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -66,9 +66,9 @@ set wildmenu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
 if has("win16") || has("win32")
-    set wildignore+=.git\*,.hg\*,.svn\*
+  set wildignore+=.git\*,.hg\*,.svn\*
 else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 
 "Always show current position
@@ -177,21 +177,21 @@ nmap <M-k> mz:m-2<cr>`z
 
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
-    let save_cursor = getpos(".")
-    let old_query = getreg('/')
-    silent! %s/\s\+$//e
-    call setpos('.', save_cursor)
-    call setreg('/', old_query)
+  let save_cursor = getpos(".")
+  let old_query = getreg('/')
+  silent! %s/\s\+$//e
+  call setpos('.', save_cursor)
+  call setreg('/', old_query)
 endfun
 
 if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+  autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
 
 " autoload on file changes
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 autocmd FileChangedShellPost *
-  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+      \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 " ------------------------------------------------- theme -------------------------------------------------
 
@@ -206,45 +206,45 @@ endif
 syntax enable 
 
 let g:onedark_color_overrides = {
-\  "black": {"gui": "#000000", "cterm": "235", "cterm16": "0" },
-\  "red": {"gui": "#ff7de9", "cterm": "204", "cterm16": "1" },
-\  "green": {"gui": "#86de74", "cterm": "114", "cterm16": "2" },
-\  "yellow": {"gui": "#fff89e", "cterm": "180", "cterm16": "3" },
-\  "blue": {"gui": "#75bfff", "cterm": "39", "cterm16": "4" },
-\  "purple": {"gui": "#b98eff", "cterm": "170", "cterm16": "5" },
-\  "grey": {"gui": "#737373", "cterm": "236", "cterm16": "6" },
-\  "white": {"gui": "#97a4b3", "cterm": "145", "cterm16": "7" }
-\ }
+      \  "black": {"gui": "#000000", "cterm": "235", "cterm16": "0" },
+      \  "red": {"gui": "#ff7de9", "cterm": "204", "cterm16": "1" },
+      \  "green": {"gui": "#86de74", "cterm": "114", "cterm16": "2" },
+      \  "yellow": {"gui": "#fff89e", "cterm": "180", "cterm16": "3" },
+      \  "blue": {"gui": "#75bfff", "cterm": "39", "cterm16": "4" },
+      \  "purple": {"gui": "#b98eff", "cterm": "170", "cterm16": "5" },
+      \  "grey": {"gui": "#737373", "cterm": "236", "cterm16": "6" },
+      \  "white": {"gui": "#97a4b3", "cterm": "145", "cterm16": "7" }
+      \ }
 
 let g:onedark_hide_endofbuffer = 1
 
 set background=dark
 try
-    colorscheme onedark
+  colorscheme onedark
 catch
 endtry
 
 " ------------------------------------------------- lightline -------------------------------------------------
 
 let g:lightline = {
-\ 'colorscheme': 'onedark',
-\ 'active': {
-\   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
-\ },
-\ 'tabline': {
-\   'left': [ ['buffers'] ],
-\   'right': [ [] ]
-\ },
-\ 'component_expand': {
-\   'buffers': 'lightline#bufferline#buffers'
-\ },
-\ 'component_type': {
-\   'buffers': 'tabsel'
-\ },
-\ 'component_raw': {
-\   'buffers': 1
-\ }
-\ }
+      \ 'colorscheme': 'onedark',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'tabline': {
+      \   'left': [ ['buffers'] ],
+      \   'right': [ [] ]
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
+      \ },
+      \ 'component_raw': {
+      \   'buffers': 1
+      \ }
+      \ }
 
 let g:lightline#bufferline#clickable = 1
 let g:lightline#bufferline#min_buffer_count = 2
@@ -259,29 +259,29 @@ map - :Ranger<CR>
 " ------------------------------------------------- vimwiki ---------------------------------------------------------
 
 let g:vimwiki_list = [{'path': '~/Notes',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+      \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_global_ext = 0
 
 " ------------------------------------------------- coc-extensions  -------------------------------------------------
 
 let g:coc_global_extensions = [
-  \ 'coc-css',
-  \ 'coc-fzf-preview',
-  \ 'coc-git',
-  \ 'coc-highlight',
-  \ 'coc-html',
-  \ 'coc-java',
-  \ 'coc-java-debug',
-  \ 'coc-json',
-  \ 'coc-pairs',
-  \ 'coc-prettier',
-  \ 'coc-python',
-  \ 'coc-rls',
-  \ 'coc-tsserver',
-  \ 'coc-vetur',
-  \ 'coc-vimtex',
-  \ 'coc-yaml'
-	\ ]
+      \ 'coc-css',
+      \ 'coc-fzf-preview',
+      \ 'coc-git',
+      \ 'coc-highlight',
+      \ 'coc-html',
+      \ 'coc-java',
+      \ 'coc-java-debug',
+      \ 'coc-json',
+      \ 'coc-pairs',
+      \ 'coc-prettier',
+      \ 'coc-python',
+      \ 'coc-rls',
+      \ 'coc-tsserver',
+      \ 'coc-vetur',
+      \ 'coc-vimtex',
+      \ 'coc-yaml'
+      \ ]
 
 " ------------------------------------------------- coc-keybindings  ------------------------------------------------
 
