@@ -17,6 +17,7 @@ Plug 'tpope/vim-repeat' " working repeat for surround
 Plug 'tpope/vim-surround' " brackets around words ysiw(
 Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
 Plug 'vim-scripts/argtextobj.vim' " arguments as textobject
+Plug 'kana/vim-textobj-user' " custom textobjects
 Plug 'kana/vim-textobj-entire' " whole buffer as textobject
 
 Plug 'joshdick/onedark.vim' " atom one dark theme
