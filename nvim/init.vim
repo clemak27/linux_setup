@@ -16,9 +16,10 @@ Plug 'tpope/vim-fugitive' " git diff etc inside vim
 Plug 'tpope/vim-repeat' " working repeat for surround
 Plug 'tpope/vim-surround' " brackets around words ysiw(
 Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
-Plug 'vim-scripts/argtextobj.vim' " arguments as textobject
+
 Plug 'kana/vim-textobj-user' " custom textobjects
 Plug 'kana/vim-textobj-entire' " whole buffer as textobject
+Plug 'sgur/vim-textobj-parameter' " arguments as textobject
 
 Plug 'joshdick/onedark.vim' " atom one dark theme
 Plug 'itchyny/lightline.vim' " nice statusline
@@ -252,6 +253,10 @@ let g:lightline = {
 let g:lightline#bufferline#clickable = 1
 let g:lightline#bufferline#min_buffer_count = 2
 let g:lightline#bufferline#enable_nerdfont = 1
+
+" ------------------------------------------------- ranger ----------------------------------------------------------
+
+let g:vim_textobj_parameter_mapping = 'a'
 
 " ------------------------------------------------- ranger ----------------------------------------------------------
 
