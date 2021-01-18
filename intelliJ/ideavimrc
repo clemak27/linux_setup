@@ -2,6 +2,8 @@
 set surround
 set commentary
 set ReplaceWithRegister
+set argtextobj
+set textobj-entire
 
 """ Common settings -------------------------
 set hlsearch
