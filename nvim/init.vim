@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" ------------------------------------------------- vim-plug -------------------------------------------------
+" ------------------------------------------------- vim-plug ----------------------------------------------------
 
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -25,8 +25,6 @@ Plug 'joshdick/onedark.vim' " atom one dark theme
 Plug 'itchyny/lightline.vim' " nice statusline
 Plug 'mengelbrecht/lightline-bufferline' " show buffer in tabline
 
-Plug 'rbgrouleff/bclose.vim' " ranger integration
-Plug 'francoiscabrol/ranger.vim' "ranger integration
 Plug 'vimwiki/vimwiki' " vim wiki
 
 Plug 'lervag/vimtex' " latex support
@@ -39,7 +37,7 @@ Plug 'puremourning/vimspector' " vim debugging
 
 call plug#end()
 
-" ------------------------------------------------- .vimrc -------------------------------------------------
+" ------------------------------------------------- .vimrc ------------------------------------------------------
 
 " enable mouse support
 set mouse=a
@@ -197,7 +195,7 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 autocmd FileChangedShellPost *
       \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-" ------------------------------------------------- theme -------------------------------------------------
+" ------------------------------------------------- theme -------------------------------------------------------
 
 if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -228,7 +226,7 @@ try
 catch
 endtry
 
-" ------------------------------------------------- lightline -------------------------------------------------
+" ------------------------------------------------- lightline ---------------------------------------------------
 
 let g:lightline = {
       \ 'colorscheme': 'onedark',
@@ -253,24 +251,20 @@ let g:lightline = {
 let g:lightline#bufferline#clickable = 1
 let g:lightline#bufferline#min_buffer_count = 2
 let g:lightline#bufferline#enable_nerdfont = 1
+let g:lightline#bufferline#unnamed = 'unnamed'
+let g:lightline#bufferline#show_number = 0
 
-" ------------------------------------------------- ranger ----------------------------------------------------------
+" ------------------------------------------------- custom textobjects ------------------------------------------
 
 let g:vim_textobj_parameter_mapping = 'a'
 
-" ------------------------------------------------- ranger ----------------------------------------------------------
-
-let g:ranger_replace_netrw = 1
-let g:ranger_map_keys = 0
-map - :Ranger<CR>
-
-" ------------------------------------------------- vimwiki ---------------------------------------------------------
+" ------------------------------------------------- vimwiki -----------------------------------------------------
 
 let g:vimwiki_list = [{'path': '~/Notes',
       \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_global_ext = 0
 
-" ------------------------------------------------- coc-extensions  -------------------------------------------------
+" ------------------------------------------------- coc-extensions  ---------------------------------------------
 
 let g:coc_global_extensions = [
       \ 'coc-css',
@@ -292,7 +286,7 @@ let g:coc_global_extensions = [
       \ 'coc-yaml'
       \ ]
 
-" ------------------------------------------------- coc-keybindings  ------------------------------------------------
+" ------------------------------------------------- coc-keybindings  --------------------------------------------
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
@@ -355,16 +349,18 @@ nnoremap <silent> <space>dc  :<C-u>CocFzfList diagnostics --current-buf<CR>
 " Search workspace symbols
 nnoremap <silent> <space>s  :<C-u>CocFzfList symbols<CR>
 
-" ------------------------------------------------- fzf-preview-bindings ------------------------------------------------
+" ------------------------------------------------- fzf-preview-bindings ----------------------------------------
 
-map <C-f> :<C-u>CocCommand fzf-preview.ProjectFiles<CR>
+map <C-p> :<C-u>CocCommand fzf-preview.ProjectFiles<CR>
+map <C-g> :<C-u>CocCommand fzf-preview.BufferLines<CR>
+map <C-f> :<C-u>CocCommand fzf-preview.Lines<CR>
 map <C-b> :<C-u>CocCommand fzf-preview.AllBuffers<CR>
 
-" ------------------------------------------------- fzf-preview-window ------------------------------------------------
+" ------------------------------------------------- fzf-preview-window ------------------------------------------
 
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
-" ------------------------------------------------- vimspector ------------------------------------------------
+" ------------------------------------------------- vimspector --------------------------------------------------
 
 let g:vimspector_enable_mappings = 'HUMAN'
 let g:vimspector_install_gadgets = [ 'vscode-java-debug' ]
