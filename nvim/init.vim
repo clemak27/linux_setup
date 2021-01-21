@@ -17,20 +17,23 @@ Plug 'tpope/vim-repeat' " working repeat for surround
 Plug 'tpope/vim-surround' " brackets around words ysiw(
 Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
 
-Plug 'kana/vim-textobj-user' " custom textobjects
-Plug 'kana/vim-textobj-entire' " whole buffer as textobject
-Plug 'sgur/vim-textobj-parameter' " arguments as textobject
-
 Plug 'joshdick/onedark.vim' " atom one dark theme
 Plug 'itchyny/lightline.vim' " nice statusline
 Plug 'mengelbrecht/lightline-bufferline' " show buffer in tabline
+
+Plug 'kana/vim-textobj-user' " custom textobjects
+Plug 'kana/vim-textobj-entire' " whole buffer as textobject
+Plug 'sgur/vim-textobj-parameter' " arguments as textobject
 
 Plug 'vimwiki/vimwiki' " vim wiki
 
 Plug 'lervag/vimtex' " latex support
 
+Plug 'junegunn/fzf' " fuzzy file search
+Plug 'junegunn/fzf.vim' " fuzzy file search
+Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " code-completion
-Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file search
 Plug 'antoinemadec/coc-fzf' " fzf coc integration
 
 Plug 'puremourning/vimspector' " vim debugging
@@ -264,11 +267,22 @@ let g:vimwiki_list = [{'path': '~/Notes',
       \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_global_ext = 0
 
+" ------------------------------------------------- fzf-preview-bindings ----------------------------------------
+
+map <C-p> :<C-u>FzfPreviewProjectFilesRpc<CR>
+map <C-g> :<C-u>FzfPreviewBufferLinesRpc<CR>
+map <C-a> :<C-u>FzfPreviewGitActionsRpc<CR>
+map <C-f> :<C-u>FzfPreviewLinesRpc<CR>
+map <C-b> :<C-u>FzfPreviewAllBuffersRpc<CR>
+
+" ------------------------------------------------- fzf-preview-window ------------------------------------------
+
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
 " ------------------------------------------------- coc-extensions  ---------------------------------------------
 
 let g:coc_global_extensions = [
       \ 'coc-css',
-      \ 'coc-fzf-preview',
       \ 'coc-git',
       \ 'coc-highlight',
       \ 'coc-html',
@@ -348,17 +362,6 @@ nnoremap <silent> <space>dc  :<C-u>CocFzfList diagnostics --current-buf<CR>
 
 " Search workspace symbols
 nnoremap <silent> <space>s  :<C-u>CocFzfList symbols<CR>
-
-" ------------------------------------------------- fzf-preview-bindings ----------------------------------------
-
-map <C-p> :<C-u>CocCommand fzf-preview.ProjectFiles<CR>
-map <C-g> :<C-u>CocCommand fzf-preview.BufferLines<CR>
-map <C-f> :<C-u>CocCommand fzf-preview.Lines<CR>
-map <C-b> :<C-u>CocCommand fzf-preview.AllBuffers<CR>
-
-" ------------------------------------------------- fzf-preview-window ------------------------------------------
-
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 " ------------------------------------------------- vimspector --------------------------------------------------
 
