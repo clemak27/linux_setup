@@ -270,10 +270,10 @@ let g:vimwiki_global_ext = 0
 " ------------------------------------------------- fzf-preview-bindings ----------------------------------------
 
 map <C-p> :<C-u>FzfPreviewProjectFilesRpc<CR>
-map <C-g> :<C-u>FzfPreviewBufferLinesRpc<CR>
-map <C-i> :<C-u>FzfPreviewGitActionsRpc<CR>
 map <C-f> :<C-u>FzfPreviewLinesRpc<CR>
-map <C-b> :<C-u>FzfPreviewAllBuffersRpc<CR>
+map <C-g> :<C-u>FzfPreviewBufferLinesRpc<CR>
+map <C-l> :<C-u>FzfPreviewGitActionsRpc<CR>
+map <C-b> :<C-u>FzfPreviewBuffersRpc<CR>
 
 " ------------------------------------------------- fzf-preview-window ------------------------------------------
 
