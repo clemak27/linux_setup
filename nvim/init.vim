@@ -271,7 +271,7 @@ let g:vimwiki_global_ext = 0
 
 map <C-p> :<C-u>FzfPreviewProjectFilesRpc<CR>
 map <C-g> :<C-u>FzfPreviewBufferLinesRpc<CR>
-map <C-a> :<C-u>FzfPreviewGitActionsRpc<CR>
+map <C-i> :<C-u>FzfPreviewGitActionsRpc<CR>
 map <C-f> :<C-u>FzfPreviewLinesRpc<CR>
 map <C-b> :<C-u>FzfPreviewAllBuffersRpc<CR>
 
