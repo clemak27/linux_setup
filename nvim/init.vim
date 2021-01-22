@@ -144,6 +144,9 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+" est mapleader to space
+let mapleader = ' '
+
 " Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -269,11 +272,11 @@ let g:vimwiki_global_ext = 0
 
 " ------------------------------------------------- fzf-preview-bindings ----------------------------------------
 
-map <C-p> :<C-u>FzfPreviewProjectFilesRpc<CR>
-map <C-f> :<C-u>FzfPreviewLinesRpc<CR>
-map <C-g> :<C-u>FzfPreviewBufferLinesRpc<CR>
-map <C-l> :<C-u>FzfPreviewGitActionsRpc<CR>
-map <C-b> :<C-u>FzfPreviewBuffersRpc<CR>
+map <leader>p :<C-u>FzfPreviewProjectFilesRpc<CR>
+map <leader>f :<C-u>FzfPreviewLinesRpc<CR>
+map <leader>g :<C-u>FzfPreviewBufferLinesRpc<CR>
+map <leader>i :<C-u>FzfPreviewGitActionsRpc<CR>
+map <leader>b :<C-u>FzfPreviewBuffersRpc<CR>
 
 " ------------------------------------------------- fzf-preview-window ------------------------------------------
 
@@ -350,18 +353,15 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Using Coc(Fzf)List
 " Lists
-nnoremap <silent> <space>l  :<C-u>CocFzfList<CR>
+nnoremap <silent> <leader>l  :<C-u>CocFzfList<CR>
 " Show actions
-nnoremap <silent> <space>a  :<C-u>CocFzfList actions<CR>
+nnoremap <silent> <leader>a  :<C-u>CocFzfList actions<CR>
 " Show commands
-nnoremap <silent> <space>c  :<C-u>CocFzfList commands<CR>
-" Show all diagnostics
-nnoremap <silent> <space>d  :<C-u>CocFzfList diagnostics<CR>
+nnoremap <silent> <leader>c  :<C-u>CocFzfList commands<CR>
 " Show all diagnostics in current buffer
-nnoremap <silent> <space>dc  :<C-u>CocFzfList diagnostics --current-buf<CR>
-
+nnoremap <silent> <leader>d  :<C-u>CocFzfList diagnostics --current-buf<CR>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocFzfList symbols<CR>
+nnoremap <silent> <leader>s  :<C-u>CocFzfList symbols<CR>
 
 " ------------------------------------------------- vimspector --------------------------------------------------
 
