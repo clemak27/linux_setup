@@ -353,15 +353,15 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Using Coc(Fzf)List
 " Lists
-nnoremap <silent> <leader>l  :<C-u>CocFzfList<CR>
+map <leader>l  :<C-u>CocFzfList<CR>
 " Show actions
-nnoremap <silent> <leader>a  :<C-u>CocFzfList actions<CR>
+map <leader>a  :<C-u>CocFzfList actions<CR>
 " Show commands
-nnoremap <silent> <leader>c  :<C-u>CocFzfList commands<CR>
+map <leader>c  :<C-u>CocFzfList commands<CR>
 " Show all diagnostics in current buffer
-nnoremap <silent> <leader>d  :<C-u>CocFzfList diagnostics --current-buf<CR>
+map <leader>d  :<C-u>CocFzfList diagnostics --current-buf<CR>
 " Search workspace symbols
-nnoremap <silent> <leader>s  :<C-u>CocFzfList symbols<CR>
+map <leader>s  :<C-u>CocFzfList symbols<CR>
 
 " ------------------------------------------------- vimspector --------------------------------------------------
 
