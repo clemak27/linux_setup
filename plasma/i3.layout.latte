@@ -27,7 +27,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][1][Applets][4][Configuration]
-PreloadWeight=100
+PreloadWeight=92
 SystrayContainmentId=5
 
 [Containments][1][Applets][72]
@@ -35,7 +35,7 @@ immutability=1
 plugin=org.kde.plasma.eventcalendar
 
 [Containments][1][Applets][72][Configuration]
-PreloadWeight=81
+PreloadWeight=59
 
 [Containments][1][Applets][72][Configuration][Agenda]
 twoColumns=false
@@ -48,9 +48,6 @@ month_show_weeknumbers=true
 DialogHeight=840
 DialogWidth=1060
 
-[Containments][1][Applets][72][Configuration][Events]
-enabledCalendarPlugins=/usr/lib/x86_64-linux-gnu/qt5/plugins/plasmacalendarplugins/holidaysevents.so
-
 [Containments][1][Applets][72][Configuration][General]
 clockMaxHeight=16
 clockMouseWheelDown=
@@ -61,6 +58,7 @@ clock_mousewheel_down=
 clock_mousewheel_up=
 clock_timeformat=MMM d, HH:mm:ss\s
 v71Migration=true
+v72Migration=true
 widgetShowAgenda=false
 widgetShowMeteogram=false
 widgetShowTimer=false
@@ -83,34 +81,34 @@ immutability=1
 plugin=org.kde.plasma.icon
 
 [Containments][1][Applets][73][Configuration]
-PreloadWeight=41
-localPath=/home/clemens/.local/share/plasma_icons/runner.sh.desktop
-url=file:///home/clemens/Projects/linux_setup/rofi/runner/runner.sh
+PreloadWeight=0
+localPath=/home/cle/.local/share/plasma_icons/runner.sh.desktop
+url=file:///home/cle/Projects/linux_setup/rofi/runner/runner.sh
 
 [Containments][1][Applets][81]
 immutability=1
 plugin=org.kde.plasma.icon
 
 [Containments][1][Applets][81][Configuration]
-PreloadWeight=86
-localPath=/home/clemens/.local/share/plasma_icons/kde_logout.sh.desktop
-url=file:///home/clemens/Projects/linux_setup/kde/kde_logout.sh
+PreloadWeight=0
+localPath=/home/cle/.local/share/plasma_icons/plasma_logout.sh.desktop
+url=file:///home/cle/Projects/linux_setup/plasma/plasma_logout.sh
 
 [Containments][1][Applets][82]
 immutability=1
 plugin=org.kde.plasma.virtualdesktopbar
 
 [Containments][1][Applets][82][Configuration]
-PreloadWeight=72
+PreloadWeight=41
 
 [Containments][1][Applets][82][Configuration][ConfigDialog]
-DialogHeight=1021
-DialogWidth=937
+DialogHeight=1029
+DialogWidth=943
 
 [Containments][1][Applets][82][Configuration][Preferences]
 AddDesktopButtonShow=false
 DesktopLabelsStyle=4
-DesktopLabelsStyleCustomFormat=$X: $W
+DesktopLabelsStyleCustomFormat=$N: $W
 DynamicDesktopsEnable=true
 MouseWheelRemoveDesktopOnClick=false
 TooltipsEnable=false
@@ -181,7 +179,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][5][Applets][11][Configuration]
-PreloadWeight=100
+PreloadWeight=92
 
 [Containments][5][Applets][12]
 immutability=1
@@ -202,7 +200,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][5][Applets][6][Configuration]
-PreloadWeight=10
+PreloadWeight=12
 
 [Containments][5][Applets][6][Configuration][ConfigDialog]
 DialogHeight=522
@@ -220,7 +218,7 @@ immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][5][Applets][69][Configuration]
-PreloadWeight=10
+PreloadWeight=0
 
 [Containments][5][Applets][71]
 immutability=1
@@ -246,14 +244,14 @@ immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][5][Applets][8][Configuration]
-PreloadWeight=3
+PreloadWeight=0
 
-[Containments][5][Applets][80]
+[Containments][5][Applets][83]
 immutability=1
-plugin=org.kde.plasma.bluetooth
+plugin=com.github.zren.alphablackcontrol
 
-[Containments][5][Applets][80][Configuration]
-PreloadWeight=31
+[Containments][5][Applets][83][Configuration]
+PreloadWeight=0
 
 [Containments][5][Applets][9]
 immutability=1
