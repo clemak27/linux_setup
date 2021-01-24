@@ -58,6 +58,10 @@ ln -sf /home/$user/Projects/linux_setup/redshift/redshift.conf /home/$user/.conf
 mkdir -p /home/$user/.config/spotifyd
 ln -sf /home/$user/Projects/linux_setup/spotifyd/spotifyd.conf /home/$user/.config/spotifyd/spotifyd.conf
 
+# spotify-tui
+mkdir -p /home/$user/.config/spotify-tui
+ln -sf /home/$user/Projects/linux_setup/spotify-tui/config.yml /home/$user/.config/spotify-tui/config.yml
+
 # spicetify
 mkdir -p /home/$user/.config/spicetify
 mkdir -p /home/$user/.config/spicetify/Themes/Kustom
