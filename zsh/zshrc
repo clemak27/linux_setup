@@ -9,7 +9,14 @@ eval "$(starship init zsh)"
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
 
-plugins=(git npm ripgrep fzf archlinux gradle-completion)
+plugins=(
+  git
+  npm
+  ripgrep
+  fzf
+  archlinux
+  gradle-completion
+)
 
 source $ZSH/oh-my-zsh.sh
 
