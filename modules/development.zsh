@@ -24,6 +24,9 @@ pacman -S --quiet --noprogressbar --noconfirm python-pip
 # uml
 pacman -S --quiet --noprogressbar --noconfirm plantuml graphviz
 
+# gdb
+pacman -S --quiet --noprogressbar --noconfirm gdb
+
 # ------------------------ AUR ------------------------
 
 declare -a aur_packages
