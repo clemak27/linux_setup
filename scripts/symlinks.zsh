@@ -62,13 +62,6 @@ ln -sf /home/$user/Projects/linux_setup/spotifyd/spotifyd.conf /home/$user/.conf
 mkdir -p /home/$user/.config/spotify-tui
 ln -sf /home/$user/Projects/linux_setup/spotify-tui/config.yml /home/$user/.config/spotify-tui/config.yml
 
-# spicetify
-mkdir -p /home/$user/.config/spicetify
-mkdir -p /home/$user/.config/spicetify/Themes/Kustom
-ln -sf /home/$user/Projects/linux_setup/spicetify/config.ini /home/$user/.config/spicetify/config.ini
-ln -sf /home/$user/Projects/linux_setup/spicetify/color.ini /home/$user/.config/spicetify/Themes/Kustom/color.ini
-ln -sf /home/$user/Projects/linux_setup/spicetify/user.css /home/$user/.config/spicetify/Themes/Kustom/user.css
-
 # firefox
 #ffProfilePath="/home/$user/.mozilla/firefox/72zvuvdy.default-release"
 #ln -sf /home/$user/Projects/linux_setup/ff/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
