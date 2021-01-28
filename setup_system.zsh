@@ -64,8 +64,13 @@ pacman -Syyu --quiet --noprogressbar --noconfirm
 # zsh
 pacman -S --quiet --noprogressbar --noconfirm zsh zsh-completions
 
+# bat
+pacman -S --quiet --noprogressbar --noconfirm bat
+mkdir -p /home/$user/.config/bat
+ln -sf /home/$user/Projects/linux_setup/bat/config /home/$user/.config/bat/config
+
 # terminal
-pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unzip unrar htop arch-audit android-tools jq exa hyperfine tokei reflector sd bat
+pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unzip unrar htop arch-audit android-tools jq exa hyperfine tokei reflector sd bottom
 
 # xD
 pacman -S --quiet --noprogressbar --noconfirm cmatrix lolcat neofetch sl
@@ -89,28 +94,24 @@ cp -R . /home/$user/Projects/linux_setup
 
 # nvim
 mkdir -p /home/$user/.config/nvim
-ln -sf /home/$user/Projects/linux_setup/config/nvim/init.vim /home/$user/.config/nvim/init.vim
-ln -sf /home/$user/Projects/linux_setup/config/nvim/coc-settings.json /home/$user/.config/nvim/coc-settings.json
+ln -sf /home/$user/Projects/linux_setup/nvim/init.vim /home/$user/.config/nvim/init.vim
+ln -sf /home/$user/Projects/linux_setup/nvim/coc-settings.json /home/$user/.config/nvim/coc-settings.json
 
 # zsh
 git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
 git clone git://github.com/gradle/gradle-completion ~/.oh-my-zsh/plugins/gradle-completion
 curl -fsSL https://starship.rs/install.sh | bash -s -- -y
-ln -sf /home/$user/Projects/linux_setup/config/zsh/zshrc /home/$user/.zshrc
-ln -sf /home/$user/Projects/linux_setup/config/zsh/starship.toml /home/$user/.starship.toml
-
-# bat
-mkdir -p /home/$user/.config/bat
-ln -sf /home/$user/Projects/linux_setup/config/bat/config /home/$user/.config/bat/config
+ln -sf /home/$user/Projects/linux_setup/zsh/zshrc /home/$user/.zshrc
+ln -sf /home/$user/Projects/linux_setup/zsh/starship.toml /home/$user/.starship.toml
 
 # ranger config
 mkdir -p /home/$user/.config/ranger
-ln -sf /home/$user/Projects/linux_setup/config/ranger/ranger.rc /home/$user/.config/ranger/rc.conf
-ln -sf /home/$user/Projects/linux_setup/config/ranger/ranger.commands /home/$user/.config/ranger/commands.py
+ln -sf /home/$user/Projects/linux_setup/ranger/ranger.rc /home/$user/.config/ranger/rc.conf
+ln -sf /home/$user/Projects/linux_setup/ranger/ranger.commands /home/$user/.config/ranger/commands.py
 
 # todo.sh config
 mkdir -p /home/$user/.todo
-ln -sf  /home/$user/Projects/linux_setup/config/todo.sh/todo.cfg  /home/$user/.todo/config
+ln -sf  /home/$user/Projects/linux_setup/todo.sh/todo.cfg  /home/$user/.todo/config
 mkdir -p /home/$user/.todo.actions.d
 cd /home/$user/.todo.actions.d
 git clone https://github.com/rebeccamorgan/due.git
@@ -156,7 +157,6 @@ IFS=$(echo -en "\n\b")
 
 aur_packages=(
   'paru-bin'
-  'bottom-bin'
   'cava'
   'tty-clock'
   'ddgr'

@@ -16,7 +16,7 @@ fi
 pacman -S --quiet --noprogressbar --noconfirm jdk11-openjdk gradle intellij-idea-community-edition
 
 # ideavim config
-ln -sf /home/$user/Projects/linux_setup/config/intelliJ/ideavimrc /home/$user/.ideavimrc
+ln -sf /home/$user/Projects/linux_setup/intelliJ/ideavimrc /home/$user/.ideavimrc
 
 # python
 pacman -S --quiet --noprogressbar --noconfirm python-pip
