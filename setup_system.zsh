@@ -64,13 +64,8 @@ pacman -Syyu --quiet --noprogressbar --noconfirm
 # zsh
 pacman -S --quiet --noprogressbar --noconfirm zsh zsh-completions
 
-# bat
-pacman -S --quiet --noprogressbar --noconfirm bat
-mkdir -p /home/$user/.config/bat
-ln -sf /home/$user/Projects/linux_setup/bat/config /home/$user/.config/bat/config
-
 # terminal
-pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unzip unrar htop arch-audit android-tools jq exa hyperfine tokei reflector sd bottom
+pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unzip unrar htop arch-audit android-tools jq exa hyperfine tokei reflector sd bat bottom
 
 # xD
 pacman -S --quiet --noprogressbar --noconfirm cmatrix lolcat neofetch sl
@@ -103,6 +98,10 @@ git clone git://github.com/gradle/gradle-completion ~/.oh-my-zsh/plugins/gradle-
 curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 ln -sf /home/$user/Projects/linux_setup/zsh/zshrc /home/$user/.zshrc
 ln -sf /home/$user/Projects/linux_setup/zsh/starship.toml /home/$user/.starship.toml
+
+# bat
+mkdir -p /home/$user/.config/bat
+ln -sf /home/$user/Projects/linux_setup/config/bat/config /home/$user/.config/bat/config
 
 # ranger config
 mkdir -p /home/$user/.config/ranger
@@ -157,6 +156,7 @@ IFS=$(echo -en "\n\b")
 
 aur_packages=(
   'paru-bin'
+  'bottom-bin'
   'cava'
   'tty-clock'
   'ddgr'
