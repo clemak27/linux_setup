@@ -40,7 +40,7 @@ mkdir -p /home/$user/.config/kitty
 ln -sf /home/$user/Projects/linux_setup/kitty/kitty.conf /home/$user/.config/kitty/kitty.conf
 
 # link Xresources
-ln -sf /home/$user/Projects/linux_setup/DarkDev.Xresources /home/$user/.Xresources
+ln -sf /home/$user/Projects/linux_setup/Xresources /home/$user/.Xresources
 
 # spotifyd
 pacman -S --quiet --noprogressbar --noconfirm spotifyd
@@ -62,7 +62,7 @@ aur_packages=(
   'scrcpy'
   'syncthingtray'
   'nerd-fonts-jetbrains-mono'
-  'spotify-tui'
+  'spotify-tui-bin'
 )
 
 declare -r aur_packages
