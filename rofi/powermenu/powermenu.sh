@@ -9,11 +9,11 @@ cpu=$(sh $rofi_path/powermenu/usedcpu)
 memory=$(sh $rofi_path/powermenu/usedram)
 
 # Options
-shutdown=""
-reboot=""
-lock=""
-suspend="⏾"
-logout=""
+shutdown="     Power off"
+  reboot="     Reboot"
+    lock="     Lock Screen"
+ suspend="⏾     Sleep"
+  logout="     Logout"
 
 # Confirmation
 confirm_exit() {
