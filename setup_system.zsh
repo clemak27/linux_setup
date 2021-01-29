@@ -179,8 +179,8 @@ done
 
 # glab
 mkdir /home/$user/.oh-my-zsh/custom/plugins/glab
-echo "compdef _glab glab" > /home/$user/.oh-my-zsh/custom/plugins/glab/glab.plugin.zsh
-glab completion > /home/$user/.oh-my-zsh/custom/plugins/glab/_glab
+echo "compdef _glab glab\ncompdef _glab _glab" > /home/$user/.oh-my-zsh/custom/plugins/glab/glab.plugin.zsh
+glab completion -s zsh > /home/$user/.oh-my-zsh/custom/plugins/glab/_glab
 mkdir -p /home/$user/.config/glab-cli
 ln -sf /home/$user/Projects/linux_setup/glab-cli/aliases.yml /home/$user/.config/glab-cli/aliases.yml
 ln -sf /home/$user/Projects/linux_setup/glab-cli/config.yml /home/$user/.config/glab-cli/config.yml
