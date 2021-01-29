@@ -30,6 +30,11 @@ ln -sf /home/$user/Projects/linux_setup/nvim/coc-settings.json /home/$user/.conf
 mkdir -p /home/$user/.config/kitty
 ln -sf /home/$user/Projects/linux_setup/kitty/kitty.conf /home/$user/.config/kitty/kitty.conf
 
+# glab
+mkdir -p /home/$user/.config/glab-cli
+ln -sf /home/$user/Projects/linux_setup/glab-cli/aliases.yml /home/$user/.config/glab-cli/aliases.yml
+ln -sf /home/$user/Projects/linux_setup/glab-cli/config.yml /home/$user/.config/glab-cli/config.yml
+
 # intelliJ
 ln -sf /home/$user/Projects/linux_setup/intelliJ/ideavimrc /home/$user/.ideavimrc
 
