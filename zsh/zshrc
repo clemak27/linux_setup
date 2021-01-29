@@ -16,6 +16,7 @@ plugins=(
   fzf
   archlinux
   gradle-completion
+  glab
 )
 
 source $ZSH/oh-my-zsh.sh

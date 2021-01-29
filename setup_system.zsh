@@ -177,6 +177,10 @@ do
   cd /linux_setup
 done
 
+# glab zsh completion
+mkdir /home/$user/.oh-my-zsh/custom/plugins/glab
+echo "compdef _glab glab" > /home/$user/.oh-my-zsh/custom/plugins/glab/glab.plugin.zsh
+glab completion > /home/$user/.oh-my-zsh/custom/plugins/glab/_glab
 
 # ------------------------ user ------------------------
 
