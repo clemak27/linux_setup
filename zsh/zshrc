@@ -49,6 +49,7 @@ export LS_COLORS
 alias cat='bat'
 alias cmatrix='cmatrix -C magenta'
 alias cd..="cd .."
+alias clear-scrollback="printf '\33c\e[3J'"
 alias gcf="git for-each-ref --format='%(refname:short)' refs/heads | fzf | xargs git checkout"
 alias gcm='git commit -v -m'
 alias gcmld='git checkout master && git pull && comm -12 <(git branch | sed "s/ *//g") <(git remote prune origin --dry-run | sed "s/^.*origin\///g") | xargs -I{} git branch -D {}'
