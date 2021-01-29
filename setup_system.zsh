@@ -157,6 +157,7 @@ IFS=$(echo -en "\n\b")
 aur_packages=(
   'paru-bin'
   'bottom-bin'
+  'gitlab-glab-bin'
   'cava'
   'tty-clock'
   'ddgr'
@@ -176,6 +177,13 @@ do
   cd /linux_setup
 done
 
+# glab
+mkdir /home/$user/.oh-my-zsh/custom/plugins/glab
+echo "compdef _glab glab" > /home/$user/.oh-my-zsh/custom/plugins/glab/glab.plugin.zsh
+glab completion > /home/$user/.oh-my-zsh/custom/plugins/glab/_glab
+mkdir -p /home/$user/.config/glab-cli
+ln -sf /home/$user/Projects/linux_setup/glab-cli/aliases.yml /home/$user/.config/glab-cli/aliases.yml
+ln -sf /home/$user/Projects/linux_setup/glab-cli/config.yml /home/$user/.config/glab-cli/config.yml
 
 # ------------------------ user ------------------------
 
