@@ -43,7 +43,7 @@ case $chosen in
     loginctl lock-session
     ;;
   $suspend)
-    ans=$(confirm_exit "Suspend" &)
+    ans=$(confirm_exit "Sleep" &)
     if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
       systemctl suspend
     elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
