@@ -5,8 +5,6 @@ rofi_path=$HOME/Projects/linux_setup/rofi
 rofi_command="rofi -theme $rofi_path/powermenu/powermenu.rasi"
 
 uptime=$(uptime -p | sed -e 's/up //g')
-cpu=$(sh $rofi_path/powermenu/usedcpu)
-memory=$(sh $rofi_path/powermenu/usedram)
 
 # Options
 shutdown="     Power off"
