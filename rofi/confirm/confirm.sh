@@ -3,7 +3,7 @@
 rofi_path=$HOME/Projects/linux_setup/rofi
 
 # options to be displayed
-option0="     Confirm"
+option0="     Confirm $1 $2 $3"
 option1="🗙     Cancel"
 
 # options passed into variable
