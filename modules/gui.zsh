@@ -40,12 +40,19 @@ mkdir -p /home/$user/.config/kitty
 ln -sf /home/$user/Projects/linux_setup/kitty/kitty.conf /home/$user/.config/kitty/kitty.conf
 
 # link Xresources
-ln -sf /home/$user/Projects/linux_setup/DarkDev.Xresources /home/$user/.Xresources
+ln -sf /home/$user/Projects/linux_setup/Xresources /home/$user/.Xresources
+
+# spotifyd
+pacman -S --quiet --noprogressbar --noconfirm spotifyd
+mkdir -p /home/$user/.cache/spotifyd
+mkdir -p /home/$user/.config/spotifyd
+ln -sf /home/$user/Projects/linux_setup/spotifyd/spotifyd.conf /home/$user/.config/spotifyd/spotifyd.conf
+
+# spotify-tui
+mkdir -p /home/$user/.config/spotify-tui
+ln -sf /home/$user/Projects/linux_setup/spotify-tui/config.yml /home/$user/.config/spotify-tui/config.yml
 
 # ------------------------ AUR ------------------------
-
-# import spotify gpg key
-curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | gpg --import -
 
 declare -a aur_packages
 SAVEIFS=$IFS
@@ -55,7 +62,7 @@ aur_packages=(
   'scrcpy'
   'syncthingtray'
   'nerd-fonts-jetbrains-mono'
-  'spotify'
+  'spotify-tui-bin'
 )
 
 declare -r aur_packages
@@ -71,19 +78,6 @@ do
   cd /linux_setup
 done
 
-# additional step for spicetify
-
-chmod a+wr /opt/spotify
-chmod a+wr /opt/spotify/Apps -R
-
-# symlink spicetify stuff
-mkdir -p /home/$user/.config/spicetify
-mkdir -p /home/$user/.config/spicetify/Themes/Kustom
-
-ln -sf /home/$user/Projects/linux_setup/spicetify/config.ini /home/$user/.config/spicetify/config.ini
-ln -sf /home/$user/Projects/linux_setup/spicetify/color.ini /home/$user/.config/spicetify/Themes/Kustom/color.ini
-ln -sf /home/$user/Projects/linux_setup/spicetify/user.css /home/$user/.config/spicetify/Themes/Kustom/user.css
-
 # ------------------------ user ------------------------
 
 # user-setup
@@ -91,8 +85,7 @@ declare -a user_commands
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 user_commands=(
-  'export SPICETIFY_INSTALL=~/.spicetify-cli'
-  'curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh'
+  ''
 )
 declare -r user_commands
 IFS=$SAVEIFS

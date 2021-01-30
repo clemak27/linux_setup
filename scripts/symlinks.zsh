@@ -30,6 +30,11 @@ ln -sf /home/$user/Projects/linux_setup/nvim/coc-settings.json /home/$user/.conf
 mkdir -p /home/$user/.config/kitty
 ln -sf /home/$user/Projects/linux_setup/kitty/kitty.conf /home/$user/.config/kitty/kitty.conf
 
+# glab
+mkdir -p /home/$user/.config/glab-cli
+ln -sf /home/$user/Projects/linux_setup/glab-cli/aliases.yml /home/$user/.config/glab-cli/aliases.yml
+ln -sf /home/$user/Projects/linux_setup/glab-cli/config.yml /home/$user/.config/glab-cli/config.yml
+
 # intelliJ
 ln -sf /home/$user/Projects/linux_setup/intelliJ/ideavimrc /home/$user/.ideavimrc
 
@@ -54,12 +59,13 @@ ln -sf /home/$user/Projects/linux_setup/plasma/Kustom.colors /home/$user/.local/
 mkdir -p /home/$user/.config/redshift
 ln -sf /home/$user/Projects/linux_setup/redshift/redshift.conf /home/$user/.config/redshift/redshift.conf
 
-# spicetify
-mkdir -p /home/$user/.config/spicetify
-mkdir -p /home/$user/.config/spicetify/Themes/Kustom
-ln -sf /home/$user/Projects/linux_setup/spicetify/config.ini /home/$user/.config/spicetify/config.ini
-ln -sf /home/$user/Projects/linux_setup/spicetify/color.ini /home/$user/.config/spicetify/Themes/Kustom/color.ini
-ln -sf /home/$user/Projects/linux_setup/spicetify/user.css /home/$user/.config/spicetify/Themes/Kustom/user.css
+# spotifyd
+mkdir -p /home/$user/.config/spotifyd
+ln -sf /home/$user/Projects/linux_setup/spotifyd/spotifyd.conf /home/$user/.config/spotifyd/spotifyd.conf
+
+# spotify-tui
+mkdir -p /home/$user/.config/spotify-tui
+ln -sf /home/$user/Projects/linux_setup/spotify-tui/config.yml /home/$user/.config/spotify-tui/config.yml
 
 # firefox
 #ffProfilePath="/home/$user/.mozilla/firefox/72zvuvdy.default-release"

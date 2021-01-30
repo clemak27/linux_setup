@@ -64,13 +64,8 @@ pacman -Syyu --quiet --noprogressbar --noconfirm
 # zsh
 pacman -S --quiet --noprogressbar --noconfirm zsh zsh-completions
 
-# bat
-pacman -S --quiet --noprogressbar --noconfirm bat
-mkdir -p /home/$user/.config/bat
-ln -sf /home/$user/Projects/linux_setup/bat/config /home/$user/.config/bat/config
-
 # terminal
-pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unzip unrar htop arch-audit android-tools jq exa hyperfine tokei reflector sd bottom
+pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unzip unrar htop arch-audit android-tools jq exa hyperfine tokei reflector sd bat bottom
 
 # xD
 pacman -S --quiet --noprogressbar --noconfirm cmatrix lolcat neofetch sl
@@ -99,10 +94,14 @@ ln -sf /home/$user/Projects/linux_setup/nvim/coc-settings.json /home/$user/.conf
 
 # zsh
 git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
-git clone git://github.com/gradle/gradle-completion ~/.oh-my-zsh/plugins/gradle-completion
+git clone git://github.com/gradle/gradle-completion /home/$user/.oh-my-zsh/custom/plugins/gradle-completion
 curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 ln -sf /home/$user/Projects/linux_setup/zsh/zshrc /home/$user/.zshrc
 ln -sf /home/$user/Projects/linux_setup/zsh/starship.toml /home/$user/.starship.toml
+
+# bat
+mkdir -p /home/$user/.config/bat
+ln -sf /home/$user/Projects/linux_setup/config/bat/config /home/$user/.config/bat/config
 
 # ranger config
 mkdir -p /home/$user/.config/ranger
@@ -157,6 +156,8 @@ IFS=$(echo -en "\n\b")
 
 aur_packages=(
   'paru-bin'
+  'bottom-bin'
+  'gitlab-glab-bin'
   'cava'
   'tty-clock'
   'ddgr'
@@ -176,6 +177,13 @@ do
   cd /linux_setup
 done
 
+# glab
+mkdir /home/$user/.oh-my-zsh/custom/plugins/glab
+echo "compdef _glab glab\ncompdef _glab _glab" > /home/$user/.oh-my-zsh/custom/plugins/glab/glab.plugin.zsh
+glab completion -s zsh > /home/$user/.oh-my-zsh/custom/plugins/glab/_glab
+mkdir -p /home/$user/.config/glab-cli
+ln -sf /home/$user/Projects/linux_setup/glab-cli/aliases.yml /home/$user/.config/glab-cli/aliases.yml
+ln -sf /home/$user/Projects/linux_setup/glab-cli/config.yml /home/$user/.config/glab-cli/config.yml
 
 # ------------------------ user ------------------------
 
