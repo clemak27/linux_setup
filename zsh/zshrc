@@ -17,6 +17,7 @@ plugins=(
   archlinux
   gradle-completion
   glab
+  spt
 )
 
 source $ZSH/oh-my-zsh.sh
