@@ -292,6 +292,7 @@ let g:coc_global_extensions = [
       \ 'coc-java',
       \ 'coc-java-debug',
       \ 'coc-json',
+      \ 'coc-markdownlint',
       \ 'coc-pairs',
       \ 'coc-prettier',
       \ 'coc-python',

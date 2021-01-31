@@ -1,74 +1,81 @@
 #!/bin/zsh
 
-user=$USER
+if [ "$#" -ne 1 ]; then
+  user=$USER
+else
+  user="$1"
+fi
+
+dotfile_dir="/home/$user/Projects/linux_setup"
+user_dir="/home/$user"
 
 # i3
-mkdir -p /home/$user/.config/i3
-ln -sf /home/$user/Projects/linux_setup/i3/config /home/$user/.config/i3/config
+mkdir -p $user_dir/.config/i3
+ln -sf $dotfile_dir/i3/config $user_dir/.config/i3/config
 
 # picom
-mkdir -p /home/$user/.config/picom
-ln -sf /home/$user/Projects/linux_setup/picom/picom.conf /home/$user/.config/picom/picom.conf
+mkdir -p $user_dir/.config/picom
+ln -sf $dotfile_dir/picom/picom.conf $user_dir/.config/picom/picom.conf
 
 # Xresources
-ln -sf /home/$user/Projects/linux_setup/Xresources /home/$user/.Xresources
+ln -sf $dotfile_dir/Xresources $user_dir/.Xresources
 
 # zsh
-ln -sf /home/$user/Projects/linux_setup/zsh/zshrc /home/$user/.zshrc
-ln -sf /home/$user/Projects/linux_setup/zsh/glab.zsh /home/$user/.glab.zsh
-ln -sf /home/$user/Projects/linux_setup/zsh/starship.toml /home/$user/.starship.toml
+ln -sf $dotfile_dir/zsh/zshrc $user_dir/.zshrc
+ln -sf $dotfile_dir/zsh/glab.zsh $user_dir/.glab.zsh
+ln -sf $dotfile_dir/zsh/starship.toml $user_dir/.starship.toml
 
 # bat
-mkdir -p /home/$user/.config/bat
-ln -sf /home/$user/Projects/linux_setup/bat/config /home/$user/.config/bat/config
+mkdir -p $user_dir/.config/bat
+ln -sf $dotfile_dir/bat/config $user_dir/.config/bat/config
 
 # nvim
-mkdir -p /home/$user/.config/nvim
-ln -sf /home/$user/Projects/linux_setup/nvim/init.vim /home/$user/.config/nvim/init.vim
-ln -sf /home/$user/Projects/linux_setup/nvim/coc-settings.json /home/$user/.config/nvim/coc-settings.json
+mkdir -p $user_dir/.config/nvim
+ln -sf $dotfile_dir/nvim/init.vim $user_dir/.config/nvim/init.vim
+ln -sf $dotfile_dir/nvim/coc-settings.json $user_dir/.config/nvim/coc-settings.json
 
 # kitty
-mkdir -p /home/$user/.config/kitty
-ln -sf /home/$user/Projects/linux_setup/kitty/kitty.conf /home/$user/.config/kitty/kitty.conf
+mkdir -p $user_dir/.config/kitty
+ln -sf $dotfile_dir/kitty/kitty.conf $user_dir/.config/kitty/kitty.conf
 
 # glab
-mkdir -p /home/$user/.config/glab-cli
-ln -sf /home/$user/Projects/linux_setup/glab-cli/aliases.yml /home/$user/.config/glab-cli/aliases.yml
-ln -sf /home/$user/Projects/linux_setup/glab-cli/config.yml /home/$user/.config/glab-cli/config.yml
+mkdir -p $user_dir/.config/glab-cli
+ln -sf $dotfile_dir/glab-cli/aliases.yml $user_dir/.config/glab-cli/aliases.yml
+ln -sf $dotfile_dir/glab-cli/config.yml $user_dir/.config/glab-cli/config.yml
 
 # intelliJ
-ln -sf /home/$user/Projects/linux_setup/intelliJ/ideavimrc /home/$user/.ideavimrc
+ln -sf $dotfile_dir/intelliJ/ideavimrc $user_dir/.ideavimrc
 
 # ranger
-mkdir -p /home/$user/.config/ranger
-ln -sf /home/$user/Projects/linux_setup/ranger/ranger.rc /home/$user/.config/ranger/rc.conf
-ln -sf /home/$user/Projects/linux_setup/ranger/ranger.commands /home/$user/.config/ranger/commands.py
+mkdir -p $user_dir/.config/ranger
+ln -sf $dotfile_dir/ranger/ranger.rc $user_dir/.config/ranger/rc.conf
+ln -sf $dotfile_dir/ranger/ranger.commands $user_dir/.config/ranger/commands.py
 
 # todo.txt
-mkdir -p /home/$user/.todo
-ln -sf /home/$user/Projects/linux_setup/todo.sh/todo.cfg /home/$user/.todo/config
+mkdir -p $user_dir/.todo
+ln -sf $dotfile_dir/todo.sh/todo.cfg $user_dir/.todo/config
 
 # mpv
-mkdir -p /home/$user/.config/mpv
-ln -sf /home/$user/Projects/linux_setup/mpv/mpv.conf /home/$user/.config/mpv/mpv.conf
+mkdir -p $user_dir/.config/mpv
+ln -sf $dotfile_dir/mpv/mpv.conf $user_dir/.config/mpv/mpv.conf
 
 # plasma color scheme
-mkdir -p /home/$user/.local/share/color-schemes
-ln -sf /home/$user/Projects/linux_setup/plasma/Kustom.colors /home/$user/.local/share/color-schemes/Kustom.colors
+mkdir -p $user_dir/.local/share/color-schemes
+ln -sf $dotfile_dir/plasma/Kustom.colors $user_dir/.local/share/color-schemes/Kustom.colors
 
 # redshift
-mkdir -p /home/$user/.config/redshift
-ln -sf /home/$user/Projects/linux_setup/redshift/redshift.conf /home/$user/.config/redshift/redshift.conf
+mkdir -p $user_dir/.config/redshift
+ln -sf $dotfile_dir/redshift/redshift.conf $user_dir/.config/redshift/redshift.conf
 
 # spotifyd
-mkdir -p /home/$user/.config/spotifyd
-ln -sf /home/$user/Projects/linux_setup/spotifyd/spotifyd.conf /home/$user/.config/spotifyd/spotifyd.conf
+mkdir -p $user_dir/.config/spotifyd
+ln -sf $dotfile_dir/spotifyd/spotifyd.conf $user_dir/.config/spotifyd/spotifyd.conf
 
 # spotify-tui
-mkdir -p /home/$user/.config/spotify-tui
-ln -sf /home/$user/Projects/linux_setup/spotify-tui/config.yml /home/$user/.config/spotify-tui/config.yml
+mkdir -p $user_dir/.config/spotify-tui
+ln -sf $dotfile_dir/spotify-tui/config.yml $user_dir/.config/spotify-tui/config.yml
 
 # firefox
-#ffProfilePath="/home/$user/.mozilla/firefox/72zvuvdy.default-release"
-#ln -sf /home/$user/Projects/linux_setup/ff/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
-#ln -sf /home/$user/Projects/linux_setup/ff/chrome/userContent.css $ffProfilePath/chrome/userContent.css
+#ffProfilePath="$user_dir/.mozilla/firefox/72zvuvdy.default-release"
+#ln -sf $dotfile_dir/ff/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
+#ln -sf $dotfile_dir/ff/chrome/userContent.css $ffProfilePath/chrome/userContent.css
