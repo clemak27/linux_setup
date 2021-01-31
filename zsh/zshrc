@@ -95,7 +95,7 @@ source /usr/share/fzf/key-bindings.zsh
 # ---------- Completion for kitty ----------
 kitty + complete setup zsh | source /dev/stdin
 
-# ---------- Custom functions ----------
-source ~/.custom.zsh
+# ---------- glab custom functions ----------
+source ~/.glab.zsh
 
 todo due

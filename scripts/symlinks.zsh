@@ -15,8 +15,8 @@ ln -sf /home/$user/Projects/linux_setup/Xresources /home/$user/.Xresources
 
 # zsh
 ln -sf /home/$user/Projects/linux_setup/zsh/zshrc /home/$user/.zshrc
+ln -sf /home/$user/Projects/linux_setup/zsh/glab.zsh /home/$user/.glab.zsh
 ln -sf /home/$user/Projects/linux_setup/zsh/starship.toml /home/$user/.starship.toml
-ln -sf /home/$user/Projects/linux_setup/zsh/custom.zsh /home/$user/.custom.zsh
 
 # bat
 mkdir -p /home/$user/.config/bat
