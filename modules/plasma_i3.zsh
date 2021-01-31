@@ -22,10 +22,6 @@ pacman -S --quiet --noprogressbar --noconfirm ark dolphin ffmpegthumbs filelight
 # dolphin settings
 cp /home/$user/Projects/linux_setup/kde/dolphinrc /home/$user/.config/dolphinrc
 
-# plasma color scheme
-mkdir -p /home/$user/.local/share/color-schemes
-ln -sf /home/$user/Projects/linux_setup/plasma/Kustom.colors /home/$user/.local/share/color-schemes/Kustom.colors
-
 # plasma + i3 session
 cp /home/$user/Projects/linux_setup/plasma/plasma-i3.desktop /usr/share/xsessions
 pacman -Rns --quiet --noprogressbar --noconfirm dunst
@@ -39,16 +35,12 @@ pacman -S --quiet --noprogressbar --noconfirm latte-dock
 
 # i3 gaps
 pacman -S --quiet --noprogressbar --noconfirm i3-gaps
-mkdir -p /home/$user/.config/i3
-ln -sf /home/$user/Projects/linux_setup/i3/config /home/$user/.config/i3/config
 
 # wmctrl
 pacman -S --quiet --noprogressbar --noconfirm wmctrl
 
 # compositor
 pacman -S --quiet --noprogressbar --noconfirm picom
-mkdir -p /home/$user/.config/picom
-ln -sf /home/$user/Projects/linux_setup/picom/picom.conf /home/$user/.config/picom/picom.conf
 
 # feh for wallpaper
 pacman -S --quiet --noprogressbar --noconfirm feh

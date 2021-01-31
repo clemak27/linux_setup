@@ -87,31 +87,13 @@ mkdir -p /home/$user/Projects
 mkdir -p /home/$user/Notes
 cp -R . /home/$user/Projects/linux_setup
 
-# nvim
-mkdir -p /home/$user/.config/nvim
-ln -sf /home/$user/Projects/linux_setup/nvim/init.vim /home/$user/.config/nvim/init.vim
-ln -sf /home/$user/Projects/linux_setup/nvim/coc-settings.json /home/$user/.config/nvim/coc-settings.json
-
 # zsh
 git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
 git clone git://github.com/gradle/gradle-completion /home/$user/.oh-my-zsh/custom/plugins/gradle-completion
 curl -fsSL https://starship.rs/install.sh | bash -s -- -y
-ln -sf /home/$user/Projects/linux_setup/zsh/zshrc /home/$user/.zshrc
-ln -sf /home/$user/Projects/linux_setup/zsh/glab.zsh /home/$user/.glab.zsh
-ln -sf /home/$user/Projects/linux_setup/zsh/starship.toml /home/$user/.starship.toml
-
-# bat
-mkdir -p /home/$user/.config/bat
-ln -sf /home/$user/Projects/linux_setup/config/bat/config /home/$user/.config/bat/config
-
-# ranger config
-mkdir -p /home/$user/.config/ranger
-ln -sf /home/$user/Projects/linux_setup/ranger/ranger.rc /home/$user/.config/ranger/rc.conf
-ln -sf /home/$user/Projects/linux_setup/ranger/ranger.commands /home/$user/.config/ranger/commands.py
 
 # todo.sh config
 mkdir -p /home/$user/.todo
-ln -sf  /home/$user/Projects/linux_setup/todo.sh/todo.cfg  /home/$user/.todo/config
 mkdir -p /home/$user/.todo.actions.d
 cd /home/$user/.todo.actions.d
 git clone https://github.com/rebeccamorgan/due.git
@@ -184,8 +166,6 @@ echo "compdef _glab glab\ncompdef _glab _glab" > /home/$user/.oh-my-zsh/custom/p
 glab completion -s zsh > /home/$user/.oh-my-zsh/custom/plugins/glab/_glab
 sed -i '1 s/^.*$/#compdef glab/' /home/$user/.oh-my-zsh/custom/plugins/glab/_glab
 mkdir -p /home/$user/.config/glab-cli
-ln -sf /home/$user/Projects/linux_setup/glab-cli/aliases.yml /home/$user/.config/glab-cli/aliases.yml
-ln -sf /home/$user/Projects/linux_setup/glab-cli/config.yml /home/$user/.config/glab-cli/config.yml
 
 # ------------------------ user ------------------------
 
@@ -219,6 +199,9 @@ do
   chmod +x "./modules/$module.zsh"
   /bin/zsh -e -c "./modules/$module.zsh"
 done
+
+# symlinks
+sh  /home/$user/Projects/linux_setup/scripts/symlinks.zsh $user
 
 # cleanup
 

@@ -1,6 +1,10 @@
 #!/bin/zsh
 
-user=$USER
+if [ "$#" -ne 1 ]; then
+  user=$USER
+else
+  user="$1"
+fi
 
 # i3
 mkdir -p /home/$user/.config/i3
