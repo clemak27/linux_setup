@@ -25,3 +25,25 @@ function glab_issue_description {
   unset uuid
   unset desc
 }
+
+function glab_mr_description {
+
+  mr_number="$1"
+
+  glab mr view $mr_number &> /dev/null
+  if [ $? -ne 0 ]; then
+    $mr_number=""
+  fi
+
+  uuid=$(uuidgen)
+  glab mr view $mr_number > $uuid.md
+  desc=$(tail $uuid.md --lines=+10)
+  echo $desc > $uuid.md
+  nvim $uuid.md
+  glab mr update $mr_number --description "$(bat -p $uuid.md)"
+
+  rm $uuid.md
+  unset uuid
+  unset desc
+}
+
