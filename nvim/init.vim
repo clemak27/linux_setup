@@ -223,9 +223,10 @@ let g:onedark_color_overrides = {
       \  "grey": {"gui": "#737373", "cterm": "236", "cterm16": "6" },
       \  "white": {"gui": "#97a4b3", "cterm": "145", "cterm16": "7" },
       \  "cyan": {"gui": "#75bfff", "cterm": "145", "cterm16": "5" },
-      \  "menu_grey": {"gui": "#232323", "cterm": "145", "cterm16": "6" },
-      \  "vertsplit": {"gui": "#8a2be2", "cterm": "145", "cterm16": "5" },
-      \  "comment_grey": {"gui": "#737373", "cterm": "145", "cterm16": "6" }
+      \  "menu_grey": {"gui": "#232323", "cterm": "236", "cterm16": "6" },
+      \  "vertsplit": {"gui": "#8a2be2", "cterm": "236", "cterm16": "6" },
+      \  "comment_grey": {"gui": "#737373", "cterm": "236", "cterm16": "6" },
+      \  "visual_grey": {"gui": "#232323", "cterm": "236", "cterm16": "6" }
       \ }
 
 let g:onedark_hide_endofbuffer = 1
