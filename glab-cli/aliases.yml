@@ -1,3 +1,4 @@
 ci: pipeline ci
 co: mr checkout
 mrc: mr create -b master --draft
+csl: ci status --live
