@@ -140,6 +140,7 @@ IFS=$(echo -en "\n\b")
 aur_packages=(
   'paru-bin'
   'bottom-bin'
+  'git-delta-bin'
   'gitlab-glab-bin'
   'cava'
   'tty-clock'
