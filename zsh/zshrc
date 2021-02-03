@@ -10,13 +10,18 @@ eval "$(starship init zsh)"
 # DISABLE_MAGIC_FUNCTIONS=true
 
 plugins=(
+  adb
+  archlinux
+  cargo
+  extract
+  fd
+  fzf
   git
+  glab
+  gradle-completion
   npm
   ripgrep
-  fzf
-  archlinux
-  gradle-completion
-  glab
+  rsync
   spt
 )
 
@@ -67,7 +72,6 @@ alias lsa="exa -hal"
 alias mpvnv='mpv --no-video'
 alias notes="vim -c VimwikiIndex"
 alias q="exit"
-alias rsync-copy='rsync -avzzh --progress '
 alias spm="sudo pacman"
 alias todo='todo.sh'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
