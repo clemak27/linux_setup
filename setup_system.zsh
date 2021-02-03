@@ -141,7 +141,6 @@ aur_packages=(
   'paru-bin'
   'bottom-bin'
   'gitlab-glab-bin'
-  'git-delta-bin'
   'cava'
   'tty-clock'
   'ddgr'
