@@ -140,6 +140,7 @@ IFS=$(echo -en "\n\b")
 aur_packages=(
   'paru-bin'
   'bottom-bin'
+  'git-delta-bin'
   'gitlab-glab-bin'
   'cava'
   'tty-clock'
@@ -181,6 +182,7 @@ user_commands=(
   'git config --global core.autocrlf input'
   'git config --global pull.rebase false'
   'git config --global credential.helper cache --timeout=86400'
+  'git config --global include.path "~/.delta.config"'
 )
 
 declare -r user_commands

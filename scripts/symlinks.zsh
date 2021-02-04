@@ -43,6 +43,9 @@ mkdir -p $user_dir/.config/glab-cli
 ln -sf $dotfile_dir/glab-cli/aliases.yml $user_dir/.config/glab-cli/aliases.yml
 ln -sf $dotfile_dir/glab-cli/config.yml $user_dir/.config/glab-cli/config.yml
 
+# delta
+ln -sf $dotfile_dir/delta/delta.config $user_dir/.delta.config
+
 # intelliJ
 ln -sf $dotfile_dir/intelliJ/ideavimrc $user_dir/.ideavimrc
 
