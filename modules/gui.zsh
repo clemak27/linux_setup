@@ -18,15 +18,12 @@ pacman -S --quiet --noprogressbar --noconfirm noto-fonts noto-fonts-cjk noto-fon
 
 # default programs
 pacman -S --quiet --noprogressbar --noconfirm firefox mpv keepassxc syncthing
-ln -sf /home/$user/Projects/linux_setup/mpv/mpv.conf  /home/$user/.config/mpv/mpv.conf
 
 # messaging
 pacman -S --quiet --noprogressbar --noconfirm signal-desktop
 
 # redshift
 pacman -S --quiet --noprogressbar --noconfirm redshift
-mkdir -p /home/$user/.config/redshift
-ln -sf /home/$user/Projects/linux_setup/redshift/redshift.conf /home/$user/.config/redshift/redshift.conf
 
 # videos
 pacman -S --quiet --noprogressbar --noconfirm obs-studio kdenlive
@@ -36,21 +33,10 @@ pacman -S --quiet --noprogressbar --noconfirm rofi rofi-calc dmenu
 
 # kitty
 pacman -S --quiet --noprogressbar --noconfirm kitty
-mkdir -p /home/$user/.config/kitty
-ln -sf /home/$user/Projects/linux_setup/kitty/kitty.conf /home/$user/.config/kitty/kitty.conf
-
-# link Xresources
-ln -sf /home/$user/Projects/linux_setup/Xresources /home/$user/.Xresources
 
 # spotifyd
 pacman -S --quiet --noprogressbar --noconfirm spotifyd
 mkdir -p /home/$user/.cache/spotifyd
-mkdir -p /home/$user/.config/spotifyd
-ln -sf /home/$user/Projects/linux_setup/spotifyd/spotifyd.conf /home/$user/.config/spotifyd/spotifyd.conf
-
-# spotify-tui
-mkdir -p /home/$user/.config/spotify-tui
-ln -sf /home/$user/Projects/linux_setup/spotify-tui/config.yml /home/$user/.config/spotify-tui/config.yml
 
 # ------------------------ AUR ------------------------
 
@@ -77,6 +63,11 @@ do
   sudo -u nobody makepkg -sri --noconfirm
   cd /linux_setup
 done
+
+# spotify tui autocompletions
+mkdir /home/$user/.oh-my-zsh/custom/plugins/spt
+echo "compdef _spt spt" > /home/$user/.oh-my-zsh/custom/plugins/spt/spt.plugin.zsh
+spt --completions zsh > /home/$user/.oh-my-zsh/custom/plugins/spt/_spt
 
 # ------------------------ user ------------------------
 

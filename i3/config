@@ -52,7 +52,7 @@ for_window [class="Steam"] floating enable; border none
 for_window [class="KeePassXC"] floating enable; border none
 
 # set wallpaper
-exec --no-startup-id feh --bg-scale ~/Projects/linux_setup/wallpaper.jpg
+exec --no-startup-id feh --bg-scale ~/Projects/linux_setup/wallpaper.png
 
 # window borders
 new_float normal
