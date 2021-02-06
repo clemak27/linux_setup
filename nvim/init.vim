@@ -220,12 +220,12 @@ let g:onedark_color_overrides = {
       \  "yellow": {"gui": "#fff89e", "cterm": "180", "cterm16": "3" },
       \  "blue": {"gui": "#75bfff", "cterm": "39", "cterm16": "4" },
       \  "purple": {"gui": "#b98eff", "cterm": "170", "cterm16": "5" },
-      \  "grey": {"gui": "#737373", "cterm": "236", "cterm16": "6" },
+      \  "grey": {"gui": "#555555", "cterm": "236", "cterm16": "6" },
       \  "white": {"gui": "#97a4b3", "cterm": "145", "cterm16": "7" },
       \  "cyan": {"gui": "#75bfff", "cterm": "145", "cterm16": "5" },
       \  "menu_grey": {"gui": "#232323", "cterm": "236", "cterm16": "6" },
       \  "vertsplit": {"gui": "#8a2be2", "cterm": "236", "cterm16": "6" },
-      \  "comment_grey": {"gui": "#737373", "cterm": "236", "cterm16": "6" },
+      \  "comment_grey": {"gui": "#555555", "cterm": "236", "cterm16": "6" },
       \  "visual_grey": {"gui": "#232323", "cterm": "236", "cterm16": "6" }
       \ }
 
