@@ -228,7 +228,9 @@ let g:onedark_color_overrides = {
       \  "menu_grey": {"gui": "#232323", "cterm": "236", "cterm16": "6" },
       \  "vertsplit": {"gui": "#8a2be2", "cterm": "236", "cterm16": "6" },
       \  "comment_grey": {"gui": "#555555", "cterm": "236", "cterm16": "6" },
-      \  "visual_grey": {"gui": "#232323", "cterm": "236", "cterm16": "6" }
+      \  "visual_grey": {"gui": "#232323", "cterm": "236", "cterm16": "6" },
+      \  "dark_red": {"gui": "#ff7de9", "cterm": "204", "cterm16": "1" },
+      \  "dark_yellow": {"gui": "#D19A66", "cterm": "180", "cterm16": "3" }
       \ }
 
 let g:onedark_hide_endofbuffer = 1
