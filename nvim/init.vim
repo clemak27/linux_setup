@@ -21,6 +21,8 @@ Plug 'joshdick/onedark.vim' " atom one dark theme
 Plug 'itchyny/lightline.vim' " nice statusline
 Plug 'mengelbrecht/lightline-bufferline' " show buffer in tabline
 
+Plug 'sheerun/vim-polyglot' " syntax highlighting for many languages
+
 Plug 'kana/vim-textobj-user' " custom textobjects
 Plug 'kana/vim-textobj-entire' " whole buffer as textobject
 Plug 'sgur/vim-textobj-parameter' " arguments as textobject
@@ -35,8 +37,6 @@ Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " code-completion
 Plug 'antoinemadec/coc-fzf' " fzf coc integration
-
-Plug 'puremourning/vimspector' " vim debugging
 
 call plug#end()
 
@@ -226,7 +226,9 @@ let g:onedark_color_overrides = {
       \  "menu_grey": {"gui": "#232323", "cterm": "236", "cterm16": "6" },
       \  "vertsplit": {"gui": "#8a2be2", "cterm": "236", "cterm16": "6" },
       \  "comment_grey": {"gui": "#555555", "cterm": "236", "cterm16": "6" },
-      \  "visual_grey": {"gui": "#232323", "cterm": "236", "cterm16": "6" }
+      \  "visual_grey": {"gui": "#232323", "cterm": "236", "cterm16": "6" },
+      \  "dark_red": {"gui": "#ff7de9", "cterm": "204", "cterm16": "1" },
+      \  "dark_yellow": {"gui": "#D19A66", "cterm": "180", "cterm16": "3" }
       \ }
 
 let g:onedark_hide_endofbuffer = 1
@@ -295,7 +297,6 @@ let g:coc_global_extensions = [
       \ 'coc-highlight',
       \ 'coc-html',
       \ 'coc-java',
-      \ 'coc-java-debug',
       \ 'coc-json',
       \ 'coc-markdownlint',
       \ 'coc-pairs',
@@ -311,12 +312,13 @@ let g:coc_global_extensions = [
 
 " ------------------------------------------------- coc-keybindings  --------------------------------------------
 
-" don't give |ins-completion-menu| messages.
+" Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
 " always show signcolumns
 set signcolumn=yes
 
+" Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -328,10 +330,14 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -348,7 +354,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight symbol under cursor on CursorHold
+" Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Use `:Format` to format current buffer
@@ -356,6 +362,16 @@ command! -nargs=0 Format :call CocAction('format')
 
 " Use `:Fold` to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
 
 " Using Coc(Fzf)List
 " Lists
@@ -368,33 +384,3 @@ map <leader>c  :<C-u>CocFzfList commands<CR>
 map <leader>d  :<C-u>CocFzfList diagnostics --current-buf<CR>
 " Search workspace symbols
 map <leader>s  :<C-u>CocFzfList symbols<CR>
-
-" ------------------------------------------------- vimspector --------------------------------------------------
-
-let g:vimspector_enable_mappings = 'HUMAN'
-let g:vimspector_install_gadgets = [ 'vscode-java-debug' ]
-
-" default HUMAN mappings
-"
-" | Key          | Function                                                  | API                                                          |
-" | ---          | ---                                                       | ---                                                          |
-" | `F5`         | When debugging, continue. Otherwise start debugging.      | `vimspector#Continue()`                                      |
-" | `F3`         | Stop debugging.                                           | `vimspector#Stop()`                                          |
-" | `F4`         | Restart debugging with the same configuration.            | `vimspector#Restart()`                                       |
-" | `F6`         | Pause debugee.                                            | `vimspector#Pause()`                                         |
-" | `F9`         | Toggle line breakpoint on the current line.               | `vimspector#ToggleBreakpoint()`                              |
-" | `<leader>F9` | Toggle conditional line breakpoint on the current line.   | `vimspector#ToggleBreakpoint( { trigger expr, hit count expr } )` |
-" | `F8`         | Add a function breakpoint for the expression under cursor | `vimspector#AddFunctionBreakpoint( '<cexpr>' )`              |
-" | `<leader>F8` | Run to Cursor                                             | `vimspector#RunToCursor()`                                   |
-" | `F10`        | Step Over                                                 | `vimspector#StepOver()`                                      |
-" | `F11`        | Step Into                                                 | `vimspector#StepInto()`                                      |
-" | `F12`        | Step out of current function scope                        | `vimspector#StepOut()`                                       |
-
-nnoremap <F2> :<C-u>CocCommand java.debug.vimspector.start<CR>
-nmap <F7> :<C-u>VimspectorReset<CR>
-
-" run with
-" ./gradlew --info --rerun-tasks test --tests=TestApplicationTests.prints
-
-" debug with
-" ./gradlew --info --rerun-tasks test --debug-jvm --tests=TestApplicationTests.prints
