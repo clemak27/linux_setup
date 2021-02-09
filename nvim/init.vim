@@ -21,6 +21,8 @@ Plug 'joshdick/onedark.vim' " atom one dark theme
 Plug 'itchyny/lightline.vim' " nice statusline
 Plug 'mengelbrecht/lightline-bufferline' " show buffer in tabline
 
+Plug 'sheerun/vim-polyglot' " syntax highlighting for many languages
+
 Plug 'kana/vim-textobj-user' " custom textobjects
 Plug 'kana/vim-textobj-entire' " whole buffer as textobject
 Plug 'sgur/vim-textobj-parameter' " arguments as textobject
