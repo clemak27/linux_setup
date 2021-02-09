@@ -299,7 +299,6 @@ let g:coc_global_extensions = [
       \ 'coc-highlight',
       \ 'coc-html',
       \ 'coc-java',
-      \ 'coc-java-debug',
       \ 'coc-json',
       \ 'coc-markdownlint',
       \ 'coc-pairs',
@@ -391,7 +390,7 @@ map <leader>s  :<C-u>CocFzfList symbols<CR>
 " ------------------------------------------------- vimspector --------------------------------------------------
 
 let g:vimspector_enable_mappings = 'HUMAN'
-let g:vimspector_install_gadgets = [ 'vscode-java-debug' ]
+let g:vimspector_install_gadgets = [ 'CodeLLDB', 'vscode-node-debug2' ]
 
 " default HUMAN mappings
 "
@@ -409,11 +408,4 @@ let g:vimspector_install_gadgets = [ 'vscode-java-debug' ]
 " | `F11`        | Step Into                                                 | `vimspector#StepInto()`                                      |
 " | `F12`        | Step out of current function scope                        | `vimspector#StepOut()`                                       |
 
-nnoremap <F2> :<C-u>CocCommand java.debug.vimspector.start<CR>
 nmap <F7> :<C-u>VimspectorReset<CR>
-
-" run with
-" ./gradlew --info --rerun-tasks test --tests=TestApplicationTests.prints
-
-" debug with
-" ./gradlew --info --rerun-tasks test --debug-jvm --tests=TestApplicationTests.prints
