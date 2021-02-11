@@ -6,7 +6,7 @@ function glab_issue_description {
     return 1
   fi
 
-  issue_number="$1"
+  local issue_number="$1"
 
   glab issue view $issue_number &> /dev/null
   if [ $? -ne 0 ]; then
@@ -28,7 +28,7 @@ function glab_issue_description {
 
 function glab_mr_description {
 
-  mr_number="$1"
+  local mr_number="$1"
 
   glab mr view $mr_number &> /dev/null
   if [ $? -ne 0 ]; then
