@@ -161,13 +161,6 @@ do
   cd /linux_setup
 done
 
-# glab
-mkdir /home/$user/.oh-my-zsh/custom/plugins/glab
-echo "compdef _glab glab\ncompdef _glab _glab" > /home/$user/.oh-my-zsh/custom/plugins/glab/glab.plugin.zsh
-glab completion -s zsh > /home/$user/.oh-my-zsh/custom/plugins/glab/_glab
-sed -i '1 s/^.*$/#compdef glab/' /home/$user/.oh-my-zsh/custom/plugins/glab/_glab
-mkdir -p /home/$user/.config/glab-cli
-
 # ------------------------ user ------------------------
 
 declare -a user_commands

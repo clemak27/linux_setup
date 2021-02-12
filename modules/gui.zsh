@@ -64,11 +64,6 @@ do
   cd /linux_setup
 done
 
-# spotify tui autocompletions
-mkdir /home/$user/.oh-my-zsh/custom/plugins/spt
-echo "compdef _spt spt" > /home/$user/.oh-my-zsh/custom/plugins/spt/spt.plugin.zsh
-spt --completions zsh > /home/$user/.oh-my-zsh/custom/plugins/spt/_spt
-
 # ------------------------ user ------------------------
 
 # user-setup
