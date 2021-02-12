@@ -22,6 +22,9 @@ pacman -S --quiet --noprogressbar --noconfirm ark dolphin ffmpegthumbs filelight
 # dolphin settings
 cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc
 
+# deactivate splash screen
+cp /home/$user/Projects/linux_setup/plasma/ksplashrc /home/$user/.config/ksplashrc
+
 # plasma + i3 session
 cp /home/$user/Projects/linux_setup/plasma/plasma-i3.desktop /usr/share/xsessions
 pacman -Rns --quiet --noprogressbar --noconfirm dunst
