@@ -64,22 +64,6 @@ do
   cd /linux_setup
 done
 
-# ------------------------ user ------------------------
-
-# user-setup
-declare -a user_commands
-SAVEIFS=$IFS
-IFS=$(echo -en "\n\b")
-user_commands=(
-  ''
-)
-declare -r user_commands
-IFS=$SAVEIFS
-
-for task in "${user_commands[@]}"
-do
-  su - $user -c $task
-done
+# ------------------------ user -------------------------
 
 # ------------------------ notes ------------------------
-
