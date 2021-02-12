@@ -20,7 +20,7 @@ pacman -S --quiet --noprogressbar --noconfirm bluedevil breeze breeze-gtk kactiv
 pacman -S --quiet --noprogressbar --noconfirm ark dolphin ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks khelpcenter kio-extras ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle kdeconnect partitionmanager krita
 
 # dolphin settings
-cp /home/$user/Projects/linux_setup/kde/dolphinrc /home/$user/.config/dolphinrc
+cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc
 
 # plasma + i3 session
 cp /home/$user/Projects/linux_setup/plasma/plasma-i3.desktop /usr/share/xsessions
