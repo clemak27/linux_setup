@@ -31,10 +31,10 @@ cp  /home/$user/Projects/linux_setup/plasma/powermenu.sh.desktop /home/$user/.lo
 
 # plasma + i3 session
 cp /home/$user/Projects/linux_setup/plasma/plasma-i3.desktop /usr/share/xsessions
-pacman -Rns --quiet --noprogressbar --noconfirm dunst
+pacman -Rns --noprogressbar --noconfirm dunst
 
 # plasma-specifics
-pacman -S --quiet --noprogressbar --noconfirm plasma-browser-integration sshfs unrar
+pacman -S --quiet --noprogressbar --noconfirm sshfs unrar
 systemctl enable sddm
 
 # latte-dock
