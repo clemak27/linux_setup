@@ -1,0 +1,5 @@
+[Desktop Entry]
+Exec=/home/cle/Projects/linux_setup/rofi/powermenu/powermenu.sh
+Name=Power menu
+NoDisplay=false
+Type=Application

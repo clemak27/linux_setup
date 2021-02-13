@@ -25,6 +25,10 @@ cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphin
 # deactivate splash screen
 cp /home/$user/Projects/linux_setup/plasma/ksplashrc /home/$user/.config/ksplashrc
 
+# copy powermenu.sh
+mkdir -p  /home/$user/.local/share/applications
+cp  /home/$user/Projects/linux_setup/plasma/powermenu.sh.desktop /home/$user/.local/share/applications
+
 # plasma + i3 session
 cp /home/$user/Projects/linux_setup/plasma/plasma-i3.desktop /usr/share/xsessions
 pacman -Rns --quiet --noprogressbar --noconfirm dunst
