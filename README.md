@@ -8,8 +8,9 @@ I use arch btw. [![pipeline status](https://gitlab.com/clemak27/linux_setup/badg
 - `systemctl --user enable openrgb.service`
 - `systemctl --user enable syncthing.service`
 - `systemctl --user start syncthing.service`
-- add spotify-password to kwallet
 - `systemctl --user enable spotifyd.service`
 - `systemctl --user start spotifyd.service`
-- event calendar gets installed but is missing?
 - `systemctl --user enable redshift.service`
+- event calendar gets installed but is missing?
+- need to install pipewire manually (since it replaces pulseaudio)
+  - `paru -S pipewire pipewire-pulse pipewire-jack pipewire-alsa
