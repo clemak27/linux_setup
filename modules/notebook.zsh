@@ -21,7 +21,6 @@ pacman -S --quiet --noprogressbar --noconfirm tlp
 systemctl enable tlp.service
 
 # enable bluetooth
-pacman -S --quiet --noprogressbar --noconfirm pulseaudio-bluetooth
 systemctl enable bluetooth.service
 
 # nvidia optimus
