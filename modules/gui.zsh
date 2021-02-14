@@ -16,6 +16,9 @@ fi
 # fonts
 pacman -S --quiet --noprogressbar --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-liberation
 
+# pipewire
+pacman -S --quiet --noprogressbar --noconfirm pipewire pipewire-pulse pipewire-jack pipewire-alsa
+
 # default programs
 pacman -S --quiet --noprogressbar --noconfirm firefox mpv keepassxc syncthing
 
