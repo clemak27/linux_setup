@@ -103,4 +103,7 @@ kitty + complete setup zsh | source /dev/stdin
 # ---------- glab custom functions ----------
 source ~/.glab.zsh
 
+# ---------- curl custom functions ----------
+source ~/.curl.zsh
+
 todo due

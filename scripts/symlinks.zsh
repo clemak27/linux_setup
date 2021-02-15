@@ -23,6 +23,7 @@ ln -sf $dotfile_dir/Xresources $user_dir/.Xresources
 # zsh
 ln -sf $dotfile_dir/zsh/zshrc $user_dir/.zshrc
 ln -sf $dotfile_dir/zsh/glab.zsh $user_dir/.glab.zsh
+ln -sf $dotfile_dir/zsh/curl.zsh $user_dir/.curl.zsh
 ln -sf $dotfile_dir/zsh/starship.toml $user_dir/.starship.toml
 
 # bat
