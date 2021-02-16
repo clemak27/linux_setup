@@ -127,7 +127,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
+" Turn backup off
 set nobackup
 set nowb
 set noswapfile
@@ -135,7 +135,7 @@ set noswapfile
 " Use spaces instead of tabs
 set expandtab
 
-" Be smart when using tabs ;)
+" Be smart when using tabs
 set smarttab
 
 " 1 tab == 2 spaces
@@ -289,11 +289,14 @@ let g:vimwiki_global_ext = 0
 
 " ------------------------------------------------- fzf-preview-bindings ----------------------------------------
 
-map <leader>p :<C-u>FzfPreviewProjectFilesRpc<CR>
+let g:fzf_preview_disable_mru = 1
+
+map <leader>b :<C-u>FzfPreviewBuffersRpc<CR>
 map <leader>f :<C-u>FzfPreviewLinesRpc<CR>
 map <leader>g :<C-u>FzfPreviewBufferLinesRpc<CR>
 map <leader>i :<C-u>FzfPreviewGitActionsRpc<CR>
-map <leader>b :<C-u>FzfPreviewBuffersRpc<CR>
+map <leader>p :<C-u>FzfPreviewProjectFilesRpc<CR>
+map <leader>r :<C-u>FzfPreviewCommandPaletteRpc<CR>
 
 " ------------------------------------------------- fzf-preview-window ------------------------------------------
 
