@@ -65,7 +65,7 @@ pacman -Syyu --quiet --noprogressbar --noconfirm
 pacman -S --quiet --noprogressbar --noconfirm zsh zsh-completions
 
 # terminal
-pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unzip unrar htop arch-audit android-tools jq exa hyperfine tokei reflector sd bat bottom ncdu
+pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger unzip unrar htop arch-audit android-tools jq exa hyperfine tokei reflector sd bat ncdu
 
 # xD
 pacman -S --quiet --noprogressbar --noconfirm cmatrix lolcat neofetch sl
@@ -160,13 +160,6 @@ do
   sudo -u nobody makepkg -sri --noconfirm
   cd /linux_setup
 done
-
-# glab
-mkdir /home/$user/.oh-my-zsh/custom/plugins/glab
-echo "compdef _glab glab\ncompdef _glab _glab" > /home/$user/.oh-my-zsh/custom/plugins/glab/glab.plugin.zsh
-glab completion -s zsh > /home/$user/.oh-my-zsh/custom/plugins/glab/_glab
-sed -i '1 s/^.*$/#compdef glab/' /home/$user/.oh-my-zsh/custom/plugins/glab/_glab
-mkdir -p /home/$user/.config/glab-cli
 
 # ------------------------ user ------------------------
 

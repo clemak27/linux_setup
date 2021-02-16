@@ -18,6 +18,14 @@ for file in listdir(modulePath):
                 for package in packagesInCommand:
                     packages.append(package)
 
+if isfile('./setup_system.zsh'):
+    for line in open('./setup_system.zsh'):
+        if 'pacman -S --quiet --noprogressbar --noconfirm' in line and not line.startswith("  '"):
+            packagesInLine = line.replace('pacman -S --quiet --noprogressbar --noconfirm ', '').replace('\n','')
+            packagesInCommand = packagesInLine.split(' ')
+            for package in packagesInCommand:
+                packages.append(package)
+
 print("Checking availability of", len(packages)-len(ignored), "packages.")
 
 for package in packages:

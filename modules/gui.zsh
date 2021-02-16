@@ -64,27 +64,6 @@ do
   cd /linux_setup
 done
 
-# spotify tui autocompletions
-mkdir /home/$user/.oh-my-zsh/custom/plugins/spt
-echo "compdef _spt spt" > /home/$user/.oh-my-zsh/custom/plugins/spt/spt.plugin.zsh
-spt --completions zsh > /home/$user/.oh-my-zsh/custom/plugins/spt/_spt
-
-# ------------------------ user ------------------------
-
-# user-setup
-declare -a user_commands
-SAVEIFS=$IFS
-IFS=$(echo -en "\n\b")
-user_commands=(
-  ''
-)
-declare -r user_commands
-IFS=$SAVEIFS
-
-for task in "${user_commands[@]}"
-do
-  su - $user -c $task
-done
+# ------------------------ user -------------------------
 
 # ------------------------ notes ------------------------
-

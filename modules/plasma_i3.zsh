@@ -20,14 +20,21 @@ pacman -S --quiet --noprogressbar --noconfirm bluedevil breeze breeze-gtk kactiv
 pacman -S --quiet --noprogressbar --noconfirm ark dolphin ffmpegthumbs filelight gwenview kaccounts-integration kaccounts-providers kdegraphics-thumbnailers kdenetwork-filesharing kdialog keditbookmarks khelpcenter kio-extras ksystemlog kwalletmanager okular print-manager signon-kwallet-extension spectacle kdeconnect partitionmanager krita
 
 # dolphin settings
-cp /home/$user/Projects/linux_setup/kde/dolphinrc /home/$user/.config/dolphinrc
+cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc
+
+# deactivate splash screen
+cp /home/$user/Projects/linux_setup/plasma/ksplashrc /home/$user/.config/ksplashrc
+
+# copy powermenu.sh
+mkdir -p  /home/$user/.local/share/applications
+cp  /home/$user/Projects/linux_setup/plasma/powermenu.sh.desktop /home/$user/.local/share/applications
 
 # plasma + i3 session
 cp /home/$user/Projects/linux_setup/plasma/plasma-i3.desktop /usr/share/xsessions
-pacman -Rns --quiet --noprogressbar --noconfirm dunst
+pacman -Rns --noprogressbar --noconfirm dunst
 
 # plasma-specifics
-pacman -S --quiet --noprogressbar --noconfirm plasma-browser-integration sshfs unrar
+pacman -S --quiet --noprogressbar --noconfirm sshfs unrar
 systemctl enable sddm
 
 # latte-dock
@@ -69,21 +76,6 @@ done
 
 # ------------------------ user ------------------------
 
-declare -a user_commands
-SAVEIFS=$IFS
-IFS=$(echo -en "\n\b")
-user_commands=(
-  'plasma5-applets-eventcalendar'
-  'plasma5-applets-virtual-desktop-bar-git'
-)
-declare -r user_commands
-IFS=$SAVEIFS
-
-for task in "${user_commands[@]}"
-do
-  su - $user -c $task
-done
-
 # ------------------------ notes ------------------------
 
 # logout: confirm, end current session, start with manually saved
@@ -99,9 +91,6 @@ done
 
 # intellij: material theme
 # kde theme:
-# colors -> breeze black custom
+# colors -> kustom
 # plasma theme breeze
 # window decorations breeze
-
-# add .../rofi/combo.sh as custom shortcut
-# use alt+space
