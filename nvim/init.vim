@@ -15,11 +15,13 @@ Plug 'tpope/vim-commentary' " comment with gc
 Plug 'tpope/vim-fugitive' " git diff etc inside vim
 Plug 'tpope/vim-repeat' " working repeat for surround
 Plug 'tpope/vim-surround' " brackets around words ysiw(
+Plug 'tpope/vim-vinegar' " netrw replacement
 Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
+Plug 'airblade/vim-gitgutter' " git info in signcolumn
 
 Plug 'joshdick/onedark.vim' " atom one dark theme
 Plug 'itchyny/lightline.vim' " nice statusline
-Plug 'mengelbrecht/lightline-bufferline' " show buffer in tabline
+Plug 'mengelbrecht/lightline-bufferline' " show buffers in tabline
 
 Plug 'sheerun/vim-polyglot' " syntax highlighting for many languages
 
@@ -30,6 +32,7 @@ Plug 'sgur/vim-textobj-parameter' " arguments as textobject
 Plug 'vimwiki/vimwiki' " vim wiki
 
 Plug 'lervag/vimtex' " latex support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'junegunn/fzf' " fuzzy file search
 Plug 'junegunn/fzf.vim' " fuzzy file search
@@ -50,7 +53,6 @@ set number
 
 " use system clipboard
 set clipboard+=unnamedplus
-
 
 " Sets how many lines of history VIM has to remember
 set history=500
@@ -125,7 +127,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
+" Turn backup off
 set nobackup
 set nowb
 set noswapfile
@@ -133,7 +135,7 @@ set noswapfile
 " Use spaces instead of tabs
 set expandtab
 
-" Be smart when using tabs ;)
+" Be smart when using tabs
 set smarttab
 
 " 1 tab == 2 spaces
@@ -144,7 +146,7 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
-" est mapleader to space
+" set mapleader to space
 let mapleader = ' '
 
 " Smart way to move between windows
@@ -183,7 +185,7 @@ map ß $
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 
-" Delete trailing white space on save, useful for some filetypes ;)
+" Delete trailing white space on save, useful for some filetypes
 fun! CleanExtraSpaces()
   let save_cursor = getpos(".")
   let old_query = getreg('/')
@@ -200,6 +202,14 @@ endif
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 autocmd FileChangedShellPost *
       \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+" ------------------------------------------------- gitgutter ---------------------------------------------------
+
+let g:gitgutter_preview_win_floating = 1
+let g:gitgutter_use_location_list = 1
+
+map <leader>hm <Plug>(GitGutterNextHunk)
+map <leader>hn <Plug>(GitGutterPrevHunk)
 
 " ------------------------------------------------- theme -------------------------------------------------------
 
@@ -279,11 +289,14 @@ let g:vimwiki_global_ext = 0
 
 " ------------------------------------------------- fzf-preview-bindings ----------------------------------------
 
-map <leader>p :<C-u>FzfPreviewProjectFilesRpc<CR>
+let g:fzf_preview_disable_mru = 1
+
+map <leader>b :<C-u>FzfPreviewBuffersRpc<CR>
 map <leader>f :<C-u>FzfPreviewLinesRpc<CR>
 map <leader>g :<C-u>FzfPreviewBufferLinesRpc<CR>
 map <leader>i :<C-u>FzfPreviewGitActionsRpc<CR>
-map <leader>b :<C-u>FzfPreviewBuffersRpc<CR>
+map <leader>p :<C-u>FzfPreviewProjectFilesRpc<CR>
+map <leader>r :<C-u>FzfPreviewCommandPaletteRpc<CR>
 
 " ------------------------------------------------- fzf-preview-window ------------------------------------------
 
@@ -293,7 +306,6 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 let g:coc_global_extensions = [
       \ 'coc-css',
-      \ 'coc-git',
       \ 'coc-highlight',
       \ 'coc-html',
       \ 'coc-java',
