@@ -16,4 +16,5 @@ I use arch btw. [![pipeline status](https://gitlab.com/clemak27/linux_setup/badg
   - `paru -S plasma5-applets-eventcalendar`
   - `paru -S plasma5-applets-virtual-desktop-bar-git`
 - pipewire (since it replaces pulseaudio -> leads to promt `pipewire-pulse and pulseaudio are in conflict. Remove pulseaudio? [y/N]`)
-  - `paru -S pipewire pipewire-pulse pipewire-jack pipewire-alsa
+  - `paru -S pipewire pipewire-pulse pipewire-jack pipewire-alsa`
+- zsh custom plugins
