@@ -16,10 +16,11 @@ Plug 'tpope/vim-fugitive' " git diff etc inside vim
 Plug 'tpope/vim-repeat' " working repeat for surround
 Plug 'tpope/vim-surround' " brackets around words ysiw(
 Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
+Plug 'airblade/vim-gitgutter' " git info in signcolumn
 
 Plug 'joshdick/onedark.vim' " atom one dark theme
 Plug 'itchyny/lightline.vim' " nice statusline
-Plug 'mengelbrecht/lightline-bufferline' " show buffer in tabline
+Plug 'mengelbrecht/lightline-bufferline' " show buffers in tabline
 
 Plug 'sheerun/vim-polyglot' " syntax highlighting for many languages
 
@@ -202,6 +203,14 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 autocmd FileChangedShellPost *
       \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
+" ------------------------------------------------- gitgutter ---------------------------------------------------
+
+let g:gitgutter_preview_win_floating = 1
+let g:gitgutter_use_location_list = 1
+
+map <leader>hm <Plug>(GitGutterNextHunk)
+map <leader>hn <Plug>(GitGutterPrevHunk)
+
 " ------------------------------------------------- theme -------------------------------------------------------
 
 if (has("nvim"))
@@ -294,7 +303,6 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 let g:coc_global_extensions = [
       \ 'coc-css',
-      \ 'coc-git',
       \ 'coc-highlight',
       \ 'coc-html',
       \ 'coc-java',
