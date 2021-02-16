@@ -54,7 +54,6 @@ set number
 " use system clipboard
 set clipboard+=unnamedplus
 
-
 " Sets how many lines of history VIM has to remember
 set history=500
 
@@ -147,7 +146,7 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
-" est mapleader to space
+" set mapleader to space
 let mapleader = ' '
 
 " Smart way to move between windows
@@ -186,7 +185,7 @@ map ß $
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 
-" Delete trailing white space on save, useful for some filetypes ;)
+" Delete trailing white space on save, useful for some filetypes
 fun! CleanExtraSpaces()
   let save_cursor = getpos(".")
   let old_query = getreg('/')
