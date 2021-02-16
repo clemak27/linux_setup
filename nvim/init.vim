@@ -30,6 +30,7 @@ Plug 'sgur/vim-textobj-parameter' " arguments as textobject
 Plug 'vimwiki/vimwiki' " vim wiki
 
 Plug 'lervag/vimtex' " latex support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'junegunn/fzf' " fuzzy file search
 Plug 'junegunn/fzf.vim' " fuzzy file search
