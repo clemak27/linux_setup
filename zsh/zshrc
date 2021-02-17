@@ -18,6 +18,7 @@ plugins=(
   fzf
   git
   glab
+  golang
   gradle-completion
   npm
   ripgrep
