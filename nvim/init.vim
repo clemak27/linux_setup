@@ -31,6 +31,7 @@ Plug 'sgur/vim-textobj-parameter' " arguments as textobject
 
 Plug 'vimwiki/vimwiki' " vim wiki
 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " go
 Plug 'lervag/vimtex' " latex support
 
 Plug 'junegunn/fzf' " fuzzy file search
@@ -285,6 +286,21 @@ let g:vim_textobj_parameter_mapping = 'a'
 let g:vimwiki_list = [{'path': '~/Notes',
       \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_global_ext = 0
+
+" ------------------------------------------------- vim-go ------------------------------------------------------
+
+" Go syntax highlighting
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+
+" deactivate features covered by coc-go
+let g:go_gopls_options=['-remote=auto']
+let g:go_def_mapping_enabled = 0
+let g:go_gopls_enabled = 0
+let g:go_doc_keywordprg_enabled = 0
 
 " ------------------------------------------------- fzf-preview-bindings ----------------------------------------
 
