@@ -32,7 +32,6 @@ Plug 'sgur/vim-textobj-parameter' " arguments as textobject
 Plug 'vimwiki/vimwiki' " vim wiki
 
 Plug 'lervag/vimtex' " latex support
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'junegunn/fzf' " fuzzy file search
 Plug 'junegunn/fzf.vim' " fuzzy file search
@@ -306,6 +305,7 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 let g:coc_global_extensions = [
       \ 'coc-css',
+      \ 'coc-go',
       \ 'coc-highlight',
       \ 'coc-html',
       \ 'coc-java',
