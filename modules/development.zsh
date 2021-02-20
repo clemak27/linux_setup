@@ -18,6 +18,9 @@ pacman -S --quiet --noprogressbar --noconfirm jdk11-openjdk gradle intellij-idea
 # python
 pacman -S --quiet --noprogressbar --noconfirm python-pip
 
+# go
+pacman -S --quiet --noprogressbar --noconfirm go
+
 # uml
 pacman -S --quiet --noprogressbar --noconfirm plantuml graphviz
 
