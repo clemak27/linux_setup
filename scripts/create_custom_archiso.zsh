@@ -1,7 +1,7 @@
 #!/bin/zsh
 
-setupPath="/home/cle/Projects/linux_setup/"
-outPath="/home/cle/Desktop"
+setupPath="/home/clemens/Projects/linux_setup/"
+outPath="/home/clemens/Desktop"
 
 sudo pacman -S --noconfirm archiso
 
