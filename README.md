@@ -6,7 +6,6 @@ I use arch btw. [![pipeline status](https://gitlab.com/clemak27/linux_setup/badg
 
 - systemd services
   - `systemctl --user enable ssh-agent.service`
-  - `systemctl --user enable openrgb.service`
   - `systemctl --user enable syncthing.service`
   - `systemctl --user start syncthing.service`
   - `systemctl --user enable spotifyd.service`
