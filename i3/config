@@ -51,7 +51,10 @@ for_window [class="Steam"] floating enable; border none
 # keepass floating
 for_window [class="KeePassXC"] floating enable; border none
 
-# rgb
+# autostart applications
+exec --no-startup-id latte-dock
+exec --no-startup-id syncthingtray
+exec --no-startup-id keepassxc
 exec --no-startup-id ~/Projects/linux_setup/scripts/openrgb.zsh
 
 # set wallpaper
