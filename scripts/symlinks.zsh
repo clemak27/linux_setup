@@ -6,80 +6,91 @@ else
   user="$1"
 fi
 
-dotfile_dir="/home/$user/Projects/linux_setup"
+# ------------------------ paths ------------------------
+
+setup_dir="/home/$user/Projects/linux_setup"
+config_dir="$setup_dir/config"
 user_dir="/home/$user"
+ffProfilePath=$(find $user_dir/.mozilla/firefox -name "*.default-release")
 
-# i3
-mkdir -p $user_dir/.config/i3
-ln -sf $dotfile_dir/i3/config $user_dir/.config/i3/config
-
-# picom
-mkdir -p $user_dir/.config/picom
-ln -sf $dotfile_dir/picom/picom.conf $user_dir/.config/picom/picom.conf
+# ------------------------ ~ ------------------------
 
 # Xresources
-ln -sf $dotfile_dir/Xresources $user_dir/.Xresources
+ln -sf $config_dir/Xresources $user_dir/.Xresources
 
 # zsh
-ln -sf $dotfile_dir/zsh/zshrc $user_dir/.zshrc
-ln -sf $dotfile_dir/zsh/glab.zsh $user_dir/.glab.zsh
-ln -sf $dotfile_dir/zsh/curl.zsh $user_dir/.curl.zsh
-ln -sf $dotfile_dir/zsh/starship.toml $user_dir/.starship.toml
+ln -sf $config_dir/zshrc $user_dir/.zshrc
+ln -sf $config_dir/glab.zsh $user_dir/.glab.zsh
+ln -sf $config_dir/curl.zsh $user_dir/.curl.zsh
+ln -sf $config_dir/starship.toml $user_dir/.starship.toml
+
+# delta
+ln -sf $config_dir/delta.config $user_dir/.delta.config
+
+# ------------------------ .config ------------------------
 
 # bat
 mkdir -p $user_dir/.config/bat
-ln -sf $dotfile_dir/bat/config $user_dir/.config/bat/config
-
-# nvim
-mkdir -p $user_dir/.config/nvim
-ln -sf $dotfile_dir/nvim/init.vim $user_dir/.config/nvim/init.vim
-ln -sf $dotfile_dir/nvim/coc-settings.json $user_dir/.config/nvim/coc-settings.json
-
-# kitty
-mkdir -p $user_dir/.config/kitty
-ln -sf $dotfile_dir/kitty/kitty.conf $user_dir/.config/kitty/kitty.conf
+ln -sf $config_dir/bat/config $user_dir/.config/bat/config
 
 # glab
 mkdir -p $user_dir/.config/glab-cli
-ln -sf $dotfile_dir/glab-cli/aliases.yml $user_dir/.config/glab-cli/aliases.yml
-ln -sf $dotfile_dir/glab-cli/config.yml $user_dir/.config/glab-cli/config.yml
+ln -sf $config_dir/glab-cli/aliases.yml $user_dir/.config/glab-cli/aliases.yml
+ln -sf $config_dir/glab-cli/config.yml $user_dir/.config/glab-cli/config.yml
 
-# delta
-ln -sf $dotfile_dir/delta/delta.config $user_dir/.delta.config
+# i3
+mkdir -p $user_dir/.config/i3
+ln -sf $config_dir/i3/config $user_dir/.config/i3/config
 
 # intelliJ
-ln -sf $dotfile_dir/intelliJ/ideavimrc $user_dir/.ideavimrc
+ln -sf $config_dir/ideavimrc $user_dir/.ideavimrc
 
-# ranger
-mkdir -p $user_dir/.config/ranger
-ln -sf $dotfile_dir/ranger/ranger.rc $user_dir/.config/ranger/rc.conf
-ln -sf $dotfile_dir/ranger/ranger.commands $user_dir/.config/ranger/commands.py
-
-# todo.txt
-mkdir -p $user_dir/.todo
-ln -sf $dotfile_dir/todo.sh/todo.cfg $user_dir/.todo/config
+# kitty
+mkdir -p $user_dir/.config/kitty
+ln -sf $config_dir/kitty/kitty.conf $user_dir/.config/kitty/kitty.conf
 
 # mpv
 mkdir -p $user_dir/.config/mpv
-ln -sf $dotfile_dir/mpv/mpv.conf $user_dir/.config/mpv/mpv.conf
+ln -sf $config_dir/mpv/mpv.conf $user_dir/.config/mpv/mpv.conf
 
-# plasma color scheme
-mkdir -p $user_dir/.local/share/color-schemes
-ln -sf $dotfile_dir/plasma/Kustom.colors $user_dir/.local/share/color-schemes/Kustom.colors
+# nvim
+mkdir -p $user_dir/.config/nvim
+ln -sf $config_dir/nvim/init.vim $user_dir/.config/nvim/init.vim
+ln -sf $config_dir/nvim/coc-settings.json $user_dir/.config/nvim/coc-settings.json
+
+# picom
+mkdir -p $user_dir/.config/picom
+ln -sf $config_dir/picom/picom.conf $user_dir/.config/picom/picom.conf
+
+# ranger
+mkdir -p $user_dir/.config/ranger
+ln -sf $config_dir/ranger/ranger.rc $user_dir/.config/ranger/rc.conf
+ln -sf $config_dir/ranger/ranger.commands $user_dir/.config/ranger/commands.py
 
 # redshift
 mkdir -p $user_dir/.config/redshift
-ln -sf $dotfile_dir/redshift/redshift.conf $user_dir/.config/redshift/redshift.conf
+ln -sf $config_dir/redshift/redshift.conf $user_dir/.config/redshift/redshift.conf
 
-# spotifyd
-mkdir -p $user_dir/.config/spotifyd
-ln -sf $dotfile_dir/spotifyd/spotifyd.conf $user_dir/.config/spotifyd/spotifyd.conf
+# todo.txt
+mkdir -p $user_dir/.todo
+ln -sf $config_dir/todo/todo.cfg $user_dir/.todo/config
 
 # spotify-tui
 mkdir -p $user_dir/.config/spotify-tui
-ln -sf $dotfile_dir/spotify-tui/config.yml $user_dir/.config/spotify-tui/config.yml
+ln -sf $config_dir/spotify-tui/config.yml $user_dir/.config/spotify-tui/config.yml
+
+# spotifyd
+mkdir -p $user_dir/.config/spotifyd
+ln -sf $config_dir/spotifyd/spotifyd.conf $user_dir/.config/spotifyd/spotifyd.conf
+
+# ------------------------ .local ------------------------
+
+# plasma color scheme
+mkdir -p $user_dir/.local/share/color-schemes
+ln -sf $config_dir/plasma/Kustom.colors $user_dir/.local/share/color-schemes/Kustom.colors
+
+# ------------------------ .mozilla ------------------------
 
 # firefox
-#ffProfilePath="$user_dir/.mozilla/firefox/72zvuvdy.default-release"
-#ln -sf $dotfile_dir/ff/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
-#ln -sf $dotfile_dir/ff/chrome/userContent.css $ffProfilePath/chrome/userContent.css
+ln -sf $setup_dir/firefox/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
+ln -sf $setup_dir/firefox/chrome/userContent.css $ffProfilePath/chrome/userContent.css
