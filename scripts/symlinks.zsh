@@ -6,8 +6,10 @@ else
   user="$1"
 fi
 
-dotfile_dir="/home/$user/Projects/linux_setup/config"
+setup_dir="/home/$user/Projects/linux_setup"
+dotfile_dir="$setup_dir/config"
 user_dir="/home/$user"
+ffProfilePath=$(find $user_dir/.mozilla/firefox -name "*.default-release")
 
 # Xresources
 ln -sf $dotfile_dir/Xresources $user_dir/.Xresources
@@ -80,6 +82,5 @@ mkdir -p $user_dir/.local/share/color-schemes
 ln -sf $dotfile_dir/plasma/Kustom.colors $user_dir/.local/share/color-schemes/Kustom.colors
 
 # firefox
-#ffProfilePath="$user_dir/.mozilla/firefox/72zvuvdy.default-release"
-#ln -sf $dotfile_dir/ff/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
-#ln -sf $dotfile_dir/ff/chrome/userContent.css $ffProfilePath/chrome/userContent.css
+ln -sf $setup_dir/firefox/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
+ln -sf $setup_dir/firefox/chrome/userContent.css $ffProfilePath/chrome/userContent.css
