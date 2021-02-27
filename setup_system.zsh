@@ -102,7 +102,7 @@ cd /linux_setup
 
 # ssh
 mkdir -p /home/$user/.config/systemd/user
-cp ./systemd-units/ssh-agent.service /home/$user/.config/systemd/user/ssh-agent.service
+cp ./other/ssh-agent.service /home/$user/.config/systemd/user/ssh-agent.service
 echo 'SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"' >> /home/$user/.pam_environment
 
 # add user and set groups
