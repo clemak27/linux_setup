@@ -1,5 +1,0 @@
-# run webcam
-./run-videochat.sh -v
-
-# clean port forwarding
-adb forward --remove tcp:8080
