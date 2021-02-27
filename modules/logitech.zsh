@@ -18,7 +18,7 @@ fi
 pacman -S --quiet --noprogressbar --noconfirm piper
 
 # openrgb
-cp ../scripts/60-openrgb.rules /etc/udev/rules.d/60-openrgb.rules
+cp ../other/60-openrgb.rules /etc/udev/rules.d/60-openrgb.rules
 
 # ------------------------ AUR ------------------------
 

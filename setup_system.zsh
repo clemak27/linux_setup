@@ -78,8 +78,8 @@ pacman -S --quiet --noprogressbar --noconfirm openssh
 
 # pacman hooks
 mkdir -p /etc/pacman.d/hooks/
-cp ./pacman-hooks/grub.hook /etc/pacman.d/hooks/grub.hook
-cp ./pacman-hooks/cleanup.hook /etc/pacman.d/hooks/cleanup.hook
+cp ./other/grub.hook /etc/pacman.d/hooks/grub.hook
+cp ./other/cleanup.hook /etc/pacman.d/hooks/cleanup.hook
 ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
 
 # create dirs for user
