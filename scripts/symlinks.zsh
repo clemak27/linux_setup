@@ -9,7 +9,7 @@ fi
 # ------------------------ paths ------------------------
 
 setup_dir="/home/$user/Projects/linux_setup"
-config_dir="$setup_dir/config"
+config_dir="$setup_dir/dotfiles"
 user_dir="/home/$user"
 ffProfilePath=$(find $user_dir/.mozilla/firefox -name "*.default-release")
 
