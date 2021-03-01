@@ -9,7 +9,7 @@ fi
 # ------------------------ paths ------------------------
 
 setup_dir="/home/$user/Projects/linux_setup"
-config_dir="$setup_dir/config"
+config_dir="$setup_dir/dotfiles"
 user_dir="/home/$user"
 ffProfilePath=$(find $user_dir/.mozilla/firefox -name "*.default-release")
 
@@ -92,5 +92,5 @@ ln -sf $config_dir/plasma/Kustom.colors $user_dir/.local/share/color-schemes/Kus
 # ------------------------ .mozilla ------------------------
 
 # firefox
-ln -sf $setup_dir/firefox/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
-ln -sf $setup_dir/firefox/chrome/userContent.css $ffProfilePath/chrome/userContent.css
+ln -sf $config_dir/firefox/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
+ln -sf $config_dir/firefox/chrome/userContent.css $ffProfilePath/chrome/userContent.css
