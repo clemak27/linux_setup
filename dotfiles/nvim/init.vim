@@ -279,6 +279,7 @@ let g:lightline#bufferline#show_number = 2
 let g:lightline#bufferline#icon_position = 'left'
 let g:lightline#bufferline#unicode_symbols = 1
 
+" map easier access to buffers
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
 nmap <Leader>2 <Plug>lightline#bufferline#go(2)
 nmap <Leader>3 <Plug>lightline#bufferline#go(3)
@@ -290,6 +291,7 @@ nmap <Leader>8 <Plug>lightline#bufferline#go(8)
 nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
+" map easier access to close buffers
 nmap <Leader>x1 <Plug>lightline#bufferline#delete(1)
 nmap <Leader>x2 <Plug>lightline#bufferline#delete(2)
 nmap <Leader>x3 <Plug>lightline#bufferline#delete(3)
@@ -320,10 +322,10 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
 
-" deactivate features covered by coc-go
+" work together with coc-go
+let g:go_gopls_enabled = 1
 let g:go_gopls_options=['-remote=auto']
 let g:go_def_mapping_enabled = 0
-let g:go_gopls_enabled = 0
 let g:go_doc_keywordprg_enabled = 0
 
 " ------------------------------------------------- fzf-preview-bindings ----------------------------------------
