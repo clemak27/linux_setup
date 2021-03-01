@@ -1,0 +1,36 @@
+/* search bar  */ 
+.findbar-find-previous, .findbar-find-next {
+  border: none !important;
+  background: none !important;
+  border-radius: 2px !important;
+}
+
+.findbar-find-previous { 
+  margin-left: 6px !important; 
+}
+
+.findbar-find-previous:hover, .findbar-find-next:hover {
+  background: var(--toolbarbutton-hover-background)  !important; 
+}
+
+/*changes "flash" on tab open color*/
+:root 
+{
+  --in-content-page-background: #000000 /*tab flash on new tab*/
+}
+
+#browser vbox#appcontent tabbrowser,
+#content,
+#tabbrowser-tabpanels,
+browser[type=content-primary],
+browser[type=content] > html
+{
+  background: var(--in-content-page-background)!important
+}
+
+/* scrollbar */
+scrollbar {
+  scrollbar-color: #8a2be2 #232323 !important;
+  scrollbar-width: thin !important; 
+}
+

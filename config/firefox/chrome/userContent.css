@@ -1,0 +1,32 @@
+/* new tab backgroundcolor */
+
+@-moz-document url("about:home"), url("about:newtab") {
+    .activity-stream {
+            background: #000000 !important; 
+            color: #97a4b3 !important; 
+    }
+    span {
+        color: #97a4b3 !important; 
+    }
+    .top-site-outer .top-site-icon{
+        background-color: #97a4b3 !important;
+    }
+}
+
+/* scrollbar */
+* {
+    scrollbar-color: #8a2be2 #232323 !important;
+    scrollbar-width: thin !important;
+}
+
+@-moz-document url-prefix("about:"),
+@-moz-document url-prefix("chrome://mozapps/content/extensions/aboutaddons.html") {
+    window,
+    page,
+    html,
+    .main-content,
+    scrollbar {
+        scrollbar-color: #8a2be2 #232323 !important;
+        scrollbar-width: thin !important;
+    }
+}

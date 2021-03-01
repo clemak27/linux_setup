@@ -92,5 +92,5 @@ ln -sf $config_dir/plasma/Kustom.colors $user_dir/.local/share/color-schemes/Kus
 # ------------------------ .mozilla ------------------------
 
 # firefox
-ln -sf $setup_dir/firefox/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
-ln -sf $setup_dir/firefox/chrome/userContent.css $ffProfilePath/chrome/userContent.css
+ln -sf $config_dir/firefox/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
+ln -sf $config_dir/firefox/chrome/userContent.css $ffProfilePath/chrome/userContent.css
