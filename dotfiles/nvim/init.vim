@@ -22,7 +22,7 @@ Plug 'airblade/vim-gitgutter' " git info in signcolumn
 Plug 'joshdick/onedark.vim' " atom one dark theme
 Plug 'itchyny/lightline.vim' " nice statusline
 Plug 'mengelbrecht/lightline-bufferline' " show buffers in tabline
-
+Plug 'lambdalisue/nerdfont.vim' " support for nerdfonts
 Plug 'sheerun/vim-polyglot' " syntax highlighting for many languages
 
 Plug 'kana/vim-textobj-user' " custom textobjects
@@ -275,7 +275,31 @@ let g:lightline#bufferline#clickable = 1
 let g:lightline#bufferline#min_buffer_count = 2
 let g:lightline#bufferline#enable_nerdfont = 1
 let g:lightline#bufferline#unnamed = 'unnamed'
-let g:lightline#bufferline#show_number = 0
+let g:lightline#bufferline#show_number = 2
+let g:lightline#bufferline#icon_position = 'left'
+let g:lightline#bufferline#unicode_symbols = 1
+
+nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+
+nmap <Leader>x1 <Plug>lightline#bufferline#delete(1)
+nmap <Leader>x2 <Plug>lightline#bufferline#delete(2)
+nmap <Leader>x3 <Plug>lightline#bufferline#delete(3)
+nmap <Leader>x4 <Plug>lightline#bufferline#delete(4)
+nmap <Leader>x5 <Plug>lightline#bufferline#delete(5)
+nmap <Leader>x6 <Plug>lightline#bufferline#delete(6)
+nmap <Leader>x7 <Plug>lightline#bufferline#delete(7)
+nmap <Leader>x8 <Plug>lightline#bufferline#delete(8)
+nmap <Leader>x9 <Plug>lightline#bufferline#delete(9)
+nmap <Leader>x0 <Plug>lightline#bufferline#delete(10)
 
 " ------------------------------------------------- custom textobjects ------------------------------------------
 
