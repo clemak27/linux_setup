@@ -195,3 +195,5 @@ label-urgent-padding = 1
 
 label-separator = |
 label-separator-foreground = ${colors.primary}
+
+; vim:ft=dosini
