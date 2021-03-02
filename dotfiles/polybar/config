@@ -21,11 +21,11 @@ foreground = ${colors.foreground}
 border-size = 0
 line-size = 2
 
-font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular"
+font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular:size=11"
 
 modules-left = i3
-modules-center = xwindow
-modules-right = battery pulseaudio wlan date powermenu
+modules-center = 
+modules-right = battery pulseaudio wlan eth1 date runner powermenu
 
 tray-detached = true
 tray-position = right
@@ -33,9 +33,9 @@ tray-padding = 2
 tray-maxsize = 16
 tray-offset-x = -22%
 
-[module/filler]
+[module/separator]
 type = custom/text
-content = "▽"
+content = "|"
 
 [module/xwindow]
 type = internal/xwindow
@@ -88,9 +88,9 @@ interface = wlan0
 interval = 5.0
 
 ; https://askubuntu.com/a/1089561
-format-connected = %{A1:~/Projects/linux_setup/rofi/network/network.sh &:}﬉%{A}
-format-connected-padding = 1
-label-connected = %essid% %local_ip%
+; format-connected = %{A1:~/Projects/linux_setup/rofi/network/network.sh &:}﬉%{A}
+; format-connected-padding = 1
+; label-connected = %essid% %local_ip%
 
 format-disconnected =  <label-disconnected>
 format-disconnected-padding = 1
@@ -99,10 +99,10 @@ format-disconnected-underline = ${colors.alert}
 
 [module/eth1]
 type = internal/network
-interface = enp60s0
+interface = enp27s0
 interval = 3.0
 
-label-connected =  %local_ip%
+label-connected =  
 format-connected-padding = 1
 
 format-disconnected-underline = ${colors.alert}
@@ -112,7 +112,7 @@ label-disconnected = disconnected
 type = internal/date
 interval = 1
 
-date = %a %d
+date = %d.%m.
 
 time = %H:%M:%S
 
@@ -122,6 +122,16 @@ label = %date% %time%
 
 [settings]
 screenchange-reload = true
+
+[module/runner]
+type = custom/text
+
+content =
+content-padding = 1
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
+
+click-left = ~/Projects/linux_setup/rofi/runner/runner.sh &
 
 [module/powermenu]
 type = custom/text
@@ -170,18 +180,18 @@ label-mode-background = #e60053
 label-focused = %index%
 label-focused-foreground = ${colors.foreground}
 label-focused-underline = ${colors.primary}
-label-focused-padding = 2 
+label-focused-padding = 1 
 
 label-unfocused = %index%
-label-unfocused-padding = 2
+label-unfocused-padding = 1
 
 label-visible = %index%
-label-visible-padding = 2
+label-visible-padding = 1
 
 label-urgent = %index%
 label-urgent-foreground = ${colors.foreground}
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 label-separator = |
 label-separator-foreground = ${colors.primary}
