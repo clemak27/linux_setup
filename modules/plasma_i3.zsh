@@ -59,6 +59,7 @@ SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
 aur_packages=(
+  'polybar'
 )
 
 declare -r aur_packages
