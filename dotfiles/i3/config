@@ -52,7 +52,6 @@ for_window [class="Steam"] floating enable; border none
 for_window [class="KeePassXC"] floating enable; border none
 
 # autostart applications
-# exec --no-startup-id latte-dock
 exec --no-startup-id syncthingtray
 exec --no-startup-id keepassxc
 exec --no-startup-id ~/Projects/linux_setup/scripts/openrgb.zsh
@@ -62,6 +61,9 @@ exec --no-startup-id dunst
 
 # set wallpaper
 exec --no-startup-id feh --bg-scale ~/Projects/linux_setup/wallpaper.jpg
+
+# set wallpaper
+exec --no-startup-id ~/Projects/linux_setup/polybar/launch.sh
 
 # window borders
 new_float normal

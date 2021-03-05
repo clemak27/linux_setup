@@ -66,10 +66,6 @@ ln -sf $config_dir/nvim/coc-settings.json $user_dir/.config/nvim/coc-settings.js
 mkdir -p $user_dir/.config/picom
 ln -sf $config_dir/picom/picom.conf $user_dir/.config/picom/picom.conf
 
-# polybar
-mkdir -p $user_dir/.config/polybar
-ln -sf $config_dir/polybar/config $user_dir/.config/polybar/config
-
 # ranger
 mkdir -p $user_dir/.config/ranger
 ln -sf $config_dir/ranger/ranger.rc $user_dir/.config/ranger/rc.conf
