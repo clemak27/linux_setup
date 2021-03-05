@@ -29,7 +29,7 @@ font-1 = "JetbrainsMono Nerd Font:style=Retina,Regular:size=12"
 
 modules-left = i3
 modules-center = 
-modules-right = discord steam separator syncthing keepassxc separator pulseaudio eth1 date runner powermenu
+modules-right = syncthing keepassxc separator pulseaudio eth1 date runner powermenu
 ; modules-right = syncthing keepassxc separator battery pulseaudio wlan eth1 date runner powermenu
 ;
 scroll-up = #i3.prev
@@ -39,7 +39,7 @@ scroll-down = #i3.next
 type = internal/i3
 pin-workspaces = true
 
-ws-icon-0 = "1";I
+ws-icon-0 = 1;I
 ws-icon-1 = 2;II
 ws-icon-2 = 3;III
 ws-icon-3 = 4;IV
@@ -76,25 +76,13 @@ label-urgent-padding = 1
 label-separator = 
 label-separator-foreground = ${colors.primary}
 
-[module/discord]
-type = custom/text
-
-content =ﭮ
-content-padding = 1
-content-background = ${colors.background}
-content-foreground = ${colors.foreground}
-
-click-left = i3-msg 'workspace 4'
-
-[module/steam]
-type = custom/text
-
-content = 戮
-content-padding = 1
-content-background = ${colors.background}
-content-foreground = ${colors.foreground}
-
-click-left = i3-msg 'workspace 5'
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = "spt "
+format = <label>
+exec = python ~/Projects/linux_setup/dotfiles/polybar/spotify_status.py -f '{artist}: {song}'
+format-underline = #1db954
 
 [module/separator]
 type = custom/text
