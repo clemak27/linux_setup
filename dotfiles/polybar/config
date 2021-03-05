@@ -25,11 +25,15 @@ border-size = 0
 line-size = 2
 
 font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular:size=11"
+font-1 = "JetbrainsMono Nerd Font:style=Retina,Regular:size=12"
 
 modules-left = i3
 modules-center = 
 modules-right = syncthing keepassxc separator pulseaudio eth1 date runner powermenu
 ; modules-right = syncthing keepassxc separator battery pulseaudio wlan eth1 date runner powermenu
+;
+scroll-up = #i3.prev
+scroll-down = #i3.next
 
 [module/i3]
 type = internal/i3
@@ -50,7 +54,8 @@ ws-icon-default = ♟
 format = <label-state> <label-mode>
 
 label-mode = %mode%
-label-mode-background = #e60053
+label-mode-foreground = ${colors.foreground}
+label-mode-background = ${colors.background}
 
 label-focused = %index%
 label-focused-foreground = ${colors.foreground}
@@ -60,7 +65,7 @@ label-focused-padding = 1
 label-unfocused = %index%
 label-unfocused-padding = 1
 
-label-visible = %index%
+label-visible = %name%
 label-visible-padding = 1
 
 label-urgent = %index%
