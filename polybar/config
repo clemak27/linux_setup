@@ -160,7 +160,7 @@ interface = wlan0
 interval = 5.0
 
 ; https://askubuntu.com/a/1089561
-format-connected = %{A1:~/Projects/linux_setup/rofi/network/network.sh &:}﬉%{A}
+format-connected = ﬉
 format-connected-padding = 1
 label-connected = %essid% %local_ip%
 
