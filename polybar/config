@@ -175,7 +175,7 @@ type = internal/network
 interface = enp27s0
 interval = 3.0
 
-label-connected =  
+label-connected = ﯱ
 format-connected-padding = 1
 
 format-disconnected-underline = ${colors.alert}
