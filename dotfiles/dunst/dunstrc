@@ -16,7 +16,7 @@
     frame_color = "#8a2be2"
     separator_color = frame
     sort = yes
-    idle_threshold = 30
+    idle_threshold = 120
     corner_radius = 0
 
     ### Text ###
