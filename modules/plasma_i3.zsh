@@ -29,9 +29,11 @@ cp /home/$user/Projects/linux_setup/plasma/ksplashrc /home/$user/.config/ksplash
 mkdir -p  /home/$user/.local/share/applications
 cp  /home/$user/Projects/linux_setup/rofi/powermenu/powermenu.sh.desktop /home/$user/.local/share/applications
 
+# symlink rofi <-> dmenu
+ln -s /usr/bin/rofi /usr/bin/dmenu
+
 # plasma + i3 session
 cp /home/$user/Projects/linux_setup/plasma/plasma-i3.desktop /usr/share/xsessions
-pacman -Rns --noprogressbar --noconfirm dunst
 
 # plasma-specifics
 pacman -S --quiet --noprogressbar --noconfirm sshfs unrar
@@ -43,13 +45,16 @@ pacman -S --quiet --noprogressbar --noconfirm latte-dock
 # i3 gaps
 pacman -S --quiet --noprogressbar --noconfirm i3-gaps
 
+# dunst
+pacman -S --quiet --noprogressbar --noconfirm dunst
+
 # wmctrl
 pacman -S --quiet --noprogressbar --noconfirm wmctrl
 
 # compositor
 pacman -S --quiet --noprogressbar --noconfirm picom
 
-# feh for wallpaper
+# feh
 pacman -S --quiet --noprogressbar --noconfirm feh
 
 # ------------------------ AUR ------------------------
