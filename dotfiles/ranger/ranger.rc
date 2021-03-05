@@ -13,6 +13,10 @@ set preview_files true
 set preview_directories true
 set collapse_preview true
 
+# Image previews
+set preview_images true
+set preview_images_method kitty
+
 # Wrap long lines in plain text previews?
 set wrap_plaintext_previews true
 
@@ -25,5 +29,5 @@ set tilde_in_titlebar true
 # Avoid previewing files larger than this size, in bytes.  Use a value of 0 to disable this feature.
 set preview_max_size 5000000
 
-# search with fzf
-map <C-f> fzf_select
+# Show icons
+default_linemode devicons

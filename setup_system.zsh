@@ -76,6 +76,9 @@ pacman -S --quiet --noprogressbar --noconfirm git make gcc neovim nodejs npm pyt
 # ssh
 pacman -S --quiet --noprogressbar --noconfirm openssh
 
+#ranger icons
+git clone https://github.com/alexanderjeurissen/ranger_devicons /home/$user/.config/ranger/plugins/ranger_devicons
+
 # pacman hooks
 mkdir -p /etc/pacman.d/hooks/
 cp ./other/grub.hook /etc/pacman.d/hooks/grub.hook
