@@ -1,28 +1,29 @@
 
 [global]
     ### Display ###
-    monitor = 0
+    monitor = firefox
     follow = keyboard
-    geometry = "300x5-10+30"
-    indicate_hidden = yes
+    geometry = "300x5-30+35"
+    indicate_hidden = true
     shrink = no
     transparency = 0
     notification_height = 0
     separator_height = 2
-    padding = 8
-    horizontal_padding = 8
-    frame_width = 4
-    frame_color = "#88c0d0"
+    padding = 5
+    horizontal_padding = 10
+    text_icon_padding = 0
+    frame_width = 2
+    frame_color = "#8a2be2"
     separator_color = frame
     sort = yes
     idle_threshold = 30
-    corner_radius = 2
+    corner_radius = 0
 
     ### Text ###
-    font = Hack 10
-    line_height = 0
+    font = JetbrainsMono Nerd Font 11
+    line_height = 2
     markup = full
-    format = "<b>%s</b>\n%b"
+    format = "<big><b>%s</b></big>\n%b"
     alignment = left
     show_age_threshold = 60
     word_wrap = yes
@@ -35,18 +36,17 @@
     ### Icons ###
     icon_position = left
     max_icon_size = 36
-    icon_path = /usr/share/icons/Papirus-Dark/16x16/status:/usr/share/icons/Papirus-Dark/16x16/devices
-
+    icon_path = /home/clemens/.local/share/icons/Papirus-Dark/48x48/status/:/home/clemens/.local/share/icons/Papirus-Dark/48x48/devices/:/home/clemens/.local/share/icons/Papirus-Dark/48x48/actions/
     ### History ###
     sticky_history = yes
     history_length = 20
 
     ### Misc/Advanced ###
-    browser = /usr/bin/google-chrome-stable -new-tab
+    browser = firefox
     always_run_script = true
     title = Dunst
     class = Dunst
-    startup_notification = false
+    startup_notification = true
     verbosity = mesg
     corner_radius = 0
 
@@ -58,23 +58,19 @@
 [experimental]
     per_monitor_dpi = false
 
-[shortcuts]
-    close = ctrl+space
-    close_all = ctrl+shift+space
-    history = ctrl+grave
-    context = ctrl+shift+period
-
 [urgency_low]
-    background = "#1d1f21"
+    background = "#000000"
     foreground = "#ffffff"
     timeout = 10
 
 [urgency_normal]
-    background = "#1d1f21"
+    background = "#000000"
     foreground = "#ffffff"
     timeout = 10
 
 [urgency_critical]
-    background = "#cc6666"
+    background = "#000000"
     foreground = "#ffffff"
     timeout = 0
+
+# vim: ft=cfg
