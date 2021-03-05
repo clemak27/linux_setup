@@ -33,6 +33,10 @@ ln -sf $config_dir/delta.config $user_dir/.delta.config
 mkdir -p $user_dir/.config/bat
 ln -sf $config_dir/bat/config $user_dir/.config/bat/config
 
+# dunst
+mkdir -p $user_dir/.config/dunst
+ln -sf $config_dir/dunst/dunstrc $user_dir/.config/dunst/dunstrc
+
 # glab
 mkdir -p $user_dir/.config/glab-cli
 ln -sf $config_dir/glab-cli/aliases.yml $user_dir/.config/glab-cli/aliases.yml

@@ -57,6 +57,9 @@ exec --no-startup-id syncthingtray
 exec --no-startup-id keepassxc
 exec --no-startup-id ~/Projects/linux_setup/scripts/openrgb.zsh
 
+# Notifications
+exec --no-startup-id dunst
+
 # set wallpaper
 exec --no-startup-id feh --bg-scale ~/Projects/linux_setup/wallpaper.jpg
 
