@@ -28,7 +28,8 @@ font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular:size=11"
 
 modules-left = i3
 modules-center = 
-modules-right = syncthing keepassxc separator battery pulseaudio wlan eth1 date runner powermenu
+modules-right = syncthing keepassxc separator pulseaudio eth1 date runner powermenu
+; modules-right = syncthing keepassxc separator battery pulseaudio wlan eth1 date runner powermenu
 
 [module/i3]
 type = internal/i3
