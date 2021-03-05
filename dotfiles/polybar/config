@@ -24,19 +24,11 @@ foreground = ${colors.foreground}
 border-size = 0
 line-size = 2
 
-font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular:size=11"
+font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular:size=10"
 
 modules-left = i3
-modules-center = spotify
+modules-center = 
 modules-right = battery pulseaudio wlan eth1 date runner powermenu
-
-tray-detached = false
-tray-position = right
-; tray-padding = 2
-; tray-maxsize = 16
-; tray-offset-x = -22%
-; wm-restack = i3
-; override-redirect = true
 
 [module/i3]
 type = internal/i3
@@ -75,7 +67,7 @@ label-urgent-foreground = ${colors.foreground}
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
-label-separator = |
+label-separator = 
 label-separator-foreground = ${colors.primary}
 
 [module/spotify]
