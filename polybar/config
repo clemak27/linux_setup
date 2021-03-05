@@ -78,14 +78,6 @@ label-urgent-padding = 1
 label-separator = 
 label-separator-foreground = ${colors.primary}
 
-[module/spotify]
-type = custom/script
-interval = 1
-format-prefix = "spt "
-format = <label>
-exec = python ~/Projects/linux_setup/dotfiles/polybar/spotify_status.py -f '{artist}: {song}'
-format-underline = #1db954
-
 [module/separator]
 type = custom/text
 content = "|"
@@ -153,6 +145,12 @@ format-muted-padding = 1
 
 ramp-volume-0 = 奔
 ramp-volume-1 = 墳
+
+[module/microphone]
+type = custom/script
+exec = ~/Projects/linux_setup/polybar/microphone.sh
+tail = true
+click-left = ~/Projects/linux_setup/polybar/microphone.sh --toggle &
 
 [module/wlan]
 type = internal/network
