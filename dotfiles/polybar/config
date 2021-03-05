@@ -24,11 +24,11 @@ foreground = ${colors.foreground}
 border-size = 0
 line-size = 2
 
-font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular:size=10"
+font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular:size=11"
 
 modules-left = i3
 modules-center = 
-modules-right = battery pulseaudio wlan eth1 date runner powermenu
+modules-right = keepassxc battery pulseaudio wlan eth1 date runner powermenu
 
 [module/i3]
 type = internal/i3
@@ -81,6 +81,16 @@ format-underline = #1db954
 [module/separator]
 type = custom/text
 content = "|"
+
+[module/keepassxc]
+type = custom/text
+
+content =
+content-padding = 1
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
+
+click-left = keepassxc
 
 [module/battery]
 type = internal/battery
