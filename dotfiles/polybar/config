@@ -25,13 +25,12 @@ border-size = 0
 line-size = 2
 
 font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular:size=11"
-font-1 = "JetbrainsMono Nerd Font:style=Retina,Regular:size=12"
 
 modules-left = i3
 modules-center = 
 modules-right = syncthing keepassxc separator pulseaudio eth1 date runner powermenu
 ; modules-right = syncthing keepassxc separator battery pulseaudio wlan eth1 date runner powermenu
-;
+
 scroll-up = #i3.prev
 scroll-down = #i3.next
 
@@ -39,17 +38,20 @@ scroll-down = #i3.next
 type = internal/i3
 pin-workspaces = true
 
-ws-icon-0 = 1;I
-ws-icon-1 = 2;II
-ws-icon-2 = 3;III
-ws-icon-3 = 4;IV
-ws-icon-4 = 5;V
-ws-icon-5 = 6;VI
-ws-icon-6 = 7;VII
-ws-icon-7 = 8;VII
-ws-icon-8 = 9;IIX
-ws-icon-9 = 10;IX
+ws-icon-0 = 1;1
+ws-icon-1 = 2;2
+ws-icon-2 = 3;3
+ws-icon-3 = 4;4
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6 
+ws-icon-6 = 7;7 
+ws-icon-7 = 8;8 
+ws-icon-8 = 9;9 
+ws-icon-9 = 10;10
 ws-icon-default = ♟
+
+; just in case 🤷
+;       ﭮ  
 
 format = <label-state> <label-mode>
 
@@ -57,18 +59,18 @@ label-mode = %mode%
 label-mode-foreground = ${colors.foreground}
 label-mode-background = ${colors.background}
 
-label-focused = %name%
+label-focused = %icon%
 label-focused-foreground = ${colors.foreground}
 label-focused-underline = ${colors.primary}
 label-focused-padding = 1 
 
-label-unfocused = %name%
+label-unfocused = %icon%
 label-unfocused-padding = 1
 
-label-visible = %name%
+label-visible = %icon%
 label-visible-padding = 1
 
-label-urgent = %name%
+label-urgent = %icon%
 label-urgent-foreground = ${colors.foreground}
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
