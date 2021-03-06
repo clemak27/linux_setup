@@ -25,8 +25,10 @@ toggle() {
 
   if [ "$MUTED" = "yes" ]; then
     pactl set-source-mute "$DEFAULT_SOURCE" 0
+    dunstify -h string:x-dunst-stack-tag:test -i audio-input-microphone Microphone unmuted
   else
     pactl set-source-mute "$DEFAULT_SOURCE" 1
+    dunstify -h string:x-dunst-stack-tag:test -i audio-input-microphone Microphone muted
   fi
 }
 
