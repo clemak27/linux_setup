@@ -29,7 +29,7 @@ font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular:size=11"
 modules-left = i3
 modules-center = 
 modules-right = kdeconnect system-usb-udev syncthing keepassxc separator pulseaudio microphone separator eth1 date runner powermenu
-; modules-right = syncthing keepassxc separator battery pulseaudio wlan eth1 date runner powermenu
+; modules-right = kdeconnect system-usb-udev syncthing keepassxc separator pulseaudio microphone separator battery wlan date runner powermenu
 
 scroll-up = #i3.prev
 scroll-down = #i3.next
@@ -226,6 +226,5 @@ content-background = ${colors.background}
 content-foreground = ${colors.foreground}
 
 click-left = ~/Projects/linux_setup/rofi/powermenu/powermenu.sh &
-
 
 ; vim:ft=dosini
