@@ -39,6 +39,10 @@ cp /home/$user/Projects/linux_setup/plasma/plasma-i3.desktop /usr/share/xsession
 pacman -S --quiet --noprogressbar --noconfirm sshfs unrar
 systemctl enable sddm
 
+# polybar
+cp /home/$user/Projects/linux_setup/polybar/95-usb.rules /etc/udev/rules.d/95-usb.rules
+pacman -S --quiet --noprogressbar --noconfirm pavucontrol
+
 # latte-dock
 pacman -S --quiet --noprogressbar --noconfirm latte-dock
 
@@ -64,6 +68,7 @@ SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
 aur_packages=(
+  'polybar'
 )
 
 declare -r aur_packages
