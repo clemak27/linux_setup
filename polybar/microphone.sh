@@ -1,12 +1,13 @@
 #!/bin/sh
 
 status() {
+  # the output contains monitor and sources, so i check if any of them is muted
   MUTED=$(pactl list sources | awk '/Mute:/ {print $2}' | awk '/yes/ {print $0;exit}')
 
   if [ "$MUTED" = "yes" ]; then
-    echo ""
+    echo " "
   else
-    echo ""
+    echo " "
   fi
 }
 
