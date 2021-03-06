@@ -28,7 +28,7 @@ font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular:size=11"
 
 modules-left = i3
 modules-center = 
-modules-right = syncthing keepassxc separator pulseaudio eth1 date runner powermenu
+modules-right = system-usb-udev syncthing keepassxc separator pulseaudio eth1 date runner powermenu
 ; modules-right = syncthing keepassxc separator battery pulseaudio wlan eth1 date runner powermenu
 
 scroll-up = #i3.prev
@@ -101,6 +101,13 @@ content-background = ${colors.background}
 content-foreground = ${colors.foreground}
 
 click-left = keepassxc
+
+[module/system-usb-udev]
+type = custom/script
+exec = ~/Projects/linux_setup/polybar/system-usb-udev.sh
+tail = true
+click-left = ~/Projects/linux_setup/polybar/system-usb-udev.sh --mount &
+click-right = ~/Projects/linux_setup/polybar/system-usb-udev.sh --unmount &
 
 [module/battery]
 type = internal/battery
