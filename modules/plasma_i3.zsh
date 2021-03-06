@@ -43,9 +43,6 @@ systemctl enable sddm
 cp /home/$user/Projects/linux_setup/polybar/95-usb.rules /etc/udev/rules.d/95-usb.rules
 pacman -S --quiet --noprogressbar --noconfirm pavucontrol
 
-# latte-dock
-pacman -S --quiet --noprogressbar --noconfirm latte-dock
-
 # i3 gaps
 pacman -S --quiet --noprogressbar --noconfirm i3-gaps
 
