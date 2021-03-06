@@ -106,6 +106,7 @@ click-left = keepassxc
 type = custom/script
 exec = ~/Projects/linux_setup/polybar/system-usb-udev.sh
 tail = true
+
 click-left = ~/Projects/linux_setup/polybar/system-usb-udev.sh --mount &
 click-right = ~/Projects/linux_setup/polybar/system-usb-udev.sh --unmount &
 
@@ -153,12 +154,15 @@ format-muted-padding = 1
 ramp-volume-0 = 奔
 ramp-volume-1 = 墳
 
+click-right = pavucontrol
+
 [module/microphone]
 type = custom/script
 exec = ~/Projects/linux_setup/polybar/microphone.sh
 tail = true
 
 click-left = ~/Projects/linux_setup/polybar/microphone.sh --toggle &
+click-right = pavucontrol
 
 [module/wlan]
 type = internal/network
