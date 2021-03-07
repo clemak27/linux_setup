@@ -28,8 +28,7 @@ font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular:size=11"
 
 modules-left = i3
 modules-center = 
-modules-right = system-usb-udev kdeconnect syncthing keepassxc separator pulseaudio microphone separator eth1 date runner powermenu
-; modules-right = system-usb-udev kdeconnect syncthing keepassxc separator pulseaudio microphone separator bluetooth wlan battery date runner powermenu
+modules-right = system-usb-udev kdeconnect syncthing keepassxc separator pulseaudio microphone separator bluetooth wlan eth1 battery separator date separator runner powermenu
 
 scroll-up = #i3.prev
 scroll-down = #i3.next
