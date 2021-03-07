@@ -29,7 +29,7 @@ font-0 = "JetbrainsMono Nerd Font:style=Retina,Regular:size=11"
 modules-left = i3
 modules-center = 
 modules-right = kdeconnect system-usb-udev syncthing keepassxc separator pulseaudio microphone separator eth1 date runner powermenu
-; modules-right = kdeconnect system-usb-udev syncthing keepassxc separator pulseaudio microphone separator battery wlan date runner powermenu
+; modules-right = kdeconnect system-usb-udev syncthing keepassxc separator pulseaudio microphone separator bluetooth wlan battery date runner powermenu
 
 scroll-up = #i3.prev
 scroll-down = #i3.next
@@ -168,6 +168,16 @@ tail = true
 
 click-left = ~/Projects/linux_setup/polybar/microphone.sh --toggle &
 click-right = pavucontrol
+
+[module/bluetooth]
+type = custom/script
+exec = ~/Projects/linux_setup/polybar/bluetooth.sh
+interval = 1
+click-left = ~/Projects/linux_setup/polybar/bluetooth.sh --toggle &
+click-right = bluedevil-wizard
+format-padding = 1
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
 
 [module/wlan]
 type = internal/network
