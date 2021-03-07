@@ -82,6 +82,14 @@ label-separator-foreground = ${colors.primary}
 type = custom/text
 content = "|"
 
+[module/system-usb-udev]
+type = custom/script
+exec = ~/Projects/linux_setup/polybar/system-usb-udev.sh
+tail = true
+
+click-left = ~/Projects/linux_setup/polybar/system-usb-udev.sh --mount &
+click-right = ~/Projects/linux_setup/polybar/system-usb-udev.sh --unmount &
+
 [module/kdeconnect]  
 type = custom/script  
 exec = ~/Projects/linux_setup/polybar/polybar-kdeconnect.sh  -d
@@ -106,46 +114,6 @@ content-background = ${colors.background}
 content-foreground = ${colors.foreground}
 
 click-left = keepassxc
-
-[module/system-usb-udev]
-type = custom/script
-exec = ~/Projects/linux_setup/polybar/system-usb-udev.sh
-tail = true
-
-click-left = ~/Projects/linux_setup/polybar/system-usb-udev.sh --mount &
-click-right = ~/Projects/linux_setup/polybar/system-usb-udev.sh --unmount &
-
-[module/battery]
-type = internal/battery
-battery = BAT0
-full-at = 95
-format-charging =  <label-charging>
-format-charging-padding = 1
-
-format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-padding = 1
-
-format-full = 
-format-full-padding = 1
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-5 = 
-ramp-capacity-6 = 
-ramp-capacity-7 = 
-ramp-capacity-8 = 
-ramp-capacity-9 = 
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-5 = 
-animation-charging-6 = 
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -204,6 +172,38 @@ format-connected-padding = 1
 
 format-disconnected-underline = ${colors.alert}
 label-disconnected = disconnected
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+full-at = 95
+format-charging =  <label-charging>
+format-charging-padding = 1
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-padding = 1
+
+format-full = 
+format-full-padding = 1
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-5 = 
+animation-charging-6 = 
 
 [module/date]
 type = internal/date
