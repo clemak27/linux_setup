@@ -51,19 +51,22 @@ for_window [class="Steam"] floating enable; border none
 # keepass floating
 for_window [class="KeePassXC"] floating enable; border none
 
-# autostart applications
-exec --no-startup-id syncthingtray
-exec --no-startup-id keepassxc
-exec --no-startup-id ~/Projects/linux_setup/scripts/openrgb.zsh
-
 # Notifications
 exec --no-startup-id dunst
 
 # set wallpaper
 exec --no-startup-id feh --bg-scale ~/Projects/linux_setup/wallpaper.jpg
 
-# set wallpaper
+# launch polybar
 exec --no-startup-id ~/Projects/linux_setup/polybar/launch.sh
+
+# autostart applications
+exec --no-startup-id syncthingtray
+exec --no-startup-id ~/Projects/linux_setup/scripts/openrgb.zsh
+exec i3-msg 'workspace 3;exec kitty'
+exec i3-msg 'workspace 2;exec kitty'
+exec i3-msg 'workspace 1;exec firefox'
+exec --no-startup-id keepassxc
 
 # window borders
 new_float normal
