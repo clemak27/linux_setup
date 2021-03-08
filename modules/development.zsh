@@ -13,7 +13,7 @@ fi
 
 # ------------------------ pacman ------------------------
 # java
-pacman -S --quiet --noprogressbar --noconfirm jdk11-openjdk gradle intellij-idea-community-edition
+pacman -S --quiet --noprogressbar --noconfirm jdk11-openjdk gradle
 
 # python
 pacman -S --quiet --noprogressbar --noconfirm python-pip

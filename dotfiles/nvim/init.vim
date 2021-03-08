@@ -15,8 +15,8 @@ Plug 'tpope/vim-commentary' " comment with gc
 Plug 'tpope/vim-fugitive' " git diff etc inside vim
 Plug 'tpope/vim-repeat' " working repeat for surround
 Plug 'tpope/vim-surround' " brackets around words ysiw(
-Plug 'tpope/vim-vinegar' " netrw replacement
 Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
+Plug 'preservim/nerdtree' " file explorer
 Plug 'airblade/vim-gitgutter' " git info in signcolumn
 
 Plug 'joshdick/onedark.vim' " atom one dark theme
@@ -203,6 +203,18 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 autocmd FileChangedShellPost *
       \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
+" ------------------------------------------------- NERDTree ----------------------------------------------------
+
+" disable netrw
+let loaded_netrwPlugin = 1
+
+nnoremap <leader>n :NERDTreeFind<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
+
 " ------------------------------------------------- gitgutter ---------------------------------------------------
 
 let g:gitgutter_preview_win_floating = 1
@@ -316,11 +328,16 @@ let g:vimwiki_global_ext = 0
 " ------------------------------------------------- vim-go ------------------------------------------------------
 
 " Go syntax highlighting
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_format_strings = 1
 let g:go_highlight_function_calls = 1
-let g:go_highlight_extra_types = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
+let g:go_highlight_string_spellcheck = 1
+let g:go_highlight_structs = 1 
+let g:go_highlight_types = 1
+let g:go_highlight_variable_declarations = 1
 
 " work together with coc-go
 let g:go_gopls_enabled = 1
