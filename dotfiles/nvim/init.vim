@@ -15,8 +15,8 @@ Plug 'tpope/vim-commentary' " comment with gc
 Plug 'tpope/vim-fugitive' " git diff etc inside vim
 Plug 'tpope/vim-repeat' " working repeat for surround
 Plug 'tpope/vim-surround' " brackets around words ysiw(
-Plug 'tpope/vim-vinegar' " netrw replacement
 Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
+Plug 'preservim/nerdtree' " file explorer
 Plug 'airblade/vim-gitgutter' " git info in signcolumn
 
 Plug 'joshdick/onedark.vim' " atom one dark theme
@@ -202,6 +202,18 @@ endif
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 autocmd FileChangedShellPost *
       \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+" ------------------------------------------------- NERDTree ----------------------------------------------------
+
+" disable netrw
+let loaded_netrwPlugin = 1
+
+nnoremap <leader>n :NERDTreeFind<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
 
 " ------------------------------------------------- gitgutter ---------------------------------------------------
 
