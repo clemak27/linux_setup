@@ -22,7 +22,7 @@ Plug 'airblade/vim-gitgutter' " git info in signcolumn
 Plug 'joshdick/onedark.vim' " atom one dark theme
 Plug 'itchyny/lightline.vim' " nice statusline
 Plug 'mengelbrecht/lightline-bufferline' " show buffers in tabline
-Plug 'lambdalisue/nerdfont.vim' " support for nerdfonts
+Plug 'ryanoasis/vim-devicons' " support for nerdfonts/icons
 Plug 'sheerun/vim-polyglot' " syntax highlighting for many languages
 
 Plug 'kana/vim-textobj-user' " custom textobjects
@@ -285,7 +285,7 @@ let g:lightline = {
 
 let g:lightline#bufferline#clickable = 1
 let g:lightline#bufferline#min_buffer_count = 2
-let g:lightline#bufferline#enable_nerdfont = 1
+let g:lightline#bufferline#enable_devicons = 1
 let g:lightline#bufferline#unnamed = 'unnamed'
 let g:lightline#bufferline#show_number = 2
 let g:lightline#bufferline#icon_position = 'left'
