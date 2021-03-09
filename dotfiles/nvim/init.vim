@@ -23,6 +23,7 @@ Plug 'joshdick/onedark.vim' " atom one dark theme
 Plug 'itchyny/lightline.vim' " nice statusline
 Plug 'mengelbrecht/lightline-bufferline' " show buffers in tabline
 Plug 'ryanoasis/vim-devicons' " support for nerdfonts/icons
+Plug 'bryanmylee/vim-colorscheme-icons' " colored icons
 Plug 'sheerun/vim-polyglot' " syntax highlighting for many languages
 
 Plug 'kana/vim-textobj-user' " custom textobjects
