@@ -18,6 +18,8 @@ Plug 'tpope/vim-surround' " brackets around words ysiw(
 Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
 Plug 'preservim/nerdtree' " file explorer
 Plug 'airblade/vim-gitgutter' " git info in signcolumn
+Plug 'junegunn/vim-slash' " improved search
+Plug 'jiangmiao/auto-pairs' " auto closing things
 
 Plug 'joshdick/onedark.vim' " atom one dark theme
 Plug 'itchyny/lightline.vim' " nice statusline
@@ -380,7 +382,6 @@ let g:coc_global_extensions = [
       \ 'coc-java',
       \ 'coc-json',
       \ 'coc-markdownlint',
-      \ 'coc-pairs',
       \ 'coc-prettier',
       \ 'coc-python',
       \ 'coc-rust-analyzer',
