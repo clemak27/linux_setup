@@ -316,16 +316,16 @@ nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
 " map easier access to close buffers
-nmap <Leader>x1 <Plug>lightline#bufferline#delete(1)
-nmap <Leader>x2 <Plug>lightline#bufferline#delete(2)
-nmap <Leader>x3 <Plug>lightline#bufferline#delete(3)
-nmap <Leader>x4 <Plug>lightline#bufferline#delete(4)
-nmap <Leader>x5 <Plug>lightline#bufferline#delete(5)
-nmap <Leader>x6 <Plug>lightline#bufferline#delete(6)
-nmap <Leader>x7 <Plug>lightline#bufferline#delete(7)
-nmap <Leader>x8 <Plug>lightline#bufferline#delete(8)
-nmap <Leader>x9 <Plug>lightline#bufferline#delete(9)
-nmap <Leader>x0 <Plug>lightline#bufferline#delete(10)
+nmap <Leader>r1 <Plug>lightline#bufferline#delete(1)
+nmap <Leader>r2 <Plug>lightline#bufferline#delete(2)
+nmap <Leader>r3 <Plug>lightline#bufferline#delete(3)
+nmap <Leader>r4 <Plug>lightline#bufferline#delete(4)
+nmap <Leader>r5 <Plug>lightline#bufferline#delete(5)
+nmap <Leader>r6 <Plug>lightline#bufferline#delete(6)
+nmap <Leader>r7 <Plug>lightline#bufferline#delete(7)
+nmap <Leader>r8 <Plug>lightline#bufferline#delete(8)
+nmap <Leader>r9 <Plug>lightline#bufferline#delete(9)
+nmap <Leader>r0 <Plug>lightline#bufferline#delete(10)
 
 " ------------------------------------------------- custom textobjects ------------------------------------------
 
@@ -366,7 +366,6 @@ map <leader>f :<C-u>FzfPreviewLinesRpc<CR>
 map <leader>g :<C-u>FzfPreviewBufferLinesRpc<CR>
 map <leader>i :<C-u>FzfPreviewGitActionsRpc<CR>
 map <leader>p :<C-u>FzfPreviewProjectFilesRpc<CR>
-map <leader>r :<C-u>FzfPreviewCommandPaletteRpc<CR>
 
 " ------------------------------------------------- fzf-preview-window ------------------------------------------
 
