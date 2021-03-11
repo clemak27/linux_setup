@@ -18,6 +18,8 @@ Plug 'tpope/vim-surround' " brackets around words ysiw(
 Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
 Plug 'preservim/nerdtree' " file explorer
 Plug 'airblade/vim-gitgutter' " git info in signcolumn
+Plug 'junegunn/vim-slash' " improved search
+Plug 'jiangmiao/auto-pairs' " auto closing things
 
 Plug 'joshdick/onedark.vim' " atom one dark theme
 Plug 'itchyny/lightline.vim' " nice statusline
@@ -215,15 +217,15 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 " Start NERDTree when Vim starts with a directory argument.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+      \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
+      \ quit | endif
 
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+      \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 " ------------------------------------------------- gitgutter ---------------------------------------------------
 
@@ -272,11 +274,14 @@ catch
 endtry
 
 " ------------------------------------------------- lightline ---------------------------------------------------
-
 let g:lightline = {
       \ 'colorscheme': 'onedark',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileformat', 'fileencoding', 'filetype'] ]
       \ },
       \ 'tabline': {
       \   'left': [ ['buffers'] ],
@@ -314,16 +319,16 @@ nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
 " map easier access to close buffers
-nmap <Leader>x1 <Plug>lightline#bufferline#delete(1)
-nmap <Leader>x2 <Plug>lightline#bufferline#delete(2)
-nmap <Leader>x3 <Plug>lightline#bufferline#delete(3)
-nmap <Leader>x4 <Plug>lightline#bufferline#delete(4)
-nmap <Leader>x5 <Plug>lightline#bufferline#delete(5)
-nmap <Leader>x6 <Plug>lightline#bufferline#delete(6)
-nmap <Leader>x7 <Plug>lightline#bufferline#delete(7)
-nmap <Leader>x8 <Plug>lightline#bufferline#delete(8)
-nmap <Leader>x9 <Plug>lightline#bufferline#delete(9)
-nmap <Leader>x0 <Plug>lightline#bufferline#delete(10)
+nmap <Leader>r1 <Plug>lightline#bufferline#delete(1)
+nmap <Leader>r2 <Plug>lightline#bufferline#delete(2)
+nmap <Leader>r3 <Plug>lightline#bufferline#delete(3)
+nmap <Leader>r4 <Plug>lightline#bufferline#delete(4)
+nmap <Leader>r5 <Plug>lightline#bufferline#delete(5)
+nmap <Leader>r6 <Plug>lightline#bufferline#delete(6)
+nmap <Leader>r7 <Plug>lightline#bufferline#delete(7)
+nmap <Leader>r8 <Plug>lightline#bufferline#delete(8)
+nmap <Leader>r9 <Plug>lightline#bufferline#delete(9)
+nmap <Leader>r0 <Plug>lightline#bufferline#delete(10)
 
 " ------------------------------------------------- custom textobjects ------------------------------------------
 
@@ -364,7 +369,6 @@ map <leader>f :<C-u>FzfPreviewLinesRpc<CR>
 map <leader>g :<C-u>FzfPreviewBufferLinesRpc<CR>
 map <leader>i :<C-u>FzfPreviewGitActionsRpc<CR>
 map <leader>p :<C-u>FzfPreviewProjectFilesRpc<CR>
-map <leader>r :<C-u>FzfPreviewCommandPaletteRpc<CR>
 
 " ------------------------------------------------- fzf-preview-window ------------------------------------------
 
@@ -380,7 +384,6 @@ let g:coc_global_extensions = [
       \ 'coc-java',
       \ 'coc-json',
       \ 'coc-markdownlint',
-      \ 'coc-pairs',
       \ 'coc-prettier',
       \ 'coc-python',
       \ 'coc-rust-analyzer',
