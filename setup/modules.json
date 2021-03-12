@@ -6,7 +6,10 @@
         "zsh",
         "git"
       ],
-      "commands": [],
+      "commands": [
+        "git --version",
+        "git --version"
+      ],
       "aur": [],
       "user_commands": []
     }
