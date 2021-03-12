@@ -11,10 +11,14 @@
         "git --version"
       ],
       "aur": [
+        "spotifyd",
         "spotify-tui"
       ],
       "user_commands": [
-        "cp random shit"
+        "touch random",
+        "cp random shit",
+        "rm random",
+        "rm shit"
       ]
     }
   ]

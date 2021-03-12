@@ -9,7 +9,6 @@ function get_module() {
 }
 
 function get_packages() {
-  # cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .packages"
   packages=($(<$config jq -r ".modules[] | select(.name == \"$1\") | .packages | @sh"))
   for i in "${packages[@]}"
   do
@@ -27,14 +26,14 @@ function get_commands() {
     l=${#i}
     # shitty af
     if [[ $l -gt 3 ]]; then
-      # /bin/zsh -e -c $i
       echo "executing: $i"
+      # /bin/zsh -e -c "$i"
     fi
   done
 }
 
 function get_aur() {
-  # cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .packages"
+  # cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .aur"
   packages=($(<$config jq -r ".modules[] | select(.name == \"$1\") | .aur | @sh"))
   for i in "${packages[@]}"
   do
@@ -43,7 +42,7 @@ function get_aur() {
 }
 
 function get_user_commands() {
-  # cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .commands"
+  # cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .user_commands"
   commands=$(cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .user_commands | @sh")
   IFS="'" read -a pack <<< $commands
 
@@ -52,8 +51,8 @@ function get_user_commands() {
     l=${#i}
     # shitty af
     if [[ $l -gt 3 ]]; then
-      # /bin/zsh -e -c $i
       echo "executing: $i"
+      /bin/zsh -e -c "$i"
     fi
   done
 }
