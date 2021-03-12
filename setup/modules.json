@@ -10,8 +10,12 @@
         "git --version",
         "git --version"
       ],
-      "aur": [],
-      "user_commands": []
+      "aur": [
+        "spotify-tui"
+      ],
+      "user_commands": [
+        "cp random shit"
+      ]
     }
   ]
 }
