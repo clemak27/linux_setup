@@ -1,0 +1,14 @@
+{
+  "modules": [
+    {
+      "name": "plasma",
+      "packages": [
+        "zsh",
+        "cp"
+      ],
+      "commands": [],
+      "aur": [],
+      "user_commands": []
+    }
+  ]
+}
