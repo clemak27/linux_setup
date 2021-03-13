@@ -9,11 +9,9 @@ function get_module() {
 }
 
 function get_packages() {
-  packages=($(<$config jq -r ".modules[] | select(.name == \"$1\") | .packages | @sh"))
-  for i in "${packages[@]}"
-  do
-    echo "package: $i"
-  done
+  packages=$(cat $config | jq -r ".modules[] | select(.name == \"$1\") | .packages | @sh")
+  pack=$(echo $packages | sed -e "s,',,g")
+  echo "installing: $pack"
 }
 
 function get_commands() {
@@ -58,7 +56,7 @@ function get_user_commands() {
 }
 
 # get_module plasma
-get_packages plasma
-get_commands plasma
-get_aur plasma
-get_user_commands plasma
+get_packages desktop_environment
+# get_commands plasma
+# get_aur plasma
+# get_user_commands plasma
