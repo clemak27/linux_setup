@@ -281,7 +281,9 @@ let g:lightline = {
       \ },
       \ 'component_raw': {
       \   'buffers': 1
-      \ }
+      \ },
+      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
       \ }
 
 let g:lightline#bufferline#clickable = 1
