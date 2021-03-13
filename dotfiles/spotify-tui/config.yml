@@ -7,7 +7,7 @@ theme:
   error_border: Red # error dialog border
   error_text: LightRed # error message text (e.g. "Spotify API reported error 404")
   hint: Yellow # hint text in errors
-  hovered: Magenta # hovered pane border
+  hovered: "129, 43, 226" # hovered pane border
   inactive: Gray # borders of inactive panes
   playbar_background: Black # background of progress bar
   playbar_progress: LightBlue # filled-in part of the progress bar
