@@ -21,6 +21,7 @@ disabled = true
 symbol = " "
 
 [directory]
+format = "[ $path]($style)[$read_only]($read_only_style) "
 style = "bold blue"
 truncation_length = 99
 truncate_to_repo = false
