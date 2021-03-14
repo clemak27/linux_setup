@@ -210,8 +210,13 @@ autocmd FileChangedShellPost *
 " disable netrw
 let loaded_netrwPlugin = 1
 
+" keymaps
 nnoremap <leader>n :NERDTreeFind<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
+
+" remove arrows
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
 
 " Start NERDTree when Vim starts with a directory argument.
 autocmd StdinReadPre * let s:std_in=1
