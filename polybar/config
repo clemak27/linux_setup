@@ -26,6 +26,8 @@ bottom = false
 background = ${colors.background}
 foreground = ${colors.foreground}
 
+border-left-size = 5
+border-right-size = 5
 border-bottom-size = 2
 border-color = ${colors.background}
 line-size = 2
@@ -159,7 +161,7 @@ format-padding = 1
 format-underline = ${colors.yellow}
 
 click-left = ~/Projects/linux_setup/polybar/bluetooth.sh --toggle &
-click-right = bluedevil-wizard
+click-right = systemsettings5 bluetooth
 
 [module/wlan]
 type = internal/network
