@@ -40,3 +40,6 @@
 ! white
 *.color7:       #555555
 *.color15:      #abb2bf
+
+! orange
+*.orange:       #d19a66
