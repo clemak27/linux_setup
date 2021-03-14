@@ -249,20 +249,6 @@ syntax enable
 
 let g:onedark_color_overrides = {
       \  "black": {"gui": "#000000", "cterm": "0", "cterm16": "0" },
-      \  "red": {"gui": "#ff7de9", "cterm": "204", "cterm16": "1" },
-      \  "green": {"gui": "#86de74", "cterm": "114", "cterm16": "2" },
-      \  "yellow": {"gui": "#fff89e", "cterm": "180", "cterm16": "3" },
-      \  "blue": {"gui": "#75bfff", "cterm": "39", "cterm16": "4" },
-      \  "purple": {"gui": "#b98eff", "cterm": "170", "cterm16": "5" },
-      \  "grey": {"gui": "#555555", "cterm": "236", "cterm16": "6" },
-      \  "white": {"gui": "#97a4b3", "cterm": "145", "cterm16": "7" },
-      \  "cyan": {"gui": "#75bfff", "cterm": "145", "cterm16": "5" },
-      \  "menu_grey": {"gui": "#232323", "cterm": "236", "cterm16": "6" },
-      \  "vertsplit": {"gui": "#8a2be2", "cterm": "236", "cterm16": "6" },
-      \  "comment_grey": {"gui": "#555555", "cterm": "236", "cterm16": "6" },
-      \  "visual_grey": {"gui": "#232323", "cterm": "236", "cterm16": "6" },
-      \  "dark_red": {"gui": "#ff7de9", "cterm": "204", "cterm16": "1" },
-      \  "dark_yellow": {"gui": "#D19A66", "cterm": "180", "cterm16": "3" }
       \ }
 
 let g:onedark_hide_endofbuffer = 1
@@ -295,7 +281,9 @@ let g:lightline = {
       \ },
       \ 'component_raw': {
       \   'buffers': 1
-      \ }
+      \ },
+      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
       \ }
 
 let g:lightline#bufferline#clickable = 1

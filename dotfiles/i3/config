@@ -181,7 +181,10 @@ bindsym $mod+Shift+Right move container to workspace next
 bindsym $mod+shift+p move workspace to output right
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r exec i3-msg 'exec ~/Projects/linux_setup/polybar/launch.sh;restart'
+bindsym $mod+Shift+r restart
+
+# restart polybar
+bindsym $mod+Shift+b exec i3-msg 'exec ~/Projects/linux_setup/polybar/launch.sh'
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

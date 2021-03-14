@@ -34,6 +34,9 @@ pacman -S --quiet --noprogressbar --noconfirm rofi rofi-calc dmenu
 # kitty
 pacman -S --quiet --noprogressbar --noconfirm kitty
 
+# gimp
+pacman -S --quiet --noprogressbar --noconfirm gimp
+
 # spotifyd
 pacman -S --quiet --noprogressbar --noconfirm spotifyd
 mkdir -p /home/$user/.cache/spotifyd
