@@ -4,8 +4,13 @@ background-alt = ${xrdb:color8}
 foreground = ${xrdb:foreground}
 foreground-alt = ${xrdb:color7}
 primary = ${xrdb:accent}
-secondary = ${xrdb:color1}
+secondary = ${xrdb:accent-dark}
 alert = ${xrdb:accent-light}
+red = ${xrdb:color1}
+orange = ${xrdb:orange}
+yellow = ${xrdb:color3}
+green = ${xrdb:color2}
+blue = ${xrdb:color4}
 
 [settings]
 screenchange-reload = true
@@ -79,12 +84,14 @@ label-separator-foreground = ${colors.primary}
 
 [module/separator]
 type = custom/text
-content = "|"
+content = " "
 
 [module/system-usb-udev]
 type = custom/script
 exec = ~/Projects/linux_setup/polybar/system-usb-udev.sh
 tail = true
+
+content-underline = ${colors.blue}
 
 click-left = ~/Projects/linux_setup/polybar/system-usb-udev.sh --mount &
 click-right = ~/Projects/linux_setup/polybar/system-usb-udev.sh --unmount &
@@ -94,6 +101,8 @@ type = custom/script
 exec = ~/Projects/linux_setup/polybar/polybar-kdeconnect.sh  -d
 tail = true
 
+format-underline = ${colors.blue}
+
 [module/syncthing]
 type = custom/text
 
@@ -101,6 +110,7 @@ content =痢
 content-padding = 1
 content-background = ${colors.background}
 content-foreground = ${colors.foreground}
+content-underline = ${colors.blue}
 
 click-left = syncthing -browser-only
 
@@ -111,17 +121,22 @@ content =
 content-padding = 1
 content-background = ${colors.background}
 content-foreground = ${colors.foreground}
+content-underline = ${colors.blue}
 
 click-left = keepassxc
 
 [module/pulseaudio]
 type = internal/pulseaudio
 sink = alsa_output.usb-Logitech_G533_Gaming_Headset-00.pro-output-0
+
+label-volume = %percentage%%
 format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 1
-label-volume = %percentage%%
+format-volume-underline  = ${colors.green}
+
 label-muted = 婢 --- 
 format-muted-padding = 1
+format-muted-underline  = ${colors.green}
 
 ramp-volume-0 = 奔
 ramp-volume-1 = 墳
@@ -133,6 +148,8 @@ type = custom/script
 exec = ~/Projects/linux_setup/polybar/microphone.sh
 tail = true
 
+format-underline  = ${colors.green}
+
 click-left = ~/Projects/linux_setup/polybar/microphone.sh --toggle &
 click-right = pavucontrol
 
@@ -140,26 +157,29 @@ click-right = pavucontrol
 type = custom/script
 exec = ~/Projects/linux_setup/polybar/bluetooth.sh
 interval = 1
-click-left = ~/Projects/linux_setup/polybar/bluetooth.sh --toggle &
-click-right = bluedevil-wizard
+
 format-padding = 1
 format-background = ${colors.background}
 format-foreground = ${colors.foreground}
+format-underline = ${colors.yellow}
+
+click-left = ~/Projects/linux_setup/polybar/bluetooth.sh --toggle &
+click-right = bluedevil-wizard
 
 [module/wlan]
 type = internal/network
 interface = wlan0
 interval = 5.0
 
-; https://askubuntu.com/a/1089561
+label-connected = %essid% %local_ip%
 format-connected = ﬉
 format-connected-padding = 1
-label-connected = %essid% %local_ip%
+format-connected-underline = ${colors.yellow}
 
+label-disconnected = WiFi disconnected
 format-disconnected =  <label-disconnected>
 format-disconnected-padding = 1
-label-disconnected = WiFi disconnected
-format-disconnected-underline = ${colors.alert}
+format-disconnected-underline = ${colors.yellow}
 
 [module/eth1]
 type = internal/network
@@ -168,9 +188,10 @@ interval = 3.0
 
 label-connected = ﯱ
 format-connected-padding = 1
+format-connected-underline = ${colors.yellow}
 
-format-disconnected-underline = ${colors.alert}
 label-disconnected = disconnected
+format-disconnected-underline = ${colors.yellow}
 
 [module/battery]
 type = internal/battery
@@ -178,12 +199,15 @@ battery = BAT0
 full-at = 95
 format-charging =  <label-charging>
 format-charging-padding = 1
+format-charging-underline = ${colors.yellow}
 
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-padding = 1
+format-discharging-underline = ${colors.yellow}
 
 format-full = 
 format-full-padding = 1
+format-full-underline = ${colors.yellow}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -213,6 +237,7 @@ date = %d.%m.
 time = %H:%M:%S
 
 format-padding = 1
+format-underline = ${colors.orange}
 
 label = %date% %time%
 
@@ -223,6 +248,7 @@ content =
 content-padding = 1
 content-background = ${colors.background}
 content-foreground = ${colors.foreground}
+content-underline = ${colors.red}
 
 click-left = ~/Projects/linux_setup/rofi/runner/runner.sh &
 
@@ -233,6 +259,7 @@ content =⏻
 content-padding = 1
 content-background = ${colors.background}
 content-foreground = ${colors.foreground}
+content-underline = ${colors.red}
 
 click-left = ~/Projects/linux_setup/rofi/powermenu/powermenu.sh &
 
