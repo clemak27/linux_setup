@@ -109,8 +109,6 @@ type = custom/text
 
 content =痢
 content-padding = 1
-content-background = ${colors.background}
-content-foreground = ${colors.foreground}
 content-underline = ${colors.blue}
 
 click-left = syncthing -browser-only
@@ -120,8 +118,6 @@ type = custom/text
 
 content =
 content-padding = 1
-content-background = ${colors.background}
-content-foreground = ${colors.foreground}
 content-underline = ${colors.blue}
 
 click-left = keepassxc
@@ -160,8 +156,6 @@ exec = ~/Projects/linux_setup/polybar/bluetooth.sh
 interval = 1
 
 format-padding = 1
-format-background = ${colors.background}
-format-foreground = ${colors.foreground}
 format-underline = ${colors.yellow}
 
 click-left = ~/Projects/linux_setup/polybar/bluetooth.sh --toggle &
@@ -247,8 +241,6 @@ type = custom/text
 
 content =
 content-padding = 1
-content-background = ${colors.background}
-content-foreground = ${colors.foreground}
 content-underline = ${colors.red}
 
 click-left = ~/Projects/linux_setup/rofi/runner/runner.sh &
@@ -258,8 +250,6 @@ type = custom/text
 
 content =⏻ 
 content-padding = 1
-content-background = ${colors.background}
-content-foreground = ${colors.foreground}
 content-underline = ${colors.red}
 
 click-left = ~/Projects/linux_setup/rofi/powermenu/powermenu.sh &
