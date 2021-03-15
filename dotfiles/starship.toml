@@ -41,6 +41,9 @@ symbol = " "
 disabled = true
 symbol = " "
 
+[gcloud]
+disabled = true
+
 [git_branch]
 format = "[$symbol$branch]($style) "
 symbol = " "
