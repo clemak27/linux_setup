@@ -212,7 +212,7 @@ let loaded_netrwPlugin = 1
 
 " keymaps
 nnoremap <leader>n :NERDTreeFind<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 " remove arrows
 let g:NERDTreeDirArrowExpandable = ''
