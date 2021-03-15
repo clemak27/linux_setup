@@ -42,12 +42,6 @@ systemctl enable sddm
 # polybar
 cp /home/$user/Projects/linux_setup/polybar/95-usb.rules /etc/udev/rules.d/95-usb.rules
 
-# pulseaudio volume control
-pacman -S --quiet --noprogressbar --noconfirm pavucontrol
-
-# bluetooth tools
-pacman -S --quiet --noprogressbar --noconfirm bluez-utils
-
 # i3 gaps
 pacman -S --quiet --noprogressbar --noconfirm i3-gaps
 
