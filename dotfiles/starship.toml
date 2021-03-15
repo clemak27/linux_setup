@@ -41,6 +41,9 @@ symbol = " "
 disabled = true
 symbol = " "
 
+[gcloud]
+disabled = true
+
 [git_branch]
 format = "[$symbol$branch]($style) "
 symbol = " "
@@ -48,12 +51,6 @@ style = "bold green"
 
 [git_status]
 style = "bold yellow"
-untracked_count.enabled = true
-stashed_count.enabled = true
-modified_count.enabled  = true
-staged_count.enabled  = true
-renamed_count.enabled = true
-deleted_count.enabled = true
 
 [golang]
 disabled = true
@@ -73,6 +70,10 @@ symbol = " "
 [julia]
 disabled = true
 symbol = " "
+
+[kubernetes]
+disabled = true
+format = '[$symbol$context( \($namespace\))]($style) '
 
 [memory_usage]
 disabled = true
