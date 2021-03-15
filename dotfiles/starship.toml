@@ -51,12 +51,6 @@ style = "bold green"
 
 [git_status]
 style = "bold yellow"
-untracked_count.enabled = true
-stashed_count.enabled = true
-modified_count.enabled  = true
-staged_count.enabled  = true
-renamed_count.enabled = true
-deleted_count.enabled = true
 
 [golang]
 disabled = true
