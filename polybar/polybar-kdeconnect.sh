@@ -42,7 +42,8 @@ show_devices (){
             devices+="%{A1:$DIR/polybar-kdeconnect.sh -n '$devicename' -i $deviceid -b $battery -m:}$icon%{A}$SEPERATOR"
         elif [ "$isreach" = "false" ] && [ "$istrust" = "true" ]
         then
-            devices+="$(get_icon -1 "$devicetype")$SEPERATOR"
+            # devices+="$(get_icon -1 "$devicetype")$SEPERATOR"
+            devices+="  "
         else
             haspairing="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$deviceid" org.kde.kdeconnect.device.hasPairingRequests)"
             if [ "$haspairing" = "true" ]

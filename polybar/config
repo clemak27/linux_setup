@@ -109,7 +109,7 @@ format-underline = ${colors.blue}
 [module/syncthing]
 type = custom/text
 
-content =痢
+content = 痢
 content-padding = 1
 content-underline = ${colors.blue}
 
@@ -118,7 +118,7 @@ click-left = syncthing -browser-only
 [module/keepassxc]
 type = custom/text
 
-content =
+content = 
 content-padding = 1
 content-underline = ${colors.blue}
 
@@ -140,7 +140,7 @@ format-muted-underline  = ${colors.green}
 ramp-volume-0 = 奔
 ramp-volume-1 = 墳
 
-click-right = pavucontrol
+click-right = kcmshell5 kcm_pulseaudio
 
 [module/microphone]
 type = custom/script
@@ -150,7 +150,7 @@ tail = true
 format-underline  = ${colors.green}
 
 click-left = ~/Projects/linux_setup/polybar/microphone.sh --toggle &
-click-right = pavucontrol
+click-right = kcmshell5 kcm_pulseaudio
 
 [module/bluetooth]
 type = custom/script
@@ -161,7 +161,7 @@ format-padding = 1
 format-underline = ${colors.yellow}
 
 click-left = ~/Projects/linux_setup/polybar/bluetooth.sh --toggle &
-click-right = systemsettings5 bluetooth
+click-right = kcmshell5 bluetooth
 
 [module/wlan]
 type = internal/network
@@ -178,6 +178,8 @@ format-disconnected =  <label-disconnected>
 format-disconnected-padding = 1
 format-disconnected-underline = ${colors.yellow}
 
+click-right = kcmshell5 kcm_networkmanagement
+
 [module/eth1]
 type = internal/network
 interface = enp27s0
@@ -189,6 +191,8 @@ format-connected-underline = ${colors.yellow}
 
 label-disconnected = disconnected
 format-disconnected-underline = ${colors.yellow}
+
+click-right = kcmshell5 kcm_networkmanagement
 
 [module/battery]
 type = internal/battery
@@ -230,18 +234,17 @@ type = internal/date
 interval = 1
 
 date = %d.%m.
-
 time = %H:%M:%S
+label = %date% %time%
 
 format-padding = 1
 format-underline = ${colors.orange}
 
-label = %date% %time%
 
 [module/runner]
 type = custom/text
 
-content =
+content = 
 content-padding = 1
 content-underline = ${colors.red}
 
@@ -250,7 +253,7 @@ click-left = ~/Projects/linux_setup/rofi/runner/runner.sh &
 [module/powermenu]
 type = custom/text
 
-content =⏻ 
+content = ⏻ 
 content-padding = 1
 content-underline = ${colors.red}
 
