@@ -77,6 +77,10 @@ symbol = " "
 disabled = true
 symbol = " "
 
+[kubernetes]
+disabled = true
+format = '[$symbol$context( \($namespace\))]($style) '
+
 [memory_usage]
 disabled = true
 symbol = " "
