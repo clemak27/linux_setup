@@ -91,7 +91,7 @@ ln -sf $config_dir/spotifyd/spotifyd.conf $user_dir/.config/spotifyd/spotifyd.co
 
 # plasma color scheme
 mkdir -p $user_dir/.local/share/color-schemes
-ln -sf $config_dir/plasma/Kustom.colors $user_dir/.local/share/color-schemes/Kustom.colors
+ln -sf $setup_dir/plasma/Kustom.colors $user_dir/.local/share/color-schemes/Kustom.colors
 
 # ------------------------ .mozilla ------------------------
 
