@@ -16,7 +16,7 @@
 /*changes "flash" on tab open color*/
 :root 
 {
-  --in-content-page-background: #000000 /*tab flash on new tab*/
+  --in-content-page-background: #121212 /*tab flash on new tab*/
 }
 
 #browser vbox#appcontent tabbrowser,

@@ -252,7 +252,7 @@ endif
 syntax enable 
 
 let g:onedark_color_overrides = {
-      \  "black": {"gui": "#000000", "cterm": "0", "cterm16": "0" },
+      \  "black": {"gui": "#121212", "cterm": "0", "cterm16": "0" },
       \ }
 
 let g:onedark_hide_endofbuffer = 1
