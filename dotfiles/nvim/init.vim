@@ -18,7 +18,6 @@ Plug 'tpope/vim-surround' " brackets around words ysiw(
 Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
 Plug 'preservim/nerdtree' " file explorer
 Plug 'airblade/vim-gitgutter' " git info in signcolumn
-Plug 'junegunn/vim-slash' " improved search
 Plug 'jiangmiao/auto-pairs' " auto closing things
 
 Plug 'joshdick/onedark.vim' " atom one dark theme
@@ -211,8 +210,13 @@ autocmd FileChangedShellPost *
 " disable netrw
 let loaded_netrwPlugin = 1
 
+" keymaps
 nnoremap <leader>n :NERDTreeFind<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+" remove arrows
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
 
 " Start NERDTree when Vim starts with a directory argument.
 autocmd StdinReadPre * let s:std_in=1
@@ -248,7 +252,9 @@ endif
 syntax enable 
 
 let g:onedark_color_overrides = {
-      \  "black": {"gui": "#000000", "cterm": "0", "cterm16": "0" },
+      \  "black": {"gui": "#121212", "cterm": "0", "cterm16": "0" },
+      \  "visual_grey": {"gui": "#232323", "cterm": "0", "cterm16": "0" },
+      \  "menu_grey": {"gui": "#232323", "cterm": "0", "cterm16": "0" },
       \ }
 
 let g:onedark_hide_endofbuffer = 1
@@ -281,9 +287,7 @@ let g:lightline = {
       \ },
       \ 'component_raw': {
       \   'buffers': 1
-      \ },
-      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+      \ }
       \ }
 
 let g:lightline#bufferline#clickable = 1

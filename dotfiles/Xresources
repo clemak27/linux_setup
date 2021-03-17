@@ -1,13 +1,10 @@
 ! special
-*.foreground:   #97a4b3
-*.background:   #000000
-*.cursorColor:  #97a4b3
-*.accent:       #8a2be2
-*.accent-light: #a312e9
-*.accent-dark:  #5200aa
-*.background-highlight: #232323
-*.background-focus:  #121212
-*.foreground-alt:   #C8C8C8
+*.foreground:        #abb2bf
+*.background:        #121212
+*.background-light:  #232323
+*.background-dark:   #000000
+*.cursorColor:       #abb2bf
+*.accent:            #8a2be2
 
 ! black
 *.color0:       #000000

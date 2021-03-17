@@ -228,28 +228,28 @@ for_window [title="Picture-in-Picture"] sticky enable
 # Colors
 
 # Create variables from Xresources for i3's look.
-set_from_resource $focused.color.border i3-wm.accent "#8a2be2"
-set_from_resource $focused.color.background i3-wm.background "#000000"
-set_from_resource $focused.color.text i3-wm.foreground "#97a4b3"
-set_from_resource $focused.color.indicator i3-wm.accent-dark "#75bfff"
+set_from_resource $focused.color.border i3-wm.accent
+set_from_resource $focused.color.background i3-wm.background
+set_from_resource $focused.color.text i3-wm.foreground
+set_from_resource $focused.color.indicator i3-wm.accent
 set_from_resource $focused.color.child_border i3-wm.accent
 
-set_from_resource $focused_inactive.color.border i3-wm.color8 "#232323"
-set_from_resource $focused_inactive.color.background i3-wm.background "#000000"
-set_from_resource $focused_inactive.color.text i3-wm.color7 "#737373"
-set_from_resource $focused_inactive.color.indicator i3-wm.accent-dark "#75bfff"
+set_from_resource $focused_inactive.color.border i3-wm.color8
+set_from_resource $focused_inactive.color.background i3-wm.background
+set_from_resource $focused_inactive.color.text i3-wm.color7
+set_from_resource $focused_inactive.color.indicator i3-wm.accent
 set_from_resource $focused_inactive.color.child_border i3-wm.color8
 
-set_from_resource $unfocused.color.border i3-wm.color8 "#232323"
-set_from_resource $unfocused.color.background i3-wm.background "#000000"
-set_from_resource $unfocused.color.text i3-wm.color7 "#737373"
-set_from_resource $unfocused.color.indicator i3-wm.accent-dark "#75bfff"
+set_from_resource $unfocused.color.border i3-wm.color8
+set_from_resource $unfocused.color.background i3-wm.background
+set_from_resource $unfocused.color.text i3-wm.color7
+set_from_resource $unfocused.color.indicator i3-wm.accent
 set_from_resource $unfocused.color.child_border i3-wm.color8
 
-set_from_resource $urgent.color.border i3-wm.color8 "#232323"
-set_from_resource $urgent.color.background i3-wm.color1 "#000000"
-set_from_resource $urgent.color.text i3-wm.color7 "#737373"
-set_from_resource $urgent.color.indicator i3-wm.accent-dark "#75bfff"
+set_from_resource $urgent.color.border i3-wm.color8
+set_from_resource $urgent.color.background i3-wm.color1
+set_from_resource $urgent.color.text i3-wm.color7
+set_from_resource $urgent.color.indicator i3-wm.accent
 set_from_resource $urgent.color.child_border i3-wm.color8
 
 # Window Border color
