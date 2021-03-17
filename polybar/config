@@ -1,9 +1,7 @@
 [colors]
 background = ${xrdb:background-dark}
 foreground = ${xrdb:foreground}
-primary = ${xrdb:accent}
-secondary = ${xrdb:accent-dark}
-alert = ${xrdb:accent-light}
+accent = ${xrdb:accent}
 red = ${xrdb:color1}
 orange = ${xrdb:orange}
 yellow = ${xrdb:color3}
@@ -66,7 +64,7 @@ label-mode-background = ${colors.background}
 
 label-focused = %icon%
 label-focused-foreground = ${colors.foreground}
-label-focused-underline = ${colors.primary}
+label-focused-underline = ${colors.accent}
 label-focused-padding = 1 
 
 label-unfocused = %icon%
@@ -77,11 +75,11 @@ label-visible-padding = 1
 
 label-urgent = %icon%
 label-urgent-foreground = ${colors.foreground}
-label-urgent-background = ${colors.alert}
+label-urgent-background = ${colors.accent}
 label-urgent-padding = 1
 
 label-separator = 
-label-separator-foreground = ${colors.primary}
+label-separator-foreground = ${colors.accent}
 
 [module/separator]
 type = custom/text
