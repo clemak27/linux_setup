@@ -1,6 +1,6 @@
 * {
-  textcolor: #97a4b3;
-  foreground: #97a4b3;
+  textcolor: #abb2bf;
+  foreground: #abb2bf;
   background: #000000;
   highlighted: #232323;
   background-light: #232323;

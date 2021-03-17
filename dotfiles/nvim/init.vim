@@ -253,6 +253,8 @@ syntax enable
 
 let g:onedark_color_overrides = {
       \  "black": {"gui": "#121212", "cterm": "0", "cterm16": "0" },
+      \  "visual_grey": {"gui": "#232323", "cterm": "0", "cterm16": "0" },
+      \  "menu_grey": {"gui": "#232323", "cterm": "0", "cterm16": "0" },
       \ }
 
 let g:onedark_hide_endofbuffer = 1
@@ -285,9 +287,7 @@ let g:lightline = {
       \ },
       \ 'component_raw': {
       \   'buffers': 1
-      \ },
-      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+      \ }
       \ }
 
 let g:lightline#bufferline#clickable = 1
