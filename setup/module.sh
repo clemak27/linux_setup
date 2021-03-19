@@ -37,7 +37,7 @@ function execute_commands() {
     if [[ $l -gt 3 ]]; then
       rp="${i/\$user/$user}"
       echo "executing: $rp"
-      /bin/zsh -e -c "$rp"
+      # /bin/zsh -e -c "$rp"
     fi
   done
 }
@@ -63,8 +63,19 @@ function execute_user_commands() {
     if [[ $l -gt 3 ]]; then
       rp="${i/\$user/$user}"
       echo "executing: $rp"
-      /bin/zsh -e -c "$rp"
+      # /bin/zsh -e -c "$rp"
     fi
   done
 }
 
+function setup_module() {
+
+  if [ "$#" -ne 1 ]; then
+    echo "missing module name!"
+    return 1
+  fi
+
+  echo "Setting up module $1"
+}
+
+setup_module desktop_environment
