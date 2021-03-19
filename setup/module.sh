@@ -48,9 +48,16 @@ function install_aur_packages() {
   local packages=($(<$config jq -r ".modules[] | select(.name == \"$1\") | .aur | @sh"))
   local pack=$(echo $packages | sed -e "s,',,g")
 
-  for i in "${pack[@]}"
+  for package in "${pack[@]}"
   do
-    echo "installing aur package: $i"
+    svdp=$(pwd)
+    cd /home/aurBuilder
+    git clone https://aur.archlinux.org/$package.git
+    chmod -R g+w $package
+    cd $package
+    sudo -u nobody makepkg -sri --noconfirm
+    cd $svdp
+    unset svdp
   done
 }
 
@@ -86,4 +93,4 @@ function setup_module() {
   execute_user_commands $1
 }
 
-setup_module desktop_environment
+setup_module $1
