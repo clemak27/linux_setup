@@ -4,17 +4,28 @@ set -uo pipefail
 
 config="./modules.json"
 
-function get_module() {
+# ------------------------ Load config -----------------------------
+echo "Loading config"
+if [ -f ./config.zsh ]; then
+    source ./config.zsh
+else
+   echo "Config file could not be found!"
+   exit 1
+fi
+
+# ------------------------ define functions ------------------------
+
+function print_module_json() {
   cat $config | jq -rc ".modules[] | select(.name == \"$1\") | ."
 }
 
-function get_packages() {
+function install_packages() {
   packages=$(cat $config | jq -r ".modules[] | select(.name == \"$1\") | .packages | @sh")
   pack=$(echo $packages | sed -e "s,',,g")
   echo "installing: $pack"
 }
 
-function get_commands() {
+function execute_commands() {
   # cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .commands"
   commands=$(cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .commands | @sh")
   IFS="'" read -a pack <<< $commands
@@ -31,7 +42,7 @@ function get_commands() {
   done
 }
 
-function get_aur() {
+function install_aur() {
   # cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .aur"
   packages=($(<$config jq -r ".modules[] | select(.name == \"$1\") | .aur | @sh"))
   for i in "${packages[@]}"
@@ -40,7 +51,7 @@ function get_aur() {
   done
 }
 
-function get_user_commands() {
+function execute_user_commands() {
   # cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .user_commands"
   commands=$(cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .user_commands | @sh")
   IFS="'" read -a pack <<< $commands
@@ -57,8 +68,3 @@ function get_user_commands() {
   done
 }
 
-# get_module plasma
-# get_packages desktop_environment
-get_commands desktop_environment
-# get_aur plasma
-# get_user_commands plasma
