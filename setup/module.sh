@@ -28,9 +28,9 @@ function install_packages() {
 function execute_commands() {
   # cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .commands"
   local commands=$(cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .commands | @sh")
-  IFS="'" read -a pack <<< $commands
+  IFS="'" read -a cmd <<< $commands
 
-  for i in "${pack[@]}"
+  for i in "${cmd[@]}"
   do
     l=${#i}
     # shitty af
@@ -40,7 +40,7 @@ function execute_commands() {
       # /bin/zsh -e -c "$rp"
     fi
   done
-  unset pack
+  unset cmd
 }
 
 function install_aur_packages() {
@@ -57,9 +57,9 @@ function install_aur_packages() {
 function execute_user_commands() {
   # cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .user_commands"
   local commands=$(cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .user_commands | @sh")
-  IFS="'" read -a pack <<< $commands
+  IFS="'" read -a cmd <<< $commands
 
-  for i in "${pack[@]}"
+  for i in "${cmd[@]}"
   do
     l=${#i}
     # shitty af
@@ -69,7 +69,7 @@ function execute_user_commands() {
       # /bin/zsh -e -c "$rp"
     fi
   done
-unset pack
+  unset cmd
 }
 
 function setup_module() {
