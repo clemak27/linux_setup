@@ -11,7 +11,6 @@ fi
 setup_dir="/home/$user/Projects/linux_setup"
 config_dir="$setup_dir/dotfiles"
 user_dir="/home/$user"
-ffProfilePath=$(find $user_dir/.mozilla/firefox -name "*.default-release")
 
 # ------------------------ ~ ------------------------
 
@@ -96,5 +95,8 @@ ln -sf $setup_dir/plasma/Kustom.colors $user_dir/.local/share/color-schemes/Kust
 # ------------------------ .mozilla ------------------------
 
 # firefox
-ln -sf $config_dir/firefox/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
-ln -sf $config_dir/firefox/chrome/userContent.css $ffProfilePath/chrome/userContent.css
+if [ "$#" -ne 1 ]; then
+  ffProfilePath=$(find $user_dir/.mozilla/firefox -name "*.default-release")
+  ln -sf $config_dir/firefox/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
+  ln -sf $config_dir/firefox/chrome/userContent.css $ffProfilePath/chrome/userContent.css
+fi
