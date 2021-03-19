@@ -24,8 +24,9 @@ function get_commands() {
     l=${#i}
     # shitty af
     if [[ $l -gt 3 ]]; then
-      echo "executing: $i"
-      # /bin/zsh -e -c "$i"
+      rp="${i/\$user/$user}"
+      echo "executing: $rp"
+      /bin/zsh -e -c "$rp"
     fi
   done
 }
@@ -49,14 +50,15 @@ function get_user_commands() {
     l=${#i}
     # shitty af
     if [[ $l -gt 3 ]]; then
-      echo "executing: $i"
-      /bin/zsh -e -c "$i"
+      rp="${i/\$user/$user}"
+      echo "executing: $rp"
+      /bin/zsh -e -c "$rp"
     fi
   done
 }
 
 # get_module plasma
-get_packages desktop_environment
-# get_commands plasma
+# get_packages desktop_environment
+get_commands desktop_environment
 # get_aur plasma
 # get_user_commands plasma

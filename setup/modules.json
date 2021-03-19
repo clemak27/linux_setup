@@ -40,7 +40,8 @@
       ],
       "commands": [
         "git --version",
-        "git --version"
+        "git --version",
+        "touch /home/$user/testy_test.py"
       ],
       "aur": [
         "spotifyd",
