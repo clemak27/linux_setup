@@ -36,23 +36,51 @@
         "polkit-kde-agent",
         "powerdevil",
         "sddm-kcm",
-        "systemsettings"
+        "systemsettings",
+        "ark",
+        "dolphin",
+        "ffmpegthumbs",
+        "filelight",
+        "gwenview",
+        "kaccounts-integration",
+        "kaccounts-providers",
+        "kdegraphics-thumbnailers",
+        "kdenetwork-filesharing",
+        "kdialog",
+        "keditbookmarks",
+        "khelpcenter",
+        "kio-extras",
+        "ksystemlog",
+        "kwalletmanager",
+        "okular",
+        "print-manager",
+        "signon-kwallet-extension",
+        "spectacle",
+        "kdeconnect",
+        "partitionmanager",
+        "sshfs",
+        "unrar",
+        "bluez-utils",
+        "i3-gaps",
+        "dunst",
+        "wmctrl",
+        "picom",
+        "feh"
       ],
       "commands": [
-        "git --version",
-        "git --version",
-        "touch /home/$user/testy_test.py"
+        "cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc",
+        "cp /home/$user/Projects/linux_setup/plasma/ksplashrc /home/$user/.config/ksplashrc",
+        "mkdir -p  /home/$user/.local/share/applications",
+        "cp  /home/$user/Projects/linux_setup/rofi/powermenu/powermenu.sh.desktop /home/$user/.local/share/applications",
+        "ln -s /usr/bin/rofi /usr/bin/dmenu",
+        "cp /home/$user/Projects/linux_setup/plasma/plasma-i3.desktop /usr/share/xsessions",
+        "systemctl enable sddm",
+        "cp /home/$user/Projects/linux_setup/polybar/95-usb.rules /etc/udev/rules.d/95-usb.rules"
       ],
       "aur": [
-        "spotifyd",
-        "spotify-tui"
+        "polybar"
       ],
-      "user_commands": [
-        "touch random",
-        "cp random shit",
-        "rm random",
-        "rm shit"
-      ]
+      "user_commands": []
     }
   ]
 }

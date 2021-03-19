@@ -35,7 +35,7 @@ function execute_commands() {
     l=${#i}
     # shitty af
     if [[ $l -gt 3 ]]; then
-      rp="${i/\$user/$user}"
+      rp="${i//\$user/$user}"
       echo "executing: $rp"
       # /bin/zsh -e -c "$rp"
     fi
@@ -47,7 +47,7 @@ function install_aur() {
   packages=($(<$config jq -r ".modules[] | select(.name == \"$1\") | .aur | @sh"))
   for i in "${packages[@]}"
   do
-    echo "aur package: $i"
+    echo "installing aur package: $i"
   done
 }
 
@@ -61,7 +61,7 @@ function execute_user_commands() {
     l=${#i}
     # shitty af
     if [[ $l -gt 3 ]]; then
-      rp="${i/\$user/$user}"
+      rp="${i//\$user/$user}"
       echo "executing: $rp"
       # /bin/zsh -e -c "$rp"
     fi
