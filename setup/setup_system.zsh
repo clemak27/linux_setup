@@ -193,7 +193,7 @@ done
 
 for module in "${system_modules[@]}"
 do
-  cd setup
+  cd /linux_setup/setup
   echo "Setting up module $module"
   /bin/zsh -e -c "./module.sh $module"
 done
