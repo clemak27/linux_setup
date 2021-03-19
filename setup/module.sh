@@ -7,10 +7,10 @@ config="./modules.json"
 # ------------------------ Load config -----------------------------
 echo "Loading config"
 if [ -f ./config.zsh ]; then
-    source ./config.zsh
+  source ./config.zsh
 else
-   echo "Config file could not be found!"
-   exit 1
+  echo "Config file could not be found!"
+  exit 1
 fi
 
 # ------------------------ define functions ------------------------
@@ -20,14 +20,14 @@ function print_module_json() {
 }
 
 function install_packages() {
-  packages=$(cat $config | jq -r ".modules[] | select(.name == \"$1\") | .packages | @sh")
-  pack=$(echo $packages | sed -e "s,',,g")
+  local packages=$(cat $config | jq -r ".modules[] | select(.name == \"$1\") | .packages | @sh")
+  local pack=$(echo $packages | sed -e "s,',,g")
   echo "installing: $pack"
 }
 
 function execute_commands() {
   # cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .commands"
-  commands=$(cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .commands | @sh")
+  local commands=$(cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .commands | @sh")
   IFS="'" read -a pack <<< $commands
 
   for i in "${pack[@]}"
@@ -40,12 +40,15 @@ function execute_commands() {
       # /bin/zsh -e -c "$rp"
     fi
   done
+  unset pack
 }
 
-function install_aur() {
+function install_aur_packages() {
   # cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .aur"
-  packages=($(<$config jq -r ".modules[] | select(.name == \"$1\") | .aur | @sh"))
-  for i in "${packages[@]}"
+  local packages=($(<$config jq -r ".modules[] | select(.name == \"$1\") | .aur | @sh"))
+  local pack=$(echo $packages | sed -e "s,',,g")
+
+  for i in "${pack[@]}"
   do
     echo "installing aur package: $i"
   done
@@ -53,7 +56,7 @@ function install_aur() {
 
 function execute_user_commands() {
   # cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .user_commands"
-  commands=$(cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .user_commands | @sh")
+  local commands=$(cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .user_commands | @sh")
   IFS="'" read -a pack <<< $commands
 
   for i in "${pack[@]}"
@@ -66,6 +69,7 @@ function execute_user_commands() {
       # /bin/zsh -e -c "$rp"
     fi
   done
+unset pack
 }
 
 function setup_module() {
@@ -76,6 +80,10 @@ function setup_module() {
   fi
 
   echo "Setting up module $1"
+  install_packages $1
+  execute_commands $1
+  install_aur_packages $1
+  execute_user_commands $1
 }
 
 setup_module desktop_environment
