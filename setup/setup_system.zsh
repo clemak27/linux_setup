@@ -8,8 +8,8 @@ cd /linux_setup
 
 # ------------------------ Load config ------------------------
 echo "Loading config"
-if [ -f ./config.zsh ]; then
-    source ./config.zsh
+if [ -f ./setup/config.zsh ]; then
+    source ./setup/config.zsh
 else
    echo "Config file could not be found!"
    exit 1
@@ -194,6 +194,7 @@ done
 for module in "${system_modules[@]}"
 do
   cd /linux_setup/setup
+  chmod +x "./module.zsh"
   echo "Setting up module $module"
   /bin/zsh -e -c "./module.sh $module"
 done

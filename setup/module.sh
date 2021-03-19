@@ -23,6 +23,7 @@ function install_packages() {
   local packages=$(cat $config | jq -r ".modules[] | select(.name == \"$1\") | .packages | @sh")
   local pack=$(echo $packages | sed -e "s,',,g")
   echo "installing: $pack"
+  pacman -S --quiet --noprogressbar --noconfirm $pack
 }
 
 function execute_commands() {
@@ -37,7 +38,7 @@ function execute_commands() {
     if [[ $l -gt 3 ]]; then
       rp="${i//\$user/$user}"
       echo "executing: $rp"
-      # /bin/zsh -e -c "$rp"
+      /bin/zsh -e -c "$rp"
     fi
   done
   unset cmd
@@ -50,6 +51,7 @@ function install_aur_packages() {
 
   for package in "${pack[@]}"
   do
+    echo "installing aur package: $package"
     svdp=$(pwd)
     cd /home/aurBuilder
     git clone https://aur.archlinux.org/$package.git
@@ -73,7 +75,7 @@ function execute_user_commands() {
     if [[ $l -gt 3 ]]; then
       rp="${i//\$user/$user}"
       echo "executing: $rp"
-      # /bin/zsh -e -c "$rp"
+      /bin/zsh -e -c "$rp"
     fi
   done
   unset cmd
