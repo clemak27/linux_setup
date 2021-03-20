@@ -65,7 +65,26 @@
         "dunst",
         "wmctrl",
         "picom",
-        "feh"
+        "feh",
+        "noto-fonts",
+        "noto-fonts-cjk",
+        "noto-fonts-emoji",
+        "noto-fonts-extra",
+        "ttf-liberation",
+        "firefox",
+        "mpv",
+        "keepassxc",
+        "syncthing",
+        "signal-desktop",
+        "redshift",
+        "obs-studio",
+        "kdenlive",
+        "rofi",
+        "rofi-calc",
+        "dmenu",
+        "kitty",
+        "gimp",
+        "spotifyd"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc",
@@ -75,11 +94,44 @@
         "ln -s /usr/bin/rofi /usr/bin/dmenu",
         "cp /home/$user/Projects/linux_setup/plasma/plasma-i3.desktop /usr/share/xsessions",
         "systemctl enable sddm",
-        "cp /home/$user/Projects/linux_setup/polybar/95-usb.rules /etc/udev/rules.d/95-usb.rules"
+        "cp /home/$user/Projects/linux_setup/polybar/95-usb.rules /etc/udev/rules.d/95-usb.rules",
+        "mkdir -p /home/$user/.cache/spotifyd"
       ],
       "aur": [
-        "polybar"
+        "polybar",
+        "scrcpy",
+        "syncthingtray",
+        "nerd-fonts-jetbrains-mono",
+        "spotify-tui-bin"
       ],
+      "user_commands": []
+    },
+    {
+      "name":"extras",
+      "packages": [],
+      "commands": [],
+      "aur": [],
+      "user_commands": []
+    },
+    {
+      "name":"nvidia",
+      "packages": [],
+      "commands": [],
+      "aur": [],
+      "user_commands": []
+    },
+    {
+      "name":"notebook",
+      "packages": [],
+      "commands": [],
+      "aur": [],
+      "user_commands": []
+    },
+    {
+      "name":"logitech",
+      "packages": [],
+      "commands": [],
+      "aur": [],
       "user_commands": []
     }
   ]
