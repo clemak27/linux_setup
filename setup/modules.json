@@ -107,15 +107,15 @@
       "user_commands": []
     },
     {
-      "name":"extras",
+      "name":"development",
       "packages": [
-"jdk11-openjdk gradle",
-"python-pip",
-"go",
-"plantuml graphviz",
-"gdb",
-"docker",
-"docker-compose"
+        "jdk11-openjdk gradle",
+        "python-pip",
+        "go",
+        "plantuml graphviz",
+        "gdb",
+        "docker",
+        "docker-compose"
       ],
       "commands": [
         "systemctl enable docker.service",
@@ -125,9 +125,32 @@
         "insomnia-bin"
       ],
       "user_commands": [
-  "pip install jedi pylint --user",
-  "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path"
+        "pip install jedi pylint --user",
+        "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path"
       ]
+    },
+    {
+      "name":"virtualization",
+      "packages": [
+        "qemu",
+        "virt-manager",
+        "virt-viewer",
+        "dnsmasq",
+        "vde2",
+        "bridge-utils",
+        "openbsd-netcat",
+        "ovmf",
+        "ebtables",
+        "iptables"
+      ],
+      "commands": [
+        "systemctl enable libvirtd.service",
+        "sed -i 's/#unix_sock_group = \"libvirt\"/unix_sock_group = \"libvirt\"/g' /etc/libvirt/libvirtd.conf",
+        "sed -i 's/#unix_sock_rw_perms = \"0770\"/unix_sock_rw_perms = \"0770\"/g' /etc/libvirt/libvirtd.conf",
+        "usermod -aG libvirt $user"
+      ],
+      "aur": [],
+      "user_commands": []
     },
     {
       "name":"nvidia",
