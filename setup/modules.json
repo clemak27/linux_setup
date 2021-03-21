@@ -85,7 +85,8 @@
         "kitty",
         "gimp",
         "spotifyd",
-        "mesa"
+        "mesa",
+        "ueberzug"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc",
@@ -103,7 +104,8 @@
         "scrcpy",
         "syncthingtray",
         "nerd-fonts-jetbrains-mono",
-        "spotify-tui-bin"
+        "spotify-tui-bin",
+        "ytfzf-git"
       ],
       "user_commands": []
     },
