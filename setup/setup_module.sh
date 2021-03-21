@@ -38,7 +38,7 @@ function execute_commands() {
     if [[ $l -gt 3 ]]; then
       rp="${i//\$user/$user}"
       echo "executing: $rp"
-      # /bin/zsh -e -c "$rp"
+      /bin/zsh -e -c "$rp"
     fi
   done
   unset cmd
@@ -89,10 +89,10 @@ function setup_module() {
   fi
 
   echo "Setting up module $1"
-  # install_packages $1
+  install_packages $1
   execute_commands $1
-  # install_aur_packages $1
-  # execute_user_commands $1
+  install_aur_packages $1
+  execute_user_commands $1
 }
 
-setup_module virtualization
+setup_module $1
