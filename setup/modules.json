@@ -225,7 +225,7 @@
         "piper"
       ],
       "commands": [
-        "cp ../other/60-openrgb.rules /etc/udev/rules.d/60-openrgb.rules"
+        "cp /home/$user/Projects/linux_setup/other/60-openrgb.rules /etc/udev/rules.d/60-openrgb.rules"
       ],
       "aur": [
         "openrgb"
