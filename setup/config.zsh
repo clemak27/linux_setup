@@ -12,14 +12,12 @@ gpu="nvidia"
 
 declare -a system_modules
 system_modules=(
- plasma_i3
- gui
- gpu
- virtual
+ desktop_environment
+ nvidia
+ development
  office
  gaming
- docker
- development
+ virtualization
  # logitech
  # notebook
 )
@@ -45,14 +43,6 @@ else
 fi
 
 # ------------------------ checks ------------------------
-
-for module in "${system_modules[@]}"
-do
-  if [ ! -f "./modules/$module.zsh" ]; then
-     echo "Module file for "$module" could not be found!"
-     exit 1
-  fi
-done
 
 if [ -z "$device" ]; then
   echo "device not set!"
