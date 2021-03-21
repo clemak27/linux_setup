@@ -113,9 +113,14 @@
 "python-pip",
 "go",
 "plantuml graphviz",
-"gdb"
+"gdb",
+"docker",
+"docker-compose"
       ],
-      "commands": [],
+      "commands": [
+        "systemctl enable docker.service",
+        "usermod -aG docker $user"
+      ],
       "aur": [
         "insomnia-bin"
       ],
