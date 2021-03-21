@@ -149,6 +149,7 @@ aur_packages=(
   'tty-clock'
   'ddgr'
   'todotxt'
+  'tealdeer'
 )
 
 declare -r aur_packages
@@ -179,6 +180,7 @@ user_commands=(
   'git config --global pull.rebase false'
   'git config --global credential.helper cache --timeout=86400'
   'git config --global include.path "~/.delta.config"'
+  'tldr --update'
 )
 
 declare -r user_commands
