@@ -108,10 +108,21 @@
     },
     {
       "name":"extras",
-      "packages": [],
+      "packages": [
+"jdk11-openjdk gradle",
+"python-pip",
+"go",
+"plantuml graphviz",
+"gdb"
+      ],
       "commands": [],
-      "aur": [],
-      "user_commands": []
+      "aur": [
+        "insomnia-bin"
+      ],
+      "user_commands": [
+  "pip install jedi pylint --user",
+  "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path"
+      ]
     },
     {
       "name":"nvidia",
