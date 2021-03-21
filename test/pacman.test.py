@@ -1,8 +1,7 @@
 #!/bin/python3
 
 import subprocess
-from os import listdir
-from os.path import isfile, join
+from os.path import isfile
 import json
 
 packages = []
