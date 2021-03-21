@@ -3,7 +3,7 @@
     ### Display ###
     monitor = firefox
     follow = keyboard
-    geometry = "300x5-30+35"
+    geometry = "400x5-30+35"
     indicate_hidden = true
     shrink = no
     transparency = 0
