@@ -153,6 +153,31 @@
       "user_commands": []
     },
     {
+      "name":"gaming",
+      "packages": [
+"wine-staging",
+"lutris",
+"steam",
+"discord" ,
+"retroarch",
+"retroarch-assets-xmb",
+"gamemode",
+"lib32-gamemode"
+      ],
+      "commands": [],
+      "aur": [
+        "steam-fonts"
+      ],
+      "user_commands": []
+    },
+    {
+      "name":"office",
+      "packages": [],
+      "commands": [],
+      "aur": [],
+      "user_commands": []
+    },
+    {
       "name":"nvidia",
       "packages": [],
       "commands": [],
