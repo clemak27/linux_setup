@@ -3,28 +3,17 @@
 import subprocess
 from os import listdir
 from os.path import isfile, join
+import json
 
 packages = []
 ignored = ['lib32-nvidia-utils', 'lib32-vulkan-icd-loader', 'wine-staging', 'steam', '', 'lib32-gamemode']
 fails = []
-modulePath = './modules'
+modulePath = './setup/modules.json'
 
-for file in listdir(modulePath):
-    if isfile(join(modulePath, file)):
-        for line in open(join(modulePath, file)):
-            if 'pacman -S --quiet --noprogressbar --noconfirm' in line and not line.startswith("  '"):
-                packagesInLine = line.replace('pacman -S --quiet --noprogressbar --noconfirm ', '').replace('\n','')
-                packagesInCommand = packagesInLine.split(' ')
-                for package in packagesInCommand:
-                    packages.append(package)
-
-if isfile('./setup_system.zsh'):
-    for line in open('./setup_system.zsh'):
-        if 'pacman -S --quiet --noprogressbar --noconfirm' in line and not line.startswith("  '"):
-            packagesInLine = line.replace('pacman -S --quiet --noprogressbar --noconfirm ', '').replace('\n','')
-            packagesInCommand = packagesInLine.split(' ')
-            for package in packagesInCommand:
-                packages.append(package)
+if isfile(modulePath):
+    modJson = json.loads(open(modulePath))
+    for pkg in modJson:
+        packages.append(pkg["packages"])
 
 print("Checking availability of", len(packages)-len(ignored), "packages.")
 
