@@ -194,9 +194,9 @@ done
 for module in "${system_modules[@]}"
 do
   cd /linux_setup/setup
-  chmod +x "./module.zsh"
+  chmod +x "./setup_module.sh"
   echo "Setting up module $module"
-  /bin/zsh -e -c "./module.sh $module"
+  /bin/zsh -e -c "./setup_module.sh $module"
 done
 
 # symlinks
