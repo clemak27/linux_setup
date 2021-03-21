@@ -8,5 +8,5 @@ pacman-test:
     - echo 'Running pacman test script...'
     - pacman -Sy
     - pacman -S --noconfirm python3
-    - chmod +x tests/pacman.test.py
-    - python3 tests/pacman.test.py
+    - chmod +x test/pacman.test.py
+    - python3 test/pacman.test.py
