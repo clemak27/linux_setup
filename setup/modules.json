@@ -84,7 +84,8 @@
         "dmenu",
         "kitty",
         "gimp",
-        "spotifyd"
+        "spotifyd",
+        "mesa"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc",
@@ -155,14 +156,14 @@
     {
       "name":"gaming",
       "packages": [
-"wine-staging",
-"lutris",
-"steam",
-"discord" ,
-"retroarch",
-"retroarch-assets-xmb",
-"gamemode",
-"lib32-gamemode"
+        "wine-staging",
+        "lutris",
+        "steam",
+        "discord" ,
+        "retroarch",
+        "retroarch-assets-xmb",
+        "gamemode",
+        "lib32-gamemode"
       ],
       "commands": [],
       "aur": [
@@ -172,14 +173,33 @@
     },
     {
       "name":"office",
-      "packages": [],
-      "commands": [],
-      "aur": [],
+      "packages": [
+        "libreoffice-fresh",
+        "libreoffice-fresh-de",
+        "texlive-most",
+        "cups",
+        "system-config-printer"
+      ],
+      "commands": [
+        "systemctl enable org.cups.cupsd.service"
+      ],
+      "aur": [
+        "pandoc-bin"
+      ],
       "user_commands": []
     },
     {
       "name":"nvidia",
-      "packages": [],
+      "packages": [
+"dkms",
+"linux-headers",
+"nvidia-dkms",
+"nvidia-utils",
+"lib32-nvidia-utils",
+"nvidia-settings",
+"vulkan-icd-loader",
+"lib32-vulkan-icd-loader"
+      ],
       "commands": [],
       "aur": [],
       "user_commands": []
