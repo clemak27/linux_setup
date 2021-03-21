@@ -11,9 +11,10 @@ fails = []
 modulePath = './setup/modules.json'
 
 if isfile(modulePath):
-    modJson = json.loads(open(modulePath))
-    for pkg in modJson:
-        packages.append(pkg["packages"])
+    modJson = json.load(open(modulePath))
+    for mod in modJson["modules"]:
+        for pkg in mod["packages"]:
+            packages.append(pkg)
 
 print("Checking availability of", len(packages)-len(ignored), "packages.")
 

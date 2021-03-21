@@ -110,10 +110,12 @@
     {
       "name":"development",
       "packages": [
-        "jdk11-openjdk gradle",
+        "jdk11-openjdk",
+        "gradle",
         "python-pip",
         "go",
-        "plantuml graphviz",
+        "plantuml",
+        "graphviz",
         "gdb",
         "docker",
         "docker-compose"
