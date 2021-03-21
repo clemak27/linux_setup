@@ -1,7 +1,7 @@
 * {
   textcolor: #abb2bf;
   foreground: #abb2bf;
-  background: #000000;
+  background: #121212;
   highlighted: #232323;
   background-light: #232323;
   urgent: #8a2be2;
