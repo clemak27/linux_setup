@@ -11,9 +11,12 @@ I use arch btw. [![pipeline status](https://gitlab.com/clemak27/linux_setup/badg
   - `systemctl --user enable spotifyd.service`
   - `systemctl --user start spotifyd.service`
   - `systemctl --user enable redshift.service`
-- plasma-addons
-  - `paru -S plasma5-applets-eventcalendar`
-  - `paru -S plasma5-applets-virtual-desktop-bar-git`
 - pipewire (since it replaces pulseaudio -> leads to promt `pipewire-pulse and pulseaudio are in conflict. Remove pulseaudio? [y/N]`)
   - `paru -S pipewire pipewire-pulse pipewire-jack pipewire-alsa`
 - zsh custom plugins
+
+## 144Hz
+
+- Add MaxFPS=144 to your ~/.config/kwinrc under [Compositing]
+- Add xrandr --rate 144 to /usr/share/sddm/scripts/Xsetup
+- about:config layout.frame_rate 144
