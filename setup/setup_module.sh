@@ -37,6 +37,7 @@ function execute_commands() {
     # shitty af
     if [[ $l -gt 3 ]]; then
       rp="${i//\$user/$user}"
+      rp="${i//\;/\'}"
       echo "executing: $rp"
       /bin/zsh -e -c "$rp"
     fi
@@ -74,6 +75,7 @@ function execute_user_commands() {
     # shitty af
     if [[ $l -gt 3 ]]; then
       rp="${i//\$user/$user}"
+      rp="${i//\;/\'}"
       echo "executing: $rp"
       su - $user -c $rp
     fi
