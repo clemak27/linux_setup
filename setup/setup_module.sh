@@ -37,7 +37,7 @@ function execute_commands() {
     # shitty af
     if [[ $l -gt 3 ]]; then
       rp="${i//\$user/$user}"
-      rp="${i//\;/\'}"
+      rp="${rp//\;/\'}"
       echo "executing: $rp"
       /bin/zsh -e -c "$rp"
     fi
@@ -48,20 +48,22 @@ function execute_commands() {
 function install_aur_packages() {
   # cat $config | jq -rc ".modules[] | select(.name == \"$1\") | .aur"
   local packages=($(<$config jq -r ".modules[] | select(.name == \"$1\") | .aur | @sh"))
-  local pack=$(echo $packages | sed -e "s,',,g")
+  if [ "${#packages[@]}" -gt 0 ]; then
+    local pack=$(echo $packages | sed -e "s,',,g")
 
-  for package in "${pack[@]}"
-  do
-    echo "installing aur package: $package"
-    svdp=$(pwd)
-    cd /home/aurBuilder
-    git clone https://aur.archlinux.org/$package.git
-    chmod -R g+w $package
-    cd $package
-    sudo -u nobody makepkg -sri --noconfirm
-    cd $svdp
-    unset svdp
-  done
+    for package in "${pack[@]}"
+    do
+      echo "installing aur package: $package"
+      svdp=$(pwd)
+      cd /home/aurBuilder
+      git clone https://aur.archlinux.org/$package.git
+      chmod -R g+w $package
+      cd $package
+      sudo -u nobody makepkg -sri --noconfirm
+      cd $svdp
+      unset svdp
+    done
+  fi
 }
 
 function execute_user_commands() {
@@ -75,7 +77,7 @@ function execute_user_commands() {
     # shitty af
     if [[ $l -gt 3 ]]; then
       rp="${i//\$user/$user}"
-      rp="${i//\;/\'}"
+      rp="${rp//\;/\'}"
       echo "executing: $rp"
       su - $user -c $rp
     fi
