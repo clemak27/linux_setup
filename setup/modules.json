@@ -86,6 +86,7 @@
         "gimp",
         "spotifyd",
         "mesa",
+        "xorg-xrandr",
         "ueberzug"
       ],
       "commands": [

@@ -28,7 +28,6 @@ sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "KEYMAP=de-latin1" > /etc/vconsole.conf
-localectl set-x11-keymap de
 
 # Network config
 echo "${hostname}" > /etc/hostname
@@ -45,6 +44,7 @@ pacman -S --quiet --noprogressbar --noconfirm b43-fwcutter broadcom-wl crda dark
 
 # some important stuff
 pacman -S --quiet --noprogressbar --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget ntfs-3g pacman-contrib
+localectl --no-convert set-x11-keymap at pc101
 
 # networkmanager
 pacman -S --quiet --noprogressbar --noconfirm networkmanager
@@ -115,7 +115,6 @@ usermod -d /home/$user $user
 usermod -aG wheel $user
 usermod --shell /usr/bin/zsh $user
 
-localectl set-keymap de
 
 # set password
 echo "$user:$password" | chpasswd

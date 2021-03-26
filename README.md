@@ -14,6 +14,9 @@ I use arch btw. [![pipeline status](https://gitlab.com/clemak27/linux_setup/badg
 - pipewire (since it replaces pulseaudio -> leads to promt `pipewire-pulse and pulseaudio are in conflict. Remove pulseaudio? [y/N]`)
   - `paru -S pipewire pipewire-pulse pipewire-jack pipewire-alsa`
 - zsh custom plugins
+- installed fpr aurBuilder:
+  - spotify-tui
+  - jetbrains mono nerdfont
 
 ## 144Hz
 
