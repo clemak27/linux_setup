@@ -69,9 +69,9 @@ arch-chroot /mnt sed -i 's,GRUB_CMDLINE_LINUX="",GRUB_CMDLINE_LINUX="cryptdevice
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # setup system
-cp -R . /mnt/linux_setup
-arch-chroot /mnt chmod +x /linux_setup/setup_system.zsh
-arch-chroot /mnt /bin/zsh /linux_setup/setup_system.zsh 2>&1 | tee -a setup_system.log
+cp -R .. /mnt/linux_setup
+arch-chroot /mnt chmod +x /linux_setup/setup/setup_system.zsh
+arch-chroot /mnt /bin/zsh /linux_setup/setup/setup_system.zsh 2>&1 | tee -a setup_system.log
 cp ./setup_system.log /mnt/home/$user/setup.log
 arch-chroot /mnt chown -R $user:$user /home/$user
 

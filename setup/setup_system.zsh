@@ -8,8 +8,8 @@ cd /linux_setup
 
 # ------------------------ Load config ------------------------
 echo "Loading config"
-if [ -f ./config.zsh ]; then
-    source ./config.zsh
+if [ -f ./setup/config.zsh ]; then
+    source ./setup/config.zsh
 else
    echo "Config file could not be found!"
    exit 1
@@ -28,7 +28,6 @@ sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "KEYMAP=de-latin1" > /etc/vconsole.conf
-localectl set-x11-keymap de
 
 # Network config
 echo "${hostname}" > /etc/hostname
@@ -45,6 +44,7 @@ pacman -S --quiet --noprogressbar --noconfirm b43-fwcutter broadcom-wl crda dark
 
 # some important stuff
 pacman -S --quiet --noprogressbar --noconfirm xorg-server fakeroot xdg-user-dirs sudo pkg-config wget ntfs-3g pacman-contrib
+localectl --no-convert set-x11-keymap at pc101
 
 # networkmanager
 pacman -S --quiet --noprogressbar --noconfirm networkmanager
@@ -115,7 +115,6 @@ usermod -d /home/$user $user
 usermod -aG wheel $user
 usermod --shell /usr/bin/zsh $user
 
-localectl set-keymap de
 
 # set password
 echo "$user:$password" | chpasswd
@@ -149,6 +148,7 @@ aur_packages=(
   'tty-clock'
   'ddgr'
   'todotxt'
+  'tealdeer'
 )
 
 declare -r aur_packages
@@ -179,6 +179,7 @@ user_commands=(
   'git config --global pull.rebase false'
   'git config --global credential.helper cache --timeout=86400'
   'git config --global include.path "~/.delta.config"'
+  'tldr --update'
 )
 
 declare -r user_commands
@@ -193,9 +194,10 @@ done
 
 for module in "${system_modules[@]}"
 do
+  cd /linux_setup/setup
+  chmod +x "./setup_module.sh"
   echo "Setting up module $module"
-  chmod +x "./modules/$module.zsh"
-  /bin/zsh -e -c "./modules/$module.zsh"
+  /bin/zsh -e -c "./setup_module.sh $module"
 done
 
 # symlinks
