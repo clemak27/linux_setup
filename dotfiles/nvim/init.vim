@@ -373,7 +373,6 @@ let g:coc_global_extensions = [
       \ 'coc-go',
       \ 'coc-highlight',
       \ 'coc-html',
-      \ 'coc-java',
       \ 'coc-json',
       \ 'coc-markdownlint',
       \ 'coc-prettier',
