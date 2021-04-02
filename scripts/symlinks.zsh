@@ -58,10 +58,6 @@ ln -sf $config_dir/i3/config $user_dir/.config/i3/config
 # intelliJ
 ln -sf $config_dir/ideavimrc $user_dir/.ideavimrc
 
-# kitty
-mkdir -p $user_dir/.config/kitty
-ln -sf $config_dir/kitty/kitty.conf $user_dir/.config/kitty/kitty.conf
-
 # mpv
 mkdir -p $user_dir/.config/mpv
 ln -sf $config_dir/mpv/mpv.conf $user_dir/.config/mpv/mpv.conf
