@@ -47,3 +47,16 @@ function glab_mr_description {
   unset desc
 }
 
+function glab_mr_checkout() {
+  local mr_number
+
+  mr_number="$(glab api "/merge_requests?state=opened&scope=all&order_by=created_at&per_page=100" |
+    jq --raw-output '.[] | "#\(.iid) - \(.title)"' |
+    fzf |
+    sed 's/^#\([0-9]\+\).*/\1/'
+  )"
+
+  if [ -n "$mr_number" ]; then
+    glab mr checkout "$mr_number"
+  fi
+}
