@@ -82,12 +82,12 @@
         "rofi",
         "rofi-calc",
         "dmenu",
-        "kitty",
         "gimp",
         "spotifyd",
         "mesa",
         "xorg-xrandr",
-        "ueberzug"
+        "ueberzug",
+        "alacritty"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc",
