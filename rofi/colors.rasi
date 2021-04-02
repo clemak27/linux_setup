@@ -14,7 +14,7 @@
   spacing: 0;
   text-color: @textcolor;
 
-  font: "Noto Sans 10";
+  font: "FiraCode Nerd Font 10";
   icon-theme: "Papirus";
 }
 
