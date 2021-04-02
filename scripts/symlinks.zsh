@@ -32,6 +32,10 @@ ln -sf $config_dir/ideavimrc $user_dir/.ideavimrc
 # ------------------------ .config ------------------------
 
 # bat
+mkdir -p $user_dir/.config/alacritty
+ln -sf $config_dir/alacritty/alacritty.yml $user_dir/.config/alacritty/alacritty.yml
+
+# bat
 mkdir -p $user_dir/.config/bat
 ln -sf $config_dir/bat/config $user_dir/.config/bat/config
 
