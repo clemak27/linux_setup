@@ -30,7 +30,7 @@ prompt {
   padding: 0px 14px 0px 4px;
   background-color: @highlighted;
   text-color: @textcolor;
-  font: "Jetbrains Mono Nerd Font 12";
+  font: "FiraCode Nerd Font 12";
 }
 
 inputbar {
@@ -117,7 +117,7 @@ element-text {
   vertical-align: 0;
   margin: 7px 7px 7px 7px;
   padding: 0px 0px 14px 0px;
-  font: "Noto Sans 18";
+  font: "FiraCode Nerd Font 18";
 
 }
 

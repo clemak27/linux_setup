@@ -20,7 +20,7 @@
     corner_radius = 0
 
     ### Text ###
-    font = JetbrainsMono Nerd Font 10
+    font = FiraCode Nerd Font 10
     line_height = 2
     markup = full
     format = "<big><b>%s</b></big>\n%b"

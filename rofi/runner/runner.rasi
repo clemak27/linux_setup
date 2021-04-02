@@ -36,7 +36,7 @@ prompt {
   padding: 0px 14px 0px 4px;
   background-color: @highlighted;
   text-color: @textcolor;
-  font: "Jetbrains Mono Nerd Font 12";
+  font: "FiraCode Nerd Font 12";
 }
 
 inputbar {

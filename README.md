@@ -16,7 +16,7 @@ I use arch btw. [![pipeline status](https://gitlab.com/clemak27/linux_setup/badg
 - zsh custom plugins
 - installed fpr aurBuilder:
   - spotify-tui
-  - jetbrains mono nerdfont
+  - nerd-fonts-fira-code
 
 ## 144Hz
 
