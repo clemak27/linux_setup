@@ -63,8 +63,8 @@ exec --no-startup-id ~/Projects/linux_setup/polybar/launch.sh
 # autostart applications
 exec --no-startup-id syncthingtray
 exec --no-startup-id ~/Projects/linux_setup/scripts/openrgb.zsh
-exec i3-msg 'workspace 3;exec kitty'
-exec i3-msg 'workspace 2;exec kitty'
+exec i3-msg 'workspace 3;exec alacritty'
+exec i3-msg 'workspace 2;exec alacritty'
 exec i3-msg 'workspace 1;exec firefox'
 exec --no-startup-id keepassxc
 
@@ -79,7 +79,7 @@ default_border pixel 1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 
 # start browser
 bindsym $mod+b exec firefox

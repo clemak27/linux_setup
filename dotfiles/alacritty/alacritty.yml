@@ -94,23 +94,20 @@ tabspaces: 8
 font:
   # Normal (roman) font face
   normal:
-    # family: Inconsolata-g for Powerline
-    family: JetBrainsMono Nerd Font
+    family: FiraCode Nerd Font
     # style: Regular
     # The `style` can be specified to pick a specific face.
 
   # Italic font face
   bold:
-    # family: Inconsolata-g for Powerline
-    family: JetBrainsMono Nerd Font
+    family: FiraCode Nerd Font
     # style: Bold
     # family: Menlo
     # The `style` can be specified to pick a specific face.
 
   # Italic font face
   italic:
-    # family: Inconsolata-g for Powerline
-    family: JetBrainsMono Nerd Font
+    family: FiraCode Nerd Font
     # style: Italic
     # family: Menlo
     # The `style` can be specified to pick a specific face.
@@ -227,7 +224,7 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
-  save_to_clipboard: false
+  save_to_clipboard: true
 
 dynamic_title: true
 
@@ -239,11 +236,7 @@ dynamic_title: true
 #   - Beam
 cursor:
   style: Block
-
-  # If this is `true`, the cursor will be rendered as a hollow box when the
-  # window is not focused.
   unfocused_hollow: true
-
 
 # Live config reload (changes require restart)
 live_config_reload: true
@@ -360,7 +353,7 @@ live_config_reload: true
 #   - { key: PageDown,                chars: "\x1b[6~"                     }
 #   - { key: Tab,      mods: Shift,   chars: "\x1b[Z"                      }
 #   - { key: Back,                    chars: "\x7f"                        }
-#   # - { key: Back,                    action:  ReceiveChar                  }
+#   - { key: Back,                    action:  ReceiveChar                  }
 #   - { key: Back,     mods: Alt,     chars: "\x1b\x7f"                    }
 #   - { key: Insert,                  chars: "\x1b[2~"                     }
 #   - { key: Delete,                  chars: "\x1b[3~"                     }
