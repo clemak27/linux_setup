@@ -26,6 +26,9 @@ ln -sf $config_dir/starship.toml $user_dir/.starship.toml
 # delta
 ln -sf $config_dir/delta.config $user_dir/.delta.config
 
+# ideavim.rc
+ln -sf $config_dir/ideavimrc $user_dir/.ideavimrc
+
 # ------------------------ .config ------------------------
 
 # bat

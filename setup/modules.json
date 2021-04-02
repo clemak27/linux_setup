@@ -128,7 +128,8 @@
         "usermod -aG docker $user"
       ],
       "aur": [
-        "insomnia-bin"
+        "insomnia-bin",
+        "intellij-idea-ce"
       ],
       "user_commands": [
         "pip install jedi pylint --user",
