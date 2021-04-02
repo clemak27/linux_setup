@@ -15,7 +15,7 @@ set collapse_preview true
 
 # Image previews
 set preview_images true
-set preview_images_method kitty
+set preview_images_method ueberzug
 
 # Wrap long lines in plain text previews?
 set wrap_plaintext_previews true

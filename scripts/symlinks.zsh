@@ -31,6 +31,10 @@ ln -sf $config_dir/ideavimrc $user_dir/.ideavimrc
 
 # ------------------------ .config ------------------------
 
+# alacritty
+mkdir -p $user_dir/.config/alacritty
+ln -sf $config_dir/alacritty/alacritty.yml $user_dir/.config/alacritty/alacritty.yml
+
 # bat
 mkdir -p $user_dir/.config/bat
 ln -sf $config_dir/bat/config $user_dir/.config/bat/config
@@ -50,10 +54,6 @@ ln -sf $config_dir/i3/config $user_dir/.config/i3/config
 
 # intelliJ
 ln -sf $config_dir/ideavimrc $user_dir/.ideavimrc
-
-# kitty
-mkdir -p $user_dir/.config/kitty
-ln -sf $config_dir/kitty/kitty.conf $user_dir/.config/kitty/kitty.conf
 
 # mpv
 mkdir -p $user_dir/.config/mpv

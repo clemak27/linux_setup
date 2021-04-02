@@ -28,7 +28,7 @@ toggle() {
     dunstify -h string:x-dunst-stack-tag:microphone -i audio-input-microphone Microphone unmuted
   else
     pactl set-source-mute "$DEFAULT_SOURCE" 1
-    dunstify -h string:x-dunst-stack-tag:microphone-i audio-input-microphone Microphone muted
+    dunstify -h string:x-dunst-stack-tag:microphone -i audio-input-microphone Microphone muted
   fi
 }
 
