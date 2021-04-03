@@ -67,7 +67,7 @@ element-text {
   vertical-align: 0;
   margin: 7px 7px 7px 7px;
   padding: 0px 0px 14px 0px;
-  font: "Noto Sans 18";
+  font: "FiraCode Nerd Font 18";
 }
 
 element normal.urgent,
