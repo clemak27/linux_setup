@@ -106,7 +106,7 @@
         "syncthingtray",
         "nerd-fonts-fira-code",
         "spotify-tui-bin",
-        "ytfzf-git"
+        "ytfzf"
       ],
       "user_commands": []
     },
