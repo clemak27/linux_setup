@@ -99,10 +99,7 @@ prompt_context(){}
 # ---------- fzf keybindings ----------
 source /usr/share/fzf/key-bindings.zsh
 
-# ---------- glab custom functions ----------
-source ~/.glab.zsh
-
-# ---------- curl custom functions ----------
-source ~/.curl.zsh
+# ---------- custom functions ----------
+source ~/.zsh_functions
 
 todo due
