@@ -62,7 +62,7 @@ alias cmatrix='cmatrix -C magenta'
 alias gcf="git for-each-ref --format='%(refname:short)' refs/heads | fzf | xargs git checkout"
 alias gcm='git commit -v -m'
 alias gcmld='git checkout master && git pull && comm -12 <(git branch | sed "s/ *//g") <(git remote prune origin --dry-run | sed "s/^.*origin\///g") | xargs -I{} git branch -D {}'
-alias gdm='git diff master...$(git branch --show-current)'
+alias gdm='git diff --cached master'
 alias gfmm='git fetch origin && git merge origin/master'
 alias glab='GITLAB_TOKEN=$(secret-tool lookup glab api) PAGER="bat -p" glab'
 alias gpskip='git push -o ci.skip'
