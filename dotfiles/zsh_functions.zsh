@@ -56,13 +56,17 @@ function glab_mr_description {
 }
 
 function glab_mr_checkout() {
-  local mr_number
 
-  mr_number="$(glab api "/merge_requests?state=opened&scope=all&order_by=created_at&per_page=100" |
-    jq --raw-output '.[] | "#\(.iid) - \(.title)"' |
-    fzf |
-    sed 's/^#\([0-9]\+\).*/\1/'
+  local mr_number
+  export GITLAB_TOKEN=$(secret-tool lookup glab api)
+
+  mr_number="$(glab api "/projects/:id/merge_requests?state=opened&order_by=created_at&view=simple&scope=all" |
+    jq --raw-output '.[] | "\(.iid) - \(.title)"' |
+    fzf --ansi --no-multi --preview 'glab mr view {1}' |
+    sed 's/^\([0-9]\+\).*/\1/'
   )"
+
+  unset GITLAB_TOKEN
 
   if [ -n "$mr_number" ]; then
     glab mr checkout "$mr_number"
@@ -77,7 +81,7 @@ is_in_git_repo() {
 }
 
 function gitfiles() {
-  # is_in_git_repo || return
+  is_in_git_repo || return
   git -c color.status=always status --short |
   fzf -m --ansi --nth 2..,.. \
     --preview '(git diff --color=always -- {-1} | sed 1,4d; bat {-1})' |
@@ -89,7 +93,7 @@ alias gaf='git add $(gitfiles)'
 function gitbranches() {
   is_in_git_repo || return
   git branch -a --color=always | grep -v '/HEAD\s' | sort |
-  fzf --ansi --multi --tac --preview-window right:70% \
+  fzf --ansi --no-multi --tac --preview-window right:70% \
     --preview 'git log --oneline --graph --date=short --color=always --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1)' |
   sed 's/^..//' | cut -d' ' -f1 |
   sed 's#^remotes/##'
