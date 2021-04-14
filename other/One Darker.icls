@@ -1,16 +1,16 @@
 <scheme name="One Darker" version="142" parent_scheme="Darcula">
   <metaInfo>
-    <property name="created">2021-03-18T08:37:24</property>
-    <property name="ide">idea</property>
-    <property name="ideVersion">2020.3.3.0.0</property>
-    <property name="modified">2021-03-18T08:37:40</property>
+    <property name="created">2021-04-14T22:36:44</property>
+    <property name="ide">Idea</property>
+    <property name="ideVersion">2021.1.0.0</property>
+    <property name="modified">2021-04-14T22:36:55</property>
     <property name="originalScheme">One Darker</property>
   </metaInfo>
   <colors>
     <option name="ADDED_LINES_COLOR" value="98c379" />
     <option name="ANNOTATIONS_COLOR" value="a0a7b4" />
     <option name="CARET_COLOR" value="abb2bf" />
-    <option name="CARET_ROW_COLOR" value="232323" />
+    <option name="CARET_ROW_COLOR" value="121212" />
     <option name="CONSOLE_BACKGROUND_KEY" value="121212" />
     <option name="DELETED_LINES_COLOR" value="e06c75" />
     <option name="DIAGRAM_ANNOTATION_EDGE" value="e5c07b" />
@@ -27,7 +27,7 @@
     <option name="ERROR_HINT" value="781732" />
     <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="4f575f" />
     <option name="FOLDED_TEXT_BORDER_COLOR" value="" />
-    <option name="GUTTER_BACKGROUND" value="232323" />
+    <option name="GUTTER_BACKGROUND" value="121212" />
     <option name="HTML_TAG_TREE_LEVEL0" value="f44747" />
     <option name="HTML_TAG_TREE_LEVEL1" value="e5c07b" />
     <option name="HTML_TAG_TREE_LEVEL2" value="98c379" />
@@ -46,7 +46,7 @@
     <option name="RIGHT_MARGIN_COLOR" value="606368" />
     <option name="SELECTED_INDENT_GUIDE" value="606368" />
     <option name="SELECTED_TEARLINE_COLOR" value="6b6e73" />
-    <option name="SELECTION_BACKGROUND" value="0" />
+    <option name="SELECTION_BACKGROUND" value="232323" />
     <option name="SEPARATOR_BELOW_COLOR" value="" />
     <option name="TEARLINE_COLOR" value="4f575f" />
     <option name="VCS_ANNOTATIONS_COLOR_1" value="335027" />
@@ -184,7 +184,7 @@
         <option name="FOREGROUND" value="c678dd" />
       </value>
     </option>
-    <option name="COFFEESCRIPT.GLOBAL_VARIABLE" baseAttributes="JS.GLOBAL_VARIABLE" />
+    <option name="COFFEESCRIPT.GLOBAL_VARIABLE" baseAttributes="" />
     <option name="COFFEESCRIPT.HEREGEX_CONTENT">
       <value>
         <option name="FOREGROUND" value="d19a66" />
@@ -840,7 +840,6 @@
         <option name="FOREGROUND" value="e5c07b" />
       </value>
     </option>
-    <option name="GO_BUILTIN_VARIABLE" baseAttributes="DEFAULT_GLOBAL_VARIABLE" />
     <option name="GO_EXPORTED_FUNCTION">
       <value>
         <option name="FOREGROUND" value="61afef" />
@@ -881,7 +880,6 @@
         <option name="FOREGROUND" value="d19a66" />
       </value>
     </option>
-    <option name="GO_PACKAGE" baseAttributes="DEFAULT_IDENTIFIER" />
     <option name="GO_TYPE_REFERENCE">
       <value>
         <option name="FOREGROUND" value="e5c07b" />
@@ -906,7 +904,7 @@
         <option name="FONT_TYPE" value="1" />
       </value>
     </option>
-    <option name="HAML_FILTER_CONTENT" baseAttributes="DEFAULT_TEMPLATE_LANGUAGE_COLOR" />
+    <option name="HAML_FILTER_CONTENT" baseAttributes="" />
     <option name="HAML_ID">
       <value>
         <option name="FOREGROUND" value="61afef" />
@@ -935,7 +933,7 @@
         <option name="FOREGROUND" value="abb2bf" />
       </value>
     </option>
-    <option name="HAML_XHTML" baseAttributes="DEFAULT_TEMPLATE_LANGUAGE_COLOR" />
+    <option name="HAML_XHTML" baseAttributes="" />
     <option name="HTML_ATTRIBUTE_NAME">
       <value>
         <option name="FOREGROUND" value="d19a66" />
@@ -1098,9 +1096,6 @@
         <option name="FOREGROUND" value="61afef" />
       </value>
     </option>
-    <option name="JS.GLOBAL_VARIABLE" baseAttributes="DEFAULT_GLOBAL_VARIABLE" />
-    <option name="JS.INSTANCE_MEMBER_FUNCTION" baseAttributes="DEFAULT_INSTANCE_METHOD" />
-    <option name="JS.LOCAL_VARIABLE" baseAttributes="DEFAULT_LOCAL_VARIABLE" />
     <option name="JS.MODULE_NAME">
       <value>
         <option name="FOREGROUND" value="e5c07b" />
@@ -1738,7 +1733,6 @@
         <option name="FOREGROUND" value="56b6c2" />
       </value>
     </option>
-    <option name="RHTML_COMMENT_ID" baseAttributes="HTML_COMMENT" />
     <option name="RHTML_EXPRESSION_END_ID">
       <value>
         <option name="FOREGROUND" value="e5c07b" />
@@ -1797,7 +1791,6 @@
         <option name="FOREGROUND" value="e06c75" />
       </value>
     </option>
-    <option name="RUBY_GVAR" baseAttributes="DEFAULT_GLOBAL_VARIABLE" />
     <option name="RUBY_HEREDOC_CONTENT">
       <value>
         <option name="FOREGROUND" value="98c379" />
@@ -1823,7 +1816,6 @@
         <option name="FOREGROUND" value="d19a66" />
       </value>
     </option>
-    <option name="RUBY_METHOD_NAME" baseAttributes="DEFAULT_INSTANCE_METHOD" />
     <option name="RUBY_NTH_REF">
       <value>
         <option name="FOREGROUND" value="d19a66" />
@@ -1834,7 +1826,6 @@
         <option name="FOREGROUND" value="d19a66" />
       </value>
     </option>
-    <option name="RUBY_PARAMDEF_CALL" baseAttributes="DEFAULT_STATIC_METHOD" />
     <option name="RUBY_PARAMETER_ID">
       <value>
         <option name="FOREGROUND" value="d19a66" />
@@ -1845,7 +1836,6 @@
         <option name="FOREGROUND" value="56b6c2" />
       </value>
     </option>
-    <option name="RUBY_SPECIFIC_CALL" baseAttributes="DEFAULT_STATIC_METHOD" />
     <option name="RUBY_SYMBOL">
       <value>
         <option name="FOREGROUND" value="56b6c2" />
@@ -1932,13 +1922,13 @@
         <option name="FOREGROUND" value="56b6c2" />
       </value>
     </option>
-    <option name="SASS_COMMENT" baseAttributes="CSS.COMMENT" />
+    <option name="SASS_COMMENT" baseAttributes="" />
     <option name="SASS_MIXIN">
       <value>
         <option name="FOREGROUND" value="d19a66" />
       </value>
     </option>
-    <option name="SASS_VARIABLE" baseAttributes="DEFAULT_INSTANCE_FIELD" />
+    <option name="SASS_VARIABLE" baseAttributes="" />
     <option name="SEARCH_RESULT_ATTRIBUTES">
       <value>
         <option name="BACKGROUND" value="121212" />
@@ -2001,8 +1991,6 @@
         <option name="FOREGROUND" value="d19a66" />
       </value>
     </option>
-    <option name="SQL_OUTER_QUERY_COLUMN" baseAttributes="SQL_COLUMN" />
-    <option name="SQL_SYNTHETIC_ENTITY" baseAttributes="DEFAULT_PREDEFINED_SYMBOL" />
     <option name="STATIC_FINAL_FIELD_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="d19a66" />
