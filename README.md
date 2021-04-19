@@ -18,7 +18,14 @@ I use arch btw. [![pipeline status](https://gitlab.com/clemak27/linux_setup/badg
   - spotify-tui
   - nerd-fonts-fira-code
 - gitea-tea install ([aur package](https://aur.archlinux.org/packages/gitea-tea) seems outdated?)
-  - `go get code.gitea.io/tea && go install code.gitea.io/tea`
+
+```shell
+go get code.gitea.io/tea && go install code.gitea.io/tea
+tea shellcompletion zsh
+mkdir -p ~/.oh-my-zsh/custom/plugins/tea
+mv /home/clemens/.config/tea/autocomplete.zsh ~/.oh-my-zsh/custom/plugins/tea
+echo "PROG=tea _CLI_ZSH_AUTOCOMPLETE_HACK=1 source ~/.oh-my-zsh/custom/plugins/tea/autocomplete.zsh" > ~/.oh-my-zsh/custom/plugins/tea/tea.plugin.zsh
+```
 
 ## 144Hz
 
