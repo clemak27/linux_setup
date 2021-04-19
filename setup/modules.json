@@ -121,7 +121,8 @@
         "graphviz",
         "gdb",
         "docker",
-        "docker-compose"
+        "docker-compose",
+        "github-cli"
       ],
       "commands": [
         "systemctl enable docker.service",
