@@ -24,6 +24,7 @@ plugins=(
   ripgrep
   rsync
   spt
+  tea
 )
 
 source $ZSH/oh-my-zsh.sh

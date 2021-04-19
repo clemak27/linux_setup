@@ -17,6 +17,7 @@ I use arch btw. [![pipeline status](https://gitlab.com/clemak27/linux_setup/badg
 - installed fpr aurBuilder:
   - spotify-tui
   - nerd-fonts-fira-code
+- gitea-tea install is via go ([aur package](https://aur.archlinux.org/packages/gitea-tea) seems outdated?)
 
 ## 144Hz
 

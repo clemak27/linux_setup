@@ -111,7 +111,7 @@
       "user_commands": []
     },
     {
-      "name":"development",
+      "name": "development",
       "packages": [
         "jdk11-openjdk",
         "gradle",
@@ -121,23 +121,22 @@
         "graphviz",
         "gdb",
         "docker",
-        "docker-compose"
+        "docker-compose",
+        "github-cli"
       ],
       "commands": [
         "systemctl enable docker.service",
         "usermod -aG docker $user"
       ],
-      "aur": [
-        "insomnia-bin",
-        "intellij-idea-ce"
-      ],
+      "aur": ["insomnia-bin", "gitlab-glab-bin", "intellij-idea-ce"],
       "user_commands": [
+        "go get code.gitea.io/tea",
         "pip install jedi pylint --user",
         "curl --proto ;=https; --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path"
       ]
     },
     {
-      "name":"virtualization",
+      "name": "virtualization",
       "packages": [
         "qemu",
         "virt-manager",
@@ -160,25 +159,23 @@
       "user_commands": []
     },
     {
-      "name":"gaming",
+      "name": "gaming",
       "packages": [
         "wine-staging",
         "lutris",
         "steam",
-        "discord" ,
+        "discord",
         "retroarch",
         "retroarch-assets-xmb",
         "gamemode",
         "lib32-gamemode"
       ],
       "commands": [],
-      "aur": [
-        "steam-fonts"
-      ],
+      "aur": ["steam-fonts"],
       "user_commands": []
     },
     {
-      "name":"office",
+      "name": "office",
       "packages": [
         "libreoffice-fresh",
         "libreoffice-fresh-de",
@@ -186,16 +183,12 @@
         "cups",
         "system-config-printer"
       ],
-      "commands": [
-        "systemctl enable org.cups.cupsd.service"
-      ],
-      "aur": [
-        "pandoc-bin"
-      ],
+      "commands": ["systemctl enable org.cups.cupsd.service"],
+      "aur": ["pandoc-bin"],
       "user_commands": []
     },
     {
-      "name":"nvidia",
+      "name": "nvidia",
       "packages": [
         "dkms",
         "linux-headers",
@@ -211,7 +204,7 @@
       "user_commands": []
     },
     {
-      "name":"notebook",
+      "name": "notebook",
       "packages": [
         "xf86-input-libinput",
         "xf86-input-synaptics",
@@ -226,16 +219,12 @@
       "user_commands": []
     },
     {
-      "name":"logitech",
-      "packages": [
-        "piper"
-      ],
+      "name": "logitech",
+      "packages": ["piper"],
       "commands": [
         "cp /home/$user/Projects/linux_setup/other/60-openrgb.rules /etc/udev/rules.d/60-openrgb.rules"
       ],
-      "aur": [
-        "openrgb"
-      ],
+      "aur": ["openrgb"],
       "user_commands": []
     }
   ]

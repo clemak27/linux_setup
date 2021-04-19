@@ -13,3 +13,12 @@ mkdir -p /home/$user/.config/glab-cli
 mkdir /home/$user/.oh-my-zsh/custom/plugins/spt
 echo "compdef _spt spt" > /home/$user/.oh-my-zsh/custom/plugins/spt/spt.plugin.zsh
 spt --completions zsh > /home/$user/.oh-my-zsh/custom/plugins/spt/_spt
+
+# gradle
+git clone git://github.com/gradle/gradle-completion /home/$user/.oh-my-zsh/custom/plugins/gradle-completion
+
+# tea
+mkdir /home/$user/.oh-my-zsh/custom/plugins/tea
+tea shellcompletion zsh
+mv /home/$user/.config/tea/autocomplete.zsh /home/$user/.oh-my-zsh/custom/plugins/tea
+echo "PROG=tea _CLI_ZSH_AUTOCOMPLETE_HACK=1 source ~/.oh-my-zsh/custom/plugins/tea/autocomplete.zsh" > /home/$user/.oh-my-zsh/custom/plugins/tea/tea.plugin.zsh
