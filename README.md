@@ -18,9 +18,3 @@ I use arch btw. [![pipeline status](https://gitlab.com/clemak27/linux_setup/badg
   - spotify-tui
   - nerd-fonts-fira-code
 - gitea-tea install is via go ([aur package](https://aur.archlinux.org/packages/gitea-tea) seems outdated?)
-
-## 144Hz
-
-- Add MaxFPS=144 to your ~/.config/kwinrc under [Compositing]
-- Add xrandr --rate 144 to /usr/share/sddm/scripts/Xsetup
-- about:config layout.frame_rate 144
