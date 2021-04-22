@@ -45,25 +45,25 @@
 
 - `dotfiles`  
   Symlinked dotfiles for all the tools I use.
-- `logo.png`
+- `logo.png`  
   btw
-- `other`
+- `other`  
   Some file that did'nt really fit into an other folder.
-- `plasma`
+- `plasma`  
   KDE Plasma color theme and some othe customization
-- `polybar`
+- `polybar`  
   Polybar dotfiles
-- `README.md`
+- `README.md`  
   You are reading this :)
-- `rofi`
+- `rofi`  
   Rofi dotfiles. I use one menu as app launcher and a second menu to select power options (shutdown, reboot, etc.)
-- `screenshots`
+- `screenshots`  
   Pretty pictures
-- `scripts`
+- `scripts`  
   Scripts that don't really fit anywhere else.
-- `setup`
+- `setup`  
   My (way too convoluted) script that installs the system for me.
-- `test`
+- `test`  
   Basically a stupid test that check if all pacman packages I want to install during setup actually exist (to prevent typos etc.). When this repo was hosted on gitlab.com I ran this in CI, maybe I will setup a github action for that eventually.
 
 ## Why?
