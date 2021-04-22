@@ -45,8 +45,6 @@
 
 - `dotfiles`  
   Symlinked dotfiles for all the tools I use.
-- `firefox`
-  Firefox customization
 - `logo.png`
   btw
 - `other`
