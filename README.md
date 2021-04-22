@@ -68,4 +68,4 @@
 
 ## Why?
 
-I don't know. ¯\_(ツ)_/¯
+I don't know. ¯\\\_(ツ)_/¯
