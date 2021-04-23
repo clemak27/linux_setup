@@ -35,7 +35,7 @@
 - firefox  
   Best browser :)
 - fzf  
-  A great fuzzy finder that makes finding things easier, especiall ypaired with ripgrep. Great (n)vim support too.
+  A great fuzzy finder that makes finding things easier, especially paired with ripgrep. Great (n)vim support too.
 - ranger  
   A terminal file explorer with vim-linke keybinds.
 - spotify-tui  
