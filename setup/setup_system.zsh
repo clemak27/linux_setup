@@ -83,6 +83,7 @@ git clone https://github.com/alexanderjeurissen/ranger_devicons /home/$user/.con
 mkdir -p /etc/pacman.d/hooks/
 cp ./other/grub.hook /etc/pacman.d/hooks/grub.hook
 cp ./other/cleanup.hook /etc/pacman.d/hooks/cleanup.hook
+cp ./other/tealdeer.hook /etc/pacman.d/hooks/tealdeer.hook
 ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
 
 # create dirs for user

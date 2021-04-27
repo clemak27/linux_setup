@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Remove
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = Updating tealdeer cache…
+When = PostTransaction
+Exec = /usr/bin/tldr --update
