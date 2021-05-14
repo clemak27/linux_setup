@@ -71,7 +71,7 @@ pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync paral
 pacman -S --quiet --noprogressbar --noconfirm cmatrix lolcat neofetch sl
 
 # development
-pacman -S --quiet --noprogressbar --noconfirm git make gcc neovim nodejs npm python-pynvim xclip
+pacman -S --quiet --noprogressbar --noconfirm git make gcc neovim nodejs-lts-fermium npm semver python-pynvim xclip
 
 # ssh
 pacman -S --quiet --noprogressbar --noconfirm openssh
