@@ -87,7 +87,8 @@
         "mesa",
         "xorg-xrandr",
         "ueberzug",
-        "alacritty"
+        "alacritty",
+        "kid3"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc",
