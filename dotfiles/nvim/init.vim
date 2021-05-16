@@ -35,6 +35,7 @@ Plug 'vimwiki/vimwiki' " vim wiki
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " go
 Plug 'lervag/vimtex' " latex support
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " md previews
 
 Plug 'junegunn/fzf' " fuzzy file search
 Plug 'junegunn/fzf.vim' " fuzzy file search
