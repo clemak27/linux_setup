@@ -45,7 +45,7 @@ PROMPT_EOL_MARK=''
 # ---------- Environment Variables ----------
 export BROWSER="firefox"
 export EDITOR="nvim"
-export FZF_DEFAULT_OPTS='--height=40% --layout=reverse --info=inline --border=sharp --margin=1 --padding=1'
+export FZF_DEFAULT_OPTS='--height=50% --layout=reverse --info=inline --border=sharp --margin=1 --padding=1'
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export GOPATH=$HOME/.go
 export PATH=$PATH:$HOME/.go/bin
@@ -72,6 +72,7 @@ alias init-gradle-completion='source ~/.zsh/gradle-completion/_gradle 1>&2 2>/de
 alias ls="exa --icons"
 alias lsa="exa --icons -hal"
 alias mpvnv='mpv --no-video'
+alias paruf='paru -Slq | fzf --multi --preview "paru -Si {1}" | xargs -ro paru -S'
 alias notes="vim -c VimwikiIndex"
 alias q="exit"
 alias spm="sudo pacman"
