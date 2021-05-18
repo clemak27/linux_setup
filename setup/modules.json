@@ -108,7 +108,8 @@
         "syncthingtray",
         "nerd-fonts-fira-code",
         "spotify-tui-bin",
-        "ytfzf"
+        "ytfzf",
+        "sublime-music"
       ],
       "user_commands": []
     },
