@@ -83,7 +83,6 @@
         "rofi-calc",
         "dmenu",
         "gimp",
-        "spotifyd",
         "mesa",
         "xorg-xrandr",
         "ueberzug",
@@ -107,7 +106,6 @@
         "scrcpy",
         "syncthingtray",
         "nerd-fonts-fira-code",
-        "spotify-tui-bin",
         "ytfzf",
         "sublime-music"
       ],
