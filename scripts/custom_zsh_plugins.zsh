@@ -9,11 +9,6 @@ glab completion -s zsh > /home/$user/.oh-my-zsh/custom/plugins/glab/_glab
 sed -i '1 s/^.*$/#compdef glab/' /home/$user/.oh-my-zsh/custom/plugins/glab/_glab
 mkdir -p /home/$user/.config/glab-cli
 
-# spotify tui autocompletions
-mkdir /home/$user/.oh-my-zsh/custom/plugins/spt
-echo "compdef _spt spt" > /home/$user/.oh-my-zsh/custom/plugins/spt/spt.plugin.zsh
-spt --completions zsh > /home/$user/.oh-my-zsh/custom/plugins/spt/_spt
-
 # gradle
 git clone git://github.com/gradle/gradle-completion /home/$user/.oh-my-zsh/custom/plugins/gradle-completion
 

@@ -98,7 +98,6 @@
         "cp /home/$user/Projects/linux_setup/plasma/plasma-i3.desktop /usr/share/xsessions",
         "systemctl enable sddm",
         "cp /home/$user/Projects/linux_setup/polybar/95-usb.rules /etc/udev/rules.d/95-usb.rules",
-        "mkdir -p /home/$user/.cache/spotifyd",
         "echo 'xrandr --rate 144' >> /usr/share/sddm/scripts/Xsetup"
       ],
       "aur": [

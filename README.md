@@ -38,8 +38,6 @@
   A great fuzzy finder that makes finding things easier, especially paired with ripgrep. Great (n)vim support too.
 - ranger  
   A terminal file explorer with vim-linke keybinds.
-- spotify-tui  
-  I'm using spotify since I've my personal collection has grown way too large (especially when you want to put it on your smartphone as well). The spotify desktop app is not (officially) supported on linux. but the combination of spotifyd + spotify-tui definitly is :)
 
 ## What's in this repo?
 
