@@ -83,14 +83,6 @@ ln -sf $config_dir/redshift/redshift.conf $user_dir/.config/redshift/redshift.co
 mkdir -p $user_dir/.todo
 ln -sf $config_dir/todo/todo.cfg $user_dir/.todo/config
 
-# spotify-tui
-mkdir -p $user_dir/.config/spotify-tui
-ln -sf $config_dir/spotify-tui/config.yml $user_dir/.config/spotify-tui/config.yml
-
-# spotifyd
-mkdir -p $user_dir/.config/spotifyd
-ln -sf $config_dir/spotifyd/spotifyd.conf $user_dir/.config/spotifyd/spotifyd.conf
-
 # ------------------------ .local ------------------------
 
 # plasma color scheme
