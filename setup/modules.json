@@ -107,7 +107,8 @@
         "syncthingtray",
         "nerd-fonts-fira-code",
         "ytfzf",
-        "sublime-music"
+        "sublime-music",
+        "mp3gain"
       ],
       "user_commands": []
     },
