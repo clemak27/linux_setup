@@ -8,4 +8,4 @@ Target = *
 [Action]
 Description = Updating tealdeer cache…
 When = PostTransaction
-Exec = /usr/bin/tldr --update
+Exec = /usr/bin/sudo -u clemens /usr/bin/env zsh -c "/usr/bin/tldr --update"
