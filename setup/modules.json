@@ -93,11 +93,9 @@
         "cp  /home/$user/Projects/linux_setup/rofi/powermenu/powermenu.sh.desktop /home/$user/.local/share/applications",
         "ln -s /usr/bin/rofi /usr/bin/dmenu",
         "systemctl enable sddm",
-        "cp /home/$user/Projects/linux_setup/polybar/95-usb.rules /etc/udev/rules.d/95-usb.rules",
         "echo 'xrandr --rate 144' >> /usr/share/sddm/scripts/Xsetup"
       ],
       "aur": [
-        "polybar",
         "scrcpy",
         "syncthingtray",
         "nerd-fonts-fira-code",
