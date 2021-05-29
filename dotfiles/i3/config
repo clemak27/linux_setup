@@ -42,9 +42,6 @@ no_focus [class="plasmashell" window_type="notification"]
 
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
-# compositor
-exec --no-startup-id picom -b
-
 # Steam floating
 for_window [class="Steam"] floating enable; border none
 
@@ -96,9 +93,6 @@ bindsym $mod+Shift+q kill
 # start rofi
 bindsym $mod+d exec --no-startup-id ~/Projects/linux_setup/rofi/runner/runner.sh
 bindsym Mod1+space exec --no-startup-id ~/Projects/linux_setup/rofi/runner/runner.sh
-
-# switch picom on/off
-bindsym Mod1+Shift+F12 exec --no-startup-id ~/Projects/linux_setup/scripts/picom_toggle.sh
 
 # focus with cursor keys
 bindsym $mod+Left focus left
