@@ -109,7 +109,11 @@
         "sublime-music",
         "mp3gain"
       ],
-      "user_commands": []
+      "user_commands": [
+        "plasmapkg2 -t kwinscript -i  /home/$user/Projects/linux_setup/plasma/krohnkite-0.7.kwinscript",
+        "mkdir -p /home/$user/.local/share/kservices5/",
+        "ln -s /home/$user/.local/share/kwin/scripts/krohnkite/metadata.desktop /home/$user/.local/share/kservices5/krohnkite.desktop"
+      ]
     },
     {
       "name": "development",
