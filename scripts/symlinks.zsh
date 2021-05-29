@@ -75,10 +75,6 @@ mkdir -p $user_dir/.config/ranger
 ln -sf $config_dir/ranger/ranger.rc $user_dir/.config/ranger/rc.conf
 ln -sf $config_dir/ranger/ranger.commands $user_dir/.config/ranger/commands.py
 
-# redshift
-mkdir -p $user_dir/.config/redshift
-ln -sf $config_dir/redshift/redshift.conf $user_dir/.config/redshift/redshift.conf
-
 # todo.txt
 mkdir -p $user_dir/.todo
 ln -sf $config_dir/todo/todo.cfg $user_dir/.todo/config
