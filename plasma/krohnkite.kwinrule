@@ -1,0 +1,26 @@
+[Window settings for firefox]
+Description=Window settings for firefox
+desktop=-1
+desktoprule=2
+position=1185,70
+positionrule=4
+size=720,400
+sizerule=4
+types=256
+windowrole=pictureinpicture
+windowrolematch=1
+wmclass=toolkit firefox
+wmclasscomplete=true
+wmclassmatch=1
+
+[Window settings for keepassxc]
+Description=Window settings for keepassxc
+desktop=-1
+desktoprule=4
+position=1084,29
+positionrule=4
+title=KeePassXC
+titlematch=1
+types=1
+wmclass=keepassxc
+wmclassmatch=1

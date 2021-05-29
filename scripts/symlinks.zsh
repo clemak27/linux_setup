@@ -66,10 +66,6 @@ mkdir -p $user_dir/.config/nvim
 ln -sf $config_dir/nvim/init.vim $user_dir/.config/nvim/init.vim
 ln -sf $config_dir/nvim/coc-settings.json $user_dir/.config/nvim/coc-settings.json
 
-# picom
-mkdir -p $user_dir/.config/picom
-ln -sf $config_dir/picom/picom.conf $user_dir/.config/picom/picom.conf
-
 # ranger
 mkdir -p $user_dir/.config/ranger
 ln -sf $config_dir/ranger/ranger.rc $user_dir/.config/ranger/rc.conf
