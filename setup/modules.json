@@ -101,7 +101,8 @@
         "nerd-fonts-fira-code",
         "ytfzf",
         "sublime-music",
-        "mp3gain"
+        "mp3gain",
+        "pipes-rs"
       ],
       "user_commands": [
         "plasmapkg2 -t kwinscript -i  /home/$user/Projects/linux_setup/plasma/krohnkite-0.7.kwinscript",
