@@ -35,7 +35,7 @@ immutability=1
 plugin=org.kde.plasma.eventcalendar
 
 [Containments][1][Applets][72][Configuration]
-PreloadWeight=100
+PreloadWeight=92
 
 [Containments][1][Applets][72][Configuration][Agenda]
 twoColumns=false
@@ -85,14 +85,14 @@ plugin=org.kde.plasma.icon
 [Containments][1][Applets][73][Configuration]
 PreloadWeight=0
 localPath=/home/clemens/.local/share/plasma_icons/runner.sh (1).desktop
-url=file:///home/cle/Projects/linux_setup/rofi/runner/runner.sh
+url=file:///home/clemens/Projects/linux_setup/rofi/runner/runner.sh
 
 [Containments][1][Applets][81]
 immutability=1
 plugin=org.kde.plasma.icon
 
 [Containments][1][Applets][81][Configuration]
-PreloadWeight=44
+PreloadWeight=36
 localPath=/home/clemens/.local/share/plasma_icons/powermenu.sh (1).desktop
 url=file:///home/cle/Projects/linux_setup/rofi/powermenu/powermenu.sh
 
@@ -101,7 +101,7 @@ immutability=1
 plugin=org.kde.plasma.virtualdesktopbar
 
 [Containments][1][Applets][82][Configuration]
-PreloadWeight=84
+PreloadWeight=76
 
 [Containments][1][Applets][82][Configuration][ConfigDialog]
 DialogHeight=1051
@@ -127,6 +127,7 @@ advanced=true
 animationsEnabled=false
 appletOrder=82;4;72;73;81
 autoDecreaseIconSize=false
+backgroundOnlyOnMaximized=true
 disablePanelShadowForMaximized=true
 dragActiveWindowEnabled=true
 durationTime=None
@@ -205,7 +206,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][5][Applets][6][Configuration]
-PreloadWeight=4
+PreloadWeight=5
 
 [Containments][5][Applets][6][Configuration][ConfigDialog]
 DialogHeight=1051
@@ -230,49 +231,56 @@ immutability=1
 plugin=org.kde.plasma.weather
 
 [Containments][5][Applets][71][Configuration]
-PreloadWeight=0
+PreloadWeight=10
+pressureUnit=5008
 showHumidityInTooltip=true
 showPressureInTooltip=true
 showTemperatureInCompactMode=false
 showTemperatureInTooltip=true
 showWindInTooltip=true
 source=wettercom|weather|Wien, Wien, AT|ATAT10678;Wien
+speedUnit=9001
+temperatureUnit=6001
 updateInterval=30
+visibilityUnit=2007
 weatherServiceProviders=wettercom
 
 [Containments][5][Applets][71][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
+DialogHeight=1051
+DialogWidth=1920
 
 [Containments][5][Applets][8]
 immutability=1
 plugin=org.kde.plasma.devicenotifier
 
 [Containments][5][Applets][8][Configuration]
-PreloadWeight=0
+PreloadWeight=20
 
 [Containments][5][Applets][83]
 immutability=1
-plugin=com.github.zren.alphablackcontrol
+plugin=org.kde.plasma.bluetooth
 
 [Containments][5][Applets][83][Configuration]
-PreloadWeight=15
+PreloadWeight=17
 
 [Containments][5][Applets][9]
 immutability=1
 plugin=org.kde.kdeconnect
 
 [Containments][5][Applets][9][Configuration]
-PreloadWeight=4
+PreloadWeight=0
 
 [Containments][5][ConfigDialog]
-DialogHeight=600
-DialogWidth=800
+DialogHeight=1051
+DialogWidth=1920
+
+[Containments][5][Configuration]
+PreloadWeight=42
 
 [Containments][5][General]
-extraItems=org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.plasma.notifications,org.kde.kdeconnect,org.kde.plasma.keyboardindicator,org.kde.plasma.printmanager,org.kde.plasma.volume,org.kde.plasma.battery,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,com.github.zren.alphablackcontrol,org.kde.plasma.weather,org.kde.plasma.keyboardlayout
+extraItems=org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.plasma.notifications,org.kde.kdeconnect,org.kde.plasma.keyboardindicator,org.kde.plasma.printmanager,org.kde.plasma.volume,org.kde.plasma.battery,org.kde.plasma.networkmanagement,org.kde.plasma.nightcolorcontrol,org.kde.plasma.weather,org.kde.plasma.keyboardlayout
 hiddenItems=redshift-gtk,com.github.zren.alphablackcontrol,org.kde.plasma.weather
-knownItems=org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.plasma.notifications,org.kde.kdeconnect,org.kde.plasma.keyboardindicator,org.kde.plasma.printmanager,org.kde.plasma.volume,org.kde.plasma.battery,org.kde.plasma.networkmanagement,martchus.syncthingplasmoid,org.kde.plasma.nightcolorcontrol,com.github.zren.alphablackcontrol,org.kde.plasma.keyboardlayout
+knownItems=org.kde.plasma.clipboard,org.kde.plasma.mediacontroller,org.kde.plasma.devicenotifier,org.kde.plasma.bluetooth,org.kde.plasma.notifications,org.kde.kdeconnect,org.kde.plasma.keyboardindicator,org.kde.plasma.printmanager,org.kde.plasma.volume,org.kde.plasma.battery,org.kde.plasma.networkmanagement,martchus.syncthingplasmoid,org.kde.plasma.nightcolorcontrol,org.kde.plasma.keyboardlayout
 shownItems=keepassxc,Nextcloud,redshift,Syncthing Tray,martchus.syncthingplasmoid
 
 [LayoutSettings]
