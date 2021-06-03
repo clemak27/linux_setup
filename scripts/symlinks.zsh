@@ -71,7 +71,7 @@ ln -sf $config_dir/todo/todo.cfg $user_dir/.todo/config
 
 # plasma color scheme
 mkdir -p $user_dir/.local/share/color-schemes
-ln -sf $setup_dir/plasma/Kustom.colors $user_dir/.local/share/color-schemes/Kustom.colors
+ln -sf $setup_dir/plasma/SkyBlue.colors $user_dir/.local/share/color-schemes/SkyBlue.colors
 
 # ------------------------ .mozilla ------------------------
 
