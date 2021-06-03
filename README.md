@@ -6,21 +6,21 @@
 
 ![fn](./screenshots/nf.png)
 
-### empty workspace
+<!-- ### empty workspace -->
 
-![empty](./screenshots/empty.png)
+<!-- ![empty](./screenshots/empty.png) -->
 
-### single window
+<!-- ### single window -->
 
-![single](./screenshots/ff.png)
+<!-- ![single](./screenshots/ff.png) -->
 
-### multiple windows
+<!-- ### multiple windows -->
 
-![mult](./screenshots/mult.png)
+<!-- ![mult](./screenshots/mult.png) -->
 
-### neovim
+<!-- ### neovim -->
 
-![neovim](./screenshots/neovim.png)
+<!-- ![neovim](./screenshots/neovim.png) -->
 
 ## What tools I use
 
@@ -48,7 +48,7 @@
 - `other`  
   Some file that did'nt really fit into an other folder.
 - `plasma`  
-  KDE Plasma color theme and some othe customization
+  KDE Plasma color theme and some other customization.
 - `polybar`  
   Polybar dotfiles
 - `README.md`  
