@@ -4,9 +4,9 @@
   background: #121212;
   highlighted: #232323;
   background-light: #232323;
-  urgent: #8a2be2;
-  accent: #8a2be2;
-  border: #8a2be2;
+  urgent: #00bfff;
+  accent: #00bfff;
+  border: #00bfff;
 
   on: #86de74;
   off: #ff7de9;

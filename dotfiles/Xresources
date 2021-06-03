@@ -4,7 +4,7 @@
 *.background-light:  #232323
 *.background-dark:   #000000
 *.cursorColor:       #abb2bf
-*.accent:            #8a2be2
+*.accent:            #00bfff
 
 ! black
 *.color0:       #000000
