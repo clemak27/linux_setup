@@ -41,18 +41,10 @@ ln -sf $config_dir/alacritty/alacritty.yml $user_dir/.config/alacritty/alacritty
 mkdir -p $user_dir/.config/bat
 ln -sf $config_dir/bat/config $user_dir/.config/bat/config
 
-# dunst
-mkdir -p $user_dir/.config/dunst
-ln -sf $config_dir/dunst/dunstrc $user_dir/.config/dunst/dunstrc
-
 # glab
 mkdir -p $user_dir/.config/glab-cli
 ln -sf $config_dir/glab-cli/aliases.yml $user_dir/.config/glab-cli/aliases.yml
 ln -sf $config_dir/glab-cli/config.yml $user_dir/.config/glab-cli/config.yml
-
-# i3
-mkdir -p $user_dir/.config/i3
-ln -sf $config_dir/i3/config $user_dir/.config/i3/config
 
 # intelliJ
 ln -sf $config_dir/ideavimrc $user_dir/.ideavimrc
@@ -66,18 +58,10 @@ mkdir -p $user_dir/.config/nvim
 ln -sf $config_dir/nvim/init.vim $user_dir/.config/nvim/init.vim
 ln -sf $config_dir/nvim/coc-settings.json $user_dir/.config/nvim/coc-settings.json
 
-# picom
-mkdir -p $user_dir/.config/picom
-ln -sf $config_dir/picom/picom.conf $user_dir/.config/picom/picom.conf
-
 # ranger
 mkdir -p $user_dir/.config/ranger
 ln -sf $config_dir/ranger/ranger.rc $user_dir/.config/ranger/rc.conf
 ln -sf $config_dir/ranger/ranger.commands $user_dir/.config/ranger/commands.py
-
-# redshift
-mkdir -p $user_dir/.config/redshift
-ln -sf $config_dir/redshift/redshift.conf $user_dir/.config/redshift/redshift.conf
 
 # todo.txt
 mkdir -p $user_dir/.todo
@@ -88,3 +72,12 @@ ln -sf $config_dir/todo/todo.cfg $user_dir/.todo/config
 # plasma color scheme
 mkdir -p $user_dir/.local/share/color-schemes
 ln -sf $setup_dir/plasma/SkyBlue.colors $user_dir/.local/share/color-schemes/SkyBlue.colors
+
+# ------------------------ .mozilla ------------------------
+
+# firefox
+if [ "$#" -ne 1 ]; then
+  ffProfilePath=$(find $user_dir/.mozilla/firefox -name "*.default-release")
+  ln -sf $config_dir/firefox/chrome/userChrome.css $ffProfilePath/chrome/userChrome.css
+  ln -sf $config_dir/firefox/chrome/userContent.css $ffProfilePath/chrome/userContent.css
+fi
