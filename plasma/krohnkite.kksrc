@@ -20,8 +20,8 @@ Krohnkite: Down/Next=
 Krohnkite: Float=Meta+Shift+Space
 Krohnkite: Float All=Meta+Shift+F
 Krohnkite: Floating Layout=
-Krohnkite: Grow Height=
-Krohnkite: Grow Width=
+Krohnkite: Grow Height=Meta++
+Krohnkite: Grow Width=Meta+>
 Krohnkite: Increase=
 Krohnkite: Left=
 Krohnkite: Monocle Layout=
@@ -34,8 +34,8 @@ Krohnkite: Previous Layout=
 Krohnkite: Quarter Layout=
 Krohnkite: Right=
 Krohnkite: Set master=Meta+M
-Krohnkite: Shrink Height=
-Krohnkite: Shrink Width=
+Krohnkite: Shrink Height=Meta+-
+Krohnkite: Shrink Width=Meta+<
 Krohnkite: Spread Layout=
 Krohnkite: Stair Layout=
 Krohnkite: Three Column Layout=
@@ -182,7 +182,7 @@ renameCurrentDesktop=
 switchToRecentDesktop=
 view_actual_size=
 view_zoom_in=Meta+=
-view_zoom_out=Meta+-
+view_zoom_out=
 
 [lattedock][Global Shortcuts]
 activate entry 1=
