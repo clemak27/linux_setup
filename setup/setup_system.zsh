@@ -56,6 +56,9 @@ sed -i 's/#Color/Color/g' /etc/pacman.conf
 # activate multilib
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 
+# enable parallel downloads
+sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
+
 # grant su permissions to wheel group
 sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
