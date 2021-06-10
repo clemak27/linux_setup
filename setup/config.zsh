@@ -4,9 +4,7 @@ device="/dev/nvme0n1"
 passphrase="abcd"
 password="1234"
 
-# ------------------------ lazarus ------------------------
-
-hostname="lazarus"
+hostname="zen"
 cpu="amd"
 gpu="nvidia"
 
