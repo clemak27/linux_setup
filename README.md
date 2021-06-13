@@ -1,6 +1,6 @@
 # my ArchLinux setup
 
-## Screenshots
+## Screenshots (not up 2 date)
 
 ### neofetch
 
