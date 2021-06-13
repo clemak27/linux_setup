@@ -61,8 +61,10 @@
         "sshfs",
         "unrar",
         "bluez-utils",
+        "i3-gaps",
         "dunst",
         "wmctrl",
+        "picom",
         "feh",
         "noto-fonts",
         "noto-fonts-cjk",
@@ -74,6 +76,7 @@
         "keepassxc",
         "syncthing",
         "signal-desktop",
+        "redshift",
         "obs-studio",
         "kdenlive",
         "rofi",
@@ -92,10 +95,13 @@
         "mkdir -p  /home/$user/.local/share/applications",
         "cp  /home/$user/Projects/linux_setup/rofi/powermenu/powermenu.sh.desktop /home/$user/.local/share/applications",
         "ln -s /usr/bin/rofi /usr/bin/dmenu",
+        "cp /home/$user/Projects/linux_setup/plasma/plasma-i3.desktop /usr/share/xsessions",
         "systemctl enable sddm",
+        "cp /home/$user/Projects/linux_setup/polybar/95-usb.rules /etc/udev/rules.d/95-usb.rules",
         "echo 'xrandr --rate 144' >> /usr/share/sddm/scripts/Xsetup"
       ],
       "aur": [
+        "polybar",
         "scrcpy",
         "syncthingtray",
         "nerd-fonts-fira-code",
@@ -103,11 +109,7 @@
         "sublime-music",
         "pipes-rs"
       ],
-      "user_commands": [
-        "plasmapkg2 -t kwinscript -i  /home/$user/Projects/linux_setup/plasma/krohnkite-0.7.kwinscript",
-        "mkdir -p /home/$user/.local/share/kservices5/",
-        "ln -s /home/$user/.local/share/kwin/scripts/krohnkite/metadata.desktop /home/$user/.local/share/kservices5/krohnkite.desktop"
-      ]
+      "user_commands": []
     },
     {
       "name": "development",
