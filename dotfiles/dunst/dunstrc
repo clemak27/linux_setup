@@ -17,7 +17,7 @@
     separator_color = frame
     sort = yes
     idle_threshold = 120
-    corner_radius = 0
+    corner_radius = 4
 
     ### Text ###
     font = FiraCode Nerd Font 10
