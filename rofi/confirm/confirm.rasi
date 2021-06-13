@@ -9,21 +9,7 @@ configuration {
 }
 
 @import "../colors.rasi"
-
-window {
-  transparency: "real";
-  background-color: @background;
-  text-color: @textcolor;
-  border: 1;
-  border-radius: 0px;
-  border-color: @border;
-  height: 40%;
-  width: 40%;
-  location: center;
-  anchor: center;
-  x-offset: 0;
-  y-offset: 0;
-}
+@import "../common.rasi"
 
 prompt {
   enabled: false;
