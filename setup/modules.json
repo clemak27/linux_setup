@@ -51,7 +51,8 @@
         "alacritty",
         "kid3",
         "network-manager-applet",
-        "pavucontrol"
+        "pavucontrol",
+        "arandr"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc",

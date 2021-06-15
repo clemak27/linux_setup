@@ -50,6 +50,7 @@ for_window [class="Steam"] floating enable; border none
 for_window [class="KeePassXC"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
+for_window [class="Arandr"] floating enable
 
 # Notifications
 exec --no-startup-id dunst
@@ -105,6 +106,9 @@ bindsym Mod1+Shift+F12 exec --no-startup-id ~/Projects/linux_setup/scripts/picom
 # screenshots
 bindsym Print exec spectacle
 bindsym Shift+Print exec spectacle -b
+
+# arandr
+bindsym $mod+p exec arandr
 
 # focus with cursor keys
 bindsym $mod+Left focus left
