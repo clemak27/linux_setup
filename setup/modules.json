@@ -42,7 +42,6 @@
         "obs-studio",
         "kdenlive",
         "rofi",
-        "rofi-calc",
         "dmenu",
         "gimp",
         "mesa",
@@ -52,7 +51,8 @@
         "kid3",
         "network-manager-applet",
         "pavucontrol",
-        "arandr"
+        "arandr",
+        "blueman"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc",

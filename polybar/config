@@ -149,7 +149,7 @@ format-padding = 1
 format-underline = ${colors.yellow}
 
 click-left = ~/Projects/linux_setup/polybar/bluetooth.sh --toggle &
-click-right = kcmshell5 bluetooth
+click-right = blueman
 
 [module/wlan]
 type = internal/network
