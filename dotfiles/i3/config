@@ -45,11 +45,11 @@ for_window [title="Desktop — Plasma"] kill; floating enable; border none
 # compositor
 exec --no-startup-id picom -b
 
-# Steam floating
+# floating windows
 for_window [class="Steam"] floating enable; border none
-
-# keepass floating
-for_window [class="KeePassXC"] floating enable; border none
+for_window [class="KeePassXC"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
 
 # Notifications
 exec --no-startup-id dunst

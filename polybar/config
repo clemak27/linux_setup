@@ -2,11 +2,13 @@
 background = ${xrdb:background-dark}
 foreground = ${xrdb:foreground-light}
 accent = ${xrdb:accent}
+disabled = ${xrdb:color7}
 red = ${xrdb:color1}
 orange = ${xrdb:orange}
 yellow = ${xrdb:color3}
 green = ${xrdb:color2}
 blue = ${xrdb:color4}
+purple = ${xrdb:color5}
 
 [settings]
 screenchange-reload = true
@@ -32,7 +34,7 @@ font-0 = "FiraCode Nerd Font:style=Retina,Regular:size=10"
 
 modules-left = i3
 modules-center = 
-modules-right = kdeconnect syncthing keepassxc separator pulseaudio microphone separator bluetooth wlan eth1 battery separator date separator runner powermenu
+modules-right = kdeconnect separator syncthing keepassxc separator pulseaudio microphone separator bluetooth wlan eth1 battery separator date separator runner powermenu
 
 scroll-up = #i3.prev
 scroll-down = #i3.next
@@ -90,7 +92,7 @@ type = custom/script
 exec = ~/Projects/linux_setup/polybar/polybar-kdeconnect.sh  -d
 tail = true
 
-format-underline = ${colors.blue}
+format-underline = ${colors.purple}
 
 [module/syncthing]
 type = custom/text
@@ -160,9 +162,10 @@ format-connected-padding = 1
 format-connected-underline = ${colors.yellow}
 
 label-disconnected = WiFi disconnected
-format-disconnected =  <label-disconnected>
+format-disconnected = ﬉
 format-disconnected-padding = 1
 format-disconnected-underline = ${colors.yellow}
+format-disconnected-foreground = ${colors.disabled}
 
 click-right = nm-connection-editor
 
@@ -172,13 +175,14 @@ interface = enp27s0
 interval = 3.0
 
 label-connected = ﯱ
+format-connected = %{A3:nm-connection-editor:}<label-connected>%{A}
 format-connected-padding = 1
 format-connected-underline = ${colors.yellow}
 
-label-disconnected = disconnected
+label-disconnected = ﯱ
+format-disconnected = %{A3:nm-connection-editor:}<label-disconnected>%{A}
 format-disconnected-underline = ${colors.yellow}
-
-click-right = nm-connection-editor
+format-disconnected-foreground = ${colors.disabled}
 
 [module/battery]
 type = internal/battery
