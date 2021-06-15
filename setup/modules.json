@@ -52,7 +52,8 @@
         "network-manager-applet",
         "pavucontrol",
         "arandr",
-        "blueman"
+        "blueman",
+        "lxappearance"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc",
@@ -73,7 +74,8 @@
         "ytfzf",
         "sublime-music",
         "pipes-rs",
-        "i3lock-color"
+        "i3lock-color",
+        "qgnomeplatform"
       ],
       "user_commands": []
     },
