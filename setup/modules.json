@@ -53,7 +53,8 @@
         "pavucontrol",
         "arandr",
         "blueman",
-        "lxappearance"
+        "lxappearance",
+        "sddm"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc",
@@ -61,7 +62,10 @@
         "mkdir -p  /home/$user/.local/share/applications",
         "cp  /home/$user/Projects/linux_setup/rofi/powermenu/powermenu.sh.desktop /home/$user/.local/share/applications",
         "ln -s /usr/bin/rofi /usr/bin/dmenu",
-        "cp /home/$user/Projects/linux_setup/plasma/plasma-i3.desktop /usr/share/xsessions",
+        "tar -xzvf /home/$user/Projects/linux_setup/sddm/sddm-chili.tar.gz -C /usr/share/sddm/themes",
+        "cp /home/$user/Projects/linux_setup/sddm/theme.conf.user /usr/share/sddm/themes/chili/theme.conf.user",
+        "cp /home/$user/Projects/linux_setup/wallpaper.png /usr/share/sddm/themes/chili/wallpaper.png",
+        "cp /home/$user/Projects/linux_setup/sddm/sddm.conf /etc/sddm.conf.d/sddm.conf",
         "systemctl enable sddm",
         "cp /home/$user/Projects/linux_setup/polybar/95-usb.rules /etc/udev/rules.d/95-usb.rules",
         "echo 'xrandr --rate 144' >> /usr/share/sddm/scripts/Xsetup"
