@@ -17,6 +17,9 @@ user_dir="/home/$user"
 # Xresources
 ln -sf $config_dir/Xresources $user_dir/.Xresources
 
+# xprofile
+ln -sf $config_dir/xprofile $user_dir/.xprofile
+
 # zsh
 ln -sf $config_dir/zshrc $user_dir/.zshrc
 ln -sf $config_dir/zsh_functions.zsh $user_dir/.zsh_functions
