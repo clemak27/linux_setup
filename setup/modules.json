@@ -72,7 +72,8 @@
         "nerd-fonts-fira-code",
         "ytfzf",
         "sublime-music",
-        "pipes-rs"
+        "pipes-rs",
+        "i3lock-color"
       ],
       "user_commands": []
     },

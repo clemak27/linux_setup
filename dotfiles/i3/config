@@ -82,6 +82,9 @@ default_border pixel 1
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# kill focused window
+bindsym $mod+Shift+q kill
+
 # start a terminal
 bindsym $mod+Return exec alacritty
 
@@ -94,8 +97,8 @@ bindsym $mod+e exec dolphin
 # start keepass
 bindsym $mod+k exec keepassxc
 
-# kill focused window
-bindsym $mod+Shift+q kill
+# start powermenu
+bindsym $mod+l exec --no-startup-id ~/Projects/linux_setup/rofi/powermenu/powermenu.sh
 
 # start rofi
 bindsym $mod+d exec --no-startup-id ~/Projects/linux_setup/rofi/runner/runner.sh
