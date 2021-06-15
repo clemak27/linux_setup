@@ -63,6 +63,8 @@ exec --no-startup-id ~/Projects/linux_setup/polybar/launch.sh
 # autostart applications
 exec --no-startup-id syncthingtray
 exec --no-startup-id ~/Projects/linux_setup/scripts/openrgb.zsh
+exec --no-startup-id kdeconnect-indicator &
+exec --no-startup-id nm-applet &
 # exec i3-msg 'workspace 3;exec alacritty'
 # exec i3-msg 'workspace 2;exec alacritty'
 # exec i3-msg 'workspace 1;exec firefox'

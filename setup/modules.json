@@ -49,7 +49,8 @@
         "xorg-xrandr",
         "ueberzug",
         "alacritty",
-        "kid3"
+        "kid3",
+        "network-manager-applet"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc",
