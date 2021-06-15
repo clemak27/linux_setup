@@ -50,7 +50,8 @@
         "ueberzug",
         "alacritty",
         "kid3",
-        "network-manager-applet"
+        "network-manager-applet",
+        "pavucontrol"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc",
