@@ -1,6 +1,6 @@
 [colors]
 background = ${xrdb:background-dark}
-foreground = ${xrdb:foreground}
+foreground = ${xrdb:foreground-light}
 accent = ${xrdb:accent}
 red = ${xrdb:color1}
 orange = ${xrdb:orange}
