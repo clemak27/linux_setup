@@ -85,16 +85,6 @@ label-separator-foreground = ${colors.accent}
 type = custom/text
 content = " "
 
-[module/system-usb-udev]
-type = custom/script
-exec = ~/Projects/linux_setup/polybar/system-usb-udev.sh
-tail = true
-
-content-underline = ${colors.blue}
-
-click-left = ~/Projects/linux_setup/polybar/system-usb-udev.sh --mount &
-click-right = ~/Projects/linux_setup/polybar/system-usb-udev.sh --unmount &
-
 [module/kdeconnect]  
 type = custom/script  
 exec = ~/Projects/linux_setup/polybar/polybar-kdeconnect.sh  -d
@@ -136,7 +126,7 @@ format-muted-underline  = ${colors.green}
 ramp-volume-0 = 奔
 ramp-volume-1 = 墳
 
-click-right = kcmshell5 kcm_pulseaudio
+click-right = pavucontrol
 
 [module/microphone]
 type = custom/script
@@ -146,7 +136,7 @@ tail = true
 format-underline  = ${colors.green}
 
 click-left = ~/Projects/linux_setup/polybar/microphone.sh --toggle &
-click-right = kcmshell5 kcm_pulseaudio
+click-right = pavucontrol
 
 [module/bluetooth]
 type = custom/script
@@ -174,7 +164,7 @@ format-disconnected =  <label-disconnected>
 format-disconnected-padding = 1
 format-disconnected-underline = ${colors.yellow}
 
-click-right = kcmshell5 kcm_networkmanagement
+click-right = nm-connection-editor
 
 [module/eth1]
 type = internal/network
@@ -188,7 +178,7 @@ format-connected-underline = ${colors.yellow}
 label-disconnected = disconnected
 format-disconnected-underline = ${colors.yellow}
 
-click-right = kcmshell5 kcm_networkmanagement
+click-right = nm-connection-editor
 
 [module/battery]
 type = internal/battery
