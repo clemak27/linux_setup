@@ -64,7 +64,6 @@ exec --no-startup-id feh --bg-scale ~/Projects/linux_setup/wallpaper.png
 exec --no-startup-id ~/Projects/linux_setup/polybar/launch.sh
 
 # autostart applications
-exec --no-startup-id syncthingtray
 exec --no-startup-id ~/Projects/linux_setup/scripts/openrgb.zsh
 exec --no-startup-id kdeconnect-indicator &
 exec --no-startup-id nm-applet &
