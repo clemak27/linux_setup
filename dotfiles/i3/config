@@ -102,6 +102,10 @@ bindsym Mod1+space exec --no-startup-id ~/Projects/linux_setup/rofi/runner/runne
 # switch picom on/off
 bindsym Mod1+Shift+F12 exec --no-startup-id ~/Projects/linux_setup/scripts/picom_toggle.sh
 
+# screenshots
+bindsym Print exec spectacle
+bindsym Shift+Print exec spectacle -b
+
 # focus with cursor keys
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
