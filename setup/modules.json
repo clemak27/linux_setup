@@ -54,7 +54,8 @@
         "arandr",
         "blueman",
         "lxappearance",
-        "sddm"
+        "sddm",
+        "system-config-printer"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc",
