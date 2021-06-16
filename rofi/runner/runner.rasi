@@ -32,6 +32,8 @@ inputbar {
   margin: 0px 0px 0px 0px;
   padding: 5px 5px 5px 5px;
   position: center;
+  border: 1;
+  border-radius: 4px;
 }
 
 
@@ -127,6 +129,8 @@ element alternate.active {
 element selected {
   background-color: @highlighted;
   text-color: @textcolor;
+  border: 1;
+  border-radius: 4px;
 }
 
 element selected.urgent {
