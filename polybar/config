@@ -34,7 +34,7 @@ font-0 = "FiraCode Nerd Font:style=Retina,Regular:size=10"
 
 modules-left = i3
 modules-center = 
-modules-right = kdeconnect separator syncthing keepassxc separator pulseaudio microphone separator bluetooth wlan eth1 battery separator date separator runner powermenu
+modules-right = kdeconnect separator syncthing keepassxc separator pulseaudio microphone separator bluetooth wlan eth1 wireguard battery separator date separator runner powermenu
 
 scroll-up = #i3.prev
 scroll-down = #i3.next
@@ -174,15 +174,24 @@ type = internal/network
 interface = enp27s0
 interval = 3.0
 
-label-connected = ﯱ
+label-connected = ﯱ 
 format-connected = %{A3:nm-connection-editor:}<label-connected>%{A}
 format-connected-padding = 1
 format-connected-underline = ${colors.yellow}
 
-label-disconnected = ﯱ
+label-disconnected = ﯱ 
 format-disconnected = %{A3:nm-connection-editor:}<label-disconnected>%{A}
 format-disconnected-underline = ${colors.yellow}
 format-disconnected-foreground = ${colors.disabled}
+
+[module/wireguard]
+type = custom/script
+exec = ~/Projects/linux_setup/polybar/wireguard.sh
+tail = true
+
+format-underline  = ${colors.yellow}
+
+click-left = ~/Projects/linux_setup/polybar/wireguard.sh --toggle &
 
 [module/battery]
 type = internal/battery

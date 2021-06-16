@@ -22,6 +22,7 @@ for_window [class="Arandr"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="System-config-printer.py"] floating enable
 for_window [title="Picture-in-Picture"] sticky enable
+for_window [title="wg-quick-pb"] floating enable
 
 # Notifications
 exec --no-startup-id dunst
