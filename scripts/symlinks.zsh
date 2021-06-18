@@ -18,6 +18,9 @@ user_dir="/home/$user"
 ln -sf $config_dir/Xresources $user_dir/.Xresources
 
 # xprofile
+ln -sf $config_dir/xbindkeysrc $user_dir/.xbindkeysrc
+
+# xprofile
 ln -sf $config_dir/xprofile $user_dir/.xprofile
 
 # zsh

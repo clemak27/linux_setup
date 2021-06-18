@@ -56,7 +56,8 @@
         "lxappearance",
         "sddm",
         "system-config-printer",
-        "udiskie"
+        "udiskie",
+        "xbindkeys"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc",
