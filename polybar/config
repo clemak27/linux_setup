@@ -97,7 +97,7 @@ format-underline = ${colors.purple}
 [module/syncthing]
 type = custom/text
 
-content = 痢
+content = 
 content-padding = 1
 content-underline = ${colors.blue}
 
@@ -106,7 +106,7 @@ click-left = syncthing -browser-only
 [module/keepassxc]
 type = custom/text
 
-content = 
+content = 
 content-padding = 1
 content-underline = ${colors.blue}
 

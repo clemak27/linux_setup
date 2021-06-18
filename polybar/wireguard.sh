@@ -5,9 +5,9 @@ status() {
   CONNECTED=$(ip addr show $WG_CONF_NAME | awk "/$WG_CONF_NAME:/ {print $2}" | awk "/$WG_CONF_NAME/ {print \"true\";exit}")
 
   if [ "$CONNECTED" = "true" ]; then
-    echo " "
+    echo " "
   else
-    echo " "
+    echo " "
   fi
 }
 
