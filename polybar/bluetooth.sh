@@ -9,7 +9,7 @@ watch() {
     then
       echo ""
     fi
-    echo "%{F#555555ff}"
+    echo "%{F#0094f9}"
   fi
 }
 
