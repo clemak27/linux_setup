@@ -55,7 +55,8 @@
         "blueman",
         "lxappearance",
         "sddm",
-        "system-config-printer"
+        "system-config-printer",
+        "udiskie"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc",
@@ -102,7 +103,11 @@
         "systemctl enable docker.service",
         "usermod -aG docker $user"
       ],
-      "aur": ["insomnia-bin", "gitlab-glab-bin", "intellij-idea-ce"],
+      "aur": [
+        "insomnia-bin",
+        "gitlab-glab-bin",
+        "intellij-idea-ce"
+      ],
       "user_commands": [
         "go get code.gitea.io/tea",
         "pip install jedi pylint --user",
