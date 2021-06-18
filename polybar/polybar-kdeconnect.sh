@@ -52,7 +52,7 @@ show_devices (){
         elif [ "$isreach" = "false" ] && [ "$istrust" = "true" ]
         then
             # devices+="$(get_icon -1 "$devicetype")$SEPERATOR"
-            devices+="  "
+            devices+=""
         else
             haspairing="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$deviceid" org.kde.kdeconnect.device.hasPairingRequests)"
             if [ "$haspairing" = "true" ]
