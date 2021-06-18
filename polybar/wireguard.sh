@@ -1,7 +1,7 @@
 #!/bin/sh
 
 status() {
-  WG_CONF_NAME="zen"
+  WG_CONF_NAME=$(cat /etc/hostname)
   CONNECTED=$(ip addr show $WG_CONF_NAME | awk "/$WG_CONF_NAME:/ {print $2}" | awk "/$WG_CONF_NAME/ {print \"true\";exit}")
 
   if [ "$CONNECTED" = "true" ]; then
@@ -20,7 +20,7 @@ listen() {
 }
 
 toggle() {
-  WG_CONF_NAME="zen"
+  WG_CONF_NAME=$(cat /etc/hostname)
   CONNECTED=$(ip addr show $WG_CONF_NAME | awk "/$WG_CONF_NAME:/ {print $2}" | awk "/$WG_CONF_NAME/ {print \"true\";exit}")
 
   if [ "$CONNECTED" = "true" ]; then
