@@ -40,7 +40,7 @@ case $chosen in
     fi
     ;;
   $lock)
-    ~/Projects/linux_setup/scripts/lock.sh
+    sleep 1 && ~/Projects/linux_setup/scripts/lock.sh
     ;;
   $suspend)
     ans=$(confirm_exit "Sleep" &)
