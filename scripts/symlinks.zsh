@@ -17,7 +17,7 @@ user_dir="/home/$user"
 # Xresources
 ln -sf $config_dir/Xresources $user_dir/.Xresources
 
-# xprofile
+# xbindkeysrc 
 ln -sf $config_dir/xbindkeysrc $user_dir/.xbindkeysrc
 
 # xprofile
