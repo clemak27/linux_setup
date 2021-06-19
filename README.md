@@ -1,6 +1,6 @@
 # my ArchLinux setup
 
-## Screenshots (not up 2 date)
+## Screenshots
 
 ### neofetch
 
@@ -24,8 +24,8 @@
 
 ## What tools I use
 
-- KDE + i3-gaps  
-  After trying out KDE and GNOME extensivly, I setteled on using KDE. This mostly came down to the KDE team providing better software and extension support than GNOME, also vastly improved styling options. Nowadays I'm also using i3wm together with KDE for that sweet tiling wm experience. </p>
+- i3-gaps  
+  After using KDE extensivly, I setteled on using i3 as window manager. I like the automatic tiling and the configuartion via dotfiles. </p>
 - polybar  
   Highly customizable status bar. Fits i3wm perfectly imo. </p>
 - alacritty  
@@ -47,8 +47,6 @@
   btw
 - `other`  
   Some file that did'nt really fit into an other folder.
-- `plasma`  
-  KDE Plasma color theme and some other customization.
 - `polybar`  
   Polybar dotfiles
 - `README.md`  
