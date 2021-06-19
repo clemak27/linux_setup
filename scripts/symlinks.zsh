@@ -17,6 +17,12 @@ user_dir="/home/$user"
 # Xresources
 ln -sf $config_dir/Xresources $user_dir/.Xresources
 
+# xbindkeysrc 
+ln -sf $config_dir/xbindkeysrc $user_dir/.xbindkeysrc
+
+# xprofile
+ln -sf $config_dir/xprofile $user_dir/.xprofile
+
 # zsh
 ln -sf $config_dir/zshrc $user_dir/.zshrc
 ln -sf $config_dir/zsh_functions.zsh $user_dir/.zsh_functions
@@ -82,9 +88,3 @@ ln -sf $config_dir/redshift/redshift.conf $user_dir/.config/redshift/redshift.co
 # todo.txt
 mkdir -p $user_dir/.todo
 ln -sf $config_dir/todo/todo.cfg $user_dir/.todo/config
-
-# ------------------------ .local ------------------------
-
-# plasma color scheme
-mkdir -p $user_dir/.local/share/color-schemes
-ln -sf $setup_dir/plasma/SkyBlue.colors $user_dir/.local/share/color-schemes/SkyBlue.colors

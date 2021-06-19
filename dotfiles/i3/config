@@ -6,50 +6,23 @@
 set $mod Mod4
 
 # font
-font pango:Noto Sans 10
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-# exec --no-startup-id nm-applet
-
-# Plasma compatibility improvements
-
-exec --no-startup-id wmctrl -c Plasma
-
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
-
-for_window [class="yakuake"] floating enable
-for_window [class="systemsettings"] floating enable
-for_window [class="plasmashell"] floating enable;
-for_window [class="Plasma"] floating enable; border none
-for_window [title="plasma-desktop"] floating enable; border none
-for_window [title="win7"] floating enable; border none
-for_window [class="krunner"] floating enable; border none
-for_window [class="Kmix"] floating enable; border none
-for_window [class="Klipper"] floating enable; border none
-for_window [class="Plasmoidviewer"] floating enable; border none
-for_window [class="(?i)*nextcloud*"] floating disable
-for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
-no_focus [class="plasmashell" window_type="notification"]
-
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
+font pango:FiraCode Nerd Font 10
 
 # compositor
 exec --no-startup-id picom -b
 
-# Steam floating
+# window-rules
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
 for_window [class="Steam"] floating enable; border none
-
-# keepass floating
-for_window [class="KeePassXC"] floating enable; border none
+for_window [class="KeePassXC"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="Arandr"] floating enable
+for_window [class="Blueman-manager"] floating enable
+for_window [class="System-config-printer.py"] floating enable
+for_window [title="Picture-in-Picture"] sticky enable
+for_window [title="wg-quick-pb"] floating enable
 
 # Notifications
 exec --no-startup-id dunst
@@ -61,8 +34,9 @@ exec --no-startup-id feh --bg-scale ~/Projects/linux_setup/wallpaper.png
 exec --no-startup-id ~/Projects/linux_setup/polybar/launch.sh
 
 # autostart applications
-exec --no-startup-id syncthingtray
 exec --no-startup-id ~/Projects/linux_setup/scripts/openrgb.zsh
+exec --no-startup-id kdeconnect-indicator &
+exec --no-startup-id nm-applet &
 # exec i3-msg 'workspace 3;exec alacritty'
 # exec i3-msg 'workspace 2;exec alacritty'
 # exec i3-msg 'workspace 1;exec firefox'
@@ -78,6 +52,9 @@ default_border pixel 1
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# kill focused window
+bindsym $mod+Shift+q kill
+
 # start a terminal
 bindsym $mod+Return exec alacritty
 
@@ -90,8 +67,8 @@ bindsym $mod+e exec dolphin
 # start keepass
 bindsym $mod+k exec keepassxc
 
-# kill focused window
-bindsym $mod+Shift+q kill
+# start powermenu
+bindsym $mod+l exec --no-startup-id ~/Projects/linux_setup/rofi/powermenu/powermenu.sh
 
 # start rofi
 bindsym $mod+d exec --no-startup-id ~/Projects/linux_setup/rofi/runner/runner.sh
@@ -99,6 +76,13 @@ bindsym Mod1+space exec --no-startup-id ~/Projects/linux_setup/rofi/runner/runne
 
 # switch picom on/off
 bindsym Mod1+Shift+F12 exec --no-startup-id ~/Projects/linux_setup/scripts/picom_toggle.sh
+
+# screenshots
+bindsym Print exec spectacle
+bindsym Shift+Print exec spectacle -b
+
+# arandr
+bindsym $mod+p exec arandr
 
 # focus with cursor keys
 bindsym $mod+Left focus left
@@ -219,9 +203,6 @@ smart_gaps on
 
 # Activate smart borders (always)
 smart_borders on
-
-# firefox picture in picture window on all workspaces
-for_window [title="Picture-in-Picture"] sticky enable
 
 # Colors
 

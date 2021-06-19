@@ -10,14 +10,23 @@ rofi_path=$HOME/Projects/linux_setup/rofi
 THEME=$rofi_path/runner/runner.rasi
 
 # Color Settings of Icon shown in Polybar
-COLOR_DISCONNECTED='#000'       # Device Disconnected
-COLOR_NEWDEVICE='#ff0'          # New Device
-COLOR_BATTERY_90='#fff'         # Battery >= 90
-COLOR_BATTERY_80='#ccc'         # Battery >= 80
-COLOR_BATTERY_70='#aaa'         # Battery >= 70
-COLOR_BATTERY_60='#888'         # Battery >= 60
-COLOR_BATTERY_50='#666'         # Battery >= 50
-COLOR_BATTERY_LOW='#f00'        # Battery <  50
+COLOR_DISCONNECTED='#eeeeee'       # Device Disconnected
+COLOR_NEWDEVICE='#eeeeee'          # New Device
+COLOR_BATTERY_90='#eeeeee'         # Battery >= 90
+COLOR_BATTERY_80='#eeeeee'         # Battery >= 80
+COLOR_BATTERY_70='#eeeeee'         # Battery >= 70
+COLOR_BATTERY_60='#eeeeee'         # Battery >= 60
+COLOR_BATTERY_50='#eeeeee'         # Battery >= 50
+COLOR_BATTERY_LOW='#eeeeee'        # Battery <  50
+
+# COLOR_DISCONNECTED='#000'       # Device Disconnected
+# COLOR_NEWDEVICE='#ff0'          # New Device
+# COLOR_BATTERY_90='#fff'         # Battery >= 90
+# COLOR_BATTERY_80='#ccc'         # Battery >= 80
+# COLOR_BATTERY_70='#aaa'         # Battery >= 70
+# COLOR_BATTERY_60='#888'         # Battery >= 60
+# COLOR_BATTERY_50='#666'         # Battery >= 50
+# COLOR_BATTERY_LOW='#f00'        # Battery <  50
 
 # Icons shown in Polybar
 ICON_SMARTPHONE=''
@@ -43,7 +52,7 @@ show_devices (){
         elif [ "$isreach" = "false" ] && [ "$istrust" = "true" ]
         then
             # devices+="$(get_icon -1 "$devicetype")$SEPERATOR"
-            devices+="  "
+            devices+=" "
         else
             haspairing="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$deviceid" org.kde.kdeconnect.device.hasPairingRequests)"
             if [ "$haspairing" = "true" ]

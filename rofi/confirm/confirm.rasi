@@ -72,6 +72,8 @@ element alternate.active {
 element selected {
   background-color: @highlighted;
   text-color: @textcolor;
+  border: 1;
+  border-radius: 4px;
 }
 
 element selected.urgent {
