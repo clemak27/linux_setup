@@ -60,7 +60,7 @@
         "xbindkeys"
       ],
       "commands": [
-        "cp /home/$user/Projects/linux_setup/plasma/dolphinrc /home/$user/.config/dolphinrc",
+        "cp /home/$user/Projects/linux_setup/other/dolphinrc /home/$user/.config/dolphinrc",
         "ln -s /usr/bin/rofi /usr/bin/dmenu",
         "mkdir -p  /home/$user/.local/share/applications",
         "cp  /home/$user/Projects/linux_setup/rofi/powermenu/powermenu.sh.desktop /home/$user/.local/share/applications",

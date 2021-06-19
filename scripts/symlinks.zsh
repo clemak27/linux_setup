@@ -88,9 +88,3 @@ ln -sf $config_dir/redshift/redshift.conf $user_dir/.config/redshift/redshift.co
 # todo.txt
 mkdir -p $user_dir/.todo
 ln -sf $config_dir/todo/todo.cfg $user_dir/.todo/config
-
-# ------------------------ .local ------------------------
-
-# plasma color scheme
-mkdir -p $user_dir/.local/share/color-schemes
-ln -sf $setup_dir/plasma/SkyBlue.colors $user_dir/.local/share/color-schemes/SkyBlue.colors
