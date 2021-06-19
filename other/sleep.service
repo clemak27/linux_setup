@@ -1,0 +1,11 @@
+[Unit]
+Description=User suspend actions
+Before=sleep.target
+
+[Service]
+User=%I
+Type=forking
+ExecStart=/home/clemens/Projects/linux_setup/scripts/lock.sh
+
+[Install]
+WantedBy=sleep.target
