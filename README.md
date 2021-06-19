@@ -25,7 +25,7 @@
 ## What tools I use
 
 - i3-gaps  
-  After using KDE extensivly, I setteled on using i3 as window manager. I like the automatic tiling and the configuartion via dotfiles. </p>
+  After using KDE extensivly, I setteled on using i3 as window manager. I like the automatic tiling and the configuration via dotfiles. </p>
 - polybar  
   Highly customizable status bar. Fits i3wm perfectly imo. </p>
 - alacritty  
