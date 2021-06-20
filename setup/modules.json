@@ -57,7 +57,8 @@
         "sddm",
         "system-config-printer",
         "udiskie",
-        "xbindkeys"
+        "xbindkeys",
+        "xorg-xinput"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/other/dolphinrc /home/$user/.config/dolphinrc",
