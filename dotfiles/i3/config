@@ -55,16 +55,10 @@ floating_modifier $mod
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start a terminal
+# start programs
 bindsym $mod+Return exec alacritty
-
-# start browser
 bindsym $mod+b exec firefox
-
-# start browser
-bindsym $mod+e exec dolphin
-
-# start keepass
+bindsym $mod+e exec alacritty -e zsh -c "source ~/.zshrc && ranger"
 bindsym $mod+k exec keepassxc
 
 # start powermenu
