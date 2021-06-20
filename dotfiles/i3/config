@@ -59,6 +59,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Return exec alacritty
 bindsym $mod+b exec firefox
 bindsym $mod+e exec alacritty -e zsh -c "source ~/.zshrc && ranger"
+bindsym $mod+s exec alacritty --command btm
 bindsym $mod+k exec keepassxc
 
 # start powermenu
