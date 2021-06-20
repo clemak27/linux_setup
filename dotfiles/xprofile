@@ -1,4 +1,6 @@
 xinput --set-prop "Logitech G502 HERO Gaming Mouse" 'libinput Accel Profile Enabled' 0, 1
+xinput --set-prop "SYNA2393:00 06CB:7A13 Touchpad" 'libinput Natural Scrolling Enabled' 1
+xinput --set-prop "SYNA2393:00 06CB:7A13 Touchpad" 'libinput Tapping Enabled' 1
 export QT_QPA_PLATFORMTHEME=gtk2
 udiskie &
 xbindkeys
