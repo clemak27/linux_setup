@@ -56,7 +56,9 @@ endif
 if (has("nvim-0.5"))
 
   " ----------------- theming -------------------------------------------
-  Plug 'navarasu/onedark.nvim'
+  Plug 'RRethy/nvim-base16'
+  Plug 'hoob3rt/lualine.nvim'
+  Plug 'kyazdani42/nvim-web-devicons'
 
 endif
 
