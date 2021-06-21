@@ -55,7 +55,8 @@ endif
 
 if (has("nvim-0.5"))
 
-  Plug 'famiu/nvim-reload'
+  " ----------------- theming -------------------------------------------
+  Plug 'navarasu/onedark.nvim'
 
 endif
 
@@ -243,5 +244,5 @@ if (!has("nvim-0.5"))
 endif
 
 if (has("nvim-0.5"))
-  " TODO
+  source $HOME/.config/nvim/config.lua
 endif
