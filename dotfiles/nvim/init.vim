@@ -11,10 +11,11 @@ endif
 
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'tpope/vim-commentary' " comment with gc
-Plug 'tpope/vim-fugitive' " git diff etc inside vim
+Plug 'tpope/vim-commentary' " comment lines
+Plug 'tpope/vim-fugitive' " run git commands inside vim
 Plug 'tpope/vim-repeat' " working repeat for surround
-Plug 'tpope/vim-surround' " brackets around words ysiw(
+Plug 'tpope/vim-surround' " surround objects with brackets
+Plug 'tpope/vim-vinegar' " better netrw
 Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
 Plug 'airblade/vim-gitgutter' " git info in signcolumn
 Plug 'jiangmiao/auto-pairs' " auto closing things
