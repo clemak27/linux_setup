@@ -1,7 +1,7 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
+filetype off
 
-" ------------------------------------------------- vim-plug ----------------------------------------------------
+" ------------------------------------------------- vim-plug --------------------------------------------------
 
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -26,7 +26,7 @@ Plug 'sgur/vim-textobj-parameter'
 
 if (!has("nvim-0.5"))
 
-  " ----------------- theming -------------------------
+  " ----------------- theming -------------------------------------------
   Plug 'joshdick/onedark.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'mengelbrecht/lightline-bufferline'
@@ -34,7 +34,7 @@ if (!has("nvim-0.5"))
   Plug 'bryanmylee/vim-colorscheme-icons'
   Plug 'sheerun/vim-polyglot'
 
-  " ----------------- special features -------------------------
+  " ----------------- special features ----------------------------------
   Plug 'vimwiki/vimwiki'
 
   " ----------------- language specific plugins -------------------------
@@ -42,12 +42,12 @@ if (!has("nvim-0.5"))
   Plug 'lervag/vimtex'
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
-  " ----------------- fzf -------------------------
+  " ----------------- fzf -----------------------------------------------
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
-  " ----------------- coc -------------------------
+  " ----------------- coc -----------------------------------------------
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'antoinemadec/coc-fzf'
 
@@ -61,7 +61,7 @@ endif
 
 call plug#end()
 
-" ------------------------------------------------- .vimrc ------------------------------------------------------
+" ------------------------------------------------- .vimrc ----------------------------------------------------
 
 " enable mouse support
 set mouse=a
@@ -221,7 +221,7 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 autocmd FileChangedShellPost *
       \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-" ------------------------------------------------- gitgutter ---------------------------------------------------
+" ------------------------------------------------- gitgutter -------------------------------------------------
 
 let g:gitgutter_preview_win_floating = 1
 let g:gitgutter_use_location_list = 1
@@ -229,12 +229,12 @@ let g:gitgutter_use_location_list = 1
 map <leader>hm <Plug>(GitGutterNextHunk)
 map <leader>hn <Plug>(GitGutterPrevHunk)
 
-" ------------------------------------------------- custom textobjects ------------------------------------------
+" ------------------------------------------------- custom textobjects ----------------------------------------
 
 let g:vim_textobj_parameter_mapping = 'a'
 
 
-" ------------------------------------------------- theme -------------------------------------------------------
+" ------------------------------------------------- theme -----------------------------------------------------
 
 if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -260,7 +260,7 @@ try
 catch
 endtry
 
-" ------------------------------------------------- lightline ---------------------------------------------------
+" ------------------------------------------------- lightline -------------------------------------------------
 let g:lightline = {
       \ 'colorscheme': 'onedark',
       \ 'active': {
@@ -317,13 +317,13 @@ nmap <Leader>r8 <Plug>lightline#bufferline#delete(8)
 nmap <Leader>r9 <Plug>lightline#bufferline#delete(9)
 nmap <Leader>r0 <Plug>lightline#bufferline#delete(10)
 
-" ------------------------------------------------- vimwiki -----------------------------------------------------
+" ------------------------------------------------- vimwiki ---------------------------------------------------
 
 let g:vimwiki_list = [{'path': '~/Notes',
       \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_global_ext = 0
 
-" ------------------------------------------------- vim-go ------------------------------------------------------
+" ------------------------------------------------- vim-go ----------------------------------------------------
 
 " Go syntax highlighting
 let g:go_highlight_build_constraints = 1
@@ -343,7 +343,7 @@ let g:go_gopls_options=['-remote=auto']
 let g:go_def_mapping_enabled = 0
 let g:go_doc_keywordprg_enabled = 0
 
-" ------------------------------------------------- fzf-preview-bindings ----------------------------------------
+" ------------------------------------------------- fzf-preview-bindings --------------------------------------
 
 let g:fzf_preview_disable_mru = 1
 
@@ -353,11 +353,11 @@ map <leader>g :<C-u>FzfPreviewBufferLinesRpc<CR>
 map <leader>i :<C-u>FzfPreviewGitActionsRpc<CR>
 map <leader>p :<C-u>FzfPreviewProjectFilesRpc<CR>
 
-" ------------------------------------------------- fzf-preview-window ------------------------------------------
+" ------------------------------------------------- fzf-preview-window ----------------------------------------
 
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
-" ------------------------------------------------- coc-extensions  ---------------------------------------------
+" ------------------------------------------------- coc-extensions  -------------------------------------------
 
 let g:coc_global_extensions = [
       \ 'coc-css',
@@ -377,7 +377,7 @@ let g:coc_global_extensions = [
       \ 'coc-yaml'
       \ ]
 
-" ------------------------------------------------- coc-keybindings  --------------------------------------------
+" ------------------------------------------------- coc-keybindings  ------------------------------------------
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
