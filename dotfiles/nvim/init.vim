@@ -24,30 +24,40 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'sgur/vim-textobj-parameter'
 
-" ----------------- theming -------------------------
-Plug 'joshdick/onedark.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
-Plug 'ryanoasis/vim-devicons'
-Plug 'bryanmylee/vim-colorscheme-icons'
-Plug 'sheerun/vim-polyglot'
+if (!has("nvim-0.5"))
 
-" ----------------- special features -------------------------
-Plug 'vimwiki/vimwiki'
+  " ----------------- theming -------------------------
+  Plug 'joshdick/onedark.vim'
+  Plug 'itchyny/lightline.vim'
+  Plug 'mengelbrecht/lightline-bufferline'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'bryanmylee/vim-colorscheme-icons'
+  Plug 'sheerun/vim-polyglot'
 
-" ----------------- language specific plugins -------------------------
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'lervag/vimtex'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+  " ----------------- special features -------------------------
+  Plug 'vimwiki/vimwiki'
 
-" ----------------- fzf -------------------------
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+  " ----------------- language specific plugins -------------------------
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'lervag/vimtex'
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
-" ----------------- coc -------------------------
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'antoinemadec/coc-fzf'
+  " ----------------- fzf -------------------------
+  Plug 'junegunn/fzf'
+  Plug 'junegunn/fzf.vim'
+  Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+
+  " ----------------- coc -------------------------
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'antoinemadec/coc-fzf'
+
+endif
+
+if (has("nvim-0.5"))
+
+  Plug 'famiu/nvim-reload'
+
+endif
 
 call plug#end()
 
