@@ -11,38 +11,43 @@ endif
 
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'tpope/vim-commentary' " comment lines
-Plug 'tpope/vim-fugitive' " run git commands inside vim
-Plug 'tpope/vim-repeat' " working repeat for surround
-Plug 'tpope/vim-surround' " surround objects with brackets
-Plug 'tpope/vim-vinegar' " better netrw
-Plug 'vim-scripts/ReplaceWithRegister' " copy paste text with gr
-Plug 'airblade/vim-gitgutter' " git info in signcolumn
-Plug 'jiangmiao/auto-pairs' " auto closing things
+" ----------------- default plugins -----------------------------------
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'airblade/vim-gitgutter'
+Plug 'jiangmiao/auto-pairs'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'sgur/vim-textobj-parameter'
 
-Plug 'joshdick/onedark.vim' " atom one dark theme
-Plug 'itchyny/lightline.vim' " nice statusline
-Plug 'mengelbrecht/lightline-bufferline' " show buffers in tabline
-Plug 'ryanoasis/vim-devicons' " support for nerdfonts/icons
-Plug 'bryanmylee/vim-colorscheme-icons' " colored icons
-Plug 'sheerun/vim-polyglot' " syntax highlighting for many languages
+" ----------------- theming -------------------------
+Plug 'joshdick/onedark.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
+Plug 'ryanoasis/vim-devicons'
+Plug 'bryanmylee/vim-colorscheme-icons'
+Plug 'sheerun/vim-polyglot'
 
-Plug 'kana/vim-textobj-user' " custom textobjects
-Plug 'kana/vim-textobj-entire' " whole buffer as textobject
-Plug 'sgur/vim-textobj-parameter' " arguments as textobject
+" ----------------- special features -------------------------
+Plug 'vimwiki/vimwiki'
 
-Plug 'vimwiki/vimwiki' " vim wiki
+" ----------------- language specific plugins -------------------------
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'lervag/vimtex'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " go
-Plug 'lervag/vimtex' " latex support
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " md previews
-
-Plug 'junegunn/fzf' " fuzzy file search
-Plug 'junegunn/fzf.vim' " fuzzy file search
+" ----------------- fzf -------------------------
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " code-completion
-Plug 'antoinemadec/coc-fzf' " fzf coc integration
+" ----------------- coc -------------------------
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'antoinemadec/coc-fzf'
 
 call plug#end()
 
@@ -214,6 +219,11 @@ let g:gitgutter_use_location_list = 1
 map <leader>hm <Plug>(GitGutterNextHunk)
 map <leader>hn <Plug>(GitGutterPrevHunk)
 
+" ------------------------------------------------- custom textobjects ------------------------------------------
+
+let g:vim_textobj_parameter_mapping = 'a'
+
+
 " ------------------------------------------------- theme -------------------------------------------------------
 
 if (has("nvim"))
@@ -296,10 +306,6 @@ nmap <Leader>r7 <Plug>lightline#bufferline#delete(7)
 nmap <Leader>r8 <Plug>lightline#bufferline#delete(8)
 nmap <Leader>r9 <Plug>lightline#bufferline#delete(9)
 nmap <Leader>r0 <Plug>lightline#bufferline#delete(10)
-
-" ------------------------------------------------- custom textobjects ------------------------------------------
-
-let g:vim_textobj_parameter_mapping = 'a'
 
 " ------------------------------------------------- vimwiki -----------------------------------------------------
 
