@@ -1,10 +1,4 @@
-vim.opt.termguicolors = true
-require('base16-colorscheme').setup({
-    base00 = '#121212', base01 = '#232323', base02 = '#232323', base03 = '#555555',
-    base04 = '#565c64', base05 = '#abb2bf', base06 = '#9a9bb3', base07 = '#c5c8e6',
-    base08 = '#e06c75', base09 = '#d19a66', base0A = '#c678dd', base0B = '#abb2bf',
-    base0C = '#56b6c2', base0D = '#98c379', base0E = '#e5c07b', base0F = '#a06949',
-  })
+require('onedark_custom').setup()
 
 local custom_onedark = require'lualine.themes.onedark'
 custom_onedark.normal.a.gui = nil
