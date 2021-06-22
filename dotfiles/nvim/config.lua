@@ -1,5 +1,6 @@
+vim.opt.termguicolors = true
 require('base16-colorscheme').setup({
-    base00 = '#121212', base01 = '#232323', base02 = '#121212', base03 = '#121212',
+    base00 = '#121212', base01 = '#232323', base02 = '#121212', base03 = '#555555',
     base04 = '#565c64', base05 = '#abb2bf', base06 = '#9a9bb3', base07 = '#c5c8e6',
     base08 = '#e06c75', base09 = '#d19a66', base0A = '#c678dd', base0B = '#abb2bf',
     base0C = '#56b6c2', base0D = '#98c379', base0E = '#e5c07b', base0F = '#a06949',
@@ -46,3 +47,21 @@ require('lualine').setup {
   tabline = {},
   extensions = {}
 }
+
+require("bufferline").setup{
+  options = {
+    numbers = "ordinal",
+    number_style = "",
+    mappings = true,
+    diagnostics = false,
+    show_buffer_icons = true,
+    show_buffer_close_icons = true,
+    show_close_icon = true,
+    show_tab_indicators = true,
+    persist_buffer_sort = true,
+    separator_style = "thick",
+    enforce_regular_tabs = false,
+    always_show_bufferline = false,
+  }
+}
+

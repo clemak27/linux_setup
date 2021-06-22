@@ -57,8 +57,9 @@ if (has("nvim-0.5"))
 
   " ----------------- theming -------------------------------------------
   Plug 'RRethy/nvim-base16'
-  Plug 'hoob3rt/lualine.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'hoob3rt/lualine.nvim'
+  Plug 'akinsho/nvim-bufferline.lua'
 
 endif
 
@@ -204,6 +205,12 @@ map 0 ^
 
 " Remap ß to end of line
 map ß $
+
+" Remap some keys for german layout
+map ö [
+map ä ]
+map Ö <c-[>
+map Ä <c-]>
 
 " Move a line of text using ALT+[jk]
 nmap <M-j> mz:m+<cr>`z
