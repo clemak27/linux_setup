@@ -1,6 +1,6 @@
 vim.opt.termguicolors = true
 require('base16-colorscheme').setup({
-    base00 = '#121212', base01 = '#232323', base02 = '#121212', base03 = '#555555',
+    base00 = '#121212', base01 = '#232323', base02 = '#232323', base03 = '#555555',
     base04 = '#565c64', base05 = '#abb2bf', base06 = '#9a9bb3', base07 = '#c5c8e6',
     base08 = '#e06c75', base09 = '#d19a66', base0A = '#c678dd', base0B = '#abb2bf',
     base0C = '#56b6c2', base0D = '#98c379', base0E = '#e5c07b', base0F = '#a06949',
@@ -77,3 +77,7 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   }
 }
+
+vim.g.indent_blankline_char = "▏"
+vim.g.indent_blankline_show_trailing_blankline_indent = false
+vim.g.indent_blankline_show_first_indent_level = false
