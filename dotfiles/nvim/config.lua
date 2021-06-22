@@ -72,7 +72,11 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
-require("telescope")
+require("telescope").setup {
+  defaults = {
+    prompt_position ="top",
+  }
+}
 
 local opt = {noremap = true, silent = true}
 
