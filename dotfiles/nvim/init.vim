@@ -63,6 +63,11 @@ if (has("nvim-0.5"))
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
 
+  " ----------------- telescope -----------------------------------------
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+
 endif
 
 call plug#end()
