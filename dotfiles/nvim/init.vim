@@ -60,6 +60,7 @@ if (has("nvim-0.5"))
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'hoob3rt/lualine.nvim'
   Plug 'akinsho/nvim-bufferline.lua'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 endif
 
