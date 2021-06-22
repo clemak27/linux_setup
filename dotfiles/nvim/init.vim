@@ -61,7 +61,6 @@ if (has("nvim-0.5"))
   Plug 'hoob3rt/lualine.nvim'
   Plug 'akinsho/nvim-bufferline.lua'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
 
   " ----------------- telescope -----------------------------------------
   Plug 'nvim-lua/popup.nvim'
