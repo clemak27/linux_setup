@@ -231,3 +231,17 @@ require('lspkind').init({
     preset = 'default',
     symbol_map = {},
 })
+
+-- lspinstall - automatically install language servers
+-- run this once
+
+  -- if not has_value(servers, 'html') then require'lspinstall'.install_server("html") end
+  -- if not has_value(servers, 'css') then require'lspinstall'.install_server("css") end
+  -- if not has_value(servers, 'json') then require'lspinstall'.install_server("json") end
+  -- if not has_value(servers, 'lua') then require'lspinstall'.install_server("lua") end
+  -- if not has_value(servers, 'yaml') then require'lspinstall'.install_server("yaml") end
+  -- if not has_value(servers, 'vim') then require'lspinstall'.install_server("vim") end
+  -- if not has_value(servers, 'typescript') then require'lspinstall'.install_server("typescript") end
+  -- if not has_value(servers, 'python') then require'lspinstall'.install_server("python") end
+  -- if not has_value(servers, 'rust') then require'lspinstall'.install_server("rust") end
+  -- if not has_value(servers, 'go') then require'lspinstall'.install_server("go") end
