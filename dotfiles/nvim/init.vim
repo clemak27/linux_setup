@@ -67,6 +67,11 @@ if (has("nvim-0.5"))
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
 
+  " ----------------- LSP -----------------------------------------------
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/nvim-compe'
+  Plug 'onsails/lspkind-nvim'
+
 endif
 
 call plug#end()
