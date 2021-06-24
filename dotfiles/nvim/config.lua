@@ -122,15 +122,12 @@ local opt = {noremap = true, silent = true}
 
 -- mappings
 vim.api.nvim_set_keymap("n", "<Leader>b", [[<Cmd>lua require('telescope.builtin').buffers()<CR>]], opt)
-
 vim.api.nvim_set_keymap("n", "<Leader>f", [[<Cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]], opt)
 vim.api.nvim_set_keymap("n", "<Leader>g", [[<Cmd>lua require('telescope.builtin').live_grep({grep_open_files=true})<CR>]], opt)
 vim.api.nvim_set_keymap("n", "<Leader>i", [[<Cmd>lua require('telescope.builtin').git_status()<CR>]], opt)
 vim.api.nvim_set_keymap("n", "<Leader>p", [[<Cmd>lua require('telescope.builtin').find_files()<CR>]], opt)
 
 -- ---------------------------------------- lsp --------------------------------------------------------------
-
-require'lspconfig'.gopls.setup{}
 
 local nvim_lsp = require('lspconfig')
 
@@ -165,11 +162,62 @@ local on_attach = function(client, bufnr)
 
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { "gopls" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup { on_attach = on_attach }
+-- lspinstall - automatically install language servers
+-- run this once
+
+-- require'lspinstall'.install_server("html")
+-- require'lspinstall'.install_server("css")
+-- require'lspinstall'.install_server("json")
+-- require'lspinstall'.install_server("lua")
+-- require'lspinstall'.install_server("yaml")
+-- require'lspinstall'.install_server("vim")
+-- require'lspinstall'.install_server("typescript")
+-- require'lspinstall'.install_server("python")
+-- require'lspinstall'.install_server("rust")
+-- require'lspinstall'.install_server("go")
+-- require'lspinstall'.install_server("bash")
+-- require'lspinstall'.install_server("vue")
+-- require'lspinstall'.install_server("latex")
+
+require'lspinstall'.setup() -- important
+
+-- config that activates keymaps and enables snippet support
+local function make_config()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  return {
+    -- enable snippet support
+    capabilities = capabilities,
+    -- map buffer local keybindings when the language server attaches
+    on_attach = on_attach,
+  }
+end
+
+-- lsp-install
+local function setup_servers()
+  require'lspinstall'.setup()
+
+  -- get all installed servers
+  local servers = require'lspinstall'.installed_servers()
+ 
+  for _, server in pairs(servers) do
+    local config = make_config()
+
+    -- language specific config
+    if server == "bash" then
+      config.filetypes = {"bash", "sh", "zsh"};
+    end
+
+    require'lspconfig'[server].setup(config)
+  end
+end
+
+setup_servers()
+
+-- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+require'lspinstall'.post_install_hook = function ()
+  setup_servers() -- reload installed servers
+  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
 
 -- nvim-compe
@@ -262,16 +310,4 @@ require('lspkind').init({
     symbol_map = {},
 })
 
--- lspinstall - automatically install language servers
--- run this once
 
-  -- if not has_value(servers, 'html') then require'lspinstall'.install_server("html") end
-  -- if not has_value(servers, 'css') then require'lspinstall'.install_server("css") end
-  -- if not has_value(servers, 'json') then require'lspinstall'.install_server("json") end
-  -- if not has_value(servers, 'lua') then require'lspinstall'.install_server("lua") end
-  -- if not has_value(servers, 'yaml') then require'lspinstall'.install_server("yaml") end
-  -- if not has_value(servers, 'vim') then require'lspinstall'.install_server("vim") end
-  -- if not has_value(servers, 'typescript') then require'lspinstall'.install_server("typescript") end
-  -- if not has_value(servers, 'python') then require'lspinstall'.install_server("python") end
-  -- if not has_value(servers, 'rust') then require'lspinstall'.install_server("rust") end
-  -- if not has_value(servers, 'go') then require'lspinstall'.install_server("go") end

@@ -78,9 +78,9 @@ if (has("nvim-0.5"))
 
   " ----------------- LSP -----------------------------------------------
   Plug 'neovim/nvim-lspconfig'
+  Plug 'kabouzeid/nvim-lspinstall'
   Plug 'hrsh7th/nvim-compe'
   Plug 'onsails/lspkind-nvim'
-  Plug 'kabouzeid/nvim-lspinstall'
 
 endif
 
