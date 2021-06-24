@@ -62,6 +62,15 @@ if (has("nvim-0.5"))
   Plug 'akinsho/nvim-bufferline.lua'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+  " ----------------- special features ----------------------------------
+  " Plug 'oberblastmeister/neuron.nvim', { 'branch': 'unstable' }
+  " Plug 'vimwiki/vimwiki'
+
+  " ----------------- language specific plugins -------------------------
+  Plug 'plasticboy/vim-markdown'
+  Plug 'godlygeek/tabular'
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
   " ----------------- telescope -----------------------------------------
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
