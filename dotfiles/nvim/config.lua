@@ -80,27 +80,7 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
--- ---------------------------------------- neuron -----------------------------------------------------------
-
--- require'neuron'.setup {
---     virtual_titles = true,
---     mappings = true,
---     run = nil, -- function to run when in neuron dir
---     neuron_dir = "~/Notes", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
---     leader = "gz" -- the leader key to for all mappings, remember with 'go zettel'
--- }
-
--- ---------------------------------------- vimwiki ----------------------------------------------------------
-
--- vim.api.nvim_exec(
--- [[
--- let g:vimwiki_list = [{'path': '~/Notes', 'syntax': 'markdown', 'ext': '.md'}]
--- let g:vimwiki_global_ext = 0
--- ]],
--- false
--- )
-
--- ---------------------------------------- vimwiki ----------------------------------------------------------
+-- ---------------------------------------- vim-markdown -----------------------------------------------------
 
 vim.api.nvim_exec(
 [[
