@@ -44,6 +44,7 @@ PROMPT_EOL_MARK=''
 
 # ---------- Environment Variables ----------
 export BROWSER="firefox"
+export EDITOR="nvim"
 export VISUAL="nvim"
 export FZF_DEFAULT_OPTS='--height=50% --layout=reverse --info=inline --border=sharp --margin=1 --padding=1'
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
