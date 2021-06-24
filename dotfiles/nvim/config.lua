@@ -265,4 +265,10 @@ require('lspkind').init({
   symbol_map = {},
 })
 
+-- format golang on edit
 
+vim.api.nvim_exec(
+  [[
+  autocmd BufWritePre *.go :silent! lua vim.lsp.buf.formatting_sync(nil,500)
+  ]],
+  false)
