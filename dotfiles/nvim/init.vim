@@ -216,6 +216,9 @@ set showtabline=2
 " Dont show mode in statusline
 set noshowmode
 
+" conceal things
+set conceallevel=2
+
 " Remap 0 and § to first non-blank character
 map § ^
 map 0 ^

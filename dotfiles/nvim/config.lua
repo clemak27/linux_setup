@@ -86,7 +86,6 @@ vim.api.nvim_exec(
   [[
   let g:vim_markdown_folding_disabled = 1
   let g:vim_markdown_emphasis_multiline = 0
-  set conceallevel=2
   ]],
   false
 )
