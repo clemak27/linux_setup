@@ -101,6 +101,7 @@ require("telescope").setup {
         ["<esc>"] = actions.close
       },
     },
+    sorting_strategy = "ascending",
     borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└'}
   }
 }
