@@ -229,6 +229,9 @@ end
 
 vim.o.completeopt = "menuone,noselect"
 
+-- Remove "Pattern not found" in nvim-compe
+vim.cmd('set shortmess+=c')
+
 require'compe'.setup {
   enabled = true;
   autocomplete = true;
