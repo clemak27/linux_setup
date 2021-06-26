@@ -1,7 +1,6 @@
--- ---------------------------------------- colorscheme ------------------------------------------------------
+-- ---------------------------------------- lua plugins ------------------------------------------------------
 
-require('onedark_custom').setup()
-
+require('colorscheme-config').load()
 require('lualine-config').load()
 require('bufferline-config').load()
 require('treesitter-config').load()

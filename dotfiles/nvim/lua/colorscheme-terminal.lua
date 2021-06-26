@@ -1,5 +1,5 @@
 local M = {}
-local c = require 'onedark_custom.colors'
+local c = require 'colorscheme-colors'
 
 function M.setup()
     vim.g.terminal_color_0 = c.grey

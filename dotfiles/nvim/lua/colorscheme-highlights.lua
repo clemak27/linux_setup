@@ -1,4 +1,4 @@
-local c = require('onedark_custom.colors')
+local c = require('colorscheme-colors')
 
 local M = {}
 local hl = {langs = {}, plugins = {}}
