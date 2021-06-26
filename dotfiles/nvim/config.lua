@@ -68,7 +68,7 @@ require("bufferline").setup{
 -- ---------------------------------------- treesitter -------------------------------------------------------
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "maintained",
   highlight = {
     enable = true
   },
@@ -82,13 +82,11 @@ require'nvim-treesitter.configs'.setup {
 
 -- ---------------------------------------- vim-markdown -----------------------------------------------------
 
-vim.api.nvim_exec(
-  [[
-  let g:vim_markdown_folding_disabled = 1
-  let g:vim_markdown_emphasis_multiline = 0
-  ]],
-  false
-)
+vim.g.vim_markdown_folding_disabled = 1
+vim.g.vim_markdown_emphasis_multiline = 0
+
+vim.api.nvim_set_keymap("n", "<Leader>ww", [[<Cmd>e ~/Notes/index.md<CR>]], {noremap = true, silent = true})
+
 -- ---------------------------------------- telescope --------------------------------------------------------
 
 local actions = require('telescope.actions')
@@ -168,7 +166,7 @@ end
 -- require'lspinstall'.install_server("vue")
 -- require'lspinstall'.install_server("latex")
 
-require'lspinstall'.setup() -- important
+require'lspinstall'.setup()
 
 -- config that activates keymaps and enables snippet support
 local function make_config()
@@ -238,6 +236,9 @@ require'compe'.setup {
     ultisnips = false;
   };
 }
+
+-- local opts = { expr=true}
+-- vim.api.nvim_set_keymap("i", "<C-Space>", "compe#complete()", opt)
 
 vim.api.nvim_exec(
   [[
