@@ -150,22 +150,6 @@ local on_attach = function(client, bufnr)
 end
 
 -- lspinstall - automatically install language servers
--- run this once
-
--- require'lspinstall'.install_server("html")
--- require'lspinstall'.install_server("css")
--- require'lspinstall'.install_server("json")
--- require'lspinstall'.install_server("lua")
--- require'lspinstall'.install_server("yaml")
--- require'lspinstall'.install_server("vim")
--- require'lspinstall'.install_server("typescript")
--- require'lspinstall'.install_server("python")
--- require'lspinstall'.install_server("rust")
--- require'lspinstall'.install_server("go")
--- require'lspinstall'.install_server("bash")
--- require'lspinstall'.install_server("vue")
--- require'lspinstall'.install_server("latex")
-
 require'lspinstall'.setup()
 
 -- config that activates keymaps and enables snippet support
@@ -180,12 +164,46 @@ local function make_config()
   }
 end
 
--- lsp-install
+-- helper function to check if table contains value
+local function table_contains(table, element)
+  for _, value in pairs(table) do
+    if value == element then
+      return true
+    end
+  end
+  return false
+end
+
+-- supported languages LSPs are installed
+supported_languages = {
+  "html",
+  "css",
+  "json",
+  "lua",
+  "yaml",
+  "vim",
+  "typescript",
+  "python",
+  "rust",
+  "go",
+  "bash",
+  "vue",
+  "latex"
+}
+
 local function setup_servers()
   require'lspinstall'.setup()
 
   -- get all installed servers
   local servers = require'lspinstall'.installed_servers()
+
+  -- install missing servers
+  for _, language in pairs(supported_languages) do
+    installed=table_contains(servers, language)
+    if not installed then
+      require'lspinstall'.install_server(language)
+    end
+  end
 
   for _, server in pairs(servers) do
     local config = make_config()
@@ -273,4 +291,4 @@ vim.api.nvim_exec(
   [[
   autocmd BufWritePre *.go :silent! lua vim.lsp.buf.formatting_sync(nil,500)
   ]],
-  false)
+false)
