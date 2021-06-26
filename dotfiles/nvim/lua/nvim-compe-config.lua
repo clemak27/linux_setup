@@ -28,7 +28,7 @@ M.load = function()
       calc = true;
       nvim_lsp = true;
       nvim_lua = true;
-      vsnip = false;
+      vsnip = true;
       ultisnips = false;
     };
   }

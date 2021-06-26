@@ -76,6 +76,9 @@ if (has("nvim-0.5"))
   Plug 'kabouzeid/nvim-lspinstall'
   Plug 'hrsh7th/nvim-compe'
   Plug 'onsails/lspkind-nvim'
+  Plug 'hrsh7th/vim-vsnip'
+  Plug 'hrsh7th/vim-vsnip-integ'
+  Plug 'rafamadriz/friendly-snippets'
 
 endif
 
@@ -227,50 +230,50 @@ map ß $
 
 " Remap some keys for german layout
 map ö [
-map ä ]
-map Ö <c-[>
-map Ä <c-]>
+  map ä ]
+  map Ö <c-[>
+  map Ä <c-]>
 
-" Move a line of text using ALT+[jk]
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
+  " Move a line of text using ALT+[jk]
+  nmap <M-j> mz:m+<cr>`z
+  nmap <M-k> mz:m-2<cr>`z
 
-" Delete trailing white space on save
-fun! CleanExtraSpaces()
-  let save_cursor = getpos(".")
-  let old_query = getreg('/')
-  silent! %s/\s\+$//e
-  call setpos('.', save_cursor)
-  call setreg('/', old_query)
-endfun
+  " Delete trailing white space on save
+  fun! CleanExtraSpaces()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    silent! %s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+  endfun
 
-if has("autocmd")
-  autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
-endif
+  if has("autocmd")
+    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+  endif
 
-" Autoload on file changes
-autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
-autocmd FileChangedShellPost *
-      \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+  " Autoload on file changes
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+  autocmd FileChangedShellPost *
+        \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-" ------------------------------------------------- gitgutter -------------------------------------------------
+  " ------------------------------------------------- gitgutter -------------------------------------------------
 
-let g:gitgutter_preview_win_floating = 1
-let g:gitgutter_use_location_list = 1
+  let g:gitgutter_preview_win_floating = 1
+  let g:gitgutter_use_location_list = 1
 
-map <leader>hm <Plug>(GitGutterNextHunk)
-map <leader>hn <Plug>(GitGutterPrevHunk)
+  map <leader>hm <Plug>(GitGutterNextHunk)
+  map <leader>hn <Plug>(GitGutterPrevHunk)
 
-" ------------------------------------------------- custom textobjects ----------------------------------------
+  " ------------------------------------------------- custom textobjects ----------------------------------------
 
-let g:vim_textobj_parameter_mapping = 'a'
+  let g:vim_textobj_parameter_mapping = 'a'
 
-" ------------------------------------------------- load additional config ------------------------------------
+  " ------------------------------------------------- load additional config ------------------------------------
 
-if (!has("nvim-0.5"))
-  source $HOME/.config/nvim/config.vim
-endif
+  if (!has("nvim-0.5"))
+    source $HOME/.config/nvim/config.vim
+  endif
 
-if (has("nvim-0.5"))
-  source $HOME/.config/nvim/config.lua
-endif
+  if (has("nvim-0.5"))
+    source $HOME/.config/nvim/config.lua
+  endif
