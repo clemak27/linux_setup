@@ -63,7 +63,7 @@ M.load = function()
   end
 
   -- supported languages LSPs are installed
-  supported_languages = {
+  local supported_languages = {
     "html",
     "css",
     "json",
@@ -87,7 +87,7 @@ M.load = function()
 
     -- install missing servers
     for _, language in pairs(supported_languages) do
-      installed=table_contains(servers, language)
+      local installed = table_contains(servers, language)
       if not installed then
         require'lspinstall'.install_server(language)
       end
@@ -99,6 +99,26 @@ M.load = function()
       -- language specific config
       if server == "bash" then
         config.filetypes = {"bash", "sh", "zsh"};
+      end
+
+      if server == "lua" then
+        config.root_dir = vim.loop.cwd
+        config.settings = {
+          Lua = {
+            diagnostics = {
+              globals = {"vim"}
+            },
+            workspace = {
+              library = {
+                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+              }
+            },
+            telemetry = {
+              enable = false
+            }
+          }
+        }
       end
 
       require'lspconfig'[server].setup(config)
@@ -118,7 +138,7 @@ M.load = function()
     [[
     autocmd BufWritePre *.go :silent! lua vim.lsp.buf.formatting_sync(nil,500)
     ]],
-  false)
+    false)
 
 end
 
