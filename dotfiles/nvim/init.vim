@@ -60,6 +60,7 @@ if (has("nvim-0.5"))
   Plug 'hoob3rt/lualine.nvim'
   Plug 'akinsho/nvim-bufferline.lua'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'norcalli/nvim-colorizer.lua'
 
   " ----------------- language specific plugins -------------------------
   Plug 'plasticboy/vim-markdown'
