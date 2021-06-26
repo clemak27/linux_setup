@@ -282,5 +282,14 @@ if (!has("nvim-0.5"))
 endif
 
 if (has("nvim-0.5"))
-  source $HOME/.config/nvim/config.lua
+  lua require('colorscheme-config').load()
+  lua require('lualine-config').load()
+  lua require('bufferline-config').load()
+  lua require('treesitter-config').load()
+  lua require('nvim-colorizer-config').load()
+  lua require('vim-markdown-config').load()
+  lua require('telescope-config').load()
+  lua require('lsp-config').load()
+  lua require('nvim-compe-config').load()
+  lua require('lspkind-config').load()
 endif
