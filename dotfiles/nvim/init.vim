@@ -62,10 +62,10 @@ if (has("nvim-0.5"))
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'norcalli/nvim-colorizer.lua'
 
-  " ----------------- language specific plugins -------------------------
+  " ----------------- markdown ------------------------------------------
   Plug 'plasticboy/vim-markdown'
   Plug 'godlygeek/tabular'
-  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
   " ----------------- telescope -----------------------------------------
   Plug 'nvim-lua/popup.nvim'
