@@ -26,16 +26,21 @@ map § ^
 map 0 ^
 " Remap ß to end of line
 map ß $
+" Remap some keys for german layout
+map ö [
+map ä ]
+map Ö <c-[>
+map Ä <c-]>
 " go to definition
 map <silent> gd <Action>(GotoDeclaration)
 " go to implementation
 map <silent> gi <Action>(GotoImplementation)
 " run current config
-map <silent> rr <Action>(Run)
+map <silent> <leader>rr <Action>(Run)
 " run current debug config
-map <silent> rd <Action>(Debug)
+map <silent> <leader>rd <Action>(Debug)
 " run class
-map <silent> rc <Action>(RunClass)
+map <silent> <leader>rc <Action>(RunClass)
 " reformat code
 map <silent> == <Action>(ReformatCode)
 " move tab to right
@@ -46,3 +51,7 @@ map <C-h> <Action>(PreviousTab)
 map <leader>t <Action>(ActivateTerminalToolWindow)
 " focus file in project view
 map <leader>n <Action>(SelectInProjectView)
+" use r instead of gr
+nmap r  <Plug>ReplaceWithRegisterOperator
+nmap rr <Plug>ReplaceWithRegisterLine
+xmap r  <Plug>ReplaceWithRegisterVisual
