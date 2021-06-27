@@ -58,7 +58,8 @@
         "system-config-printer",
         "udiskie",
         "xbindkeys",
-        "xorg-xinput"
+        "xorg-xinput",
+        "autorandr"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/other/dolphinrc /home/$user/.config/dolphinrc",
