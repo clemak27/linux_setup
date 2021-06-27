@@ -80,6 +80,7 @@ if (has("nvim-0.5"))
   Plug 'hrsh7th/vim-vsnip'
   Plug 'hrsh7th/vim-vsnip-integ'
   Plug 'rafamadriz/friendly-snippets'
+  Plug 'mfussenegger/nvim-lint'
 
 endif
 
@@ -283,4 +284,5 @@ if (has("nvim-0.5"))
   lua require('lsp-config').load()
   lua require('nvim-compe-config').load()
   lua require('lspkind-config').load()
+  lua require('nvim-lint-config').load()
 endif
