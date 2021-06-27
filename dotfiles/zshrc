@@ -44,8 +44,8 @@ PROMPT_EOL_MARK=''
 
 # ---------- Environment Variables ----------
 export BROWSER="firefox"
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="/home/clemens/Projects/linux_setup/other/nvim.appimage"
+export VISUAL="/home/clemens/Projects/linux_setup/other/nvim.appimage"
 export FZF_DEFAULT_OPTS='--height=50% --layout=reverse --info=inline --border=sharp --margin=1 --padding=1'
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export GOPATH=$HOME/.go
@@ -74,12 +74,12 @@ alias ls="exa --icons"
 alias lsa="exa --icons -hal"
 alias mpvnv='mpv --no-video'
 alias paruf='paru -Slq | fzf --multi --preview "paru -Si {1}" | xargs -ro paru -S'
-alias notes="vim ~/Notes/index.md"
+alias notes="/home/clemens/Projects/linux_setup/other/nvim.appimage ~/Notes/index.md"
 alias q="exit"
 alias spm="sudo pacman"
 alias todo='todo.sh'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-alias vim="~/Projects/linux_setup/other/nvim.appimage"
+alias vim="/home/clemens/Projects/linux_setup/other/nvim.appimage"
 alias youtube-dl-music='youtube-dl --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s"'
 
 # ---------- coloured manuals ----------
