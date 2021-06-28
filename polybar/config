@@ -34,7 +34,7 @@ font-0 = "FiraCode Nerd Font:style=Retina,Regular:size=10"
 
 modules-left = i3
 modules-center = 
-modules-right = kdeconnect separator syncthing keepassxc separator pulseaudio microphone separator bluetooth wlan eth1 wireguard battery separator date separator runner powermenu
+modules-right = kdeconnect dunst separator syncthing keepassxc separator pulseaudio microphone separator bluetooth wlan eth1 wireguard battery separator date separator runner powermenu
 
 scroll-up = #i3.prev
 scroll-down = #i3.next
@@ -93,6 +93,16 @@ exec = ~/Projects/linux_setup/polybar/polybar-kdeconnect.sh  -d
 tail = true
 
 format-underline = ${colors.purple}
+
+[module/dunst]
+type = custom/script
+exec = ~/Projects/linux_setup/polybar/dunst.sh
+tail = true
+
+format-underline  = ${colors.purple}
+
+click-left = ~/Projects/linux_setup/polybar/dunst.sh --toggle &
+click-right = dunstctl history-pop
 
 [module/syncthing]
 type = custom/text
