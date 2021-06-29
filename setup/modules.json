@@ -109,7 +109,6 @@
       ],
       "aur": [
         "insomnia-bin",
-        "gitlab-glab-bin",
         "intellij-idea-ce"
       ],
       "user_commands": [

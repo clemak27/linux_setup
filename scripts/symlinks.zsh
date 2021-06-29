@@ -51,11 +51,6 @@ ln -sf $config_dir/bat/config $user_dir/.config/bat/config
 mkdir -p $user_dir/.config/dunst
 ln -sf $config_dir/dunst/dunstrc $user_dir/.config/dunst/dunstrc
 
-# glab
-mkdir -p $user_dir/.config/glab-cli
-ln -sf $config_dir/glab-cli/aliases.yml $user_dir/.config/glab-cli/aliases.yml
-ln -sf $config_dir/glab-cli/config.yml $user_dir/.config/glab-cli/config.yml
-
 # i3
 mkdir -p $user_dir/.config/i3
 ln -sf $config_dir/i3/config $user_dir/.config/i3/config
