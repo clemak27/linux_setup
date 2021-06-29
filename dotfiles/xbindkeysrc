@@ -1,11 +1,27 @@
 # Mute volume
 "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-   XF86AudioMute
+XF86AudioMute
 
 # Increase volume
 "pactl set-sink-volume @DEFAULT_SINK@ +5%"
-   XF86AudioRaiseVolume
+XF86AudioRaiseVolume
 
 # Decrease volume
 "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-   XF86AudioLowerVolume
+XF86AudioLowerVolume
+
+# Play/Pause
+"dbus-send --dest=org.mpris.MediaPlayer2.sublimemusic /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+XF86AudioPlay
+
+# Stop
+"dbus-send --dest=org.mpris.MediaPlayer2.sublimemusic /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+XF86AudioStop
+
+# Previous Track
+"dbus-send --dest=org.mpris.MediaPlayer2.sublimemusic /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+XF86AudioPrev
+
+# Next Track
+"dbus-send --dest=org.mpris.MediaPlayer2.sublimemusic /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+XF86AudioNext
