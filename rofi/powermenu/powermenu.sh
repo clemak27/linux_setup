@@ -21,7 +21,7 @@ confirm_exit() {
 # Variable passed to rofi
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 
-chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 2)"
+chosen="$(echo -e "$options" | $rofi_command -dmenu -selected-row 2)"
 case $chosen in
   $shutdown)
     ans=$(confirm_exit "Power off" &)
