@@ -76,8 +76,9 @@ bindsym Mod1+Shift+F12 exec --no-startup-id ~/Projects/linux_setup/scripts/picom
 bindsym Print exec spectacle
 bindsym Shift+Print exec spectacle -b
 
-# arandr
-bindsym $mod+p exec arandr
+# screen management
+bindsym $mod+p exec --no-startup-id ~/Projects/linux_setup/rofi/autorandr/autorandr.sh
+bindsym $mod+Ctrl+p exec arandr
 
 # focus with cursor keys
 bindsym $mod+Left focus left
