@@ -109,7 +109,8 @@
       ],
       "aur": [
         "insomnia-bin",
-        "intellij-idea-ce"
+        "intellij-idea-ce",
+        "pgcli"
       ],
       "user_commands": [
         "go get code.gitea.io/tea",
