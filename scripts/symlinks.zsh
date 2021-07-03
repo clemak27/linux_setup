@@ -37,6 +37,9 @@ ln -sf $config_dir/ideavimrc $user_dir/.ideavimrc
 # tmux
 ln -sf $config_dir/tmux.conf $user_dir/.tmux.conf
 
+# npmrc
+ln -sf $config_dir/npmrc $user_dir/.npmrc
+
 # ------------------------ .config ------------------------
 
 # alacritty
