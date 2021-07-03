@@ -9,7 +9,9 @@ M.load = function()
 
   require("telescope").setup {
     defaults = {
-      prompt_position ="top",
+      layout_config = {
+        prompt_position ="top",
+      },
       mappings = {
         i = {
           ["<esc>"] = actions.close

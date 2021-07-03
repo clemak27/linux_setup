@@ -28,7 +28,9 @@ map 0 ^
 map ß $
 " Remap some keys for german layout
 map ö [
+map öö [[
 map ä ]
+map ää ]]
 map Ö <c-[>
 map Ä <c-]>
 " go to definition

@@ -65,7 +65,6 @@ ln -sf $config_dir/mpv/mpv.conf $user_dir/.config/mpv/mpv.conf
 # nvim
 mkdir -p $user_dir/.config/nvim
 ln -sf $config_dir/nvim/init.vim $user_dir/.config/nvim/init.vim
-ln -sf $config_dir/nvim/config.vim $user_dir/.config/nvim/config.vim
 ln -sf $config_dir/nvim/lua $user_dir/.config/nvim/lua
 
 # picom

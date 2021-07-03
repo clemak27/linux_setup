@@ -24,65 +24,32 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'sgur/vim-textobj-parameter'
 
-if (!has("nvim-0.5"))
+" ----------------- theming -------------------------------------------
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'hoob3rt/lualine.nvim'
+Plug 'akinsho/nvim-bufferline.lua'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'norcalli/nvim-colorizer.lua'
 
-  " ----------------- theming -------------------------------------------
-  Plug 'joshdick/onedark.vim'
-  Plug 'itchyny/lightline.vim'
-  Plug 'mengelbrecht/lightline-bufferline'
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'bryanmylee/vim-colorscheme-icons'
-  Plug 'sheerun/vim-polyglot'
+" ----------------- markdown ------------------------------------------
+Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
-  " ----------------- special features ----------------------------------
-  Plug 'vimwiki/vimwiki'
+" ----------------- telescope -----------------------------------------
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
-  " ----------------- language specific plugins -------------------------
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-  Plug 'lervag/vimtex'
-  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-
-  " ----------------- fzf -----------------------------------------------
-  Plug 'junegunn/fzf'
-  Plug 'junegunn/fzf.vim'
-  Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
-
-  " ----------------- coc -----------------------------------------------
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'antoinemadec/coc-fzf'
-
-endif
-
-if (has("nvim-0.5"))
-
-  " ----------------- theming -------------------------------------------
-  Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'hoob3rt/lualine.nvim'
-  Plug 'akinsho/nvim-bufferline.lua'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'norcalli/nvim-colorizer.lua'
-
-  " ----------------- markdown ------------------------------------------
-  Plug 'plasticboy/vim-markdown'
-  Plug 'godlygeek/tabular'
-  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-
-  " ----------------- telescope -----------------------------------------
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
-
-  " ----------------- LSP -----------------------------------------------
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'kabouzeid/nvim-lspinstall'
-  Plug 'hrsh7th/nvim-compe'
-  Plug 'onsails/lspkind-nvim'
-  Plug 'hrsh7th/vim-vsnip'
-  Plug 'hrsh7th/vim-vsnip-integ'
-  Plug 'rafamadriz/friendly-snippets'
-  Plug 'mfussenegger/nvim-lint'
-
-endif
+" ----------------- LSP -----------------------------------------------
+Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
+Plug 'hrsh7th/nvim-compe'
+Plug 'onsails/lspkind-nvim'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'rafamadriz/friendly-snippets'
+Plug 'mfussenegger/nvim-lint'
 
 call plug#end()
 
@@ -214,7 +181,9 @@ map ß $
 
 " Remap some keys for german layout
 map ö [
+map öö [[
 map ä ]
+map ä ]]
 map Ö <c-[>
 map Ä <c-]>
 
@@ -269,20 +238,14 @@ let g:vim_textobj_parameter_mapping = 'a'
 
 " ------------------------------------------------- load additional config ------------------------------------
 
-if (!has("nvim-0.5"))
-  source $HOME/.config/nvim/config.vim
-endif
-
-if (has("nvim-0.5"))
-  lua require('colorscheme-config').load()
-  lua require('lualine-config').load()
-  lua require('bufferline-config').load()
-  lua require('treesitter-config').load()
-  lua require('nvim-colorizer-config').load()
-  lua require('vim-markdown-config').load()
-  lua require('telescope-config').load()
-  lua require('lsp-config').load()
-  lua require('nvim-compe-config').load()
-  lua require('lspkind-config').load()
-  lua require('nvim-lint-config').load()
-endif
+lua require('colorscheme-config').load()
+lua require('lualine-config').load()
+lua require('bufferline-config').load()
+lua require('treesitter-config').load()
+lua require('nvim-colorizer-config').load()
+lua require('vim-markdown-config').load()
+lua require('telescope-config').load()
+lua require('lsp-config').load()
+lua require('nvim-compe-config').load()
+lua require('lspkind-config').load()
+lua require('nvim-lint-config').load()
