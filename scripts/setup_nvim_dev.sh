@@ -9,7 +9,15 @@ current_dir=$(pwd)
 mkdir -p "$lsp_dir"
 mkdir -p "$dap_dir"
 
+# --------------------------- lsp ------------------------------
 
+# --------------------------- linter ---------------------------
+npm i -g markdownlint-cli
+npm i -g eslint
+go install github.com/mgechev/revive@latest
+paru -S shellcheck-bin
+
+# --------------------------- dap ------------------------------
 
 # nodejs
 cd "$dap_dir" || exit
