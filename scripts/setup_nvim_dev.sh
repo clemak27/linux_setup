@@ -1,6 +1,6 @@
 #!/bin/sh
 
-install_dir="$HOME/.local/bin"
+install_dir="$HOME/.local/bin/nvim"
 lsp_dir="$install_dir/lsp"
 dap_dir="$install_dir/dap"
 current_dir=$(pwd)
@@ -8,6 +8,8 @@ current_dir=$(pwd)
 # create folders
 mkdir -p "$lsp_dir"
 mkdir -p "$dap_dir"
+
+
 
 # nodejs
 cd "$dap_dir" || exit

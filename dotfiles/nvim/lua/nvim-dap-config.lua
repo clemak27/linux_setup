@@ -28,7 +28,7 @@ M.load = function()
   dap.adapters.node2 = {
     type = 'executable',
     command = 'node',
-    args = {os.getenv('HOME') .. '/.local/bin/dap/vscode-node-debug2/out/src/nodeDebug.js'},
+    args = {os.getenv('HOME') .. '/.local/bin/nvim/dap/vscode-node-debug2/out/src/nodeDebug.js'},
   }
   dap.configurations.javascript = {
     {

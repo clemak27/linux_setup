@@ -59,7 +59,7 @@ M.load = function()
     end
   }
 
-  -- set up markdownlint
+  -- set up eslint
   local esl_pattern = "[^:]+:(%d+):?(%d*): (.*) %[(.*)%]"
 
   require('lint').linters.eslint = {
