@@ -32,6 +32,7 @@ M.load = function()
   vim.api.nvim_set_keymap("n", "<Leader>r", [[<Cmd>lua require('telescope.builtin').live_grep()<CR>]], opt)
   vim.api.nvim_set_keymap("n", "<Leader>i", [[<Cmd>lua require('telescope.builtin').git_status()<CR>]], opt)
   vim.api.nvim_set_keymap("n", "<Leader>p", [[<Cmd>lua require('telescope.builtin').find_files()<CR>]], opt)
+  vim.api.nvim_set_keymap("n", "<Leader>pp", [[<Cmd>lua require('telescope.builtin').find_files({hidden=true})<CR>]], opt)
 
   -- lsp mappings
   vim.api.nvim_set_keymap("n", "<Leader>a", [[<Cmd>lua require('telescope.builtin').lsp_range_code_actions()<CR>]], opt)
