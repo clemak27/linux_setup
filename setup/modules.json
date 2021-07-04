@@ -59,7 +59,8 @@
         "udiskie",
         "xbindkeys",
         "xorg-xinput",
-        "autorandr"
+        "autorandr",
+        "xss-lock"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/other/dolphinrc /home/$user/.config/dolphinrc",
@@ -74,8 +75,7 @@
         "systemctl enable sddm",
         "mkdir -p /home/$user/.config/gtk-3.0",
         "cp /home/$user/Projects/linux_setup/other/gtk.css /home/$user/.config/gtk-3.0/gtk.css",
-        "cp /home/$user/Projects/linux_setup/other/colors.css /home/$user/.config/gtk-3.0/colors.css",
-        "cp /home/$user/Projects/linux_setup/other/sleep.service /home/$user/.config/systemd/user/sleep.service"
+        "cp /home/$user/Projects/linux_setup/other/colors.css /home/$user/.config/gtk-3.0/colors.css"
       ],
       "aur": [
         "polybar",
