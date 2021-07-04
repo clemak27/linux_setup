@@ -177,7 +177,6 @@ format-disconnected-padding = 1
 format-disconnected-underline = ${colors.yellow}
 format-disconnected-foreground = ${colors.disabled}
 
-click-left = nmtui-connect wlan0
 click-right = nm-connection-editor
 
 [module/eth1]
