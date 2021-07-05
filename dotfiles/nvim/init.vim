@@ -51,6 +51,7 @@ Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'mfussenegger/nvim-lint'
 Plug 'mfussenegger/nvim-dap' 
+Plug 'rcarriga/nvim-dap-ui'
 
 call plug#end()
 
@@ -251,3 +252,4 @@ lua require('nvim-compe-config').load()
 lua require('lspkind-config').load()
 lua require('nvim-lint-config').load()
 lua require('nvim-dap-config').load()
+lua require('nvim-dap-ui-config').load()
