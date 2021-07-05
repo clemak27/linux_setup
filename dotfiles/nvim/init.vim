@@ -19,7 +19,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'inkarkat/vim-ReplaceWithRegister'
 Plug 'airblade/vim-gitgutter'
-Plug 'jiangmiao/auto-pairs'
+Plug 'tmsvg/pear-tree'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'sgur/vim-textobj-parameter'
@@ -233,6 +233,22 @@ let g:gitgutter_use_location_list = 1
 
 map <leader>hm <Plug>(GitGutterNextHunk)
 map <leader>hn <Plug>(GitGutterPrevHunk)
+
+" ------------------------------------------------- pear-tree -------------------------------------------------
+
+let g:pear_tree_pairs = {
+            \ '(': {'closer': ')'},
+            \ '[': {'closer': ']'},
+            \ '{': {'closer': '}'},
+            \ "'": {'closer': "'"},
+            \ '"': {'closer': '"'},
+            \ '`': {'closer': '`'}
+            \ }
+
+let g:pear_tree_smart_openers = 1
+let g:pear_tree_smart_closers = 1
+let g:pear_tree_smart_backspace = 1
+let g:pear_tree_map_special_keys = 0
 
 " ------------------------------------------------- custom textobjects ----------------------------------------
 
