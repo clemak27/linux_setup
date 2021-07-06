@@ -43,10 +43,12 @@ M.load = function()
     },
     {
       type = 'node2',
-      request = 'attach',
-      mode = 'remote',
-      name = 'attach to jest',
-      remotePath = 'localhost:9229',
+      request = 'launch',
+      name = 'launch jest',
+      program = '${workspaceFolder}/node_modules/jest/bin/jest.js',
+      args = {
+        "-i"
+      },
       cwd = vim.fn.getcwd(),
       sourceMaps = true,
       protocol = 'inspector',
