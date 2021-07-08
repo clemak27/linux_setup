@@ -60,7 +60,8 @@
         "xbindkeys",
         "xorg-xinput",
         "autorandr",
-        "xss-lock"
+        "xss-lock",
+        "playerctl"
       ],
       "commands": [
         "cp /home/$user/Projects/linux_setup/other/dolphinrc /home/$user/.config/dolphinrc",
