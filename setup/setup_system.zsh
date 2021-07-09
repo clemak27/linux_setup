@@ -98,12 +98,6 @@ cp -R . /home/$user/Projects/linux_setup
 git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
 curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 
-# todo.sh config
-mkdir -p /home/$user/.todo
-mkdir -p /home/$user/.todo.actions.d
-cd /home/$user/.todo.actions.d
-git clone https://github.com/rebeccamorgan/due.git
-chmod +x due/due
 cd /linux_setup
 
 # ssh

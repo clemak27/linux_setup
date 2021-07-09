@@ -104,5 +104,3 @@ source /usr/share/fzf/key-bindings.zsh
 for file in ~/.zsh_functions/*; do
    . $file
 done
-
-todo due
