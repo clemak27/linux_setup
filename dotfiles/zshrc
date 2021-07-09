@@ -101,6 +101,9 @@ prompt_context(){}
 source /usr/share/fzf/key-bindings.zsh
 
 # ---------- custom functions ----------
-source ~/.zsh_functions
+for file in ~/.zsh_functions/*; do
+  echo "$file"
+   . $file
+done
 
 todo due

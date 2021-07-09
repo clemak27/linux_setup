@@ -25,7 +25,7 @@ ln -sf $config_dir/xprofile $user_dir/.xprofile
 
 # zsh
 ln -sf $config_dir/zshrc $user_dir/.zshrc
-ln -sf $config_dir/zsh_functions.zsh $user_dir/.zsh_functions
+ln -sf $config_dir/zsh_functions $user_dir/.zsh_functions
 ln -sf $config_dir/starship.toml $user_dir/.starship.toml
 
 # delta
