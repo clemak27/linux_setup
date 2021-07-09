@@ -102,7 +102,6 @@ source /usr/share/fzf/key-bindings.zsh
 
 # ---------- custom functions ----------
 for file in ~/.zsh_functions/*; do
-  echo "$file"
    . $file
 done
 
