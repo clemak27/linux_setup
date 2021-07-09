@@ -1,3 +1,3 @@
 #!/bin/zsh
 
-openrgb -m cycle
+openrgb -m direct -c 00bfff
