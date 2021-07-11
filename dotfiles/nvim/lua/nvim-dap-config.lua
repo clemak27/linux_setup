@@ -24,11 +24,13 @@ M.load = function()
 
   dap.repl.commands = vim.tbl_extend('force', dap.repl.commands, {})
 
+  local dap_path = os.getenv('HOME') .. '/.local/bin/nvim/dap/'
+
   -- nodejs
   dap.adapters.node2 = {
     type = 'executable',
     command = 'node',
-    args = {os.getenv('HOME') .. '/.local/bin/nvim/dap/vscode-node-debug2/out/src/nodeDebug.js'},
+    args = {dap_path .. 'vscode-node-debug2/out/src/nodeDebug.js'},
   }
   dap.configurations.javascript = {
     {
@@ -52,6 +54,24 @@ M.load = function()
       cwd = vim.fn.getcwd(),
       sourceMaps = true,
       protocol = 'inspector',
+      console = 'integratedTerminal',
+    },
+  }
+
+  -- golang
+  dap.adapters.go = {
+    type = 'executable';
+    command = 'node';
+    args = {dap_path .. 'vscode-go/dist/debugAdapter.js'};
+  }
+  dap.configurations.go = {
+    {
+      type = 'go',
+      name = 'Debug',
+      request = 'launch',
+      showLog = false,
+      program = "${file}",
+      dlvToolPath = vim.fn.exepath('dlv'),
       console = 'integratedTerminal',
     },
   }

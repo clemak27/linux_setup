@@ -26,4 +26,12 @@ cd vscode-node-debug2 || exit
 npm install
 ./node_modules/gulp/bin/gulp.js build
 
+# golang
+go install github.com/go-delve/delve/cmd/dlv@latest
+cd "$dap_dir" || exit
+git clone https://github.com/golang/vscode-go
+cd vscode-go
+npm install
+npm run compile
+
 cd "$current_dir" || exit
