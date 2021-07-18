@@ -4,7 +4,7 @@
 
 ### neofetch
 
-![fn](./screenshots/nf.png)
+![nf](./screenshots/nf.png)
 
 ### empty workspace
 
@@ -22,22 +22,15 @@
 
 ![neovim](./screenshots/neovim.png)
 
-## What tools I use
+## Some tools I use
 
-- i3-gaps  
-  After using KDE extensivly, I setteled on using i3 as window manager. I like the automatic tiling and the configuration via dotfiles. </p>
+- Plasma/i3-gaps  
 - polybar  
-  Highly customizable status bar. Fits i3wm perfectly imo. </p>
 - alacritty  
-  Fast GPU accelerated terminal emulator. If used Konsole and Kitty before that and while I kinda miss my ligatures, I enjoy alacritty's speed and simplicity. </p>
 - neovim  
-  My editor of choice. With (way too many) plugins, I use it for editing all non java/kotlin/android projects I work on in my free time.
 - firefox  
-  Best browser :)
 - fzf  
-  A great fuzzy finder that makes finding things easier, especially paired with ripgrep. Great (n)vim support too.
 - ranger  
-  A terminal file explorer with vim-linke keybinds.
 
 ## What's in this repo?
 

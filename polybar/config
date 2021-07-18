@@ -89,10 +89,13 @@ content = " "
 
 [module/kdeconnect]  
 type = custom/script  
-exec = ~/Projects/linux_setup/polybar/polybar-kdeconnect.sh  -d
+exec = ~/Projects/linux_setup/polybar/polybar-kdeconnect.sh -d
 tail = true
 
 format-underline = ${colors.purple}
+
+click-left = ~/Projects/linux_setup/polybar/polybar-kdeconnect.sh -m &
+click-right = ~/Projects/linux_setup/polybar/polybar-kdeconnect.sh -p &
 
 [module/dunst]
 type = custom/script
@@ -124,7 +127,6 @@ click-left = keepassxc
 
 [module/pulseaudio]
 type = internal/pulseaudio
-sink = alsa_output.usb-Logitech_G533_Gaming_Headset-00.pro-output-0
 
 label-volume = %percentage%%
 format-volume = <ramp-volume> <label-volume>
@@ -138,7 +140,7 @@ format-muted-underline  = ${colors.green}
 ramp-volume-0 = 奔
 ramp-volume-1 = 墳
 
-click-right = pavucontrol
+click-right = kcmshell5 kcm_pulseaudio
 
 [module/microphone]
 type = custom/script
@@ -148,7 +150,7 @@ tail = true
 format-underline  = ${colors.green}
 
 click-left = ~/Projects/linux_setup/polybar/microphone.sh --toggle &
-click-right = pavucontrol
+click-right = kcmshell5 kcm_pulseaudio
 
 [module/bluetooth]
 type = custom/script
@@ -159,25 +161,25 @@ format-padding = 1
 format-underline = ${colors.yellow}
 
 click-left = ~/Projects/linux_setup/polybar/bluetooth.sh --toggle &
-click-right = blueman-manager
+click-right = kcmshell5 bluetooth
 
 [module/wlan]
 type = internal/network
 interface = wlan0
 interval = 5.0
 
-label-connected = %essid% %local_ip%
-format-connected = ﬉
+label-connected = ﬉
+format-connected = %{A3:kcmshell5 kcm_networkmanagement:}<label-connected>%{A}
 format-connected-padding = 1
 format-connected-underline = ${colors.yellow}
 
-label-disconnected = WiFi disconnected
-format-disconnected = ﬉
+label-disconnected = ﬉
+format-disconnected = %{A3:kcmshell5 kcm_networkmanagement:}<label-disconnected>%{A}
 format-disconnected-padding = 1
 format-disconnected-underline = ${colors.yellow}
 format-disconnected-foreground = ${colors.disabled}
 
-click-right = nm-connection-editor
+click-right = kcmshell5 kcm_networkmanagement
 
 [module/eth1]
 type = internal/network
@@ -185,16 +187,17 @@ interface = enp27s0
 interval = 3.0
 
 label-connected = ﯱ 
-format-connected = %{A3:nm-connection-editor:}<label-connected>%{A}
+format-connected = %{A3:kcmshell5 kcm_networkmanagement:}<label-connected>%{A}
 format-connected-padding = 1
 format-connected-underline = ${colors.yellow}
 
 label-disconnected = ﯱ 
-format-disconnected = %{A3:nm-connection-editor:}<label-disconnected>%{A}
+format-disconnected = %{A3:kcmshell5 kcm_networkmanagement:}<label-disconnected>%{A}
+format-disconnected-padding = 1
 format-disconnected-underline = ${colors.yellow}
 format-disconnected-foreground = ${colors.disabled}
 
-click-right = nm-connection-editor
+click-right = kcmshell5 kcm_networkmanagement
 
 [module/wireguard]
 type = custom/script
@@ -204,7 +207,7 @@ tail = true
 format-underline  = ${colors.yellow}
 
 click-left = ~/Projects/linux_setup/polybar/wireguard.sh --toggle &
-click-right = nm-connection-editor
+click-right = kcmshell5 kcm_networkmanagement
 
 [module/battery]
 type = internal/battery
