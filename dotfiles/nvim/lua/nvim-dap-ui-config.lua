@@ -4,7 +4,7 @@ local M = {}
 
 M.load = function()
 
-  require("dapui").setup()
+  require("dapui").setup({})
 
 end
 
