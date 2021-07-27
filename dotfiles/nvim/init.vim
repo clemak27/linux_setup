@@ -28,7 +28,7 @@ Plug 'sgur/vim-textobj-parameter'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'akinsho/nvim-bufferline.lua'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'branch': '0.5-compat'}
 Plug 'norcalli/nvim-colorizer.lua'
 
 " ----------------- markdown ------------------------------------------
