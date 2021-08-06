@@ -12,14 +12,18 @@ endif
 call plug#begin(stdpath('data') . '/plugged')
 
 " ----------------- default plugins -----------------------------------
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'inkarkat/vim-ReplaceWithRegister'
-Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-commentary'
 Plug 'tmsvg/pear-tree'
+Plug 'tpope/vim-surround'
+
+" ----------------- git integration -----------------------------------
+Plug 'tpope/vim-fugitive'
+Plug 'lewis6991/gitsigns.nvim'
+
+" ----------------- custom textobjects --------------------------------
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'sgur/vim-textobj-parameter'
@@ -226,14 +230,6 @@ nmap r  <Plug>ReplaceWithRegisterOperator
 nmap rr <Plug>ReplaceWithRegisterLine
 xmap r  <Plug>ReplaceWithRegisterVisual
 
-" ------------------------------------------------- gitgutter -------------------------------------------------
-
-let g:gitgutter_preview_win_floating = 1
-let g:gitgutter_use_location_list = 1
-
-map <leader>hm <Plug>(GitGutterNextHunk)
-map <leader>hn <Plug>(GitGutterPrevHunk)
-
 " ------------------------------------------------- pear-tree -------------------------------------------------
 
 let g:pear_tree_pairs = {
@@ -256,6 +252,7 @@ let g:vim_textobj_parameter_mapping = 'a'
 
 " ------------------------------------------------- load additional config ------------------------------------
 
+lua require('gitsigns-config').load()
 lua require('colorscheme-config').load()
 lua require('lualine-config').load()
 lua require('bufferline-config').load()
