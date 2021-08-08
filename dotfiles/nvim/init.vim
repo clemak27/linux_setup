@@ -16,7 +16,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
 Plug 'inkarkat/vim-ReplaceWithRegister'
 Plug 'tpope/vim-commentary'
-Plug 'tmsvg/pear-tree'
+Plug 'windwp/nvim-autopairs' 
 Plug 'tpope/vim-surround'
 
 " ----------------- git integration -----------------------------------
@@ -254,6 +254,7 @@ let g:vim_textobj_parameter_mapping = 'a'
 " ------------------------------------------------- load additional config ------------------------------------
 
 lua require('gitsigns-config').load()
+lua require('autopairs-config').load()
 lua require('colorscheme-config').load()
 lua require('lualine-config').load()
 lua require('bufferline-config').load()
