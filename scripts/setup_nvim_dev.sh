@@ -11,6 +11,12 @@ mkdir -p "$dap_dir"
 
 # --------------------------- lsp ------------------------------
 
+cd "$lsp_dir" || exit
+curl -O https://download.eclipse.org/jdtls/milestones/1.2.0/jdt-language-server-1.2.0-202106301459.tar.gz
+mkdir jdtls
+tar -xzvf jdt-language-server-1.2.0-202106301459.tar.gz -C ./jdtls
+rm jdt-language-server-1.2.0-202106301459.tar.gz
+
 # --------------------------- linter ---------------------------
 npm i -g markdownlint-cli
 npm i -g eslint
@@ -30,7 +36,7 @@ npm install
 go install github.com/go-delve/delve/cmd/dlv@latest
 cd "$dap_dir" || exit
 git clone https://github.com/golang/vscode-go
-cd vscode-go
+cd vscode-go || exit
 npm install
 npm run compile
 

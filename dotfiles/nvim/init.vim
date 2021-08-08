@@ -56,6 +56,7 @@ Plug 'rafamadriz/friendly-snippets'
 Plug 'mfussenegger/nvim-lint'
 Plug 'mfussenegger/nvim-dap' 
 Plug 'rcarriga/nvim-dap-ui'
+Plug 'mfussenegger/nvim-jdtls'
 
 call plug#end()
 
@@ -266,3 +267,4 @@ lua require('lspkind-config').load()
 lua require('nvim-lint-config').load()
 lua require('nvim-dap-config').load()
 lua require('nvim-dap-ui-config').load()
+lua require('jdtls-config').load()
