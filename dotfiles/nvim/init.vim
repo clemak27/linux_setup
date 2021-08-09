@@ -231,22 +231,6 @@ nmap r  <Plug>ReplaceWithRegisterOperator
 nmap rr <Plug>ReplaceWithRegisterLine
 xmap r  <Plug>ReplaceWithRegisterVisual
 
-" ------------------------------------------------- pear-tree -------------------------------------------------
-
-let g:pear_tree_pairs = {
-            \ '(': {'closer': ')'},
-            \ '[': {'closer': ']'},
-            \ '{': {'closer': '}'},
-            \ "'": {'closer': "'"},
-            \ '"': {'closer': '"'},
-            \ '`': {'closer': '`'}
-            \ }
-
-let g:pear_tree_smart_openers = 1
-let g:pear_tree_smart_closers = 1
-let g:pear_tree_smart_backspace = 1
-let g:pear_tree_map_special_keys = 0
-
 " ------------------------------------------------- custom textobjects ----------------------------------------
 
 let g:vim_textobj_parameter_mapping = 'a'
