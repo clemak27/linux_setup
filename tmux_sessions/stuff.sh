@@ -1,22 +1,21 @@
 #!/bin/sh
 
-tmux new-session -d -n Stuff
-tmux rename-window Stuff
+tmux new-session -d -s stuff -n stuff
 tmux set status off
 
 tmux split-window -h
-tmux selectp -t 1
+tmux select-pane -t stuff:1.1
 tmux send-keys "tty-clock -cs -C 4" C-m
-tmux resize-pane -t 1 -L 5
+tmux resize-pane -t stuff:1.1 -L 5
 tmux split-window -v
-tmux resize-pane -t 1 -U 17
-tmux selectp -t 2
+tmux resize-pane -t stuff:1.1 -U 17
+tmux selectp -t stuff:1.2
 tmux send-keys "btm" C-m
 
-tmux selectp -t 3
+tmux selectp -t stuff:1.3
 tmux send-keys " notes"
 tmux split-window -v
-tmux selectp -t 4
+tmux selectp -t stuff:1.4
 tmux send-keys "clear_scrollback" C-m
 
-tmux attach-session -d
+tmux attach-session -d -t stuff
