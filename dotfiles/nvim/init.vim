@@ -198,6 +198,12 @@ map Ä <c-]>
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 
+" disable arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
 " Specify the behavior when switching between buffers 
 try
   set switchbuf=useopen,usetab,newtab
