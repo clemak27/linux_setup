@@ -5,39 +5,20 @@ local M = {}
 M.load = function()
 
   -- set up eslint
-  local esl_pattern = "[^:]+:(%d+):?(%d*): (.*) %[(.*)%]"
+  local pattern = [[%s*(%d+):(%d+)%s+(%w+)%s+([%w%s]+)%s+(.*)]]
+  local groups = { 'line', 'start_col', 'severity', 'message', 'code' }
+  local severity_map = {
+    ['error'] = vim.lsp.protocol.DiagnosticSeverity.Error,
+    ['warn'] = vim.lsp.protocol.DiagnosticSeverity.Warning,
+  }
 
   require('lint').linters.eslint = {
     cmd = 'eslint',
+    args = {},
     stdin = false,
-    args = {"-f", "unix"},
     stream = 'stdout',
     ignore_exitcode = true,
-    parser = function(output)
-      local diagnostics = {}
-      for item in vim.gsplit(output, '\n') do
-        local line, column, message, lintCode = string.match(item, esl_pattern)
-        if line ~= nil and column ~= nil then
-          table.insert(diagnostics, {
-            source = 'eslint',
-            range = {
-              ['start'] = {
-                line = tonumber(line) - 1,
-                character = tonumber(column) - 1,
-              },
-              ['end'] = {
-                line = tonumber(line) - 1,
-                character = tonumber(column),
-              },
-            },
-            message = message,
-            code = lintCode,
-            severity = vim.lsp.protocol.DiagnosticSeverity.Hint,
-          })
-        end
-      end
-      return diagnostics
-    end
+    parser = require('lint.parser').from_pattern(pattern, groups, severity_map, { ['source'] = 'eslint' }),
   }
 
   require('lint').linters_by_ft = {
