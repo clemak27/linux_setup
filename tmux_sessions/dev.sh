@@ -5,7 +5,7 @@ tmux set status off
 
 tmux selectp -t root:1.1
 tmux split-window -v
-tmux resize-pane -t root:1.2-y 16
+tmux resize-pane -t root:1.2 -y 16
 
 tmux selectp -t root:1.1
 tmux send-keys " unset TMUX; tmux new -s dev -n projects -c ~/Projects" C-m
