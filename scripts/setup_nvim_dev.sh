@@ -40,4 +40,8 @@ cd vscode-go || exit
 npm install
 npm run compile
 
+# tmux integration
+cd "$current_dir" || exit
+cp scripts/start_debugger.sh "$dap_dir"
+
 cd "$current_dir" || exit

@@ -7,8 +7,8 @@ M.load = function()
   local dap = require('dap')
 
   dap.defaults.fallback.external_terminal = {
-    command = '/usr/bin/alacritty';
-    args = {'-e'};
+    command = '/home/clemens/.local/bin/nvim/dap/start_debugger.sh';
+    -- args = {'run-shell', '-t', 'term:debug.1'};
   }
   dap.defaults.fallback.force_external_terminal = true
 
