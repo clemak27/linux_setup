@@ -98,6 +98,10 @@ M.load = function()
         config.filetypes = {"bash", "sh", "zsh"};
       end
 
+      if server == "json" then
+        config.filetypes = {"json", "json5"}
+      end
+
       if server == "lua" then
         config.root_dir = vim.loop.cwd
         config.settings = {
