@@ -24,13 +24,13 @@
 
 ## Some tools I use
 
-- Plasma/i3-gaps  
-- polybar  
-- alacritty  
-- neovim  
-- firefox  
-- fzf  
-- ranger  
+- Plasma/i3-gaps
+- polybar
+- alacritty
+- neovim
+- firefox
+- fzf
+- ranger
 
 ## What's in this repo?
 
