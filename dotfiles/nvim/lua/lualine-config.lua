@@ -15,6 +15,9 @@ M.load = function()
   custom_onedark.inactive.c.bg = '#121212'
   custom_onedark.normal.b.bg = '#232323'
   custom_onedark.normal.c.bg = '#121212'
+  custom_onedark.insert.b.bg = '#232323'
+  custom_onedark.command.b.bg = '#232323'
+  custom_onedark.visual.b.bg = '#232323'
 
   require('lualine').setup {
     options = {
