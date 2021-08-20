@@ -68,7 +68,7 @@ pacman -Syyu --quiet --noprogressbar --noconfirm
 pacman -S --quiet --noprogressbar --noconfirm zsh zsh-completions
 
 # terminal
-pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger zip unzip unrar htop arch-audit android-tools jq exa hyperfine tokei reflector sd bat ncdu wireguard-tools fd bottom git-delta
+pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger zip unzip unrar htop arch-audit android-tools jq exa hyperfine tokei reflector sd bat ncdu wireguard-tools fd bottom git-delta tmux
 cp ./other/rfv /home/$user/.local/bin
 
 # xD
