@@ -10,14 +10,14 @@ M.load = function()
   custom_onedark.visual.a.gui = nil
   custom_onedark.replace.a.gui = nil
   custom_onedark.inactive.a.gui = nil
-  custom_onedark.inactive.a.bg = '#121212'
-  custom_onedark.inactive.b.bg = '#121212'
-  custom_onedark.inactive.c.bg = '#121212'
-  custom_onedark.normal.b.bg = '#232323'
-  custom_onedark.normal.c.bg = '#121212'
-  custom_onedark.insert.b.bg = '#232323'
-  custom_onedark.command.b.bg = '#232323'
-  custom_onedark.visual.b.bg = '#232323'
+  custom_onedark.inactive.a.bg = '#161b22'
+  custom_onedark.inactive.b.bg = '#161b22'
+  custom_onedark.inactive.c.bg = '#161b22'
+  custom_onedark.normal.b.bg = '#2d333b'
+  custom_onedark.normal.c.bg = '#161b22'
+  custom_onedark.insert.b.bg = '#2d333b'
+  custom_onedark.command.b.bg = '#2d333b'
+  custom_onedark.visual.b.bg = '#2d333b'
 
   require('lualine').setup {
     options = {

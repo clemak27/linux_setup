@@ -6,7 +6,7 @@ M.load = function()
 
   require('onedark').setup( {
     colors = {
-      bg = "#121212"
+      bg = "#161b22"
     }
   })
 

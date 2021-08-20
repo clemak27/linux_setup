@@ -1,15 +1,15 @@
 ! special
 *.foreground:              #abb2bf
 *.foreground-light:        #eeeeee
-*.background:              #121212
-*.background-light:        #232323
+*.background:              #161b22
+*.background-light:        #2d333b
 *.background-dark:         #000000
 *.cursorColor:             #abb2bf
 *.accent:                  #00bfff
 
 ! black
 *.color0:       #000000
-*.color8:       #232323
+*.color8:       #2d333b
 
 ! red
 *.color1:       #e06c75

@@ -2,6 +2,8 @@
 
 ## Screenshots
 
+(not up to date)
+
 ### neofetch
 
 ![nf](./screenshots/nf.png)

@@ -39,13 +39,13 @@ font:
 
 colors:
   primary:
-    background: '#121212'
+    background: '#161b22'
     foreground: '#abb2bf'
   cursor:
-    background: '#121212'
+    background: '#161b22'
     foreground: '#abb2bf'
   normal:
-    black:   '#121212'
+    black:   '#161b22'
     red:     '#e06c75'
     green:   '#98c379'
     yellow:  '#e5c07b'
