@@ -142,6 +142,7 @@ aur_packages=(
   'cava'
   'tty-clock'
   'ddgr'
+  'tmuxinator'
   'todotxt'
   'tealdeer'
 )
