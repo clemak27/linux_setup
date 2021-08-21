@@ -205,6 +205,9 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
+" make yanking to eol easier
+nnoremap Y y$
+
 " Specify the behavior when switching between buffers 
 try
   set switchbuf=useopen,usetab,newtab
@@ -214,6 +217,7 @@ endtry
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 " Delete trailing white space on save
 fun! CleanExtraSpaces()
   let save_cursor = getpos(".")
