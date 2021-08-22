@@ -97,7 +97,6 @@ cp -R . /home/$user/Projects/linux_setup
 
 # zsh
 git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
-curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 
 cd /linux_setup
 
@@ -138,6 +137,7 @@ SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
 aur_packages=(
+  'starship-git'
   'paru-bin'
   'cava'
   'tty-clock'

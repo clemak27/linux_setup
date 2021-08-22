@@ -29,7 +29,7 @@ truncate_to_repo = false
 [dotnet]
 disabled = true
 
-[docker]
+[docker_context]
 disabled = true
 symbol = " "
 
@@ -55,10 +55,6 @@ style = "bold yellow"
 [golang]
 disabled = true
 symbol = " "
-
-[haskell]
-disabled = true
-symbol = " "
 
 [hg_branch]
 symbol = " "
