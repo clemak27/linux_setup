@@ -1,29 +1,5 @@
 # my ArchLinux setup
 
-## Screenshots
-
-(not up to date)
-
-### neofetch
-
-![nf](./screenshots/nf.png)
-
-### empty workspace
-
-![empty](./screenshots/empty.png)
-
-### single window
-
-![single](./screenshots/ff.png)
-
-### multiple windows
-
-![mult](./screenshots/mult.png)
-
-### neovim
-
-![neovim](./screenshots/neovim.png)
-
 ## Some tools I use
 
 - Plasma/i3-gaps
