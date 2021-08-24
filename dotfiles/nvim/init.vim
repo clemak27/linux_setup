@@ -18,6 +18,7 @@ Plug 'inkarkat/vim-ReplaceWithRegister'
 Plug 'tpope/vim-commentary'
 Plug 'windwp/nvim-autopairs' 
 Plug 'tpope/vim-surround'
+Plug 'antoinemadec/FixCursorHold.nvim'
 
 " ----------------- git integration -----------------------------------
 Plug 'tpope/vim-fugitive'
