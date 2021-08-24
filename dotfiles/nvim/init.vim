@@ -263,4 +263,7 @@ lua require('lspkind-config').load()
 lua require('nvim-lint-config').load()
 lua require('nvim-dap-config').load()
 lua require('nvim-dap-ui-config').load()
-lua require('jdtls-config').load()
+augroup lsp
+  au!
+  au FileType java lua require('jdtls-config').load()
+augroup end
