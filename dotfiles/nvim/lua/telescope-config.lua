@@ -4,7 +4,6 @@ local M = {}
 
 M.load = function()
 
-
   local actions = require('telescope.actions')
 
   require("telescope").setup {
@@ -18,7 +17,8 @@ M.load = function()
         },
       },
       sorting_strategy = "ascending",
-      borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└'}
+      borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+      path_display = { 'absolute', 'shorten'}
     }
   }
 
