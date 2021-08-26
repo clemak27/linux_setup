@@ -1,4 +1,4 @@
-# ~/.config/tmuxinator/dev.yml
+# ~/.config/tmuxinator/projects.yml
 
 name: root
 root: ~/Projects/<%= @args[0] %>
