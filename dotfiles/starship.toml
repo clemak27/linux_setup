@@ -1,28 +1,27 @@
-# Don't print a new line at the start of the prompt
 add_newline = false
 
 [line_break]
 disabled = true
 
 [aws]
-symbol = " "
+symbol = ' '
 
 [battery]
 disabled = true
-full_symbol = ""
-charging_symbol = ""
-discharging_symbol = ""
+full_symbol = ''
+charging_symbol = ''
+discharging_symbol = ''
 
 [cmd_duration]
 disabled = true
 
 [conda]
 disabled = true
-symbol = " "
+symbol = ' '
 
 [directory]
-format = "[ $path]($style)[$read_only]($read_only_style) "
-style = "bold blue"
+format = '[ $path]($style)[$read_only]($read_only_style) '
+style = 'bold blue'
 truncation_length = 99
 truncate_to_repo = false
 
@@ -31,41 +30,41 @@ disabled = true
 
 [docker_context]
 disabled = true
-symbol = " "
+symbol = ' '
 
 [elixir]
 disabled = true
-symbol = " "
+symbol = ' '
 
 [elm]
 disabled = true
-symbol = " "
+symbol = ' '
 
 [gcloud]
 disabled = true
 
 [git_branch]
-format = "[$symbol$branch]($style) "
-symbol = " "
-style = "bold green"
+format = '[$symbol$branch]($style) '
+symbol = ' '
+style = 'bold green'
 
 [git_status]
-style = "bold yellow"
+style = 'bold yellow'
 
 [golang]
 disabled = true
-symbol = " "
+symbol = ' '
 
 [hg_branch]
-symbol = " "
+symbol = ' '
 
 [java]
 disabled = true
-symbol = " "
+symbol = ' '
 
 [julia]
 disabled = true
-symbol = " "
+symbol = ' '
 
 [kubernetes]
 disabled = true
@@ -73,36 +72,36 @@ format = '[$symbol$context( \($namespace\))]($style) '
 
 [memory_usage]
 disabled = true
-symbol = " "
+symbol = ' '
 
 [nim]
 disabled = true
-symbol = " "
+symbol = ' '
 
 [nix_shell]
 disabled = true
-symbol = " "
+symbol = ' '
 
 [nodejs]
 disabled = true
-symbol = " "
+symbol = ' '
 
 [package]
 disabled = true
-symbol = " "
+symbol = ' '
 
 [php]
 disabled = true
-symbol = " "
+symbol = ' '
 
 [python]
 disabled = true
-symbol = " "
+symbol = ' '
 
 [ruby]
 disabled = true
-symbol = " "
+symbol = ' '
 
 [rust]
 disabled = true
-symbol = " "
+symbol = ' '
