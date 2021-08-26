@@ -1,7 +1,7 @@
 # ~/.config/tmuxinator/dev.yml
 
 name: root
-root: ~/Projects
+root: ~/Projects/<%= @args[0] %>
 
 # Optional tmux socket
 # socket_name: foo
@@ -51,7 +51,7 @@ windows:
         - dev:
           -  tmux set-option status off
           -  unset TMUX
-          -  tmux new -s dev -n projects -c ~/Projects
+          -  tmux new -s dev -n projects -c ~/Projects/<%= @args[0] %>
         - term:
           -  unset TMUX
-          -  tmux new -s term -n projects -c ~/Projects
+          -  tmux new -s term -n projects -c ~/Projects/<%= @args[0] %>
