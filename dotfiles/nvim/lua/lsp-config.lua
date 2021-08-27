@@ -34,9 +34,6 @@ M.load = function()
 
   end
 
-  -- lspinstall - automatically install language servers
-  require'lspinstall'.setup()
-
   -- config that activates keymaps and enables snippet support
   local function make_config()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -49,60 +46,80 @@ M.load = function()
     }
   end
 
-  -- helper function to check if table contains value
-  local function table_contains(table, element)
-    for _, value in pairs(table) do
-      if value == element then
-        return true
-      end
-    end
-    return false
-  end
+  local installed_servers = {
+    "sumneko_lua",
+    "bashls",
+    "vimls",
 
-  -- supported languages LSPs are installed
-  local supported_languages = {
     "html",
-    "css",
-    "json",
-    "lua",
-    "yaml",
-    "vim",
-    "typescript",
-    "python",
-    "rust",
-    "go",
-    "bash",
-    "vue",
-    "latex"
+    "cssls",
+    "jsonls",
+
+    "tsserver",
+    "vuels",
+
+    "yamlls",
+
+    "gopls",
+    -- java is setup in jdtls-config
   }
 
   local function setup_servers()
-    require'lspinstall'.setup()
 
-    -- get all installed servers
-    local servers = require'lspinstall'.installed_servers()
-
-    -- install missing servers
-    for _, language in pairs(supported_languages) do
-      local installed = table_contains(servers, language)
-      if not installed then
-        require'lspinstall'.install_server(language)
-      end
-    end
-
-    for _, server in pairs(servers) do
+    for _, server in pairs(installed_servers) do
       local config = make_config()
+      local lsp_path = "/home/clemens/.local/bin/nvim/lsp"
 
       -- language specific config
       if server == "bash" then
         config.filetypes = {"bash", "sh", "zsh"};
       end
 
-      if server == "json" then
+      if server == "html" then
+        config.cmd = { "node", lsp_path .. "/vscode-html/html-language-features/server/dist/node/htmlServerMain.js", "--stdio" }
+        config.filetypes = {
+          -- html
+          'aspnetcorerazor',
+          'blade',
+          'django-html',
+          'edge',
+          'ejs',
+          'eruby',
+          'gohtml',
+          'haml',
+          'handlebars',
+          'hbs',
+          'html',
+          'html-eex',
+          'jade',
+          'leaf',
+          'liquid',
+          'markdown',
+          'mdx',
+          'mustache',
+          'njk',
+          'nunjucks',
+          'php',
+          'razor',
+          'slim',
+          'twig',
+          -- mixed
+          'vue',
+          'svelte',
+        }
+      end
+
+      if server == "cssls" then
+        config.cmd = { "node", lsp_path .. "/vscode-css/css-language-features/server/dist/node/cssServerMain.js", "--stdio" }
+      end
+
+      if server == "jsonls" then
+        config.cmd = { "node", lsp_path .. "/vscode-json/json-language-features/server/dist/node/jsonServerMain.js", "--stdio" }
         config.filetypes = {"json", "json5"}
       end
 
-      if server == "lua" then
+      if server == "sumneko_lua" then
+        config.cmd = { lsp_path .. "/sumneko-lua-language-server" }
         config.root_dir = vim.loop.cwd
         config.settings = {
           Lua = {
@@ -127,12 +144,6 @@ M.load = function()
   end
 
   setup_servers()
-
-  -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-  require'lspinstall'.post_install_hook = function ()
-    setup_servers() -- reload installed servers
-    vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-  end
 
   -- format golang on edit
   vim.api.nvim_exec(

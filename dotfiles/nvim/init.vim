@@ -49,7 +49,6 @@ Plug 'nvim-telescope/telescope.nvim'
 
 " ----------------- LSP -----------------------------------------------
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
 Plug 'hrsh7th/nvim-compe'
 Plug 'onsails/lspkind-nvim'
 Plug 'hrsh7th/vim-vsnip'
