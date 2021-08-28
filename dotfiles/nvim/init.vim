@@ -51,6 +51,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'onsails/lspkind-nvim'
+Plug 'RishabhRD/popfix'
+Plug 'RishabhRD/nvim-lsputils'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'rafamadriz/friendly-snippets'
@@ -260,6 +262,7 @@ lua require('telescope-config').load()
 lua require('lsp-config').load()
 lua require('nvim-compe-config').load()
 lua require('lspkind-config').load()
+lua require('lsputils-config').load()
 lua require('nvim-lint-config').load()
 lua require('nvim-dap-config').load()
 lua require('nvim-dap-ui-config').load()
