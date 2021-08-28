@@ -56,23 +56,32 @@ echo "Updating LSP server"
 
 sumneko_lua() {
   cd "$lsp_dir" || exit
-  os=$(uname -s | tr "[:upper:]" "[:lower:]")
-  case $os in
-    linux)
-      platform="Linux"
-      ;;
-    darwin)
-      platform="macOS"
-      ;;
-  esac
-  curl -L -o sumneko-lua.vsix "$(curl -s https://api.github.com/repos/sumneko/vscode-lua/releases/latest | grep 'browser_' | cut -d\" -f4)"
-  rm -rf sumneko-lua
-  unzip sumneko-lua.vsix -d sumneko-lua
-  rm sumneko-lua.vsix
-  chmod +x sumneko-lua/extension/server/bin/$platform/lua-language-server
-  echo "#!/usr/bin/env bash" > sumneko-lua-language-server
-  echo "\$(dirname \$0)/sumneko-lua/extension/server/bin/$platform/lua-language-server -E -e LANG=en \$(dirname \$0)/sumneko-lua/extension/server/main.lua \$*" >> sumneko-lua-language-server
-  chmod +x sumneko-lua-language-server
+  latest=$(curl --no-progress-meter -L -I https://api.github.com/repos/sumneko/vscode-lua/releases/latest | grep last-modified)
+  current=$(cat current_luals.txt)
+  if [ "$latest" = "$current" ]
+  then
+    echo "[sumneko_lua] Already up to date."
+  else
+    os=$(uname -s | tr "[:upper:]" "[:lower:]")
+    case $os in
+      linux)
+        platform="Linux"
+        ;;
+      darwin)
+        platform="macOS"
+        ;;
+    esac
+    curl -L -o sumneko-lua.vsix "$(curl -s https://api.github.com/repos/sumneko/vscode-lua/releases/latest | grep 'browser_' | cut -d\" -f4)"
+    rm -rf sumneko-lua
+    unzip sumneko-lua.vsix -d sumneko-lua
+    rm sumneko-lua.vsix
+    chmod +x sumneko-lua/extension/server/bin/$platform/lua-language-server
+    echo "#!/usr/bin/env bash" > sumneko-lua-language-server
+    echo "\$(dirname \$0)/sumneko-lua/extension/server/bin/$platform/lua-language-server -E -e LANG=en \$(dirname \$0)/sumneko-lua/extension/server/main.lua \$*" >> sumneko-lua-language-server
+    chmod +x sumneko-lua-language-server
+    echo "$latest" > current_luals.txt
+  fi
+
 }
 
 vuels() {
@@ -88,34 +97,46 @@ vimls() {
 }
 
 tsserver() {
-  update_node_package typescript
+  # update_node_package typescript
   update_node_package typescript-language-server
 }
 
 html_css_json_ls() {
   cd "$lsp_dir" || exit
-  curl -L -o vscode.tar.gz https://update.code.visualstudio.com/latest/linux-x64/stable
-  rm -rf vscode
-  mkdir vscode
-  tar -xzf vscode.tar.gz -C vscode --strip-components 1
-  rm vscode.tar.gz
+  latest=$(curl --no-progress-meter -L -I https://update.code.visualstudio.com/latest/linux-x64/stable | grep last-modified)
+  current=$(cat current_vscode_ls.txt)
 
-  rm -rf vscode-html
-  mkdir vscode-html
-  cp -r vscode/resources/app/extensions/node_modules vscode-html
-  cp -r vscode/resources/app/extensions/html-language-features vscode-html
+  if [ "$latest" = "$current" ]
+  then
+    echo "[vscode-html] Already up to date."
+    echo "[vscode-css] Already up to date."
+    echo "[vscode-json] Already up to date."
+  else
+    curl -L -o vscode.tar.gz https://update.code.visualstudio.com/latest/linux-x64/stable
+    rm -rf vscode
+    mkdir vscode
+    tar -xzf vscode.tar.gz -C vscode --strip-components 1
+    rm vscode.tar.gz
 
-  rm -rf vscode-css
-  mkdir vscode-css
-  cp -r vscode/resources/app/extensions/node_modules vscode-css
-  cp -r vscode/resources/app/extensions/css-language-features vscode-css
+    rm -rf vscode-html
+    mkdir vscode-html
+    cp -r vscode/resources/app/extensions/node_modules vscode-html
+    cp -r vscode/resources/app/extensions/html-language-features vscode-html
 
-  rm -rf vscode-json
-  mkdir vscode-json
-  cp -r vscode/resources/app/extensions/node_modules vscode-json
-  cp -r vscode/resources/app/extensions/json-language-features vscode-json
+    rm -rf vscode-css
+    mkdir vscode-css
+    cp -r vscode/resources/app/extensions/node_modules vscode-css
+    cp -r vscode/resources/app/extensions/css-language-features vscode-css
 
-  rm -rf vscode
+    rm -rf vscode-json
+    mkdir vscode-json
+    cp -r vscode/resources/app/extensions/node_modules vscode-json
+    cp -r vscode/resources/app/extensions/json-language-features vscode-json
+
+    rm -rf vscode
+    echo "$latest" > current_vscode_ls.txt
+  fi
+
 }
 
 yamlls() {
@@ -143,14 +164,14 @@ jdtls() {
       curl -O http://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz
       tar -xzvf jdt-language-server-latest.tar.gz -C ./jdtls
       echo "$latest" > current_jdtls.txt
-      rm http://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz
+      rm jdt-language-server-latest.tar.gz
     fi
   else
     curl -O http://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz
     mkdir -p jdtls
     tar -xzvf jdt-language-server-latest.tar.gz -C ./jdtls
     echo "$latest" > current_jdtls.txt
-    rm http://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz
+    rm jdt-language-server-latest.tar.gz
   fi
 
   unset "$latest"
