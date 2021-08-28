@@ -47,9 +47,6 @@ ln -sf $config_dir/alacritty/alacritty.yml $user_dir/.config/alacritty/alacritty
 mkdir -p $user_dir/.config/bat
 ln -sf $config_dir/bat/config $user_dir/.config/bat/config
 
-# intelliJ
-ln -sf $config_dir/ideavimrc $user_dir/.ideavimrc
-
 # mpv
 mkdir -p $user_dir/.config/mpv
 ln -sf $config_dir/mpv/mpv.conf $user_dir/.config/mpv/mpv.conf

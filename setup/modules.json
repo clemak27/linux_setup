@@ -92,7 +92,6 @@
       ],
       "aur": [
         "insomnia-bin",
-        "intellij-idea-ce",
         "pgcli"
       ],
       "user_commands": [
