@@ -192,20 +192,60 @@ jdtls
 
 echo "Updating linter"
 
-update_node_package markdownlint-cli
-update_node_package eslint
+markdownlint() {
+  update_node_package markdownlint-cli
+}
 
-if [[ $(go install github.com/mgechev/revive@latest) ]]; then
-  echo "[revive] Updated."
-else
-  echo "[revive] Already up to date."
-fi
+eslint() {
+  update_node_package eslint
+}
 
-paru -S shellcheck-bin
+revive() {
+  if [[ $(go install github.com/mgechev/revive@latest) ]]; then
+    echo "[revive] Updated."
+  else
+    echo "[revive] Already up to date."
+  fi
+}
+
+shellcheck() {
+  paru -S shellcheck-bin
+}
+
+markdownlint
+eslint
+revive
+# shellcheck
 
 # --------------------------- dap --------------------------------
 
 echo "Updating Debug Adapters"
+
+# java-debug
+cd "$dap_dir" || exit
+if [ -d "java-debug" ]
+then
+  cd java-debug || exit
+  git restore .
+  if repo_updated; then ./mvnw clean install; else echo "[java-debug] Already up to date."; fi
+else
+  git clone https://github.com/microsoft/java-debug.git
+  cd java-debug || exit
+  ./mvnw clean install
+fi
+cd "$dap_dir" || exit
+if [ -d "vscode-java-test" ]
+then
+  cd vscode-java-test || exit
+  git restore .
+  if repo_updated; then npm run build-plugin; else echo "[vscode-java-test] Already up to date."; fi
+else
+  git clone https://github.com/microsoft/vscode-java-test.git
+  cd vscode-java-test || exit
+  npm install
+  npm run build-plugin
+fi
+
 
 # nodejs
 cd "$dap_dir" || exit

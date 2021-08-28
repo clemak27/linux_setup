@@ -5,10 +5,10 @@ local M = {}
 M.load = function()
 
   local dap = require('dap')
+  local dap_path = os.getenv('HOME') .. '/.local/bin/nvim/dap/'
 
   dap.defaults.fallback.external_terminal = {
-    command = '/home/clemens/.local/bin/nvim/dap/start_debugger.sh';
-    -- args = {'run-shell', '-t', 'term:debug.1'};
+    command = dap_path .. 'start_debugger.sh';
   }
   dap.defaults.fallback.force_external_terminal = true
 
@@ -23,8 +23,6 @@ M.load = function()
   vim.api.nvim_set_keymap("n", "<F12>", [[<Cmd>lua require'dap'.repl.open()<CR>]], opt)
 
   dap.repl.commands = vim.tbl_extend('force', dap.repl.commands, {})
-
-  local dap_path = os.getenv('HOME') .. '/.local/bin/nvim/dap/'
 
   -- nodejs
   dap.adapters.node2 = {

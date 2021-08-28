@@ -4,6 +4,8 @@ local M = {}
 
 M.load = function()
 
+  local dap_path = os.getenv('HOME') .. '/.local/bin/nvim/dap/'
+
   -- Use an on_attach function to only map the following keys
   -- after the language server attaches to the current buffer
   local on_attach = function(client, bufnr)
@@ -31,12 +33,26 @@ M.load = function()
     buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+
+    -- With `hotcodereplace = 'auto' the debug adapter will try to apply code changes
+    -- you make during a debug session immediately.
+    -- Remove the option if you do not want that.
+    require('jdtls').setup_dap()
+    require('jdtls.setup').add_commands()
+    print(  vim.fn.glob( dap_path .. "java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"))
   end
 
-  require('jdtls.setup').add_commands()
+local bundles = {
+  vim.fn.glob( dap_path .. "java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"),
+};
+vim.list_extend(bundles, vim.split(vim.fn.glob(dap_path .. "/vscode-java-test/server/*.jar"), "\n"))
+
   require('jdtls').start_or_attach({
     cmd = {'java-lsp.sh', '/home/clemens/.jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')},
-    on_attach = on_attach
+    on_attach = on_attach,
+    init_options = {
+      bundles = bundles
+    }
   })
 
   -- use lsputils for UI
