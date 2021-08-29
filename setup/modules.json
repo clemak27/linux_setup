@@ -94,7 +94,6 @@
         "pgcli"
       ],
       "user_commands": [
-        "go get code.gitea.io/tea",
         "pip install jedi pylint --user",
         "curl --proto ;=https; --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path"
       ]
