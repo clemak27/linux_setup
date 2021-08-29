@@ -11,9 +11,21 @@
     sl
     tty-clock
 
+    bat
+    bottom
     ddgr
-    todo-txt-cli
+    delta
+    exa
+    fd
+    hyperfine
+    jq
+    ncdu
+    ranger
+    ripgrep
+    sd
     tealdeer
+    todo-txt-cli
+    tokei
 
     tmux
     tmuxinator
