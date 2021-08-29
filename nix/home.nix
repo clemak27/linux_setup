@@ -1,8 +1,9 @@
-# vi: ft=nix
 { pkgs, ... }:
 
 {
   home.packages = with pkgs; [
+    direnv
+
     cava
     cmatrix
     fortune
@@ -36,4 +37,12 @@
     enable = true;
     path = "…";
   };
+
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+  # optional for nix flakes support
+  # programs.direnv.nix-direnv.enableFlakes = true;
+  
+  # programs.zsh.enable = true;
+  
 }

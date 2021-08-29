@@ -43,15 +43,16 @@ PROMPT_EOL_MARK=''
 
 # ---------- Environment Variables ----------
 export BROWSER="firefox"
+export DIRENV_LOG_FORMAT=""
 export EDITOR="nvim"
-export VISUAL="nvim"
-export FZF_DEFAULT_OPTS='--height=50% --layout=reverse --info=inline --border=sharp --margin=1 --padding=1'
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_DEFAULT_OPTS='--height=50% --layout=reverse --info=inline --border=sharp --margin=1 --padding=1'
 export GOPATH=$HOME/.go
-export PATH=$PATH:$HOME/.go/bin
 export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.go/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.local/bin/npm/bin
+export VISUAL="nvim"
 
 # ---------- Dircolors ----------
 LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
@@ -107,4 +108,8 @@ for file in ~/.zsh_functions/*; do
    . $file
 done
 
+# ---------- nix package manager ----------
 if [ -e /home/clemens/.nix-profile/etc/profile.d/nix.sh ]; then . /home/clemens/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# ---------- direnv ----------
+eval "$(direnv hook zsh)"

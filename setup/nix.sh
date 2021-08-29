@@ -16,8 +16,9 @@ paru -Rns cava tty-clock ddgr tealdeer
 paru -Rns tmuxinator todotxt
 paru -Rns ripgrep ranger jq exa hyperfine tokei sd bat ncdu fd bottom git-delta
 # paru -Rns fzf
+rm ~/.go/bin/tea
 
 nix-shell '<home-manager>' -A install
-ln -sf /home/clemens/Projects/linux_setup/nix $user_dir/.config/nixpkgs
+ln -sf /home/clemens/Projects/linux_setup/nix /home/clemens/.config/nixpkgs
 source ~/.zshrc
 home-manager switch
