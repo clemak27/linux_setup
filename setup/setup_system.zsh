@@ -112,7 +112,6 @@ usermod -d /home/$user $user
 usermod -aG wheel $user
 usermod --shell /usr/bin/zsh $user
 
-
 # set password
 echo "$user:$password" | chpasswd
 echo "root:$password" | chpasswd
@@ -139,12 +138,6 @@ IFS=$(echo -en "\n\b")
 aur_packages=(
   'starship-git'
   'paru-bin'
-  'cava'
-  'tty-clock'
-  'ddgr'
-  'tmuxinator'
-  'todotxt'
-  'tealdeer'
 )
 
 declare -r aur_packages

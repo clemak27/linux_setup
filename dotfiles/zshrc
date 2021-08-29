@@ -106,3 +106,5 @@ source /usr/share/fzf/key-bindings.zsh
 for file in ~/.zsh_functions/*; do
    . $file
 done
+
+if [ -e /home/clemens/.nix-profile/etc/profile.d/nix.sh ]; then . /home/clemens/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
