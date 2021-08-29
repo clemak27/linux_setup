@@ -68,11 +68,8 @@ pacman -Syyu --quiet --noprogressbar --noconfirm
 pacman -S --quiet --noprogressbar --noconfirm zsh zsh-completions
 
 # terminal
-pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger zip unzip unrar htop arch-audit android-tools jq exa hyperfine tokei reflector sd bat ncdu wireguard-tools fd bottom git-delta tmux
+pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger zip unzip unrar htop arch-audit android-tools jq exa hyperfine tokei reflector sd bat ncdu wireguard-tools fd bottom git-delta
 cp ./other/rfv /home/$user/.local/bin
-
-# xD
-pacman -S --quiet --noprogressbar --noconfirm cmatrix lolcat neofetch sl
 
 # development
 pacman -S --quiet --noprogressbar --noconfirm git make gcc neovim nodejs-lts-fermium npm semver yarn python-pynvim xclip

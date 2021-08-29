@@ -3,19 +3,20 @@
 
 {
   home.packages = with pkgs; [
-    fortune
-    lolcat
+    cava
     cmatrix
+    fortune
     lolcat
     neofetch
     sl
-    cava
     tty-clock
+
     ddgr
+    todo-txt-cli
     tealdeer
 
+    tmux
     tmuxinator
-    todo-txt-cli
   ];
 
   programs.home-manager = {
