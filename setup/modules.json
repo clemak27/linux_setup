@@ -77,7 +77,6 @@
       "packages": [
         "jdk11-openjdk",
         "gradle",
-        "python-pip",
         "go",
         "plantuml",
         "graphviz",
@@ -93,10 +92,7 @@
         "insomnia-bin",
         "pgcli"
       ],
-      "user_commands": [
-        "pip install jedi pylint --user",
-        "curl --proto ;=https; --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path"
-      ]
+      "user_commands": []
     },
     {
       "name": "virtualization",
