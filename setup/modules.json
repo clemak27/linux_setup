@@ -82,13 +82,12 @@
         "plantuml",
         "graphviz",
         "gdb",
-        "docker",
-        "docker-compose",
         "github-cli"
       ],
       "commands": [
-        "systemctl enable docker.service",
-        "usermod -aG docker $user"
+        "touch /etc/subuid /etc/subgid",
+        "usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $user",
+        "podman system migrate"
       ],
       "aur": [
         "insomnia-bin",

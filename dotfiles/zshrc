@@ -62,6 +62,7 @@ alias cat='bat'
 alias cd..="cd .."
 alias clear_scrollback="printf '\33c\e[3J'"
 alias cmatrix='cmatrix -C blue'
+alias docker='podman'
 alias gcm='git commit -v -m'
 alias gcmld='git checkout master && git pull && comm -12 <(git branch | sed "s/ *//g") <(git remote prune origin --dry-run | sed "s/^.*origin\///g") | xargs -I{} git branch -D {}'
 alias gdm='git diff --cached master'
