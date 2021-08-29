@@ -23,6 +23,7 @@
     ranger
     ripgrep
     sd
+    tea
     tealdeer
     todo-txt-cli
     tokei
