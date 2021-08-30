@@ -74,8 +74,6 @@
     {
       "name": "development",
       "packages": [
-        "jdk11-openjdk",
-        "gradle",
         "github-cli"
       ],
       "commands": [

@@ -17,7 +17,7 @@ paru -Rns tmuxinator todotxt
 paru -Rns ripgrep ranger jq exa hyperfine tokei sd bat ncdu fd bottom git-delta
 # paru -Rns fzf
 rm ~/.go/bin/tea
-paru -Rns go
+paru -Rns go gradle jdk11-openjdk maven
 
 paru -Rns git paru-bin
 sudo pacman -S --needed base-devel

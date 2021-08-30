@@ -34,6 +34,8 @@
     tmuxinator
 
     go
+    jdk
+    gradle
   ];
 
   programs.home-manager = {
