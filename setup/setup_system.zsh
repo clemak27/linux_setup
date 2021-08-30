@@ -158,14 +158,6 @@ IFS=$(echo -en "\n\b")
 
 user_commands=(
   'xdg-user-dirs-update'
-  'git config --global user.name "clemak27"'
-  'git config --global user.email clemak27@mailbox.org'
-  'git config --global alias.lol "log --graph --decorate --oneline --all"'
-  'git config --global core.autocrlf input'
-  'git config --global pull.rebase false'
-  'git config --global credential.helper cache --timeout=86400'
-  'git config --global include.path "~/.delta.config"'
-  'tldr --update'
 )
 
 declare -r user_commands
