@@ -18,6 +18,12 @@ paru -Rns ripgrep ranger jq exa hyperfine tokei sd bat ncdu fd bottom git-delta
 # paru -Rns fzf
 rm ~/.go/bin/tea
 
+paru -Rns git paru-bin
+sudo pacman -S --needed base-devel
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+
 nix-shell '<home-manager>' -A install
 ln -sf /home/clemens/Projects/linux_setup/nix /home/clemens/.config/nixpkgs
 source ~/.zshrc
