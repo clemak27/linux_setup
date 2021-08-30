@@ -174,8 +174,8 @@ jdtls() {
     rm jdt-language-server-latest.tar.gz
   fi
 
-  unset "$latest"
-  unset "$current"
+  unset latest
+  unset current
 }
 
 sumneko_lua
