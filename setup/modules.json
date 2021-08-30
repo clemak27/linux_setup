@@ -78,9 +78,6 @@
         "jdk11-openjdk",
         "gradle",
         "go",
-        "plantuml",
-        "graphviz",
-        "gdb",
         "github-cli"
       ],
       "commands": [
