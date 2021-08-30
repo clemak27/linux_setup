@@ -77,7 +77,6 @@
       "packages": [
         "jdk11-openjdk",
         "gradle",
-        "go",
         "github-cli"
       ],
       "commands": [

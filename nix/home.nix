@@ -32,6 +32,7 @@
     tmux
     tmuxinator
 
+    go
   ];
 
   programs.home-manager = {
