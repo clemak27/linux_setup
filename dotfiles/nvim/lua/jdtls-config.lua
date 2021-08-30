@@ -27,19 +27,21 @@ M.load = function()
     buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     buf_set_keymap("n", "gf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-    -- buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', '<space>u', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<space>a', [[<Cmd>lua require'jdtls'.code_action()<CR>]], opts)
     buf_set_keymap('n', '<space>d', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
     buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
+    buf_set_keymap('n', '<space>rr', [[<Cmd>lua require'jdtls'.test_nearest_method()<CR>]], opts)
+    buf_set_keymap('n', '<space>rc', [[<Cmd>lua require'jdtls'.test_class()<CR>]], opts)
+
     -- With `hotcodereplace = 'auto' the debug adapter will try to apply code changes
     -- you make during a debug session immediately.
     -- Remove the option if you do not want that.
     require('jdtls').setup_dap()
     require('jdtls.setup').add_commands()
-    print(  vim.fn.glob( dap_path .. "java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"))
   end
 
 local bundles = {
