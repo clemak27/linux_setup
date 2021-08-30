@@ -11,7 +11,7 @@ nix-channel --add https://github.com/nix-community/home-manager/archive/master.t
 nix-channel --update
 sudo nix-channel --update
 
-paru -Rns lolcat cmatrix neofetch sl
+paru -Rns lolcat cmatrix neofetch sl pipes-rs-git
 paru -Rns cava tty-clock ddgr tealdeer
 paru -Rns tmuxinator todotxt
 paru -Rns ripgrep ranger jq exa hyperfine tokei sd bat ncdu fd bottom git-delta

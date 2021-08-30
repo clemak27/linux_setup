@@ -49,8 +49,7 @@
         "scrcpy",
         "nerd-fonts-fira-code",
         "ytfzf",
-        "sublime-music",
-        "pipes-rs"
+        "sublime-music"
       ],
       "user_commands": [
         "kwriteconfig5 --file 'kwinrc' --group 'Script-krohnkite' --key 'directionalKeyDwm' false",

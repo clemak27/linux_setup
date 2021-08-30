@@ -9,6 +9,7 @@
     fortune
     lolcat
     neofetch
+    pipes
     sl
     tty-clock
 
