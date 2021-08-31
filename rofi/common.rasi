@@ -12,3 +12,8 @@ window {
   x-offset: 0;
   y-offset: 0;
 }
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}
