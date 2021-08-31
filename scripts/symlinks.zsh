@@ -31,9 +31,6 @@ ln -sf $config_dir/delta.config $user_dir/.delta.config
 # ideavim.rc
 ln -sf $config_dir/ideavimrc $user_dir/.ideavimrc
 
-# tmux
-ln -sf $config_dir/tmux.conf $user_dir/.tmux.conf
-
 # markdownlint
 ln -sf $config_dir/markdownlintrc $user_dir/.markdownlintrc
 
@@ -45,10 +42,6 @@ ln -sf $config_dir/npmrc $user_dir/.npmrc
 # alacritty
 mkdir -p $user_dir/.config/alacritty
 ln -sf $config_dir/alacritty/alacritty.yml $user_dir/.config/alacritty/alacritty.yml
-
-# bat
-mkdir -p $user_dir/.config/bat
-ln -sf $config_dir/bat/config $user_dir/.config/bat/config
 
 # mpv
 mkdir -p $user_dir/.config/mpv
@@ -63,9 +56,6 @@ ln -sf $config_dir/nvim/lua $user_dir/.config/nvim/lua
 mkdir -p $user_dir/.config/ranger
 ln -sf $config_dir/ranger/ranger.rc $user_dir/.config/ranger/rc.conf
 ln -sf $config_dir/ranger/ranger.commands $user_dir/.config/ranger/commands.py
-
-# tmuxinator
-ln -sf $config_dir/tmuxinator $user_dir/.config/tmuxinator
 
 # todo.txt
 mkdir -p $user_dir/.todo

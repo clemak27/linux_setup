@@ -98,5 +98,11 @@
   # programs.direnv.nix-direnv.enableFlakes = true;
   
   # programs.zsh.enable = true;
-  
+
+  xdg.configFile = {
+    "bat/config".source = ./dotfiles/bat/config;
+    "tmuxinator".source = ./dotfiles/tmuxinator;
+  };
+  home.file.".tmux.conf".source = ./dotfiles/tmux.conf;
+
 }
