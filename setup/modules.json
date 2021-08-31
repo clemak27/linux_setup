@@ -73,17 +73,9 @@
     },
     {
       "name": "development",
-      "packages": [
-        "github-cli"
-      ],
-      "commands": [
-        "touch /etc/subuid /etc/subgid",
-        "usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $user",
-        "podman system migrate"
-      ],
-      "aur": [
-        "pgcli"
-      ],
+      "packages": [],
+      "commands": [],
+      "aur": [],
       "user_commands": []
     },
     {
@@ -98,13 +90,17 @@
         "openbsd-netcat",
         "ovmf",
         "ebtables",
-        "iptables"
+        "iptables",
+        "podman"
       ],
       "commands": [
         "systemctl enable libvirtd.service",
         "sed -i ;s/#unix_sock_group = \"libvirt\"/unix_sock_group = \"libvirt\"/g; /etc/libvirt/libvirtd.conf",
         "sed -i ;s/#unix_sock_rw_perms = \"0770\"/unix_sock_rw_perms = \"0770\"/g; /etc/libvirt/libvirtd.conf",
-        "usermod -aG libvirt $user"
+        "usermod -aG libvirt $user",
+        "touch /etc/subuid /etc/subgid",
+        "usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $user",
+        "podman system migrate"
       ],
       "aur": [],
       "user_commands": []

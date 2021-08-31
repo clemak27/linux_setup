@@ -12,25 +12,22 @@
     pipes
     sl
     tty-clock
+    tokei
 
     bat
     bottom
-    ddgr
-    delta
     exa
     fd
+    gitAndTools.gh
     hyperfine
     jq
-    ncdu
+    pgcli
     ranger
     ripgrep
     sd
     tea
     tealdeer
     todo-txt-cli
-    tokei
-    pgcli
-    gitAndTools.gh
 
     tmux
     tmuxinator
