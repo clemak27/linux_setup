@@ -18,6 +18,8 @@ paru -Rns ripgrep ranger jq exa hyperfine tokei sd bat ncdu fd bottom git-delta
 # paru -Rns fzf
 rm ~/.go/bin/tea
 paru -Rns go gradle jdk11-openjdk maven
+paru -Rns nodejs-lts-fermium npm semver typescript yarn
+npm i -g npm typescript
 
 paru -Rns git paru-bin
 sudo pacman -S --needed base-devel

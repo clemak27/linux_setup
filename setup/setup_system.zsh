@@ -72,7 +72,8 @@ pacman -S --quiet --noprogressbar --noconfirm youtube-dl rsync parallel zip unzi
 cp ./other/rfv /home/$user/.local/bin
 
 # development
-pacman -S --quiet --noprogressbar --noconfirm git make gcc neovim nodejs-lts-fermium npm semver yarn python-pynvim xclip
+pacman -S --quiet --noprogressbar --noconfirm base-devel
+pacman -S --quiet --noprogressbar --noconfirm git neovim python-pynvim xclip
 
 # ssh
 pacman -S --quiet --noprogressbar --noconfirm openssh

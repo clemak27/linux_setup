@@ -36,6 +36,8 @@
     go
     jdk
     gradle
+    nodejs
+    yarn
   ];
 
   programs.home-manager = {
