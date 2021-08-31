@@ -29,6 +29,8 @@
     tealdeer
     todo-txt-cli
     tokei
+    pgcli
+    gitAndTools.gh
 
     tmux
     tmuxinator
