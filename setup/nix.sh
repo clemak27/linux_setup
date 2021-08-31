@@ -15,14 +15,14 @@ paru -Rns lolcat cmatrix neofetch sl pipes-rs-git
 paru -Rns cava tty-clock ddgr tealdeer
 paru -Rns tmuxinator todotxt
 paru -Rns ripgrep ranger jq exa hyperfine tokei sd bat ncdu fd bottom git-delta
-# paru -Rns fzf
+paru -Rns fzf
 rm ~/.go/bin/tea
 paru -Rns go gradle jdk11-openjdk maven
 paru -Rns nodejs-lts-fermium npm semver typescript yarn
 npm i -g npm typescript
 paru -Rns insomnia-bin
 paru -Rns pgcli github-cli
-paru -Rns neovim python-pynvim
+# paru -Rns neovim python-pynvim
 
 paru -Rns git paru-bin
 sudo pacman -S --needed base-devel

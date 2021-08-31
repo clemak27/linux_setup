@@ -100,9 +100,6 @@ man() {
 # ---------- hide username on local machine ----------
 prompt_context(){}
 
-# ---------- fzf keybindings ----------
-source /usr/share/fzf/key-bindings.zsh
-
 # ---------- custom functions ----------
 for file in ~/.zsh_functions/*; do
    . $file
@@ -110,6 +107,7 @@ done
 
 # ---------- nix package manager ----------
 if [ -e /home/clemens/.nix-profile/etc/profile.d/nix.sh ]; then . /home/clemens/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
 
 # ---------- direnv ----------
 eval "$(direnv hook zsh)"

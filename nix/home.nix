@@ -18,6 +18,7 @@
     bottom
     exa
     fd
+    fzf
     gitAndTools.gh
     hyperfine
     jq
