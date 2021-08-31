@@ -3,6 +3,29 @@ add_newline = false
 [line_break]
 disabled = true
 
+[kubernetes]
+disabled = true
+format = '[$symbol$context( \($namespace\))]($style) '
+
+[directory]
+format = '[ $path]($style)[$read_only]($read_only_style) '
+style = 'bold blue'
+truncation_length = 99
+truncate_to_repo = false
+
+[git_branch]
+format = '[$symbol$branch]($style) '
+symbol = ' '
+style = 'bold green'
+
+[git_status]
+style = 'bold yellow'
+
+[nix_shell]
+disabled = false
+format = '[$symbol]($style) '
+symbol = ' '
+
 [aws]
 symbol = ' '
 
@@ -18,12 +41,6 @@ disabled = true
 [conda]
 disabled = true
 symbol = ' '
-
-[directory]
-format = '[ $path]($style)[$read_only]($read_only_style) '
-style = 'bold blue'
-truncation_length = 99
-truncate_to_repo = false
 
 [dotnet]
 disabled = true
@@ -43,14 +60,6 @@ symbol = ' '
 [gcloud]
 disabled = true
 
-[git_branch]
-format = '[$symbol$branch]($style) '
-symbol = ' '
-style = 'bold green'
-
-[git_status]
-style = 'bold yellow'
-
 [golang]
 disabled = true
 symbol = ' '
@@ -66,9 +75,6 @@ symbol = ' '
 disabled = true
 symbol = ' '
 
-[kubernetes]
-disabled = true
-format = '[$symbol$context( \($namespace\))]($style) '
 
 [memory_usage]
 disabled = true
@@ -77,10 +83,6 @@ symbol = ' '
 [nim]
 disabled = true
 symbol = ' '
-
-[nix_shell]
-disabled = true
-symbol = ' '
 
 [nodejs]
 disabled = true
