@@ -22,6 +22,7 @@ paru -Rns nodejs-lts-fermium npm semver typescript yarn
 npm i -g npm typescript
 paru -Rns insomnia-bin
 paru -Rns pgcli github-cli
+paru -Rns neovim python-pynvim
 
 paru -Rns git paru-bin
 sudo pacman -S --needed base-devel

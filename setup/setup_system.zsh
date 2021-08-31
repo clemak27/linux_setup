@@ -73,7 +73,7 @@ cp ./other/rfv /home/$user/.local/bin
 
 # development
 pacman -S --quiet --noprogressbar --noconfirm base-devel
-pacman -S --quiet --noprogressbar --noconfirm git neovim python-pynvim xclip
+pacman -S --quiet --noprogressbar --noconfirm git vim xclip neovim python-pynvim
 
 # ssh
 pacman -S --quiet --noprogressbar --noconfirm openssh

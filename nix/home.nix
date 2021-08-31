@@ -28,7 +28,6 @@
     tea
     tealdeer
     todo-txt-cli
-
     tmux
     tmuxinator
 
