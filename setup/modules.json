@@ -82,7 +82,6 @@
         "podman system migrate"
       ],
       "aur": [
-        "insomnia-bin",
         "pgcli"
       ],
       "user_commands": []
