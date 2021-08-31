@@ -99,10 +99,31 @@
   
   # programs.zsh.enable = true;
 
+  # general symlinks
+  home.file = {
+    ".zshrc".source = ./dotfiles/zshrc;
+    ".zsh_functions".source = ./dotfiles/zsh_functions;
+    ".starship.toml".source = ./dotfiles/starship.toml;
+    ".tmux.conf".source = ./dotfiles/tmux.conf;
+    ".markdownlintrc".source = ./dotfiles/markdownlintrc;
+    ".npmrc".source = ./dotfiles/npmrc;
+    ".todo/config".source = ./dotfiles/todo/todo.cfg;
+  };
+
   xdg.configFile = {
+    "alacritty/alacritty.yml".source = ./dotfiles/alacritty/alacritty.yml;
+    "nvim/init.vim".source = ./dotfiles/nvim/init.vim;
+    "nvim/lua".source = ./dotfiles/nvim/lua;
+    "ranger/rc.conf".source = ./dotfiles/ranger/ranger.rc;
+    "ranger/commands.py".source = ./dotfiles/ranger/ranger.commands;
     "bat/config".source = ./dotfiles/bat/config;
     "tmuxinator".source = ./dotfiles/tmuxinator;
   };
-  home.file.".tmux.conf".source = ./dotfiles/tmux.conf;
+
+  # not so general symlinks
+  home.file.".xprofile".source = ./dotfiles/xprofile;
+  home.file.".Xresources".source = ./dotfiles/Xresources;
+  xdg.configFile."mpv/mpv.conf".source = ./dotfiles/mpv/mpv.conf;
+  home.file.".local/share/color-schemes/SkyBlue.colors".source = ../plasma/SkyBlue.colors;
 
 }

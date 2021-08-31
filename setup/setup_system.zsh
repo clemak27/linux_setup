@@ -179,9 +179,6 @@ do
   /bin/zsh -e -c "./setup_module.sh $module"
 done
 
-# symlinks
-sh  /home/$user/Projects/linux_setup/scripts/symlinks.zsh $user
-
 # cleanup
 
 sed -i '$d' /etc/sudoers
