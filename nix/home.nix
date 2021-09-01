@@ -32,6 +32,9 @@
     tmux
     tmuxinator
 
+    gcc
+    neovim
+
     go
     jdk
     gradle

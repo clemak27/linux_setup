@@ -22,7 +22,8 @@ paru -Rns nodejs-lts-fermium npm semver typescript yarn
 npm i -g npm typescript
 paru -Rns insomnia-bin
 paru -Rns pgcli github-cli
-# paru -Rns neovim python-pynvim
+paru -Rns neovim python-pynvim
+# fix ts with uncommenting parasers in config -> TSUninstall all -> renabling parsers
 
 paru -Rns git paru-bin
 sudo pacman -S --needed base-devel
