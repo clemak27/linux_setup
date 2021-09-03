@@ -1,19 +1,16 @@
 # my ArchLinux setup
 
-## Some tools I use
+## Some notes
 
-- Plasma/i3-gaps
-- polybar
-- alacritty
-- neovim
-- firefox
-- fzf
-- ranger
+I currently use Arch Linux with KDE Plasma as desktop environment.
+I also used GNOME and Plasma with i3 as WM in the past.
+I've recently tried out the nix package manager and now manage most of my command line tools with it.
+There is a separate repo you can find [here](https://github.com/clemak27/nix_setup).
 
 ## What's in this repo?
 
 - `dotfiles`  
-  Symlinked dotfiles for all the tools I use.
+  Some symlinked dotfiles.
 - `logo.png`  
   btw
 - `other`  
@@ -24,8 +21,6 @@
   You are reading this :)
 - `rofi`  
   Rofi dotfiles. I use one menu as app launcher and a second menu to select power options (shutdown, reboot, etc.)
-- `screenshots`  
-  Pretty pictures
 - `scripts`  
   Scripts that don't really fit anywhere else.
 - `setup`  

@@ -68,14 +68,12 @@ pacman -Syyu --quiet --noprogressbar --noconfirm
 pacman -S --quiet --noprogressbar --noconfirm zsh zsh-completions
 
 # terminal
-pacman -S --quiet --noprogressbar --noconfirm youtube-dl ripgrep fzf rsync parallel ranger zip unzip unrar htop arch-audit android-tools jq exa hyperfine tokei reflector sd bat ncdu wireguard-tools fd bottom git-delta tmux
+pacman -S --quiet --noprogressbar --noconfirm youtube-dl rsync parallel zip unzip unrar htop arch-audit android-tools wireguard-tools reflector fzf
 cp ./other/rfv /home/$user/.local/bin
 
-# xD
-pacman -S --quiet --noprogressbar --noconfirm cmatrix lolcat neofetch sl
-
 # development
-pacman -S --quiet --noprogressbar --noconfirm git make gcc neovim nodejs-lts-fermium npm semver yarn python-pynvim xclip
+pacman -S --quiet --noprogressbar --noconfirm base-devel
+pacman -S --quiet --noprogressbar --noconfirm git vim xclip neovim python-pynvim
 
 # ssh
 pacman -S --quiet --noprogressbar --noconfirm openssh
@@ -112,7 +110,6 @@ usermod -d /home/$user $user
 usermod -aG wheel $user
 usermod --shell /usr/bin/zsh $user
 
-
 # set password
 echo "$user:$password" | chpasswd
 echo "root:$password" | chpasswd
@@ -139,12 +136,6 @@ IFS=$(echo -en "\n\b")
 aur_packages=(
   'starship-git'
   'paru-bin'
-  'cava'
-  'tty-clock'
-  'ddgr'
-  'tmuxinator'
-  'todotxt'
-  'tealdeer'
 )
 
 declare -r aur_packages
@@ -168,14 +159,6 @@ IFS=$(echo -en "\n\b")
 
 user_commands=(
   'xdg-user-dirs-update'
-  'git config --global user.name "clemak27"'
-  'git config --global user.email clemak27@mailbox.org'
-  'git config --global alias.lol "log --graph --decorate --oneline --all"'
-  'git config --global core.autocrlf input'
-  'git config --global pull.rebase false'
-  'git config --global credential.helper cache --timeout=86400'
-  'git config --global include.path "~/.delta.config"'
-  'tldr --update'
 )
 
 declare -r user_commands
@@ -197,7 +180,12 @@ do
 done
 
 # symlinks
-sh  /home/$user/Projects/linux_setup/scripts/symlinks.zsh $user
+mkdir -p /home/$user/.local/share/color-schemes
+ln -sf /home/$user/Projects/linux_setup/plasma/SkyBlue.colors /home/$user/.local/share/color-schemes/SkyBlue.colors
+ln -sf /home/$user/dotfiles/xprofile /home/$user/.xprofile
+ln -sf /home/$user/dotfiles/Xresources /home/$user/.Xresources
+mkdir -p /home/$user/.config/mpv
+ln -sf /home/$user/dotfiles/mpv.conf /home/$user/.config/mpv/mpv.conf
 
 # cleanup
 

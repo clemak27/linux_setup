@@ -97,7 +97,7 @@ vimls() {
 }
 
 tsserver() {
-  # update_node_package typescript
+  update_node_package typescript
   update_node_package typescript-language-server
 }
 
