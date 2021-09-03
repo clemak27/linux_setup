@@ -179,6 +179,14 @@ do
   /bin/zsh -e -c "./setup_module.sh $module"
 done
 
+# symlinks
+mkdir -p /home/$user/.local/share/color-schemes
+ln -sf /home/$user/Projects/linux_setup/plasma/SkyBlue.colors /home/$user/.local/share/color-schemes/SkyBlue.colors
+ln -sf /home/$user/dotfiles/xprofile /home/$user/.xprofile
+ln -sf /home/$user/dotfiles/Xresources /home/$user/.Xresources
+mkdir -p /home/$user/.config/mpv
+ln -sf /home/$user/dotfiles/mpv.conf /home/$user/.config/mpv/mpv.conf
+
 # cleanup
 
 sed -i '$d' /etc/sudoers
