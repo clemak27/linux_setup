@@ -12,7 +12,6 @@ declare -a system_modules
 system_modules=(
  desktop_environment
  nvidia
- development
  office
  gaming
  virtualization

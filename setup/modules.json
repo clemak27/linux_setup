@@ -72,13 +72,6 @@
       ]
     },
     {
-      "name": "development",
-      "packages": [],
-      "commands": [],
-      "aur": [],
-      "user_commands": []
-    },
-    {
       "name": "virtualization",
       "packages": [
         "qemu",
