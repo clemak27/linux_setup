@@ -186,7 +186,8 @@ ln -sf /home/$user/dotfiles/xprofile /home/$user/.xprofile
 ln -sf /home/$user/dotfiles/Xresources /home/$user/.Xresources
 mkdir -p /home/$user/.config/mpv
 ln -sf /home/$user/dotfiles/mpv.conf /home/$user/.config/mpv/mpv.conf
-
+mkdir -p /home/$user/.config/alacritty
+ln -sf /home/$user/dotfiles/alacritty.yml /home/$user/.config/alacritty/alacritty.yml
 # cleanup
 
 sed -i '$d' /etc/sudoers
