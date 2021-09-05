@@ -119,12 +119,11 @@
       "packages": [
         "libreoffice-fresh",
         "libreoffice-fresh-de",
-        "texlive-most",
         "cups",
         "system-config-printer"
       ],
       "commands": ["systemctl enable org.cups.cupsd.service"],
-      "aur": ["pandoc-bin"],
+      "aur": [],
       "user_commands": []
     },
     {
