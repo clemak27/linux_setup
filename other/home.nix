@@ -7,7 +7,9 @@
 
   homecfg = {
     dev = {
-      node = true;
+      node = {
+        enable = true;
+      };
       java = true;
       go = true;
     };
@@ -23,6 +25,10 @@
     };
     nvim = {
       enable = true;
+      advanced = {
+        markdown = true;
+        java = true;
+      };
     };
     tmux = {
       enable = true;
