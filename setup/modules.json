@@ -46,7 +46,6 @@
         "systemctl enable sddm"
       ],
       "aur": [
-        "scrcpy",
         "nerd-fonts-fira-code",
         "ytfzf",
         "sublime-music"

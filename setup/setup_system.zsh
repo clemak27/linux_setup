@@ -68,12 +68,11 @@ pacman -Syyu --quiet --noprogressbar --noconfirm
 pacman -S --quiet --noprogressbar --noconfirm zsh zsh-completions
 
 # terminal
-pacman -S --quiet --noprogressbar --noconfirm youtube-dl rsync parallel zip unzip unrar htop arch-audit android-tools wireguard-tools reflector fzf
-cp ./other/rfv /home/$user/.local/bin
+pacman -S --quiet --noprogressbar --noconfirm youtube-dl rsync parallel zip unzip unrar htop arch-audit wireguard-tools reflector
 
 # development
 pacman -S --quiet --noprogressbar --noconfirm base-devel
-pacman -S --quiet --noprogressbar --noconfirm git vim xclip neovim python-pynvim
+pacman -S --quiet --noprogressbar --noconfirm git vim xclip
 
 # ssh
 pacman -S --quiet --noprogressbar --noconfirm openssh
@@ -93,9 +92,6 @@ ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
 mkdir -p /home/$user/Projects
 mkdir -p /home/$user/Notes
 cp -R . /home/$user/Projects/linux_setup
-
-# zsh
-git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$user/.oh-my-zsh
 
 cd /linux_setup
 
