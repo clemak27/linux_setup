@@ -7,11 +7,11 @@
 
   homecfg = {
     dev = {
+      java = true;
+      go = true;
       node = {
         enable = true;
       };
-      java = true;
-      go = true;
     };
     fun = {
       enable = true;
@@ -25,9 +25,19 @@
     };
     nvim = {
       enable = true;
-      advanced = {
+      snippets = true;
+      telescope = true;
+      lsp = {
+        web = true;
+        yaml = true;
+        nix = true;
+        shell = true;
+        neovim = true;
         markdown = true;
         java = true;
+        go = true;
+        node = true;
+        vue = true;
       };
     };
     tmux = {
