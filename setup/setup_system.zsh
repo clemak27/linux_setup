@@ -84,7 +84,6 @@ git clone https://github.com/alexanderjeurissen/ranger_devicons /home/$user/.con
 mkdir -p /etc/pacman.d/hooks/
 cp ./other/grub.hook /etc/pacman.d/hooks/grub.hook
 cp ./other/cleanup.hook /etc/pacman.d/hooks/cleanup.hook
-cp ./other/tealdeer.hook /etc/pacman.d/hooks/tealdeer.hook
 # cp ./other/nix-update.hook /etc/pacman.d/hooks/nix-update.hook
 ln -s /usr/share/arch-audit/arch-audit.hook /etc/pacman.d/hooks/arch-audit.hook
 
