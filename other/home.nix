@@ -6,11 +6,13 @@
   ];
 
   homecfg = {
+    nixOS = false;
     dev = {
       java = true;
       go = true;
       node = {
         enable = true;
+        exact = true;
       };
     };
     fun = {
@@ -22,6 +24,15 @@
       email = "clemak27@mailbox.org";
       tea = true;
       gh = true;
+    };
+    gui = {
+      alacritty = true;
+      mpv = true;
+      scrcpy = true;
+    };
+    k8s = {
+      enable = true;
+      localDev = true;
     };
     nvim = {
       enable = true;
@@ -38,6 +49,7 @@
         go = true;
         node = true;
         vue = true;
+        latex = true;
       };
     };
     tmux = {
