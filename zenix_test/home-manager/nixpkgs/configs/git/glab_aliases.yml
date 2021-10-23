@@ -1,0 +1,4 @@
+ci: pipeline ci
+co: mr checkout
+csl: ci status --live
+ist: issue note $1 --message "/spend $2"
