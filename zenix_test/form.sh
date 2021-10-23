@@ -6,7 +6,7 @@ password="1234"
 
 user="clemens"
 luksMapper="cryptroot"
-volumeGroup="vg1"
+volumeGroup="vg2"
 
 if [[ $device =~ "nvme" ]]
 then
