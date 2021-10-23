@@ -41,3 +41,5 @@ mkfs.ext4 -L nixos /dev/"${volumeGroup}"/root
 mount /dev/"${volumeGroup}"/root /mnt
 mkdir -p /mnt/boot
 mount "${bootPartition}" /mnt/boot/
+
+# https://gist.github.com/martijnvermaat/76f2e24d0239470dd71050358b4d5134
