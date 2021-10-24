@@ -17,5 +17,5 @@ TODO:
 - make device configurable
 - fix vim-markdown issue (chmod?)
 - add stable channel just in case
-
-
+- setup sddm theme
+- back to i3???
