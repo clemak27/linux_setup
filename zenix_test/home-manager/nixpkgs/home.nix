@@ -49,7 +49,7 @@
         nix = true;
         shell = true;
         neovim = true;
-        markdown = false;
+        markdown = true;
         java = true;
         go = true;
         node = true;
