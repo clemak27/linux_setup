@@ -14,7 +14,7 @@ in
     # https://github.com/NixOS/nixpkgs/issues/122671
     # https://github.com/guibou/nixGL/
     programs.alacritty = {
-      enable = config.homecfg.nixOS;
+      enable = config.homecfg.NixOS;
     };
 
     xdg.configFile = {

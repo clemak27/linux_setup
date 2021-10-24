@@ -10,7 +10,7 @@ in
   config = lib.mkIf (cfg.mpv) {
 
     programs.mpv = {
-      enable = config.homecfg.nixOS;
+      enable = config.homecfg.NixOS;
     };
 
     xdg.configFile = {

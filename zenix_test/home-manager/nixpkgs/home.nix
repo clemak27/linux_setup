@@ -6,6 +6,7 @@
   ];
 
   homecfg = {
+    NixOS = true;
     dev = {
       java = true;
       go = true;

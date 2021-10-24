@@ -14,7 +14,7 @@
   ];
 
   options.homecfg = {
-    nixOS = lib.mkEnableOption "Set to true if home-manager is running on nixOS";
+    NixOS = lib.mkEnableOption "Set to true if home-manager is running on NixOS";
   };
 
   config = {
