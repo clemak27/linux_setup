@@ -5,6 +5,7 @@ in
 {
   imports = [
     ./alacritty.nix
+    ./firefox.nix
     ./intelliJ.nix
     ./mpv.nix
     ./scrcpy.nix

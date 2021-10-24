@@ -47,11 +47,9 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-
   # Enable the Plasma 5 Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-  
 
   # Configure keymap in X11
   services.xserver.layout = "de";
@@ -67,6 +65,14 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # add novideo driver :(
+  nixpkgs.config.allowUnfree = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.screenSection = ''
+    Option "metamodes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
+  '';
+  boot.kernelParams = [ "nvidia-drm.modeset=1" ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.clemens = {
     isNormalUser = true;
@@ -80,10 +86,18 @@
   environment.systemPackages = with pkgs; [
     zsh
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
     curl
-    firefox
+    w3m
+    neofetch
+    git
   ];
 
+  # Add Fira Code
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+  ];
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
@@ -112,3 +126,4 @@
   system.stateVersion = "21.05"; # Did you read the comment?
 
 }
+

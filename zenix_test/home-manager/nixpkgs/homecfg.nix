@@ -7,15 +7,12 @@
     ./configs/k8s/default.nix
     ./configs/git/default.nix
     ./configs/gui/default.nix
+    ./configs/NixOS/default.nix
     ./configs/nvim/default.nix
     ./configs/tmux/default.nix
     ./configs/tools/default.nix
     ./configs/zsh/default.nix
   ];
-
-  options.homecfg = {
-    NixOS = lib.mkEnableOption "Set to true if home-manager is running on NixOS";
-  };
 
   config = {
     programs.home-manager.enable = true;

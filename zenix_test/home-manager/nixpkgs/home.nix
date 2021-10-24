@@ -6,7 +6,10 @@
   ];
 
   homecfg = {
-    NixOS = true;
+    NixOS = {
+      enable = true;
+      plasma = true;
+    };
     dev = {
       java = true;
       go = true;
@@ -23,6 +26,7 @@
     };
     gui = {
       alacritty = true;
+      firefox = true;
       intelliJ = false;
       mpv = true;
       scrcpy = true;
@@ -45,7 +49,7 @@
         nix = true;
         shell = true;
         neovim = true;
-        markdown = true;
+        markdown = false;
         java = true;
         go = true;
         node = true;

@@ -7,6 +7,15 @@ as root:
   nix-channel --update
   nixos-rebuild switch --upgrade
 
+manually install bismuth
+wget -q -O - https://git.io/J2gLk | sh
+
+sudo cryptsetup open /dev/nvme0n1p3 arch
+
 TODO:
 - update README
 - make device configurable
+- fix vim-markdown issue (chmod?)
+- add stable channel just in case
+
+

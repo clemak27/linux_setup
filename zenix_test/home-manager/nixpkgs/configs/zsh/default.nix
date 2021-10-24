@@ -59,7 +59,7 @@ in
         VISUAL = "nvim";
       };
       initExtra = builtins.concatStringsSep "\n" (
-        []
+        [ ]
         # tea autocomplete
         ++ lib.optionals config.homecfg.git.tea [
           "PROG=tea _CLI_ZSH_AUTOCOMPLETE_HACK=1 source $HOME/.config/tea/autocomplete.zsh"
@@ -75,7 +75,7 @@ in
           # local additional zsh file
           "[[ ! -f ~/.local.zsh ]] || source ~/.local.zsh"
           # nix
-          ". $HOME/.nix-profile/etc/profile.d/nix.sh"
+          "${if config.homecfg.NixOS.enable then "" else ". $HOME/.nix-profile/etc/profile.d/nix.sh"}"
         ]
       );
     };
