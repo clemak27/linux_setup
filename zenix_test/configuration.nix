@@ -90,7 +90,6 @@
     wget
     curl
     w3m
-    neofetch
     git
     wireguard
   ];
