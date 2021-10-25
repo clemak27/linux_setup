@@ -6,8 +6,10 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./secrets.nix
     ];
 
   # Use the GRUB 2 boot loader.
@@ -24,7 +26,7 @@
 
   networking.hostName = "zenix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
+  networking.networkmanager.enable = true;
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
 
@@ -77,7 +79,6 @@
   users.users.clemens = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    password = "1234";
     shell = pkgs.zsh;
   };
 
@@ -91,13 +92,14 @@
     w3m
     neofetch
     git
+    wireguard
   ];
 
   # Add Fira Code
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
-  
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
@@ -124,6 +126,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.05"; # Did you read the comment?
-
 }
-

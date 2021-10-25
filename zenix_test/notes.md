@@ -1,4 +1,5 @@
 run form.sh
+generate config+hardware config
 copy configuration.nix
 switch to unstable && add home-manager
 as root:
@@ -6,6 +7,7 @@ as root:
   nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
   nix-channel --update
   nixos-rebuild switch --upgrade
+cp hardware-configuration nix to this repo
 
 manually install bismuth
 wget -q -O - https://git.io/J2gLk | sh
@@ -19,3 +21,4 @@ TODO:
 - add stable channel just in case
 - setup sddm theme
 - back to i3???
+- yeet secrets.nix https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes
