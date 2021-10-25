@@ -11,6 +11,7 @@ in
     home.packages = with pkgs; [
       papirus-icon-theme
       latte-dock
+      ark
     ];
 
     home.file.".local/share/color-schemes/SkyBlue.colors".source = ./SkyBlue.colors;

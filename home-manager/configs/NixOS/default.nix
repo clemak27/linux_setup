@@ -17,6 +17,8 @@ in
       partition-manager
       openrgb
       scrcpy
+      discord
+      steam
     ];
 
     programs.rofi.enable = true;

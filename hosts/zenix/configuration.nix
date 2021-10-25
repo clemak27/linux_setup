@@ -93,6 +93,9 @@
     Option "metamodes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
   '';
   boot.kernelParams = [ "nvidia-drm.modeset=1" ];
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport32Bit = true;
+  hardware.pulseaudio.support32Bit = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.clemens = {
@@ -111,6 +114,13 @@
     w3m
     git
     wireguard
+
+    # wine-staging (version with experimental features)
+    wineWowPackages.staging
+
+    # winetricks and other programs depending on wine need to use the same wine version
+    (winetricks.override { wine = wineWowPackages.staging; })
+    vulkan-tools
   ];
 
   # Add Fira Code
