@@ -21,17 +21,30 @@ in
     enable = lib.mkEnableOption "Set to true if home-manager is running on NixOS";
   };
 
-  config = {
+  config = lib.mkIf (cfg.enable) {
     home.packages = with pkgs; [
       keepassxc
       partition-manager
       openrgb
       sddmTheme
+      scrcpy
     ];
+
     programs.rofi.enable = true;
 
-    services.syncthing = {
-      enable = true;
-    };
+    # https://github.com/NixOS/nixpkgs/issues/80702
+    # https://github.com/NixOS/nixpkgs/issues/122671
+    # https://github.com/guibou/nixGL/
+    programs.alacritty.enable = true;
+    programs.firefox.enable = true;
+    programs.mpv.enable = true;
+    services.syncthing.enable = true;
+
+    # workaround to find .desktop files with rofi (on non NisOS)
+    # adding to PATH did nothing ¯\_(ツ)_/¯
+    # https://nixos.wiki/wiki/Nix_Cookbook#Desktop_environment_does_not_find_.desktop_files
+    home.file.".local/share/applications/nix".source = ~/.nix-profile/share/applications;
+    home.file.".local/share/applications/nix".recursive = true;
+
   };
 }

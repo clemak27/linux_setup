@@ -24,12 +24,10 @@
       enable = true;
       localDev = true;
     };
-    gui = {
+    dotfiles = {
       alacritty = true;
-      firefox = true;
-      intelliJ = false;
+      ideavim = false;
       mpv = true;
-      scrcpy = true;
     };
     git = {
       enable = true;

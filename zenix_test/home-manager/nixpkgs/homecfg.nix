@@ -6,7 +6,7 @@
     ./configs/fun/default.nix
     ./configs/k8s/default.nix
     ./configs/git/default.nix
-    ./configs/gui/default.nix
+    ./configs/dotfiles
     ./configs/NixOS/default.nix
     ./configs/nvim/default.nix
     ./configs/tmux/default.nix
