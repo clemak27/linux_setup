@@ -14,6 +14,10 @@ wget -q -O - https://git.io/J2gLk | sh
 
 sudo cryptsetup open /dev/nvme0n1p3 arch
 
+sudo ln -sf /home/clemens/Projects/linux_setup/hosts/zenix/configuration.nix /etc/nixos/configuration.nix
+rm ~/.config/nixpkgs
+ln -sf /home/clemens/Projects/linux_setup/home-manager /home/clemens/.config/nixpkgs
+
 TODO:
 - update README
 - make device configurable
