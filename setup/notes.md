@@ -26,3 +26,5 @@ TODO:
 - setup sddm theme
 - back to i3???
 - yeet secrets.nix https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes
+- pipewire
+- bluetooth
