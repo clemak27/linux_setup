@@ -18,7 +18,6 @@ in
       openrgb
       scrcpy
       discord
-      steam
     ];
 
     programs.rofi.enable = true;

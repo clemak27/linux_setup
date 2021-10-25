@@ -3,7 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
 {
   imports =
     [
@@ -116,6 +115,7 @@
     w3m
     git
     wireguard
+    xclip
 
     # wine-staging (version with experimental features)
     wineWowPackages.staging
@@ -123,9 +123,9 @@
     # winetricks and other programs depending on wine need to use the same wine version
     (winetricks.override { wine = wineWowPackages.staging; })
     vulkan-tools
-
-    xclip
   ];
+
+  programs.steam.enable = true;
 
   # Add Fira Code
   fonts.fonts = with pkgs; [
