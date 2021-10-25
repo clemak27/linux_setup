@@ -2,16 +2,16 @@
 {
   imports = [
     ./colors.nix
-    ./configs/dev/default.nix
-    ./configs/fun/default.nix
-    ./configs/k8s/default.nix
-    ./configs/git/default.nix
+    ./configs/dev
+    ./configs/fun
+    ./configs/k8s
+    ./configs/git
     ./configs/dotfiles
-    ./configs/NixOS/default.nix
-    ./configs/nvim/default.nix
-    ./configs/tmux/default.nix
-    ./configs/tools/default.nix
-    ./configs/zsh/default.nix
+    ./configs/NixOS
+    ./configs/nvim
+    ./configs/tmux
+    ./configs/tools
+    ./configs/zsh
   ];
 
   config = {

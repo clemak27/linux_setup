@@ -14,7 +14,7 @@ let
 in
 {
   imports = [
-    ./plasma/default.nix
+    ./plasma
   ];
 
   options.homecfg.NixOS = {
