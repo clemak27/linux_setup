@@ -65,7 +65,9 @@
   hardware.pulseaudio.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
+
+  # add additional HDDs
   boot.supportedFilesystems = [ "ntfs" ];
   fileSystems."/home/clemens/Games" =
     {
