@@ -66,25 +66,23 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
-  # add additional HDDs
+  # mount additional HDDs
   boot.supportedFilesystems = [ "ntfs" ];
-  fileSystems."/home/clemens/Games" =
-    {
+  fileSystems."/home/clemens/Games" = {
       device = "/dev/disk/by-uuid/5E2CCEED67691F72";
       fsType = "ntfs";
-      options = [ "rw" "uid=1000" ];
+      options = [ "rw" "uid=1000" "gid=1000" "user" "exec" "umask=000" ]; 
     };
-  fileSystems."/home/clemens/Archive" =
-    {
+
+  fileSystems."/home/clemens/Archive" = {
       device = "/dev/disk/by-uuid/48764082764072AC";
       fsType = "ntfs";
-      options = [ "rw" "uid=1000" ];
+      options = [ "rw" "uid=1000" "gid=1000" "user" "exec" "umask=000" ]; 
     };
-  fileSystems."/home/clemens/Videos" =
-    {
+  fileSystems."/home/clemens/Videos" = {
       device = "/dev/disk/by-uuid/ACE41486E4145544";
       fsType = "ntfs";
-      options = [ "rw" "uid=1000" ];
+      options = [ "rw" "uid=1000" "gid=1000" "user" "exec" "umask=000" ]; 
     };
 
   # add novideo driver :(
