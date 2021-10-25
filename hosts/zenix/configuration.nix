@@ -121,6 +121,8 @@
     # winetricks and other programs depending on wine need to use the same wine version
     (winetricks.override { wine = wineWowPackages.staging; })
     vulkan-tools
+
+    xclip
   ];
 
   # Add Fira Code

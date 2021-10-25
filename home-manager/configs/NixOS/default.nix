@@ -30,7 +30,6 @@ in
     programs.firefox.enable = true;
     programs.mpv.enable = true;
     services.syncthing.enable = true;
-
     # workaround to find .desktop files with rofi (on non NisOS)
     # adding to PATH did nothing ¯\_(ツ)_/¯
     # https://nixos.wiki/wiki/Nix_Cookbook#Desktop_environment_does_not_find_.desktop_files
