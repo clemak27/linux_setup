@@ -47,5 +47,7 @@ in
     home.file.".local/share/applications/nix".source = ~/.nix-profile/share/applications;
     home.file.".local/share/applications/nix".recursive = true;
 
+    home.file.".xprofile".source =  ./xprofile;
+    home.file.".Xresources".source = ./Xresources;
   };
 }
