@@ -76,6 +76,7 @@ in
           "[[ ! -f ~/.local.zsh ]] || source ~/.local.zsh"
           # nix
           "${if config.homecfg.NixOS.enable then "" else ". $HOME/.nix-profile/etc/profile.d/nix.sh"}"
+          "${if config.homecfg.NixOS.enable then "unset GIT_SSH" else ""}"
         ]
       );
     };
