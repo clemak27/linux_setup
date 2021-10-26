@@ -9,6 +9,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./secrets.nix
+      ./logitech_rgb.nix
     ];
 
   # Use the GRUB 2 boot loader.
@@ -139,9 +140,6 @@
     # winetricks and other programs depending on wine need to use the same wine version
     (winetricks.override { wine = wineWowPackages.staging; })
     vulkan-tools
-
-    libratbag
-    piper
   ];
 
   programs.steam.enable = true;

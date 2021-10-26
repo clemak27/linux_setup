@@ -15,7 +15,6 @@ in
     home.packages = with pkgs; [
       keepassxc
       partition-manager
-      openrgb
       scrcpy
       discord
     ];
