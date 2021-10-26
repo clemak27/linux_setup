@@ -1,8 +1,10 @@
 [ActivityManager][Global Shortcuts]
 switch-to-activity-9672a0e9-c954-441d-b972-cb0be51a18b2=
+switch-to-activity-a7ebf020-5040-4824-8873-cebd1a2bc106=
 
 [KDE Keyboard Layout Switcher][Global Shortcuts]
 Switch keyboard layout to English (US)=
+Switch keyboard layout to German=
 Switch keyboard layout to German (Austria)=
 Switch to Next Keyboard Layout=
 
@@ -18,7 +20,7 @@ BackwardWord=Ctrl+Left
 Begin=Ctrl+Home
 BeginningOfLine=Home
 Clear=
-Close=Ctrl+W; Ctrl+Esc
+Close=Ctrl+Esc; Ctrl+W
 ConfigureNotifications=
 ConfigureToolbars=
 Copy=Ctrl+Ins; Ctrl+C
@@ -65,7 +67,7 @@ PrintPreview=
 Prior=PgUp
 Quit=Ctrl+Q
 Redo=Ctrl+Shift+Z
-Reload=Refresh; F5
+Reload=F5; Refresh
 RenameFile=F2
 Replace=Ctrl+R
 ReportBug=
@@ -102,7 +104,7 @@ Toggle Touchpad=Touchpad Toggle
 
 [kded5][Global Shortcuts]
 Show System Activity=Ctrl+Esc
-display=Meta+P; Display
+display=Display; Meta+P
 
 [khotkeys][Global Shortcuts]
 {0ab5338a-968c-450d-a03b-91ff4d7285b2}=Meta+S
@@ -111,6 +113,7 @@ display=Meta+P; Display
 {34e3663f-a146-47e5-8d29-b38b87cd33b1}=Meta+Return
 {7372d5f4-ae4c-4e6c-8bd6-d47f1bd4037e}=
 {763ec848-e563-4d89-8fb1-217e0b359c21}=Meta+L
+{802259c6-a46b-4963-8352-9a649648f756}=Ctrl+Alt+T
 {b768cbb8-346f-4bab-bf19-9716b12f354d}=Meta+K
 {b865feeb-d96d-41bc-b971-76aee26f6f12}=Meta+Shift+R
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=
@@ -123,6 +126,10 @@ increase_microphone_volume=Microphone Volume Up
 increase_volume=Volume Up
 mic_mute=Microphone Mute
 mute=Volume Mute
+
+[krunner.desktop][Global Shortcuts]
+RunClipboard=
+_launch=
 
 [ksmserver][Global Shortcuts]
 Halt Without Confirmation=Ctrl+Alt+Shift+PgDown
@@ -139,7 +146,7 @@ ExposeAll=Ctrl+F10; Launch (C)
 ExposeClass=Ctrl+F7
 Increase Opacity=
 Invert Screen Colors=
-Kill Window=Ctrl+Alt+Esc
+Kill Window=
 Krohnkite: Cycle Layout=Meta+I
 Krohnkite: Decrease=
 Krohnkite: Down/Next=
@@ -241,7 +248,7 @@ Window Lower=
 Window Maximize=Meta+PgUp
 Window Maximize Horizontal=
 Window Maximize Vertical=
-Window Minimize=Meta+PgDown
+Window Minimize=
 Window Move=
 Window No Border=
 Window On All Desktops=
@@ -300,6 +307,39 @@ Window to Screen 5=
 Window to Screen 6=
 Window to Screen 7=
 addDesktop=
+bismuth_decrease_master_size=
+bismuth_decrease_master_win_count=
+bismuth_decrease_window_height=
+bismuth_decrease_window_width=
+bismuth_focus_bottom_window=
+bismuth_focus_left_window=
+bismuth_focus_next_window=
+bismuth_focus_prev_window=
+bismuth_focus_right_window=
+bismuth_focus_upper_window=
+bismuth_increase_master_size=
+bismuth_increase_master_win_count=Meta+]
+bismuth_increase_window_height=Meta+Ctrl+J
+bismuth_increase_window_width=Meta+Ctrl+L
+bismuth_move_window_to_bottom_pos=Meta+Alt+Down; Meta+Alt+J
+bismuth_move_window_to_left_pos=Meta+Alt+H; Meta+Alt+Left
+bismuth_move_window_to_next_pos=
+bismuth_move_window_to_prev_pos=
+bismuth_move_window_to_right_pos=Meta+Alt+Right; Meta+Alt+L
+bismuth_move_window_to_upper_pos=Meta+Alt+Up; Meta+Alt+K
+bismuth_next_layout=Meta+I
+bismuth_prev_layout=
+bismuth_push_window_to_master=
+bismuth_rotate=Meta+R
+bismuth_rotate_part=
+bismuth_toggle_float_layout=
+bismuth_toggle_monocle_layout=
+bismuth_toggle_quarter_layout=
+bismuth_toggle_spread_layout=
+bismuth_toggle_stair_layout=
+bismuth_toggle_three_column_layout=
+bismuth_toggle_tile_layout=Meta+T
+bismuth_toggle_window_floating=Meta+Shift+Space
 moveCurrentDesktopToLeft=
 moveCurrentDesktopToRight=
 removeCurrentDesktop=
@@ -375,8 +415,8 @@ stopmedia=Media Stop
 _launch=Meta+E
 
 [org.kde.krunner.desktop][Global Shortcuts]
-RunClipboard=Alt+Shift+F2
-_launch=Alt+F2; Search
+RunClipboard=
+_launch=
 
 [org.kde.plasma.emojier.desktop][Global Shortcuts]
 _launch=Meta+.
@@ -423,3 +463,8 @@ toggle do not disturb=
 
 [systemsettings.desktop][Global Shortcuts]
 _launch=Tools
+kcm-kscreen=
+kcm-lookandfeel=
+kcm-users=
+powerdevilprofilesconfig=
+screenlocker=

@@ -12,10 +12,9 @@ in
       papirus-icon-theme
       latte-dock
       ark
+      partition-manager
     ];
 
     home.file.".local/share/color-schemes/SkyBlue.colors".source = ./SkyBlue.colors;
-
   };
-
 }

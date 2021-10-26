@@ -21,6 +21,7 @@ in
       tealdeer
       timewarrior
       todo-txt-cli
+      ueberzug
     ] ++ lib.optionals stdenv.isLinux [
       android-tools
     ];

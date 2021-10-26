@@ -24,7 +24,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][11][Applets][14][Configuration]
-PreloadWeight=0
+PreloadWeight=25
 
 [Containments][11][Applets][15]
 immutability=1
@@ -38,7 +38,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][11][Applets][16][Configuration]
-PreloadWeight=0
+PreloadWeight=5
 
 [Containments][11][Applets][17]
 immutability=1
@@ -59,7 +59,7 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][11][Applets][21][Configuration]
-PreloadWeight=0
+PreloadWeight=5
 
 [Containments][11][Applets][22]
 immutability=1
@@ -96,14 +96,21 @@ plugin=touchpad
 [Containments][11][Applets][96][Configuration]
 PreloadWeight=42
 
+[Containments][11][Applets][98]
+immutability=1
+plugin=com.github.zren.alphablackcontrol
+
+[Containments][11][Applets][98][Configuration]
+PreloadWeight=55
+
 [Containments][11][ConfigDialog]
-DialogHeight=1038
-DialogWidth=855
+DialogHeight=1009
+DialogWidth=949
 
 [Containments][11][General]
-extraItems=org.kde.plasma.networkmanagement,org.kde.plasma.printmanager,org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.notifications,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.nightcolorcontrol,org.kde.plasma.keyboardlayout,org.kde.plasma.keyboardindicator,touchpad
-hiddenItems=Discover Notifier_org.kde.DiscoverNotifier
-knownItems=org.kde.plasma.networkmanagement,org.kde.plasma.clipboard,org.kde.plasma.printmanager,org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.notifications,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.mediacontroller,org.kde.plasma.nightcolorcontrol,org.kde.plasma.keyboardlayout,org.kde.plasma.keyboardindicator,org.kde.plasma.vault
+extraItems=org.kde.plasma.printmanager,org.kde.plasma.battery,org.kde.plasma.notifications,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.nightcolorcontrol,org.kde.plasma.keyboardlayout,org.kde.plasma.keyboardindicator,touchpad,org.kde.plasma.networkmanagement,com.github.zren.alphablackcontrol
+hiddenItems=Discover Notifier_org.kde.DiscoverNotifier,com.github.zren.alphablackcontrol
+knownItems=org.kde.plasma.clipboard,org.kde.plasma.printmanager,org.kde.plasma.battery,org.kde.plasma.notifications,org.kde.plasma.devicenotifier,org.kde.plasma.volume,org.kde.plasma.mediacontroller,org.kde.plasma.nightcolorcontrol,org.kde.plasma.keyboardlayout,org.kde.plasma.keyboardindicator,org.kde.plasma.networkmanagement,com.github.zren.alphablackcontrol
 
 [Containments][4]
 activityId=
@@ -135,6 +142,22 @@ plugin=org.kde.plasma.systemtray
 PreloadWeight=100
 SystrayContainmentId=11
 
+[Containments][4][Applets][100]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][4][Applets][100][Configuration]
+localPath=/home/clemens/.local/share/plasma_icons/runner.desktop
+url=file:///home/clemens/Projects/linux_setup/rofi/runner/runner.desktop
+
+[Containments][4][Applets][101]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][4][Applets][101][Configuration]
+localPath=/home/clemens/.local/share/plasma_icons/powermenu.desktop
+url=file:///home/clemens/Projects/linux_setup/rofi/powermenu/powermenu.desktop
+
 [Containments][4][Applets][89]
 immutability=1
 plugin=org.kde.plasma.virtualdesktopbar
@@ -155,7 +178,7 @@ immutability=1
 plugin=org.kde.plasma.eventcalendar
 
 [Containments][4][Applets][90][Configuration]
-PreloadWeight=33
+PreloadWeight=43
 
 [Containments][4][Applets][90][Configuration][Calendar]
 firstDayOfWeek=1
@@ -171,6 +194,7 @@ clockMouseWheelUp=
 clockTimeFormat1=\sdd.MM.yy, HH:mm:ss\s
 clockTimeFormat2=dd.MM.yy
 v71Migration=true
+v72Migration=true
 widgetShowAgenda=false
 
 [Containments][4][Applets][90][Configuration][Google Calendar]
@@ -180,23 +204,17 @@ tasklistList=W10=
 [Containments][4][Applets][90][Configuration][Weather]
 openWeatherMapCityId=2761369
 
-[Containments][4][Applets][94]
+[Containments][4][Applets][97]
 immutability=1
-plugin=org.kde.plasma.icon
+plugin=org.kde.plasma.pager
 
-[Containments][4][Applets][94][Configuration]
-PreloadWeight=0
-localPath=/home/clemens/.local/share/plasma_icons/runner.sh.desktop
-url=file:///home/clemens/Projects/linux_setup/rofi/runner/runner.sh
+[Containments][4][Applets][97][Configuration][ConfigDialog]
+DialogHeight=1009
+DialogWidth=949
 
-[Containments][4][Applets][95]
-immutability=1
-plugin=org.kde.plasma.icon
-
-[Containments][4][Applets][95][Configuration]
-PreloadWeight=0
-localPath=/home/clemens/.local/share/plasma_icons/powermenu.sh.desktop
-url=file:///home/clemens/Projects/linux_setup/rofi/powermenu/powermenu.sh
+[Containments][4][Applets][97][Configuration][General]
+showWindowIcons=true
+wrapPage=true
 
 [Containments][4][ConfigDialog]
 DialogHeight=600
@@ -209,11 +227,12 @@ PreloadWeight=0
 advanced=false
 alignment=10
 alignmentUpgraded=true
-appletOrder=89;10;90;94;95
+appletOrder=97;10;90;100;101
 autoDecreaseIconSize=false
 backgroundOnlyOnMaximized=true
 disablePanelShadowForMaximized=true
 iconSize=24
+inConfigureAppletsMode=true
 panelPosition=10
 panelShadows=false
 panelSize=100

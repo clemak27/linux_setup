@@ -1,0 +1,7 @@
+[Desktop Entry]
+GenericName=shell script
+Icon=cm_search
+Name[en_US]=runner
+Name=runner
+Type=Link
+URL[$e]=file:$HOME/Projects/linux_setup/rofi/runner/runner.sh

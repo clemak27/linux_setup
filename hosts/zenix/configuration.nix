@@ -10,6 +10,8 @@
       ./hardware-configuration.nix
       ./secrets.nix
       ./logitech_rgb.nix
+      ./sddm.nix
+      ./gaming.nix
     ];
 
   # Use the GRUB 2 boot loader.
@@ -49,8 +51,7 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNU Network Object Model Environment.
-  services.xserver.displayManager.sddm.enable = true;
+  # Enable KDE Plasma 5.
   services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
@@ -58,7 +59,7 @@
   # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing.enable = true;
 
   # Enable sound.
   # Remove sound.enable or turn it off if you had it set previously, it seems to cause conflicts with pipewire
@@ -133,13 +134,7 @@
     git
     wireguard
     xclip
-
-    # wine-staging (version with experimental features)
-    wineWowPackages.staging
-
-    # winetricks and other programs depending on wine need to use the same wine version
-    (winetricks.override { wine = wineWowPackages.staging; })
-    vulkan-tools
+    sshfs
   ];
 
   programs.steam.enable = true;

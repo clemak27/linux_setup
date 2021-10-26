@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.homecfg.NixOS;
+  fix = pkgs.sublime-music.overrideAttrs (oldAttrs: rec {
+    checkPhase = "";
+  });
 in
 {
   imports = [
@@ -14,9 +17,22 @@ in
   config = lib.mkIf (cfg.enable) {
     home.packages = with pkgs; [
       keepassxc
-      partition-manager
       scrcpy
+      krita
+      kdeconnect
+
+      kdenlive
+      obs-studio
+
+      # fix
+      # nixops
+      kid3
+
       discord
+      signal-desktop
+
+      unrar
+      ytfzf
     ];
 
     programs.rofi.enable = true;

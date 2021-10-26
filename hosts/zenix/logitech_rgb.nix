@@ -10,6 +10,8 @@ in
     piper
     openrgb
   ];
-
+  services.udev.extraRules = ''
+    ${builtins.readFile ./60-openrgb.rules}
+  '';
   # services.udev.extraRules = [ openrgb ];
 }

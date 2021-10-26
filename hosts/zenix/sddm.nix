@@ -3,7 +3,7 @@ let
   cfg = config.homecfg.NixOS;
   sddmTheme = pkgs.stdenv.mkDerivation {
     name = "chili-sddm-theme";
-    src = ./plasma;
+    src = ./sddm;
     installPhase = ''
       mkdir -p $out/share/sddm/themes/chili
       tar -xzvf $src/sddm-chili.tar.gz -C $out/share/sddm/themes/chili
@@ -13,5 +13,9 @@ let
   };
 in
 {
-  # probably needs to be done system-level
+  services.xserver.displayManager.sddm.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    sddmTheme
+  ];
 }
