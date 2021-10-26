@@ -49,8 +49,8 @@
   services.xserver.enable = true;
 
   # Enable the GNU Network Object Model Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   services.xserver.layout = "de";
@@ -69,21 +69,21 @@
   # mount additional HDDs
   boot.supportedFilesystems = [ "ntfs" ];
   fileSystems."/home/clemens/Games" = {
-      device = "/dev/disk/by-uuid/5E2CCEED67691F72";
-      fsType = "ntfs";
-      options = [ "rw" "uid=1000" "gid=1000" "user" "exec" "umask=000" ]; 
-    };
+    device = "/dev/disk/by-uuid/5E2CCEED67691F72";
+    fsType = "ntfs";
+    options = [ "rw" "uid=1000" "gid=1000" "user" "exec" "umask=000" ];
+  };
 
   fileSystems."/home/clemens/Archive" = {
-      device = "/dev/disk/by-uuid/48764082764072AC";
-      fsType = "ntfs";
-      options = [ "rw" "uid=1000" "gid=1000" "user" "exec" "umask=000" ]; 
-    };
+    device = "/dev/disk/by-uuid/48764082764072AC";
+    fsType = "ntfs";
+    options = [ "rw" "uid=1000" "gid=1000" "user" "exec" "umask=000" ];
+  };
   fileSystems."/home/clemens/Videos" = {
-      device = "/dev/disk/by-uuid/ACE41486E4145544";
-      fsType = "ntfs";
-      options = [ "rw" "uid=1000" "gid=1000" "user" "exec" "umask=000" ]; 
-    };
+    device = "/dev/disk/by-uuid/ACE41486E4145544";
+    fsType = "ntfs";
+    options = [ "rw" "uid=1000" "gid=1000" "user" "exec" "umask=000" ];
+  };
 
   # add novideo driver :(
   nixpkgs.config.allowUnfree = true;
@@ -121,6 +121,9 @@
     # winetricks and other programs depending on wine need to use the same wine version
     (winetricks.override { wine = wineWowPackages.staging; })
     vulkan-tools
+
+    libratbag
+    piper
   ];
 
   programs.steam.enable = true;
