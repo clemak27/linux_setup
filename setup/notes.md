@@ -10,8 +10,14 @@ as root:
   nixos-rebuild switch --upgrade
 cp hardware-configuration nix to this repo
 
-manually install bismuth
-wget -q -O - https://git.io/J2gLk | sh
+manually install plasma wdigets:
+- bismuth (wget -q -O - https://git.io/J2gLk | sh)
+- dynamic workspaces
+- event calendar
+
+restore plasma shortcuts from file
+restore latte layout from file
+change color scheme to skyBlue
 
 sudo cryptsetup open /dev/nvme0n1p3 arch
 
@@ -23,10 +29,10 @@ TODO:
 - update README
 - make device configurable
 - fix vim-markdown issue (chmod?)
-- add stable channel just in case
-- yeet secrets.nix https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes
+- yeet secrets.nix https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes, or at least use hashed pw
+- go back to packer/vim-plug???
 
-```
+```txt
 lualine repository has been moved to nvim-lualine organization and this repo
 has been archived. Please switch to nvim-lualine/lualine.nvim for updates.
 
