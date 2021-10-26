@@ -1,6 +1,16 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.homecfg.NixOS;
+  alphaBlack = pkgs.stdenv.mkDerivation {
+    name = "breeze-alpha-back";
+    src = ./breeze-alphablack-v20.tar.gz;
+    installPhase = ''
+      ls -hal
+      mkdir -p $out
+      cp -R . $out
+      ls -hal $out
+    '';
+  };
 in
 {
   options.homecfg.NixOS = {
@@ -15,6 +25,9 @@ in
       partition-manager
     ];
 
+    home.file.".local/share/plasma/desktoptheme/breeze-alphablack".source = alphaBlack;
+    home.file.".config/breezerc".source = ./breezerc;
+    home.file.".config/plasmarc".source = ./plasmarc;
     home.file.".local/share/color-schemes/SkyBlue.colors".source = ./SkyBlue.colors;
   };
 }

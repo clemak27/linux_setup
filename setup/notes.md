@@ -4,6 +4,7 @@ copy configuration.nix
 switch to unstable && add home-manager
 as root:
   nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+  nix-channel --add https://nixos.org/channels/nixos-21.05 nixos-stable
   nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
   nix-channel --update
   nixos-rebuild switch --upgrade
@@ -23,7 +24,6 @@ TODO:
 - make device configurable
 - fix vim-markdown issue (chmod?)
 - add stable channel just in case
-- setup sddm theme
 - yeet secrets.nix https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes
 
 ```
