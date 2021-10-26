@@ -5,10 +5,8 @@ let
     name = "breeze-alpha-back";
     src = ./breeze-alphablack-v20.tar.gz;
     installPhase = ''
-      ls -hal
       mkdir -p $out
       cp -R . $out
-      ls -hal $out
     '';
   };
 in
@@ -23,7 +21,11 @@ in
       latte-dock
       ark
       partition-manager
+      xbindkeys
     ];
+
+    # home.file.".xprofile".text = "xbindkeys";
+    home.file.".xbindkeysrc".source = ./xbindkeysrc;
 
     home.file.".local/share/plasma/desktoptheme/breeze-alphablack".source = alphaBlack;
     home.file.".config/breezerc".source = ./breezerc;
