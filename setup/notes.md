@@ -25,6 +25,7 @@ TODO:
 - add stable channel just in case
 - setup sddm theme
 - yeet secrets.nix https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes
+
 ```
 lualine repository has been moved to nvim-lualine organization and this repo
 has been archived. Please switch to nvim-lualine/lualine.nvim for updates.
@@ -32,5 +33,3 @@ has been archived. Please switch to nvim-lualine/lualine.nvim for updates.
 To switch you'll have to change a but of config in your plugin manager.
 Some current plugin manager examples.
 ```
-
-

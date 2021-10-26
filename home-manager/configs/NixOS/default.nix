@@ -1,9 +1,6 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.homecfg.NixOS;
-  fix = pkgs.sublime-music.overrideAttrs (oldAttrs: rec {
-    checkPhase = "";
-  });
 in
 {
   imports = [
@@ -24,8 +21,8 @@ in
       kdenlive
       obs-studio
 
-      # fix
-      # nixops
+      # tests fail
+      # sublime-music
       kid3
 
       discord
