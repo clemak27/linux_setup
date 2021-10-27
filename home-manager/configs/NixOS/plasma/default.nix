@@ -28,8 +28,6 @@ in
     home.file.".xbindkeysrc".source = ./xbindkeysrc;
 
     home.file.".local/share/plasma/desktoptheme/breeze-alphablack".source = alphaBlack;
-    home.file.".config/breezerc".source = ./breezerc;
-    home.file.".config/plasmarc".source = ./plasmarc;
     home.file.".local/share/color-schemes/SkyBlue.colors".source = ./SkyBlue.colors;
   };
 }
