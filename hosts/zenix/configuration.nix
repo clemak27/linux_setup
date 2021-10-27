@@ -4,8 +4,7 @@
 
 { config, pkgs, ... }:
 {
-  imports =
-    [
+  imports = [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./secrets.nix
@@ -13,6 +12,9 @@
       ./sddm.nix
       ./gaming.nix
     ];
+
+  # use the latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
