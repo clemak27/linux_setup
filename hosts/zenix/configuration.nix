@@ -12,6 +12,7 @@
       ./sddm.nix
       ./gaming.nix
       ./virt-manager.nix
+      ./container.nix
     ];
 
   # use the latest kernel
