@@ -11,6 +11,7 @@
       ./logitech_rgb.nix
       ./sddm.nix
       ./gaming.nix
+      ./virt-manager.nix
     ];
 
   # use the latest kernel
