@@ -32,6 +32,12 @@ in
         ref = "master";
       };
 
+    home.file.".config/ranger/plugins/ranger_devicons".source =
+      builtins.fetchGit {
+        url = "https://github.com/alexanderjeurissen/ranger_devicons";
+        ref = "main";
+      };
+
     programs.fzf = {
       enable = true;
       defaultCommand = "rg --files --hidden";
