@@ -30,6 +30,8 @@ in
 
       unrar
       ytfzf
+
+      libreoffice-qt
     ];
 
     programs.rofi.enable = true;
