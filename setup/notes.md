@@ -18,6 +18,7 @@ manually install plasma wdigets:
 restore plasma shortcuts from file
 restore latte layout from file
 change color scheme to skyBlue
+run kwinrc.sh
 
 sudo cryptsetup open /dev/nvme0n1p3 arch
 
@@ -28,7 +29,6 @@ ln -sf /home/clemens/Projects/linux_setup/home-manager /home/clemens/.config/nix
 TODO:
 - update README
 - make device configurable
-- fix vim-markdown issue (chmod?)
 - yeet secrets.nix https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes, or at least use hashed pw
 - go back to packer/vim-plug???
 

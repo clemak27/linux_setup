@@ -1,0 +1,16 @@
+#!/bin/sh
+
+kwriteconfig5 --file 'kwinrc' --group 'Script-bismuth' --key 'enableFloatingLayout' 'true'
+kwriteconfig5 --file 'kwinrc' --group 'Script-bismuth' --key 'enableQuarterLayout' 'true'
+kwriteconfig5 --file 'kwinrc' --group 'Script-bismuth' --key 'enableSpreadLayout' 'false'
+kwriteconfig5 --file 'kwinrc' --group 'Script-bismuth' --key 'enableStairLayout' 'false'
+kwriteconfig5 --file 'kwinrc' --group 'Script-bismuth' --key 'floatingClass' 'keepassxc,systemsettings,plasma.emojier'
+kwriteconfig5 --file 'kwinrc' --group 'Script-bismuth' --key 'ignoreClass' 'krunner,yakuake,spectacle,kded5,steam'
+kwriteconfig5 --file 'kwinrc' --group 'Script-bismuth' --key 'maximizeSoleTile' 'true'
+kwriteconfig5 --file 'kwinrc' --group 'Script-bismuth' --key 'noTileBorder' 'true'
+kwriteconfig5 --file 'kwinrc' --group 'Script-bismuth' --key 'preventMinimize' 'true'
+kwriteconfig5 --file 'kwinrc' --group 'Script-bismuth' --key 'screenGapBottom' '7'
+kwriteconfig5 --file 'kwinrc' --group 'Script-bismuth' --key 'screenGapLeft' '7'
+kwriteconfig5 --file 'kwinrc' --group 'Script-bismuth' --key 'screenGapRight' '7'
+kwriteconfig5 --file 'kwinrc' --group 'Script-bismuth' --key 'screenGapTop' '7'
+kwriteconfig5 --file 'kwinrc' --group 'Script-bismuth' --key 'tileLayoutGap' '7'
