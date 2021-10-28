@@ -21,7 +21,7 @@ rip arch linux 15.06.2019 - 28.10.2021
     password = "1234";
   };
   ```
-  - make encryption work by adding  
+  - make encryption work by adding:
   ```nix
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -78,33 +78,7 @@ home-manager switch
 - restore latte layout from file
 - change color scheme to skyBlue
 - run `home-manager/configs/NixOS/plasma/config.sh` to setup plasma
-
-### TODO LATER (create GH issues?)
-- Update website
-  - screenshots
-  - history section?
-  - add linux-DE rant? 👀
-- NixOS - part 2:
-  - new wallpaper
-  - automate as much of setup as possible
-    - plasma things can possibly installed with tgz
-  - move parts of zenix config to general folder
-  - move home.nix around?
-  - yeet secrets.nix https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes
-  - automatic updates + garbarge collection
-- multi-monitor support
-  - add new wallpapers
-  - add plasma extensions for better support
-- add tests for config (gh-action?)
-- custom NixOS usb (possible?)
-- install NixOS on xps15
-- go back to packer/vim-plug or update colorscheme/lualine:
-```txt
-lualine repository has been moved to nvim-lualine organization and this repo
-has been archived. Please switch to nvim-lualine/lualine.nvim for updates.
-```
-- support printer @zenix (derv like this i guess: https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/misc/cups/drivers/mfcl2700dncupswrapper/default.nix#L38, or make generic driver work lol)
-  
+ 
 ## What's in this repo?
 
 the result of ~1 week of vacation lol
