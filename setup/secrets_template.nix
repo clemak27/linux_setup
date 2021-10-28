@@ -2,7 +2,7 @@
 {
   # spicy as fuck
   users.users.clemens = {
-    password = "";
+    hashedPassword = "";
   };
 
   networking.wg-quick.interfaces = {
