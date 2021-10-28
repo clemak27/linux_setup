@@ -8,7 +8,7 @@
     Alt + space
 "/home/clemens/Projects/linux_setup/rofi/powermenu/powermenu.sh"
     Mod4 + l
-"btm"
+"alacritty -e btm"
     Mod4 + s
 "latte-dock --replace"
     Shift+Mod4 + b
