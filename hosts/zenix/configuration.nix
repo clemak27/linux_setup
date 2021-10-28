@@ -25,7 +25,7 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.luks.devices.luksroot = {
-    device = "/dev/disk/by-uuid/af78f4e2-205b-4ca7-b4f7-923b797dfd41";
+    device = "/dev/disk/by-uuid/ea64b075-abb6-475f-b4c9-6839f5907664";
     preLVM = true;
     allowDiscards = true;
   };
