@@ -1,10 +1,8 @@
 # my NixOS setup
 
-rip arch linux 15.06.2019 - 28.10.2021
+readme is WIP, plz don't judge
 
-## Setup (WIP)
-
-### Existing machine
+## Setup
 
 - if applicable: backup content of old OS (ssh-keys, pwd.key file, screenshots, ...)
 - if there is none yet: create NixOS live usb
@@ -81,8 +79,8 @@ home-manager switch
  
 ## What's in this repo?
 
-the result of ~1 week of vacation lol
+the result of ~1 week of vacation 
 
 ## Why?
 
-I don't know and hate myself. ¯\\\_(ツ)_/¯
+I don't know. ¯\\\_(ツ)_/¯
