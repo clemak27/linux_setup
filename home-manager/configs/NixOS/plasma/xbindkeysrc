@@ -1,0 +1,16 @@
+"alacritty"
+    Mod4 + Return
+"firefox"
+    Mod4 + b
+"keepassxc"
+    Mod4 + k
+"/home/clemens/Projects/linux_setup/rofi/runner/runner.sh"
+    Alt + space
+"/home/clemens/Projects/linux_setup/rofi/powermenu/powermenu.sh"
+    Mod4 + l
+"alacritty -e btm"
+    Mod4 + s
+"latte-dock --replace"
+    Shift+Mod4 + b
+"kquitapp5 plasmashell && kstart5 plasmashell"
+    Shift+Mod4 + r

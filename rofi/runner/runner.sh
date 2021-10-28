@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 rofi_path=$HOME/Projects/linux_setup/rofi
 
