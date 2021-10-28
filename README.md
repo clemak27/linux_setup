@@ -1,6 +1,10 @@
 # my NixOS setup
 
+rip arch linux 15.06.2019 - 28.10.2021
+
 ## Setup (WIP)
+
+### Existing machine
 
 - if applicable: backup content of old OS (ssh-keys, pwd.key file, screenshots, ...)
 - if there is none yet: create NixOS live usb
@@ -33,76 +37,78 @@
   ```
   - replace the uuid with the uuid of the encrypted device
     - use `lsblk --fs`, example: `└─sda2         crypto_LUKS 2                af78f4e2-205b-4ca7-b4f7-923b797dfd41`
-  - reboot into new system
-  - login as normal user
-  - switch to unstable && add home-manager:
-    - as root:
-    ```sh
-    nix-channel --add https://nixos.org/channels/nixos-unstable nixos
-    nix-channel --add https://nixos.org/channels/nixos-21.05 nixos-stable
-    nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-    nix-channel --update
-    nixos-rebuild switch --upgrade
-    ```
-    - as normal user:
-    ```sh
-    nix-shell '<home-manager>' -A install
-    mkdir -p ~/Projects
-    cd ~/Projects
-    git clone https://github.com/clemak27/linux_setup.git
-    ```
-    - copy hardware-configuration.nix to git-repo
-    - copy uuid from /etc/nixos/configuration.nix to configuration.nix of git-repo
----------------------------------------------------------------------------------------------
-
-as normal user:
+- reboot into new system
+- login as normal user
+- switch to unstable && add home-manager:
+  - as root:
+  ```sh
+  nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+  nix-channel --add https://nixos.org/channels/nixos-21.05 nixos-stable
+  nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+  nix-channel --update
+  nixos-rebuild switch --upgrade
+  ```
+  - as normal user: (if there is a backed up ssh key, gcl with ssh)
+  ```sh
   nix-shell '<home-manager>' -A install
   mkdir -p ~/Projects
   cd ~/Projects
   git clone https://github.com/clemak27/linux_setup.git
-  copy hardware-configuration.nix to repo
-  copy uuid from configuration.nix to configuration.nix of repo
-  symlink configs
-    sudo ln -sf /home/clemens/Projects/linux_setup/hosts/zenix/configuration.nix /etc/nixos/configuration.nix
-    rm ~/.config/nixpkgs
-    ln -sf /home/clemens/Projects/linux_setup/home-manager /home/clemens/.config/nixpkgs
-  nixos-rebuild boot
-  home-manager switch
---- reboot
-manually install plasma wdigets/kwin scripts:
-- bismuth (wget -q -O - https://git.io/J2gLk | sh)
-- dynamic workspaces (GUI)
-- event calendar (GUI)
-restore plasma shortcuts from file
-restore latte layout from file
-change color scheme to skyBlue
-run kwinrc.sh
+  ```
+- copy hardware-configuration.nix to git-repo
+- copy uuid from /etc/nixos/configuration.nix to configuration.nix of git-repo
+- symlink configs:
+```sh
+sudo ln -sf /home/clemens/Projects/linux_setup/hosts/zenix/configuration.nix /etc/nixos/configuration.nix
+rm ~/.config/nixpkgs
+ln -sf /home/clemens/Projects/linux_setup/home-manager /home/clemens/.config/nixpkgs
+```
+- create a secrets.nix in hosts/<hostname> directory according to template in setup dir (mkpasswd -m sha-512)
+- activate the new system:
+```sh
+sudo nixos-rebuild boot
+home-manager switch
+```
+- reboot
+- manually install plasma wdigets/kwin scripts:
+  - bismuth (`wget -q -O - https://git.io/J2gLk | sh`)
+  - dynamic workspaces (GUI)
+  - event calendar (GUI)
+- restore plasma shortcuts from file
+- restore latte layout from file
+- change color scheme to skyBlue
+- run `home-manager/configs/NixOS/plasma/config.sh` to setup plasma
 
-TODO NOW:
-- update README
-- use hashed pw in secrets nix
-- update update_nix helper
-TODO LATER:
-- make device configurable
-- yeet secrets.nix https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes
-- go back to packer/vim-plug???
-- automatic update + garbarge collection
-- support printer (derv like this i guess: https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/misc/cups/drivers/mfcl2700dncupswrapper/default.nix#L38)
-
+### TODO LATER (create GH issues?)
+- Update website
+  - screenshots
+  - history section?
+  - add linux-DE rant? 👀
+- NixOS - part 2:
+  - new wallpaper
+  - automate as much of setup as possible
+    - plasma things can possibly installed with tgz
+  - move parts of zenix config to general folder
+  - move home.nix around?
+  - yeet secrets.nix https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes
+  - automatic updates + garbarge collection
+- multi-monitor support
+  - add new wallpapers
+  - add plasma extensions for better support
+- add tests for config (gh-action?)
+- custom NixOS usb (possible?)
+- install NixOS on xps15
+- go back to packer/vim-plug or update colorscheme/lualine:
 ```txt
 lualine repository has been moved to nvim-lualine organization and this repo
 has been archived. Please switch to nvim-lualine/lualine.nvim for updates.
-
-To switch you'll have to change a but of config in your plugin manager.
-Some current plugin manager examples.
 ```
-
-mkpasswd -m sha-512
-
-
+- support printer @zenix (derv like this i guess: https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/misc/cups/drivers/mfcl2700dncupswrapper/default.nix#L38, or make generic driver work lol)
+  
 ## What's in this repo?
 
+the result of ~1 week of vacation lol
 
 ## Why?
 
-I don't know. ¯\\\_(ツ)_/¯
+I don't know and hate myself. ¯\\\_(ツ)_/¯
