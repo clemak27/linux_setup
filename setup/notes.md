@@ -39,6 +39,7 @@ run kwinrc.sh
 TODO NOW:
 - update README
 - use hashed pw in secrets nix
+- update update_nix helper
 TODO LATER:
 - make device configurable
 - yeet secrets.nix https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes
@@ -53,3 +54,6 @@ has been archived. Please switch to nvim-lualine/lualine.nvim for updates.
 To switch you'll have to change a but of config in your plugin manager.
 Some current plugin manager examples.
 ```
+
+└─sda2         crypto_LUKS 2                af78f4e2-205b-4ca7-b4f7-923b797dfd41
+mkpasswd -m sha-512
