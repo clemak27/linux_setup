@@ -46,7 +46,6 @@ rip arch linux 15.06.2019 - 28.10.2021
   nix-channel --add https://nixos.org/channels/nixos-21.05 nixos-stable
   nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
   nix-channel --update
-  nixos-rebuild switch --upgrade
   ```
   - as normal user: (if there is a backed up ssh key, gcl with ssh)
   ```sh
@@ -60,13 +59,14 @@ rip arch linux 15.06.2019 - 28.10.2021
 - symlink configs:
 ```sh
 sudo ln -sf /home/clemens/Projects/linux_setup/hosts/zenix/configuration.nix /etc/nixos/configuration.nix
-rm ~/.config/nixpkgs
+rm -rf ~/.config/nixpkgs
 ln -sf /home/clemens/Projects/linux_setup/home-manager /home/clemens/.config/nixpkgs
 ```
 - create a secrets.nix in hosts/<hostname> directory according to template in setup dir (mkpasswd -m sha-512)
 - activate the new system:
 ```sh
-sudo nixos-rebuild boot
+sudo nixos-rebuild boot --upgrade
+sudo nix-env -f channel:nixos-21.05 -iA sublime-music
 home-manager switch
 ```
 - reboot
