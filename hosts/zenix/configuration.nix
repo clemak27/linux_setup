@@ -5,15 +5,15 @@
 { config, pkgs, ... }:
 {
   imports = [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./secrets.nix
-      ./logitech_rgb.nix
-      ./sddm.nix
-      ./gaming.nix
-      ./virt-manager.nix
-      ./container.nix
-    ];
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./secrets.nix
+    ./logitech_rgb.nix
+    ./sddm.nix
+    ./gaming.nix
+    ./virt-manager.nix
+    ./container.nix
+  ];
 
   # use the latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -33,6 +33,11 @@
   networking.hostName = "zenix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
+
+  # allow ports for kde connect
+  networking.firewall.allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
+  networking.firewall.allowedUDPPortRanges = [{ from = 1714; to = 1764; }];
+
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
 

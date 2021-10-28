@@ -44,6 +44,7 @@ TODO LATER:
 - yeet secrets.nix https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes
 - go back to packer/vim-plug???
 - automatic update + garbarge collection
+- support printer (derv like this i guess: https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/misc/cups/drivers/mfcl2700dncupswrapper/default.nix#L38)
 
 ```txt
 lualine repository has been moved to nvim-lualine organization and this repo
