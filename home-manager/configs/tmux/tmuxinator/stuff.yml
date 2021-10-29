@@ -48,11 +48,11 @@ windows:
   - stuff:
       layout: f943,239x57,0,0{111x57,0,0[111x12,0,0,0,111x44,0,13,1],127x57,112,0[127x29,112,0,2,127x27,112,30,3]}
       panes:
-        - tty-clock -cs -C 4
-        - btm
+        - " tty-clock -cs -C 4"
+        - " btm"
         - notes:
-          - cd ~/Notes
-          - vim index.md
+          - " cd ~/Notes"
+          - " vim index.md"
         - empty:
-          - tmux set-option status off
-          - clear_scrollback
+          - " tmux set-option status off"
+          - " clear_scrollback"

@@ -49,9 +49,9 @@ windows:
       layout: 3fad,239x58,0,0[239x44,0,0,0,239x13,0,45,1]
       panes:
         - dev:
-          -  tmux set-option status off
-          -  unset TMUX
-          -  tmux new -s dev -n projects -c ~/Projects/<%= @args[0] %>
+          - " tmux set-option status off"
+          - " unset TMUX"
+          - " tmux new -s dev -n projects -c ~/Projects/<%= @args[0] %>"
         - term:
-          -  unset TMUX
-          -  tmux new -s term -n projects -c ~/Projects/<%= @args[0] %>
+          - " unset TMUX"
+          - " tmux new -s term -n projects -c ~/Projects/<%= @args[0] %>"
