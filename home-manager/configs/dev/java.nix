@@ -12,7 +12,7 @@ in
 
     programs.java = {
       enable = true;
-      package = pkgs.adoptopenjdk-bin;
+      package = pkgs.jdk;
     };
   };
 }
