@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 # my NixOS setup
 
 readme is WIP, plz don't judge
@@ -57,8 +58,8 @@ readme is WIP, plz don't judge
 - symlink configs:
 ```sh
 sudo ln -sf /home/clemens/Projects/linux_setup/hosts/zenix/configuration.nix /etc/nixos/configuration.nix
-rm -rf ~/.config/nixpkgs
-ln -sf /home/clemens/Projects/linux_setup/home-manager /home/clemens/.config/nixpkgs
+rm ~/.config/nixpkgs/home.nix
+ln -sf /home/clemens/Projects/linux_setup/hosts/zenix/home.nix /home/clemens/.config/nixpkgs/home.nix
 ```
 - create a secrets.nix in hosts/<hostname> directory according to template in setup dir (mkpasswd -m sha-512)
 - activate the new system:
