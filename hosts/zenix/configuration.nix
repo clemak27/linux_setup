@@ -9,10 +9,11 @@
     ./hardware-configuration.nix
     ./secrets.nix
     ./logitech_rgb.nix
-    ./sddm.nix
-    ./gaming.nix
-    ./virt-manager.nix
-    ./container.nix
+
+    ../../applications/sddm.nix
+    ../../applications/gaming.nix
+    ../../applications/virt-manager.nix
+    ../../applications/container.nix
   ];
 
   # use the latest kernel
