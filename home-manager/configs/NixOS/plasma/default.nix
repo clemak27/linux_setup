@@ -40,7 +40,7 @@ in
     home.file.".xbindkeysrc".source = ./xbindkeysrc;
 
     home.file.".local/share/plasma/desktoptheme/breeze-alphablack".source = alphaBlack;
-    home.file.".local/share/plasma/plasmoids/test".source = eventCalendar;
+    home.file.".local/share/plasma/plasmoids/test".source = eventCalendar; # org.kde.plasma.eventcalendar
     home.file.".local/share/color-schemes/SkyBlue.colors".source = ./SkyBlue.colors;
   };
 }
