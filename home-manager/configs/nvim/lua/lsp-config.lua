@@ -117,7 +117,7 @@ M.load = function()
       end
 
       if server == "sumneko_lua" then
-        config.cmd = { lsp_path .. "/sumneko-lua-language-server" }
+        config.cmd = { "lua-language-server" }
         config.root_dir = vim.loop.cwd
         config.settings = {
           Lua = {
