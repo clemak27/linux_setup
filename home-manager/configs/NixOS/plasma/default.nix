@@ -9,6 +9,18 @@ let
       cp -R . $out
     '';
   };
+  eventCalendar = pkgs.stdenv.mkDerivation {
+    name = "breeze-alpha-back";
+    src = fetchTarball {
+      url = "https://github.com/Zren/plasma-applet-eventcalendar/archive/v75.tar.gz";
+      sha256 = "1jppksrfvbk5ypiqdz4cddxdl8z6zyzdb2srq8fcffr327ld5jj2";
+    };
+    installPhase = ''
+      mkdir -p $out
+      ls -hal .
+      cp -R ./package $out
+    '';
+  };
 in
 {
   options.homecfg.NixOS = {
@@ -28,6 +40,7 @@ in
     home.file.".xbindkeysrc".source = ./xbindkeysrc;
 
     home.file.".local/share/plasma/desktoptheme/breeze-alphablack".source = alphaBlack;
+    home.file.".local/share/plasma/plasmoids/test".source = eventCalendar;
     home.file.".local/share/color-schemes/SkyBlue.colors".source = ./SkyBlue.colors;
   };
 }
