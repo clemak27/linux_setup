@@ -43,7 +43,7 @@ in
       vim-textobj-entire
       (pluginFromGitLatest "sgur/vim-textobj-parameter")
       colorScheme
-      (pluginFromGitLatest "shadmansaleh/lualine.nvim")
+      (pluginFromGitLatest "nvim-lualine/lualine.nvim")
       nvim-web-devicons
       (pluginFromGitLatest "akinsho/nvim-bufferline.lua")
       nvim-colorizer-lua
