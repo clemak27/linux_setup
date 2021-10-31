@@ -12,8 +12,8 @@ let
 in
 {
   options.homecfg.nvim.pluginSettings = lib.mkOption {
-      type = lib.types.lines;
-    };
+    type = lib.types.lines;
+  };
 
   config = {
     programs.neovim.plugins = with pkgs.vimPlugins; [
@@ -22,7 +22,12 @@ in
       vim-commentary
       vim-surround
       vim-ReplaceWithRegister
-      nvim-compe
+      cmp-nvim-lsp
+      cmp-buffer
+      cmp-path
+      cmp-treesitter
+      cmp-vsnip
+      nvim-cmp
       nvim-autopairs
       FixCursorHold-nvim
       vim-fugitive
@@ -46,7 +51,7 @@ in
       nmap R  r$
       xmap r  <Plug>ReplaceWithRegisterVisual
 
-      lua require("nvim-compe-config").load()
+      lua require("nvim-cmp-config").load()
       lua require("autopairs-config").load()
       lua require("gitsigns-config").load()
 
