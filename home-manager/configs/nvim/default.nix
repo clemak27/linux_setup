@@ -34,7 +34,7 @@ in
 
     xdg.configFile = {
       "nvim/lua/autopairs-config.lua".source = ./lua/autopairs-config.lua;
-      "nvim/lua/nvim-compe-config.lua".source = ./lua/nvim-compe-config.lua;
+      "nvim/lua/nvim-cmp-config.lua".source = ./lua/nvim-cmp-config.lua;
       "nvim/lua/gitsigns-config.lua".source = ./lua/gitsigns-config.lua;
       "nvim/lua/colorscheme-config.lua".source = ./lua/colorscheme-config.lua;
       "nvim/lua/lualine-config.lua".source = ./lua/lualine-config.lua;
