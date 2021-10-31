@@ -8,19 +8,7 @@ let
       ref = ref;
     };
   };
-
   pluginFromGitLatest = pluginFromGitBranch "HEAD";
-
-  colorScheme = pkgs.vimUtils.buildVimPluginFrom2Nix {
-    pname = "onedark.nvim";
-    version = "614c8fc94d4bd99c34fe6b8d24b9f4bff89f003f";
-    src = pkgs.fetchFromGitHub {
-      owner = "ful1e5";
-      repo = "onedark.nvim";
-      rev = "614c8fc94d4bd99c34fe6b8d24b9f4bff89f003f";
-      sha256 = "0ffbyjwhpmpcy864a8ck68x6wcz271hz1ai9yz58k7q31nz652c7";
-    };
-  };
 in
 {
   options.homecfg.nvim.pluginSettings = lib.mkOption {
@@ -42,7 +30,7 @@ in
       vim-textobj-user
       vim-textobj-entire
       (pluginFromGitLatest "sgur/vim-textobj-parameter")
-      colorScheme
+      (pluginFromGitLatest "ful1e5/onedark.nvim")
       (pluginFromGitLatest "nvim-lualine/lualine.nvim")
       nvim-web-devicons
       (pluginFromGitLatest "akinsho/nvim-bufferline.lua")
