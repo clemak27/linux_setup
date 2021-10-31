@@ -13,7 +13,7 @@ let
     name = "breeze-alpha-back";
     src = fetchTarball {
       url = "https://github.com/Zren/plasma-applet-eventcalendar/archive/v75.tar.gz";
-      sha256 = "1jppksrfvbk5ypiqdz4cddxdl8z6zyzdb2srq8fcffr327ld5jj2";
+      sha256 = "0sq35jrgjv2pwy5l90nxxqqswp4ph1p2p1hj73x11i4yxx7fhmgd";
     };
     installPhase = ''
       mkdir -p $out
@@ -40,7 +40,8 @@ in
     home.file.".xbindkeysrc".source = ./xbindkeysrc;
 
     home.file.".local/share/plasma/desktoptheme/breeze-alphablack".source = alphaBlack;
-    home.file.".local/share/plasma/plasmoids/test".source = eventCalendar; # org.kde.plasma.eventcalendar
+    home.file."Desktop/test".source = eventCalendar; # org.kde.plasma.eventcalendar
+    # home.file.".local/share/plasma/plasmoids/test".source = eventCalendar; # org.kde.plasma.eventcalendar
     home.file.".local/share/color-schemes/SkyBlue.colors".source = ./SkyBlue.colors;
   };
 }

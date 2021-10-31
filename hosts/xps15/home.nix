@@ -7,8 +7,8 @@
 
   homecfg = {
     NixOS = {
-      enable = false;
-      plasma = false;
+      enable = true;
+      plasma = true;
     };
     dev = {
       java = true;

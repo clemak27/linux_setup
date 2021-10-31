@@ -3,37 +3,37 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
+
 {
-  imports = [
-    # Include the results of the hardware scan.
+  imports =
+    [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./secrets.nix
-    ./logitech_rgb.nix
 
     ../../applications/sddm.nix
-    ../../applications/gaming.nix
+    # ../../applications/gaming.nix
     ../../applications/virt-manager.nix
     ../../applications/container.nix
-  ];
-
+    ];
   # use the latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Use the GRUB 2 boot loader.
+
+ # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.luks.devices.luksroot = {
-    device = "/dev/disk/by-uuid/ea64b075-abb6-475f-b4c9-6839f5907664";
+    device = "/dev/disk/by-uuid/46b1e218-b716-4250-8fce-ab0b35f1a651";
     preLVM = true;
     allowDiscards = true;
   };
 
-  networking.hostName = "zenix"; # Define your hostname.
+  networking.hostName = "xps15"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;
+networking.networkmanager.enable = true;
 
   # allow ports for kde connect
   networking.firewall.allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
@@ -46,7 +46,7 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp27s0.useDHCP = true;
+  networking.interfaces.wlp59s0.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -61,15 +61,14 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable KDE Plasma 5.
+  # Enable the GNOME Desktop Environment. (not yet??????)
   services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   services.xserver.layout = "de";
-  # services.xserver.xkbOptions = "eurosign:e";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # Enable touchpad support (enabled default in most desktopManager).
+  services.xserver.libinput.enable = true;
 
   # Enable sound.
   # Remove sound.enable or turn it off if you had it set previously, it seems to cause conflicts with pipewire
@@ -92,44 +91,6 @@
 
   # Enable blueooth
   hardware.bluetooth.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # mount additional HDDs
-  boot.supportedFilesystems = [ "ntfs" ];
-  fileSystems."/home/clemens/Games" = {
-    device = "/dev/disk/by-uuid/5E2CCEED67691F72";
-    fsType = "ntfs";
-    options = [ "rw" "uid=1000" "gid=1000" "user" "exec" "umask=000" ];
-  };
-
-  fileSystems."/home/clemens/Archive" = {
-    device = "/dev/disk/by-uuid/48764082764072AC";
-    fsType = "ntfs";
-    options = [ "rw" "uid=1000" "gid=1000" "user" "exec" "umask=000" ];
-  };
-  fileSystems."/home/clemens/Videos" = {
-    device = "/dev/disk/by-uuid/ACE41486E4145544";
-    fsType = "ntfs";
-    options = [ "rw" "uid=1000" "gid=1000" "user" "exec" "umask=000" ];
-  };
-  fileSystems."/home/clemens/.ssd_games" = {
-    device = "/dev/disk/by-uuid/692ccaac-ce21-45aa-bdd4-7d7ea5b2e497";
-    fsType = "ext4";
-    options = [ "defaults" ];
-  };
-
-  # add novideo driver :(
-  nixpkgs.config.allowUnfree = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-  services.xserver.screenSection = ''
-    Option "metamodes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
-  '';
-  boot.kernelParams = [ "nvidia-drm.modeset=1" ];
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport32Bit = true;
-  hardware.pulseaudio.support32Bit = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.clemens = {
@@ -185,3 +146,4 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.05"; # Did you read the comment?
 }
+
