@@ -5,8 +5,8 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./secrets.nix
 
@@ -14,12 +14,12 @@
     # ../../applications/gaming.nix
     ../../applications/virt-manager.nix
     ../../applications/container.nix
-    ];
+  ];
   # use the latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
 
- # Use the GRUB 2 boot loader.
+  # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "nodev";
@@ -33,7 +33,7 @@
 
   networking.hostName = "xps15"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true;
 
   # allow ports for kde connect
   networking.firewall.allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
