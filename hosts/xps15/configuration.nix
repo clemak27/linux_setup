@@ -17,9 +17,9 @@
     ../../applications/virt-manager.nix
     ../../applications/container.nix
   ];
+
   # use the latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;

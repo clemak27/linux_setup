@@ -5,6 +5,7 @@ in
 {
   imports = [
     ./plasma
+    ./games
   ];
 
   options.homecfg.NixOS = {

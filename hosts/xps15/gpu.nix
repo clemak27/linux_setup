@@ -1,4 +1,13 @@
 { config, pkgs, ... }:
+let
+  prime-run = pkgs.writeShellScriptBin "prime-run" ''
+    export __NV_PRIME_RENDER_OFFLOAD=1
+    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export __VK_LAYER_NV_optimus=NVIDIA_only
+    exec -a "$0" "$@"
+  '';
+in
 {
   # add novideo driver with prime :(
   nixpkgs.config.allowUnfree = true;
@@ -21,4 +30,6 @@
   hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.pulseaudio.support32Bit = true;
+
+  environment.systemPackages = [ prime-run ];
 }
