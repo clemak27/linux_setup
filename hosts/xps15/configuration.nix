@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./secrets.nix
 
@@ -27,4 +26,3 @@
 
   system.stateVersion = "21.05";
 }
-
