@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     ./secrets.nix
 
+    ./gpu.nix
     ./logitech_rgb.nix
 
     ../../modules/plasma.nix
@@ -89,17 +90,6 @@
     fsType = "ext4";
     options = [ "defaults" ];
   };
-
-  # add novideo driver :(
-  nixpkgs.config.allowUnfree = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-  services.xserver.screenSection = ''
-    Option "metamodes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
-  '';
-  boot.kernelParams = [ "nvidia-drm.modeset=1" ];
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport32Bit = true;
-  hardware.pulseaudio.support32Bit = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.clemens = {
