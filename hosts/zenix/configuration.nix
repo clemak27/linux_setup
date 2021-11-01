@@ -11,7 +11,7 @@
 
     ./logitech_rgb.nix
 
-    ../../modules/sddm.nix
+    ../../modules/plasma.nix
     ../../modules/gaming.nix
     ../../modules/virt-manager.nix
     ../../modules/container.nix
@@ -58,16 +58,6 @@
   console = {
     keyMap = "de";
   };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable KDE Plasma 5.
-  services.xserver.desktopManager.plasma5.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.layout = "de";
-  # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

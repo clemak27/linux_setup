@@ -12,7 +12,7 @@
 
     ./gpu.nix
 
-    ../../modules/sddm.nix
+    ../../modules/plasma.nix
     ../../modules/gaming.nix
     ../../modules/virt-manager.nix
     ../../modules/container.nix
@@ -60,15 +60,6 @@
     keyMap = "de";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment. (not yet??????)
-  services.xserver.desktopManager.plasma5.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.layout = "de";
-
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
@@ -111,7 +102,6 @@
     w3m
     git
     wireguard
-    xclip
     sshfs
     parted
   ];
