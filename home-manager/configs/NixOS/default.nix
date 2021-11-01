@@ -31,6 +31,7 @@ in
 
       unrar
       ytfzf
+      sshfs
 
       libreoffice-qt
     ];

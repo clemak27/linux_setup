@@ -79,7 +79,6 @@
     w3m
     git
     wireguard
-    sshfs
     parted
   ];
 

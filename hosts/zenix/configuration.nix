@@ -108,8 +108,6 @@
     w3m
     git
     wireguard
-    xclip
-    sshfs
     parted
   ];
 
