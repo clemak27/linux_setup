@@ -10,8 +10,10 @@
     ./hardware-configuration.nix
     ./secrets.nix
 
+    ./gpu.nix
+
     ../../applications/sddm.nix
-    # ../../applications/gaming.nix
+    ../../applications/gaming.nix
     ../../applications/virt-manager.nix
     ../../applications/container.nix
   ];
