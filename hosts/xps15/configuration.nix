@@ -12,10 +12,10 @@
 
     ./gpu.nix
 
-    ../../applications/sddm.nix
-    ../../applications/gaming.nix
-    ../../applications/virt-manager.nix
-    ../../applications/container.nix
+    ../../modules/sddm.nix
+    ../../modules/gaming.nix
+    ../../modules/virt-manager.nix
+    ../../modules/container.nix
   ];
 
   # use the latest kernel
