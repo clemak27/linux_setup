@@ -13,12 +13,12 @@ readme is WIP, plz don't judge
 - update `setup_nixos.sh` with the device where nix should be installed (check with `lsblk`)
 - run `sudo ./setup_nixos.sh`
 - update the initial config:
-  - create user with simple password
+  - create user with simple password (mkpasswd -m sha-512)
   ```nix
   users.users.clemens = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    initialPassword = "1234";
+    initialHashedPassword = "1234";
   };
   ```
   - make encryption work by adding:

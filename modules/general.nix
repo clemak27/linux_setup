@@ -44,7 +44,6 @@
     curl
     w3m
     git
-    wireguard
     parted
   ];
 

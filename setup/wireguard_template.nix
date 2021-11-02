@@ -1,9 +1,8 @@
 { config, pkgs, ... }:
 {
-  # spicy as fuck
-  users.users.clemens = {
-    hashedPassword = "";
-  };
+  environment.systemPackages = with pkgs; [
+    wireguard
+  ];
 
   networking.wg-quick.interfaces = {
     wg0 = {
@@ -15,7 +14,7 @@
         {
           publicKey = "";
           presharedKey = "";
-          allowedIPs = [ "" "" ];
+          allowedIPs = [ "" ];
           endpoint = "";
           persistentKeepalive = 25;
         }
