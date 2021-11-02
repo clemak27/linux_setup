@@ -49,18 +49,7 @@ formatDevice() {
   mount "${bootPartition}" /mnt/boot/
 }
 
-checkForExist() {
-  if [ -d "../hosts/$hostName" ]
-  then
-    echo "exists"
-  else
-    echo "does not exist"
-  fi
-}
-
 # ------------------------------------- setup --------------------------------------
 
-# formatDevice
-# nixos-generate-config --root /mnt
-# checkForExist
-# lsblk --fs | grep "crypto_LUKS" | awk '{print $4}'
+formatDevice
+nixos-generate-config --root /mnt
