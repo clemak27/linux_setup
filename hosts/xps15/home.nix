@@ -2,13 +2,16 @@
 
 {
   imports = [
-    ./homecfg.nix
+    ../../home-manager/homecfg.nix
   ];
 
   homecfg = {
     NixOS = {
       enable = true;
       plasma = true;
+      games = {
+        minecraft = true;
+      };
     };
     dev = {
       java = true;

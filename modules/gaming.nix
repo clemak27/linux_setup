@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 {
+  nixpkgs.config.allowUnfree = true;
+  programs.steam.enable = true;
+
   environment.systemPackages = with pkgs; [
     gamemode
     # wine-staging (version with experimental features)

@@ -2,11 +2,10 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./wireguard.nix
+    ./secrets.nix
 
     ./gpu.nix
-    ./hdds.nix
-    ./logitech_rgb.nix
+    ./laptop.nix
 
     ../../modules/general.nix
     ../../modules/plasma.nix
@@ -16,16 +15,14 @@
     ../../modules/container.nix
   ];
 
-  networking.hostName = "zenix";
-  networking.interfaces.enp27s0.useDHCP = true;
+  networking.hostName = "xps15";
+  networking.interfaces.wlp59s0.useDHCP = true;
 
   boot.initrd.luks.devices.luksroot = {
-    device = "/dev/disk/by-uuid/ea64b075-abb6-475f-b4c9-6839f5907664";
+    device = "/dev/disk/by-uuid/46b1e218-b716-4250-8fce-ab0b35f1a651";
     preLVM = true;
     allowDiscards = true;
   };
-
-  services.printing.enable = true;
 
   system.stateVersion = "21.05";
 }

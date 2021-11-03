@@ -56,7 +56,7 @@ let
           sha256 = "17pkxpk4lfgm14yfwg6rw6zrkdpxilzv90s48s2hsicgl3vmyr3x";
         };
         themeIni = [
-          { section = "General"; key = "background"; value = ../../wallpaper.png; }
+          { section = "General"; key = "background"; value = ../wallpaper.png; }
         ];
       };
       deps = with pkgs; [ ];

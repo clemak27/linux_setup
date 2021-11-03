@@ -5,6 +5,7 @@ in
 {
   imports = [
     ./plasma
+    ./games
   ];
 
   options.homecfg.NixOS = {
@@ -30,6 +31,7 @@ in
 
       unrar
       ytfzf
+      sshfs
 
       libreoffice-qt
     ];

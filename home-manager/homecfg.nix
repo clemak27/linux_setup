@@ -1,4 +1,45 @@
 { config, lib, pkgs, ... }:
+let
+  cfg = config.homecfg.NixOS;
+  updateNix = pkgs.writeShellScriptBin "update_nix" ''
+
+      ${if cfg.enable then
+      ''
+        echo "Updating and switching system-configuration"
+        sudo nixos-rebuild switch --upgrade
+        echo "Reloading home-manager config"
+        home-manager switch
+
+        if [ -x $(which tldr) ] ; then
+          echo "Updating tealdeer cache"
+          tldr --update
+        fi
+
+        if [ -x $(which nvim) ] ; then
+          echo "Updating additional nvim tools"
+          update-nvim-dev
+        fi
+      ''
+      else ''
+        echo "Updating nix channels"
+        nix-channel --update
+        echo "Upgrading nix-env"
+        nix-env --upgrade
+        echo "Reloading home-manager config"
+        home-manager switch
+
+        if [ -x $(which tldr) ] ; then
+          echo "Updating tealdeer cache"
+          tldr --update
+        fi
+
+        if [ -x $(which nvim) ] ; then
+          echo "Updating additional nvim tools"
+          update-nvim-dev
+        fi
+      ''}
+  '';
+in
 {
   imports = [
     ./colors.nix
@@ -19,6 +60,7 @@
     nixpkgs.config.allowUnfree = true;
     # optional for nix flakes support
     # programs.direnv.nix-direnv.enableFlakes = true;
+    home.packages = with pkgs; [ updateNix ];
   };
 
 }
