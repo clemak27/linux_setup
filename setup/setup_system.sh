@@ -17,21 +17,18 @@ then
 
   if [ -d "../hosts/$hostname" ]
   then
+    mv "../hosts/$hostname" "../hosts/${hostname}_bu"
     mv /etc/nixos/hardware-configuration.nix "../hosts/$hostname/hardware-configuration.nix"
     sudo ln -sf "/home/clemens/Projects/linux_setup/hosts/$hostname/configuration.nix" /etc/nixos/configuration.nix
     rm ~/.config/nixpkgs/home.nix
     ln -sf "/home/clemens/Projects/linux_setup/hosts/$hostname/home.nix" /home/clemens/.config/nixpkgs/home.nix
-    # TODO uuid?
-    # sudo nixos-rebuild boot --upgrade
-    # sudo nix-env -f channel:nixos-21.05 -iA sublime-music
-    # home-manager switch
   else
     mkdir "../hosts/$hostname"
     mv /etc/nixos/hardware-configuration.nix "../hosts/$hostname/hardware-configuration.nix"
     mv /etc/nixos/configuration.nix "../hosts/$hostname/configuration.nix"
     sudo ln -sf "/home/clemens/Projects/linux_setup/hosts/$hostname/configuration.nix" /etc/nixos/configuration.nix
 
-    echo "initial config generated, now edit hosts/$hostname, then run:"
+    echo "initial config generated, now edit hosts/$hostname/configuration.nix, then run:"
     echo "sudo nixos-rebuild boot --upgrade"
     echo "sudo nix-env -f channel:nixos-21.05 -iA sublime-music"
     echo "home-manager switch"

@@ -13,15 +13,14 @@ readme is WIP, plz don't judge
 - update `setup_nixos.sh` with the device where nix should be installed (check with `lsblk`)
 - run `sudo ./setup_nixos.sh`
 - update the initial config:
-  - create user with simple password (mkpasswd -m sha-512)
+  - create user
   ```nix
   users.users.clemens = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    initialHashedPassword = "1234";
   };
   ```
-  - make encryption work by adding:
+  - make encryption work by adding (replace initial bootload config):
   ```nix
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -58,7 +57,6 @@ readme is WIP, plz don't judge
 - login as normal user
 - checkout repo: (if there is a backed up ssh key, gcl with ssh)
   ```sh
-  nix-shell '<home-manager>' -A install
   mkdir -p ~/Projects
   cd ~/Projects
   git clone https://github.com/clemak27/linux_setup.git
@@ -66,6 +64,12 @@ readme is WIP, plz don't judge
 - run the next script:
 - `cd linux_setup/setup`
 - run `./setup_system.sh`
+- edit configuration.nix as wanted and then run:
+```sh
+sudo nixos-rebuild boot --upgrade
+sudo nix-env -f channel:nixos-21.05 -iA sublime-music
+home-manager switch
+```
 
 ### Finishing touches
 
