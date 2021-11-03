@@ -36,7 +36,7 @@ in
         if repo_updated; then npm run compile; else echo "[vscode-go] Already up to date."; fi
       else
         git clone https://github.com/golang/vscode-go
-        cd vscode-node-debug2 || exit
+        cd vscode-go || exit
         npm install
         npm run compile
       fi
