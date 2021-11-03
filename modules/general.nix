@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 {
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+  };
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.loader.grub.enable = true;
