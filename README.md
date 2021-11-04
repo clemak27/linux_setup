@@ -68,7 +68,6 @@ readme is WIP, plz don't judge
 ```sh
 sudo nixos-rebuild boot --upgrade
 sudo nix-env -f channel:nixos-21.05 -iA sublime-music
-home-manager switch
 ```
 
 ### Finishing touches
