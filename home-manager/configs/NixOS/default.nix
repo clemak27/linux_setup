@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.homecfg.NixOS;
+  stable = import <nixos-stable> { };
 in
 {
   imports = [
@@ -22,8 +23,7 @@ in
       kdenlive
       obs-studio
 
-      # tests fail
-      # sublime-music
+      stable.sublime-music
       kid3
 
       discord

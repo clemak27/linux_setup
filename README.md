@@ -73,7 +73,6 @@ readme is WIP, plz don't judge
 - edit configuration.nix as wanted and then run:
 ```sh
 sudo nixos-rebuild boot --upgrade
-sudo nix-env -f channel:nixos-21.05 -iA sublime-music
 ```
 
 ### Finishing touches

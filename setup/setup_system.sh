@@ -19,7 +19,6 @@ then
     rm -rf ~/.config/nixpkgs
     echo "initial config generated, now edit hosts/$hostname/configuration.nix, then run:"
     echo "sudo nixos-rebuild boot --upgrade"
-    echo "sudo nix-env -f channel:nixos-21.05 -iA sublime-music"
   else
     echo "no existing config found"
   fi
