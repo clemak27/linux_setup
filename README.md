@@ -5,7 +5,13 @@ readme is WIP, plz don't judge
 
 ## Setup
 
-## NixOS install
+### Preparation
+
+- create live USB (if there is none yet)
+- create new branch for host
+- prepare config in hosts directory
+
+### NixOS install
 
 - boot from live USB
 - checkout repo: `git clone https://github.com/clemak27/linux_setup`
