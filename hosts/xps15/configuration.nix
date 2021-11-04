@@ -13,6 +13,8 @@
     ../../modules/gaming.nix
     ../../modules/virt-manager.nix
     ../../modules/container.nix
+
+    <home-manager/nixos>
   ];
 
   networking.hostName = "xps15";
@@ -23,6 +25,9 @@
     preLVM = true;
     allowDiscards = true;
   };
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.users.clemens = ./home.nix;
 
   system.stateVersion = "21.05";
 }
