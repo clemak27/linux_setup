@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.homecfg.tools;
+  stable = import <nixos-stable> { };
 in
 {
   options.homecfg.tools.enable = lib.mkEnableOption "Manage command line tools with homecfg";
@@ -14,7 +15,7 @@ in
       fd
       hyperfine
       jq
-      pgcli
+      stable.pgcli
       ranger
       ripgrep
       sd
@@ -59,7 +60,7 @@ in
       ]
     );
 
-   systemd.user.services.tealdeer-update-cache.Service = {
+    systemd.user.services.tealdeer-update-cache.Service = {
       Type = "oneshot";
       ExecStart = ''
         ${pkgs.zsh}/bin/zsh -c "tldr --update"
