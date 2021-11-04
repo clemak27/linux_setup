@@ -59,6 +59,19 @@ in
       ]
     );
 
+   systemd.user.services.tealdeer-update-cache.Service = {
+      Type = "oneshot";
+      ExecStart = ''
+        ${pkgs.zsh}/bin/zsh -c "tldr --update"
+      '';
+    };
+
+    systemd.user.timers.tealdeer-update-cache = {
+      Install.WantedBy = [ "timers.target" ];
+      Unit.PartOf = [ "tealdeer-update-cache.service" ];
+      Timer.OnCalendar = [ "weekly" ];
+    };
+
     home.file = {
       ".todo/config".source = ./todo/todo.cfg;
       ".local/bin/rfv".source = ./rfv;

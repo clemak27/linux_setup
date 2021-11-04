@@ -1,10 +1,8 @@
 { config, pkgs, ... }:
 {
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-  };
+  imports = [
+    ./automation.nix
+  ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
