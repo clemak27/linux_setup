@@ -32,6 +32,19 @@ in
       ]
     );
 
+    systemd.user.services.update-nvim-tools.Service = {
+      Type = "oneshot";
+      ExecStart = ''
+        ${pkgs.zsh}/bin/zsh -c "/home/clemens/.nix-profile/bin/update-nvim-dev"
+      '';
+    };
+
+    systemd.user.timers.update-nvim-tools = {
+      Install.WantedBy = [ "timers.target" ];
+      Unit.PartOf = [ "update-nvim-tools.service" ];
+      Timer.OnCalendar = [ "weekly" ];
+    };
+
     xdg.configFile = {
       "nvim/lua/autopairs-config.lua".source = ./lua/autopairs-config.lua;
       "nvim/lua/nvim-cmp-config.lua".source = ./lua/nvim-cmp-config.lua;
