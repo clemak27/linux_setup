@@ -2,6 +2,7 @@
 {
   imports = [
     ./automation.nix
+    ./swapfile.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -19,6 +20,10 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
+
+  users.users.clemens = {
+    extraGroups = [ "networkmanager" ];
+  };
 
   # allow ports for kde connect
   networking.firewall.allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
