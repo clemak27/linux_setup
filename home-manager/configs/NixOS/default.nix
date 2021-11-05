@@ -17,8 +17,6 @@ in
     home.packages = with pkgs; [
       keepassxc
       scrcpy
-      krita
-      kdeconnect
 
       kdenlive
       obs-studio

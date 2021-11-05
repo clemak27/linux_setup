@@ -28,6 +28,9 @@ in
 
   config = lib.mkIf (cfg.enable && cfg.plasma) {
     home.packages = with pkgs; [
+      krita
+      kdeconnect
+
       papirus-icon-theme
       latte-dock
       ark

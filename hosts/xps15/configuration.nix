@@ -8,7 +8,7 @@
     ./laptop.nix
 
     ../../modules/general.nix
-    ../../modules/plasma.nix
+    ../../modules/gnome.nix
     ../../modules/pipewire.nix
     ../../modules/gaming.nix
     ../../modules/virt-manager.nix

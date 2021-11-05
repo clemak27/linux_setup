@@ -21,10 +21,6 @@
   # replicates the default behaviour.
   networking.useDHCP = false;
 
-  users.users.clemens = {
-    extraGroups = [ "networkmanager" ];
-  };
-
   # allow ports for kde connect
   networking.firewall.allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
   networking.firewall.allowedUDPPortRanges = [{ from = 1714; to = 1764; }];
@@ -39,7 +35,7 @@
 
   users.users.clemens = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.zsh;
   };
 
