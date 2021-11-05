@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./secrets.nix
+    ./wireguard.nix
 
     ./gpu.nix
     ./laptop.nix
