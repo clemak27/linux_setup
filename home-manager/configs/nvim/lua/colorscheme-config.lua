@@ -6,9 +6,9 @@ M.load = function()
 
   require('onedark').setup( {
     colors = {
-      bg = "#161b22",
-      bg2 = "#161b22",
-      bg_linenumber = "#161b22"
+      bg = "#0c0e14",
+      bg2 = "#0c0e14",
+      bg_linenumber = "#0c0e14"
     }
   })
 

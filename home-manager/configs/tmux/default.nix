@@ -71,10 +71,10 @@ in
         bind-key '?' copy-mode \; send-keys "?"
 
         # theme
-        set -g mode-style "fg=${colors.fg},bg=${colors.bg-light}"
+        set -g mode-style "fg=${colors.fg},bg=${colors.bg-darker}"
 
-        set -g message-style "fg=${colors.fg},bg=${colors.bg-light}"
-        set -g message-command-style "fg=${colors.fg},bg=${colors.bg-light}"
+        set -g message-style "fg=${colors.fg},bg=${colors.bg-darker}"
+        set -g message-command-style "fg=${colors.fg},bg=${colors.bg-darker}"
 
         set -g pane-border-style "fg=${colors.bg-light}"
         set -g pane-active-border-style "fg=${colors.bg-light}"
@@ -84,7 +84,7 @@ in
         set -g status-position top
         set -g status-justify "left"
 
-        set -g status-style "fg=${colors.ansi.color4},bg=${colors.bg}"
+        set -g status-style "fg=${colors.ansi.color4},bg=default"
 
         set -g status-left-length "100"
         set -g status-right-length "100"
@@ -97,7 +97,7 @@ in
 
         setw -g window-status-activity-style "underscore,fg=${colors.fg},bg=${colors.bg}"
         setw -g window-status-separator "|"
-        setw -g window-status-style "NONE,fg=${colors.fg},bg=${colors.bg-light}"
+        setw -g window-status-style "NONE,fg=${colors.fg},bg=${colors.bg-darker}"
         setw -g window-status-format " #I: #W#F "
         setw -g window-status-current-format "#[fg=${colors.bg},bg=${colors.fg},bold] #I: #W#F "
       '';

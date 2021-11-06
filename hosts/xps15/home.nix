@@ -9,6 +9,7 @@
     NixOS = {
       enable = true;
       plasma = false;
+      gnome = true;
       games = {
         minecraft = true;
       };

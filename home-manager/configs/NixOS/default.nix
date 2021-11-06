@@ -6,6 +6,7 @@ in
 {
   imports = [
     ./plasma
+    ./gnome
     ./games
   ];
 

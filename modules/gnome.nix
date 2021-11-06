@@ -9,10 +9,6 @@
     gnome.gedit
     epiphany
     gnome.totem
-    # gnome.tali
-    # gnome.iagno
-    # gnome.hitori
-    # gnome.atomix
     gnome-tour
     gnome.geary
   ];
@@ -23,8 +19,8 @@
     gnomeExtensions.appindicator
     gnomeExtensions.unite
     gnomeExtensions.gsconnect
+    gnomeExtensions.blur-my-shell
 
-    pop-icon-theme
 
     xclip
   ];
