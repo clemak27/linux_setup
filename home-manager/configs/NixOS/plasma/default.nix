@@ -36,6 +36,8 @@ in
       ark
       partition-manager
       xbindkeys
+
+      libreoffice-qt
     ];
 
     # home.file.".xprofile".text = "xbindkeys";

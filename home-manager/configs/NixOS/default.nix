@@ -31,8 +31,6 @@ in
       unrar
       ytfzf
       sshfs
-
-      libreoffice-qt
     ];
 
     programs.rofi.enable = true;

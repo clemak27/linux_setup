@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.homecfg.NixOS;
-  candyIcons= pkgs.stdenv.mkDerivation {
+  candyIcons = pkgs.stdenv.mkDerivation {
     name = "candy-icons";
     src = ./candy-icons.tar.gz;
     # src = pkgs.fetchFromGitHub {
@@ -24,7 +24,8 @@ in
   config = lib.mkIf (cfg.enable && cfg.gnome) {
     home.packages = with pkgs; [
       sweet
-      gimp
+      krita
+      libreoffice
     ];
 
     home.file.".local/share/icons/candy-icons".source = candyIcons;
