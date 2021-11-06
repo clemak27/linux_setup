@@ -71,7 +71,7 @@ in
         bind-key '?' copy-mode \; send-keys "?"
 
         # theme
-        set -g mode-style "fg=${colors.fg},bg=${colors.bg-darker}"
+        set -g mode-style "fg=${colors.fg},bg=${colors.bg-light}"
 
         set -g message-style "fg=${colors.fg},bg=${colors.bg-darker}"
         set -g message-command-style "fg=${colors.fg},bg=${colors.bg-darker}"
