@@ -2,17 +2,7 @@
 
 UPDATE_GITIGNORE=0
 
-init_nix_shell() {
-  for arg in "$@"
-  do
-    case $arg in
-      -i|--ignore)
-        UPDATE_GITIGNORE=1
-        shift
-        ;;
-    esac
-  done
-
+__init_shell() {
   if [ $UPDATE_GITIGNORE -eq 1 ]; then
     {
       echo ".direnv";
@@ -33,8 +23,31 @@ init_nix_shell() {
 }
 EOF
 
-nvim shell.nix
+  nvim shell.nix
 
-direnv allow
+  direnv allow
+}
 
+__remove_shell() {
+ rm -rf .direnv .envrc shell.nix
+}
+
+nix_shell() {
+  for arg in "$@"
+  do
+    case $arg in
+      -i|--ignore)
+        UPDATE_GITIGNORE=1
+        shift
+        ;;
+      init)
+        __init_shell
+        shift
+        ;;
+      remove)
+        __remove_shell
+        shift
+        ;;
+    esac
+  done
 }
