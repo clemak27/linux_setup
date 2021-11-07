@@ -23,6 +23,12 @@ in
 
   config = lib.mkIf (cfg.enable && cfg.gnome) {
     home.packages = with pkgs; [
+
+      gnomeExtensions.appindicator
+      gnomeExtensions.unite
+      gnomeExtensions.gsconnect
+      gnomeExtensions.blur-my-shell
+
       sweet
       krita
       gparted

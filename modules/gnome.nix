@@ -15,13 +15,6 @@
 
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
-
-    gnomeExtensions.appindicator
-    gnomeExtensions.unite
-    gnomeExtensions.gsconnect
-    gnomeExtensions.blur-my-shell
-
-
     xclip
   ];
 

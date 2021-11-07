@@ -36,11 +36,14 @@ in
     programs.rofi.enable = true;
 
     programs.alacritty.enable = true;
-    programs.firefox.enable = true;
+    programs.firefox = {
+      enable = true;
+    };
+
     programs.mpv.enable = true;
     services.syncthing.enable = true;
 
-    home.file.".xprofile".source =  ./xprofile;
+    home.file.".xprofile".source = ./xprofile;
     home.file.".Xresources".source = ./Xresources;
   };
 }
