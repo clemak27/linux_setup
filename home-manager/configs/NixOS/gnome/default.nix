@@ -30,7 +30,8 @@ in
       gnomeExtensions.blur-my-shell
 
       sweet
-      krita
+
+      gimp
       gparted
       libreoffice
     ];
