@@ -8,7 +8,7 @@
   homecfg = {
     NixOS = {
       enable = true;
-      plasma = true;
+      gnome = true;
       games = {
         minecraft = false;
       };
