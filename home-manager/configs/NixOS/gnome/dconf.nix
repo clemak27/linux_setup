@@ -3,10 +3,6 @@
     temperature-unit = "centigrade";
   };
 
-  "org/gnome/Weather" = {
-    locations = "[<(uint32 2, <('Vienna', 'LOWW', true, [(0.83979426423570236, 0.2891428852314914)], [(0.84124869946126679, 0.28565222672750273)])>)>]";
-  };
-
   "org/gnome/desktop/calendar" = {
     show-weekdate = true;
   };
@@ -166,11 +162,6 @@
     switch-to-application-2 = [ ];
     switch-to-application-3 = [ ];
     switch-to-application-4 = [ ];
-  };
-
-  "org/gnome/shell/weather" = {
-    automatic-location = true;
-    locations = "[<(uint32 2, <('Vienna', 'LOWW', true, [(0.83979426423570236, 0.2891428852314914)], [(0.84124869946126679, 0.28565222672750273)])>)>]";
   };
 
   "org/gnome/tweaks" = {
