@@ -2,17 +2,19 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./secrets.nix
+    ./wireguard.nix
 
     ./gpu.nix
     ./laptop.nix
 
     ../../modules/general.nix
-    ../../modules/plasma.nix
+    ../../modules/gnome.nix
     ../../modules/pipewire.nix
     ../../modules/gaming.nix
     ../../modules/virt-manager.nix
     ../../modules/container.nix
+
+    <home-manager/nixos>
   ];
 
   networking.hostName = "xps15";
@@ -23,6 +25,9 @@
     preLVM = true;
     allowDiscards = true;
   };
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.users.clemens = ./home.nix;
 
   system.stateVersion = "21.05";
 }

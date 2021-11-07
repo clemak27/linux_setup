@@ -1,10 +1,9 @@
 { config, pkgs, ... }:
 {
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-  };
+  imports = [
+    ./automation.nix
+    ./swapfile.nix
+  ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -36,7 +35,7 @@
 
   users.users.clemens = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.zsh;
   };
 

@@ -14,6 +14,8 @@
     ../../modules/gaming.nix
     ../../modules/virt-manager.nix
     ../../modules/container.nix
+
+    <home-manager/nixos>
   ];
 
   networking.hostName = "zenix";
@@ -26,6 +28,9 @@
   };
 
   services.printing.enable = true;
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.users.clemens = ./home.nix;
 
   system.stateVersion = "21.05";
 }

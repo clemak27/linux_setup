@@ -6,8 +6,8 @@ M.load = function()
 
   local custom_onedark = require'lualine.themes.onedark'
   custom_onedark.normal.a.gui = nil
-  custom_onedark.normal.b.bg = '#2d333b'
-  custom_onedark.normal.c.bg = '#161b22'
+  custom_onedark.normal.b.bg = nil
+  custom_onedark.normal.c.bg = nil
 
   custom_onedark.insert.a.gui = nil
 
@@ -16,9 +16,9 @@ M.load = function()
   custom_onedark.replace.a.gui = nil
 
   custom_onedark.inactive.a.gui = nil
-  custom_onedark.inactive.a.bg = '#161b22'
-  custom_onedark.inactive.b.bg = '#161b22'
-  custom_onedark.inactive.c.bg = '#161b22'
+  custom_onedark.inactive.a.bg = nil
+  custom_onedark.inactive.b.bg = nil
+  custom_onedark.inactive.c.bg = nil
 
   require('lualine').setup {
     options = {

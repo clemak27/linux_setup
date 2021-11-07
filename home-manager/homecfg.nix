@@ -7,8 +7,6 @@ let
       ''
         echo "Updating and switching system-configuration"
         sudo nixos-rebuild switch --upgrade
-        echo "Reloading home-manager config"
-        home-manager switch
 
         if [ -x $(which tldr) ] ; then
           echo "Updating tealdeer cache"
