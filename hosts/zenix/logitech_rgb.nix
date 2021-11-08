@@ -6,10 +6,12 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    libratbag
     piper
     openrgb
   ];
+
+  services.ratbagd.enable = true;
+
   services.udev.extraRules = ''
     ${builtins.readFile ./60-openrgb.rules}
   '';
