@@ -9,6 +9,7 @@ in
     ./lsp.nix
     ./telescope.nix
     ./snippets.nix
+    ./nvim_update.nix
   ];
 
   options.homecfg.nvim.enable = lib.mkEnableOption "Manage neovim with homecfg";
@@ -31,19 +32,6 @@ in
         { name = "notes"; value = "nvim ~/Notes/index.md"; }
       ]
     );
-
-    systemd.user.services.update-nvim-tools.Service = {
-      Type = "oneshot";
-      ExecStart = ''
-        ${pkgs.zsh}/bin/zsh -c "/home/clemens/.nix-profile/bin/update-nvim-dev"
-      '';
-    };
-
-    systemd.user.timers.update-nvim-tools = {
-      Install.WantedBy = [ "timers.target" ];
-      Unit.PartOf = [ "update-nvim-tools.service" ];
-      Timer.OnCalendar = [ "weekly" ];
-    };
 
     xdg.configFile = {
       "nvim/lua/autopairs-config.lua".source = ./lua/autopairs-config.lua;
