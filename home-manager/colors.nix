@@ -32,14 +32,14 @@ in
 
   config.homecfg.colors = {
     # accent
-    accent = "#c50ed2";
+    accent = "#8a2be2";
     # fg
     fg = "#abb2bf";
     fg-light = "#eeeeee";
     # bg
-    bg = "#161925";
-    bg-light = "#181b28";
-    bg-darker = "#0c0e14";
+    bg = "#121212";
+    bg-light = "#232323";
+    bg-darker = "#121212";
     bg-dark = "#000000";
     # black
     ansi.color0 = "#000000";

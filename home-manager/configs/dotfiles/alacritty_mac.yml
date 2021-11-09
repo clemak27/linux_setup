@@ -51,13 +51,13 @@ font:
 
 colors:
   primary:
-    background: '#0c0e14'
+    background: '#121212'
     foreground: '#abb2bf'
   cursor:
-    background: '#0c0e14'
+    background: '#121212'
     foreground: '#abb2bf'
   normal:
-    black:   '#0c0e14'
+    black:   '#121212'
     red:     '#e06c75'
     green:   '#98c379'
     yellow:  '#e5c07b'
