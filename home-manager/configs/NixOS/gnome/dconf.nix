@@ -22,7 +22,7 @@
     font-hinting = "slight";
     font-name = "Cantarell 10";
     gtk-im-module = "gtk-im-context-simple";
-    gtk-theme = "Sweet-Dark";
+    gtk-theme = "Adwaita-violet-dark";
     icon-theme = "candy-icons";
     monospace-font-name = "FiraCode Nerd Font Mono 10";
     show-battery-percentage = false;
@@ -55,7 +55,7 @@
 
   "org/gnome/desktop/wm/preferences" = {
     button-layout = "close:";
-    theme = "Sweet-Dark";
+    theme = "Adwaita";
     titlebar-font = "Cantarell 11";
   };
 
@@ -117,14 +117,8 @@
     name = "bottom";
   };
 
-  "org/gnome/settings-daemon/plugins/power" = {
-    idle-dim = true;
-    power-saver-profile-on-low-battery = true;
-    sleep-inactive-ac-type = "nothing";
-    sleep-inactive-battery-timeout = 3600;
-  };
-
   "org/gnome/shell" = {
+    disable-user-extensions = false;
     disabled-extensions = [ "native-window-placement@gnome-shell-extensions.gcampax.github.com" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" ];
     enabled-extensions = [ "appindicatorsupport@rgcjonas.gmail.com" "gsconnect@andyholmes.github.io" "user-theme@gnome-shell-extensions.gcampax.github.com" "unite@hardpixel.eu" "blur-my-shell@aunetx" ];
   };
@@ -154,7 +148,7 @@
   };
 
   "org/gnome/shell/extensions/user-theme" = {
-    name = "Sweet-Dark";
+    name = "";
   };
 
   "org/gnome/shell/keybindings" = {

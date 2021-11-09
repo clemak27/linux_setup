@@ -4,12 +4,14 @@ let
   candyIcons = pkgs.stdenv.mkDerivation {
     name = "candy-icons";
     src = ./candy-icons.tar.gz;
-    # src = pkgs.fetchFromGitHub {
-    #   owner = "EliverLara";
-    #   repo = "candy-icons";
-    #   rev = "033c24b4fe4ae3eeb097f2f624c27ebc1c58e3f6";
-    #   sha256 = "17pkxpk4lfgm14yfwg6rw6zrkdpxilzv90s48s2hsicgl3vmyr3x";
-    # };
+    installPhase = ''
+      mkdir -p $out
+      cp -R . $out
+    '';
+  };
+  adwaitaVioletDark = pkgs.stdenv.mkDerivation {
+    name = "Adwaita-violet-dark";
+    src = ./Adwaita-violet-dark.tar.gz;
     installPhase = ''
       mkdir -p $out
       cp -R . $out
@@ -29,8 +31,6 @@ in
       gnomeExtensions.gsconnect
       gnomeExtensions.blur-my-shell
 
-      sweet
-
       gimp
       gparted
       libreoffice
@@ -38,6 +38,7 @@ in
 
     dconf.settings = import ./dconf.nix;
 
+    home.file.".themes/Adwaita-violet-dark".source = adwaitaVioletDark;
     home.file.".local/share/icons/candy-icons".source = candyIcons;
   };
 }
