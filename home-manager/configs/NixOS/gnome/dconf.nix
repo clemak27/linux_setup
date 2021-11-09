@@ -38,10 +38,6 @@
     two-finger-scrolling-enabled = true;
   };
 
-  "org/gnome/desktop/session" = {
-    idle-delay = "uint32 0";
-  };
-
   "org/gnome/desktop/wm/keybindings" = {
     switch-to-workspace-1 = [ "<Super>1" ];
     switch-to-workspace-2 = [ "<Super>2" ];
