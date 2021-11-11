@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.homecfg.NixOS;
-  updateNix = pkgs.writeShellScriptBin "update_nix" ''
+  updateHM = pkgs.writeShellScriptBin "update-home-manager" ''
 
       ${if cfg.enable then
       ''
@@ -21,8 +21,8 @@ let
       else ''
         echo "Updating nix channels"
         nix-channel --update
-        echo "Upgrading nix-env"
-        nix-env --upgrade
+        # echo "Upgrading nix-env"
+        # nix-env --upgrade
         echo "Reloading home-manager config"
         home-manager switch
 
@@ -58,7 +58,7 @@ in
     nixpkgs.config.allowUnfree = true;
     # optional for nix flakes support
     # programs.direnv.nix-direnv.enableFlakes = true;
-    home.packages = with pkgs; [ updateNix ];
+    home.packages = with pkgs; [ updateHM ];
   };
 
 }
