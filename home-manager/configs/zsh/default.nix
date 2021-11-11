@@ -53,7 +53,6 @@ in
         DIRENV_LOG_FORMAT = "";
         EDITOR = "nvim";
         GIT_SSH = "/usr/bin/ssh";
-        GOPATH = "$HOME/.go";
         MANPAGER = "nvim -c 'set ft=man' -";
         PATH = "$PATH:$HOME/.cargo/bin:$HOME/.go/bin:$HOME/.local/bin:$HOME/.local/bin/npm/bin";
         VISUAL = "nvim";
