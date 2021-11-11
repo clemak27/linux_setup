@@ -7,7 +7,7 @@ in
 
   config = lib.mkIf (cfg.go) {
     home.packages = with pkgs; [
-      go
+      go_1_17
     ];
 
     programs.zsh.oh-my-zsh.plugins = [
