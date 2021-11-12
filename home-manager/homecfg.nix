@@ -2,40 +2,22 @@
 let
   cfg = config.homecfg.NixOS;
   updateHM = pkgs.writeShellScriptBin "update-home-manager" ''
+    echo "Updating nix channels"
+    nix-channel --update
+    # echo "Upgrading nix-env"
+    # nix-env --upgrade
+    echo "Reloading home-manager config"
+    home-manager switch
 
-      ${if cfg.enable then
-      ''
-        echo "Updating and switching system-configuration"
-        sudo nixos-rebuild switch --upgrade
+    if [ -x $(which tldr) ] ; then
+      echo "Updating tealdeer cache"
+      tldr --update
+    fi
 
-        if [ -x $(which tldr) ] ; then
-          echo "Updating tealdeer cache"
-          tldr --update
-        fi
-
-        if [ -x $(which nvim) ] ; then
-          echo "Updating additional nvim tools"
-          update-nvim-dev
-        fi
-      ''
-      else ''
-        echo "Updating nix channels"
-        nix-channel --update
-        # echo "Upgrading nix-env"
-        # nix-env --upgrade
-        echo "Reloading home-manager config"
-        home-manager switch
-
-        if [ -x $(which tldr) ] ; then
-          echo "Updating tealdeer cache"
-          tldr --update
-        fi
-
-        if [ -x $(which nvim) ] ; then
-          echo "Updating additional nvim tools"
-          update-nvim-dev
-        fi
-      ''}
+    if [ -x $(which nvim) ] ; then
+      echo "Updating additional nvim tools"
+      update-nvim-dev
+    fi
   '';
 in
 {
