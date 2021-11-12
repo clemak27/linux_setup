@@ -22,6 +22,7 @@ in
       vim-commentary
       vim-surround
       vim-ReplaceWithRegister
+      chadtree
       cmp-nvim-lsp
       cmp-buffer
       cmp-path
@@ -50,6 +51,10 @@ in
       nmap rr <Plug>ReplaceWithRegisterLine
       nmap R  r$
       xmap r  <Plug>ReplaceWithRegisterVisual
+
+      let g:chadtree_settings = { "xdg": v:true }
+      nnoremap <leader>n <cmd>CHADopen --always-focus<cr>
+      autocmd BufEnter * if (winnr("$") == 1 && &filetype == "CHADTree") | q | endif
 
       lua require("nvim-cmp-config").load()
       lua require("autopairs-config").load()
