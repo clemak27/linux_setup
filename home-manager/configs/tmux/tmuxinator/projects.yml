@@ -51,7 +51,7 @@ windows:
         - dev:
           - " tmux set-option status off"
           - " unset TMUX"
-          - " tmux new -s dev -n projects -c ~/Projects/<%= @args[0] %>"
+          - " tmux new -s dev -n <%= @args[0] %> -c ~/Projects/<%= @args[0] %>"
         - term:
           - " unset TMUX"
-          - " tmux new -s term -n projects -c ~/Projects/<%= @args[0] %>"
+          - " tmux new -s term -n <%= @args[0] %> -c ~/Projects/<%= @args[0] %>"
