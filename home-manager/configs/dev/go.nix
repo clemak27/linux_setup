@@ -7,6 +7,10 @@ in
 
   config = lib.mkIf (cfg.go) {
 
+    home.packages = with pkgs; [
+      gcc
+    ];
+
     programs.go = {
       enable = true;
       package = pkgs.go_1_17;
