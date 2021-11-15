@@ -103,6 +103,13 @@ in
       '';
     };
 
+
+    programs.zsh.shellAliases = builtins.listToAttrs (
+      [
+        { name = "trwp"; value = "tmux rename-window '#{b:pane_current_path}'"; }
+      ]
+    );
+
     xdg.configFile = {
       "tmuxinator".source = ./tmuxinator;
     };
