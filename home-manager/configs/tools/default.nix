@@ -13,6 +13,7 @@ in
   config = lib.mkIf (cfg.enable) {
     home.packages = with pkgs; [
       bat
+      bat-extras.batman
       bottom
       curl
       exa
@@ -61,6 +62,7 @@ in
         { name = "cat"; value = "bat"; }
         { name = "ls"; value = "exa --icons"; }
         { name = "lsa"; value = "exa --icons -hal"; }
+        { name = "man"; value = "batman"; }
         { name = "todo"; value = "todo.sh"; }
       ]
     );
