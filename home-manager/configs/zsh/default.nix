@@ -30,7 +30,7 @@ in
         ] ++ lib.optionals pkgs.stdenv.isLinux [
           "archlinux"
         ] ++ lib.optionals pkgs.stdenv.isDarwin [
-          "osx"
+          "macos"
         ];
         custom = "$HOME/.oh-my-zsh/custom";
       };
