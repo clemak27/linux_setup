@@ -6,10 +6,10 @@
   environment.systemPackages = with pkgs; [
     gamemode
     # wine-staging (version with experimental features)
-    wineWowPackages.staging
+    winePackages.staging
 
     # winetricks and other programs depending on wine need to use the same wine version
-    (winetricks.override { wine = wineWowPackages.staging; })
+    winetricks
     vulkan-tools
   ];
 }
