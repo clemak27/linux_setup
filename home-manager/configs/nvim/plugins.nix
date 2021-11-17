@@ -37,9 +37,9 @@ in
       vim-textobj-entire
       (pluginFromGitLatest "sgur/vim-textobj-parameter")
       (pluginFromGitLatest "ful1e5/onedark.nvim")
-      (pluginFromGitLatest "nvim-lualine/lualine.nvim")
+      lualine-nvim
       nvim-web-devicons
-      (pluginFromGitLatest "akinsho/nvim-bufferline.lua")
+      bufferline-nvim
       nvim-colorizer-lua
       (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
     ];
