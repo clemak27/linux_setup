@@ -29,6 +29,8 @@
 
   services.printing.enable = true;
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   home-manager.useGlobalPkgs = true;
   home-manager.users.clemens = ./home.nix;
 
