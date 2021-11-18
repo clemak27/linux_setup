@@ -28,6 +28,7 @@ in
       discord
       signal-desktop
 
+      youtube-dl
       unrar
       ytfzf
       sshfs
