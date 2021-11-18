@@ -24,7 +24,7 @@ let
   };
   markdown-preview-plugin = pkgs.vimUtils.buildVimPluginFrom2Nix {
     pname = "markdown-preview.nvim";
-    version = "e5bfe9b89dc9c2fbd24ed0f0596c85fd0568b143";
+    version = "2021-03-10";
     src = markdown-preview;
   };
 in
