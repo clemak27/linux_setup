@@ -5,6 +5,7 @@
 
   environment.systemPackages = with pkgs; [
     gamemode
+    mangohud
     # wine-staging (version with experimental features)
     winePackages.staging
 
