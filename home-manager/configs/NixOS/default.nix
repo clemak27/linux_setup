@@ -5,7 +5,6 @@ let
 in
 {
   imports = [
-    ./plasma
     ./gnome
     ./games
   ];
