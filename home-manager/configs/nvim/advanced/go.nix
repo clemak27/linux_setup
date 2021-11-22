@@ -1,11 +1,9 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.homecfg.nvim.lsp;
+  cfg = config.homecfg.nvim;
 in
 {
-  options.homecfg.nvim.lsp.go = lib.mkEnableOption "Enable gopls, revive and delve/vscode-go";
-
-  config = lib.mkIf (cfg.go && config.homecfg.dev.go && config.homecfg.dev.node.enable) {
+  config = lib.mkIf (cfg.advanced && config.homecfg.dev.go && config.homecfg.dev.node.enable) {
     nvimUpdate.setupCommands = ''
       lsp_dir="${config.nvimUpdate.lspDir}"
       dap_dir="${config.nvimUpdate.dapDir}"

@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.homecfg.nvim.lsp;
+  cfg = config.homecfg.nvim;
   lspJar = "$HOME/.local/bin/nvim/lsp/jdtls/plugins/org.eclipse.equinox.launcher_*.jar";
   os = if pkgs.stdenv.isLinux then "linux" else "mac";
   lspConfig = "$HOME/.local/bin/nvim/lsp/jdtls/config_${os}";
@@ -24,9 +24,7 @@ let
   '';
 in
 {
-  options.homecfg.nvim.lsp.java = lib.mkEnableOption "Enable the Java LSP and DAP";
-
-  config = lib.mkIf (cfg.java && config.homecfg.dev.java && config.homecfg.dev.node.enable) {
+  config = lib.mkIf (cfg.advanced && config.homecfg.dev.java && config.homecfg.dev.node.enable) {
     home.packages = [
       jdtls
     ];
@@ -89,7 +87,7 @@ in
     '';
 
     xdg.configFile = {
-      "nvim/lua/jdtls-config.lua".source = ./lua/jdtls-config.lua;
+      "nvim/lua/jdtls-config.lua".source = ../lua/jdtls-config.lua;
     };
   };
 }

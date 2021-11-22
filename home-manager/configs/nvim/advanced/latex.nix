@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.homecfg.nvim.lsp;
+  cfg = config.homecfg.nvim;
   vimTexConfig = ''
     let g:vimtex_syntax_conceal_default = 0
     let g:vimtex_indent_enabled = 1
@@ -13,9 +13,7 @@ let
   '';
 in
 {
-  options.homecfg.nvim.lsp.latex = lib.mkEnableOption "Enable texlab lsp";
-
-  config = lib.mkIf (cfg.latex) {
+  config = lib.mkIf (cfg.advanced) {
     programs.neovim.plugins = with pkgs.vimPlugins; [
       vimtex
     ];
