@@ -5,14 +5,16 @@ in
 {
   config = lib.mkIf (cfg.advanced) {
 
-    programs.neovim.plugins = with pkgs; [
-      vimPlugins.nvim-lspconfig
-      vimPlugins.lspkind-nvim
-      vimPlugins.popfix
-      vimPlugins.nvim-lsputils
-      vimPlugins.nvim-dap
-      vimPlugins.nvim-dap-ui
+    programs.neovim.plugins = with pkgs.vimPlugins; [
+      nvim-lspconfig
+      lspkind-nvim
+      popfix
+      nvim-lsputils
+      nvim-dap
+      nvim-dap-ui
+    ];
 
+    home.packages = with pkgs; [
       nodePackages.vim-language-server
       sumneko-lua-language-server
 

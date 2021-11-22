@@ -4,8 +4,11 @@ let
 in
 {
   config = lib.mkIf (cfg.advanced) {
-    programs.neovim.plugins = with pkgs; [
-      vimPlugins.nvim-lint
+    programs.neovim.plugins = with pkgs.vimPlugins; [
+      nvim-lint
+    ];
+
+    home.packages = with pkgs; [
       shellcheck
     ];
 
