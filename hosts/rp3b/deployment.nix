@@ -5,6 +5,10 @@
       deployment.targetHost = "192.168.0.31";
       nixpkgs.localSystem.system = "aarch64-linux";
 
+      imports = [
+        <home-manager/nixos>
+      ];
+
       # NixOS wants to enable GRUB by default
       boot.loader.grub.enable = false;
 
@@ -29,11 +33,9 @@
         libraspberrypi
         git
         zsh
-        starship
         wget
         curl
-        neovim
-        neofetch
+        vim
       ];
 
       # File systems configuration for using the installer's partition layout
@@ -64,12 +66,18 @@
         isNormalUser = true;
         home = "/home/clemens";
         shell = pkgs.zsh;
-        extraGroups = [ "wheel" "networkmanager" ];
+        extraGroups = [ "wheel" "networkmanager" "docker" ];
         password = "1234";
         openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOCyRaO8psuZI2i/+inKS5jn765Uypds8ORj/nVkgSE3 lazarus" ];
       };
 
       # https://github.com/NixOS/nixops/issues/730
       users.extraUsers.root.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOCyRaO8psuZI2i/+inKS5jn765Uypds8ORj/nVkgSE3 lazarus" ];
+
+      virtualisation.docker.enable = true;
+
+      home-manager.useGlobalPkgs = true;
+      home-manager.users.clemens = ./home.nix;
+
     };
 }
