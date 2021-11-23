@@ -35,6 +35,8 @@ map Ö <c-[>
 map Ä <c-]>
 " go to definition
 map <silent> gd <Action>(GotoDeclaration)
+" reformat code
+map <silent> gf <Action>(ReformatCode)
 " go to implementation
 map <silent> gi <Action>(GotoImplementation)
 " run current config
@@ -43,8 +45,8 @@ map <silent> <leader>rr <Action>(Run)
 map <silent> <leader>rd <Action>(Debug)
 " run class
 map <silent> <leader>rc <Action>(RunClass)
-" reformat code
-map <silent> == <Action>(ReformatCode)
+" find in path
+map <silent> <leader>g <Action>(FindInPath)
 " move tab to right
 map <C-l> <Action>(NextTab)
 " move tab to left
