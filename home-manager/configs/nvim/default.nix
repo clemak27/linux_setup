@@ -6,7 +6,7 @@ in
 {
   imports = [
     ./plugins.nix
-    ./lsp.nix
+    ./advanced
     ./telescope.nix
     ./snippets.nix
     ./nvim_update.nix

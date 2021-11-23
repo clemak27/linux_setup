@@ -15,6 +15,7 @@ in
       Install.WantedBy = [ "timers.target" ];
       Unit.PartOf = [ "tealdeer-update-cache.service" ];
       Timer.OnCalendar = [ "weekly" ];
+      Timer.Persistent = true;
     };
   };
 }

@@ -1,7 +1,0 @@
-[Desktop Entry]
-GenericName=shell script
-Icon=system-shutdown-symbolic
-Name[en_US]=powermenu
-Name=powermenu
-Type=Link
-URL[$e]=file:$HOME/Projects/linux_setup/rofi/powermenu/powermenu.sh

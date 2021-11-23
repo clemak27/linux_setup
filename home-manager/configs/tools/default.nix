@@ -37,12 +37,14 @@ in
       builtins.fetchGit {
         url = "https://github.com/svenXY/timewarrior.git";
         ref = "master";
+        rev = "083d40edfa0b0a64d84a23ee370097beb43d4dd8";
       };
 
     home.file.".config/ranger/plugins/ranger_devicons".source =
       builtins.fetchGit {
-        url = "https://github.com/alexanderjeurissen/ranger_devicons";
+        url = "https://github.com/alexanderjeurissen/ranger_devicons.git";
         ref = "main";
+        rev = "11941619b853e9608a41028ac8ebde2e6ca7d934";
       };
 
     programs.fzf = {

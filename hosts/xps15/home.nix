@@ -8,7 +8,6 @@
   homecfg = {
     NixOS = {
       enable = true;
-      plasma = false;
       gnome = true;
       games = {
         minecraft = true;
@@ -45,18 +44,7 @@
       enable = true;
       snippets = true;
       telescope = true;
-      lsp = {
-        web = true;
-        yaml = true;
-        nix = true;
-        shell = true;
-        neovim = true;
-        markdown = true;
-        java = true;
-        go = true;
-        node = true;
-        vue = true;
-      };
+      advanced = true;
     };
     tmux = {
       enable = true;

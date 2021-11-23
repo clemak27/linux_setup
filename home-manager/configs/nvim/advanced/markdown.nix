@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.homecfg.nvim.lsp;
+  cfg = config.homecfg.nvim;
   ghRepo = pkgs.fetchFromGitHub {
     owner = "iamcco";
     repo = "markdown-preview.nvim";
@@ -24,14 +24,12 @@ let
   };
   markdown-preview-plugin = pkgs.vimUtils.buildVimPluginFrom2Nix {
     pname = "markdown-preview.nvim";
-    version = "e5bfe9b89dc9c2fbd24ed0f0596c85fd0568b143";
+    version = "2021-03-10";
     src = markdown-preview;
   };
 in
 {
-  options.homecfg.nvim.lsp.markdown = lib.mkEnableOption "Enable improved markdown support";
-
-  config = lib.mkIf (cfg.markdown && config.homecfg.dev.node.enable) {
+  config = lib.mkIf (cfg.advanced && config.homecfg.dev.node.enable) {
     home.file = {
       ".markdownlintrc".source = ./markdownlintrc;
     };
@@ -51,7 +49,7 @@ in
     ];
 
     xdg.configFile = {
-      "nvim/lua/vim-markdown-config.lua".source = ./lua/vim-markdown-config.lua;
+      "nvim/lua/vim-markdown-config.lua".source = ../lua/vim-markdown-config.lua;
     };
   };
 }

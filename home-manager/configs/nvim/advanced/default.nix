@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.homecfg.nvim.lsp;
+  cfg = config.homecfg.nvim;
   updateNvim = pkgs.writeShellScriptBin "update-nvim-dev" (
     builtins.readFile (./. + "/setup_nvim_dev.sh") +
     config.nvimUpdate.setupCommands
@@ -9,19 +9,15 @@ in
 {
   imports = [
     ./latex.nix
-    ./vue.nix
     ./node.nix
     ./go.nix
     ./java.nix
     ./markdown.nix
-    ./neovim.nix
-    ./shell.nix
-    ./nix.nix
-    ./yaml.nix
-    ./web.nix
     ./lint.nix
     ./lsp_dap.nix
   ];
+
+  options.homecfg.nvim.advanced = lib.mkEnableOption "Enable neovim LSP, DAP and linting";
 
   options.nvimUpdate = {
     lspDir = lib.mkOption {
@@ -39,7 +35,7 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf (cfg.advanced) {
     home.packages = with pkgs; [
       updateNvim
     ];

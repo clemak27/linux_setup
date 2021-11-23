@@ -15,6 +15,7 @@ in
       Install.WantedBy = [ "timers.target" ];
       Unit.PartOf = [ "update-nvim-tools.service" ];
       Timer.OnCalendar = [ "weekly" ];
+      Timer.Persistent = true;
     };
   };
 }

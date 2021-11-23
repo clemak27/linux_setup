@@ -5,7 +5,6 @@ let
 in
 {
   imports = [
-    ./plasma
     ./gnome
     ./games
   ];
@@ -28,6 +27,7 @@ in
       discord
       signal-desktop
 
+      youtube-dl
       unrar
       ytfzf
       sshfs

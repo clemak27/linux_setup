@@ -1,14 +1,13 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.homecfg.nvim.lsp;
+  cfg = config.homecfg.nvim;
 in
 {
-  options.homecfg.nvim.lsp.node = lib.mkEnableOption "Enable tsserver, eslint and vscode-node-debug2";
-
-  config = lib.mkIf (cfg.node && config.homecfg.dev.node.enable) {
+  config = lib.mkIf (cfg.advanced && config.homecfg.dev.node.enable) {
     home.packages = with pkgs; [
       nodePackages.typescript
       nodePackages.typescript-language-server
+      nodePackages.vls
       nodePackages.eslint
     ];
 
