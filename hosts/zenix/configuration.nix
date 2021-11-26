@@ -27,8 +27,6 @@
     allowDiscards = true;
   };
 
-  services.printing.enable = true;
-
   home-manager.useGlobalPkgs = true;
   home-manager.users.clemens = ./home.nix;
 
