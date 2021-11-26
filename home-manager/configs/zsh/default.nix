@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.homecfg.zsh;
-  inSecureDirs = if pkgs.stdenv.isDarwin then "true" else "false";
 in
 {
   imports = [
@@ -17,7 +16,7 @@ in
       localVariables = {
         # https://unix.stackexchange.com/questions/167582/why-zsh-ends-a-line-with-a-highlighted-percent-symbol
         PROMPT_EOL_MARK = "";
-        ZSH_DISABLE_COMPFIX = inSecureDirs;
+        ZSH_DISABLE_COMPFIX = false;
       };
       oh-my-zsh = {
         enable = true;
@@ -27,10 +26,6 @@ in
           "rsync"
           "docker"
           "timewarrior"
-        ] ++ lib.optionals pkgs.stdenv.isLinux [
-          "archlinux"
-        ] ++ lib.optionals pkgs.stdenv.isDarwin [
-          "macos"
         ];
         custom = "$HOME/.oh-my-zsh/custom";
       };
@@ -39,11 +34,7 @@ in
           { name = "cd.."; value = "cd .."; }
           { name = "clear_scrollback"; value = "printf '\\33c\\e[3J'"; }
           { name = "q"; value = "exit"; }
-        ] ++ lib.optionals pkgs.stdenv.isLinux [
-          { name = "paruf"; value = "paru -Slq | fzf --multi --preview \"paru -Si {1}\" | xargs -ro paru -S"; }
           { name = "mpvnv"; value = "mpv --no-video"; }
-          { name = "spm"; value = "sudo pacman"; }
-          { name = "update-grub"; value = "sudo grub-mkconfig -o /boot/grub/grub.cfg"; }
           { name = "youtube-dl-music"; value = "youtube-dl --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\""; }
         ]
       );
@@ -52,7 +43,6 @@ in
         BROWSER = "firefox";
         DIRENV_LOG_FORMAT = "";
         EDITOR = "nvim";
-        GIT_SSH = "/usr/bin/ssh";
         PATH = "$PATH:$HOME/.cargo/bin:$HOME/.go/bin:$HOME/.local/bin:$HOME/.local/bin/npm/bin";
         VISUAL = "nvim";
       };
@@ -72,9 +62,6 @@ in
           "for file in ~/.zsh_functions/*; do . $file; done"
           # local additional zsh file
           "[[ ! -f ~/.local.zsh ]] || source ~/.local.zsh"
-          # nix
-          "${if config.homecfg.NixOS.enable then "" else ". $HOME/.nix-profile/etc/profile.d/nix.sh"}"
-          "${if config.homecfg.NixOS.enable then "unset GIT_SSH" else ""}"
         ]
       );
     };

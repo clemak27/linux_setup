@@ -3,7 +3,7 @@ let
   cfg = config.homecfg.nvim;
 in
 {
-  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
+  config = lib.mkIf (cfg.enable) {
     systemd.user.services.update-nvim-tools.Service = {
       Type = "oneshot";
       ExecStart = ''

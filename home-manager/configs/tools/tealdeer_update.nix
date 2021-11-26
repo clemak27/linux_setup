@@ -3,7 +3,7 @@ let
   cfg = config.homecfg.tools;
 in
 {
-  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
+  config = lib.mkIf (cfg.enable) {
     systemd.user.services.tealdeer-update-cache.Service = {
       Type = "oneshot";
       ExecStart = ''

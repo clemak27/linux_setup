@@ -28,8 +28,7 @@ in
       todo-txt-cli
       tree
       ueberzug
-    # ] ++ lib.optionals stdenv.isLinux [
-    #   android-tools
+      android-tools
     ];
 
     home.file.".oh-my-zsh/custom/plugins/timewarrior".source =

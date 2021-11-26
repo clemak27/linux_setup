@@ -2,7 +2,7 @@
 let
   cfg = config.homecfg.nvim;
   lspJar = "$HOME/.local/bin/nvim/lsp/jdtls/plugins/org.eclipse.equinox.launcher_*.jar";
-  os = if pkgs.stdenv.isLinux then "linux" else "mac";
+  os = "linux";
   lspConfig = "$HOME/.local/bin/nvim/lsp/jdtls/config_${os}";
   jdtls = pkgs.writeShellScriptBin "jdtls" ''
     # https://github.com/mfussenegger/nvim-jdtls#language-server-installation

@@ -48,8 +48,8 @@ in
         bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
 
         # Copy
-        bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel ${if pkgs.stdenv.isLinux then "\"xclip -i -sel clip > /dev/null\"" else "\"pbcopy\""}
-        bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel ${if pkgs.stdenv.isLinux then "\"xclip -in -selection clipboard\"" else "\"pbcopy\""}
+        bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -i -sel clip > /dev/null"
+        bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xclip -in -selection clipboard"
 
         # Cancel
         bind-key -T copy-mode-vi Escape send-keys -X cancel
