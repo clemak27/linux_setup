@@ -19,6 +19,7 @@
       node = {
         enable = true;
       };
+      tools = true;
     };
     fun = {
       enable = true;

@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.homecfg.nvim;
+  cfg = config.homecfg.dev;
 in
 {
-  config = lib.mkIf (cfg.advanced && config.homecfg.dev.go && config.homecfg.dev.node.enable) {
+  config = lib.mkIf (cfg.tools && cfg.go && cfg.node.enable) {
     nvimUpdate.setupCommands = ''
       lsp_dir="${config.nvimUpdate.lspDir}"
       dap_dir="${config.nvimUpdate.dapDir}"

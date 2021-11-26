@@ -9,7 +9,6 @@ in
     ./advanced
     ./telescope.nix
     ./snippets.nix
-    ./nvim_update.nix
   ];
 
   options.homecfg.nvim.enable = lib.mkEnableOption "Manage neovim with homecfg";
