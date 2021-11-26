@@ -14,6 +14,7 @@
     ../../modules/gaming.nix
     ../../modules/virt-manager.nix
     ../../modules/container.nix
+    ../../modules/ssh.nix
 
     <home-manager/nixos>
   ];
@@ -27,8 +28,7 @@
     allowDiscards = true;
   };
 
-  services.printing.enable = true;
-
+  # this is needed to deploy to rp3b with nixops
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   home-manager.useGlobalPkgs = true;

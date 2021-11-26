@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.homecfg.tools;
-  stable = if config.homecfg.NixOS.enable then import <nixos-stable> { } else import <nixpkgs-stable> { };
 in
 {
   imports = [
@@ -20,7 +19,7 @@ in
       fd
       hyperfine
       jq
-      stable.pgcli
+      pgcli
       ranger
       ripgrep
       sd
@@ -29,8 +28,8 @@ in
       todo-txt-cli
       tree
       ueberzug
-    ] ++ lib.optionals stdenv.isLinux [
-      android-tools
+    # ] ++ lib.optionals stdenv.isLinux [
+    #   android-tools
     ];
 
     home.file.".oh-my-zsh/custom/plugins/timewarrior".source =
