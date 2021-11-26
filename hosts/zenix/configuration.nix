@@ -28,6 +28,9 @@
     allowDiscards = true;
   };
 
+  # this is needed to deploy to rp3b with nixops
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   home-manager.useGlobalPkgs = true;
   home-manager.users.clemens = ./home.nix;
 
