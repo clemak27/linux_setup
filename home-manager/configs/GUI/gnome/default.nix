@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.homecfg.NixOS;
+  cfg = config.homecfg.GUI;
   candyIcons = pkgs.stdenv.mkDerivation {
     name = "candy-icons";
     src = ./candy-icons.tar.gz;
@@ -19,7 +19,7 @@ let
   };
 in
 {
-  options.homecfg.NixOS = {
+  options.homecfg.GUI = {
     gnome = lib.mkEnableOption "Setup GNOME customization with home-manager";
   };
 

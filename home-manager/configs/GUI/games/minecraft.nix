@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.homecfg.NixOS;
+  cfg = config.homecfg.GUI;
 in
 {
-  options.homecfg.NixOS.games = {
+  options.homecfg.GUI.games = {
     minecraft = lib.mkEnableOption "Set to true to setup minecraft";
   };
 

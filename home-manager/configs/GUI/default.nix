@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.homecfg.NixOS;
+  cfg = config.homecfg.GUI;
   stable = import <nixos-stable> { };
 in
 {
@@ -9,8 +9,8 @@ in
     ./games
   ];
 
-  options.homecfg.NixOS = {
-    enable = lib.mkEnableOption "Set to true if home-manager is running on NixOS";
+  options.homecfg.GUI = {
+    enable = lib.mkEnableOption "Set to enable GUI programs";
   };
 
   config = lib.mkIf (cfg.enable) {

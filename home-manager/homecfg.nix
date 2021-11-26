@@ -7,7 +7,7 @@
     ./configs/k8s
     ./configs/git
     ./configs/dotfiles
-    ./configs/NixOS
+    ./configs/GUI
     ./configs/nvim
     ./configs/tmux
     ./configs/tools

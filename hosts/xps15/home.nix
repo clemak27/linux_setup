@@ -6,7 +6,7 @@
   ];
 
   homecfg = {
-    NixOS = {
+    GUI = {
       enable = true;
       gnome = true;
       games = {
