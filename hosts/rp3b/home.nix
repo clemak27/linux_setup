@@ -14,13 +14,8 @@
       user = "clemak27";
       email = "clemak27@mailbox.org";
     };
-    nvim = {
-      enable = false;
-      snippets = false;
-      telescope = false;
-    };
     tools = {
-      enable = true;
+      enable = false;
     };
     zsh = {
       enable = true;
