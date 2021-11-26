@@ -66,7 +66,6 @@ M.load = function()
 
     for _, server in pairs(installed_servers) do
       local config = make_config()
-      local lsp_path = os.getenv('HOME') .. '/.local/bin/nvim/lsp'
 
       -- language specific config
       if server == "bashls" then

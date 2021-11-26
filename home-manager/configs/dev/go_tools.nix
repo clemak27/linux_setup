@@ -4,9 +4,9 @@ let
 in
 {
   config = lib.mkIf (cfg.tools && cfg.go && cfg.node.enable) {
-    nvimUpdate.setupCommands = ''
-      lsp_dir="${config.nvimUpdate.lspDir}"
-      dap_dir="${config.nvimUpdate.dapDir}"
+    devTools.setupCommands = ''
+      lsp_dir="${config.devTools.lspDir}"
+      dap_dir="${config.devTools.dapDir}"
       current_dir=$(pwd)
 
       if [[ $(go install golang.org/x/tools/gopls@latest) ]]; then

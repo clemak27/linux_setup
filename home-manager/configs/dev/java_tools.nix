@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.homecfg.dev;
-  lspJar = "$HOME/.local/bin/nvim/lsp/jdtls/plugins/org.eclipse.equinox.launcher_*.jar";
+  lspJar = "${config.devTools.lspDir}/jdtls/plugins/org.eclipse.equinox.launcher_*.jar";
   os = "linux";
-  lspConfig = "$HOME/.local/bin/nvim/lsp/jdtls/config_${os}";
+  lspConfig = "${config.devTools.lspDir}/jdtls/config_${os}";
   jdtls = pkgs.writeShellScriptBin "jdtls" ''
     # https://github.com/mfussenegger/nvim-jdtls#language-server-installation
 
@@ -29,9 +29,9 @@ in
       jdtls
     ];
 
-    nvimUpdate.setupCommands = ''
-      lsp_dir="${config.nvimUpdate.lspDir}"
-      dap_dir="${config.nvimUpdate.dapDir}"
+    devTools.setupCommands = ''
+      lsp_dir="${config.devTools.lspDir}"
+      dap_dir="${config.devTools.dapDir}"
       current_dir=$(pwd)
 
       cd "$lsp_dir" || exit

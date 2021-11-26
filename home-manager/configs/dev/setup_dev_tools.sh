@@ -1,5 +1,5 @@
 # paths
-install_dir="$HOME/.local/bin/nvim"
+install_dir="$HOME/.local/bin/dev"
 lsp_dir="$install_dir/lsp"
 dap_dir="$install_dir/dap"
 current_dir=$(pwd)

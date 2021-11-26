@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.homecfg.dev;
-  updateNvim = pkgs.writeShellScriptBin "update-nvim-dev" (
-    builtins.readFile (./. + "/setup_nvim_dev.sh") +
-    config.nvimUpdate.setupCommands
+  updateDevTools = pkgs.writeShellScriptBin "update-dev-tools" (
+    builtins.readFile (./. + "/setup_dev_tools.sh") +
+    config.devTools.setupCommands
   );
 in
 {
@@ -15,15 +15,15 @@ in
 
   options.homecfg.dev.tools = lib.mkEnableOption "Enable a script to update development tools not managed by nix";
 
-  options.nvimUpdate = {
+  options.devTools = {
     lspDir = lib.mkOption {
       type = lib.types.lines;
-      default = "$HOME/.local/bin/nvim/lsp";
+      default = "$HOME/.local/bin/dev/lsp";
     };
 
     dapDir = lib.mkOption {
       type = lib.types.lines;
-      default = "$HOME/.local/bin/nvim/dap";
+      default = "$HOME/.local/bin/dev/dap";
     };
 
     setupCommands = lib.mkOption {
@@ -33,11 +33,11 @@ in
 
   config = lib.mkIf (cfg.tools) {
     home.packages = with pkgs; [
-      updateNvim
+      updateDevTools
     ];
 
-    nvimUpdate.setupCommands = "";
-    nvimUpdate.lspDir = "$HOME/.local/bin/nvim/lsp";
-    nvimUpdate.dapDir = "$HOME/.local/bin/nvim/dap";
+    devTools.setupCommands = "";
+    devTools.lspDir = "$HOME/.local/bin/dev/lsp";
+    devTools.dapDir = "$HOME/.local/bin/dev/dap";
   };
 }

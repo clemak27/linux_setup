@@ -5,7 +5,7 @@ local M = {}
 M.load = function()
 
   local dap = require('dap')
-  local dap_path = os.getenv('HOME') .. '/.local/bin/nvim/dap/'
+  local dap_path = os.getenv('HOME') .. '/.local/bin/dev/dap/'
 
   dap.defaults.fallback.external_terminal = {
     command = dap_path .. 'start_debugger.sh';
