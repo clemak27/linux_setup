@@ -14,6 +14,7 @@
     ../../modules/gaming.nix
     ../../modules/virt-manager.nix
     ../../modules/container.nix
+    ../../modules/ssh.nix
 
     <home-manager/nixos>
   ];
