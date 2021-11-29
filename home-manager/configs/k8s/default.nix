@@ -47,7 +47,7 @@ in
       stern
       starshipK8s
     ] ++ lib.optionals cfg.k8s.localDev [
-      kube3d
+      kind
     ];
 
     programs.zsh.oh-my-zsh.plugins = [
