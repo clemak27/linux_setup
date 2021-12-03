@@ -1,15 +1,8 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.homecfg.nvim;
-  pluginSettings = config.homecfg.nvim.pluginSettings;
 in
 {
-  imports = [
-    ./plugins.nix
-    ./advanced
-    ./telescope.nix
-    ./snippets.nix
-  ];
 
   options.homecfg.nvim.enable = lib.mkEnableOption "Manage neovim with homecfg";
 
@@ -20,10 +13,7 @@ in
       withNodeJs = true;
       vimAlias = true;
       vimdiffAlias = true;
-      extraConfig =
-        builtins.readFile (./. + "/init.vim") +
-        builtins.readFile (./. + "/de_mappings.vim") +
-        pluginSettings;
+      extraConfig = builtins.readFile (./. + "/init.vim");
     };
 
     programs.zsh.shellAliases = builtins.listToAttrs (
@@ -31,17 +21,30 @@ in
         { name = "notes"; value = "nvim ~/Notes/index.md"; }
       ]
     );
-
-    xdg.configFile = {
-      "nvim/lua/autopairs-config.lua".source = ./lua/autopairs-config.lua;
-      "nvim/lua/nvim-cmp-config.lua".source = ./lua/nvim-cmp-config.lua;
-      "nvim/lua/gitsigns-config.lua".source = ./lua/gitsigns-config.lua;
-      "nvim/lua/colorscheme-config.lua".source = ./lua/colorscheme-config.lua;
-      "nvim/lua/lualine-config.lua".source = ./lua/lualine-config.lua;
-      "nvim/lua/bufferline-config.lua".source = ./lua/bufferline-config.lua;
-      "nvim/lua/treesitter-config.lua".source = ./lua/treesitter-config.lua;
-      "nvim/lua/nvim-colorizer-config.lua".source = ./lua/nvim-colorizer-config.lua;
+    home.packages = with pkgs; [
+      nodePackages.bash-language-server
+      nodePackages.eslint
+      nodePackages.markdownlint-cli
+      nodePackages.typescript
+      nodePackages.typescript-language-server
+      nodePackages.vim-language-server
+      nodePackages.vls
+      nodePackages.vscode-langservers-extracted
+      nodePackages.yaml-language-server
+      rnix-lsp
+      shellcheck
+      sumneko-lua-language-server
+      texlab
+    ];
+    home.file = {
+      ".markdownlintrc".source = ./markdownlintrc;
+      ".vsnip".source = ./vsnip;
+      ".local/bin/nvim/dap/start_debugger.sh".source = ./start_debugger.sh;
     };
+    xdg.configFile = {
+      "nvim/lua".source = ./lua;
+    };
+
   };
 
 }

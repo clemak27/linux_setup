@@ -1,3 +1,80 @@
+set nocompatible
+filetype off
+
+" ------------------------------------------------- vim-plug --------------------------------------------------
+
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin(stdpath('data') . '/plugged')
+
+" ----------------- default plugins -----------------------------------
+
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-vinegar'
+Plug 'inkarkat/vim-ReplaceWithRegister'
+Plug 'tpope/vim-commentary'
+Plug 'windwp/nvim-autopairs' 
+Plug 'tpope/vim-surround'
+Plug 'antoinemadec/FixCursorHold.nvim'
+
+" ----------------- git integration -----------------------------------
+
+Plug 'tpope/vim-fugitive'
+Plug 'lewis6991/gitsigns.nvim'
+
+" ----------------- custom textobjects --------------------------------
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'sgur/vim-textobj-parameter'
+
+" ----------------- theming -------------------------------------------
+Plug 'ful1e5/onedark.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'akinsho/nvim-bufferline.lua'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'branch': '0.5-compat'}
+Plug 'norcalli/nvim-colorizer.lua'
+
+" ----------------- markdown ------------------------------------------
+Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
+" ----------------- vimtex --------------------------------------------
+Plug 'lervag/vimtex'
+
+" ----------------- telescope -----------------------------------------
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+" ----------------- LSP -----------------------------------------------
+Plug 'neovim/nvim-lspconfig'
+Plug 'onsails/lspkind-nvim'
+Plug 'mfussenegger/nvim-jdtls'
+Plug 'RishabhRD/popfix'
+Plug 'RishabhRD/nvim-lsputils'
+
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'ray-x/cmp-treesitter'
+
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'rafamadriz/friendly-snippets'
+
+Plug 'mfussenegger/nvim-lint'
+Plug 'mfussenegger/nvim-dap' 
+Plug 'rcarriga/nvim-dap-ui'
+
+call plug#end()
+
 " ------------------------------------------------- .vimrc ----------------------------------------------------
 set nocompatible
 
@@ -156,3 +233,67 @@ noremap <Right> <Nop>
 
 " make yanking to eol easier
 nnoremap Y y$
+
+" ------------------------------------------------- german mappings -------------------------------------------
+
+" Remap 0 and § to first non-blank character
+map § ^
+map 0 ^
+
+" Remap ß to end of line
+map ß $
+
+" Remap some keys for german layout
+map ö [
+map öö [[
+map ä ]
+map ä ]]
+map Ö <c-[>
+map Ä <c-]>
+
+" ------------------------------------------------- plugin settings -------------------------------------------
+
+lua require('lsp-config').load()
+lua require('lspkind-config').load()
+lua require('lsputils-config').load()
+lua require('nvim-dap-config').load()
+lua require('nvim-dap-ui-config').load()
+lua require('nvim-lint-config').load()
+
+lua require('vim-markdown-config').load()
+
+augroup lsp
+  au!
+  au FileType java lua require('jdtls-config').load()
+augroup end
+
+let g:vimtex_syntax_conceal_default = 0
+let g:vimtex_indent_enabled = 1
+let g:vimtex_indent_conditionals = {}
+let g:vimtex_indent_on_ampersands = 0
+let g:vimtex_complete_close_braces = 1
+let g:vimtex_format_enabled = 1
+let g:vimtex_imaps_leader = ';'
+let g:vimtex_quickfix_open_on_warning = 0
+
+lua require('telescope-config').load()
+
+autocmd FileType nix setlocal commentstring=#\ %s
+
+nmap r  <Plug>ReplaceWithRegisterOperator
+nmap rr <Plug>ReplaceWithRegisterLine
+nmap R  r$
+xmap r  <Plug>ReplaceWithRegisterVisual
+
+lua require("nvim-cmp-config").load()
+lua require("autopairs-config").load()
+lua require("gitsigns-config").load()
+
+let g:vim_textobj_parameter_mapping = 'a'
+
+lua require("colorscheme-config").load()
+lua require("lualine-config").load()
+lua require("bufferline-config").load()
+
+lua require("nvim-colorizer-config").load()
+lua require("treesitter-config").load()

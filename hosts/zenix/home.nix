@@ -43,9 +43,6 @@
     };
     nvim = {
       enable = true;
-      snippets = true;
-      telescope = true;
-      advanced = true;
     };
     tmux = {
       enable = true;
