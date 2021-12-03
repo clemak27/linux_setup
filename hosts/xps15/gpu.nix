@@ -12,6 +12,7 @@ in
   # add novideo driver with prime :(
   nixpkgs.config.allowUnfree = true;
   services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.modesetting.enable = true;
   hardware.nvidia.prime = {
     offload.enable = true;
 

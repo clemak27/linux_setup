@@ -3,6 +3,7 @@
   # add novideo driver :(
   nixpkgs.config.allowUnfree = true;
   services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.modesetting.enable = true;
   services.xserver.screenSection = ''
     Option "metamodes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
   '';
