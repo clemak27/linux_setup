@@ -6,7 +6,7 @@
 *.background-darker:       #0d1117
 *.background-dark:         #000000
 *.cursorColor:             #abb2bf
-*.accent:                  #00bfff
+*.accent:                  #2853ff
 
 ! black
 *.color0:       #000000

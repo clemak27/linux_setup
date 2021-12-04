@@ -32,7 +32,7 @@ in
 
   config.homecfg.colors = {
     # accent
-    accent = "#8a2be2";
+    accent = "#2853ff";
     # fg
     fg = "#abb2bf";
     fg-light = "#eeeeee";
