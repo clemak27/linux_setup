@@ -25,7 +25,6 @@ in
           "extract"
           "rsync"
           "docker"
-          "timewarrior"
         ];
         custom = "$HOME/.oh-my-zsh/custom";
       };
@@ -34,8 +33,6 @@ in
           { name = "cd.."; value = "cd .."; }
           { name = "clear_scrollback"; value = "printf '\\33c\\e[3J'"; }
           { name = "q"; value = "exit"; }
-          { name = "mpvnv"; value = "mpv --no-video"; }
-          { name = "youtube-dl-music"; value = "youtube-dl --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\""; }
         ]
       );
 

@@ -55,6 +55,7 @@ in
       "fd"
       "fzf"
       "ripgrep"
+      "timewarrior"
     ];
 
     programs.zsh.shellAliases = builtins.listToAttrs (
