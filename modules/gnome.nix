@@ -16,6 +16,7 @@
 
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
+    libnotify
     xclip
   ];
 
