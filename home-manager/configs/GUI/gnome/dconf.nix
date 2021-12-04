@@ -22,8 +22,8 @@
     font-hinting = "slight";
     font-name = "Cantarell 10";
     gtk-im-module = "gtk-im-context-simple";
-    gtk-theme = "Adwaita-violet-dark";
-    icon-theme = "candy-icons";
+    gtk-theme = "Adwaita-dark";
+    icon-theme = "Papirus-Dark";
     monospace-font-name = "FiraCode Nerd Font Mono 10";
     show-battery-percentage = false;
     toolbar-style = "text";
