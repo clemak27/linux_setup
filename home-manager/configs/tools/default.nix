@@ -11,6 +11,7 @@ in
 
   config = lib.mkIf (cfg.enable) {
     home.packages = with pkgs; [
+      android-tools
       bat
       bat-extras.batman
       bottom
@@ -28,7 +29,7 @@ in
       todo-txt-cli
       tree
       ueberzug
-      android-tools
+      viddy
     ];
 
     home.file.".oh-my-zsh/custom/plugins/timewarrior".source =
@@ -65,6 +66,7 @@ in
         { name = "lsa"; value = "exa --icons -hal"; }
         { name = "man"; value = "batman"; }
         { name = "todo"; value = "todo.sh"; }
+        { name = "watch"; value = "viddy"; }
       ]
     );
 
