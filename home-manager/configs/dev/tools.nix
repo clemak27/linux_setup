@@ -11,6 +11,7 @@ in
     ./go_tools.nix
     ./java_tools.nix
     ./node_tools.nix
+    ./dev_tools_update.nix
   ];
 
   options.homecfg.dev.tools = lib.mkEnableOption "Enable a script to update development tools not managed by nix";
