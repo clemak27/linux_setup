@@ -4,7 +4,7 @@ let
   #   url = "https://gitlab.com/CalcProgrammer1/OpenRGB/-/raw/master/60-openrgb.rules";
   # };
   reloadOpenRGB = pkgs.writeShellScriptBin "reloadOpenRGB" ''
-    openrgb -m direct -c 8a2be2
+    openrgb -m direct -c 2853ff
   '';
 
 in
