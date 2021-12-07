@@ -42,7 +42,6 @@ in
     home.file = {
       ".markdownlintrc".source = ./markdownlintrc;
       ".vsnip".source = ./vsnip;
-      ".local/bin/nvim/dap/start_debugger.sh".source = ./start_debugger.sh;
     };
     xdg.configFile = {
       "nvim/lua".source = ./lua;

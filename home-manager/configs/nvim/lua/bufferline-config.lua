@@ -10,12 +10,6 @@ M.load = function()
         return string.format('%s.', opts.ordinal)
       end,
       diagnostics = false,
-      custom_filter = function(buf_number)
-        -- filter out filetypes you don't want to see
-        if vim.bo[buf_number].filetype ~= "dap-repl" then
-          return true
-        end
-      end,
       show_buffer_icons = true,
       show_buffer_close_icons = true,
       show_close_icon = false,
