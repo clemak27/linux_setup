@@ -3,6 +3,9 @@ let
   cfg = config.homecfg.nvim;
 in
 {
+  imports = [
+    ./nvim-plugin-update.nix
+  ];
 
   options.homecfg.nvim.enable = lib.mkEnableOption "Manage neovim with homecfg";
 
