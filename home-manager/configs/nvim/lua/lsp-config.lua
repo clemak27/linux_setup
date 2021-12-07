@@ -46,16 +46,15 @@ M.load = function()
     }
   end
 
-  local installed_servers = {
+  local servers = {
     "html",
     "cssls",
     "jsonls",
     "yamlls",
-    "rnix",
     "bashls",
     "sumneko_lua",
     "vimls",
-    -- java is setup in jdtls-config
+    "jdtls",
     "gopls",
     "tsserver",
     "vuels",
@@ -64,79 +63,56 @@ M.load = function()
 
   local function setup_servers()
 
-    for _, server in pairs(installed_servers) do
+    for _, server in pairs(servers) do
       local config = make_config()
 
-      -- language specific config
-      if server == "bashls" then
-        config.filetypes = {"bash", "sh", "zsh"};
-      end
+      local lsp_installer_servers = require'nvim-lsp-installer.servers'
 
-      if server == "html" then
-        config.cmd = { "vscode-html-language-server", "--stdio" }
-        config.filetypes = {
-          -- html
-          'aspnetcorerazor',
-          'blade',
-          'django-html',
-          'edge',
-          'ejs',
-          'eruby',
-          'gohtml',
-          'haml',
-          'handlebars',
-          'hbs',
-          'html',
-          'html-eex',
-          'jade',
-          'leaf',
-          'liquid',
-          'markdown',
-          'mdx',
-          'mustache',
-          'njk',
-          'nunjucks',
-          'php',
-          'razor',
-          'slim',
-          'twig',
-          -- mixed
-          'vue',
-          'svelte',
-        }
-      end
+      local server_available, requested_server = lsp_installer_servers.get_server(server)
+      if server_available then
+        requested_server:on_ready(function ()
 
-      if server == "cssls" then
-        config.cmd = { "vscode-css-language-server", "--stdio" }
-      end
+          if server == "bashls" then
+            config.filetypes = {"bash", "sh", "zsh"};
+          end
 
-      if server == "jsonls" then
-        config.cmd = { "vscode-json-language-server", "--stdio" }
-        config.filetypes = {"json", "json5"}
-      end
+          if server == "jsonls" then
+            config.filetypes = {"json", "json5"}
+          end
 
-      if server == "sumneko_lua" then
-        config.cmd = { "lua-language-server" }
-        config.root_dir = vim.loop.cwd
-        config.settings = {
-          Lua = {
-            diagnostics = {
-              globals = {"vim"}
-            },
-            workspace = {
-              library = {
-                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+          if server == "sumneko_lua" then
+            config.cmd = { "lua-language-server" }
+            config.root_dir = vim.loop.cwd
+            config.settings = {
+              Lua = {
+                diagnostics = {
+                  globals = {"vim"}
+                },
+                workspace = {
+                  library = {
+                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                    [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+                  }
+                },
+                telemetry = {
+                  enable = false
+                }
               }
-            },
-            telemetry = {
-              enable = false
             }
-          }
-        }
-      end
+          end
 
-      require'lspconfig'[server].setup(config)
+        -- java is setup in jdtls-config
+          if server ~= "jdtls" then
+            requested_server:setup(config)
+          end
+
+        end)
+        if not requested_server:is_installed() then
+          -- Queue the server to be installed
+          requested_server:install()
+        end
+      end
+       require'lspconfig'["rnix"].setup(config)
     end
   end
 

@@ -7,6 +7,5 @@ in
     ./node.nix
     ./java.nix
     ./go.nix
-    ./tools.nix
   ];
 }

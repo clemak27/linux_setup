@@ -29,6 +29,7 @@ in
       todo-txt-cli
       tree
       ueberzug
+      unzip
       viddy
     ];
 
