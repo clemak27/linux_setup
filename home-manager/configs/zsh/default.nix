@@ -16,7 +16,6 @@ in
       localVariables = {
         # https://unix.stackexchange.com/questions/167582/why-zsh-ends-a-line-with-a-highlighted-percent-symbol
         PROMPT_EOL_MARK = "";
-        ZSH_DISABLE_COMPFIX = false;
       };
       oh-my-zsh = {
         enable = true;
