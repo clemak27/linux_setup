@@ -30,7 +30,7 @@ Plug 'kana/vim-textobj-entire'
 Plug 'sgur/vim-textobj-parameter'
 
 " ----------------- theming -------------------------------------------
-Plug 'ful1e5/onedark.nvim'
+Plug 'olimorris/onedarkpro.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/nvim-bufferline.lua'

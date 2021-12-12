@@ -4,25 +4,9 @@ local M = {}
 
 M.load = function()
 
-  local custom_onedark = require'lualine.themes.onedark'
-  custom_onedark.normal.a.gui = nil
-  custom_onedark.normal.b.bg = nil
-  custom_onedark.normal.c.bg = nil
-
-  custom_onedark.insert.a.gui = nil
-
-  custom_onedark.visual.a.gui = nil
-
-  custom_onedark.replace.a.gui = nil
-
-  custom_onedark.inactive.a.gui = nil
-  custom_onedark.inactive.a.bg = nil
-  custom_onedark.inactive.b.bg = nil
-  custom_onedark.inactive.c.bg = nil
-
   require('lualine').setup {
     options = {
-      theme = custom_onedark,
+      theme = "onedarkpro",
       section_separators = '',
       component_separators = '|'
     },

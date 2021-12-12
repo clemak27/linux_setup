@@ -37,31 +37,39 @@ font:
     y: 0
   use_thin_strokes: false
 
+# onedarkpro.nvim - onedark
 colors:
   primary:
-    background: '#121212'
-    foreground: '#abb2bf'
-  cursor:
-    background: '#121212'
-    foreground: '#abb2bf'
+    background: "#1e1e1e"
+    foreground: "#abb2bf"
+
   normal:
-    black:   '#121212'
-    red:     '#e06c75'
-    green:   '#98c379'
-    yellow:  '#e5c07b'
-    blue:    '#61afef'
-    magenta: '#c678dd'
-    cyan:    '#56b6c2'
-    white:   '#737373'
+    black: "#1e1e1e"
+    red: "#e06c75"
+    green: "#98c379"
+    yellow: "#e5c07b"
+    blue: "#61afef"
+    magenta: "#c678dd"
+    cyan: "#56b6c2"
+    white: "#abb2bf"
+
   bright:
-    black:   '#555555'
-    red:     '#e06c75'
-    green:   '#98c379'
-    yellow:  '#e5c07b'
-    blue:    '#61afef'
-    magenta: '#c678dd'
-    cyan:    '#56b6c2'
-    white:   '#abb2bf'
+    black: "#3f3f3f"
+    red: "#e06c75"
+    green: "#98c379"
+    yellow: "#e5c07b"
+    blue: "#61afef"
+    magenta: "#c678dd"
+    cyan: "#56b6c2"
+    white: "#bfc5ce"
+
+  cursor:
+    text: CellBackground
+    cursor: CellForeground # syntax-cursor-color
+
+  selection:
+    text: CellForeground
+    background: "#3e4452"
 
 bell:
   duration: 0
