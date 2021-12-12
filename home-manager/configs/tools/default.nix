@@ -18,6 +18,7 @@ in
       curl
       exa
       fd
+      htmlq
       hyperfine
       jq
       pgcli
