@@ -6,7 +6,10 @@ M.load = function()
 
 local onedarkpro = require('onedarkpro')
 onedarkpro.setup({
-  theme = 'onedark'
+  theme = 'onedark',
+  hlgroups = {
+    TSField = { fg = "${red}" }
+  }
 })
 onedarkpro.load()
 
