@@ -35,7 +35,6 @@ in
 {
   options.homecfg.k8s = {
     enable = lib.mkEnableOption "Manage kubernetes with home-manager";
-    localDev = lib.mkEnableOption "Setup k3d to start a local cluster";
   };
 
   config = lib.mkIf (cfg.k8s.enable) {
@@ -46,7 +45,6 @@ in
       kubernetes-helm
       stern
       starshipK8s
-    ] ++ lib.optionals cfg.k8s.localDev [
       kind
     ];
 

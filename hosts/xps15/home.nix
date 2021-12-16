@@ -19,7 +19,6 @@
     };
     k8s = {
       enable = true;
-      localDev = true;
     };
     dotfiles = {
       alacritty = true;
