@@ -13,13 +13,7 @@
         minecraft = true;
       };
     };
-    dev = {
-      java = true;
-      go = true;
-      node = {
-        enable = true;
-      };
-    };
+    dev.enable = true;
     fun = {
       enable = true;
     };

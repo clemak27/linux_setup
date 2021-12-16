@@ -3,9 +3,40 @@ let
   cfg = config.homecfg.dev;
 in
 {
-  imports = [
-    ./node.nix
-    ./java.nix
-    ./go.nix
-  ];
+  options.homecfg.dev.enable = lib.mkEnableOption "Manage development tools with home-manager";
+
+  config = lib.mkIf (cfg.enable) {
+    home.packages = with pkgs; [
+      nodejs
+      yarn
+
+      gradle
+
+      gcc
+    ];
+
+    programs.zsh.oh-my-zsh.plugins = [
+      "npm"
+      "golang"
+    ];
+
+    home.file.".npmrc".text = ''
+      prefix=~/.local/bin/npm
+      registry=https://registry.npmjs.org
+      save_exact=true
+    '';
+
+    programs.java = {
+      enable = true;
+      package = pkgs.jdk11;
+    };
+
+    programs.go = {
+      enable = true;
+      package = pkgs.go_1_17;
+      goPath = ".go";
+    };
+
+  };
+
 }
