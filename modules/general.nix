@@ -56,14 +56,6 @@
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
 
-  services.flatpak.enable = true;
-  # flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-  # flatpak install -y \
-  # flathub org.zdoom.GZDoom \
-  # com.github.tchx84.Flatseal \
-  # io.gdevs.GDLauncher \
-  # com.jetbrains.IntelliJ-IDEA-Community
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
