@@ -4,19 +4,23 @@ let
   stable = import <nixos-stable> { };
 in
 {
-  imports = [
-    ./gnome
-  ];
-
   options.homecfg.GUI = {
     enable = lib.mkEnableOption "Set to enable GUI programs";
   };
 
   config = lib.mkIf (cfg.enable) {
     home.packages = with pkgs; [
-      keepassxc
-      scrcpy
+      papirus-icon-theme
 
+      gnomeExtensions.appindicator
+      gnomeExtensions.unite
+      gnomeExtensions.gsconnect
+      gnomeExtensions.blur-my-shell
+
+      gimp
+      gparted
+      libreoffice
+      keepassxc
       kdenlive
       obs-studio
 
@@ -26,13 +30,15 @@ in
       discord
       signal-desktop
 
+      scrcpy
+
       youtube-dl
       unrar
       ytfzf
       sshfs
     ];
 
-    programs.rofi.enable = true;
+    dconf.settings = import ./dconf.nix;
 
     programs.alacritty.enable = true;
     programs.firefox = {

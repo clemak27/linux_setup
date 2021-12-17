@@ -8,7 +8,6 @@
   homecfg = {
     GUI = {
       enable = true;
-      gnome = true;
     };
     dev.enable = true;
     fun = {
