@@ -20,12 +20,6 @@ in
       extraConfig = builtins.readFile (./. + "/init.vim");
     };
 
-    programs.zsh.shellAliases = builtins.listToAttrs (
-      [
-        { name = "notes"; value = "nvim ~/Notes/index.md"; }
-      ]
-    );
-
     home.packages = with pkgs; [
       nodePackages.eslint
       nodePackages.markdownlint-cli

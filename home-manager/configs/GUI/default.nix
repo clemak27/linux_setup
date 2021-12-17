@@ -42,14 +42,7 @@ in
 
     programs.mpv.enable = true;
     services.syncthing.enable = true;
-    programs.zsh = {
-      shellAliases = builtins.listToAttrs (
-        [
-          { name = "mpvnv"; value = "mpv --no-video"; }
-          { name = "youtube-dl-music"; value = "youtube-dl --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\""; }
-        ]
-      );
-    };
+
     home.file.".xprofile".source = ./xprofile;
     home.file.".Xresources".source = ./Xresources;
   };
