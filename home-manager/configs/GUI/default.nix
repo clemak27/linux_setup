@@ -6,7 +6,6 @@ in
 {
   imports = [
     ./gnome
-    ./games
   ];
 
   options.homecfg.GUI = {
@@ -42,6 +41,10 @@ in
 
     programs.mpv.enable = true;
     services.syncthing.enable = true;
+
+    xdg.configFile = {
+      "MangoHud/MangoHud.conf".source = ./MangoHud.conf;
+    };
 
     home.file.".xprofile".source = ./xprofile;
     home.file.".Xresources".source = ./Xresources;

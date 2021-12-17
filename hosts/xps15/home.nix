@@ -9,9 +9,6 @@
     GUI = {
       enable = true;
       gnome = true;
-      games = {
-        minecraft = true;
-      };
     };
     dev.enable = true;
     fun = {
