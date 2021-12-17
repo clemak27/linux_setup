@@ -59,6 +59,7 @@ M.load = function()
     "tsserver",
     "vuels",
     "texlab",
+    "rnix"
   }
 
   local function setup_servers()
@@ -120,11 +121,17 @@ M.load = function()
           requested_server:install()
         end
       end
-       require'lspconfig'["rnix"].setup(config)
     end
   end
 
+  local function setup_rnix()
+    local config = make_config()
+    config.filetypes = {"nix"}
+    require'lspconfig'["rnix"].setup(config)
+  end
+
   setup_servers()
+  setup_rnix()
 
   -- format golang on edit
   vim.api.nvim_exec(
