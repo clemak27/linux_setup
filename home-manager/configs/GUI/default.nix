@@ -17,18 +17,13 @@ in
       gnomeExtensions.gsconnect
       gnomeExtensions.blur-my-shell
 
-      gimp
       gparted
-      libreoffice
       keepassxc
-      kdenlive
-      obs-studio
 
       stable.sublime-music
       kid3
 
       discord
-      signal-desktop
 
       scrcpy
 

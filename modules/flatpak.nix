@@ -4,9 +4,11 @@ let
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak install -y flathub \
       com.github.tchx84.Flatseal \
-      com.jetbrains.IntelliJ-IDEA-Community \
       io.gdevs.GDLauncher \
-      flathub org.zdoom.GZDoom
+      org.zdoom.GZDoom \
+      org.libreoffice.LibreOffice \
+      org.gimp.GIMP \
+      org.signal.Signal
     flatpak update
   '';
 in
