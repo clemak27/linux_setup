@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  updateFlatpak = pkgs.writeShellScriptBin "update-flatpak" ''
+  initFlatpak = pkgs.writeShellScriptBin "init-flatpak" ''
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak install -y flathub \
       com.github.tchx84.Flatseal \
@@ -12,12 +12,11 @@ let
       com.valvesoftware.Steam \
       net.davidotek.pupgui2 \
       org.signal.Signal
-    flatpak update
   '';
 in
 {
   services.flatpak.enable = true;
   environment.systemPackages = with pkgs; [
-    updateFlatpak
+    initFlatpak
   ];
 }

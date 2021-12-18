@@ -4,7 +4,6 @@ let
 in
 {
   imports = [
-    ./nvim-plugin-update.nix
     ./jdtls.nix
   ];
 

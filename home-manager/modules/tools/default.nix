@@ -3,10 +3,6 @@ let
   cfg = config.homecfg.tools;
 in
 {
-  imports = [
-    ./tealdeer_update.nix
-  ];
-
   options.homecfg.tools.enable = lib.mkEnableOption "Manage command line tools with homecfg";
 
   config = lib.mkIf (cfg.enable) {
