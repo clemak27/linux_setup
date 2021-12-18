@@ -53,6 +53,10 @@
     parted
   ];
   ```
+  - set hostname:
+  ```nix
+  networking.hostName = "xyz";
+  ```
 - install it with `sudo nixos-install`
 - reboot into new system
 

@@ -13,8 +13,8 @@ if nix-shell '<home-manager>' -A install
 then
   if [ -d "../hosts/$hostname" ]
   then
-    mv /etc/nixos/hardware-configuration.nix "../hosts/$hostname/hardware-configuration.nix"
-    mv /etc/nixos/configuration.nix "../hosts/$hostname/initial_configuration_bu.nix"
+    sudo mv /etc/nixos/hardware-configuration.nix "../hosts/$hostname/hardware-configuration.nix"
+    sudo mv /etc/nixos/configuration.nix "../hosts/$hostname/initial_configuration_bu.nix"
     sudo ln -sf "/home/clemens/Projects/linux_setup/hosts/$hostname/configuration.nix" /etc/nixos/configuration.nix
     rm -rf ~/.config/nixpkgs
     echo "initial config generated, now edit hosts/$hostname/configuration.nix, then run:"
