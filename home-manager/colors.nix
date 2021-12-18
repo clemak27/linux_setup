@@ -32,17 +32,17 @@ in
 
   config.homecfg.colors = {
     # accent
-    accent = "#2853ff";
+    accent = "#00bfff";
     # fg
     fg = "#abb2bf";
-    fg-light = "#eeeeee";
+    fg-light = "#bfc5ce";
     # bg
-    bg = "#121212";
-    bg-light = "#232323";
+    bg = "#1e1e1e";
+    bg-light = "#3f3f3f";
     bg-darker = "#121212";
     bg-dark = "#000000";
     # black
-    ansi.color0 = "#000000";
+    ansi.color0 = "#1e1e1e";
     ansi.color8 = "#2d333b";
     # red
     ansi.color1 = "#e06c75";
@@ -63,8 +63,8 @@ in
     ansi.color6 = "#56b6c2";
     ansi.color14 = "#56b6c2";
     # white
-    ansi.color7 = "#555555";
-    ansi.color15 = "#555555";
+    ansi.color7 = "#abb2bf";
+    ansi.color15 = "#bfc5ce";
     # orange
     orange = "#d19a66";
   };
