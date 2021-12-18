@@ -13,6 +13,7 @@ in
       gradle
 
       gcc
+      gnumake
     ];
 
     programs.zsh.oh-my-zsh.plugins = [

@@ -20,7 +20,7 @@ in
     systemd.user.timers.tealdeer-update-cache = {
       Install.WantedBy = [ "timers.target" ];
       Unit.PartOf = [ "tealdeer-update-cache.service" ];
-      Timer.OnCalendar = [ "weekly" ];
+      Timer.OnCalendar = [ "*-*-* *:15:00" ];
       Timer.Persistent = true;
     };
   };

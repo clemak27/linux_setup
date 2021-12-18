@@ -22,15 +22,13 @@ in
 
       stable.sublime-music
       kid3
-
-      discord
+      sshfs
 
       scrcpy
 
       youtube-dl
       unrar
       ytfzf
-      sshfs
     ];
 
     dconf.settings = import ./dconf.nix;

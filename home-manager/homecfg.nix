@@ -2,15 +2,15 @@
 {
   imports = [
     ./colors.nix
-    ./configs/dev
-    ./configs/fun
-    ./configs/k8s
-    ./configs/git
-    ./configs/gui
-    ./configs/nvim
-    ./configs/tmux
-    ./configs/tools
-    ./configs/zsh
+    ./modules/dev
+    ./modules/fun
+    ./modules/k8s
+    ./modules/git
+    ./modules/gui
+    ./modules/nvim
+    ./modules/tmux
+    ./modules/tools
+    ./modules/zsh
   ];
 
   config = {
