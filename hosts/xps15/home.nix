@@ -6,7 +6,7 @@
   ];
 
   homecfg = {
-    GUI = {
+    gui = {
       enable = true;
     };
     dev.enable = true;

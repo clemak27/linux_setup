@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.homecfg.GUI;
+  cfg = config.homecfg.gui;
   stable = import <nixos-stable> { };
 in
 {
-  options.homecfg.GUI = {
+  options.homecfg.gui = {
     enable = lib.mkEnableOption "Set to enable GUI programs";
   };
 
