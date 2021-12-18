@@ -16,11 +16,6 @@
     k8s = {
       enable = true;
     };
-    dotfiles = {
-      alacritty = true;
-      ideavim = false;
-      mpv = true;
-    };
     git = {
       enable = true;
       user = "clemak27";

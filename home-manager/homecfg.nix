@@ -6,7 +6,6 @@
     ./configs/fun
     ./configs/k8s
     ./configs/git
-    ./configs/dotfiles
     ./configs/GUI
     ./configs/nvim
     ./configs/tmux

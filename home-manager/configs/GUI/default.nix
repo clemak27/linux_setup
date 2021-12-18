@@ -53,10 +53,14 @@ in
     };
 
     xdg.configFile = {
+      "alacritty/alacritty.yml".source = ./alacritty.yml;
       "MangoHud/MangoHud.conf".source = ./MangoHud.conf;
+      "mpv/mpv.conf".source = ./mpv.conf;
     };
-
-    home.file.".xprofile".source = ./xprofile;
-    home.file.".Xresources".source = ./Xresources;
+    home.file = {
+      ".ideavimrc".source = ./ideavimrc;
+      ".xprofile".source = ./xprofile;
+      ".Xresources".source = ./Xresources;
+    };
   };
 }
