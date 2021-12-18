@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
+    ./automation.nix
     ./swapfile.nix
   ];
 
