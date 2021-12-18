@@ -8,6 +8,9 @@ let
       org.zdoom.GZDoom \
       org.libreoffice.LibreOffice \
       org.gimp.GIMP \
+      com.discordapp.Discord \
+      com.valvesoftware.Steam \
+      net.davidotek.pupgui2 \
       org.signal.Signal
     flatpak update
   '';
