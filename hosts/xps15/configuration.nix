@@ -14,6 +14,7 @@
     ../../modules/virt-manager.nix
     ../../modules/container.nix
     ../../modules/ssh.nix
+    ../../modules/flatpak.nix
 
     <home-manager/nixos>
   ];
@@ -22,7 +23,7 @@
   networking.interfaces.wlp59s0.useDHCP = true;
 
   boot.initrd.luks.devices.luksroot = {
-    device = "/dev/disk/by-uuid/46b1e218-b716-4250-8fce-ab0b35f1a651";
+    device = "/dev/disk/by-uuid/61091175-276e-4591-ba9c-bc0d95c1ed8c";
     preLVM = true;
     allowDiscards = true;
   };
