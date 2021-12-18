@@ -23,6 +23,8 @@
     };
     git = {
       enable = true;
+      user = "clemak27";
+      email = "clemak27@mailbox.org";
       tea = true;
       gh = true;
       glab = false;

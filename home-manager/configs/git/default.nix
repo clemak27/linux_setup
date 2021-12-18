@@ -9,19 +9,70 @@ in
     ./glab.nix
   ];
 
-  options.homecfg.git.enable = lib.mkEnableOption "Manage git with home-manager";
+  options.homecfg.git = {
+    enable = lib.mkEnableOption "Manage git with home-manager";
+
+    user = lib.mkOption {
+      type = lib.types.str;
+      default = "";
+      description = "The username of the git user.";
+      example = "john";
+    };
+
+    email = lib.mkOption {
+      type = lib.types.str;
+      default = "";
+      description = "The email of the git user.";
+      example = "john.doe@example.com";
+    };
+  };
 
   config = lib.mkIf (cfg.git.enable) {
     programs.git = {
       enable = cfg.git.enable;
+      userName = "${cfg.git.user}";
+      userEmail = "${cfg.git.email}";
+      aliases = {
+        lol = "log --graph --decorate --oneline --all";
+      };
+      extraConfig = {
+        core = {
+          autocrlf = "input";
+        };
+        credential = {
+          helper = "cache";
+        };
+        pull = {
+          rebase = "false";
+        };
+      };
     };
 
     programs.git.delta = {
       enable = cfg.git.enable;
-    };
-
-    xdg.configFile = {
-      "git/config".source = ./gitconfig;
+      options = {
+        core = {
+          pager = "delta";
+        };
+        features = "line-numbers decorations";
+        syntax-theme = "base16";
+        plus-style = "syntax '#1f3623'";
+        minus-style = "syntax '#4a2324'";
+        plus-emph-style = "normal '#335114'";
+        minus-emph-style = "normal '#511414'";
+        decorations = {
+          commit-decoration-style = "bold yellow box ul";
+          file-style = "bold yellow ul";
+          file-decoration-style = "none";
+          hunk-header-decoration-style = "blue box ul";
+        };
+        line-numbers = {
+          line-numbers-left-style = "blue";
+          line-numbers-right-style = "blue";
+          line-numbers-minus-style = "red";
+          line-numbers-plus-style = "green";
+        };
+      };
     };
 
     programs.zsh.oh-my-zsh.plugins = [
