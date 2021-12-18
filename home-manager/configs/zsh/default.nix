@@ -13,19 +13,59 @@ in
   config = lib.mkIf (cfg.enable) {
     programs.zsh = {
       enable = true;
+      localVariables = {
+        # https://unix.stackexchange.com/questions/167582/why-zsh-ends-a-line-with-a-highlighted-percent-symbol
+        PROMPT_EOL_MARK = "";
+      };
       oh-my-zsh = {
         enable = true;
+        plugins = [
+          "adb"
+          "extract"
+          "rsync"
+          "docker"
+        ];
+        custom = "$HOME/.oh-my-zsh/custom";
       };
+      shellAliases = builtins.listToAttrs (
+        [
+          { name = "cd.."; value = "cd .."; }
+          { name = "clear_scrollback"; value = "printf '\\33c\\e[3J'"; }
+          { name = "q"; value = "exit"; }
+        ]
+      );
+
+      sessionVariables = {
+        BROWSER = "firefox";
+        DIRENV_LOG_FORMAT = "";
+        EDITOR = "nvim";
+        PATH = "$PATH:$HOME/.cargo/bin:$HOME/.go/bin:$HOME/.local/bin:$HOME/.local/bin/npm/bin";
+        VISUAL = "nvim";
+      };
+      initExtra = builtins.concatStringsSep "\n" (
+        [ ]
+        # tea autocomplete
+        ++ lib.optionals config.homecfg.git.tea [
+          "PROG=tea _CLI_ZSH_AUTOCOMPLETE_HACK=1 source $HOME/.config/tea/autocomplete.zsh"
+        ]
+        ++ lib.optionals config.homecfg.git.glab [
+          "eval \"$(glab completion -s zsh)\""
+        ]
+        ++ [
+          # no beeps
+          "unsetopt beep"
+          # custom functions
+          "for file in ~/.zsh_functions/*; do . $file; done"
+          # local additional zsh file
+          "[[ ! -f ~/.local.zsh ]] || source ~/.local.zsh"
+        ]
+      );
     };
+
+    programs.dircolors.enable = true;
 
     home.file = {
-      ".zshrc".source = ./zshrc;
       ".zsh_functions".source = ./zsh_functions;
     };
-
-    xdg.configFile = {
-      "starship.toml".source = ./starship.toml;
-    };
-
   };
 }

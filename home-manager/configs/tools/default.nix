@@ -54,6 +54,24 @@ in
       defaultOptions = [ "--height=50%" "--layout=reverse" "--info=inline" "--border=sharp" "--margin=1" "--padding=1" ];
     };
 
+    programs.zsh.oh-my-zsh.plugins = [
+      "fd"
+      "fzf"
+      "ripgrep"
+      "timewarrior"
+    ];
+
+    programs.zsh.shellAliases = builtins.listToAttrs (
+      [
+        { name = "cat"; value = "bat"; }
+        { name = "ls"; value = "exa --icons"; }
+        { name = "lsa"; value = "exa --icons -hal"; }
+        { name = "man"; value = "batman"; }
+        { name = "todo"; value = "todo.sh"; }
+        { name = "watch"; value = "viddy"; }
+      ]
+    );
+
     home.file = {
       ".todo/config".source = ./todo/todo.cfg;
       ".local/bin/rfv".source = ./rfv;

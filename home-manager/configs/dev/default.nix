@@ -15,6 +15,11 @@ in
       gcc
     ];
 
+    programs.zsh.oh-my-zsh.plugins = [
+      "npm"
+      "golang"
+    ];
+
     home.file.".npmrc".text = ''
       prefix=~/.local/bin/npm
       registry=https://registry.npmjs.org
