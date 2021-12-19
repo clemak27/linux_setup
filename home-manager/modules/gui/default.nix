@@ -26,7 +26,7 @@ in
 
       scrcpy
 
-      youtube-dl
+      yt-dlp
       unrar
       ytfzf
     ];
@@ -45,7 +45,8 @@ in
       shellAliases = builtins.listToAttrs (
         [
           { name = "mpvnv"; value = "mpv --no-video"; }
-          { name = "youtube-dl-music"; value = "youtube-dl --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\""; }
+          { name = "youtube-dl"; value = "yt-dlp"; }
+          { name = "youtube-dl-music"; value = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\""; }
         ]
       );
     };
