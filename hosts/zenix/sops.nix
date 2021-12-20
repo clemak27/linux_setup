@@ -13,8 +13,9 @@
   # This will generate a new key if the key specified above does not exist
   sops.age.generateKey = false;
   # This is the actual specification of the secrets.
-  sops.secrets.example_key = {};
-  # sops.secrets."myservice/my_subdir/my_secret" = {};
+  sops.secrets."wg/private_key" = {};
+  sops.secrets."wg/public_key" = {};
+  sops.secrets."wg/pre_shared_key" = {};
 
   environment.systemPackages = with pkgs; [
     sops
