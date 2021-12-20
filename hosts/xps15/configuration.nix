@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./wireguard.nix
+    ./sops.nix
 
     ./gpu.nix
     ./laptop.nix

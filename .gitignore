@@ -1,6 +1,5 @@
 setup_user.zsh
 .idea
-hosts/xps15/wireguard.nix
 hosts/e470/wireguard.nix
 **/.direnv
 hosts/e470/env
