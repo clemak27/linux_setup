@@ -48,7 +48,7 @@ Plug 'lervag/vimtex'
 " ----------------- telescope -----------------------------------------
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'ibhagwan/fzf-lua'
 
 " ----------------- LSP -----------------------------------------------
 Plug 'neovim/nvim-lspconfig'
@@ -273,7 +273,7 @@ let g:vimtex_format_enabled = 1
 let g:vimtex_imaps_leader = ';'
 let g:vimtex_quickfix_open_on_warning = 0
 
-lua require('telescope-config').load()
+lua require('fzf-lua-config').load()
 
 autocmd FileType nix setlocal commentstring=#\ %s
 
