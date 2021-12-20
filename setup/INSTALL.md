@@ -87,4 +87,5 @@ cp $HOME/.ssh/id_ed25519 /tmp/id_ed25519
 ssh-keygen -p -N "" -f /tmp/id_ed25519
 ssh-to-age -private-key -i /tmp/id_ed25519 > ~/.config/sops/age/keys.txt
 rm /tmp/id_ed25519
+age-keygen -y ~/.config/sops/age/keys.txt
 ```

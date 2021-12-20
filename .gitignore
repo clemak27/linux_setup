@@ -1,6 +1,5 @@
 setup_user.zsh
 .idea
-hosts/e470/wireguard.nix
 **/.direnv
 hosts/e470/env
 hosts/e470/duckdns.nix
