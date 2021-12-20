@@ -7,6 +7,7 @@
     ./gpu.nix
     ./hdds.nix
     ./logitech_rgb.nix
+    ./sops.nix
 
     ../../modules/general.nix
     ../../modules/gnome.nix

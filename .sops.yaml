@@ -1,0 +1,7 @@
+keys:
+  - &zenix age1uzwgfr26gd9eus80ydsskdkp4gh6az5vr78cvd6zzamh35snz4hq5x3whm
+creation_rules:
+  - path_regex: hosts\/\w*\/secrets\.yaml
+    key_groups:
+    - age:
+      - *zenix

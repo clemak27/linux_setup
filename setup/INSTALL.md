@@ -77,14 +77,14 @@
 sudo nixos-rebuild boot --upgrade
 ```
 
-### Finishing touches
+## Notes
 
-- reboot
-- manually install kwin scripts:
-  - bismuth (`wget -q -O - https://git.io/J2gLk | sh`)
-  - dynamic workspaces (GUI)
-- restore plasma shortcuts from file
-- restore latte layout from file
-- change color scheme to skyBlue
-- run `home-manager/configs/NixOS/plasma/config.sh` to setup plasma
+### To convert an ssh ed25519 key to an age key
 
+```sh
+mkdir -p ~/.config/sops/age
+cp $HOME/.ssh/id_ed25519 /tmp/id_ed25519
+ssh-keygen -p -N "" -f /tmp/id_ed25519
+ssh-to-age -private-key -i /tmp/id_ed25519 > ~/.config/sops/age/keys.txt
+rm /tmp/id_ed25519
+```

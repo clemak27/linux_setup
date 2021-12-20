@@ -7,6 +7,7 @@ passwd
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 sudo nix-channel --add https://nixos.org/channels/nixos-21.05 nixos-stable
 sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+sudo nix-channel --add https://github.com/Mic92/sops-nix/archive/master.tar.gz sops-nix
 sudo nix-channel --update
 
 if nix-shell '<home-manager>' -A install
