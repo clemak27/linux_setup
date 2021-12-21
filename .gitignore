@@ -2,4 +2,3 @@ setup_user.zsh
 .idea
 **/.direnv
 hosts/e470/env
-hosts/e470/duckdns.nix

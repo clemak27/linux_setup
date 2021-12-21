@@ -20,6 +20,7 @@
   sops.secrets."wg/zenix/pre_shared_key" = {};
   sops.secrets."wg/xps15/public_key" = {};
   sops.secrets."wg/xps15/pre_shared_key" = {};
+  sops.secrets.duckdns_url = {owner = "clemens";};
 
   environment.systemPackages = with pkgs; [
     sops
