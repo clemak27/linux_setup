@@ -4,6 +4,7 @@
   imports = [
     ../../home-manager/homecfg.nix
     ./duckdns.nix
+    ./env.nix
   ];
 
   homecfg = {
@@ -34,5 +35,4 @@
   ];
 
   home.file."docker-compose.yml".source = ./docker-compose.yml;
-  home.file.".env".source = ./env;
 }
