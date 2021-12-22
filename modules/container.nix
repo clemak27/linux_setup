@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 {
-  virtualisation.docker.enable = true;
-  # spicy
-  users.users.clemens.extraGroups = [ "docker" ];
+  virtualisation.podman = {
+    enable = true;
+    # Create a `docker` alias for podman, to use it as a drop-in replacement
+    dockerCompat = true;
+  };
 }

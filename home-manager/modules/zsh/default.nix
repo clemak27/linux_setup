@@ -23,7 +23,8 @@ in
           "adb"
           "extract"
           "rsync"
-          "docker"
+           # podman completion -f /home/clemens/.oh-my-zsh/custom/plugins/podman/_podman zsh
+          "podman"
         ];
         custom = "$HOME/.oh-my-zsh/custom";
       };
