@@ -24,7 +24,7 @@ in
     
     TRAEFIK_DOCKER_TAG=2.5.4
     
-    GITEA_DOCKER_TAG=1.15.6
+    GITEA_DOCKER_TAG=1.15.8
     
     MINIFLUX_DOCKER_TAG=2.0.34
     MINIFLUX_ADMIN_USER=${miniflux_admin_user}
