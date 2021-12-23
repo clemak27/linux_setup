@@ -8,6 +8,8 @@
     ../../modules/container.nix
     ../../modules/ssh.nix
 
+    ./container
+
     <home-manager/nixos>
   ];
 
