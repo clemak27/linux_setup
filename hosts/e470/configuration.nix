@@ -5,7 +5,6 @@
     ./wireguard.nix
     ./sops.nix
 
-    ../../modules/container.nix
     ../../modules/ssh.nix
 
     ./container
