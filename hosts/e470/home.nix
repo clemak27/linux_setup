@@ -11,9 +11,6 @@
       enable = true;
       user = "clemak27";
       email = "clemak27@mailbox.org";
-      tea = false;
-      gh = false;
-      glab = false;
     };
     nvim = {
       enable = true;
@@ -31,5 +28,6 @@
 
   home.packages = [
     pkgs.gcc
+    pkgs.neofetch
   ];
 }
