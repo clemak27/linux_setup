@@ -26,8 +26,11 @@
     };
   };
 
-  home.packages = [
-    pkgs.gcc
-    pkgs.neofetch
+  home.file."mp3gain.bash".source = ./mp3gain.bash;
+
+  home.packages = with pkgs; [
+    gcc
+    neofetch
+    mp3gain
   ];
 }
