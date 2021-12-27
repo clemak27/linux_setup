@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ./wireguard.nix
     ./sops.nix
+    ./automation.nix
 
     ../../modules/ssh.nix
 
