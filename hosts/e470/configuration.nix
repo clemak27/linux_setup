@@ -5,7 +5,7 @@
     ./wireguard.nix
     ./sops.nix
     ./automation.nix
-    ./hdds.nix
+    ./mounts.nix
 
     ../../modules/ssh.nix
 
