@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  docker-data = "/home/clemens/docker-data";
+  docker-data = "/home/clemens/data/docker";
 
   service-name = "syncthing";
   service-version = "1.18.4";
