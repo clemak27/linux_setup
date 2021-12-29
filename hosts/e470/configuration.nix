@@ -5,6 +5,7 @@
     ./wireguard.nix
     ./sops.nix
     ./automation.nix
+    ./hdds.nix
 
     ../../modules/ssh.nix
 
@@ -23,19 +24,6 @@
     HandleLidSwitchExternalPower=ignore
     LidSwitchIgnoreInhibited=no
   '';
-
-  # hdds
-  fileSystems."/home/clemens/data" = {
-    device = "/dev/disk/by-uuid/886f6cde-4ed8-414d-9260-ee5ae4c75786";
-    fsType = "ext4";
-    options = [ "defaults" ];
-  };
-
-  fileSystems."/home/clemens/data_bu" = {
-    device = "/dev/disk/by-uuid/03bfac2e-27ba-4a6e-a0a3-1dada4aca0f1";
-    fsType = "ext4";
-    options = [ "defaults" ];
-  };
 
   networking.hostName = "e470";
   networking.interfaces.enp4s0.useDHCP = true;
