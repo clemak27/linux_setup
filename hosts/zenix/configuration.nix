@@ -6,7 +6,7 @@
     ./sops.nix
 
     ./gpu.nix
-    ./hdds.nix
+    ./mounts.nix
     ./logitech_rgb.nix
 
     ../../modules/general.nix
