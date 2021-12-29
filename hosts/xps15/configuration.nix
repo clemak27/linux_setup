@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ./wireguard.nix
     ./sops.nix
+    ./mounts.nix
 
     ./gpu.nix
     ./laptop.nix
