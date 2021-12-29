@@ -7,12 +7,6 @@
     options = [ "defaults" ];
   };
 
-  fileSystems."/home/clemens/data_bu" = {
-    device = "/dev/disk/by-uuid/03bfac2e-27ba-4a6e-a0a3-1dada4aca0f1";
-    fsType = "ext4";
-    options = [ "defaults" ];
-  };
-
   # bind mount hdds to provide them with nfs
   fileSystems."/nfs/archive" = {
     device = "/home/clemens/data/archive";
