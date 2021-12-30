@@ -23,4 +23,8 @@
   hardware.bluetooth.enable = true;
   # PipeWire based PulseAudio server emulation replaces PulseAudio. This option requires `hardware.pulseaudio.enable` to be set to false
   hardware.pulseaudio.enable = false;
+
+  environment.systemPackages = with pkgs; [
+    helvum
+  ];
 }
