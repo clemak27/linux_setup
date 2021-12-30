@@ -17,13 +17,19 @@ in
           TZ = "Europe/Vienna";
           WEBPASSWORD = "${pihole_pw}";
         };
+        ports = [
+          "${service-port}:${service-port}"
+          "53:53/tcp"
+          "53:53/udp"
+          "67:67/udp"
+        ];
         volumes = [
           "${docker-data}/${service-name}/etc-pihole/:/etc/pihole/"
           "${docker-data}/${service-name}/etc-dnsmasq.d/:/etc/dnsmasq.d/"
           "${docker-data}/${service-name}/lighttpd.external.conf:/etc/lighttpd/external.conf"
         ];
         extraOptions = [
-          "--network=host"
+          "--network=web"
           "--cap-add=NET_ADMIN"
           "--label=traefik.enable=true"
           "--label=traefik.http.routers.${service-name}-router.entrypoints=https"
