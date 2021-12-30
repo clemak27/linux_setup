@@ -4,6 +4,7 @@ let
 
   service-name = "pihole";
   service-version = "2021.12";
+  service-port = "8456";
 
   pihole_pw = builtins.readFile "/run/secrets/docker/pihole_pw";
 in
