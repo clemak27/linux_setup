@@ -9,7 +9,7 @@
 
     ../../modules/ssh.nix
 
-    ./container
+    ./services
 
     <home-manager/nixos>
   ];

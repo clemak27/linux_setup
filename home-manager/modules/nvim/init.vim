@@ -70,7 +70,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'rafamadriz/friendly-snippets'
 
-Plug 'mfussenegger/nvim-lint'
+" Plug 'mfussenegger/nvim-lint'
 
 call plug#end()
 
@@ -255,7 +255,7 @@ map Ä <c-]>
 lua require('lsp-config').load()
 lua require('lspkind-config').load()
 lua require('lsputils-config').load()
-lua require('nvim-lint-config').load()
+" lua require('nvim-lint-config').load()
 
 lua require('vim-markdown-config').load()
 
