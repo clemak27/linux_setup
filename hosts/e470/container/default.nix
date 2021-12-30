@@ -3,6 +3,7 @@
   imports = [
     ./deemix.nix
     ./gitea.nix
+    ./jdownloader2.nix
     ./miniflux.nix
     ./navidrome.nix
     ./pihole.nix
