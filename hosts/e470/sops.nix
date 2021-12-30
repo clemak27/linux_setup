@@ -34,6 +34,7 @@
   sops.secrets."docker/navidrome_lastfm_apikey" = { owner = "clemens"; };
   sops.secrets."docker/navidrome_lastfm_secret" = { owner = "clemens"; };
   sops.secrets."docker/deemix_arl" = { owner = "clemens"; };
+  sops.secrets."docker/plex_claim" = { };
 
   environment.systemPackages = with pkgs; [
     sops

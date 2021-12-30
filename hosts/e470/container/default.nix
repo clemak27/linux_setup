@@ -6,6 +6,7 @@
     ./miniflux.nix
     ./navidrome.nix
     ./pihole.nix
+    ./plex.nix
     ./syncthing.nix
     ./traefik.nix
   ];

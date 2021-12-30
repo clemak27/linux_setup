@@ -13,18 +13,12 @@
     options = [ "bind" ];
   };
 
-  fileSystems."/nfs/videos" = {
-    device = "/home/clemens/data/videos";
-    options = [ "bind" ];
-  };
-
   # nfs (potentially sudo mkdir /nfs needed?)
   services.nfs.server = {
     enable = true;
     exports = ''
       /nfs          192.168.0.0/24(rw,fsid=0,no_subtree_check) 10.6.0.0/24(rw,fsid=0,no_subtree_check)
       /nfs/archive  192.168.0.0/24(rw,nohide,insecure,no_subtree_check) 10.6.0.0/24(rw,nohide,insecure,no_subtree_check)
-      /nfs/videos   192.168.0.0/24(rw,nohide,insecure,no_subtree_check) 10.6.0.0/24(rw,nohide,insecure,no_subtree_check)
     '';
   };
 
