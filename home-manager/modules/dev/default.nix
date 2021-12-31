@@ -7,7 +7,7 @@ in
 
   config = lib.mkIf (cfg.enable) {
     home.packages = with pkgs; [
-      nodejs
+      nodejs-14_x
       yarn
 
       gradle
