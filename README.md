@@ -1,6 +1,6 @@
 # my NixOS setup
 
-this repo contains my dotfiles + setup for NixOS.
+This repo contains my dotfiles + setup for NixOS.
 
 ## What's in this repo?
 
@@ -13,10 +13,8 @@ this repo contains my dotfiles + setup for NixOS.
   - `xps15`  
     My laptop. I'm not really satisfied with it,
     but also not motivated to replace it.
-  - `rp3b`  
-    A Raspberry Pi 3B. I currently use it for testing network stuff.
-    Once I'm statisfied with that, I will probably switch
-    my home-server to NixOS as well.
+  - `e470`  
+    My former laptop made server, that hosts several services
 - `logo.png`  
   NixOS logo.
 - `modules`  
@@ -26,7 +24,7 @@ this repo contains my dotfiles + setup for NixOS.
 - `setup`  
   Install instructions for NixOS.
 - `wallpaper.png`  
-  Custom made wallpaper cause I was bored once.
+  The wallpaper I use.
 
 ## Why?
 
