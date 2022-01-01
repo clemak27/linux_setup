@@ -8,6 +8,7 @@
     ./pihole.nix
     ./plex.nix
     ./syncthing.nix
+    ./torrents.nix
     ./traefik.nix
   ];
 
