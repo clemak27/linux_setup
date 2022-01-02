@@ -8,6 +8,7 @@
     ./mounts.nix
 
     ../../modules/ssh.nix
+    ../../modules/swapfile.nix
 
     ./services
 
