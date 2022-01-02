@@ -17,7 +17,7 @@ in
     systemd.user.timers.duckdns-update = {
       Install.WantedBy = [ "timers.target" ];
       Unit.PartOf = [ "duckdns-update.service" ];
-      Timer.OnCalendar = [ "*-*-* *:00:*" "*-*-* *:15:*" "*-*-* *:30:*" "*-*-* *:45:*" ];
+      Timer.OnCalendar = [ "*-*-* *:00:00" "*-*-* *:15:00" "*-*-* *:30:00" "*-*-* *:45:00" ];
       Timer.Persistent = true;
     };
   };
