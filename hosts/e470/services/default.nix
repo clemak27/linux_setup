@@ -9,6 +9,7 @@
     ./plex.nix
     ./syncthing.nix
     ./torrents.nix
+    ./homer.nix
     ./traefik.nix
   ];
 
