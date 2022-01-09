@@ -2,7 +2,7 @@
 let
   docker-data = "/home/clemens/data/docker";
 
-  service-name = "home";
+  service-name = "homer";
   service-version = "21.09.2";
   service-port = "8085";
 in
