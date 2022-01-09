@@ -23,17 +23,17 @@
 
   sops.secrets.duckdns_url = { owner = "clemens"; };
 
-  sops.secrets."docker/duckdns_token" = { owner = "clemens"; };
-  sops.secrets."docker/pihole_pw" = { owner = "clemens"; };
-  sops.secrets."docker/miniflux_admin_user" = { owner = "clemens"; };
-  sops.secrets."docker/miniflux_admin_password" = { owner = "clemens"; };
-  sops.secrets."docker/miniflux_db_user" = { owner = "clemens"; };
-  sops.secrets."docker/miniflux_db_password" = { owner = "clemens"; };
-  sops.secrets."docker/navidrome_spotify_id" = { owner = "clemens"; };
-  sops.secrets."docker/navidrome_spotify_secret" = { owner = "clemens"; };
-  sops.secrets."docker/navidrome_lastfm_apikey" = { owner = "clemens"; };
-  sops.secrets."docker/navidrome_lastfm_secret" = { owner = "clemens"; };
-  sops.secrets."docker/deemix_arl" = { owner = "clemens"; };
+  sops.secrets."docker/duckdns_token" = { };
+  sops.secrets."docker/pihole_pw" = { };
+  sops.secrets."docker/miniflux_admin_user" = { };
+  sops.secrets."docker/miniflux_admin_password" = { };
+  sops.secrets."docker/miniflux_db_user" = { };
+  sops.secrets."docker/miniflux_db_password" = { };
+  sops.secrets."docker/navidrome_spotify_id" = { };
+  sops.secrets."docker/navidrome_spotify_secret" = { };
+  sops.secrets."docker/navidrome_lastfm_apikey" = { };
+  sops.secrets."docker/navidrome_lastfm_secret" = { };
+  sops.secrets."docker/deemix_arl" = { };
   sops.secrets."docker/plex_claim" = { };
 
   environment.systemPackages = with pkgs; [
