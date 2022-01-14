@@ -3,15 +3,16 @@ let
   initFlatpak = pkgs.writeShellScriptBin "init-flatpak" ''
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak install -y flathub \
-      com.github.tchx84.Flatseal \
-      io.gdevs.GDLauncher \
-      org.zdoom.GZDoom \
-      org.libreoffice.LibreOffice \
-      org.gimp.GIMP \
       com.discordapp.Discord \
+      com.github.tchx84.Flatseal \
       com.valvesoftware.Steam \
+      io.gdevs.GDLauncher \
       net.davidotek.pupgui2 \
-      org.signal.Signal
+      org.gimp.GIMP \
+      org.libreoffice.LibreOffice \
+      org.openrgb.OpenRGB \
+      org.signal.Signal \
+      org.zdoom.GZDoom
   '';
 in
 {
