@@ -3,7 +3,7 @@ let
   docker-data = "/home/clemens/data/docker";
 
   service-name = "pihole";
-  service-version = "2021.12";
+  service-version = "2022.01.1";
   service-port = "8456";
 
   pihole_pw = builtins.readFile "/run/secrets/docker/pihole_pw";

@@ -9,7 +9,7 @@ in
       transmission =
         let
           service-name = "transmission";
-          service-version = "3.00-r2-ls107";
+          service-version = "version-3.00-r2";
           service-port = "9091";
         in
         {
@@ -43,7 +43,7 @@ in
       jackett =
         let
           service-name = "jackett";
-          service-version = "v0.20.222-ls54";
+          service-version = "0.20.314";
           service-port = "9117";
         in
         {
@@ -75,7 +75,7 @@ in
       sonarr =
         let
           service-name = "sonarr";
-          service-version = "3.0.6.1342-ls131";
+          service-version = "3.0.6";
           service-port = "8989";
         in
         {
@@ -109,7 +109,7 @@ in
       radarr =
         let
           service-name = "radarr";
-          service-version = "3.2.2.5080-ls127";
+          service-version = "3.2.2";
           service-port = "7878";
         in
         {

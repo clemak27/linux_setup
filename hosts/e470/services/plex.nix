@@ -3,7 +3,7 @@ let
   docker-data = "/home/clemens/data/docker";
 
   service-name = "plex";
-  service-version = "1.25.2.5319-c43dc0277";
+  service-version = "1.25.3.5409-f11334058";
   service-port = "32400";
 
   plex_claim = builtins.readFile "/run/secrets/docker/plex_claim";
