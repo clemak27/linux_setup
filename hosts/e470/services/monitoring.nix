@@ -43,9 +43,13 @@ in
         in
         {
           image = "grafana/grafana:${service-version}";
+          volumes = [
+            "${docker-data}/${service-name}:/var/lib/grafana"
+          ];
           ports = [
             "${service-port}:3000"
           ];
+          user = "1000";
           extraOptions = [
             "--network=web"
             "--label=traefik.enable=true"
