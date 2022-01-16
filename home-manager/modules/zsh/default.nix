@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.homecfg.zsh;
+  inSecureDirs = if pkgs.stdenv.isDarwin then "true" else "false";
 in
 {
   imports = [
@@ -16,6 +17,7 @@ in
       localVariables = {
         # https://unix.stackexchange.com/questions/167582/why-zsh-ends-a-line-with-a-highlighted-percent-symbol
         PROMPT_EOL_MARK = "";
+        ZSH_DISABLE_COMPFIX = inSecureDirs;
       };
       oh-my-zsh = {
         enable = true;
@@ -23,7 +25,7 @@ in
           "adb"
           "extract"
           "rsync"
-           # podman completion -f /home/clemens/.oh-my-zsh/custom/plugins/podman/_podman zsh
+          # podman completion -f /home/clemens/.oh-my-zsh/custom/plugins/podman/_podman zsh
           "podman"
         ];
         custom = "$HOME/.oh-my-zsh/custom";
