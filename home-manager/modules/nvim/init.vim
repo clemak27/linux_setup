@@ -70,7 +70,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'rafamadriz/friendly-snippets'
 
-" Plug 'mfussenegger/nvim-lint'
+Plug 'mfussenegger/nvim-lint'
 
 call plug#end()
 
