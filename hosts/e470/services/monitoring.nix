@@ -14,7 +14,8 @@ in
         {
           image = "prom/prometheus:${service-version}";
           volumes = [
-            "${docker-data}/${service-name}:/config"
+            "${docker-data}/${service-name}/config:/config"
+            "${docker-data}/${service-name}/data:/prometheus"
           ];
           ports = [
             "${service-port}:${service-port}"
