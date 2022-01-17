@@ -29,8 +29,9 @@ in
       nodePackages.eslint
       nodePackages.markdownlint-cli
       rnix-lsp
-      sumneko-lua-language-server
       shellcheck
+    ] ++ lib.optionals stdenv.isLinux [
+      sumneko-lua-language-server
     ];
 
     home.file = {

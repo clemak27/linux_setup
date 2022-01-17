@@ -7,7 +7,6 @@ in
 
   config = lib.mkIf (cfg.enable) {
     home.packages = with pkgs; [
-      android-tools
       bat
       bat-extras.batman
       bottom
@@ -28,6 +27,8 @@ in
       ueberzug
       unzip
       viddy
+    ] ++ lib.optionals stdenv.isLinux [
+      android-tools
     ];
 
     home.file.".oh-my-zsh/custom/plugins/timewarrior".source =
