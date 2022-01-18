@@ -25,7 +25,7 @@ in
           "adb"
           "extract"
           "rsync"
-        ] ++ lib.optionals stdenv.isLinux [
+        ] ++ lib.optionals pkgs.stdenv.isLinux [
           # podman completion -f /home/clemens/.oh-my-zsh/custom/plugins/podman/_podman zsh
           "podman"
         ];
