@@ -3,7 +3,6 @@
 {
   imports = [
     ../../home-manager/homecfg.nix
-    ./duckdns.nix
   ];
 
   homecfg = {

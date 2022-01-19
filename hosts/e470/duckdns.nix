@@ -4,9 +4,6 @@ let
 in
 {
   config = {
-    # somehow, it didn't start automatically?
-    # systemctl --user enable duckdns-update.timer
-    # systemctl --user start duckdns-update.timer
     systemd.user.services.duckdns-update.Service = {
       Type = "oneshot";
       ExecStart = ''

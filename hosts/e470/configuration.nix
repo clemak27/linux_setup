@@ -5,6 +5,7 @@
     ./wireguard.nix
     ./sops.nix
     ./mounts.nix
+    ./timer.nix
 
     ../../modules/ssh.nix
     ../../modules/swapfile.nix
@@ -68,20 +69,4 @@
   home-manager.users.clemens = ./home.nix;
 
   system.stateVersion = "21.05";
-
-
-  systemd.services.wg-workaround.serviceConfig = {
-    Type = "oneshot";
-    ExecStart = ''systemctl restart wg-quick-wg0'';
-  };
-
-  systemd.timers.wg-workaround = {
-    wantedBy = [ "timers.target" ];
-    partOf = [ "wg-workaround.service" ];
-    timerConfig = {
-      OnCalendar = [ "*-*-* 16:45:00" "*-*-* 16:46:00" ];
-      Persistent = true;
-    };
-  };
-
 }
