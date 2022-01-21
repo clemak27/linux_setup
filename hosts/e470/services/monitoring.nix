@@ -36,6 +36,28 @@ in
           ];
         };
 
+      cadvisor =
+        let
+          service-name = "cadvisor";
+          service-version = "v0.39.3";
+          service-port = "8080";
+        in
+        {
+          image = "gcr.io/cadvisor/cadvisor:${service-version}";
+          volumes = [
+            "/:/rootfs:ro"
+            "/var/run:/var/run:rw"
+            "/sys:/sys:ro"
+            "/var/lib/docker/:/var/lib/docker:ro"
+          ];
+          ports = [
+            "8083:${service-port}"
+          ];
+          extraOptions = [
+            "--network=web"
+          ];
+        };
+
       grafana =
         let
           service-name = "grafana";
