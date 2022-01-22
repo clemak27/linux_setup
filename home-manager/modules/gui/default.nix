@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.homecfg.gui;
-  stable = import <nixos-stable> { };
 in
 {
   options.homecfg.gui = {
@@ -20,7 +19,7 @@ in
       gparted
       keepassxc
 
-      stable.sublime-music
+      sublime-music
       kid3
       sshfs
 
