@@ -3,7 +3,7 @@ let
   docker-data = "/home/clemens/data/docker";
 
   service-name = "traefik";
-  service-version = "2.5.4";
+  service-version = "2.5.7";
 
   duckdns_token = builtins.readFile "/run/secrets/docker/duckdns_token";
 in
