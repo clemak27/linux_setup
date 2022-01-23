@@ -12,57 +12,37 @@
   };
 
   outputs = { self, nixpkgs, home-manager, sops-nix, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-      {
+    # flake-utils.lib.eachDefaultSystem (system:
+    #   let
+    #     devpkgs = nixpkgs.legacyPackages.${system};
+    #   in
+    {
+      nixosConfigurations.zenix = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
+          ./hosts/zenix/configuration.nix
+        ];
+      };
 
-        nixosConfigurations.zenix = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            home-manager.nixosModules.home-manager
+      nixosConfigurations.xps15 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
+          ./hosts/xps15/configuration.nix
+        ];
+      };
 
-            ({ pkgs, ... }: {
-              nix.extraOptions = "experimental-features = nix-command flakes";
-              nix.package = pkgs.nixFlakes;
-              nix.registry.nixpkgs.flake = nixpkgs;
+      # devShell = devpkgs.mkShell {
+      #   nativeBuildInputs = with devpkgs; [
+      #     dconf2nix
+      #     sops
+      #     age
+      #     ssh-to-age
+      #   ];
+      # };
 
-              home-manager.useGlobalPkgs = true;
-            })
-
-            ./hosts/zenix/configuration.nix
-            sops-nix.nixosModules.sops
-          ];
-        };
-
-        nixosConfigurations.xps15 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            home-manager.nixosModules.home-manager
-
-            ({ pkgs, ... }: {
-              nix.extraOptions = "experimental-features = nix-command flakes";
-              nix.package = pkgs.nixFlakes;
-              nix.registry.nixpkgs.flake = nixpkgs;
-
-              home-manager.useGlobalPkgs = true;
-            })
-
-            ./hosts/xps15/configuration.nix
-            sops-nix.nixosModules.sops
-          ];
-        };
-
-        devShell = pkgs.mkShell {
-          nativeBuildInputs = with pkgs; [
-            dconf2nix
-            sops
-            age
-            ssh-to-age
-          ];
-          buildInputs = [ ];
-        };
-
-      });
+    };
 }

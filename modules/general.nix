@@ -69,4 +69,5 @@
     experimental-features = nix-command flakes
   '';
 
+  home-manager.useGlobalPkgs = true;
 }
