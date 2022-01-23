@@ -16,10 +16,4 @@
   sops.secrets."wg/private_key" = {};
   sops.secrets."wg/public_key" = {};
   sops.secrets."wg/pre_shared_key" = {};
-
-  environment.systemPackages = with pkgs; [
-    sops
-    age
-    ssh-to-age
-  ];
 }

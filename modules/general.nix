@@ -63,4 +63,11 @@
     enable = true;
     enableSSHSupport = true;
   };
+
+  # flake support
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
+
+  home-manager.useGlobalPkgs = true;
 }

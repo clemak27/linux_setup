@@ -16,8 +16,6 @@
   config = {
     programs.home-manager.enable = true;
     nixpkgs.config.allowUnfree = true;
-    # optional for nix flakes support
-    # programs.direnv.nix-direnv.enableFlakes = true;
   };
 
 }

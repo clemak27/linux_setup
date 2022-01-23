@@ -17,8 +17,6 @@
     ../../modules/container.nix
     ../../modules/ssh.nix
     ../../modules/flatpak.nix
-
-    <home-manager/nixos>
   ];
 
   networking.hostName = "zenix";

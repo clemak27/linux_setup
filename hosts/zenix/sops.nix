@@ -1,7 +1,5 @@
 { config, lib, pkgs, ... }:
 {
-  imports = [ <sops-nix/modules/sops> ];
-
   # This will add secrets.yml to the nix store
   # You can avoid this by adding a string to the full path instead, i.e.
   # sops.defaultSopsFile = "/root/.sops/secrets/example.yaml";
@@ -16,10 +14,4 @@
   sops.secrets."wg/private_key" = {};
   sops.secrets."wg/public_key" = {};
   sops.secrets."wg/pre_shared_key" = {};
-
-  environment.systemPackages = with pkgs; [
-    sops
-    age
-    ssh-to-age
-  ];
 }
