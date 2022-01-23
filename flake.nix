@@ -1,60 +1,68 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-21.11";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix.url = github:Mic92/sops-nix;
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = inputs: {
+  outputs = { self, nixpkgs, home-manager, sops-nix, flake-utils }:
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+      {
 
-    nixosConfigurations.zenix = inputs.nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      # Things in this set are passed to modules and accessible
-      # in the top-level arguments (e.g. `{ pkgs, lib, inputs, ... }:`).
-      specialArgs = {
-        inherit inputs;
-      };
-      modules = [
-        inputs.home-manager.nixosModules.home-manager
+        nixosConfigurations.zenix = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            home-manager.nixosModules.home-manager
 
-        ({ pkgs, ... }: {
-          nix.extraOptions = "experimental-features = nix-command flakes";
-          nix.package = pkgs.nixFlakes;
-          nix.registry.nixpkgs.flake = inputs.nixpkgs;
+            ({ pkgs, ... }: {
+              nix.extraOptions = "experimental-features = nix-command flakes";
+              nix.package = pkgs.nixFlakes;
+              nix.registry.nixpkgs.flake = nixpkgs;
 
-          home-manager.useGlobalPkgs = true;
-        })
+              home-manager.useGlobalPkgs = true;
+            })
 
-        ./hosts/zenix/configuration.nix
-        inputs.sops-nix.nixosModules.sops
-      ];
-    };
+            ./hosts/zenix/configuration.nix
+            sops-nix.nixosModules.sops
+          ];
+        };
 
-    nixosConfigurations.xps15 = inputs.nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      # Things in this set are passed to modules and accessible
-      # in the top-level arguments (e.g. `{ pkgs, lib, inputs, ... }:`).
-      specialArgs = {
-        inherit inputs;
-      };
-      modules = [
-        inputs.home-manager.nixosModules.home-manager
+        nixosConfigurations.xps15 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            home-manager.nixosModules.home-manager
 
-        ({ pkgs, ... }: {
-          nix.extraOptions = "experimental-features = nix-command flakes";
-          nix.package = pkgs.nixFlakes;
-          nix.registry.nixpkgs.flake = inputs.nixpkgs;
+            ({ pkgs, ... }: {
+              nix.extraOptions = "experimental-features = nix-command flakes";
+              nix.package = pkgs.nixFlakes;
+              nix.registry.nixpkgs.flake = nixpkgs;
 
-          home-manager.useGlobalPkgs = true;
-        })
+              home-manager.useGlobalPkgs = true;
+            })
 
-        ./hosts/xps15/configuration.nix
-        inputs.sops-nix.nixosModules.sops
-      ];
-    };
-  };
+            ./hosts/xps15/configuration.nix
+            sops-nix.nixosModules.sops
+          ];
+        };
+
+        devShell = pkgs.mkShell {
+          nativeBuildInputs = with pkgs; [
+            dconf2nix
+            sops
+            age
+            ssh-to-age
+          ];
+          buildInputs = [ ];
+        };
+
+      });
 }

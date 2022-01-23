@@ -35,10 +35,4 @@
   sops.secrets."docker/navidrome_lastfm_secret" = { };
   sops.secrets."docker/deemix_arl" = { };
   sops.secrets."docker/plex_claim" = { };
-
-  environment.systemPackages = with pkgs; [
-    sops
-    age
-    ssh-to-age
-  ];
 }
