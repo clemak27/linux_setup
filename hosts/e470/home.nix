@@ -25,7 +25,7 @@
     };
   };
 
-  home.file."mp3gain.bash".source = ./mp3gain.bash;
+  home.file."mp3gain-update.sh".source = ./mp3gain-update.sh;
 
   home.packages = with pkgs; [
     gcc
