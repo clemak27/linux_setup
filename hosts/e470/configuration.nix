@@ -11,8 +11,6 @@
     ../../modules/swapfile.nix
 
     ./services
-
-    <home-manager/nixos>
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -63,6 +61,13 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.zsh;
+  };
+
+  nix = {
+    package = pkgs.nix_2_4; # or versioned attributes like nix_2_4
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
   };
 
   home-manager.useGlobalPkgs = true;
