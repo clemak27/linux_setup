@@ -121,7 +121,7 @@
 
   "org/gnome/shell/extensions/blur-my-shell" = {
     appfolder-dialog-opacity = 0.12;
-    blur-panel = true;
+    blur-panel = false;
     brightness = 0.6;
     dash-opacity = 0.12;
     debug = false;
