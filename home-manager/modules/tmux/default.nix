@@ -10,13 +10,22 @@ in
 
     programs.tmux = {
       enable = true;
-      tmuxinator.enable = true;
       sensibleOnTop = false;
       baseIndex = 1;
       escapeTime = 0;
       historyLimit = 15000;
       terminal = "xterm-256color";
       prefix = "C-y";
+      plugins = with pkgs; [
+        tmuxPlugins.resurrect
+        {
+          plugin = tmuxPlugins.continuum;
+          extraConfig = ''
+            set -g @continuum-restore 'on'
+            set -g @continuum-save-interval '15' # minutes
+          '';
+        }
+      ];
       extraConfig = ''
         set-window-option -g xterm-keys on
         setw -g mode-keys vi
@@ -109,9 +118,5 @@ in
         { name = "trwp"; value = "tmux rename-window '#{b:pane_current_path}'"; }
       ]
     );
-
-    xdg.configFile = {
-      "tmuxinator".source = ./tmuxinator;
-    };
   };
 }
