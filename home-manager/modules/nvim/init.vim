@@ -9,67 +9,10 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 call plug#begin(stdpath('data') . '/plugged')
 
-" ----------------- default plugins -----------------------------------
-
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-vinegar'
-Plug 'inkarkat/vim-ReplaceWithRegister'
-Plug 'tpope/vim-commentary'
-Plug 'windwp/nvim-autopairs' 
-Plug 'tpope/vim-surround'
-Plug 'antoinemadec/FixCursorHold.nvim'
-
-" ----------------- git integration -----------------------------------
-
-Plug 'tpope/vim-fugitive'
-Plug 'lewis6991/gitsigns.nvim'
-
-" ----------------- custom textobjects --------------------------------
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-entire'
-Plug 'sgur/vim-textobj-parameter'
-
-" ----------------- theming -------------------------------------------
-Plug 'olimorris/onedarkpro.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'akinsho/nvim-bufferline.lua'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'branch': '0.5-compat'}
-Plug 'norcalli/nvim-colorizer.lua'
-
-" ----------------- markdown ------------------------------------------
-Plug 'plasticboy/vim-markdown'
-Plug 'godlygeek/tabular'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-
-" ----------------- vimtex --------------------------------------------
-Plug 'lervag/vimtex'
-
-" ----------------- telescope -----------------------------------------
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
 Plug 'ibhagwan/fzf-lua'
-
-" ----------------- LSP -----------------------------------------------
-Plug 'neovim/nvim-lspconfig'
-Plug 'onsails/lspkind-nvim'
-Plug 'mfussenegger/nvim-jdtls'
-Plug 'RishabhRD/popfix'
-Plug 'RishabhRD/nvim-lsputils'
 Plug 'williamboman/nvim-lsp-installer'
-
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'ray-x/cmp-treesitter'
-
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'rafamadriz/friendly-snippets'
-
 Plug 'mfussenegger/nvim-lint'
 
 call plug#end()
