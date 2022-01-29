@@ -59,7 +59,6 @@ M.load = function()
     "tsserver",
     "vuels",
     "texlab",
-    "rnix"
   }
 
   local function setup_servers()

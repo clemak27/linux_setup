@@ -11,7 +11,9 @@ M.load = function()
   end
 
   require('packer').startup(function(use)
+
     ----------------- packer --------------------------------------------
+
     use 'wbthomason/packer.nvim'
 
     ----------------- default plugins -----------------------------------
@@ -19,62 +21,79 @@ M.load = function()
     use 'tpope/vim-repeat'
     use 'tpope/vim-vinegar'
     use 'inkarkat/vim-ReplaceWithRegister'
+    vim.api.nvim_exec([[
+      nmap r  <Plug>ReplaceWithRegisterOperator
+      nmap rr <Plug>ReplaceWithRegisterLine
+      nmap R  r$
+      xmap r  <Plug>ReplaceWithRegisterVisual
+    ]], false)
+
     use 'tpope/vim-commentary'
-    use 'windwp/nvim-autopairs'
+    vim.api.nvim_exec([[
+      autocmd FileType nix setlocal commentstring=#\ %s
+    ]], false)
+
+    use { 'windwp/nvim-autopairs', config = function () require("autopairs-config").load() end }
     use 'tpope/vim-surround'
     use 'antoinemadec/FixCursorHold.nvim'
 
     ----------------- git integration -----------------------------------
 
     use 'tpope/vim-fugitive'
-    use 'lewis6991/gitsigns.nvim'
+    use { 'lewis6991/gitsigns.nvim', config = function () require("gitsigns-config").load() end }
 
     ----------------- custom textobjects --------------------------------
     use 'kana/vim-textobj-user'
     use 'kana/vim-textobj-entire'
-    use 'sgur/vim-textobj-parameter'
-
-    ----------------- theming -------------------------------------------
-    use 'olimorris/onedarkpro.nvim'
-    use 'kyazdani42/nvim-web-devicons'
-    use 'nvim-lualine/lualine.nvim'
-    use 'akinsho/nvim-bufferline.lua'
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-    use 'norcalli/nvim-colorizer.lua'
-
-    ----------------- markdown ------------------------------------------
-    use {
-      'preservim/vim-markdown',
-      config = function()
-        require('vim-markdown-config').load()
+    use { 'sgur/vim-textobj-parameter',
+      config = function ()
+        vim.g.vim_textobj_parameter_mapping = 'a'
       end
     }
+
+    ----------------- theming -------------------------------------------
+    use { 'olimorris/onedarkpro.nvim', config = function () require("colorscheme-config").load() end }
+    use 'kyazdani42/nvim-web-devicons'
+    use { 'nvim-lualine/lualine.nvim', config = function () require("lualine-config").load() end }
+    use { 'akinsho/nvim-bufferline.lua', config = function () require("bufferline-config").load() end }
+    use { 'nvim-treesitter/nvim-treesitter', config = function () require("treesitter-config").load() end }
+    use { 'norcalli/nvim-colorizer.lua', config = function () require("nvim-colorizer-config").load() end }
+
+    ----------------- markdown ------------------------------------------
+    use { 'preservim/vim-markdown', config = function() require('vim-markdown-config').load() end }
     use 'godlygeek/tabular'
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
-    ----------------- vimtex --------------------------------------------
-    use 'lervag/vimtex'
 
-    ----------------- telescope -----------------------------------------
-    use 'nvim-lua/popup.nvim'
-    use 'nvim-lua/plenary.nvim'
-    use 'ibhagwan/fzf-lua'
+    ----------------- vimtex --------------------------------------------
+    use { 'lervag/vimtex',
+      config = function ()
+        vim.g.vimtex_syntax_conceal_default = 0
+        vim.g.vimtex_indent_enabled = 1
+        vim.g.vimtex_indent_conditionals = {}
+        vim.g.vimtex_indent_on_ampersands = 0
+        vim.g.vimtex_complete_close_braces = 1
+        vim.g.vimtex_format_enabled = 1
+        vim.g.vimtex_imaps_leader = ';'
+        vim.g.vimtex_quickfix_open_on_warning = 0
+      end
+    }
+
+    ----------------- fzf -----------------------------------------------
+    use { 'ibhagwan/fzf-lua', requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}, config = function() require('fzf-lua-config').load() end }
 
     ----------------- LSP -----------------------------------------------
-    use 'neovim/nvim-lspconfig'
-    use 'onsails/lspkind-nvim'
-    use 'mfussenegger/nvim-jdtls'
-    use 'RishabhRD/popfix'
-    use 'RishabhRD/nvim-lsputils'
+    use { 'neovim/nvim-lspconfig', config = function() require('lsp-config').load() end }
+    use { 'onsails/lspkind-nvim', config = function() require('lspkind-config').load() end }
+    use { 'RishabhRD/nvim-lsputils', requires = {'RishabhRD/popfix'}, config = function() require('lsputils-config').load() end }
     use 'williamboman/nvim-lsp-installer'
+    use { 'mfussenegger/nvim-jdtls', ft = {'java'}, config = function() require('jdtls-config').load() end}
 
     ----------------- cmp -----------------------------------------------
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-vsnip'
-    use 'ray-x/cmp-treesitter'
+
+    use { 'hrsh7th/nvim-cmp',
+      requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline', 'hrsh7th/cmp-vsnip', 'ray-x/cmp-treesitter'},
+      config = function() require('nvim-cmp-config').load() end
+    }
 
     ----------------- snippets -----------------------------------------------
     use 'hrsh7th/vim-vsnip'
@@ -82,7 +101,7 @@ M.load = function()
     use 'rafamadriz/friendly-snippets'
 
     ----------------- lint -----------------------------------------------
-    use 'mfussenegger/nvim-lint'
+    use { 'mfussenegger/nvim-lint', config = function() require('nvim-lint-config').load() end }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

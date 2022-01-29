@@ -1,5 +1,6 @@
 " ------------------------------------------------- .vimrc ----------------------------------------------------
 set nocompatible
+set termguicolors
 filetype off
 
 " enable mouse support
@@ -178,44 +179,3 @@ map Ä <c-]>
 " ------------------------------------------------- plugins ---------------------------------------------------
 
 lua require('plugins').load()
-
-lua require('lsp-config').load()
-lua require('lspkind-config').load()
-lua require('lsputils-config').load()
-lua require('nvim-lint-config').load()
-
-augroup lsp
-  au!
-  au FileType java lua require('jdtls-config').load()
-augroup end
-
-let g:vimtex_syntax_conceal_default = 0
-let g:vimtex_indent_enabled = 1
-let g:vimtex_indent_conditionals = {}
-let g:vimtex_indent_on_ampersands = 0
-let g:vimtex_complete_close_braces = 1
-let g:vimtex_format_enabled = 1
-let g:vimtex_imaps_leader = ';'
-let g:vimtex_quickfix_open_on_warning = 0
-
-lua require('fzf-lua-config').load()
-
-autocmd FileType nix setlocal commentstring=#\ %s
-
-nmap r  <Plug>ReplaceWithRegisterOperator
-nmap rr <Plug>ReplaceWithRegisterLine
-nmap R  r$
-xmap r  <Plug>ReplaceWithRegisterVisual
-
-lua require("nvim-cmp-config").load()
-lua require("autopairs-config").load()
-lua require("gitsigns-config").load()
-
-let g:vim_textobj_parameter_mapping = 'a'
-
-lua require("colorscheme-config").load()
-lua require("lualine-config").load()
-lua require("bufferline-config").load()
-
-lua require("nvim-colorizer-config").load()
-lua require("treesitter-config").load()
