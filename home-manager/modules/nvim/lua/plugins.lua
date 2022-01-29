@@ -95,16 +95,14 @@ M.load = function()
       config = function() require('nvim-cmp-config').load() end
     }
 
-    ----------------- snippets -----------------------------------------------
+    ----------------- snippets ------------------------------------------
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'
     use 'rafamadriz/friendly-snippets'
 
-    ----------------- lint -----------------------------------------------
+    ----------------- lint ----------------------------------------------
     use { 'mfussenegger/nvim-lint', config = function() require('nvim-lint-config').load() end }
 
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
     if packer_bootstrap then
       require('packer').sync()
     end
