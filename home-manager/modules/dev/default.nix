@@ -23,7 +23,6 @@ in
 
     home.file.".npmrc".text = ''
       prefix=~/.local/bin/npm
-      registry=https://registry.npmjs.org
       save_exact=true
     '';
 
