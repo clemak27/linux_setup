@@ -40,7 +40,7 @@ M.load = function()
     ----------------- git integration -----------------------------------
 
     use 'tpope/vim-fugitive'
-    use { 'lewis6991/gitsigns.nvim', config = function () require("gitsigns-config").load() end }
+    use { 'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, config = function () require("gitsigns-config").load() end }
 
     ----------------- custom textobjects --------------------------------
     use 'kana/vim-textobj-user'
@@ -84,7 +84,7 @@ M.load = function()
     ----------------- LSP -----------------------------------------------
     use { 'neovim/nvim-lspconfig', config = function() require('lsp-config').load() end }
     use { 'onsails/lspkind-nvim', config = function() require('lspkind-config').load() end }
-    use { 'RishabhRD/nvim-lsputils', requires = {'RishabhRD/popfix'}, config = function() require('lsputils-config').load() end }
+    use { 'ojroques/nvim-lspfuzzy', requires = {'junegunn/fzf', 'junegunn/fzf.vim'}, config = function() require('lspfuzzy').setup {} end  }
     use 'williamboman/nvim-lsp-installer'
     use { 'mfussenegger/nvim-jdtls', ft = {'java'}, config = function() require('jdtls-config').load() end}
 
