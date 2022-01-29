@@ -5,7 +5,6 @@ in
 {
   imports = [
     ./jdtls.nix
-    ./plugins.nix
   ];
 
   options.homecfg.nvim.enable = lib.mkEnableOption "Manage neovim with homecfg";
