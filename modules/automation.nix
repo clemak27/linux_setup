@@ -9,7 +9,8 @@ let
     nix-collect-garbage
     nix-store --optimise
     tldr --update
-    nvim -c 'PlugUpgrade | PlugUpdate | qa'
+    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+    cd -
   '';
 in
 {
