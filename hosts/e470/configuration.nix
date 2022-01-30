@@ -9,6 +9,7 @@
 
     ../../modules/ssh.nix
     ../../modules/swapfile.nix
+    ../../modules/nix.nix
 
     ./services
   ];
@@ -61,13 +62,6 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.zsh;
-  };
-
-  nix = {
-    package = pkgs.nix_2_4; # or versioned attributes like nix_2_4
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
   };
 
   home-manager.useGlobalPkgs = true;
