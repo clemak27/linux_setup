@@ -17,31 +17,34 @@
     in
     {
 
-      nixosConfigurations.zenix = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager
-          sops-nix.nixosModules.sops
-          ./hosts/zenix/configuration.nix
-        ];
-      };
+      nixosConfigurations = {
+        zenix = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
+            ./hosts/zenix/configuration.nix
+          ];
+        };
 
-      nixosConfigurations.xps15 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager
-          sops-nix.nixosModules.sops
-          ./hosts/xps15/configuration.nix
-        ];
-      };
+        xps15 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
+            ./hosts/xps15/configuration.nix
+          ];
+        };
 
-      nixosConfigurations.e470 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager
-          sops-nix.nixosModules.sops
-          ./hosts/e470/configuration.nix
-        ];
+        e470 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
+            ./hosts/e470/configuration.nix
+          ];
+        };
+
       };
 
       devShell.x86_64-linux = devpkgs.mkShell {

@@ -6,16 +6,10 @@
   ];
 
   homecfg = {
-    gui = {
-      enable = true;
-    };
+    gui.enable = true;
     dev.enable = true;
-    fun = {
-      enable = true;
-    };
-    k8s = {
-      enable = true;
-    };
+    fun.enable = true;
+    k8s.enable = true;
     git = {
       enable = true;
       user = "clemak27";
@@ -24,17 +18,9 @@
       gh = true;
       glab = false;
     };
-    nvim = {
-      enable = true;
-    };
-    tmux = {
-      enable = true;
-    };
-    tools = {
-      enable = true;
-    };
-    zsh = {
-      enable = true;
-    };
+    nvim.enable = true;
+    tmux.enable = true;
+    tools.enable = true;
+    zsh.enable = true;
   };
 }
