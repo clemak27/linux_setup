@@ -2,9 +2,7 @@
 let
   updateSystem = pkgs.writeShellScriptBin "update-system" ''
     cd $HOME/Projects/linux_setup
-    nix flake update
-    git add flake.nix flake.lock
-    git commit -m "chore(flake): Update $(date -I)"
+    nix flake update --commit-lock-file --commit-lockfile-summary "chore(flake): Update $(date -I)"
     sudo nixos-rebuild switch --flake . --impure
     tldr --update
     nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
@@ -12,18 +10,17 @@ let
   '';
 in
 {
-  nix.autoOptimiseStore = true;
-  nix.package = pkgs.nix_2_4;
-
-  # flake support
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
+  nix = {
+    package = pkgs.nix_2_6;
+    settings.auto-optimise-store = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
   };
 
   environment.systemPackages = with pkgs; [
