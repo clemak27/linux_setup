@@ -18,6 +18,7 @@
   };
 
   home.file."mp3gain-update.sh".source = ./mp3gain-update.sh;
+  home.file."gitops-upgrade.sh".source = ./gitops-upgrade.sh;
 
   home.packages = with pkgs; [
     gcc
