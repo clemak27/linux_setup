@@ -3,7 +3,7 @@ let
   docker-data = "/home/clemens/data/docker";
 
   service-name = "gitea";
-  service-version = "1.15.9";
+  service-version = "1.16.0";
   service-port = "3000";
 in
 {
