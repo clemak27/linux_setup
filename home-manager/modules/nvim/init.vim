@@ -179,3 +179,8 @@ map Ä <c-]>
 " ------------------------------------------------- plugins ---------------------------------------------------
 
 lua require('plugins').load()
+" setting these in a lua file does not work
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_emphasis_multiline = 0
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_new_list_item_indent = 2

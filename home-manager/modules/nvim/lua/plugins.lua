@@ -60,7 +60,18 @@ M.load = function()
     use { 'norcalli/nvim-colorizer.lua', config = function () require("nvim-colorizer-config").load() end }
 
     ----------------- markdown ------------------------------------------
-    use { 'preservim/vim-markdown', config = function() require('vim-markdown-config').load() end }
+    use { 'preservim/vim-markdown',
+      config = function ()
+        vim.o.conceallevel = 2
+        -- vim.api.nvim_exec([[
+        --   let g:vim_markdown_folding_disabled = 1
+        --   let g:vim_markdown_emphasis_multiline = 0
+        --   let g:vim_markdown_conceal_code_blocks = 0
+        --   let g:vim_markdown_new_list_item_indent = 2
+        -- ]], false)
+        vim.api.nvim_set_keymap("n", "<Leader>ww", [[<Cmd>e ~/Notes/index.md<CR>]], {noremap = true, silent = true})
+      end
+    }
     use 'godlygeek/tabular'
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
 
