@@ -15,6 +15,7 @@ in
       fd
       htmlq
       hyperfine
+      jo
       jq
       pgcli
       ranger
