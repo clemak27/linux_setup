@@ -43,7 +43,7 @@ in
       jackett =
         let
           service-name = "jackett";
-          service-version = "0.20.314";
+          service-version = "0.20.514";
           service-port = "9117";
         in
         {
@@ -109,7 +109,7 @@ in
       radarr =
         let
           service-name = "radarr";
-          service-version = "3.2.2";
+          service-version = "4.0.4";
           service-port = "7878";
         in
         {
