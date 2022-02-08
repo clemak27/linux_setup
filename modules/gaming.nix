@@ -2,9 +2,16 @@
 {
   nixpkgs.config.allowUnfree = true;
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+  };
+
   environment.systemPackages = with pkgs; [
     gamemode
     mangohud
+    protonup
+
     # wine-staging (version with experimental features)
     winePackages.staging
 

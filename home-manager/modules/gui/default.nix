@@ -28,6 +28,12 @@ in
       yt-dlp
       unrar
       ytfzf
+
+      signal-desktop
+      discord
+      gimp
+      libreoffice
+      gzdoom
     ];
 
     dconf.settings = import ./dconf.nix;
