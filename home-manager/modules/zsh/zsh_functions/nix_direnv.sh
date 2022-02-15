@@ -7,32 +7,20 @@ __init_shell() {
     {
       echo ".direnv";
       echo ".envrc";
-      echo "shell.nix";
     } >> .gitignore
   fi
 
-  echo "use_nix" > .envrc
-
-  cat << EOF > ./shell.nix
-{ pkgs ? import <nixpkgs> {} }:
-  pkgs.mkShell {
-  # insert derivates here
-  nativeBuildInputs = [
-  pkgs.buildPackages.nodejs-12_x
-  ];
-}
-EOF
-
-  nvim shell.nix
-
+  nix flake new . -t github:nix-community/nix-direnv
+  nvim flake.nix
+  git add flake.nix
   direnv allow
 }
 
 __remove_shell() {
- rm -rf .direnv .envrc shell.nix
+  rm -rf .direnv .envrc flake.nix flake.lock
 }
 
-nix_shell() {
+nix-direnv() {
   for arg in "$@"
   do
     case $arg in
