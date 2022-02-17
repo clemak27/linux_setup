@@ -6,8 +6,8 @@ let
       com.discordapp.Discord \
       com.github.tchx84.Flatseal \
       com.valvesoftware.Steam \
+      com.valvesoftware.Steam.CompatibilityTool.Proton-GE \
       io.gdevs.GDLauncher \
-      net.davidotek.pupgui2 \
       org.gimp.GIMP \
       org.libreoffice.LibreOffice \
       org.openrgb.OpenRGB \
