@@ -6,6 +6,7 @@
   ];
 
   homecfg = {
+    gui.enable = false;
     dev.enable = true;
     fun.enable = true;
     k8s.enable = true;
@@ -21,5 +22,26 @@
     tmux.enable = true;
     tools.enable = true;
     zsh.enable = true;
+  };
+
+  home.packages = with pkgs; [
+    sshfs
+
+    scrcpy
+
+    yt-dlp
+    unrar
+    ytfzf
+
+    sublime-music
+  ];
+
+  programs.zsh = {
+    shellAliases = builtins.listToAttrs (
+      [
+        { name = "youtube-dl"; value = "yt-dlp"; }
+        { name = "youtube-dl-music"; value = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\""; }
+      ]
+    );
   };
 }
