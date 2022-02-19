@@ -35,16 +35,6 @@
             ./hosts/xps15/configuration.nix
           ];
         };
-
-        e470 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops
-            ./hosts/e470/configuration.nix
-          ];
-        };
-
       };
 
       devShell.x86_64-linux = devpkgs.mkShell {
