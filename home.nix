@@ -2,11 +2,10 @@
 
 {
   imports = [
-    ../../home-manager/homecfg.nix
+    ./home-manager/homecfg.nix
   ];
 
   homecfg = {
-    gui.enable = true;
     dev.enable = true;
     fun.enable = true;
     k8s.enable = true;
