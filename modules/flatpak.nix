@@ -11,6 +11,7 @@ let
       org.gimp.GIMP \
       org.libreoffice.LibreOffice \
       org.openrgb.OpenRGB \
+      org.pipewire.Helvum \
       org.signal.Signal \
       org.zdoom.GZDoom
   '';
