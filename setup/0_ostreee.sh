@@ -1,5 +1,14 @@
 #!/bin/bash
 
-rpm-ostree install alacritty neovim syncthing gnome-tweaks gnome-shell-extension-unite gnome-shell-extension-appindicator gnome-shell-extension-gsconnect wireguard-tools
+rpm-ostree install \
+  alacritty \
+  gnome-shell-extension-appindicator \
+  gnome-shell-extension-gsconnect \
+  gnome-shell-extension-unite \
+  gnome-tweaks \
+  neovim \
+  syncthing \
+  wireguard-tools \
+  xprop
 rpm-ostree override remove firefox
 systemctl reboot
