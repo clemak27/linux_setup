@@ -32,8 +32,6 @@
     yt-dlp
     unrar
     ytfzf
-
-    sublime-music
   ];
 
   programs.zsh = {

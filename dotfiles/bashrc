@@ -1,0 +1,37 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+  PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+alias tb='toolbox'
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+  for rc in ~/.bashrc.d/*; do
+    if [ -f "$rc" ]; then
+      . "$rc"
+    fi
+  done
+fi
+
+unset rc
+
+if [[ $HOSTNAME == "toolbox" ]]; then
+  export HOME=/var/home/clemens
+  export NIX_PROFILES="/nix/var/nix/profiles/default $HOME/.nix-profile"
+  export NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt
+  export PATH=$HOME/.nix-profile/bin:$HOME/.local/bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.cargo/bin:$HOME/.go/bin:$HOME/.local/bin:$HOME/.local/bin/npm/bin
+  $HOME/.nix-profile/bin/zsh
+fi
