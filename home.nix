@@ -1,5 +1,23 @@
 { config, pkgs, lib, ... }:
+let
+  updateHM = pkgs.writeShellScriptBin "update-home-manager" ''
 
+    echo "Updating flake"
+    nix flake update --commit-lock-file --commit-lockfile-summary "chore(flake): Update $(date -I)"
+
+    echo "Reloading home-manager config"
+    home-manager switch --flake . --impure
+
+    echo "Collecting garbage"
+    nix-collect-garbage
+
+    echo "Updating tealdeer cache"
+    tldr --update
+
+    echo "Updating nvim plugins"
+    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  '';
+in
 {
   imports = [
     ./home-manager/homecfg.nix
