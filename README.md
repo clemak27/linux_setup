@@ -17,12 +17,12 @@ my general-use PC at home and `silfur`, a XPS15 (2019).
 - `home-manager + home.nix`  
   home-manager configuration files.
 - `logo.png`  
-  Fedora logo.
+  🐧.
 - `README.md`  
   You are reading this. :)
 - `setup`  
   Install instructions + scripts I wrote down.
-- `wallpaper.png`  
+- `wallpaper.jpg`  
   The wallpaper I use.
 
 ## Why?
