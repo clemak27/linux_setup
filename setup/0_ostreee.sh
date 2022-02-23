@@ -4,7 +4,6 @@ rpm-ostree install \
   alacritty \
   gnome-shell-extension-appindicator \
   gnome-shell-extension-gsconnect \
-  gnome-shell-extension-unite \
   gnome-tweaks \
   neovim \
   syncthing \
