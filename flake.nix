@@ -8,53 +8,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix.url = github:Mic92/sops-nix;
-    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, flake-utils }:
-    let
-      devpkgs = nixpkgs.legacyPackages.x86_64-linux;
-    in
+  outputs = { self, nixpkgs, home-manager, sops-nix }:
     {
-
-      nixosConfigurations = {
-        zenix = nixpkgs.lib.nixosSystem {
+      homeConfigurations = {
+        "clemens@toolbox" = home-manager.lib.homeManagerConfiguration {
+          configuration = ./home.nix;
           system = "x86_64-linux";
-          modules = [
-            home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops
-            ./hosts/zenix/configuration.nix
-          ];
+          homeDirectory = "/home/clemens";
+          username = "clemens";
+          stateVersion = "21.05";
         };
-
-        xps15 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops
-            ./hosts/xps15/configuration.nix
-          ];
-        };
-
-        e470 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops
-            ./hosts/e470/configuration.nix
-          ];
-        };
-
       };
-
-      devShell.x86_64-linux = devpkgs.mkShell {
-        nativeBuildInputs = with devpkgs; [
-          dconf2nix
-          sops
-          age
-          ssh-to-age
-        ];
-      };
-
     };
 }

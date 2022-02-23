@@ -1,29 +1,28 @@
-# my NixOS setup
+# my linux setup
 
-This repo contains my dotfiles + setup for NixOS.
+This repo contains my dotfiles + setup for my Linux Desktop PCs running Fedora Silverblue.
+
+## About
+
+I currently use Fedora Silverblue. I'm still new to it, so I use basically
+a "god" toolbox, that contains the home-manager config of my previous NixOS
+systems, so the initial transition is fast. I plan to do a more proper
+setup later on. Also, the 2 systems running this configuration are `argentum`,
+my general-use PC at home and `silfur`, a XPS15 (2019).
 
 ## What's in this repo?
 
-- `home-manager`  
-  home-manager configuration files, including user-customization of GNOME.
-- `hosts`  
-  The `configuration.nix` files for different machines:
-  - `zenix`  
-    My main PC I have at home.
-  - `xps15`  
-    My laptop. I'm not really satisfied with it,
-    but also not motivated to replace it.
-  - `e470`  
-    My former laptop made server, that hosts several services
+- `dotfiles`  
+  general configuration files.
+- `home-manager + home.nix`  
+  home-manager configuration files.
 - `logo.png`  
-  NixOS logo.
-- `modules`  
-  A collection of general nix modules the hosts can use.
+  🐧.
 - `README.md`  
-  You are reading this.
+  You are reading this. :)
 - `setup`  
-  Install instructions for NixOS.
-- `wallpaper.png`  
+  Install instructions + scripts I wrote down.
+- `wallpaper.jpg`  
   The wallpaper I use.
 
 ## Why?

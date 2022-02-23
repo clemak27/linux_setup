@@ -25,9 +25,6 @@ in
           "adb"
           "extract"
           "rsync"
-        ] ++ lib.optionals pkgs.stdenv.isLinux [
-          # podman completion -f /home/clemens/.oh-my-zsh/custom/plugins/podman/_podman zsh
-          "podman"
         ];
         custom = "$HOME/.oh-my-zsh/custom";
       };
@@ -43,6 +40,7 @@ in
         BROWSER = "firefox";
         DIRENV_LOG_FORMAT = "";
         EDITOR = "nvim";
+        GIT_SSH = "/usr/bin/ssh";
         PATH = "$PATH:$HOME/.cargo/bin:$HOME/.go/bin:$HOME/.local/bin:$HOME/.local/bin/npm/bin";
         VISUAL = "nvim";
       };
@@ -62,6 +60,8 @@ in
           "for file in ~/.zsh_functions/*; do . $file; done"
           # local additional zsh file
           "[[ ! -f ~/.local.zsh ]] || source ~/.local.zsh"
+          # nix things
+          ". $HOME/.nix-profile/etc/profile.d/nix.sh"
         ]
       );
     };

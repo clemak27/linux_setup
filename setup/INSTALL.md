@@ -1,91 +1,34 @@
 <!-- markdownlint-disable -->
-# NixOS installation
+# Fedora SilverBlue installation
 
 ## Setup
 
-### Preparation
+### Inital
 
 - create live USB (if there is none yet)
-- create new branch for host
-- prepare config in hosts directory
-
-### NixOS install
-
 - boot from live USB
-- checkout repo: `git clone https://github.com/clemak27/linux_setup`
-- `cd linux_setup/setup`
-- update `setup_nixos.sh` with the device where nix should be installed (check with `lsblk`)
-- run `sudo ./setup_nixos.sh`
-- update the initial config:
-  - create user
-  ```nix
-  users.users.clemens = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  };
-  ```
-  - make encryption work by adding (replace initial bootload config):
-  ```nix
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.efiSupport = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.luks.devices.luksroot = {
-    device = "/dev/disk/by-uuid/af78f4e2-205b-4ca7-b4f7-923b797dfd41";
-    preLVM = true;
-    allowDiscards = true;
-  };
-  ```
-    - replace the uuid with the uuid of the encrypted device
-      - use `lsblk --fs`, example: `└─sda2         crypto_LUKS 2                af78f4e2-205b-4ca7-b4f7-923b797dfd41`
-      - lsblk --fs | grep "crypto_LUKS" | awk '{print $4}'
-  - add essential programs:
-  ```nix
-  environment.systemPackages = with pkgs; [
-    zsh
-    vim
-    wget
-    curl
-    w3m
-    git
-    parted
-  ];
-  ```
-  - set hostname:
-  ```nix
-  networking.hostName = "xyz";
-  ```
-- install it with `sudo nixos-install`
-- reboot into new system
+- install it
 
-### Configuring the system
+### First boot
 
-- login as normal user
-- checkout repo: (if there is a backed up ssh key, gcl with ssh)
-  ```sh
-  mkdir -p ~/Projects
-  cd ~/Projects
-  git clone https://github.com/clemak27/linux_setup.git
-  ```
-- run the next script:
-- `cd linux_setup/setup`
-- run `./setup_system.sh`
-- edit configuration.nix as wanted and then run:
-```sh
-sudo nixos-rebuild boot --upgrade
-```
-
-## Notes
-
-### To convert an ssh ed25519 key to an age key
+- checkout git repo:
 
 ```sh
-mkdir -p ~/.config/sops/age
-cp $HOME/.ssh/id_ed25519 /tmp/id_ed25519
-ssh-keygen -p -N "" -f /tmp/id_ed25519
-ssh-to-age -private-key -i /tmp/id_ed25519 > ~/.config/sops/age/keys.txt
-rm /tmp/id_ed25519
-age-keygen -y ~/.config/sops/age/keys.txt
+mkdir Projects
+cd Projects/
+git clone https://github.com/clemak27/linux_setup # (or with ssh if key imported: git@github.com:clemak27/linux_setup.git)
+cd linux_setup/setup
 ```
+
+- Run the first install-script and then reboot
+- After the reboot, run the second
+
+### create toolboxes
+
+- this is only semi-automated for now:
+- create the default toolbox:
+  - `toolbox create`
+  - `toolbox enter` and run `./init_nix_toolbox.sh`
+- install subĺime-music:
+  - `toolbox create sublime-music`
+  - `toolbox run -c sublime-music ./init_sublime_music_toolbox.sh`
