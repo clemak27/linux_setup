@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # flatpaks
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install -y flathub \
   com.discordapp.Discord \
   com.github.tchx84.Flatseal \
@@ -42,3 +41,6 @@ unzip /tmp/unite-shell-v59.zip -d ~/.local/share/gnome-shell/extensions
 # workaround for alacritty WL issue
 cp /usr/share/applications/Alacritty.desktop ~/.local/share/applications/
 sed -i 's/^Exec=alacritty$/Exec=env -u WAYLAND_DISPLAY alacritty/g' ~/.local/share/applications/Alacritty.desktop
+
+# openrgb rules
+sudo cp 60-openrgb.rules /etc/udev/rules.d/60-openrgb.rules
