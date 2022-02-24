@@ -37,6 +37,8 @@ unzip /tmp/FiraCode.zip -d /home/clemens/.local/share/fonts
 mkdir -p ~/.local/share/gnome-shell/extensions
 curl -L -o /tmp/unite-shell-v59.zip --url https://github.com/hardpixel/unite-shell/releases/download/v59/unite-shell-v59.zip
 unzip /tmp/unite-shell-v59.zip -d ~/.local/share/gnome-shell/extensions
+curl -L -o /tmp/blur-my-shell@aunetx.zip --url https://github.com/aunetx/blur-my-shell/releases/download/v28/blur-my-shell@aunetx.zip
+unzip /tmp/blur-my-shell@aunetx.zip -d ~/.local/share/gnome-shell/extensions/blur-my-shell@aunetx
 
 # workaround for alacritty WL issue
 cp /usr/share/applications/Alacritty.desktop ~/.local/share/applications/
