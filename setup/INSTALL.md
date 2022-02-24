@@ -1,4 +1,3 @@
-<!-- markdownlint-disable -->
 # Fedora SilverBlue installation
 
 ## Setup
@@ -32,3 +31,9 @@ cd linux_setup/setup
 - install subĺime-music:
   - `toolbox create sublime-music`
   - `toolbox run -c sublime-music ./init_sublime_music_toolbox.sh`
+
+## Notes
+
+- enable wg config after copying: `sudo systemctl enable --now wg-quick@home`
+- sublime-music container is weird
+- clipboard is weird
