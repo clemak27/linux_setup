@@ -26,6 +26,7 @@ echo "GTK_THEME=Adwaita:dark $install_dir/bin/sublime-music" > "$bin_location"
 chmod +x "$bin_location"
 
 # https://gitlab.com/sublime-music/sublime-music/-/issues/304
+mkdir -p ~/.local/share/icons
 wget https://gitlab.com/sublime-music/sublime-music/-/raw/master/logo/icon.svg\?inline\=false -O ~/.local/share/icons/sublime-music.svg
 
 {
