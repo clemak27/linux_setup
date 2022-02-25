@@ -37,3 +37,5 @@ cd linux_setup/setup
 - enable wg config after copying: `sudo systemctl enable --now wg-quick@home`
 - sublime-music container is weird
 - clipboard is weird
+- add evolution
+- move proton-ge install somehere else
