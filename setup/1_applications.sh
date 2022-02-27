@@ -5,7 +5,6 @@ flatpak install -y flathub \
   com.discordapp.Discord \
   com.github.tchx84.Flatseal \
   com.valvesoftware.Steam \
-  com.valvesoftware.Steam.CompatibilityTool.Proton-GE \
   io.gdevs.GDLauncher \
   io.mpv.Mpv \
   org.gimp.GIMP \
@@ -17,6 +16,8 @@ flatpak install -y flathub \
   org.pipewire.Helvum \
   org.signal.Signal \
   org.zdoom.GZDoom
+flatpak install -y flathub \
+  com.valvesoftware.Steam.CompatibilityTool.Proton-GE
 flatpak install -y fedora \
   org.gnome.Extensions
 
