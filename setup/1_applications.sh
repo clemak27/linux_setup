@@ -7,6 +7,7 @@ flatpak install -y flathub \
   com.valvesoftware.Steam \
   io.gdevs.GDLauncher \
   io.mpv.Mpv \
+  org.freedesktop.Platform.ffmpeg-full \
   org.gimp.GIMP \
   org.kde.kid3 \
   org.keepassxc.KeePassXC \
