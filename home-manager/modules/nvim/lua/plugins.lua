@@ -36,6 +36,7 @@ M.load = function()
     use { 'windwp/nvim-autopairs', config = function () require("autopairs-config").load() end }
     use 'tpope/vim-surround'
     use 'antoinemadec/FixCursorHold.nvim'
+    use 'editorconfig/editorconfig-vim'
 
     ----------------- git integration -----------------------------------
 
