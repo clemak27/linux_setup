@@ -47,8 +47,9 @@ unzip /tmp/blur-my-shell@aunetx.zip -d ~/.local/share/gnome-shell/extensions/blu
 cp /usr/share/applications/Alacritty.desktop ~/.local/share/applications/
 sed -i 's/^Exec=alacritty$/Exec=env -u WAYLAND_DISPLAY alacritty/g' ~/.local/share/applications/Alacritty.desktop
 
-# openrgb rules
+# openrgb
 sudo cp 60-openrgb.rules /etc/udev/rules.d/60-openrgb.rules
+cp org.openrgb.OpenRGB.desktop ~/.local/share/applications/
 
 # gnome shortcuts
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super>1']"

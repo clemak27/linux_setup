@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Load OpenRGB Profile
+Comment=Control RGB lighting
+Exec=flatpak run org.openrgb.OpenRGB -p rgb
+Icon=org.openrgb.OpenRGB
+Terminal=false
+Categories=Utility;
