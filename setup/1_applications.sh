@@ -20,6 +20,7 @@ flatpak install -y flathub \
 flatpak install -y flathub \
   com.valvesoftware.Steam.CompatibilityTool.Proton-GE
 flatpak install -y fedora \
+  org.gnome.Evolution \
   org.gnome.Extensions
 
 # symlink dotfiles
