@@ -56,6 +56,7 @@ in
   programs.zsh = {
     shellAliases = builtins.listToAttrs (
       [
+        { name = "rh"; value = "/usr/bin/flatpak-spawn --host"; }
         { name = "youtube-dl"; value = "yt-dlp"; }
         { name = "youtube-dl-music"; value = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\""; }
       ]
