@@ -6,6 +6,7 @@
 
 install_dir=$HOME/.toolbox/sublime-music
 bin_location=$HOME/.local/bin/sublime-music
+custom_bin_location=$HOME/.local/bin/sublime-music-dark
 
 sudo dnf install -y "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm"
 sudo dnf install -y "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
@@ -19,11 +20,14 @@ mpv-libs-devel \
 pip \
 python3-cairo-devel \
 rust
-pip install --target $install_dir sublime-music[keyring,chromecast,server]
 
-mkdir -p "$install_dir"
-echo "GTK_THEME=Adwaita:dark $install_dir/bin/sublime-music" > "$bin_location"
-chmod +x "$bin_location"
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+
+pipx install sublime-music[keyring,chromecast,server]
+
+echo "GTK_THEME=Adwaita:dark $bin_location" > "$custom_bin_location"
+chmod +x "$custom_bin_location"
 
 # https://gitlab.com/sublime-music/sublime-music/-/issues/304
 mkdir -p ~/.local/share/icons
@@ -37,8 +41,8 @@ echo "Name=Sublime Music"
 echo "Name[es]=Música Sublime"
 echo "GenericName=Music Player"
 echo "Comment=Native Subsonic client for Linux"
-echo "Exec=toolbox run -c sublime-music $bin_location"
+echo "Exec=toolbox run -c sublime-music $custom_bin_location"
 echo "Icon=sublime-music"
 echo "Terminal=false"
 echo "Categories=AudioVideo;Audio;Music;"
-} >> ~/.local/share/applications/sublime-music.desktop
+} > ~/.local/share/applications/sublime-music.desktop
