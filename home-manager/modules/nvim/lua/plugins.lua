@@ -37,6 +37,7 @@ M.load = function()
     use 'tpope/vim-surround'
     use 'antoinemadec/FixCursorHold.nvim'
     use 'editorconfig/editorconfig-vim'
+    use 'Calder-Ty/todotext.vim'
 
     ----------------- git integration -----------------------------------
 
