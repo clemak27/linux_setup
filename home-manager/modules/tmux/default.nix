@@ -17,7 +17,13 @@ in
       terminal = "xterm-256color";
       prefix = "C-y";
       plugins = with pkgs; [
-        tmuxPlugins.resurrect
+        {
+          plugin = tmuxPlugins.resurrect;
+          extraConfig = ''
+            set -g @resurrect-strategy-nvim 'session'
+          '';
+        }
+        # TODO this does not work, it gets loaded before extraConfig which means status-right get overridden
         {
           plugin = tmuxPlugins.continuum;
           extraConfig = ''
