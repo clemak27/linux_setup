@@ -47,6 +47,9 @@ in
       conda = {
         disabled = true;
       };
+      container = {
+        disabled = true;
+      };
       dotnet = {
         disabled = true;
       };
