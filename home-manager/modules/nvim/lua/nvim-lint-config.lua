@@ -10,7 +10,6 @@ M.load = function()
     sh = {'shellcheck'},
     bash = {'shellcheck'},
     zsh = {'shellcheck'},
-    javascript = {'eslint'}
   }
 
   vim.api.nvim_exec(

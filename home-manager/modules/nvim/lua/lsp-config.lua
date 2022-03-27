@@ -46,18 +46,19 @@ M.load = function()
   end
 
   local servers = {
-    "html",
-    "cssls",
-    "jsonls",
-    "yamlls",
     "bashls",
-    "sumneko_lua",
-    "vimls",
-    "jdtls",
+    "cssls",
+    "eslint",
     "gopls",
-    "tsserver",
-    "vuels",
+    "html",
+    "jdtls",
+    "jsonls",
+    "sumneko_lua",
     "texlab",
+    "tsserver",
+    "vimls",
+    "vuels",
+    "yamlls",
   }
 
   local function setup_servers()
@@ -105,6 +106,17 @@ M.load = function()
                   enable = false,
                 },
               },
+            }
+          end
+
+          if server.name == "eslint" then
+            config.on_attach = function (client, bufnr)
+              -- neovim's LSP client does not currently support dynamic capabilities registration, so we need to set
+              -- the resolved capabilities of the eslint server ourselves!
+              client.resolved_capabilities.document_formatting = true
+            end
+            config.settings = {
+              format = { enable = true }, -- this will enable formatting
             }
           end
 
