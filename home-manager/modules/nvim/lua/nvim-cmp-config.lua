@@ -8,6 +8,7 @@ M.load = function()
   vim.cmd('set shortmess+=c')
 
   local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+  local lspkind = require('lspkind')
   local cmp = require'cmp'
   cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 
@@ -42,7 +43,10 @@ M.load = function()
       end, { 'i',  's' }),
     },
     formatting = {
-      format = require('lspkind').cmp_format(),
+      format = lspkind.cmp_format({
+        mode = 'symbol_text',
+        maxwidth = 50,
+      })
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
