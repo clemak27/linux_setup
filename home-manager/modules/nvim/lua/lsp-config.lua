@@ -109,7 +109,7 @@ M.load = function()
             }
           end
 
-          if server.name == "eslint" then
+          if server == "eslint" then
             config.on_attach = function (client, bufnr)
               -- neovim's LSP client does not currently support dynamic capabilities registration, so we need to set
               -- the resolved capabilities of the eslint server ourselves!
