@@ -110,6 +110,7 @@ M.load = function()
           end
 
           if server == "eslint" then
+            config.cmd = { os.getenv('HOME') .. "/.local/share/nvim/lsp_servers/vscode-eslint/node_modules/vscode-langservers-extracted/bin/vscode-eslint-language-server", "--stdio" }
             config.on_attach = function (client, bufnr)
               -- neovim's LSP client does not currently support dynamic capabilities registration, so we need to set
               -- the resolved capabilities of the eslint server ourselves!
