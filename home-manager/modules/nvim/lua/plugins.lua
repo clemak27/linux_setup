@@ -96,10 +96,8 @@ M.load = function()
     use { 'ibhagwan/fzf-lua', requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}, config = function() require('fzf-lua-config').load() end }
 
     ----------------- LSP -----------------------------------------------
-    use { 'neovim/nvim-lspconfig', config = function() require('lsp-config').load() end }
-    use { 'onsails/lspkind-nvim', config = function() require('lspkind-config').load() end }
+    use { 'neovim/nvim-lspconfig', requires = {'onsails/lspkind-nvim', 'williamboman/nvim-lsp-installer'}, config = function() require('lsp-config').load() end }
     use { 'ojroques/nvim-lspfuzzy', requires = {'junegunn/fzf', 'junegunn/fzf.vim'}, config = function() require('lspfuzzy').setup {} end  }
-    use 'williamboman/nvim-lsp-installer'
     use { 'mfussenegger/nvim-jdtls', ft = {'java'}, config = function() require('jdtls-config').load() end}
 
     ----------------- cmp -----------------------------------------------
