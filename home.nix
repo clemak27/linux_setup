@@ -43,13 +43,12 @@ in
   };
 
   home.packages = with pkgs; [
-    updateHM
-    sshfs
-
     scrcpy
-
-    yt-dlp
+    sshfs
     unrar
+    updateHM
+    xclip
+    yt-dlp
     ytfzf
   ];
 
