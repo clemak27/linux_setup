@@ -54,6 +54,7 @@ M.load = function()
     "html",
     "jdtls",
     "jsonls",
+    "rnix",
     "sumneko_lua",
     "texlab",
     "tsserver",
@@ -136,14 +137,7 @@ M.load = function()
     end
   end
 
-  local function setup_rnix()
-    local config = make_config()
-    config.filetypes = {"nix"}
-    require'lspconfig'["rnix"].setup(config)
-  end
-
   setup_servers()
-  setup_rnix()
 
   -- format golang on edit
   vim.api.nvim_exec(

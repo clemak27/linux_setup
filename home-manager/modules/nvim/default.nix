@@ -28,7 +28,7 @@ in
     home.packages = with pkgs; [
       nodePackages.eslint
       nodePackages.markdownlint-cli
-      rnix-lsp
+      cargo
       shellcheck
     ] ++ lib.optionals stdenv.isLinux [
       sumneko-lua-language-server
