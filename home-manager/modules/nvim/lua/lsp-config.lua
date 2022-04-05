@@ -49,6 +49,7 @@ M.load = function()
     "bashls",
     "cssls",
     "eslint",
+    "golangci_lint_ls",
     "gopls",
     "html",
     "jdtls",

@@ -5,7 +5,6 @@ local M = {}
 M.load = function()
 
   require('lint').linters_by_ft = {
-    go = {'revive'},
     markdown = {'markdownlint'},
     sh = {'shellcheck'},
     bash = {'shellcheck'},
