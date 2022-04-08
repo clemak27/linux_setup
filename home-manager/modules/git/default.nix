@@ -4,9 +4,10 @@ let
 in
 {
   imports = [
-    ./tea.nix
     ./github.nix
     ./glab.nix
+    ./ssh_signing.nix
+    ./tea.nix
   ];
 
   options.homecfg.git = {
