@@ -44,7 +44,7 @@ in
           helper = "cache";
         };
         pull = {
-          rebase = "false";
+          rebase = "true";
         };
       };
     };
