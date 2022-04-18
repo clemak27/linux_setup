@@ -27,7 +27,6 @@ M.load = function()
     buf_set_keymap("n", "gf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
     buf_set_keymap('n', '<space>u', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<space>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    buf_set_keymap('n', '<space>d', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
     buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
@@ -41,12 +40,6 @@ M.load = function()
     cmd = {'jdtls', os.getenv('HOME') .. '/.jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')},
     on_attach = on_attach,
   })
-
-  -- use lsputils for UI
-  local jdtls_ui = require'jdtls.ui'
-  function jdtls_ui.pick_one_async(items, _, _, cb)
-    require'lsputil.codeAction'.code_action_handler(nil, nil, items, nil, nil, nil, cb)
-  end
 end
 
 return M

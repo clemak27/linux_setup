@@ -24,7 +24,6 @@ M.load = function()
   vim.api.nvim_set_keymap("n", "<Leader>l", [[<Cmd>lua require('fzf-lua').builtin()<CR>]], opt)
 
   -- lsp mappings
-  vim.api.nvim_set_keymap("n", "<Leader>a", [[<Cmd>lua require('fzf-lua').lsp_code_actions()<CR>]], opt)
   vim.api.nvim_set_keymap("n", "<Leader>d", [[<Cmd>lua require('fzf-lua').lsp_document_diagnostics()<CR>]], opt)
   vim.api.nvim_set_keymap("n", "<Leader>dd", [[<Cmd>lua require('fzf-lua').lsp_workspace_diagnostics()<CR>]], opt)
   vim.api.nvim_set_keymap("n", "<Leader>s", [[<Cmd>lua require('fzf-lua').lsp_document_symbols()<CR>]], opt)

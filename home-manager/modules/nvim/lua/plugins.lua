@@ -93,7 +93,8 @@ M.load = function()
     }
 
     ----------------- fzf -----------------------------------------------
-    use { 'ibhagwan/fzf-lua', requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}, config = function() require('fzf-lua-config').load() end }
+    use { 'ibhagwan/fzf-lua', config = function() require('fzf-lua-config').load() end }
+    use { 'gfanto/fzf-lsp.nvim', config = function() require'fzf_lsp'.setup() end }
 
     ----------------- LSP -----------------------------------------------
     use { 'neovim/nvim-lspconfig', requires = {'williamboman/nvim-lsp-installer'}, config = function() require('lsp-config').load() end }
