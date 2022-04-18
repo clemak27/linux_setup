@@ -96,14 +96,14 @@ M.load = function()
     use { 'ibhagwan/fzf-lua', requires = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'}, config = function() require('fzf-lua-config').load() end }
 
     ----------------- LSP -----------------------------------------------
-    use { 'neovim/nvim-lspconfig', requires = {'onsails/lspkind-nvim', 'williamboman/nvim-lsp-installer'}, config = function() require('lsp-config').load() end }
+    use { 'neovim/nvim-lspconfig', requires = {'williamboman/nvim-lsp-installer'}, config = function() require('lsp-config').load() end }
     use { 'ojroques/nvim-lspfuzzy', requires = {'junegunn/fzf', 'junegunn/fzf.vim'}, config = function() require('lspfuzzy').setup {} end  }
     use { 'mfussenegger/nvim-jdtls', ft = {'java'}, config = function() require('jdtls-config').load() end}
 
     ----------------- cmp -----------------------------------------------
 
     use { 'hrsh7th/nvim-cmp',
-      requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline', 'hrsh7th/cmp-vsnip', 'ray-x/cmp-treesitter'},
+      requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path', 'hrsh7th/cmp-cmdline', 'hrsh7th/cmp-vsnip', 'ray-x/cmp-treesitter', 'onsails/lspkind-nvim'},
       config = function() require('nvim-cmp-config').load() end
     }
 
