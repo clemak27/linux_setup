@@ -21,6 +21,7 @@ in
           plugin = tmuxPlugins.resurrect;
           extraConfig = ''
             set -g @resurrect-strategy-nvim 'session'
+            set -g @resurrect-strategy-vim 'session'
           '';
         }
         # TODO this does not work, it gets loaded before extraConfig which means status-right get overridden
