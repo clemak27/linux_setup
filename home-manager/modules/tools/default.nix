@@ -73,6 +73,7 @@ in
     home.file = {
       ".todo/config".source = ./todo/todo.cfg;
       ".local/bin/rfv".source = ./rfv;
+      ".local/bin/git-edit".source = ./git-edit;
     };
 
     xdg.configFile = {
