@@ -30,8 +30,6 @@ in
       nodePackages.markdownlint-cli
       cargo
       shellcheck
-    ] ++ lib.optionals stdenv.isLinux [
-      sumneko-lua-language-server
     ];
 
     home.file = {
