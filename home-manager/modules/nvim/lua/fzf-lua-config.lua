@@ -7,7 +7,7 @@ M.load = function()
   local actions = require "fzf-lua.actions"
 
   require'fzf-lua'.setup{
-    global_resume = false,
+    global_resume = true,
   }
 
   local opt = {noremap = true, silent = true}
@@ -22,6 +22,7 @@ M.load = function()
   vim.api.nvim_set_keymap("n", "<Leader>c", [[<Cmd>lua require('fzf-lua').commands()<CR>]], opt)
   vim.api.nvim_set_keymap("n", "<Leader>cc", [[<Cmd>lua require('fzf-lua').command_history()<CR>]], opt)
   vim.api.nvim_set_keymap("n", "<Leader>l", [[<Cmd>lua require('fzf-lua').builtin()<CR>]], opt)
+  vim.api.nvim_set_keymap("n", "<Leader>ll", [[<Cmd>lua require('fzf-lua').resume()<CR>]], opt)
 
   -- lsp mappings
   vim.api.nvim_set_keymap("n", "<Leader>d", [[<Cmd>lua require('fzf-lua').lsp_document_diagnostics()<CR>]], opt)
