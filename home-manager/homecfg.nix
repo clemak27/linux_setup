@@ -6,7 +6,6 @@
     ./modules/fun
     ./modules/k8s
     ./modules/git
-    ./modules/gui
     ./modules/nvim
     ./modules/tmux
     ./modules/tools

@@ -24,7 +24,6 @@ in
   ];
 
   homecfg = {
-    gui.enable = false;
     dev.enable = true;
     fun.enable = true;
     k8s.enable = true;
