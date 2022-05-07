@@ -2,6 +2,7 @@
 
 # flatpaks
 flatpak install -y flathub \
+  com.bitwarden.desktop \
   com.discordapp.Discord \
   com.github.tchx84.Flatseal \
   com.valvesoftware.Steam \
@@ -10,7 +11,6 @@ flatpak install -y flathub \
   org.freedesktop.Platform.ffmpeg-full \
   org.gimp.GIMP \
   org.kde.kid3 \
-  org.keepassxc.KeePassXC \
   org.libreoffice.LibreOffice \
   org.mozilla.firefox \
   org.openrgb.OpenRGB \
