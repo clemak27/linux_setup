@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }:
 let
-  updateHM = pkgs.writeShellScriptBin "update-home-manager" ''
-
+  upgradeHM = pkgs.writeShellScriptBin "home-manager-upgrade" ''
     echo "Updating flake"
     nix flake update --commit-lock-file --commit-lockfile-summary "chore(flake): Update $(date -I)"
 
@@ -16,6 +15,9 @@ let
 
     echo "Updating nvim plugins"
     nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  '';
+  updateHM = pkgs.writeShellScriptBin "home-manager-update" ''
+    home-manager switch --flake '.?submodules=1' --impure
   '';
 in
 {
@@ -46,6 +48,7 @@ in
     scrcpy
     sshfs
     unrar
+    upgradeHM
     updateHM
     xclip
     yt-dlp
@@ -64,6 +67,6 @@ in
     );
   };
 
- # https://github.com/nix-community/home-manager/issues/2942
- nixpkgs.config.allowUnfreePredicate = (pkg: true);
+  # https://github.com/nix-community/home-manager/issues/2942
+  nixpkgs.config.allowUnfreePredicate = (pkg: true);
 }
