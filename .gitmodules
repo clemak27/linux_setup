@@ -1,0 +1,3 @@
+[submodule "home-manager"]
+	path = home-manager
+	url = git@github.com:clemak27/home-manager.git
