@@ -15,7 +15,7 @@ my general-use PC at home and `silfur`, a XPS15 (2019).
 - `dotfiles`  
   general configuration files.
 - `home-manager + home.nix`  
-  home-manager configuration files.
+  home-manager submodule with my configuration.
 - `logo.png`  
   🐧.
 - `README.md`  
