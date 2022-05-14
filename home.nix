@@ -4,8 +4,13 @@ let
     echo "Updating flake"
     nix flake update --commit-lock-file --commit-lockfile-summary "chore(flake): Update $(date -I)"
 
+    echo "Updating home-manager config"
+    git submodule update --remote --merge
+    git add home-manager
+    # git commit -m "chore(home-manager): Update $(git ls-remote https://github.com/clemak27/home-manager.git HEAD | awk '{print substr($1, 0, 7)}')"
+
     echo "Reloading home-manager config"
-    home-manager switch --flake . --impure
+    home-manager switch --flake '.?submodules=1' --impure
 
     echo "Collecting garbage"
     nix-collect-garbage
@@ -15,9 +20,6 @@ let
 
     echo "Updating nvim plugins"
     nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-  '';
-  updateHM = pkgs.writeShellScriptBin "home-manager-update" ''
-    home-manager switch --flake '.?submodules=1' --impure
   '';
 in
 {
@@ -49,7 +51,6 @@ in
     sshfs
     unrar
     upgradeHM
-    updateHM
     xclip
     yt-dlp
     ytfzf
