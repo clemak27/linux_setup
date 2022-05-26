@@ -24,13 +24,9 @@ cd linux_setup/setup
 
 ### create toolboxes
 
-- this is only semi-automated for now:
 - create the default toolbox:
   - `toolbox create`
   - `toolbox enter` and run `./init_nix_toolbox.sh`
-- install subĺime-music:
-  - `toolbox create sublime-music`
-  - `toolbox run -c sublime-music ./init_sublime_music_toolbox.sh`
 
 ## Notes
 
