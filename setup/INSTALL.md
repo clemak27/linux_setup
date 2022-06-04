@@ -19,8 +19,10 @@ git clone https://github.com/clemak27/linux_setup # (or with ssh if key imported
 cd linux_setup/setup
 ```
 
-- Run the first install-script and then reboot
-- After the reboot, run the second
+- Run the first install-script `0_ostree.sh`
+- Unfortunately, my laptop has an n0video GPU, so it also needs `0a_nvidia.sh`
+- reboot
+- run the `1_applications.sh` script
 
 ### create toolboxes
 
@@ -31,7 +33,3 @@ cd linux_setup/setup
 ## Notes
 
 - enable wg config after copying: `sudo systemctl enable --now wg-quick@home`
-- sublime-music container is weird
-- clipboard is weird
-- add evolution
-- move proton-ge install somehere else
