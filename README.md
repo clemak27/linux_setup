@@ -1,14 +1,13 @@
 # my linux setup
 
-This repo contains my dotfiles + setup for my Linux Desktop PCs running Fedora Silverblue.
+This repo contains my dotfiles + setup for my Linux PCs.
 
 ## About
 
-I currently use Fedora Silverblue. I'm still new to it, so I use basically
-a "god" toolbox, that contains the home-manager config of my previous NixOS
-systems, so the initial transition is fast. I plan to do a more proper
-setup later on. Also, the 2 systems running this configuration are `argentum`,
-my general-use PC at home and `silfur`, a XPS15 (2019).
+This Repo contains the config for my Desktop PC (`argentum`) and my Laptop(`silfur`).
+Both are running Fedora Silverblue.
+Since I used NixOS in the past (and still run it on my servers),
+my whole terminal workflow is managed with home-manager, which lives in a toolbox.
 
 ## What's in this repo?
 
