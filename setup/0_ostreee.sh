@@ -5,7 +5,7 @@ rpm-ostree install \
   gnome-shell-extension-appindicator \
   gnome-shell-extension-gsconnect \
   gnome-tweaks \
-  neovim \
+  vim \
   syncthing \
   wireguard-tools \
   xclip \
