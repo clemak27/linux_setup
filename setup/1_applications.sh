@@ -29,6 +29,7 @@ flatpak install -y fedora \
 mkdir -p /home/clemens/.config/alacritty
 ln -sf /home/clemens/Projects/linux_setup/dotfiles/alacritty.yml /home/clemens/.config/alacritty/alacritty.yml
 ln -sf /home/clemens/Projects/linux_setup/dotfiles/bashrc /home/clemens/.bashrc
+ln -sf /home/clemens/Projects/linux_setup/dotfiles/vimrc /home/clemens/.vimrc
 
 # install icon theme
 wget -qO- https://git.io/papirus-icon-theme-install | DESTDIR="$HOME/.icons" sh
