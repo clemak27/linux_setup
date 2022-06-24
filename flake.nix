@@ -14,6 +14,7 @@
     {
       homeConfigurations = {
         "clemens@toolbox" = home-manager.lib.homeManagerConfiguration {
+          pkgs = self.inputs.nixpkgs.legacyPackages.x86_64-linux;
           configuration = ./home.nix;
           system = "x86_64-linux";
           homeDirectory = "/home/clemens";
