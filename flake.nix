@@ -15,11 +15,16 @@
       homeConfigurations = {
         "clemens@toolbox" = home-manager.lib.homeManagerConfiguration {
           pkgs = self.inputs.nixpkgs.legacyPackages.x86_64-linux;
-          configuration = ./home.nix;
-          system = "x86_64-linux";
-          homeDirectory = "/home/clemens";
-          username = "clemens";
-          stateVersion = "21.05";
+          modules = [
+            ./home.nix
+            {
+              home = {
+                username = "clemens";
+                homeDirectory = "/home/clemens";
+                stateVersion = "21.05";
+              };
+            }
+          ];
         };
       };
     };
