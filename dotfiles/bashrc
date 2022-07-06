@@ -30,7 +30,7 @@ fi
 
 unset rc
 
-if [[ $HOSTNAME == "toolbox" ]]; then
+if [[ -f "$HOME/.nix-profile/bin/zsh" && $HOSTNAME == "toolbox" ]]; then
   export HOME=/var/home/clemens
   export NIX_PROFILES="/nix/var/nix/profiles/default $HOME/.nix-profile"
   export NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt
