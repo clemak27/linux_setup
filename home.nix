@@ -1,8 +1,10 @@
 { config, pkgs, lib, ... }:
 let
-  updateFlake = pkgs.writeShellScriptBin "update-flake" ''
+  updateHM = pkgs.writeShellScriptBin "update-homecfg" ''
     echo "Updating flake"
-    nix flake update --commit-lock-file --commit-lockfile-summary "chore(flake): Update $(date -I)"
+    nix flake update
+    git add flake.nix flake.lock
+    git commit -m "chore(flake): Update $(date -I)"
 
     echo "Reloading home-manager config"
     home-manager switch --flake '.?submodules=1' --impure
@@ -16,20 +18,6 @@ let
     echo "Updating nvim plugins"
     nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
   '';
-
-  updateHomecfg = pkgs.writeShellScriptBin "update-homecfg" ''
-    echo "Updating homecfg config"
-    git submodule update --remote --rebase
-    git add home-manager
-    git commit -m "chore(homecfg): Update $(git ls-remote https://github.com/clemak27/homecfg.git HEAD | awk '{print substr($1, 0, 7)}')"
-
-    echo "Reloading home-manager config"
-    home-manager switch --flake '.?submodules=1' --impure
-
-    echo "Updating nvim plugins"
-    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-  '';
-
 in
 {
   imports = [
@@ -59,8 +47,7 @@ in
     scrcpy
     sshfs
     unrar
-    updateFlake
-    updateHomecfg
+    updateHM
     xclip
     yt-dlp
     ytfzf
