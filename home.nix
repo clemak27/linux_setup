@@ -56,9 +56,10 @@ in
   programs.zsh = {
     shellAliases = builtins.listToAttrs (
       [
+        { name = "hms"; value = "home-manager switch --flake '.?submodules=1' --impure"; }
+        { name = "mpv"; value = "/usr/bin/flatpak-spawn --host flatpak run io.mpv.Mpv"; }
         { name = "rh"; value = "/usr/bin/flatpak-spawn --host"; }
         { name = "rhs"; value = "/usr/bin/flatpak-spawn --host sudo -S"; }
-        { name = "mpv"; value = "/usr/bin/flatpak-spawn --host flatpak run io.mpv.Mpv"; }
         { name = "youtube-dl"; value = "yt-dlp"; }
         { name = "youtube-dl-music"; value = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\""; }
       ]
