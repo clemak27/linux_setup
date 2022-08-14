@@ -64,6 +64,16 @@ in
         { name = "youtube-dl-music"; value = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\""; }
       ]
     );
+
+    initExtra = ''
+      if tmux info &> /dev/null; then 
+        tmux start-server
+      fi
+      if [ ! "$TMUX" ]; then
+        tmux detach-client -s dev
+        tmux attach -t dev
+      fi
+    '';
   };
 
   # https://github.com/nix-community/home-manager/issues/2942
