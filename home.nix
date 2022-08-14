@@ -21,7 +21,7 @@ let
 in
 {
   imports = [
-    ./homecfg/homecfg.nix
+    ./homecfg
   ];
 
   homecfg = {
