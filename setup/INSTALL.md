@@ -24,11 +24,10 @@ cd linux_setup/setup
 - reboot
 - run the `1_applications.sh` script
 
-### create toolboxes
+### create the default toolbox
 
-- create the default toolbox:
-  - `toolbox create`
-  - `toolbox enter` and run `./init_nix_toolbox.sh`
+- `toolbox create nix`
+- `toolbox run -c nix ~/Projects/linux_setup/setup/init_nix_toolbox.sh`
 
 ## Notes
 

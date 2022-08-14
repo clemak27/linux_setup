@@ -26,11 +26,18 @@ flatpak install -y fedora \
   org.gnome.Evolution \
   org.gnome.Extensions
 
-# symlink dotfiles
+# firefox should use wayland
+flatpak override --user --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
+
+# symlink host dotfiles
 mkdir -p /home/clemens/.config/alacritty
 ln -sf /home/clemens/Projects/linux_setup/dotfiles/alacritty.yml /home/clemens/.config/alacritty/alacritty.yml
 ln -sf /home/clemens/Projects/linux_setup/dotfiles/bashrc /home/clemens/.bashrc
 ln -sf /home/clemens/Projects/linux_setup/dotfiles/vimrc /home/clemens/.vimrc
+
+# symlink alacritty desktop files
+ln -sf /home/clemens/Projects/linux_setup/dotfiles/Alacritty.host.desktop /home/clemens/.local/share/applications/Alacritty.host.desktop
+ln -sf /home/clemens/Projects/linux_setup/dotfiles/Alacritty.nix.desktop /home/clemens/.local/share/applications/Alacritty.nix.desktop
 
 # install icon theme
 wget -qO- https://git.io/papirus-icon-theme-install | DESTDIR="$HOME/.icons" sh
@@ -47,10 +54,6 @@ unzip /tmp/unite-shell-v59.zip -d ~/.local/share/gnome-shell/extensions
 curl -L -o /tmp/blur-my-shell@aunetx.zip --url https://github.com/aunetx/blur-my-shell/releases/download/v28/blur-my-shell@aunetx.zip
 unzip /tmp/blur-my-shell@aunetx.zip -d ~/.local/share/gnome-shell/extensions/blur-my-shell@aunetx
 
-# workaround for alacritty WL issue
-cp /usr/share/applications/Alacritty.desktop ~/.local/share/applications/
-sed -i 's/^Exec=alacritty$/Exec=env -u WAYLAND_DISPLAY alacritty/g' ~/.local/share/applications/Alacritty.desktop
-
 # openrgb
 sudo cp 60-openrgb.rules /etc/udev/rules.d/60-openrgb.rules
 cp org.openrgb.OpenRGB.desktop ~/.local/share/applications/
@@ -65,3 +68,14 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-6 "['<Super>6
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-7 "['<Super>7']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-8 "['<Super>8']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-9 "['<Super>9']"
+
+# custom shortcuts
+dconf write /org/gnome/settings-daemon/plugins/media-keys/home "['<Super>e']"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/www "['<Super>b']"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding "'<Super>k'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command "'flatpak run com.bitwarden.desktop'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name "'bitwarden'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding "'<Super>Return'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command "'env -u WAYLAND_DISPLAY alacritty -e toolbox enter --container nix'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name "'alacritty'"

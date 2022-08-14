@@ -17,7 +17,6 @@ export HISTCONTROL="ignoredups:ignorespace"
 # export SYSTEMD_PAGER=
 
 alias tb='toolbox'
-alias tbe='toolbox enter --container fedora-toolbox-35'
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
