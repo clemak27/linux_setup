@@ -56,8 +56,10 @@ in
   programs.zsh = {
     shellAliases = builtins.listToAttrs (
       [
+        { name = "docker"; value = "/usr/bin/flatpak-spawn --host podman"; }
         { name = "hms"; value = "home-manager switch --flake '.?submodules=1' --impure"; }
         { name = "mpv"; value = "/usr/bin/flatpak-spawn --host flatpak run io.mpv.Mpv"; }
+        { name = "podman"; value = "/usr/bin/flatpak-spawn --host podman"; }
         { name = "rh"; value = "/usr/bin/flatpak-spawn --host"; }
         { name = "rhs"; value = "/usr/bin/flatpak-spawn --host sudo -S"; }
         { name = "youtube-dl"; value = "yt-dlp"; }
@@ -66,6 +68,7 @@ in
     );
 
     initExtra = ''
+      # autostart tmux
       if tmux info &> /dev/null; then 
         tmux start-server
       fi
