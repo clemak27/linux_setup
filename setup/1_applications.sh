@@ -79,3 +79,19 @@ dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/cus
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding "'<Super>Return'"
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command "'env -u WAYLAND_DISPLAY alacritty -e toolbox enter --container nix'"
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name "'alacritty'"
+
+# install sonixd -> https://github.com/jeffvli/sonixd/issues/306
+curl -O -L https://github.com/jeffvli/sonixd/releases/download/v0.15.3/Sonixd-0.15.3-linux-x64.tar.xz
+mkdir -p /var/home/clemens/.var/app/not.a.flatpak.sonixd/app
+mkdir -p /var/home/clemens/.var/app/not.a.flatpak.sonixd/config
+tar -xf file_name.tar.gz --directory /var/home/clemens/.var/app/not.a.flatpak.sonixd/app
+ln -sf /home/clemens/.var/app/not.a.flatpak.sonixd/config /home/clemens/.config/Sonixd
+cat <<'EOF' > /home/clemens/.local/share/applications/Sonixd.desktop
+[Desktop Entry]
+Name=Sonixd
+Exec=/var/home/clemens/.var/app/not.a.flatpak.sonixd/app/sonixd
+Terminal=false
+Type=Application
+Icon=/var/home/clemens/.var/app/not.a.flatpak.sonixd/app/resources/assets/icon.png
+Categories=Audio;AudioVideo
+EOF
