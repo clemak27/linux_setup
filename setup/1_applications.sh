@@ -84,6 +84,7 @@ curl -O -L https://github.com/jeffvli/sonixd/releases/download/v0.15.3/Sonixd-0.
 mkdir -p /var/home/clemens/.var/app/not.a.flatpak.sonixd/app
 mkdir -p /var/home/clemens/.var/app/not.a.flatpak.sonixd/config
 tar -xf Sonixd-0.15.3-linux-x64.tar.xz --directory /var/home/clemens/.var/app/not.a.flatpak.sonixd/app
+mv /var/home/clemens/.var/app/not.a.flatpak.sonixd/Sonixd-0.15.3-linux-x64 /var/home/clemens/.var/app/not.a.flatpak.sonixd/app
 rm Sonixd-0.15.3-linux-x64.tar.xz
 ln -sf /home/clemens/.var/app/not.a.flatpak.sonixd/config /home/clemens/.config/Sonixd
 cat <<'EOF' > /home/clemens/.local/share/applications/Sonixd.desktop
