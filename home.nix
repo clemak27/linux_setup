@@ -59,6 +59,7 @@ in
         { name = "podman"; value = "/usr/bin/flatpak-spawn --host podman"; }
         { name = "rh"; value = "/usr/bin/flatpak-spawn --host"; }
         { name = "rhs"; value = "/usr/bin/flatpak-spawn --host sudo -S"; }
+        { name = "tam"; value = "tmux new-session -A -D -s main -c ~/Projects -n projects"; }
         { name = "youtube-dl"; value = "yt-dlp"; }
         { name = "youtube-dl-music"; value = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\""; }
       ]
@@ -74,8 +75,7 @@ in
         tmux start-server
       fi
       if [ ! "$TMUX" ]; then
-        tmux detach-client -s dev
-        tmux attach -t dev
+        tmux new-session -A -D -s main -c ~/Projects -n projects
       fi
     '';
   };
