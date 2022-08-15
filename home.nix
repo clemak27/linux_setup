@@ -65,6 +65,10 @@ in
     );
 
     initExtra = ''
+      # nix home-manager init
+      . $HOME/.nix-profile/etc/profile.d/nix.sh
+      export GIT_SSH=/usr/bin/ssh
+
       # autostart tmux
       if tmux info &> /dev/null; then 
         tmux start-server
