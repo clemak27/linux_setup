@@ -4,6 +4,7 @@ rpm-ostree install \
   alacritty \
   gnome-shell-extension-appindicator \
   gnome-shell-extension-gsconnect \
+  libffi3.1-3.1-32.fc36.x86_64 \
   gnome-tweaks \
   vim \
   syncthing \
