@@ -4,7 +4,6 @@
 flatpak install -y flathub \
   com.bitwarden.desktop \
   com.discordapp.Discord \
-  com.github.taiko2k.tauonmb \
   com.github.tchx84.Flatseal \
   com.valvesoftware.Steam \
   io.gdevs.GDLauncher \
