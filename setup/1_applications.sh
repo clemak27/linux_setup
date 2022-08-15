@@ -83,7 +83,8 @@ dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/cus
 curl -O -L https://github.com/jeffvli/sonixd/releases/download/v0.15.3/Sonixd-0.15.3-linux-x64.tar.xz
 mkdir -p /var/home/clemens/.var/app/not.a.flatpak.sonixd/app
 mkdir -p /var/home/clemens/.var/app/not.a.flatpak.sonixd/config
-tar -xf file_name.tar.gz --directory /var/home/clemens/.var/app/not.a.flatpak.sonixd/app
+tar -xf Sonixd-0.15.3-linux-x64.tar.xz --directory /var/home/clemens/.var/app/not.a.flatpak.sonixd/app
+rm Sonixd-0.15.3-linux-x64.tar.xz
 ln -sf /home/clemens/.var/app/not.a.flatpak.sonixd/config /home/clemens/.config/Sonixd
 cat <<'EOF' > /home/clemens/.local/share/applications/Sonixd.desktop
 [Desktop Entry]
