@@ -20,10 +20,6 @@ let
   '';
 in
 {
-  imports = [
-    ./homecfg
-  ];
-
   homecfg = {
     dev.enable = true;
     fun.enable = true;
