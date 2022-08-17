@@ -54,7 +54,7 @@ in
       [
         { name = "docker"; value = "/usr/bin/flatpak-spawn --host podman"; }
         { name = "hms"; value = "home-manager switch --flake '.?submodules=1' --impure"; }
-        { name = "hmsl"; value = "nix flake update --override-input homecfg 'path:/home/clemens/Projects/homecfg' && home-manager switch --flake '.?submodules=1' --impure && git restore flake.lock"; }
+        { name = "hmsl"; value = "home-manager switch --flake . --impure --override-input homecfg 'path:/home/clemens/Projects/homecfg'"; }
         { name = "mpv"; value = "/usr/bin/flatpak-spawn --host flatpak run io.mpv.Mpv"; }
         { name = "podman"; value = "/usr/bin/flatpak-spawn --host podman"; }
         { name = "rh"; value = "/usr/bin/flatpak-spawn --host"; }
