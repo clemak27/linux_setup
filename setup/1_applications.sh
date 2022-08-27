@@ -38,20 +38,35 @@ ln -sf /home/clemens/Projects/linux_setup/dotfiles/vimrc /home/clemens/.vimrc
 ln -sf /home/clemens/Projects/linux_setup/dotfiles/Alacritty.host.desktop /home/clemens/.local/share/applications/Alacritty.host.desktop
 ln -sf /home/clemens/Projects/linux_setup/dotfiles/Alacritty.nix.desktop /home/clemens/.local/share/applications/Alacritty.nix.desktop
 
-# install icon theme
-wget -qO- https://git.io/papirus-icon-theme-install | DESTDIR="$HOME/.icons" sh
-
-# install fonts
-mkdir -p /home/clemens/.local/share/fonts
-curl -L -o /tmp/FiraCode.zip --url https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
-unzip /tmp/FiraCode.zip -d /home/clemens/.local/share/fonts
-
 # install user gnome shell extensions
 mkdir -p ~/.local/share/gnome-shell/extensions
 curl -L -o /tmp/unite-shell-v59.zip --url https://github.com/hardpixel/unite-shell/releases/download/v59/unite-shell-v59.zip
 unzip /tmp/unite-shell-v59.zip -d ~/.local/share/gnome-shell/extensions
 curl -L -o /tmp/blur-my-shell@aunetx.zip --url https://github.com/aunetx/blur-my-shell/releases/download/v28/blur-my-shell@aunetx.zip
 unzip /tmp/blur-my-shell@aunetx.zip -d ~/.local/share/gnome-shell/extensions/blur-my-shell@aunetx
+curl -L -o /tmp/userThemes.zip --url https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v49.shell-extension.zip
+unzip /tmp/userThemes.zip -d ~/.local/share/gnome-shell/extensions/user-theme@gnome-shell-extensions.gcampax.github.com
+
+# install icon theme
+wget -qO- https://git.io/papirus-icon-theme-install | DESTDIR="$HOME/.icons" sh
+
+# install adw-gtk3 theme
+mkdir -p /home/clemens/.themes
+curl -L -o /tmp/adw-gtk3.tar.xz --url https://github.com/lassekongo83/adw-gtk3/releases/download/v3.6/adw-gtk3v3-6.tar.xz
+tar xf /tmp/adw-gtk3.tar.xz --directory /home/clemens/.themes
+flatpak install -y org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+
+# enable customization
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' 
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+sudo flatpak override --filesystem=xdg-config/gtk-3.0
+sudo flatpak override --filesystem=xdg-config/gtk-4.0
+sudo flatpak override --filesystem=~/.icons
+
+# install fonts
+mkdir -p /home/clemens/.local/share/fonts
+curl -L -o /tmp/FiraCode.zip --url https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
+unzip /tmp/FiraCode.zip -d /home/clemens/.local/share/fonts
 
 # openrgb
 sudo cp 60-openrgb.rules /etc/udev/rules.d/60-openrgb.rules
