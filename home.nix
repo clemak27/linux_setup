@@ -57,6 +57,7 @@ in
         { name = "hmsl"; value = "home-manager switch --flake . --impure --override-input homecfg 'path:/home/clemens/Projects/homecfg'"; }
         { name = "mpv"; value = "/usr/bin/flatpak-spawn --host flatpak run io.mpv.Mpv"; }
         { name = "podman"; value = "/usr/bin/flatpak-spawn --host podman"; }
+        { name = "prcwd"; value = "/usr/bin/flatpak-spawn --host podman run --interactive --rm --security-opt label=disable --volume $(pwd):/pwd --workdir /pwd"; }
         { name = "rh"; value = "/usr/bin/flatpak-spawn --host"; }
         { name = "rhs"; value = "/usr/bin/flatpak-spawn --host sudo -S"; }
         { name = "tam"; value = "tmux new-session -A -D -s main -c ~/Projects -n projects"; }
