@@ -14,6 +14,7 @@ flatpak install -y flathub \
   org.gimp.GIMP \
   org.kde.kid3 \
   org.libreoffice.LibreOffice \
+  org.mozilla.Thunderbird \
   org.mozilla.firefox \
   org.openrgb.OpenRGB \
   org.pipewire.Helvum \
@@ -22,7 +23,6 @@ flatpak install -y flathub \
 flatpak install -y flathub \
   com.valvesoftware.Steam.CompatibilityTool.Proton-GE
 flatpak install -y fedora \
-  org.gnome.Evolution \
   org.gnome.Extensions
 
 # firefox should use wayland
