@@ -54,7 +54,7 @@ colors:
     white: "#abb2bf"
 
   bright:
-    black: "#242424"
+    black: "#3f3f3f"
     red: "#e06c75"
     green: "#98c379"
     yellow: "#e5c07b"
