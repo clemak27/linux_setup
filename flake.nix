@@ -20,7 +20,10 @@
         "clemens@toolbox" = home-manager.lib.homeManagerConfiguration {
           pkgs = self.inputs.nixpkgs.legacyPackages.x86_64-linux;
           modules = [
-            "${self.inputs.homecfg}/default.nix"
+            ({ config, pkgs, ... }: {
+              nixpkgs.overlays = [ overlay-stable ];
+              nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
+            })
             ./home.nix
             {
               home = {
