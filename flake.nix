@@ -21,9 +21,10 @@
           pkgs = self.inputs.nixpkgs.legacyPackages.x86_64-linux;
           modules = [
             ({ config, pkgs, ... }: {
-              nixpkgs.overlays = [ overlay-stable ];
+              # nixpkgs.overlays = [ overlay-stable ];
               nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
             })
+            "${self.inputs.homecfg}/default.nix"
             ./home.nix
             {
               home = {
