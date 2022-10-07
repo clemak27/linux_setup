@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }:
 let
   updateHM = pkgs.writeShellScriptBin "update-homecfg" ''
+    set -eo pipefile
+
     echo "Updating flake"
     nix flake update
     git add flake.nix flake.lock
@@ -17,6 +19,10 @@ let
 
     echo "Updating nvim plugins"
     nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+    # start update, cause it runs async after PackerSync and usually gets interrupted
+    echo "Updating nvim-treesitter"
+    nvim --headless -c 'TSUpdateSync' -c 'q!'
   '';
 in
 {
