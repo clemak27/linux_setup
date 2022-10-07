@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 let
   updateHM = pkgs.writeShellScriptBin "update-homecfg" ''
-    set -eo pipefile
+    set -eo pipefail
 
     echo "Updating flake"
     nix flake update
