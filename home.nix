@@ -47,7 +47,6 @@ in
 
   home.packages = with pkgs; [
     scrcpy
-    sshfs
     unrar
     updateHM
     xclip
