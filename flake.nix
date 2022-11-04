@@ -1,16 +1,12 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
-
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sops-nix.url = github:Mic92/sops-nix;
     homecfg = {
       url = "github:clemak27/homecfg";
-      flake = false;
     };
   };
 
@@ -21,10 +17,9 @@
           pkgs = self.inputs.nixpkgs.legacyPackages.x86_64-linux;
           modules = [
             ({ config, pkgs, ... }: {
-              # nixpkgs.overlays = [ overlay-stable ];
               nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
             })
-            "${self.inputs.homecfg}/default.nix"
+            homecfg.nixosModules.homecfg
             ./home.nix
             {
               home = {
