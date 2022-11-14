@@ -1,5 +1,4 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
-
+---
 env:
   TERM: xterm-256color
   WINIT_X11_SCALE_FACTOR: "1.0"
@@ -14,6 +13,7 @@ window:
   decorations: full
   startup_mode: Windowed
   dynamic_title: true
+  opacity: 0.8
 
 scrolling:
   history: 15000
@@ -37,10 +37,9 @@ font:
     y: 0
   use_thin_strokes: false
 
-# onedarkpro.nvim - onedark
 colors:
   primary:
-    background: "#1e1e1e"
+    background: "#000000"
     foreground: "#abb2bf"
 
   normal:
@@ -55,17 +54,17 @@ colors:
 
   bright:
     black: "#3f3f3f"
-    red: "#e06c75"
-    green: "#98c379"
-    yellow: "#e5c07b"
-    blue: "#61afef"
-    magenta: "#c678dd"
-    cyan: "#56b6c2"
+    red: "#F38BA8"
+    green: "#A6E3A1"
+    yellow: "#F9E2AF"
+    blue: "#89B4FA"
+    magenta: "#CBA6F7"
+    cyan: "#89DCEB"
     white: "#bfc5ce"
 
   cursor:
     text: CellBackground
-    cursor: CellForeground # syntax-cursor-color
+    cursor: CellForeground
 
   selection:
     text: CellForeground
@@ -87,12 +86,12 @@ cursor:
 live_config_reload: true
 
 mouse:
-  double_click: { threshold: 300 }
-  triple_click: { threshold: 300 }
+  double_click: {threshold: 300}
+  triple_click: {threshold: 300}
   hide_when_typing: true
 
 mouse_bindings:
- - { mouse: Middle, action: PasteSelection }
+  - {mouse: Middle, action: PasteSelection}
 
 key_bindings:
-  - { key: D,         mods: Shift|Control,              action: None           }
+  - {key: D, mods: Shift|Control, action: None}
