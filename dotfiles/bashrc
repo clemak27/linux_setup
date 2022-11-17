@@ -29,11 +29,4 @@ fi
 
 unset rc
 
-if [[ -f "$HOME/.nix-profile/bin/zsh" && $HOSTNAME == "toolbox" ]]; then
-  export HOME=/var/home/clemens
-  export NIX_PROFILES="/nix/var/nix/profiles/default $HOME/.nix-profile"
-  export NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt
-  export PATH=$HOME/.nix-profile/bin:$HOME/.local/bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.cargo/bin:$HOME/.go/bin:$HOME/.local/bin:$HOME/.local/bin/npm/bin
-  $HOME/.nix-profile/bin/zsh
-fi
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
