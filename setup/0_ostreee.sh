@@ -12,5 +12,5 @@ rpm-ostree install \
   xclip \
   xprop \
   xrandr
-rpm-ostree override remove firefox
+rpm-ostree override remove firefox firefox-langpacks
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
