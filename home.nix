@@ -9,17 +9,13 @@ let
     git commit -m "chore(flake): Update $(date -I)"
 
     echo "Reloading home-manager config"
-    home-manager switch --flake '.?submodules=1' --impure
+    home-manager switch --flake . --impure
 
     echo "Collecting garbage"
     nix-collect-garbage
 
     echo "Updating nvim plugins"
     nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
-    # start update, cause it runs async after PackerSync and usually gets interrupted
-    echo "Updating nvim-treesitter"
-    nvim --headless -c 'TSUpdateSync' -c 'q!'
   '';
 in
 {
