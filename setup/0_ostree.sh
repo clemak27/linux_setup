@@ -5,8 +5,9 @@ rpm-ostree install \
   gnome-shell-extension-appindicator \
   gnome-shell-extension-gsconnect \
   gnome-tweaks \
-  vim \
+  podman-docker \
   syncthing \
+  vim \
   wireguard-tools \
   xprop
 rpm-ostree override remove firefox firefox-langpacks
