@@ -58,7 +58,7 @@ tar xf /tmp/adw-gtk3.tar.xz --directory /home/clemens/.themes
 flatpak install -y org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
 
 # enable customization
-gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' 
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 sudo flatpak override --filesystem=xdg-config/gtk-3.0
 sudo flatpak override --filesystem=xdg-config/gtk-4.0
@@ -103,7 +103,7 @@ tar -xf Sonixd-0.15.3-linux-x64.tar.xz --directory /var/home/clemens/.var/app/no
 mv /var/home/clemens/.var/app/not.a.flatpak.sonixd/Sonixd-0.15.3-linux-x64 /var/home/clemens/.var/app/not.a.flatpak.sonixd/app
 rm Sonixd-0.15.3-linux-x64.tar.xz
 ln -sf /home/clemens/.var/app/not.a.flatpak.sonixd/config /home/clemens/.config/Sonixd
-cat <<'EOF' > /home/clemens/.local/share/applications/Sonixd.desktop
+cat << 'EOF' > /home/clemens/.local/share/applications/Sonixd.desktop
 [Desktop Entry]
 Name=Sonixd
 Exec=/var/home/clemens/.var/app/not.a.flatpak.sonixd/app/sonixd
