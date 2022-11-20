@@ -57,6 +57,7 @@ in
         { name = "podman"; value = "/usr/bin/flatpak-spawn --host podman"; }
         { name = "prcwd"; value = "/usr/bin/flatpak-spawn --host podman run --interactive --rm --security-opt label=disable --volume $(pwd):/pwd --workdir /pwd"; }
         { name = "rh"; value = "/usr/bin/flatpak-spawn --host"; }
+        { name = "rhb"; value = "/usr/bin/flatpak-spawn --host --env=TERM=tmux --env=SHELL=/bin/bash /bin/bash"; }
         { name = "rhs"; value = "/usr/bin/flatpak-spawn --host sudo -S"; }
         { name = "tam"; value = "tmux new-session -A -D -s main -c ~/Projects -n projects"; }
         { name = "youtube-dl"; value = "yt-dlp"; }
