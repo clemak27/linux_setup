@@ -13,7 +13,10 @@
     "enabled": true
   },
   "lockFileMaintenance": {
-    "enabled": true
+    "enabled": true,
+    "schedule": [
+      "at any time"
+    ]
   },
   "commitMessageAction": "update"
 }
