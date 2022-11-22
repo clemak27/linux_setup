@@ -12,5 +12,8 @@
   "nix": {
     "enabled": true
   },
+  "lockFileMaintenance": {
+    "enabled": true
+  },
   "commitMessageAction": "update"
 }
