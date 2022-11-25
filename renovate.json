@@ -9,6 +9,7 @@
   "repositories": [
     "clemak27/linux_setup"
   ],
+  "extends": [":semanticCommitScopeDisabled"],
   "nix": {
     "enabled": true
   },
