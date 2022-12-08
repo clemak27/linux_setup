@@ -28,6 +28,7 @@
               nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
             })
             homecfg.nixosModules.homecfg
+            homecfg.nixosModules.nvim-packer
             ./home.nix
             {
               home = {
