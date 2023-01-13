@@ -10,16 +10,5 @@
     "clemak27/linux_setup"
   ],
   "extends": [":semanticCommitScopeDisabled"],
-  "nix": {
-    "enabled": true
-  },
-  "lockFileMaintenance": {
-    "enabled": true,
-    "branchTopic": "update-flake",
-    "commitMessageAction": "update flake",
-    "schedule": [
-      "at any time"
-    ]
-  },
   "commitMessageAction": "update"
 }
