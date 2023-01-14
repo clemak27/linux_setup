@@ -66,7 +66,7 @@ sudo flatpak override --filesystem=~/.icons
 
 # install fonts
 mkdir -p /home/clemens/.local/share/fonts
-curl -L -o /tmp/FiraCode.zip --url https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
+curl -L -o /tmp/FiraCode.zip --url https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraCode.zip
 unzip /tmp/FiraCode.zip -d /home/clemens/.local/share/fonts
 
 # openrgb
