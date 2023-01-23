@@ -8,12 +8,12 @@ window:
     columns: 135
     lines: 35
   padding:
-    x: 3
-    y: 3
+    x: 0
+    y: 0
   decorations: full
   startup_mode: Windowed
   dynamic_title: true
-  opacity: 0.8
+  opacity: 1.0
 
 scrolling:
   history: 15000
@@ -39,36 +39,82 @@ font:
 
 colors:
   primary:
-    background: "#000000"
-    foreground: "#abb2bf"
+    background: "#1E1E2E"
+    foreground: "#CDD6F4"
+    # Bright and dim foreground colors
+    dim_foreground: "#CDD6F4"
+    bright_foreground: "#CDD6F4"
 
+  # Cursor colors
+  cursor:
+    text: "#1E1E2E"
+    cursor: "#F5E0DC"
+  vi_mode_cursor:
+    text: "#1E1E2E"
+    cursor: "#B4BEFE"
+
+  # Search colors
+  search:
+    matches:
+      foreground: "#1E1E2E"
+      background: "#A6ADC8"
+    focused_match:
+      foreground: "#1E1E2E"
+      background: "#A6E3A1"
+    footer_bar:
+      foreground: "#1E1E2E"
+      background: "#A6ADC8"
+
+  # Keyboard regex hints
+  hints:
+    start:
+      foreground: "#1E1E2E"
+      background: "#F9E2AF"
+    end:
+      foreground: "#1E1E2E"
+      background: "#A6ADC8"
+
+  # Selection colors
+  selection:
+    text: "#1E1E2E"
+    background: "#F5E0DC"
+
+  # Normal colors
   normal:
-    black: "#1e1e1e"
-    red: "#e06c75"
-    green: "#98c379"
-    yellow: "#e5c07b"
-    blue: "#61afef"
-    magenta: "#c678dd"
-    cyan: "#56b6c2"
-    white: "#abb2bf"
-
-  bright:
-    black: "#3f3f3f"
+    black: "#45475A"
     red: "#F38BA8"
     green: "#A6E3A1"
     yellow: "#F9E2AF"
     blue: "#89B4FA"
-    magenta: "#CBA6F7"
-    cyan: "#89DCEB"
-    white: "#bfc5ce"
+    magenta: "#F5C2E7"
+    cyan: "#94E2D5"
+    white: "#BAC2DE"
 
-  cursor:
-    text: CellBackground
-    cursor: CellForeground
+  # Bright colors
+  bright:
+    black: "#585B70"
+    red: "#F38BA8"
+    green: "#A6E3A1"
+    yellow: "#F9E2AF"
+    blue: "#89B4FA"
+    magenta: "#F5C2E7"
+    cyan: "#94E2D5"
+    white: "#A6ADC8"
 
-  selection:
-    text: CellForeground
-    background: "#3e4452"
+  # Dim colors
+  dim:
+    black: "#45475A"
+    red: "#F38BA8"
+    green: "#A6E3A1"
+    yellow: "#F9E2AF"
+    blue: "#89B4FA"
+    magenta: "#F5C2E7"
+    cyan: "#94E2D5"
+    white: "#BAC2DE"
+
+  indexed_colors:
+    - {index: 16, color: "#FAB387"}
+    - {index: 17, color: "#F5E0DC"}
 
 bell:
   duration: 0
