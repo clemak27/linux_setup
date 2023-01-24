@@ -1,7 +1,6 @@
 #!/bin/bash
 
 rpm-ostree install \
-  alacritty \
   gnome-shell-extension-appindicator \
   gnome-shell-extension-gsconnect \
   gnome-tweaks \

@@ -31,14 +31,8 @@ flatpak install -y fedora \
 flatpak override --user --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
 
 # symlink host dotfiles
-mkdir -p /home/clemens/.config/alacritty
-ln -sf /home/clemens/Projects/linux_setup/dotfiles/alacritty.yml /home/clemens/.config/alacritty/alacritty.yml
 ln -sf /home/clemens/Projects/linux_setup/dotfiles/bashrc /home/clemens/.bashrc
 ln -sf /home/clemens/Projects/linux_setup/dotfiles/vimrc /home/clemens/.vimrc
-
-# symlink alacritty desktop files
-ln -sf /home/clemens/Projects/linux_setup/dotfiles/Alacritty.host.desktop /home/clemens/.local/share/applications/Alacritty.host.desktop
-ln -sf /home/clemens/Projects/linux_setup/dotfiles/Alacritty.nix.desktop /home/clemens/.local/share/applications/Alacritty.nix.desktop
 
 # install user gnome shell extensions
 mkdir -p ~/.local/share/gnome-shell/extensions
@@ -93,8 +87,6 @@ dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/cus
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command "'flatpak run com.bitwarden.desktop'"
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name "'bitwarden'"
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding "'<Super>Return'"
-dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command "'flatpak run --env=SHELL=/var/home/clemens/.nix-profile/bin/zsh --command=wezterm org.wezfurlong.wezterm start -- SHELL=/var/home/clemens/.nix-profile/bin/zsh toolbox enter --container nix'"
-dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name "'alacritty'"
 
 # install sonixd -> https://github.com/jeffvli/sonixd/issues/306
 curl -O -L https://github.com/jeffvli/sonixd/releases/download/v0.15.3/Sonixd-0.15.3-linux-x64.tar.xz
