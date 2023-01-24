@@ -31,6 +31,8 @@ flatpak install -y fedora \
 flatpak override --user --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
 
 # symlink host dotfiles
+mkdir -p /home/clemens/.config/wezterm
+ln -sf /home/clemens/Projects/linux_setup/dotfiles/wezterm.lua /home/clemens/.config/wezterm/wezterm.lua
 ln -sf /home/clemens/Projects/linux_setup/dotfiles/bashrc /home/clemens/.bashrc
 ln -sf /home/clemens/Projects/linux_setup/dotfiles/vimrc /home/clemens/.vimrc
 
@@ -87,6 +89,8 @@ dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/cus
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command "'flatpak run com.bitwarden.desktop'"
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name "'bitwarden'"
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding "'<Super>Return'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command "'flatpak run org.wezfurlong.wezterm'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name "'wezterm'"
 
 # install sonixd -> https://github.com/jeffvli/sonixd/issues/306
 curl -O -L https://github.com/jeffvli/sonixd/releases/download/v0.15.3/Sonixd-0.15.3-linux-x64.tar.xz
