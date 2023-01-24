@@ -22,7 +22,8 @@ flatpak install -y flathub \
   org.signal.Signal \
   org.zdoom.GZDoom
 flatpak install -y flathub \
-  com.valvesoftware.Steam.CompatibilityTool.Proton-GE
+  com.valvesoftware.Steam.CompatibilityTool.Proton-GE \
+  com.valvesoftware.Steam.Utility.gamescope
 flatpak install -y fedora \
   org.gnome.Extensions
 
@@ -92,7 +93,7 @@ dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/cus
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command "'flatpak run com.bitwarden.desktop'"
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name "'bitwarden'"
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding "'<Super>Return'"
-dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command "'env -u WAYLAND_DISPLAY SHELL=/var/home/clemens/.nix-profile/bin/zsh alacritty -e toolbox enter --container nix'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command "'flatpak run --env=SHELL=/var/home/clemens/.nix-profile/bin/zsh --command=wezterm org.wezfurlong.wezterm start -- SHELL=/var/home/clemens/.nix-profile/bin/zsh toolbox enter --container nix'"
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name "'alacritty'"
 
 # install sonixd -> https://github.com/jeffvli/sonixd/issues/306
