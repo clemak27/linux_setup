@@ -17,6 +17,7 @@ export HISTCONTROL="ignoredups:ignorespace"
 # export SYSTEMD_PAGER=
 
 alias tb='toolbox'
+alias nix='SHELL=/var/home/clemens/.nix-profile/bin/zsh toolbox enter nix'
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
