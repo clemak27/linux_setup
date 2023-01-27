@@ -54,6 +54,8 @@ mkdir -p /home/clemens/.themes
 curl -L -o /tmp/adw-gtk3.tar.xz --url https://github.com/lassekongo83/adw-gtk3/releases/download/v3.6/adw-gtk3v3-6.tar.xz
 tar xf /tmp/adw-gtk3.tar.xz --directory /home/clemens/.themes
 flatpak install -y org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+curl -L -o /tmp/cm.zip --url https://github.com/catppuccin/gtk/releases/download/v0.4.1/Catppuccin-Mocha-Standard-Mauve-Dark.zip
+unzip /tmp/cm.zip -d ~/.themes
 
 # enable customization
 gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
