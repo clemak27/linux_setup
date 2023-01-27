@@ -20,6 +20,7 @@ flatpak install -y flathub \
   org.openrgb.OpenRGB \
   org.pipewire.Helvum \
   org.signal.Signal \
+  org.wezfurlong.wezterm \
   org.zdoom.GZDoom
 flatpak install -y flathub \
   com.valvesoftware.Steam.CompatibilityTool.Proton-GE \
