@@ -8,11 +8,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1674771519,
-        "narHash": "sha256-U0W3S1nX6yEvLh3Vq70EORbmXecAKXfmEfCfaA4A+I8=",
+        "lastModified": 1674928308,
+        "narHash": "sha256-elVU4NUZEl11BdT4gC+lrpLYM8Ccxqxs19Ix84HTI9o=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "bb4b25b302dbf0f527f190461b080b5262871756",
+        "rev": "08a778d80308353f4f65c9dcd3790b5da02d6306",
         "type": "github"
       },
       "original": {
@@ -23,15 +23,12 @@
       }
     },
     "homecfg": {
-      "inputs": {
-        "packer-nvim": "packer-nvim"
-      },
       "locked": {
-        "lastModified": 1674820429,
-        "narHash": "sha256-BCVPv9CY89zx1y1ZeR4qaTAhss/qz/Mc6srsjGq/sfg=",
+        "lastModified": 1675003623,
+        "narHash": "sha256-qutSIrA8loTd5MdwfejAIJbHrmtXAcp7TPuo9I6Q80k=",
         "owner": "clemak27",
         "repo": "homecfg",
-        "rev": "418c77a73be2d58411aedf7b7cdd7cd3de144d44",
+        "rev": "82e1fad3e7306a9eba40e0a40667fd81bd4f8666",
         "type": "github"
       },
       "original": {
@@ -69,22 +66,6 @@
         "owner": "NixOS",
         "ref": "nixos-22.05",
         "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "packer-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1673481162,
-        "narHash": "sha256-YAhAFiR31aGl2SEsA/itP+KgkLyV58EJEwosdc+No9s=",
-        "owner": "wbthomason",
-        "repo": "packer.nvim",
-        "rev": "1d0cf98a561f7fd654c970c49f917d74fafe1530",
-        "type": "github"
-      },
-      "original": {
-        "owner": "wbthomason",
-        "repo": "packer.nvim",
         "type": "github"
       }
     },
