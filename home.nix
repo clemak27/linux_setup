@@ -14,11 +14,6 @@ let
     echo -e "\033[0;32;1mCollecting garbage\033[0m"
     nix-collect-garbage 1> /dev/null
 
-    echo -e "\033[0;32;1mUpdating neovim-plugins\033[0m"
-    nvim --headless -c 'autocmd User LazyUpdate quitall' -c 'Lazy sync'
-    git add lazy-lock.json
-    git commit -m "chore(nvim): Update $(date -I)" 1> /dev/null
-
     echo -e "\033[0;32;1mPushing update\033[0m"
     git push
   '';
