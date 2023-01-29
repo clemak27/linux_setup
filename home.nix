@@ -13,9 +13,6 @@ let
 
     echo "Collecting garbage"
     nix-collect-garbage
-
-    echo "Updating nvim plugins"
-    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
   '';
 in
 {
