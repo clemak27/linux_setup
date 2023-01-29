@@ -77,6 +77,10 @@ in
     '';
   };
 
+    xdg.configFile = {
+      "nvim/lazy-lock.json".source = config.lib.file.mkOutOfStoreSymlink "/var/home/clemens/Projects/linux_setup/lazy-lock.json";
+    };
+
   # https://github.com/nix-community/home-manager/issues/2942
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
 }
