@@ -51,8 +51,8 @@ in
     shellAliases = builtins.listToAttrs (
       [
         { name = "docker"; value = "/usr/bin/flatpak-spawn --host podman"; }
-        { name = "hms"; value = "home-manager switch --flake '.?submodules=1' --impure"; }
-        { name = "hmsl"; value = "home-manager switch --flake . --impure --override-input homecfg 'path:/home/clemens/Projects/homecfg'"; }
+        { name = "hms"; value = "home-manager switch --flake /home/clemens/Projects/linux_setup --impure"; }
+        { name = "hmsl"; value = "home-manager switch --flake /home/clemens/Projects/linux_setup --impure --override-input homecfg 'path:/home/clemens/Projects/homecfg'"; }
         { name = "mpv"; value = "/usr/bin/flatpak-spawn --host flatpak run io.mpv.Mpv"; }
         { name = "podman"; value = "/usr/bin/flatpak-spawn --host podman"; }
         { name = "prcwd"; value = "/usr/bin/flatpak-spawn --host podman run --interactive --rm --security-opt label=disable --volume $(pwd):/pwd --workdir /pwd"; }
