@@ -66,6 +66,11 @@ in
     );
 
     initExtra = ''
+      # nix home-manager init
+      if [ -z "$NIX_PROFILES" ]; then
+        . $HOME/.nix-profile/etc/profile.d/nix.sh
+      fi
+
       export GIT_SSH=/usr/bin/ssh
 
       # autostart tmux
@@ -78,9 +83,9 @@ in
     '';
   };
 
-    xdg.configFile = {
-      "nvim/lazy-lock.json".source = config.lib.file.mkOutOfStoreSymlink "/var/home/clemens/Projects/linux_setup/lazy-lock.json";
-    };
+  xdg.configFile = {
+    "nvim/lazy-lock.json".source = config.lib.file.mkOutOfStoreSymlink "/var/home/clemens/Projects/linux_setup/lazy-lock.json";
+  };
 
   # https://github.com/nix-community/home-manager/issues/2942
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
