@@ -73,6 +73,10 @@ unzip /tmp/FiraCode.zip -d /home/clemens/.local/share/fonts
 sudo cp 60-openrgb.rules /etc/udev/rules.d/60-openrgb.rules
 cp org.openrgb.OpenRGB.desktop ~/.local/share/applications/
 
+# add script to start toolbox
+echo "SHELL=/var/home/clemens/.nix-profile/bin/zsh toolbox enter nix" > "$HOME/.local/bin/enter_nix"
+chmod +x "$HOME/.local/bin/enter_nix"
+
 # gnome shortcuts
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Super>1']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Super>2']"
@@ -92,7 +96,7 @@ dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/cus
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command "'flatpak run com.bitwarden.desktop'"
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name "'bitwarden'"
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding "'<Super>Return'"
-dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command "'flatpak run org.wezfurlong.wezterm'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command "'flatpak run org.wezfurlong.wezterm start enter_nix'"
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name "'wezterm'"
 
 # install sonixd -> https://github.com/jeffvli/sonixd/issues/306
