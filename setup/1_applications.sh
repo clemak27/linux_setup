@@ -8,6 +8,7 @@ flatpak install -y flathub \
   com.github.tchx84.Flatseal \
   com.valvesoftware.Steam \
   io.gdevs.GDLauncher \
+  io.github.Foldex.AdwSteamGtk \
   io.github.celluloid_player.Celluloid \
   io.mpv.Mpv \
   org.freedesktop.Platform.VulkanLayer.MangoHud \
