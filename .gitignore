@@ -2,3 +2,4 @@ setup_user.zsh
 Session.vim
 .idea
 **/.direnv
+dconf.settings
