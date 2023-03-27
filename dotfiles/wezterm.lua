@@ -22,6 +22,7 @@ return {
 		bottom = 0,
 	},
 	audible_bell = "Disabled",
+	hide_mouse_cursor_when_typing = false,
 
 	enable_wayland = true,
 	font_size = 10.0,
