@@ -758,4 +758,3 @@ SUBSYSTEMS=="usb", ATTR{idVendor}=="03eb", ATTR{idProduct}=="ff02", TAG+="uacces
 #  Zalman ZSync Devices                                         #
 #---------------------------------------------------------------#
 SUBSYSTEMS=="usb", ATTR{idVendor}=="1c57", ATTR{idProduct}=="7ed0", TAG+="uaccess"
-

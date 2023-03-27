@@ -1,34 +1,85 @@
-# Fedora SilverBlue installation
+# NixOS installation
 
 ## Setup
 
-### Inital
+### Preparation
 
 - create live USB (if there is none yet)
+- create new branch for host
+- prepare config in hosts directory
+
+### NixOS install
+
 - boot from live USB
-- install it
+- checkout repo: `git clone https://github.com/clemak27/linux_setup`
+- `cd linux_setup/setup`
+- update `setup_nixos.sh` with the device where nix should be installed
+  (check with `lsblk`)
+- run `sudo ./setup_nixos.sh`
+- install it with `sudo nixos-install`
+- reboot into new system
 
-### First boot
+### Configuring the system
 
-- checkout git repo:
+- login as normal user
+- checkout repo: (if there is a backed up ssh key, use it to clone with ssh)
+
+  ```sh
+  mkdir -p ~/Projects
+  cd ~/Projects
+  git clone https://github.com/clemak27/linux_setup.git
+  git submodule update --remote --rebase
+  ```
+
+- run the next script:
+- `cd linux_setup/setup`
+- run `./setup_system.sh`
+- `cd ..`
+- edit the config:
+  - copy the device uuid from the init config to the actual one
+  - set the swapfile and mounting options according to [btrfs config](#btrfs config)
+- run
 
 ```sh
-mkdir Projects
-cd Projects/
-git clone https://github.com/clemak27/linux_setup # (or with ssh if key imported: git@github.com:clemak27/linux_setup.git)
-cd linux_setup/setup
+sudo nixos-rebuild boot --flake .
 ```
 
-- Run the first install-script `0_ostree.sh`
-- Unfortunately, my laptop has an n0video GPU, so it also needs `0a_nvidia.sh`
 - reboot
-- run the `1_applications.sh` script
 
-### create the default toolbox
+### Home-manager
 
-- `toolbox create nix`
-- `toolbox run -c nix ~/Projects/linux_setup/setup/init_nix_toolbox.sh`
+nix run home-manager/master -- init --switch
+rm -rf /home/clemens/.config/home-manager
+home-manager switch --flake .
 
 ## Notes
 
-- enable wg config after copying: `sudo systemctl enable --now wg-quick@home`
+### To convert an ssh ed25519 key to an age key
+
+```sh
+mkdir -p ~/.config/sops/age
+cp $HOME/.ssh/id_ed25519 /tmp/id_ed25519
+ssh-keygen -p -N "" -f /tmp/id_ed25519
+ssh-to-age -private-key -i /tmp/id_ed25519 > ~/.config/sops/age/keys.txt
+rm /tmp/id_ed25519
+age-keygen -y ~/.config/sops/age/keys.txt
+```
+
+### btrfs config
+
+`nixos-generate-config --show-hardware-config` doesn't detect mount options
+automatically, so to enable compression, you must specify it and other
+mount options in a persistent configuration:
+
+```nix
+fileSystems = {
+"/".options = [ "compress=zstd" ];
+"/home".options = [ "compress=zstd" ];
+"/nix".options = [ "compress=zstd" "noatime" ];
+"/swap".options = [ "noatime" ];
+};
+```
+
+For the swapfile, add `swapDevices = [ { device = "/swap/swapfile"; } ];`
+
+[Source](https://nixos.wiki/wiki/Btrfs)
