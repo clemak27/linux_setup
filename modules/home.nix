@@ -24,6 +24,8 @@
   };
 
   home.packages = with pkgs; [
+    sonixd
+
     scrcpy
     unrar
     xclip
