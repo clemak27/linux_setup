@@ -5,14 +5,15 @@ with lib.hm.gvariant;
 
 {
   dconf.settings = {
-    # "org/gnome/desktop/background" = {
-    #   color-shading-type = "solid";
-    #   picture-options = "zoom";
-    #   picture-uri = "file:///var/home/clemens/.local/share/backgrounds/2023-02-05-18-50-07-wallpaper.png";
-    #   picture-uri-dark = "file:///var/home/clemens/.local/share/backgrounds/2023-02-05-18-50-07-wallpaper.png";
-    #   primary-color = "#000000000000";
-    #   secondary-color = "#000000000000";
-    # };
+
+    "org/gnome/desktop/background" = {
+      color-shading-type = "solid";
+      picture-options = "zoom";
+      picture-uri = "file:///home/clemens/Projects/linux_setup/wallpaper.png";
+      picture-uri-dark = "file:///home/clemens/Projects/linux_setup/wallpaper.png";
+      primary-color = "#000000000000";
+      secondary-color = "#000000000000";
+    };
 
     "org/gnome/desktop/calendar" = {
       show-weekdate = true;
@@ -29,6 +30,7 @@ with lib.hm.gvariant;
       clock-show-seconds = true;
       clock-show-weekday = true;
       color-scheme = "prefer-dark";
+      cursor-theme = "Catppuccin-Mocha-Dark-Cursors";
       enable-hot-corners = false;
       font-antialiasing = "grayscale";
       font-hinting = "medium";
@@ -45,14 +47,18 @@ with lib.hm.gvariant;
       two-finger-scrolling-enabled = true;
     };
 
-    # "org/gnome/desktop/screensaver" = {
-    #   color-shading-type = "solid";
-    #   lock-delay = mkUint32 0;
-    #   picture-options = "zoom";
-    #   picture-uri = "file:///var/home/clemens/.local/share/backgrounds/2023-02-05-18-50-07-wallpaper.png";
-    #   primary-color = "#000000000000";
-    #   secondary-color = "#000000000000";
-    # };
+    "org/gnome/desktop/screensaver" = {
+      color-shading-type = "solid";
+      picture-options = "zoom";
+      picture-uri = "file:///home/clemens/Projects/linux_setup/wallpaper.png";
+      primary-color = "#000000000000";
+      secondary-color = "#000000000000";
+    };
+
+    "org/gnome/desktop/sound" = {
+      event-sounds = true;
+      theme-name = "freedesktop";
+    };
 
     "org/gnome/desktop/wm/keybindings" = {
       switch-to-workspace-1 = [ "<Super>1" ];
@@ -146,10 +152,10 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/keybindings" = {
-      switch-to-application-1 = [];
-      switch-to-application-2 = [];
-      switch-to-application-3 = [];
-      switch-to-application-4 = [];
+      switch-to-application-1 = [ ];
+      switch-to-application-2 = [ ];
+      switch-to-application-3 = [ ];
+      switch-to-application-4 = [ ];
     };
 
     "org/gnome/shell/weather" = {
@@ -167,6 +173,7 @@ with lib.hm.gvariant;
 
     "org/gtk/gtk4/settings/file-chooser" = {
       sort-directories-first = true;
+      show-hidden = true;
     };
 
     "system/locale" = {
