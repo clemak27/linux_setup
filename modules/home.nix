@@ -39,7 +39,6 @@
         { name = "hms"; value = "home-manager switch --flake /home/clemens/Projects/linux_setup --impure"; }
         { name = "hmsl"; value = "home-manager switch --flake /home/clemens/Projects/linux_setup --impure --override-input homecfg 'path:/home/clemens/Projects/homecfg'"; }
         { name = "mpv"; value = "/usr/bin/flatpak-spawn --host flatpak run io.mpv.Mpv"; }
-        # { name = "prcwd"; value = "podman run --interactive --rm --security-opt label=disable --volume $(pwd):/pwd --workdir /pwd"; }
         { name = "tam"; value = "tmux new-session -A -D -s main -c ~/Projects -n projects"; }
         { name = "youtube-dl"; value = "yt-dlp"; }
         { name = "youtube-dl-music"; value = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\""; }
@@ -47,13 +46,6 @@
     );
 
     initExtra = ''
-      # nix home-manager init
-      # if [ -z "$NIX_PROFILES" ]; then
-      #   . $HOME/.nix-profile/etc/profile.d/nix.sh
-      # fi
-
-      # export GIT_SSH=/usr/bin/ssh
-
       # autostart tmux
       if tmux info &> /dev/null; then 
         tmux start-server
