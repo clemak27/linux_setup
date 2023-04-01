@@ -25,6 +25,8 @@
 
   home.packages = with pkgs; [
     sonixd
+    celluloid
+    thunderbird
 
     scrcpy
     unrar
@@ -32,6 +34,9 @@
     yt-dlp
     ytfzf
   ];
+
+  programs.firefox.enable = true;
+  programs.wezterm.enable = true;
 
   programs.zsh = {
     shellAliases = builtins.listToAttrs (
