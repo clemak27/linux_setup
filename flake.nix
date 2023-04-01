@@ -10,7 +10,7 @@
     homecfg = {
       url = "github:clemak27/homecfg";
     };
-    sops-nix.url = github:Mic92/sops-nix;
+    sops-nix.url = "github:Mic92/sops-nix";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
