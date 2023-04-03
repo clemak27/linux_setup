@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./wireguard.nix
+    # ./wireguard.nix
     ./sops.nix
     ./mounts.nix
 
@@ -21,7 +21,7 @@
   networking.hostName = "silfur";
 
   boot.initrd.luks.devices.luksroot = {
-    device = "/dev/disk/by-uuid/61091175-276e-4591-ba9c-bc0d95c1ed8c";
+    device = "/dev/disk/by-uuid/44ef95bc-238e-419c-8ffe-bcb7088da0f7";
     preLVM = true;
     allowDiscards = true;
   };
