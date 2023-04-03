@@ -22,20 +22,17 @@ let
 
     # firefox should use wayland
     flatpak override --user --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
+
+    # installing the theme with nixOS leads to weird rendering issues
+    mkdir -p ~/.themes
+    curl -L -o /tmp/cpmsmd.zip https://github.com/catppuccin/gtk/releases/download/v0.4.3/Catppuccin-Mocha-Standard-Mauve-Dark.zip
+    unzip /tmp/cpmsmd.zip -d ~/.themes
   '';
 in
 {
   services.flatpak.enable = true;
   environment.systemPackages = with pkgs; [
-    papirus-icon-theme
-    adw-gtk3
-    catppuccin-cursors.mochaDark
-
     initFlatpak
-  ];
-
-  fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
 
   # enable flatpak to access system-fonts

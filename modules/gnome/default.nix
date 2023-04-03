@@ -17,6 +17,14 @@
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
     libnotify
+
+    papirus-icon-theme
+    adw-gtk3
+    catppuccin-cursors.mochaDark
+  ];
+
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
 
   # Configure keymap in X11
