@@ -71,6 +71,7 @@
 
       devShell.x86_64-linux = devpkgs.mkShell {
         nativeBuildInputs = with devpkgs; [
+          sops
           dconf2nix
         ];
       };
