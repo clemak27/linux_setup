@@ -100,7 +100,7 @@ cat << 'EOF' > /mnt/etc/nixos/configuration.nix
   ];
 
   networking.networkmanager.enable = true;
-  system.stateVersion = "22.05";
+  system.stateVersion = "22.11";
 
   time.timeZone = "Europe/Vienna";
   i18n.defaultLocale = "en_US.UTF-8";
