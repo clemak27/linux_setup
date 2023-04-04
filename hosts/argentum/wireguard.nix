@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    wireguard
+    wireguard-tools
   ];
 
   networking.wg-quick.interfaces = {

@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    # ./wireguard.nix
+    ./wireguard.nix
     ./sops.nix
     ./mounts.nix
 
