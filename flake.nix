@@ -20,6 +20,16 @@
       overlay-stable = final: prev: {
         stable = self.inputs.nixpkgs-stable.legacyPackages.x86_64-darwin;
       };
+      updateSystem = devpkgs.writeShellScriptBin "update-system" ''
+        if [ "$(cat flake.lock | sha256sum)" = "$(curl https://raw.githubusercontent.com/clemak27/linux_setup/master/flake.lock | sha256sum)" ]; then
+          echo "system up to date"
+        else
+          git pull --rebase
+          sudo nixos-rebuild boot --impure --flake .
+          home-manager switch --impure --flake . 
+          flatpak update -y
+        fi
+      '';
     in
     {
       nixosConfigurations = {
@@ -73,6 +83,7 @@
         nativeBuildInputs = with devpkgs; [
           sops
           dconf2nix
+          updateSystem
         ];
       };
     };
