@@ -1,0 +1,21 @@
+---
+name: update-flake-lock
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 12 * * THU'
+
+jobs:
+  lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v1
+      - name: Update flake.lock
+        uses: DeterminateSystems/update-flake-lock@vX
+        with:
+          pr-title: "chore: update flake"
+          token: ${{ secrets.UPDATE_FLAKE_TOKEN }}
+          pr-assignees: clemak27
