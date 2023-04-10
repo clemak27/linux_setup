@@ -2,19 +2,11 @@
 {
   imports = [
     ./hardware-configuration.nix
-    # ./wireguard.nix
-    ./sops.nix
     ./mounts.nix
+    ./sops.nix
+    # ./wireguard.nix
 
     ./logitech_rgb.nix
-
-    ../../modules/general.nix
-    ../../modules/gnome
-    ../../modules/pipewire.nix
-    ../../modules/virt-manager.nix
-    ../../modules/container.nix
-    ../../modules/ssh.nix
-    ../../modules/flatpak.nix
   ];
 
   networking.hostName = "argentum";
