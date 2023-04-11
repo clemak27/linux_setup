@@ -19,3 +19,4 @@ jobs:
           pr-title: "chore: update flake"
           token: ${{ secrets.UPDATE_FLAKE_TOKEN }}
           pr-assignees: clemak27
+          commit-msg: "chore: update flake"
