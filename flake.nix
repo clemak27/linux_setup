@@ -24,10 +24,19 @@
         if [ "$(cat flake.lock | sha256sum)" = "$(curl https://raw.githubusercontent.com/clemak27/linux_setup/master/flake.lock | sha256sum)" ]; then
           echo "system up to date"
         else
+          local locksha=$(cat ./dotfiles/lazy-lock.json | sha256sum)
           git pull --rebase
           sudo nixos-rebuild boot --impure --flake .
           home-manager switch --impure --flake . 
           flatpak update -y
+          if [ "$(cat ./dotfiles/lazy-lock.json | sha256sum)" = "$locksha" ]; then
+            nvim tmpfile +"lua require('lazy').sync({wait=true}); vim.cmd('qa!')"
+            git add ./dotfiles/lazy-lock.json
+            git commit -m "chore: update lazy-lock"
+            git push
+          else
+            nvim tmpfile +"lua require('lazy').restore({wait=true}); vim.cmd('qa!')"
+          fi
         fi
       '';
     in
