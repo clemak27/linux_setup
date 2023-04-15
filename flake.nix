@@ -25,7 +25,7 @@
           echo "system up to date"
         else
           git pull --rebase
-          sudo nixos-rebuild switch --impure --flake .
+          sudo nixos-rebuild boot --impure --flake .
           home-manager switch --impure --flake . 
           flatpak update -y
         fi
