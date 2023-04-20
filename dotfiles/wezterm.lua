@@ -26,6 +26,7 @@ return {
 	hide_mouse_cursor_when_typing = false,
 
 	enable_wayland = true,
+	xcursor_theme = "Catppuccin-Mocha-Dark-Cursors",
 	font_size = 10.0,
 	window_decorations = "RESIZE",
 	-- window_frame = {
