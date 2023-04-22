@@ -30,8 +30,8 @@
     home.file.".themes" = {
       source =
         pkgs.fetchzip {
-          url = "https://github.com/catppuccin/gtk/releases/download/v0.4.3/Catppuccin-Mocha-Standard-Mauve-Dark.zip";
-          hash = "sha256-Xekj0HAVG9C7gaHJGmhMK98c5bA3vSEPE7tHFJSm33U=";
+          url = "https://github.com/catppuccin/gtk/releases/download/v0.5.0/Catppuccin-Mocha-Standard-Mauve-Dark.zip";
+          hash = "sha256-DIggJCLHHTvwNeNg2+YCz4KDdlYO0CbYiXCaozyevLA=";
           stripRoot = false;
         };
       recursive = true;
