@@ -119,6 +119,7 @@ with lib.hm.gvariant;
       disable-user-extensions = false;
       disabled-extensions = [ ];
       enabled-extensions = [ "background-logo@fedorahosted.org" "appindicatorsupport@rgcjonas.gmail.com" "gsconnect@andyholmes.github.io" "user-theme@gnome-shell-extensions.gcampax.github.com" "unite@hardpixel.eu" "blur-my-shell@aunetx" ];
+      favorite-apps = [ "org.gnome.Nautilus.desktop" "firefox.desktop" "org.wezfurlong.wezterm.desktop" "sonixd.desktop" ];
       welcome-dialog-last-shown-version = "43.3";
     };
 
