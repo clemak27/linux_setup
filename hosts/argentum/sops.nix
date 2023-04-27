@@ -11,7 +11,7 @@
   # This will generate a new key if the key specified above does not exist
   sops.age.generateKey = false;
   # This is the actual specification of the secrets.
-  sops.secrets."wg/private_key" = {};
-  sops.secrets."wg/public_key" = {};
-  sops.secrets."wg/pre_shared_key" = {};
+  sops.secrets."wg/private_key" = { };
+  sops.secrets."wg/public_key" = { };
+  sops.secrets."wg/pre_shared_key" = { };
 }
