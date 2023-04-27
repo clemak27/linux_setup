@@ -3,3 +3,4 @@ Session.vim
 .idea
 **/.direnv
 dconf.settings
+.pre-commit-config.yaml
