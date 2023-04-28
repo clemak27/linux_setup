@@ -92,6 +92,7 @@
           src = ./.;
           hooks = {
             nixpkgs-fmt.enable = true;
+            actionlint.enable = true;
             shellcheck_fixed = {
               enable = true;
               name = "shellcheck";
