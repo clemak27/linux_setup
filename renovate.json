@@ -5,7 +5,7 @@
   "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
   "onboarding": false,
   "platform": "github",
-  "includeForks": false,
+  "forkProcessing": "disabled",
   "repositories": [
     "clemak27/linux_setup"
   ],
