@@ -92,6 +92,13 @@
           src = ./.;
           hooks = {
             nixpkgs-fmt.enable = true;
+            shellcheck_fixed = {
+              enable = true;
+              name = "shellcheck";
+              description = "Format shell files.";
+              types = [ "shell" ];
+              entry = "${pkgs.shellcheck}/bin/shellcheck";
+            };
           };
         };
       };
