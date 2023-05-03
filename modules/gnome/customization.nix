@@ -20,8 +20,8 @@
     home.file.".local/share/fonts" = {
       source =
         pkgs.fetchzip {
-          url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraCode.zip";
-          hash = "sha256-rXRHi5B867H25I1I2bD2idjbdv9kcQbkv4j00npREiU=";
+          url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/FiraCode.zip";
+          hash = "sha256-cLn0Tbh+VCNbiBkHvomJ2iwhfW/ZZhPkncrLJzzxQJs=";
           stripRoot = false;
         };
       recursive = true;
