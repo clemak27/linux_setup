@@ -23,10 +23,6 @@
     catppuccin-cursors.mochaDark
   ];
 
-  fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
-  ];
-
   # Configure keymap in X11
   services.xserver.layout = "de";
 
