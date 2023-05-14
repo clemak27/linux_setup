@@ -13,9 +13,7 @@
       user = "clemak27";
       email = "clemak27@mailbox.org";
       ssh_key = builtins.readFile ~/.ssh/id_ed25519.pub;
-      tea = true;
       gh = true;
-      glab = false;
     };
     nvim.enable = true;
     tmux.enable = true;
@@ -52,7 +50,7 @@
 
     initExtra = ''
       # autostart tmux
-      if tmux info &> /dev/null; then 
+      if tmux info &> /dev/null; then
         tmux start-server
       fi
       if [ ! "$TMUX" ]; then
