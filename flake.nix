@@ -15,9 +15,14 @@
 
     flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, homecfg, sops-nix, flake-utils-plus, pre-commit-hooks }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, homecfg, sops-nix, flake-utils-plus, pre-commit-hooks, nix-index-database }:
     let
       pkgs = self.pkgs.x86_64-linux.nixpkgs;
       updateSystem = pkgs.writeShellScriptBin "update-system" ''
@@ -111,6 +116,7 @@
             ({ config, pkgs, ... }: {
               nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
             })
+            nix-index-database.hmModules.nix-index
             homecfg.nixosModules.homecfg
             ./modules/home.nix
             {
