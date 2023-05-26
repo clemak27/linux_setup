@@ -116,6 +116,11 @@
             ({ config, pkgs, ... }: {
               nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
             })
+            {
+              nixpkgs.config.permittedInsecurePackages = [
+                "nodejs-16.20.0"
+              ];
+            }
             nix-index-database.hmModules.nix-index
             homecfg.nixosModules.homecfg
             ./modules/home.nix
