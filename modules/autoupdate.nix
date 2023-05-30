@@ -12,6 +12,7 @@
       pkgs.jq
       pkgs.libnotify
       pkgs.neovim
+      pkgs.openssh
     ];
     serviceConfig = {
       ExecStart = "${pkgs.bash}/bin/bash /home/clemens/Projects/linux_setup/modules/autoupdate.sh";
