@@ -13,6 +13,7 @@
       gnomeExtensions.unite
       gnomeExtensions.gsconnect
       gnomeExtensions.blur-my-shell
+      gnomeExtensions.pip-on-top
 
       gparted
     ];
