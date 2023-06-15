@@ -8,7 +8,7 @@ return {
 	window_close_confirmation = "NeverPrompt",
 
 	font = wezterm.font_with_fallback({
-		"FiraCode Nerd Font",
+		"Hack Nerd Font",
 		"Noto Color Emoji",
 	}),
 

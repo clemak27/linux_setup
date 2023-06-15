@@ -21,8 +21,8 @@
     home.file.".local/share/fonts" = {
       source =
         pkgs.fetchzip {
-          url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/FiraCode.zip";
-          hash = "sha256-cLn0Tbh+VCNbiBkHvomJ2iwhfW/ZZhPkncrLJzzxQJs=";
+          url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/Hack.zip";
+          hash = "sha256-c42SwPKh0F9WDh4HO9MHf3skZfjQoOYdfcqQk83bRcM=";
           stripRoot = false;
         };
       recursive = true;
