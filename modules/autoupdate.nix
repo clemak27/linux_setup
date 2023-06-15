@@ -2,7 +2,7 @@
 {
   systemd.services.autoupdate = {
     description = "NixOS Autoupdate Service";
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = [ "multi-user.target" "graphical.target" ];
     path = [
       pkgs.busybox
       pkgs.coreutils
@@ -14,12 +14,15 @@
       pkgs.neovim
       pkgs.openssh
     ];
+    environment = {
+      SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
+      DBUS_SESSION_BUS_ADDRESS = "unix:path=/run/user/1000/bus";
+    };
     serviceConfig = {
-      ExecStart = "${pkgs.bash}/bin/bash /home/clemens/Projects/linux_setup/modules/autoupdate.sh";
+      ExecStart = "${pkgs.zsh}/bin/zsh -l -c /home/clemens/Projects/linux_setup/modules/autoupdate.sh";
       Type = "oneshot";
       User = "clemens";
       Group = "users";
-      Environment = "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus";
     };
   };
 }

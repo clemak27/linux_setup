@@ -61,7 +61,7 @@
         system = "x86_64-linux";
         modules = [
           sops-nix.nixosModules.sops
-          # ./modules/autoupdate.nix
+          ./modules/autoupdate.nix
           ./modules/general.nix
           ./modules/gnome
           ./modules/pipewire.nix
