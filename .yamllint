@@ -1,0 +1,11 @@
+---
+extends: default
+
+ignore: |
+  hosts/**/secrets.yaml
+
+rules:
+  line-length: false
+  truthy:
+    ignore: |
+      .github
