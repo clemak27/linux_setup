@@ -14,10 +14,19 @@ jobs:
         uses: actions/checkout@v3
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v4
-      - name: Update flake.lock
+      - name: Update lockfile
+        id: update
         uses: DeterminateSystems/update-flake-lock@v19
         with:
           pr-title: "chore: update flake"
           token: ${{ secrets.UPDATE_FLAKE_TOKEN }}
           pr-assignees: clemak27
           commit-msg: "chore: update flake"
+          git-author-name: 'clemak27'
+          git-author-email: 'clemak27@mailbox.org'
+          git-committer-name: 'clemak27'
+          git-committer-email: 'clemak27@mailbox.org'
+      - name: automerge
+        run: gh pr merge --rebase --auto "${{ steps.update.outputs.pull-request-number }}"
+        env:
+          GH_TOKEN: ${{ secrets.UPDATE_FLAKE_TOKEN }}
