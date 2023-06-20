@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  systemd.services.autoupdate = {
+  systemd.services.autoupdate-user = {
     description = "NixOS Autoupdate Service";
     wantedBy = [ "multi-user.target" "graphical.target" ];
     path = [
@@ -24,5 +24,14 @@
       User = "clemens";
       Group = "users";
     };
+  };
+
+  system.autoUpgrade = {
+    enable = true;
+    flake = "/home/clemens/Projects/linux_setup";
+    dates = "daily";
+    allowReboot = false;
+    operation = "switch";
+    flags = [ "--impure" ];
   };
 }

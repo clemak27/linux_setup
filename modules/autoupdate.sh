@@ -1,6 +1,6 @@
 #!/bin/sh
 
-msg_title="NixOS Autoupdater"
+msg_title="NixOS User Autoupdate"
 flake_dir="$HOME/Projects/linux_setup"
 lockfile="$flake_dir/flake.lock"
 
@@ -87,10 +87,6 @@ update_homecfg_nvim() {
   fi
 }
 
-update_flake() {
-  send_message "[nixpkgs] Skipping, not implemented yet."
-}
-
 sleep 30
 
 send_message "Starting Autoupdate"
@@ -98,5 +94,4 @@ update_flatpak
 record_state
 pull_latest
 update_homecfg_nvim
-update_flake
 send_message "Finished Autoupdate"
