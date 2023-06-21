@@ -22,7 +22,7 @@
       source =
         pkgs.fetchzip {
           url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Hack.zip";
-          hash = "sha256-QJ68fQG8beGtcn/6UTMQJHnjkMuBu3Iuw428B8o1RXY=";
+          hash = "sha256-HIY7m1xE9eTLZvdgvguRs4YX3VMGlAxMoykOPDL8/Fg=";
           stripRoot = false;
         };
       recursive = true;
