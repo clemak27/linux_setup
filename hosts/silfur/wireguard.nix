@@ -12,7 +12,7 @@
 
       peers = [
         {
-          publicKey = builtins.readFile "/run/secrets/wg/public_key";
+          publicKey = builtins.readFile "${config.sops.secrets."wg/public_key".path}";
           presharedKeyFile = "/run/secrets/wg/pre_shared_key";
           allowedIPs = [ "0.0.0.0/0" "::0/0" ];
           endpoint = "wallstreet30.cc:51820";
