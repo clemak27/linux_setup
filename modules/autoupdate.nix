@@ -1,8 +1,9 @@
 { config, pkgs, ... }:
 {
-  systemd.services.autoupdate-user = {
-    description = "NixOS Autoupdate Service";
-    wantedBy = [ "multi-user.target" "graphical.target" ];
+  systemd.services.nixos-update = {
+    description = "NixOS Update";
+    requiredBy = [ "nixos-upgrade.service" ];
+    before = [ "nixos-upgrade.service" ];
     path = [
       pkgs.busybox
       pkgs.coreutils

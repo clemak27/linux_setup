@@ -1,6 +1,6 @@
 #!/bin/sh
 
-msg_title="NixOS User Autoupdate"
+msg_title="NixOS Update"
 flake_dir="$HOME/Projects/linux_setup"
 lockfile="$flake_dir/flake.lock"
 
@@ -25,7 +25,6 @@ send_message() {
 }
 
 record_state() {
-  # shellcheck disable=2034
   nixpkgs_current=$(jq '.nodes.nixpkgs.locked.lastModified' < "$lockfile")
   homecfg_current=$(jq '.nodes.homecfg.locked.lastModified' < "$lockfile")
   lazy_current=$(sha256sum "$flake_dir/dotfiles/lazy-lock.json" | awk '{print $1}')
@@ -35,15 +34,14 @@ pull_latest() {
   send_message "[git] Updating repo"
   if [ "master" != "$(git -C "$flake_dir" rev-parse --abbrev-ref HEAD)" ]; then
     send_message "[git] Not on master branch, cancelling"
-    exit 0
+    exit 1
   fi
 
   if ! git -C "$flake_dir" pull --rebase; then
     send_message "[git] Failed to update repo, cancelling"
-    exit 0
+    exit 1
   else
     send_message "[git] Done."
-    # shellcheck disable=2034
     nixpkgs_updated=$(jq '.nodes.nixpkgs.locked.lastModified' < "$lockfile")
     homecfg_updated=$(jq '.nodes.homecfg.locked.lastModified' < "$lockfile")
   fi
@@ -87,6 +85,15 @@ update_homecfg_nvim() {
   fi
 }
 
+check_nixpkgs() {
+  if [ "$nixpkgs_current" = "$nixpkgs_updated" ]; then
+    send_message "[nixpkgs] No activation needed"
+    send_message "Finished Autoupdate"
+    exit 221
+  fi
+  send_message "[nixpkgs] Updated. Will activate"
+}
+
 sleep 30
 
 send_message "Starting Autoupdate"
@@ -94,4 +101,5 @@ update_flatpak
 record_state
 pull_latest
 update_homecfg_nvim
+check_nixpkgs
 send_message "Finished Autoupdate"
