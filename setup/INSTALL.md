@@ -13,8 +13,8 @@
 - boot from live USB
 - checkout repo: `git clone https://github.com/clemak27/linux_setup`
 - `cd linux_setup/setup`
-- update `setup_nixos.sh` with the device where nix should be installed
-  (check with `lsblk`)
+- update `setup_nixos.sh` with the device where nix should be installed (check
+  with `lsblk`)
 - run `sudo ./setup_nixos.sh`
 - install it with `sudo nixos-install`
 - reboot into new system
@@ -37,7 +37,8 @@
 - `cd ..`
 - edit the config:
   - copy the device uuid from the init config to the actual one
-  - set the swapfile and mounting options according to [btrfs config](#btrfs config)
+  - set the swapfile and mounting options according to [btrfs config](#btrfs
+    config)
 - run
 
 ```sh
@@ -48,9 +49,11 @@ sudo nixos-rebuild boot --flake .
 
 ### Home-manager
 
+```sh
 nix run home-manager/master -- init --switch
 rm -rf /home/clemens/.config/home-manager
 home-manager switch --flake .
+```
 
 ## Notes
 
@@ -68,8 +71,8 @@ age-keygen -y ~/.config/sops/age/keys.txt
 ### btrfs config
 
 `nixos-generate-config --show-hardware-config` doesn't detect mount options
-automatically, so to enable compression, you must specify it and other
-mount options in a persistent configuration:
+automatically, so to enable compression, you must specify it and other mount
+options in a persistent configuration:
 
 ```nix
 fileSystems = {
