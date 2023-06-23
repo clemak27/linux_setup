@@ -56,33 +56,28 @@ update_flatpak() {
   fi
 }
 
-update_homecfg_nvim() {
+update_homecfg() {
   if [ "$homecfg_current" != "$homecfg_updated" ]; then
     send_message "[homecfg] Updated. Reloading home-manger"
     home-manager switch --flake "$flake_dir" --impure
-    lazy_updated=$(sha256sum "$flake_dir/dotfiles/lazy-lock.json" | awk '{print $1}')
-    if [ "$lazy_current" != "$lazy_updated" ]; then
-      send_message "[nvim.lazy] Restoring."
-      nvim tmpfile +"lua require('lazy').restore({wait=true}); vim.cmd('qa!')"
-    else
-      send_message "[nvim.lazy] Nothing to do."
-    fi
+    send_message "[homecfg] Done"
   else
-    nix flake lock --update-input homecfg "$flake_dir"
-    homecfg_updated=$(jq '.nodes.homecfg.locked.lastModified' < "$lockfile")
-    if [ "$homecfg_current" != "$homecfg_updated" ]; then
-      send_message "[homecfg] Updated. Reloading home-manger"
-      git -C "$flake_dir" add "$flake_dir"/flake.lock
-      git -C "$flake_dir" commit -v -m "chore: update homecfg"
-      home-manager switch --flake "$flake_dir" --impure
-      send_message "[nvim.lazy] Updating."
-      nvim tmpfile +"lua require('lazy').sync({wait=true}); vim.cmd('qa!')"
-      git -C "$flake_dir" add "$flake_dir"/dotfiles/lazy-lock.json
-      git -C "$flake_dir" commit -v -m "chore: update lazy-lock"
-    else
-      send_message "[homecfg] Nothing to do."
-    fi
+    send_message "[homecfg] Nothing to do."
   fi
+}
+
+update_nvim() {
+  lazy_updated=$(sha256sum "$flake_dir/dotfiles/lazy-lock.json" | awk '{print $1}')
+  if [ "$lazy_current" != "$lazy_updated" ]; then
+    send_message "[nvim.lazy] Updated. Restoring."
+    nvim tmpfile +"lua require('lazy').restore({wait=true}); vim.cmd('qa!')"
+  elif [ "$lazy_current" = "$lazy_updated" ] && [ "$nixpkgs_current" != "$nixpkgs_updated" ]; then
+    send_message "[nvim.lazy] Updating."
+    nvim tmpfile +"lua require('lazy').sync({wait=true}); vim.cmd('qa!')"
+    git -C "$flake_dir" add "$flake_dir"/dotfiles/lazy-lock.json
+    git -C "$flake_dir" commit -v -m "chore: update lazy-lock"
+  fi
+  send_message "[nvim.lazy] Nothing to do."
 }
 
 check_nixpkgs() {
@@ -100,6 +95,7 @@ send_message "Starting Autoupdate"
 update_flatpak
 record_state
 pull_latest
-update_homecfg_nvim
+update_homecfg
+update_nvim
 check_nixpkgs
 send_message "Finished Autoupdate"
