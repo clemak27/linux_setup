@@ -1,10 +1,10 @@
 ---
-name: update-flake-lock
+name: update-nixpkgs-lock
 on:
   workflow_dispatch:
   schedule:
     # https://github.com/orgs/community/discussions/13454
-    - cron: '30 9 * * FRI'
+    - cron: '30 0 * * FRI'
 
 jobs:
   lockfile:
@@ -26,6 +26,40 @@ jobs:
           git-author-email: 'clemak27@mailbox.org'
           git-committer-name: 'clemak27'
           git-committer-email: 'clemak27@mailbox.org'
+          inputs: nixpkgs nixpkgs-stable home-manager sops-nix flake-utils-plus pre-commit-hooks nix-index-database
+      - name: automerge
+        run: gh pr merge --rebase --auto "${{ steps.update.outputs.pull-request-number }}"
+        env:
+          GH_TOKEN: ${{ secrets.UPDATE_FLAKE_TOKEN }}
+---
+name: update-homecfg-lock
+on:
+  workflow_dispatch:
+  schedule:
+    # https://github.com/orgs/community/discussions/13454
+    - cron: '45 0 * * *'
+
+jobs:
+  lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v4
+      - name: Update lockfile
+        id: update
+        uses: DeterminateSystems/update-flake-lock@v19
+        with:
+          pr-title: "chore: update flake"
+          token: ${{ secrets.UPDATE_FLAKE_TOKEN }}
+          pr-assignees: clemak27
+          commit-msg: "chore: update flake"
+          git-author-name: 'clemak27'
+          git-author-email: 'clemak27@mailbox.org'
+          git-committer-name: 'clemak27'
+          git-committer-email: 'clemak27@mailbox.org'
+          inputs: homecfg
       - name: automerge
         run: gh pr merge --rebase --auto "${{ steps.update.outputs.pull-request-number }}"
         env:
