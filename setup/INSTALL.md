@@ -86,3 +86,15 @@ fileSystems = {
 For the swapfile, add `swapDevices = [ { device = "/swap/swapfile"; } ];`
 
 [Source](https://nixos.wiki/wiki/Btrfs)
+
+### WireGuard
+
+The file where WireGuard reads the public key from needs to be created manually.
+There is no `PublicKeyFile` option, and using `builtins.readFile` requires the
+file to exist before `nix-sops` can create it.
+
+Note that:
+
+1. The file should have no line ending. If you insert the key with vim, use
+   `:set nofixeol` and `:set noeol`, to prevent adding a newline when saving.
+2. The file should have `400` permission after creating it.

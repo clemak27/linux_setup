@@ -12,6 +12,5 @@
   sops.age.generateKey = false;
   # This is the actual specification of the secrets.
   sops.secrets."wg/private_key" = { };
-  sops.secrets."wg/public_key" = { };
   sops.secrets."wg/pre_shared_key" = { };
 }

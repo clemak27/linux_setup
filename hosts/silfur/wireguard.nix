@@ -12,7 +12,7 @@
 
       peers = [
         {
-          publicKey = builtins.readFile "${config.sops.secrets."wg/public_key".path}";
+          publicKey = builtins.readFile "/etc/wireguard/public_key";
           presharedKeyFile = "/run/secrets/wg/pre_shared_key";
           allowedIPs = [ "0.0.0.0/0" "::0/0" ];
           endpoint = "wallstreet30.cc:51820";
