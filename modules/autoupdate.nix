@@ -30,7 +30,7 @@
   system.autoUpgrade = {
     enable = true;
     flake = "/home/clemens/Projects/linux_setup";
-    dates = "daily";
+    dates = "4:20";
     allowReboot = false;
     operation = "switch";
     flags = [ "--impure" ];
