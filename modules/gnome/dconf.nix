@@ -70,6 +70,8 @@ with lib.hm.gvariant;
       switch-to-workspace-7 = [ "<Super>7" ];
       switch-to-workspace-8 = [ "<Super>8" ];
       switch-to-workspace-9 = [ "<Super>9" ];
+      switch-to-workspace-right = [ "<Super>Page_Down" "<Super><Alt>Right" "<Control><Alt>Right" "<Super><Alt>L" ];
+      switch-to-workspace-left = [ "<Super>Page_Up" "<Super><Alt>Left" "<Control><Alt>Left" "<Super><Alt>H" ];
     };
 
     "org/gnome/desktop/wm/preferences" = {
