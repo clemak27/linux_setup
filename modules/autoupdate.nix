@@ -11,7 +11,6 @@
       pkgs.git
       pkgs.home-manager
       pkgs.jq
-      pkgs.libnotify
       pkgs.neovim
       pkgs.openssh
     ];

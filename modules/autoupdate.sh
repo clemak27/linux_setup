@@ -4,7 +4,6 @@ msg_title="NixOS Update"
 flake_dir="$HOME/Projects/linux_setup"
 lockfile="$flake_dir/flake.lock"
 
-msg_id=""
 nixpkgs_current=""
 nixpkgs_updated=""
 homecfg_current=""
@@ -12,16 +11,8 @@ homecfg_updated=""
 lazy_current=""
 lazy_updated=""
 
-send_message() {
-  if [ "$msg_id" = "" ]; then
-    msg_id=$(notify-send -p "$msg_title" "$1")
-    echo "[$msg_title] $1"
-    sleep 1
-  else
-    notify-send -r "$msg_id" "$msg_title" "$1"
-    echo "[$msg_title] $1"
-    sleep 1
-  fi
+log_msg() {
+  echo "[$msg_title] $1"
 }
 
 record_state() {
@@ -31,71 +22,72 @@ record_state() {
 }
 
 pull_latest() {
-  send_message "[git] Updating repo"
+  log_msg "[git] Updating repo"
   if [ "master" != "$(git -C "$flake_dir" rev-parse --abbrev-ref HEAD)" ]; then
-    send_message "[git] Not on master branch, cancelling"
+    log_msg "[git] Not on master branch, cancelling"
     exit 1
   fi
 
   if ! git -C "$flake_dir" pull --rebase; then
-    send_message "[git] Failed to update repo, cancelling"
+    log_msg "[git] Failed to update repo, cancelling"
     exit 1
   else
-    send_message "[git] Done."
+    log_msg "[git] Done."
     nixpkgs_updated=$(jq '.nodes.nixpkgs.locked.lastModified' < "$lockfile")
     homecfg_updated=$(jq '.nodes.homecfg.locked.lastModified' < "$lockfile")
   fi
 }
 
 update_flatpak() {
-  send_message "[flatpak] Updating"
+  log_msg "[flatpak] Updating"
   fMsg=$(flatpak update -y)
 
   if echo "$fMsg" | grep "Nothing to do" > /dev/null; then
-    send_message "[flatpak] Already up to date."
+    log_msg "[flatpak] Already up to date."
   fi
 }
 
 update_homecfg() {
   if [ "$homecfg_current" != "$homecfg_updated" ]; then
-    send_message "[homecfg] Updated. Reloading home-manger"
+    log_msg "[homecfg] Updated. Reloading home-manger"
     home-manager switch --flake "$flake_dir" --impure
-    send_message "[homecfg] Done"
+    log_msg "[homecfg] Done"
   else
-    send_message "[homecfg] Nothing to do."
+    log_msg "[homecfg] Nothing to do."
   fi
 }
 
 update_nvim() {
   lazy_updated=$(sha256sum "$flake_dir/dotfiles/lazy-lock.json" | awk '{print $1}')
   if [ "$lazy_current" != "$lazy_updated" ]; then
-    send_message "[nvim.lazy] Updated. Restoring."
+    log_msg "[nvim.lazy] Updated. Restoring."
     nvim tmpfile +"lua require('lazy').restore({wait=true}); vim.cmd('qa!')"
   elif [ "$lazy_current" = "$lazy_updated" ] && [ "$nixpkgs_current" != "$nixpkgs_updated" ]; then
-    send_message "[nvim.lazy] Updating."
+    log_msg "[nvim.lazy] Updating."
     nvim tmpfile +"lua require('lazy').sync({wait=true}); vim.cmd('qa!')"
     git -C "$flake_dir" add "$flake_dir"/dotfiles/lazy-lock.json
     git -C "$flake_dir" commit -v -m "chore: update lazy-lock"
+    git -C "$flake_dir" push
   fi
-  send_message "[nvim.lazy] Nothing to do."
+  log_msg "[nvim.lazy] Nothing to do."
 }
 
 check_nixpkgs() {
   if [ "$nixpkgs_current" = "$nixpkgs_updated" ]; then
-    send_message "[nixpkgs] No activation needed"
-    send_message "Finished Autoupdate"
+    log_msg "[nixpkgs] No activation needed"
+    log_msg "Finished Autoupdate"
     exit 221
   fi
-  send_message "[nixpkgs] Updated. Will activate"
+  log_msg "[nixpkgs] Updated. Will activate"
 }
 
 sleep 30
 
-send_message "Starting Autoupdate"
+log_msg "Starting Autoupdate"
 update_flatpak
 record_state
 pull_latest
 update_homecfg
 update_nvim
 check_nixpkgs
-send_message "Finished Autoupdate"
+log_msg "Finished Autoupdate"
