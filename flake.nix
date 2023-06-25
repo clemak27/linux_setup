@@ -20,11 +20,17 @@
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    tdt = {
+      url = "git+ssh://git@gitea.wallstreet30.cc:222/clemak27/tdt.git";
+      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, homecfg, sops-nix, flake-utils-plus, pre-commit-hooks, nix-index-database }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, homecfg, sops-nix, flake-utils-plus, pre-commit-hooks, nix-index-database, tdt }:
     let
       pkgs = self.pkgs.x86_64-linux.nixpkgs;
+      tdtPkg = self.inputs.tdt.packages.x86_64-linux.tdt;
     in
     flake-utils-plus.lib.mkFlake {
       inherit self inputs;
@@ -112,6 +118,9 @@
                 username = "clemens";
                 homeDirectory = "/home/clemens";
                 stateVersion = "22.11";
+                packages = [
+                  tdtPkg
+                ];
               };
             }
           ];
