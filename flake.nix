@@ -38,7 +38,13 @@
       supportedSystems = [ "x86_64-linux" ];
 
       channels.nixpkgs = {
-        config = { allowUnfree = true; };
+        config = {
+          allowUnfree = true;
+          permittedInsecurePackages = [
+            "nodejs-16.20.0"
+            "nodejs-16.20.1"
+          ];
+        };
         overlaysBuilder = channels: [
           (final: prev: { stable = self.inputs.nixpkgs-stable.legacyPackages.x86_64-linux; })
         ];
@@ -47,7 +53,9 @@
       hostDefaults = {
         system = "x86_64-linux";
         modules = [
+          home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
+
           ./modules/autoupdate.nix
           ./modules/general.nix
           ./modules/gnome
@@ -56,6 +64,28 @@
           ./modules/container.nix
           ./modules/ssh.nix
           ./modules/flatpak.nix
+
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.clemens = { config, pkgs, ... }: {
+              imports = [
+                homecfg.nixosModules.homecfg
+                nix-index-database.hmModules.nix-index
+                ./modules/home.nix
+              ];
+              home = {
+                username = "clemens";
+                homeDirectory = "/home/clemens";
+                stateVersion = "22.11";
+                packages = [
+                  tdtPkg
+                ];
+              };
+
+              nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
+            };
+          }
         ];
         channelName = "nixpkgs";
       };
@@ -94,36 +124,6 @@
               entry = "${pkgs.shellcheck}/bin/shellcheck";
             };
           };
-        };
-      };
-
-      homeConfigurations = {
-        clemens = home-manager.lib.homeManagerConfiguration {
-          pkgs = self.pkgs.x86_64-linux.nixpkgs;
-          modules = [
-            ({ config, pkgs, ... }: {
-              nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
-            })
-            {
-              nixpkgs.config.permittedInsecurePackages = [
-                "nodejs-16.20.0"
-                "nodejs-16.20.1"
-              ];
-            }
-            nix-index-database.hmModules.nix-index
-            homecfg.nixosModules.homecfg
-            ./modules/home.nix
-            {
-              home = {
-                username = "clemens";
-                homeDirectory = "/home/clemens";
-                stateVersion = "22.11";
-                packages = [
-                  tdtPkg
-                ];
-              };
-            }
-          ];
         };
       };
 

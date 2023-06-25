@@ -18,6 +18,9 @@
     gnome.gnome-tweaks
     libnotify
 
+    wl-clipboard
+    wl-clipboard-x11
+
     papirus-icon-theme
     adw-gtk3
     catppuccin-cursors.mochaDark

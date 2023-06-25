@@ -12,7 +12,7 @@
       enable = true;
       user = "clemak27";
       email = "clemak27@mailbox.org";
-      ssh_key = builtins.readFile ~/.ssh/id_ed25519.pub;
+      ssh_key = builtins.readFile /home/clemens/.ssh/id_ed25519.pub;
       gh = true;
     };
     nvim.enable = true;
@@ -39,8 +39,7 @@
   programs.zsh = {
     shellAliases = builtins.listToAttrs (
       [
-        { name = "hms"; value = "home-manager switch --flake /home/clemens/Projects/linux_setup --impure"; }
-        { name = "hmsl"; value = "home-manager switch --flake /home/clemens/Projects/linux_setup --impure --override-input homecfg 'path:/home/clemens/Projects/homecfg'"; }
+        { name = "hcsl"; value = "sudo nixos-rebuild test  --impure --flake .  --override-input homecfg 'path:/home/clemens/Projects/homecfg'"; }
         { name = "mpv"; value = "/usr/bin/flatpak-spawn --host flatpak run io.mpv.Mpv"; }
         { name = "tam"; value = "tmux new-session -A -D -s main -c ~/Projects -n projects"; }
         { name = "youtube-dl"; value = "yt-dlp"; }
@@ -64,8 +63,6 @@
   };
 
   home.file.".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "/home/clemens/Projects/linux_setup/dotfiles/wezterm.lua";
-
-  # home-manager.useGlobalPkgs = true;
 
   # https://github.com/nix-community/home-manager/issues/2942
   nixpkgs.config.allowUnfreePredicate = (pkg: true);

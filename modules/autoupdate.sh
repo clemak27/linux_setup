@@ -47,16 +47,6 @@ update_flatpak() {
   fi
 }
 
-update_homecfg() {
-  if [ "$homecfg_current" != "$homecfg_updated" ]; then
-    log_msg "[homecfg] Updated. Reloading home-manger"
-    home-manager switch --flake "$flake_dir" --impure
-    log_msg "[homecfg] Done"
-  else
-    log_msg "[homecfg] Nothing to do."
-  fi
-}
-
 update_nvim() {
   lazy_updated=$(sha256sum "$flake_dir/dotfiles/lazy-lock.json" | awk '{print $1}')
   if [ "$lazy_current" != "$lazy_updated" ]; then
@@ -72,13 +62,22 @@ update_nvim() {
   log_msg "[nvim.lazy] Nothing to do."
 }
 
+update_homecfg() {
+  if [ "$homecfg_current" != "$homecfg_updated" ]; then
+    log_msg "[homecfg] Updated."
+    exit 0
+  else
+    log_msg "[homecfg] Nothing to do."
+  fi
+}
+
 check_nixpkgs() {
   if [ "$nixpkgs_current" = "$nixpkgs_updated" ]; then
     log_msg "[nixpkgs] No activation needed"
     log_msg "Finished Autoupdate"
     exit 221
   fi
-  log_msg "[nixpkgs] Updated. Will activate"
+  log_msg "[nixpkgs] Updated."
 }
 
 sleep 30
@@ -87,7 +86,7 @@ log_msg "Starting Autoupdate"
 update_flatpak
 record_state
 pull_latest
-update_homecfg
 update_nvim
+update_homecfg
 check_nixpkgs
 log_msg "Finished Autoupdate"
