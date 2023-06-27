@@ -1,0 +1,30 @@
+---
+name: check
+on:
+  - pull_request
+jobs:
+  flake_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v4
+      - name: Replace needed files
+        run: |
+          touch someFile && \
+          sed -i 's#builtins\.readFile /home/clemens/\.ssh/id_ed25519\.pub#builtins\.readFile /home/runner/work/linux_setup/linux_setup/someFile#g' modules/home.nix && \
+          sed -i 's#builtins\.readFile "/etc/wireguard/public_key"#builtins\.readFile /home/runner/work/linux_setup/linux_setup/someFile#g' hosts/silfur/wireguard.nix
+      - name: Replace tdt references
+        run: |
+          grep -n "tdt =" flake.nix | awk -F: '{print $1+3}' | xargs -I {} sed -i '{}c\ ' flake.nix && \
+          grep -n "tdt =" flake.nix | awk -F: '{print $1+2}' | xargs -I {} sed -i '{}c\ ' flake.nix && \
+          grep -n "tdt =" flake.nix | awk -F: '{print $1+1}' | xargs -I {} sed -i '{}c\ ' flake.nix && \
+          grep -n "tdt =" flake.nix | awk -F: '{print $1+0}' | xargs -I {} sed -i '{}c\ ' flake.nix && \
+          sed -ie "s|, tdt ||g" flake.nix && \
+          sed -ie "s|tdtPkg.*||g" flake.nix && \
+          sed -ie "s|nixpkgs-fmt.*||g" flake.nix
+      - name: Cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+      - name: Run Check
+        run: nix flake check --impure
