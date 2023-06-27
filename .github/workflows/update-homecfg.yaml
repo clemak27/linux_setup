@@ -20,7 +20,7 @@ jobs:
           pr-title: "chore: update flake"
           token: ${{ secrets.UPDATE_FLAKE_TOKEN }}
           pr-assignees: clemak27
-          commit-msg: "chore: update flake"
+          commit-msg: "chore: update homecfg"
           git-author-name: 'clemak27'
           git-author-email: 'clemak27@mailbox.org'
           git-committer-name: 'clemak27'
