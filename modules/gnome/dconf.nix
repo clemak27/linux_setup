@@ -120,7 +120,7 @@ with lib.hm.gvariant;
     "org/gnome/shell" = {
       disable-user-extensions = false;
       disabled-extensions = [ ];
-      enabled-extensions = [ "background-logo@fedorahosted.org" "appindicatorsupport@rgcjonas.gmail.com" "gsconnect@andyholmes.github.io" "user-theme@gnome-shell-extensions.gcampax.github.com" "unite@hardpixel.eu" "blur-my-shell@aunetx" ];
+      enabled-extensions = [ "background-logo@fedorahosted.org" "appindicatorsupport@rgcjonas.gmail.com" "gsconnect@andyholmes.github.io" "user-theme@gnome-shell-extensions.gcampax.github.com" "unite@hardpixel.eu" "blur-my-shell@aunetx" "pip-on-top@rafostar.github.com" ];
       favorite-apps = [ "org.gnome.Nautilus.desktop" "firefox.desktop" "org.wezfurlong.wezterm.desktop" "sonixd.desktop" ];
       welcome-dialog-last-shown-version = "43.3";
     };
