@@ -39,7 +39,7 @@
   programs.zsh = {
     shellAliases = builtins.listToAttrs (
       [
-        { name = "hcsl"; value = "sudo nixos-rebuild test  --impure --flake .  --override-input homecfg 'path:/home/clemens/Projects/homecfg'"; }
+        { name = "hcsl"; value = "sudo nixos-rebuild test  --impure --flake /home/clemens/Projects/linux_setup --override-input homecfg 'path:/home/clemens/Projects/homecfg'"; }
         { name = "mpv"; value = "/usr/bin/flatpak-spawn --host flatpak run io.mpv.Mpv"; }
         { name = "tam"; value = "tmux new-session -A -D -s main -c ~/Projects -n projects"; }
         { name = "youtube-dl"; value = "yt-dlp"; }
