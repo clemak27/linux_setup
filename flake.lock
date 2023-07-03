@@ -367,11 +367,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1687688778,
-        "narHash": "sha256-xLt3JXhnG2gJGVR5uKtLBzEQinZlp4HZge1Jps39zTg=",
+        "lastModified": 1688289784,
+        "narHash": "sha256-0snXsn9GZldTotMRpxIPTf2Y4cZ3wLA/MZHWw+8eam4=",
         "ref": "refs/heads/main",
-        "rev": "236decc90546d85e1c05bca62a7574c30d3b2f62",
-        "revCount": 67,
+        "rev": "b735b87871dc90d8124137787c20cdb4d4f115cd",
+        "revCount": 80,
         "type": "git",
         "url": "ssh://git@gitea.wallstreet30.cc:222/clemak27/tdt.git"
       },
