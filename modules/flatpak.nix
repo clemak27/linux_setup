@@ -19,9 +19,6 @@ let
       org.zdoom.GZDoom \
       com.valvesoftware.Steam.CompatibilityTool.Proton-GE \
       com.valvesoftware.Steam.Utility.gamescope
-
-    # firefox should use wayland
-    flatpak override --user --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
   '';
 in
 {
