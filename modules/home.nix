@@ -26,9 +26,11 @@
     celluloid
     thunderbird
 
+    wl-clipboard
+    wl-clipboard-x11
+
     scrcpy
     unrar
-    xclip
     yt-dlp
     ytfzf
   ];
