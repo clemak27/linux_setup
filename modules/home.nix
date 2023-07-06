@@ -22,8 +22,10 @@
   };
 
   home.packages = with pkgs; [
-    sonixd
     celluloid
+    gimp
+    kid3
+    sonixd
     thunderbird
 
     wl-clipboard

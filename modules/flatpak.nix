@@ -10,8 +10,6 @@ let
       io.github.Foldex.AdwSteamGtk \
       org.freedesktop.Platform.VulkanLayer.MangoHud \
       org.freedesktop.Platform.ffmpeg-full \
-      org.gimp.GIMP \
-      org.kde.kid3 \
       org.libreoffice.LibreOffice \
       org.openrgb.OpenRGB \
       org.pipewire.Helvum \
