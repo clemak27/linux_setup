@@ -10,9 +10,7 @@ let
       io.github.Foldex.AdwSteamGtk \
       org.freedesktop.Platform.VulkanLayer.MangoHud \
       org.freedesktop.Platform.ffmpeg-full \
-      org.libreoffice.LibreOffice \
       org.openrgb.OpenRGB \
-      org.pipewire.Helvum \
       org.signal.Signal \
       org.zdoom.GZDoom \
       com.valvesoftware.Steam.CompatibilityTool.Proton-GE \

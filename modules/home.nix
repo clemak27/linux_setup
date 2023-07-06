@@ -24,7 +24,9 @@
   home.packages = with pkgs; [
     celluloid
     gimp
+    helvum
     kid3
+    libreoffice
     sonixd
     thunderbird
 
