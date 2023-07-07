@@ -30,6 +30,7 @@
     signal-desktop
     sonixd
     thunderbird
+    webcord-vencord
 
     wl-clipboard
     wl-clipboard-x11
