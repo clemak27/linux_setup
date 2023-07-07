@@ -11,7 +11,6 @@ let
       org.freedesktop.Platform.VulkanLayer.MangoHud \
       org.freedesktop.Platform.ffmpeg-full \
       org.openrgb.OpenRGB \
-      org.signal.Signal \
       org.zdoom.GZDoom \
       com.valvesoftware.Steam.CompatibilityTool.Proton-GE \
       com.valvesoftware.Steam.Utility.gamescope

@@ -27,6 +27,7 @@
     helvum
     kid3
     libreoffice
+    signal-desktop
     sonixd
     thunderbird
 
