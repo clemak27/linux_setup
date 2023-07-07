@@ -8,6 +8,7 @@
     dev.enable = true;
     fun.enable = true;
     k8s.enable = true;
+    k8s.k9s = true;
     git = {
       enable = true;
       user = "clemak27";
