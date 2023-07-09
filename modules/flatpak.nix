@@ -3,7 +3,6 @@ let
   initFlatpak = pkgs.writeShellScriptBin "init-flatpak" ''
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak install -y flathub \
-      com.github.GradienceTeam.Gradience \
       com.github.tchx84.Flatseal \
       com.valvesoftware.Steam \
       io.github.Foldex.AdwSteamGtk \

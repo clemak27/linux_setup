@@ -20,6 +20,7 @@
 
     papirus-icon-theme
     adw-gtk3
+    gradience
     catppuccin-cursors.mochaDark
   ];
 
