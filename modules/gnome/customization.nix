@@ -13,9 +13,6 @@ in
 
   config = {
     home.packages = with pkgs; [
-      # papirus-icon-theme
-      # adw-gtk3
-
       gnomeExtensions.appindicator
       gnomeExtensions.unite
       gnomeExtensions.gsconnect
