@@ -3,8 +3,6 @@
   imports = [
     ./hardware-configuration.nix
     ./mounts.nix
-    ./sops.nix
-    # ./wireguard.nix
 
     ./logitech_rgb.nix
   ];
