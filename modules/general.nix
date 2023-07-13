@@ -36,9 +36,9 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
-    LANGUAGE = "en_US.UTF-8";
-    LC_ALL = "en_US.UTF-8";
+    LC_TIME = "de_DE.UTF-8";
   };
+
   console = {
     keyMap = "de";
   };
