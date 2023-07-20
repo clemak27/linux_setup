@@ -22,11 +22,11 @@ in
       gparted
     ];
 
-    # home.file.".local/share/fonts/JetBrainsMonoNerdFont-Regular.ttf".source = config.lib.file.mkOutOfStoreSymlink "${jetBrainsMono}/JetBrainsMonoNerdFont-Regular.ttf";
-    # home.file.".local/share/fonts/JetBrainsMonoNerdFont-SemiBold.ttf".source = config.lib.file.mkOutOfStoreSymlink "${jetBrainsMono}/JetBrainsMonoNerdFont-SemiBold.ttf";
-    # home.file.".local/share/fonts/JetBrainsMonoNerdFont-SemiBoldItalic.ttf".source = config.lib.file.mkOutOfStoreSymlink "${jetBrainsMono}/JetBrainsMonoNerdFont-SemiBoldItalic.ttf";
-    # home.file.".local/share/fonts/JetBrainsMonoNerdFont-Thin.ttf".source = config.lib.file.mkOutOfStoreSymlink "${jetBrainsMono}/JetBrainsMonoNerdFont-Thin.ttf";
-    # home.file.".local/share/fonts/JetBrainsMonoNerdFont-ThinItalic.ttf".source = config.lib.file.mkOutOfStoreSymlink "${jetBrainsMono}/JetBrainsMonoNerdFont-ThinItalic.ttf";
+    home.file.".local/share/fonts/JetBrainsMonoNerdFont-Regular.ttf".source = config.lib.file.mkOutOfStoreSymlink "${jetBrainsMono}/JetBrainsMonoNerdFont-Regular.ttf";
+    home.file.".local/share/fonts/JetBrainsMonoNerdFont-SemiBold.ttf".source = config.lib.file.mkOutOfStoreSymlink "${jetBrainsMono}/JetBrainsMonoNerdFont-SemiBold.ttf";
+    home.file.".local/share/fonts/JetBrainsMonoNerdFont-SemiBoldItalic.ttf".source = config.lib.file.mkOutOfStoreSymlink "${jetBrainsMono}/JetBrainsMonoNerdFont-SemiBoldItalic.ttf";
+    home.file.".local/share/fonts/JetBrainsMonoNerdFont-Thin.ttf".source = config.lib.file.mkOutOfStoreSymlink "${jetBrainsMono}/JetBrainsMonoNerdFont-Thin.ttf";
+    home.file.".local/share/fonts/JetBrainsMonoNerdFont-ThinItalic.ttf".source = config.lib.file.mkOutOfStoreSymlink "${jetBrainsMono}/JetBrainsMonoNerdFont-ThinItalic.ttf";
 
     home.file.".local/share/fonts" = {
       source = jetBrainsMono;
