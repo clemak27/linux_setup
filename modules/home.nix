@@ -62,7 +62,10 @@
         tmux start-server
       fi
       if [ ! "$TMUX" ]; then
-        tmux new-session -A -D -s main -c ~/Projects -n projects
+        grep -q "main:.*(attached)" <(tmux ls)
+        if [ $? = 1 ]; then
+          tmux new-session -A -D -s main -c ~/Projects -n projects        
+        fi        
       fi
     '';
   };
