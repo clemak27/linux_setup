@@ -30,7 +30,6 @@
   outputs = inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, homecfg, sops-nix, flake-utils-plus, pre-commit-hooks, nix-index-database, tdt }:
     let
       pkgs = self.pkgs.x86_64-linux.nixpkgs;
-      tdtPkg = self.inputs.tdt.packages.x86_64-linux.tdt;
     in
     flake-utils-plus.lib.mkFlake {
       inherit self inputs;
@@ -46,7 +45,10 @@
           ];
         };
         overlaysBuilder = channels: [
-          (final: prev: { stable = self.inputs.nixpkgs-stable.legacyPackages.x86_64-linux; })
+          (final: prev: {
+            stable = self.inputs.nixpkgs-stable.legacyPackages.x86_64-linux;
+            tdtPkgs = self.inputs.tdt.packages.x86_64-linux;
+          })
         ];
       };
 
@@ -78,9 +80,6 @@
                 username = "clemens";
                 homeDirectory = "/home/clemens";
                 stateVersion = "22.11";
-                packages = [
-                  tdtPkg
-                ];
               };
 
               nix.registry.nixpkgs.flake = self.inputs.nixpkgs;

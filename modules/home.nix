@@ -40,6 +40,7 @@
     unrar
     yt-dlp
     ytfzf
+    tdtPkgs.tdt
   ];
 
   programs.firefox.enable = true;
@@ -64,8 +65,8 @@
       if [ ! "$TMUX" ]; then
         grep -q "main:.*(attached)" <(tmux ls)
         if [ $? = 1 ]; then
-          tmux new-session -A -D -s main -c ~/Projects -n projects        
-        fi        
+          tmux new-session -A -D -s main -c ~/Projects -n projects
+        fi
       fi
     '';
   };
