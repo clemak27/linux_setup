@@ -59,13 +59,15 @@
 
     initExtra = ''
       # autostart tmux
-      if tmux info &> /dev/null; then
-        tmux start-server
-      fi
-      if [ ! "$TMUX" ]; then
-        grep -q "main:.*(attached)" <(tmux ls)
-        if [ $? = 1 ]; then
-          tmux new-session -A -D -s main -c ~/Projects -n projects
+      if command -v tmux &> /dev/null; then
+        if tmux info &> /dev/null; then
+          tmux start-server
+        fi
+        if [ ! "$TMUX" ]; then
+          grep -q "main:.*(attached)" <(tmux ls)
+          if [ $? = 1 ]; then
+            tmux new-session -A -D -s main -c ~/Projects -n projects
+          fi
         fi
       fi
     '';
