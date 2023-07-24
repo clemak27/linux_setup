@@ -23,6 +23,7 @@ jobs:
           grep -n "tdt =" flake.nix | awk -F: '{print $1+0}' | xargs -I {} sed -i '{}c\ ' flake.nix && \
           sed -ie "s|, tdt ||g" flake.nix && \
           sed -ie "s|tdtPkg.*||g" flake.nix && \
+          sed -ie "s|tdtPkg.*||g" modules/home.nix && \
           sed -ie "s|nixpkgs-fmt.*||g" flake.nix
       - name: Cache
         uses: DeterminateSystems/magic-nix-cache-action@main
