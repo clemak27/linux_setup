@@ -9,4 +9,6 @@
   services.udev.extraRules = ''
     ${builtins.readFile ./60-openrgb.rules}
   '';
+
+  hardware.keyboard.qmk.enable = true;
 }
