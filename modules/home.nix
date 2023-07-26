@@ -16,7 +16,7 @@
       ssh_key = builtins.readFile /home/clemens/.ssh/id_ed25519.pub;
       gh = true;
     };
-    nvim.enable = false;
+    nvim.enable = true;
     tmux.enable = false;
     tools.enable = true;
     zsh.enable = true;
