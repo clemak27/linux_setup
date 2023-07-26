@@ -76,9 +76,9 @@
     '';
   };
 
-  xdg.configFile = {
-    "nvim/lazy-lock.json".source = config.lib.file.mkOutOfStoreSymlink "/home/clemens/Projects/linux_setup/dotfiles/lazy-lock.json";
-  };
+  # xdg.configFile = {
+  #   "nvim/lazy-lock.json".source = config.lib.file.mkOutOfStoreSymlink "/home/clemens/Projects/linux_setup/dotfiles/lazy-lock.json";
+  # };
 
   home.file.".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "/home/clemens/Projects/linux_setup/dotfiles/wezterm.lua";
 
