@@ -6,12 +6,12 @@ let
       com.github.tchx84.Flatseal \
       com.valvesoftware.Steam \
       io.github.Foldex.AdwSteamGtk \
+      org.freedesktop.Platform.VulkanLayer.gamescope \
       org.freedesktop.Platform.VulkanLayer.MangoHud \
       org.freedesktop.Platform.ffmpeg-full \
       org.openrgb.OpenRGB \
       org.zdoom.GZDoom \
-      com.valvesoftware.Steam.CompatibilityTool.Proton-GE \
-      com.valvesoftware.Steam.Utility.gamescope
+      com.valvesoftware.Steam.CompatibilityTool.Proton-GE
   '';
 in
 {
