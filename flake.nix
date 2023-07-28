@@ -26,10 +26,10 @@
       inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
 
-    helix.url = "github:helix-editor/helix";
+    # helix.url = "github:helix-editor/helix";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, homecfg, sops-nix, flake-utils-plus, pre-commit-hooks, nix-index-database, tdt, helix }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, homecfg, sops-nix, flake-utils-plus, pre-commit-hooks, nix-index-database, tdt }:
     let
       pkgs = self.pkgs.x86_64-linux.nixpkgs;
     in
@@ -50,7 +50,7 @@
           (final: prev: {
             stable = self.inputs.nixpkgs-stable.legacyPackages.x86_64-linux;
             tdtPkgs = self.inputs.tdt.packages.x86_64-linux;
-            helixPkgs = self.inputs.helix.packages.x86_64-linux;
+            # helixPkgs = self.inputs.helix.packages.x86_64-linux;
           })
         ];
       };

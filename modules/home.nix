@@ -17,12 +17,12 @@
       gh = true;
     };
     nvim.enable = true;
-    tmux.enable = false;
+    tmux.enable = true;
     tools.enable = true;
     zsh.enable = true;
-    zellij.enable = true;
-    helix.enable = true;
-    helix.package = pkgs.helixPkgs.helix;
+    zellij.enable = false;
+    helix.enable = false;
+    # helix.package = pkgs.helixPkgs.helix;
   };
 
   home.packages = with pkgs; [
