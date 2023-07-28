@@ -1,4 +1,21 @@
 { config, pkgs, lib, ... }:
+let
+  cdProject = pkgs.writeShellScriptBin "cdp" ''
+    path=$(fd --type=d --hidden ".git" --exclude gitea-repos --absolute-path $HOME/Projects | grep ".git/" | sd "/.git/" "" | fzf)
+    if [ "$path" != "" ]; then
+      pname=$(basename $path)
+
+      if [[ ! -z $ZELLIJ ]]; then
+        zellij action new-tab --cwd $path --name $pname --layout dev
+      elif [[ ! -z $TMUX ]]; then
+        tmux new-window -c $path -n $pname nvim \; split-window -v -l 13 -d -c $path
+      else
+        cd $path
+      fi
+
+    fi
+  '';
+in
 {
   imports = [
     ./gnome/customization.nix
@@ -25,25 +42,26 @@
     # helix.package = pkgs.helixPkgs.helix;
   };
 
-  home.packages = with pkgs; [
-    celluloid
-    gimp
-    helvum
-    kid3
-    libreoffice
-    signal-desktop
-    sonixd
-    thunderbird
-    webcord-vencord
+  home.packages = [
+    pkgs.celluloid
+    pkgs.gimp
+    pkgs.helvum
+    pkgs.kid3
+    pkgs.libreoffice
+    pkgs.signal-desktop
+    pkgs.sonixd
+    pkgs.thunderbird
+    pkgs.webcord-vencord
 
-    wl-clipboard
-    wl-clipboard-x11
+    pkgs.wl-clipboard
+    pkgs.wl-clipboard-x11
 
-    scrcpy
-    unrar
-    yt-dlp
-    ytfzf
-    tdtPkgs.tdt
+    pkgs.scrcpy
+    pkgs.unrar
+    pkgs.yt-dlp
+    pkgs.ytfzf
+    pkgs.tdtPkgs.tdt
+    cdProject
   ];
 
   programs.firefox.enable = true;
