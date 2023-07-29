@@ -13,6 +13,7 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
