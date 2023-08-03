@@ -34,10 +34,10 @@ in
       gh = true;
     };
     nvim.enable = true;
-    tmux.enable = true;
+    tmux.enable = false;
     tools.enable = true;
     zsh.enable = true;
-    zellij.enable = false;
+    zellij.enable = true;
     helix.enable = false;
     # helix.package = pkgs.helixPkgs.helix;
   };
