@@ -4,7 +4,7 @@
     ./hardware-configuration.nix
     ./mounts.nix
 
-    ./logitech_rgb.nix
+    ./devices.nix
   ];
 
   networking.hostName = "argentum";
