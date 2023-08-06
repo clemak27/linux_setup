@@ -8,8 +8,6 @@ nixpkgs_current=""
 nixpkgs_updated=""
 homecfg_current=""
 homecfg_updated=""
-lazy_current=""
-lazy_updated=""
 
 log_msg() {
   echo "[$msg_title] $1"
@@ -18,7 +16,6 @@ log_msg() {
 record_state() {
   nixpkgs_current=$(jq '.nodes.nixpkgs.locked.lastModified' < "$lockfile")
   homecfg_current=$(jq '.nodes.homecfg.locked.lastModified' < "$lockfile")
-  lazy_current=$(sha256sum "$flake_dir/dotfiles/lazy-lock.json" | awk '{print $1}')
 }
 
 pull_latest() {
@@ -48,18 +45,8 @@ update_flatpak() {
 }
 
 update_nvim() {
-  lazy_updated=$(sha256sum "$flake_dir/dotfiles/lazy-lock.json" | awk '{print $1}')
-  if [ "$lazy_current" != "$lazy_updated" ]; then
-    log_msg "[nvim.lazy] Updated. Restoring."
-    nvim tmpfile +"lua require('lazy').restore({wait=true}); vim.cmd('qa!')"
-  elif [ "$lazy_current" = "$lazy_updated" ] && [ "$nixpkgs_current" != "$nixpkgs_updated" ]; then
-    log_msg "[nvim.lazy] Updating."
-    nvim tmpfile +"lua require('lazy').sync({wait=true}); vim.cmd('qa!')"
-    git -C "$flake_dir" add "$flake_dir"/dotfiles/lazy-lock.json
-    git -C "$flake_dir" commit -v -m "chore: update lazy-lock"
-    git -C "$flake_dir" push
-  fi
-  log_msg "[nvim.lazy] Nothing to do."
+  log_msg "[nvim.lazy] Updating."
+  nvim tmpfile +"lua require('lazy').sync({wait=true}); vim.cmd('qa!')"
 }
 
 update_homecfg() {

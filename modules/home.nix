@@ -94,10 +94,6 @@ in
     '';
   };
 
-  # xdg.configFile = {
-  #   "nvim/lazy-lock.json".source = config.lib.file.mkOutOfStoreSymlink "/home/clemens/Projects/linux_setup/dotfiles/lazy-lock.json";
-  # };
-
   home.file.".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "/home/clemens/Projects/linux_setup/dotfiles/wezterm.lua";
 
   # https://github.com/nix-community/home-manager/issues/2942
