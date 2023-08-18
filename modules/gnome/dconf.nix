@@ -137,7 +137,14 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
-      blur = false;
+      blur = true;
+      brightness = 1.0;
+      customize = true;
+      override-background = true;
+      override-background-dynamically = true;
+      sigma = 5;
+      static-blur = false;
+      style-panel = 0;
     };
 
     "org/gnome/shell/extensions/unite" = {
