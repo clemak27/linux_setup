@@ -97,18 +97,33 @@
         argentum = {
           modules = [
             ./hosts/argentum/configuration.nix
+            {
+              home-manager.users.clemens = { config, pkgs, ... }: {
+                home.file.".wallpaper.png".source = ./hosts/argentum/wallpaper.png;
+              };
+            }
           ];
         };
 
         silfur = {
           modules = [
             ./hosts/silfur/configuration.nix
+            {
+              home-manager.users.clemens = { config, pkgs, ... }: {
+                home.file.".wallpaper.png".source = ./hosts/silfur/wallpaper.png;
+              };
+            }
           ];
         };
 
         virtual = {
           modules = [
             ./hosts/virtual/configuration.nix
+            {
+              home-manager.users.clemens = { config, pkgs, ... }: {
+                home.file.".wallpaper.png".source = ./hosts/silfur/wallpaper.png;
+              };
+            }
           ];
         };
       };
