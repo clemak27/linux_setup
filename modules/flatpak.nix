@@ -11,6 +11,7 @@ let
       org.freedesktop.Platform.ffmpeg-full \
       org.openrgb.OpenRGB \
       org.zdoom.GZDoom \
+      io.gdevs.GDLauncher \
       com.valvesoftware.Steam.CompatibilityTool.Proton-GE
   '';
 in
