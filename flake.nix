@@ -13,7 +13,7 @@
 
     sops-nix.url = "github:Mic92/sops-nix";
 
-    flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
+    # flake-utils.url = "github:numtide/flake-utils";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
 
     nix-index-database = {
@@ -29,17 +29,17 @@
     # helix.url = "github:helix-editor/helix";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, homecfg, sops-nix, flake-utils-plus, pre-commit-hooks, nix-index-database, tdt }:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, sops-nix, pre-commit-hooks, nix-index-database, tdt }:
     let
-      pkgs = self.pkgs.x86_64-linux.nixpkgs;
-    in
-    flake-utils-plus.lib.mkFlake {
-      inherit self inputs;
-
-      supportedSystems = [ "x86_64-linux" ];
-
-      channels.nixpkgs = {
-        config = {
+      legacyPkgs = nixpkgs.legacyPackages.x86_64-linux;
+      overlay-stable = final: prev: {
+        stable = nixpkgs-stable.legacyPackages.x86_64-linux;
+        tdtPkgs = tdt.packages.x86_64-linux;
+      };
+      nixModule = ({ config, pkgs, ... }: {
+        nixpkgs.overlays = [ overlay-stable ];
+        nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
+        nixpkgs.config = {
           allowUnfree = true;
           permittedInsecurePackages = [
             "nodejs-16.20.0"
@@ -47,85 +47,65 @@
             "nodejs-16.20.2"
           ];
         };
-        overlaysBuilder = channels: [
-          (final: prev: {
-            stable = self.inputs.nixpkgs-stable.legacyPackages.x86_64-linux;
-            tdtPkgs = self.inputs.tdt.packages.x86_64-linux;
-            # helixPkgs = self.inputs.helix.packages.x86_64-linux;
-          })
-        ];
+      });
+      hmModule = {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.clemens = { config, pkgs, ... }: {
+          imports = [
+            homecfg.nixosModules.homecfg
+            nix-index-database.hmModules.nix-index
+            ./modules/home.nix
+          ];
+          home = {
+            username = "clemens";
+            homeDirectory = "/home/clemens";
+            stateVersion = "22.11";
+          };
+
+          nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
+        };
       };
+      defaultModules = [
+        nixModule
+        sops-nix.nixosModules.sops
+        home-manager.nixosModules.home-manager
 
-      hostDefaults = {
+        ./modules/autoupdate.nix
+        ./modules/general.nix
+        ./modules/gnome
+        ./modules/pipewire.nix
+        ./modules/virt-manager.nix
+        ./modules/container.nix
+        ./modules/ssh.nix
+        ./modules/flatpak.nix
+
+        hmModule
+      ];
+    in
+    {
+      nixosConfigurations.argentum = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager
-          sops-nix.nixosModules.sops
-
-          ./modules/autoupdate.nix
-          ./modules/general.nix
-          ./modules/gnome
-          ./modules/pipewire.nix
-          ./modules/virt-manager.nix
-          ./modules/container.nix
-          ./modules/ssh.nix
-          ./modules/flatpak.nix
-
+        modules = defaultModules ++ [
+          ./hosts/argentum/configuration.nix
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
             home-manager.users.clemens = { config, pkgs, ... }: {
-              imports = [
-                homecfg.nixosModules.homecfg
-                nix-index-database.hmModules.nix-index
-                ./modules/home.nix
-              ];
-              home = {
-                username = "clemens";
-                homeDirectory = "/home/clemens";
-                stateVersion = "22.11";
-              };
-
-              nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
+              home.file.".wallpaper.png".source = ./hosts/argentum/wallpaper.png;
             };
           }
         ];
-        channelName = "nixpkgs";
       };
 
-      hosts = {
-        argentum = {
-          modules = [
-            ./hosts/argentum/configuration.nix
-            {
-              home-manager.users.clemens = { config, pkgs, ... }: {
-                home.file.".wallpaper.png".source = ./hosts/argentum/wallpaper.png;
-              };
-            }
-          ];
-        };
-
-        silfur = {
-          modules = [
-            ./hosts/silfur/configuration.nix
-            {
-              home-manager.users.clemens = { config, pkgs, ... }: {
-                home.file.".wallpaper.png".source = ./hosts/silfur/wallpaper.png;
-              };
-            }
-          ];
-        };
-
-        virtual = {
-          modules = [
-            ./hosts/virtual/configuration.nix
-            {
-              home-manager.users.clemens = { config, pkgs, ... }: {
-                home.file.".wallpaper.png".source = ./hosts/silfur/wallpaper.png;
-              };
-            }
-          ];
-        };
+      nixosConfigurations.silfur = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = defaultModules ++ [
+          ./hosts/silfur/configuration.nix
+          {
+            home-manager.users.clemens = { config, pkgs, ... }: {
+              home.file.".wallpaper.png".source = ./hosts/silfur/wallpaper.png;
+            };
+          }
+        ];
       };
 
       checks.x86_64-linux = {
@@ -139,19 +119,20 @@
               name = "shellcheck";
               description = "Format shell files.";
               types = [ "shell" ];
-              entry = "${pkgs.shellcheck}/bin/shellcheck";
+              entry = "${legacyPkgs.shellcheck}/bin/shellcheck";
             };
           };
         };
       };
 
-      devShells.x86_64-linux.default = pkgs.mkShell {
-        inherit (self.checks.x86_64-linux.pre-commit-check) shellHook;
+      devShell.x86_64-linux =
+        legacyPkgs.mkShell {
+          inherit (self.checks.x86_64-linux.pre-commit-check) shellHook;
 
-        packages = with pkgs; [
-          sops
-          dconf2nix
-        ];
-      };
+          packages = with legacyPkgs; [
+            sops
+            dconf2nix
+          ];
+        };
     };
 }
