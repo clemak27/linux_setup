@@ -91,6 +91,14 @@ in
           fi
         fi
       fi
+
+      if command -v zellij &> /dev/null; then
+        if [ ! "$ZELLIJ" ]; then
+          if [ ! $(zellij ls | grep main) ]; then
+            zellij -s main
+          fi
+        fi
+      fi
     '';
   };
 
