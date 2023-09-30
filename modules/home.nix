@@ -38,9 +38,13 @@ in
     tools.enable = true;
     zsh.enable = true;
     zellij.enable = true;
+    zellij.bar = "file:~/.config/zellij/custom-zellij-bar.wasm";
     helix.enable = false;
     # helix.package = pkgs.helixPkgs.helix;
   };
+
+
+  xdg.configFile."zellij/custom-zellij-bar.wasm".source = "${pkgs.czb.custom-zellij-bar}/bin/custom-zellij-bar.wasm";
 
   home.packages = [
     pkgs.celluloid

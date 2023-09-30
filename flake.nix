@@ -26,15 +26,22 @@
       inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
 
+    custom-zellij-bar = {
+      url = "git+ssh://git@gitea.wallstreet30.cc:222/clemak27/custom-zellij-bar.git";
+      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
+    };
+
+
     # helix.url = "github:helix-editor/helix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, sops-nix, pre-commit-hooks, nix-index-database, tdt }:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, sops-nix, pre-commit-hooks, nix-index-database, tdt, custom-zellij-bar }:
     let
       legacyPkgs = nixpkgs.legacyPackages.x86_64-linux;
       overlay-stable = final: prev: {
         stable = nixpkgs-stable.legacyPackages.x86_64-linux;
         tdtPkgs = tdt.packages.x86_64-linux;
+        czb = custom-zellij-bar.packages.x86_64-linux;
       };
       nixModule = ({ config, pkgs, ... }: {
         nixpkgs.overlays = [ overlay-stable ];
