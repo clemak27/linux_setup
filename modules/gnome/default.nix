@@ -22,14 +22,18 @@
     adw-gtk3
     gradience
     catppuccin-cursors.mochaDark
+
+    libsForQt5.qtstyleplugin-kvantum
+    (catppuccin-kvantum.override {
+      accent = "Mauve";
+      variant = "Mocha";
+    })
   ];
 
   # Configure keymap in X11
   services.xserver.layout = "de";
 
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style = "adwaita-dark";
-  };
+  qt.enable = true;
+  qt.platformTheme = "qt5ct";
+  qt.style.name = "kvantum";
 }
