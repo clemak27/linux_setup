@@ -52,6 +52,7 @@ in
     pkgs.helvum
     pkgs.kid3
     pkgs.libreoffice
+    pkgs.prismlauncher
     pkgs.signal-desktop
     pkgs.sonixd
     pkgs.thunderbird
