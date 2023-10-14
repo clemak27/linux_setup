@@ -40,11 +40,13 @@
       legacyPkgs = nixpkgs.legacyPackages.x86_64-linux;
       overlay-stable = final: prev: {
         stable = nixpkgs-stable.legacyPackages.x86_64-linux;
+      };
+      overlay-customPkgs = final: prev: {
         tdtPkgs = tdt.packages.x86_64-linux;
         czb = custom-zellij-bar.packages.x86_64-linux;
       };
       nixModule = ({ config, pkgs, ... }: {
-        nixpkgs.overlays = [ overlay-stable ];
+        nixpkgs.overlays = [ overlay-stable overlay-customPkgs ];
         nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
         nixpkgs.config = {
           allowUnfree = true;
