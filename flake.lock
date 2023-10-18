@@ -155,11 +155,11 @@
     },
     "homecfg": {
       "locked": {
-        "lastModified": 1697480120,
-        "narHash": "sha256-rTLHuknSX4JhPSY+4xTlGKNjzuasroqqxcFTGeSzNQ8=",
+        "lastModified": 1697518385,
+        "narHash": "sha256-Fk3xrS7Wzh70ujt/dpUYhk1Oa6NEMGYWaQVqQjKlKKY=",
         "owner": "clemak27",
         "repo": "homecfg",
-        "rev": "e66c1da166ca07441bee1415d6a244dc6e48c0b2",
+        "rev": "5a08d7140b250271c67ee3700eb04783fc111cd2",
         "type": "github"
       },
       "original": {
