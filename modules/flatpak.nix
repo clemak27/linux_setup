@@ -10,7 +10,6 @@ let
       org.freedesktop.Platform.VulkanLayer.MangoHud \
       org.freedesktop.Platform.ffmpeg-full \
       org.openrgb.OpenRGB \
-      org.zdoom.GZDoom \
       com.valvesoftware.Steam.CompatibilityTool.Proton-GE
   '';
 in
@@ -18,6 +17,8 @@ in
   services.flatpak.enable = true;
   environment.systemPackages = with pkgs; [
     initFlatpak
+
+    gzdoom
   ];
 
   # enable flatpak to access system-fonts
@@ -41,5 +42,4 @@ in
       "/usr/share/icons" = mkRoSymBind (config.system.path + "/share/icons");
       "/usr/share/fonts" = mkRoSymBind (aggregatedFonts + "/share/fonts");
     };
-
 }
