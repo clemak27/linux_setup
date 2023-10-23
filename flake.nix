@@ -76,13 +76,13 @@
         home-manager.nixosModules.home-manager
 
         ./modules/autoupdate.nix
+        ./modules/container.nix
+        ./modules/gaming.nix
         ./modules/general.nix
         ./modules/gnome
         ./modules/pipewire.nix
-        ./modules/virt-manager.nix
-        ./modules/container.nix
         ./modules/ssh.nix
-        ./modules/flatpak.nix
+        ./modules/virt-manager.nix
 
         hmModule
       ];
