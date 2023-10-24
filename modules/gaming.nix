@@ -4,19 +4,40 @@ let
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak install -y flathub \
       com.github.tchx84.Flatseal \
-      com.valvesoftware.Steam \
       io.github.Foldex.AdwSteamGtk \
-      org.freedesktop.Platform.VulkanLayer.gamescope \
-      org.freedesktop.Platform.VulkanLayer.MangoHud \
       org.freedesktop.Platform.ffmpeg-full \
-      org.openrgb.OpenRGB \
-      com.valvesoftware.Steam.CompatibilityTool.Proton-GE
+      org.openrgb.OpenRGB
   '';
 in
 {
+  programs.steam = {
+    enable = true;
+    # https://github.com/ValveSoftware/gamescope/issues/660#issuecomment-1289895009
+    package = pkgs.steam.override {
+      extraPkgs = pkgs: with pkgs; [
+        xorg.libXcursor
+        xorg.libXi
+        xorg.libXinerama
+        xorg.libXScrnSaver
+        libpng
+        libpulseaudio
+        libvorbis
+        stdenv.cc.cc.lib
+        libkrb5
+        keyutils
+      ];
+    };
+  };
+
   services.flatpak.enable = true;
+
+  programs.gamescope.enable = true;
+
   environment.systemPackages = with pkgs; [
     initFlatpak
+
+    mangohud
+    gamemode
 
     prismlauncher
     gzdoom
