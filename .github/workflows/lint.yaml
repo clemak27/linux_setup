@@ -27,6 +27,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v5
+        uses: DeterminateSystems/nix-installer-action@v6
       - name: Run nixpkgs-fmt
         run: nix run nixpkgs#nixpkgs-fmt -- --check .
