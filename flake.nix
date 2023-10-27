@@ -31,11 +31,14 @@
       inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
 
+    plasma-manager = {
+      url = "github:pjones/plasma-manager";
+    };
 
     # helix.url = "github:helix-editor/helix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, sops-nix, pre-commit-hooks, nix-index-database, tdt, custom-zellij-bar }:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, sops-nix, pre-commit-hooks, nix-index-database, plasma-manager, custom-zellij-bar, tdt }:
     let
       legacyPkgs = nixpkgs.legacyPackages.x86_64-linux;
       overlay-stable = final: prev: {
@@ -59,6 +62,7 @@
           imports = [
             homecfg.nixosModules.homecfg
             nix-index-database.hmModules.nix-index
+            plasma-manager.homeManagerModules.plasma-manager
             ./modules/home.nix
           ];
           home = {

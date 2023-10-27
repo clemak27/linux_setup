@@ -1,0 +1,23 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "clemak27@mailbox.org",
+                "Name": "clemens"
+            }
+        ],
+        "Category": "",
+        "Description": "Custom panel featuring application launcher, task manager, pager and system tray",
+        "EnabledByDefault": true,
+        "Id": "org.kde.plasma.desktop.customPanel",
+        "License": "LGPLv2+",
+        "Name": "Custom Panel",
+        "ServiceTypes": [
+            "Plasma/LayoutTemplate"
+        ]
+    },
+    "X-Plasma-ContainmentCategories": [
+        "panel"
+    ],
+    "X-Plasma-Shell": "plasmashell"
+}
