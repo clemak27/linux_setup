@@ -35,5 +35,5 @@
 
   qt.enable = true;
   qt.platformTheme = "qt5ct";
-  qt.style.name = "kvantum";
+  qt.style = "kvantum";
 }
