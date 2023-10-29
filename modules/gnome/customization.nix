@@ -28,11 +28,6 @@ in
     home.file.".local/share/fonts/JetBrainsMonoNerdFont-Thin.ttf".source = config.lib.file.mkOutOfStoreSymlink "${jetBrainsMono}/JetBrainsMonoNerdFont-Thin.ttf";
     home.file.".local/share/fonts/JetBrainsMonoNerdFont-ThinItalic.ttf".source = config.lib.file.mkOutOfStoreSymlink "${jetBrainsMono}/JetBrainsMonoNerdFont-ThinItalic.ttf";
 
-    home.file.".local/share/fonts" = {
-      source = jetBrainsMono;
-      recursive = true;
-    };
-
     home.file.".themes" = {
       source =
         pkgs.fetchzip {
