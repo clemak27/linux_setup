@@ -5,8 +5,7 @@ let
     flatpak install -y flathub \
       com.github.tchx84.Flatseal \
       io.github.Foldex.AdwSteamGtk \
-      org.freedesktop.Platform.ffmpeg-full \
-      org.openrgb.OpenRGB
+      org.freedesktop.Platform.ffmpeg-full
   '';
 in
 {
