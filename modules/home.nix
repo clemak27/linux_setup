@@ -48,6 +48,7 @@ in
 
   home.packages = [
     pkgs.celluloid
+    pkgs.discord
     pkgs.gimp
     pkgs.helvum
     pkgs.kid3
@@ -55,7 +56,6 @@ in
     pkgs.signal-desktop
     pkgs.sonixd
     pkgs.thunderbird
-    pkgs.webcord-vencord
 
     pkgs.wl-clipboard
     pkgs.wl-clipboard-x11
