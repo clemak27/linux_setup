@@ -83,7 +83,7 @@
         ./modules/container.nix
         ./modules/gaming.nix
         ./modules/general.nix
-        ./modules/gnome
+        ./modules/kde
         ./modules/pipewire.nix
         ./modules/ssh.nix
         ./modules/virt-manager.nix
