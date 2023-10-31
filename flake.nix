@@ -96,11 +96,6 @@
         system = "x86_64-linux";
         modules = defaultModules ++ [
           ./hosts/argentum/configuration.nix
-          {
-            home-manager.users.clemens = { config, pkgs, ... }: {
-              home.file.".wallpaper.png".source = ./hosts/argentum/wallpaper.png;
-            };
-          }
         ];
       };
 
@@ -108,11 +103,6 @@
         system = "x86_64-linux";
         modules = defaultModules ++ [
           ./hosts/silfur/configuration.nix
-          {
-            home-manager.users.clemens = { config, pkgs, ... }: {
-              home.file.".wallpaper.png".source = ./hosts/silfur/wallpaper.png;
-            };
-          }
         ];
       };
 
