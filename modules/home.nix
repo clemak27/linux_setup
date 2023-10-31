@@ -18,7 +18,7 @@ let
 in
 {
   imports = [
-    ./gnome/customization.nix
+    ./kde/customization.nix
   ];
 
   homecfg = {
