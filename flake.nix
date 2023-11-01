@@ -35,10 +35,14 @@
       url = "github:pjones/plasma-manager";
     };
 
+    nurl = {
+      url = "github:nix-community/nurl";
+    };
+
     # helix.url = "github:helix-editor/helix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, sops-nix, pre-commit-hooks, nix-index-database, plasma-manager, custom-zellij-bar, tdt }:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, sops-nix, pre-commit-hooks, nix-index-database, plasma-manager, nurl, custom-zellij-bar, tdt }:
     let
       legacyPkgs = nixpkgs.legacyPackages.x86_64-linux;
       overlay-stable = final: prev: {
@@ -130,6 +134,7 @@
           packages = with legacyPkgs; [
             sops
             dconf2nix
+            nurl.packages.x86_64-linux.default
           ];
         };
     };
