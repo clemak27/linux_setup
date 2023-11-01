@@ -14,7 +14,10 @@
     sops-nix.url = "github:Mic92/sops-nix";
 
     # flake-utils.url = "github:numtide/flake-utils";
-    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
@@ -23,20 +26,24 @@
 
     tdt = {
       url = "git+ssh://git@gitea.wallstreet30.cc:222/clemak27/tdt.git";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
 
     custom-zellij-bar = {
       url = "git+ssh://git@gitea.wallstreet30.cc:222/clemak27/custom-zellij-bar.git";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
 
     plasma-manager = {
       url = "github:pjones/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nurl = {
       url = "github:nix-community/nurl";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # helix.url = "github:helix-editor/helix";
