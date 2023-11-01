@@ -60,6 +60,7 @@
     git
     parted
   ];
+
   programs.zsh.enable = true;
 
   services = {
@@ -71,6 +72,8 @@
       # TODO configure declaratively, see https://nixos.wiki/wiki/Syncthing
     };
   };
+
+  services.flatpak.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
