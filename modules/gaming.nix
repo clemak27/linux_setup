@@ -1,13 +1,4 @@
 { config, pkgs, ... }:
-let
-  initFlatpak = pkgs.writeShellScriptBin "init-flatpak" ''
-    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    flatpak install -y flathub \
-      com.github.tchx84.Flatseal \
-      io.github.Foldex.AdwSteamGtk \
-      org.freedesktop.Platform.ffmpeg-full
-  '';
-in
 {
   programs.steam = {
     enable = true;
@@ -28,13 +19,10 @@ in
     };
   };
 
-  services.flatpak.enable = true;
 
   programs.gamescope.enable = true;
 
   environment.systemPackages = with pkgs; [
-    initFlatpak
-
     mangohud
     gamemode
 
