@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   schedule:
     # https://github.com/orgs/community/discussions/13454
-    - cron: '30 0 * * FRI'
+    - cron: '30 0 * * THU'
 jobs:
   lockfile:
     runs-on: ubuntu-latest

@@ -1,38 +1,14 @@
 #!/bin/sh
 
 msg_title="NixOS Update"
-flake_dir="$HOME/Projects/linux_setup"
+flake_dir="$HOME/.linux_setup"
 lockfile="$flake_dir/flake.lock"
 
 nixpkgs_current=""
 nixpkgs_updated=""
-homecfg_current=""
-homecfg_updated=""
 
 log_msg() {
   echo "[$msg_title] $1"
-}
-
-record_state() {
-  nixpkgs_current=$(jq '.nodes.nixpkgs.locked.lastModified' < "$lockfile")
-  homecfg_current=$(jq '.nodes.homecfg.locked.lastModified' < "$lockfile")
-}
-
-pull_latest() {
-  log_msg "[git] Updating repo"
-  if [ "master" != "$(git -C "$flake_dir" rev-parse --abbrev-ref HEAD)" ]; then
-    log_msg "[git] Not on master branch, cancelling"
-    exit 1
-  fi
-
-  if ! git -C "$flake_dir" pull --rebase; then
-    log_msg "[git] Failed to update repo, cancelling"
-    exit 1
-  else
-    log_msg "[git] Done."
-    nixpkgs_updated=$(jq '.nodes.nixpkgs.locked.lastModified' < "$lockfile")
-    homecfg_updated=$(jq '.nodes.homecfg.locked.lastModified' < "$lockfile")
-  fi
 }
 
 update_flatpak() {
@@ -44,18 +20,19 @@ update_flatpak() {
   fi
 }
 
-update_nvim() {
-  log_msg "[nvim.lazy] Updating."
-  nvim tmpfile +"lua require('lazy').sync({wait=true}); vim.cmd('qa!')"
+record_state() {
+  nixpkgs_current=$(jq '.nodes.nixpkgs.locked.lastModified' < "$lockfile")
 }
 
-update_homecfg() {
-  if [ "$homecfg_current" != "$homecfg_updated" ]; then
-    log_msg "[homecfg] Updated."
-    exit 0
-  else
-    log_msg "[homecfg] Nothing to do."
+pull_latest() {
+  log_msg "[git] Updating repo"
+  if ! git -C "$flake_dir" pull --rebase; then
+    log_msg "[git] Failed to update repo, cancelling"
+    exit 1
   fi
+
+  log_msg "[git] Done."
+  nixpkgs_updated=$(jq '.nodes.nixpkgs.locked.lastModified' < "$lockfile")
 }
 
 check_nixpkgs() {
@@ -67,13 +44,9 @@ check_nixpkgs() {
   log_msg "[nixpkgs] Updated."
 }
 
-sleep 30
-
 log_msg "Starting Autoupdate"
 update_flatpak
 record_state
 pull_latest
-update_nvim
-update_homecfg
 check_nixpkgs
 log_msg "Finished Autoupdate"
