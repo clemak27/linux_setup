@@ -15,6 +15,24 @@ let
 
     fi
   '';
+  protonGE = pkgs.stdenv.mkDerivation {
+    name = "org.kde.plasma.desktop.customPanel";
+    version = "8-22";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "GloriousEggroll";
+      repo = "proton-ge-custom";
+      rev = "6c0f3d088c8f0e2bb544668f5b50303f571bb4e5";
+      hash = "sha256-Txi9XpvkLNDQTIx1HQ+XQM6NDeM2Ld3Q3M0UjTubKY0=";
+    };
+
+    phases = [ "installPhase" ];
+
+    installPhase = ''
+      mkdir -p $out
+      cp -ra $src/. $out
+    '';
+  };
 in
 {
   imports = [
@@ -106,6 +124,8 @@ in
   };
 
   home.file.".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "/home/clemens/Projects/linux_setup/dotfiles/wezterm.lua";
+
+  home.file.".steam/root/compatibilitytools.d/GE-Proton${protonGE.version}".source = "${protonGE}";
 
   # https://github.com/nix-community/home-manager/issues/2942
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
