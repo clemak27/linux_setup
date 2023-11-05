@@ -91,7 +91,6 @@
         home-manager.nixosModules.home-manager
 
         ./modules/autoupdate.nix
-        ./modules/container.nix
         ./modules/gaming.nix
         ./modules/general.nix
         ./modules/kde
