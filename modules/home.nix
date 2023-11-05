@@ -47,7 +47,6 @@ in
   xdg.configFile."zellij/custom-zellij-bar.wasm".source = "${pkgs.czb.custom-zellij-bar}/bin/custom-zellij-bar.wasm";
 
   home.packages = [
-    pkgs.celluloid
     pkgs.discord
     pkgs.gimp
     pkgs.helvum

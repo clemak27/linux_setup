@@ -91,5 +91,9 @@ in
         "systemsettingsrc"."KFileDialog Settings"."detailViewIconSize" = 16;
       };
     };
+
+    home.packages = with pkgs; [
+      haruna
+    ];
   };
 }
