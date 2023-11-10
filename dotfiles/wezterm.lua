@@ -1,8 +1,10 @@
 local wezterm = require("wezterm")
-local act = wezterm.action
-local mux = wezterm.mux
+-- local act = wezterm.action
+-- local mux = wezterm.mux
 
 return {
+  default_prog = { "/home/clemens/.nix-profile/bin/zsh" },
+
   color_scheme = "Catppuccin Mocha",
   window_background_opacity = 1.0,
   window_close_confirmation = "NeverPrompt",
@@ -12,8 +14,8 @@ return {
     "Noto Color Emoji",
   }),
 
-  -- disable ligatures
-  harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+  harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, -- disable ligatures
+  warn_about_missing_glyphs = false,
 
   enable_tab_bar = false,
   window_padding = {
@@ -22,9 +24,9 @@ return {
     top = 0,
     bottom = 0,
   },
+
   audible_bell = "Disabled",
   hide_mouse_cursor_when_typing = false,
-
   enable_wayland = true,
   xcursor_theme = "Catppuccin-Mocha-Dark-Cursors",
   font_size = 10.0,

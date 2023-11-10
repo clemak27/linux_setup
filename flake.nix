@@ -42,8 +42,6 @@
       url = "github:nix-community/nurl";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # helix.url = "github:helix-editor/helix";
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, pre-commit-hooks, nix-index-database, plasma-manager, nurl, custom-zellij-bar, tdt }:
@@ -63,53 +61,19 @@
           allowUnfree = true;
         };
       });
-      hmModule = {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.clemens = { config, pkgs, ... }: {
-          imports = [
+    in
+    {
+      homeConfigurations = {
+        clemens = home-manager.lib.homeManagerConfiguration {
+          pkgs = legacyPkgs;
+          modules = [
+            nixModule
+            ./home.nix
             homecfg.nixosModules.homecfg
             nix-index-database.hmModules.nix-index
             plasma-manager.homeManagerModules.plasma-manager
-            ./modules/home.nix
           ];
-          home = {
-            username = "clemens";
-            homeDirectory = "/home/clemens";
-            stateVersion = "22.11";
-          };
-
-          nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
         };
-      };
-      defaultModules = [
-        nixModule
-        home-manager.nixosModules.home-manager
-
-        # ./modules/autoupdate.nix
-        ./modules/gaming.nix
-        ./modules/general.nix
-        ./modules/kde
-        ./modules/pipewire.nix
-        ./modules/ssh.nix
-        ./modules/virt-manager.nix
-
-        hmModule
-      ];
-    in
-    {
-      nixosConfigurations.argentum = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = defaultModules ++ [
-          ./hosts/argentum/configuration.nix
-        ];
-      };
-
-      nixosConfigurations.silfur = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = defaultModules ++ [
-          ./hosts/silfur/configuration.nix
-        ];
       };
 
       checks.x86_64-linux = {
@@ -118,6 +82,7 @@
           hooks = {
             nixpkgs-fmt.enable = true;
             actionlint.enable = true;
+            checkmake.enable = true;
             shellcheck_fixed = {
               enable = true;
               name = "shellcheck";
@@ -129,13 +94,12 @@
         };
       };
 
-      devShell.x86_64-linux =
+      devShells.x86_64-linux.default =
         legacyPkgs.mkShell {
           inherit (self.checks.x86_64-linux.pre-commit-check) shellHook;
 
           packages = with legacyPkgs; [
             sops
-            dconf2nix
             nurl.packages.x86_64-linux.default
           ];
         };
