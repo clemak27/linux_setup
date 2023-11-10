@@ -2,8 +2,8 @@
 name: update-nixpkgs-lock
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '30 0 * * *'
+  # schedule:
+  #   - cron: '30 0 * * *'
 jobs:
   lockfile:
     runs-on: ubuntu-latest

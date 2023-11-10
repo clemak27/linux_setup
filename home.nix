@@ -1,9 +1,10 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 let
   cdProject = pkgs.writeShellScriptBin "cdp" ''
     path=$(fd --type=d --hidden ".git" --exclude gitea-repos --absolute-path $HOME/Projects | grep ".git/" | sd "/.git/" "" | fzf)
     if [ "$path" != "" ]; then
       pname=$(basename $path)
+      path="/home/clemens/Projects/$pname"
 
       if [[ ! -z $ZELLIJ ]]; then
         zellij action new-tab --cwd $path --name $pname --layout dev
@@ -15,29 +16,21 @@ let
 
     fi
   '';
-  protonGE = pkgs.stdenv.mkDerivation {
-    name = "proton-ge-custom";
-    version = "8-23";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "GloriousEggroll";
-      repo = "proton-ge-custom";
-      rev = "23c1992f56551133dd4e9923610ea14db8461979";
-      hash = "sha256-T9D+QSWMElbtYgYmk87lED4ysBloY0a8amkIAxi4BRc=";
-    };
-
-    phases = [ "installPhase" ];
-
-    installPhase = ''
-      mkdir -p $out
-      cp -ra $src/. $out
-    '';
-  };
+  mpvBin = pkgs.writeShellScriptBin "mpv" ''
+    flatpak run io.mpv.Mpv "$@"
+  '';
 in
 {
   imports = [
-    ./kde/customization.nix
+    ./kde
   ];
+
+  home = {
+    username = "clemens";
+    homeDirectory = "/home/clemens";
+    stateVersion = "23.05";
+  };
+  news.display = "silent";
 
   homecfg = {
     dev.enable = true;
@@ -58,24 +51,12 @@ in
     zellij.enable = true;
     zellij.bar = "file:~/.config/zellij/custom-zellij-bar.wasm";
     helix.enable = false;
-    # helix.package = pkgs.helixPkgs.helix;
   };
 
-  services.syncthing.enable = true;
-
   xdg.configFile."zellij/custom-zellij-bar.wasm".source = "${pkgs.czb.custom-zellij-bar}/bin/custom-zellij-bar.wasm";
-  xdg.configFile."mpv/mpv.conf".source = ../dotfiles/mpv.conf;
+  # xdg.configFile."mpv/mpv.conf".source = ../dotfiles/mpv.conf;
 
   home.packages = [
-    pkgs.discord
-    pkgs.gimp
-    pkgs.helvum
-    pkgs.kid3
-    pkgs.libreoffice
-    pkgs.signal-desktop
-    pkgs.sonixd
-    pkgs.thunderbird
-
     pkgs.wl-clipboard
     pkgs.wl-clipboard-x11
 
@@ -83,25 +64,41 @@ in
     pkgs.unrar
     pkgs.yt-dlp
     pkgs.ytfzf
-    pkgs.tdtPkgs.tdt
+
+    mpvBin
     cdProject
   ];
 
-  programs.firefox.enable = true;
-  programs.wezterm.enable = true;
-  programs.mpv.enable = true;
+  home.file = {
+    ".local/bin/mpv".source = "${mpvBin}/bin/mpv";
+  };
+
+  services.syncthing.enable = true;
 
   programs.zsh = {
     shellAliases = builtins.listToAttrs (
       [
-        { name = "hcsl"; value = "sudo nixos-rebuild test  --impure --flake /home/clemens/Projects/linux_setup --override-input homecfg 'path:/home/clemens/Projects/homecfg'"; }
-        { name = "tam"; value = "tmux new-session -A -D -s main -c ~/Projects -n projects"; }
+        { name = "hms"; value = "home-manager switch --impure --flake /home/clemens/Projects/linux_setup"; }
+        { name = "hmsl"; value = "home-manager switch --impure --flake /home/clemens/Projects/linux_setup --override-input homecfg 'path:/home/clemens/Projects/homecfg'"; }
         { name = "youtube-dl"; value = "yt-dlp"; }
         { name = "youtube-dl-music"; value = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\""; }
       ]
     );
 
     initExtra = ''
+      if [ -z "$NIX_PROFILES" ]; then
+        . $HOME/.nix-profile/etc/profile.d/nix.sh
+      fi
+
+      # export correct shell
+      export SHELL="$HOME/.nix-profile/bin/zsh"
+
+      # nvim copy-paste bugfix
+      export LANG='en_US.UTF-8'
+
+      export GIT_SSH="/usr/bin/ssh";
+      # export DOCKER_HOST=unix://$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}')
+
       # autostart tmux
       if command -v tmux &> /dev/null; then
         if tmux info &> /dev/null; then
@@ -131,10 +128,6 @@ in
       fi
     '';
   };
-
-  home.file.".wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "/home/clemens/Projects/linux_setup/dotfiles/wezterm.lua";
-
-  home.file.".steam/root/compatibilitytools.d/GE-Proton${protonGE.version}".source = "${protonGE}";
 
   # https://github.com/nix-community/home-manager/issues/2942
   nixpkgs.config.allowUnfreePredicate = (pkg: true);
