@@ -47,14 +47,6 @@ sudo nixos-rebuild boot --flake .
 
 - reboot
 
-### Home-manager
-
-```sh
-nix run home-manager/master -- init --switch
-rm -rf /home/clemens/.config/home-manager
-home-manager switch --flake .
-```
-
 ## Notes
 
 ### To convert an ssh ed25519 key to an age key
