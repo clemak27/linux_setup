@@ -3,8 +3,7 @@ name: update-nixpkgs-lock
 on:
   workflow_dispatch:
   schedule:
-    # https://github.com/orgs/community/discussions/13454
-    - cron: '30 0 * * THU'
+    - cron: '30 0 * * *'
 jobs:
   lockfile:
     runs-on: ubuntu-latest
@@ -25,7 +24,6 @@ jobs:
           git-author-email: 'clemak27@mailbox.org'
           git-committer-name: 'clemak27'
           git-committer-email: 'clemak27@mailbox.org'
-          inputs: nixpkgs nixpkgs-stable home-manager sops-nix pre-commit-hooks nix-index-database
       - name: automerge
         run: gh pr merge --rebase --auto "${{ steps.update.outputs.pull-request-number }}"
         env:

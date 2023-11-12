@@ -1,4 +1,13 @@
 { pkgs, ... }:
+let
+  nixUpdate = pkgs.writeShellScriptBin "nixos-update" ''
+    set -e
+
+    flatpak update -y
+
+    git clone https://github.com/clemak27/linux_setup.git /tmp/linux_setup
+  '';
+in
 {
   systemd.services.nixos-update = {
     description = "NixOS Update";
@@ -9,13 +18,14 @@
       pkgs.coreutils
       pkgs.flatpak
       pkgs.git
-      pkgs.jq
+      pkgs.openssh
     ];
     environment = {
+      SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
       DBUS_SESSION_BUS_ADDRESS = "unix:path=/run/user/1000/bus";
     };
     serviceConfig = {
-      ExecStart = "${pkgs.zsh}/bin/zsh -l -c /home/clemens/.linux_setup/modules/autoupdate.sh";
+      ExecStart = "${pkgs.zsh}/bin/zsh -l -c ${nixUpdate}/bin/nixos-update";
       Type = "oneshot";
       User = "clemens";
       Group = "users";
@@ -24,7 +34,7 @@
 
   system.autoUpgrade = {
     enable = true;
-    flake = "/home/clemens/.linux_setup";
+    flake = "/tmp/linux_setup";
     dates = "4:20";
     allowReboot = false;
     operation = "boot";
