@@ -63,16 +63,6 @@
 
   programs.zsh.enable = true;
 
-  services = {
-    syncthing = {
-      enable = true;
-      user = "clemens";
-      dataDir = "/home/clemens/Sync"; # Default folder for new synced folders
-      configDir = "/home/clemens/.config/syncthing"; # Folder for Syncthing's settings and keys
-      # TODO configure declaratively, see https://nixos.wiki/wiki/Syncthing
-    };
-  };
-
   services.flatpak.enable = true;
 
   virtualisation.podman = {

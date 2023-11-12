@@ -61,6 +61,7 @@ in
     # helix.package = pkgs.helixPkgs.helix;
   };
 
+  services.syncthing.enable = true;
 
   xdg.configFile."zellij/custom-zellij-bar.wasm".source = "${pkgs.czb.custom-zellij-bar}/bin/custom-zellij-bar.wasm";
 
