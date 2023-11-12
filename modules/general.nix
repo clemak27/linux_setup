@@ -28,10 +28,6 @@
   # replicates the default behaviour.
   networking.useDHCP = false;
 
-  # allow ports for kde connect
-  networking.firewall.allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
-  networking.firewall.allowedUDPPortRanges = [{ from = 1714; to = 1764; }];
-
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
   # Select internationalisation properties.
