@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 let
   cdProject = pkgs.writeShellScriptBin "cdp" ''
     path=$(fd --type=d --hidden ".git" --exclude gitea-repos --absolute-path $HOME/Projects | grep ".git/" | sd "/.git/" "" | fzf)
@@ -64,6 +64,7 @@ in
   services.syncthing.enable = true;
 
   xdg.configFile."zellij/custom-zellij-bar.wasm".source = "${pkgs.czb.custom-zellij-bar}/bin/custom-zellij-bar.wasm";
+  xdg.configFile."mpv/mpv.conf".source = ../dotfiles/mpv.conf;
 
   home.packages = [
     pkgs.discord
