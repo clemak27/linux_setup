@@ -15,6 +15,8 @@ jobs:
           touch someFile && \
           sed -i 's#builtins\.readFile /home/clemens/\.ssh/id_ed25519\.pub#builtins\.readFile /home/runner/work/linux_setup/linux_setup/someFile#g' modules/home.nix && \
           sed -i 's#builtins\.readFile "/etc/wireguard/public_key"#builtins\.readFile /home/runner/work/linux_setup/linux_setup/someFile#g' hosts/silfur/wireguard.nix
+          sed -i 's#builtins\.readFile "/etc/wireguard/private_key"#builtins\.readFile /home/runner/work/linux_setup/linux_setup/someFile#g' hosts/silfur/wireguard.nix
+          sed -i 's#builtins\.readFile "/etc/wireguard/pre_shared_key"#builtins\.readFile /home/runner/work/linux_setup/linux_setup/someFile#g' hosts/silfur/wireguard.nix
       - name: Replace tdt references
         run: |
           grep -n "tdt =" flake.nix | awk -F: '{print $1+4}' | xargs -I {} sed -i '{}c\ ' flake.nix && \

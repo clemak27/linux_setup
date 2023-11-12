@@ -11,9 +11,6 @@
       url = "github:clemak27/homecfg";
     };
 
-    sops-nix.url = "github:Mic92/sops-nix";
-
-    # flake-utils.url = "github:numtide/flake-utils";
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,7 +46,7 @@
     # helix.url = "github:helix-editor/helix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, sops-nix, pre-commit-hooks, nix-index-database, plasma-manager, nurl, custom-zellij-bar, tdt }:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, pre-commit-hooks, nix-index-database, plasma-manager, nurl, custom-zellij-bar, tdt }:
     let
       legacyPkgs = nixpkgs.legacyPackages.x86_64-linux;
       overlay-stable = final: prev: {
@@ -87,7 +84,6 @@
       };
       defaultModules = [
         nixModule
-        sops-nix.nixosModules.sops
         home-manager.nixosModules.home-manager
 
         ./modules/autoupdate.nix

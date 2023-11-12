@@ -1,9 +1,8 @@
-{ config, pkgs, ... }:
+{ ... }:
 {
   imports = [
     ./hardware-configuration.nix
     ./mounts.nix
-    ./sops.nix
     ./wireguard.nix
 
     ./gpu.nix

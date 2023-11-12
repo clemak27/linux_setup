@@ -89,12 +89,8 @@ For the swapfile, add `swapDevices = [ { device = "/swap/swapfile"; } ];`
 
 ### WireGuard
 
-The file where WireGuard reads the public key from needs to be created manually.
-There is no `PublicKeyFile` option, and using `builtins.readFile` requires the
-file to exist before `nix-sops` can create it.
+The files where WireGuard reads the keys from needs to be created manually.
 
-Note that:
-
-1. The file should have no line ending. If you insert the key with vim, use
-   `:set nofixeol` and `:set noeol`, to prevent adding a newline when saving.
-2. The file should have `400` permission after creating it.
+1. The files should have no line ending. If you insert the keys with vim, use
+   `:set nofixeol noeol`, to prevent adding a newline when saving.
+2. The file should be updated to have `400` (read only) permission after creating them.
