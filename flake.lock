@@ -12,11 +12,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1696065492,
-        "narHash": "sha256-M6zO19jckzbz/bTH8hcZvy9xSLsCnbtnodAsAXi+wqY=",
+        "lastModified": 1699026317,
+        "narHash": "sha256-pGpNOaC78Gngy80VnpagC9wzelMeYgqmBy6acLq98wA=",
         "ref": "refs/heads/master",
-        "rev": "939cc18b5ff04a672dd820924c534650e5a97480",
-        "revCount": 22,
+        "rev": "07b62cb237c10660668300fbb43da4a8a90156d5",
+        "revCount": 23,
         "type": "git",
         "url": "ssh://git@gitea.wallstreet30.cc:222/clemak27/custom-zellij-bar.git"
       },
@@ -141,11 +141,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1699368917,
-        "narHash": "sha256-nUtGIWf86BOkUbtksWtfglvCZ/otP0FTZlQH8Rzc7PA=",
+        "lastModified": 1699783872,
+        "narHash": "sha256-4zTwLT2LL45Nmo6iwKB3ls3hWodVP9DiSWxki/oewWE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "6a8444467c83c961e2f5ff64fb4f422e303c98d3",
+        "rev": "280721186ab75a76537713ec310306f0eba3e407",
         "type": "github"
       },
       "original": {
@@ -179,11 +179,11 @@
     },
     "homecfg": {
       "locked": {
-        "lastModified": 1698739414,
-        "narHash": "sha256-gcAq3yJTzv40wkNK4aYUrEElLRNtWfjo6lgPqm88kU4=",
+        "lastModified": 1699864755,
+        "narHash": "sha256-SloYwSPrkj0L/notGT8ULhsnRbx9rNSJ8W6lpCKPPvg=",
         "owner": "clemak27",
         "repo": "homecfg",
-        "rev": "f8c7d7260f6fbcf2774bca7810133f08ada64944",
+        "rev": "5cfa7d612debc3db1d0b0bc6f031562be9492dd0",
         "type": "github"
       },
       "original": {
@@ -199,11 +199,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1699156599,
-        "narHash": "sha256-Qk9ZE/pG9lNIGUVNArJxL0Hc0Soa92eQPPIhcDwWinU=",
+        "lastModified": 1699760693,
+        "narHash": "sha256-u/gkNUHQR/q23voqE5J4xmEWQIAqR+g3lUnCtzn0k7Y=",
         "owner": "Mic92",
         "repo": "nix-index-database",
-        "rev": "5388a4002179d6778d212dc2fdcc7ac3fdbd5b65",
+        "rev": "8aff4ca3dee60d1422489fe8d52c2f837b3ad113",
         "type": "github"
       },
       "original": {
@@ -230,11 +230,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1699291058,
-        "narHash": "sha256-5ggduoaAMPHUy4riL+OrlAZE14Kh7JWX4oLEs22ZqfU=",
+        "lastModified": 1699596684,
+        "narHash": "sha256-XSXP8zjBZJBVvpNb2WmY0eW8O2ce+sVyj1T0/iBRIvg=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "41de143fda10e33be0f47eab2bfe08a50f234267",
+        "rev": "da4024d0ead5d7820f6bd15147d3fe2a0c0cec73",
         "type": "github"
       },
       "original": {
@@ -262,11 +262,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1699099776,
-        "narHash": "sha256-X09iKJ27mGsGambGfkKzqvw5esP1L/Rf8H3u3fCqIiU=",
+        "lastModified": 1699781429,
+        "narHash": "sha256-UYefjidASiLORAjIvVsUHG6WBtRhM67kTjEY4XfZOFs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "85f1ba3e51676fa8cc604a3d863d729026a6b8eb",
+        "rev": "e44462d6021bfe23dfb24b775cc7c390844f773d",
         "type": "github"
       },
       "original": {
@@ -283,11 +283,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1698771340,
-        "narHash": "sha256-MmTHSc2epsMN1thvKTwfAveCE54jHC+boWkCcP/Lmac=",
+        "lastModified": 1699911446,
+        "narHash": "sha256-B9QQMakte6f89asJ2koCYBb72Teew+Tyla3z5VKnSKE=",
         "owner": "nix-community",
         "repo": "nurl",
-        "rev": "0812d73c1724af0dab7d567ec5db9ea32683d33a",
+        "rev": "33e0beb666eae1b771d7aaf265b08725385136da",
         "type": "github"
       },
       "original": {
@@ -304,11 +304,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1690827734,
-        "narHash": "sha256-zcNLTSKGZ5zcx0RQkDKH4dN2MBx+KTfrYN7HfmD0N7c=",
+        "lastModified": 1699974118,
+        "narHash": "sha256-gnJAGIQb8c+DRYBh1BB04VuaR3LeA2MDt1HoOPu2CYc=",
         "owner": "pjones",
         "repo": "plasma-manager",
-        "rev": "b6241a2f7c625d0b0bee8e203d78232d0a6535e9",
+        "rev": "709f01ba922d3b81890ab76aeb916e051f88ea49",
         "type": "github"
       },
       "original": {
@@ -445,11 +445,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1697654299,
-        "narHash": "sha256-aXr7nxiAw5s0YrcSIRkZOB8O287Pwd616gSoL3eHUZA=",
+        "lastModified": 1699026309,
+        "narHash": "sha256-YEeHETqL0j9zko0msHabZwVXJWRjEDgPrRPpdQuvC4o=",
         "ref": "refs/heads/main",
-        "rev": "9f5d7c8f89e9d40950dc679fa3d504c753f78eb7",
-        "revCount": 87,
+        "rev": "cbd145cf0957e74ba39f3f4a214e41e413e02aba",
+        "revCount": 88,
         "type": "git",
         "url": "ssh://git@gitea.wallstreet30.cc:222/clemak27/tdt.git"
       },
