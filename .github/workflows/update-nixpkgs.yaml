@@ -24,6 +24,7 @@ jobs:
           git-author-email: 'clemak27@mailbox.org'
           git-committer-name: 'clemak27'
           git-committer-email: 'clemak27@mailbox.org'
+          inputs: nixpkgs nixpkgs-stable home-manager homecfg pre-commit-hooks nix-index-database plasma-manager nurl
       - name: automerge
         run: gh pr merge --rebase --auto "${{ steps.update.outputs.pull-request-number }}"
         env:
