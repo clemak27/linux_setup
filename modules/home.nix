@@ -117,7 +117,14 @@ in
 
       if command -v zellij &> /dev/null; then
         if [ ! "$ZELLIJ" ]; then
-          if [ ! $(zellij ls | grep main) ]; then
+          grep -q "main.*EXITED" <(zellij ls)
+          mainExited=$?
+          grep -q "main" <(zellij ls)
+          mainExists=$?
+
+          if [ $mainExited = 0 ]; then
+            zellij attach main
+          elif [ $mainExited = 1 ] && [ $mainExists = 1 ]; then
             zellij -s main
           fi
         fi
