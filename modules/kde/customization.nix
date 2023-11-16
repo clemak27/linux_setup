@@ -29,6 +29,17 @@ let
 in
 {
   config = {
+    home.file.".local/share/fonts/JetBrainsMonoNerdFont-Bold.ttf".source = "${jetBrainsMono}/JetBrainsMonoNerdFont-Bold.ttf";
+    home.file.".local/share/fonts/JetBrainsMonoNerdFont-BoldItalic.ttf".source = "${jetBrainsMono}/JetBrainsMonoNerdFont-BoldItalic.ttf";
+    home.file.".local/share/fonts/JetBrainsMonoNerdFont-ExtraBold.ttf".source = "${jetBrainsMono}/JetBrainsMonoNerdFont-ExtraBold.ttf";
+    home.file.".local/share/fonts/JetBrainsMonoNerdFont-ExtraBoldItalic.ttf".source = "${jetBrainsMono}/JetBrainsMonoNerdFont-ExtraBoldItalic.ttf";
+    home.file.".local/share/fonts/JetBrainsMonoNerdFont-ExtraLight.ttf".source = "${jetBrainsMono}/JetBrainsMonoNerdFont-ExtraLight.ttf";
+    home.file.".local/share/fonts/JetBrainsMonoNerdFont-ExtraLightItalic.ttf".source = "${jetBrainsMono}/JetBrainsMonoNerdFont-ExtraLightItalic.ttf";
+    home.file.".local/share/fonts/JetBrainsMonoNerdFont-Italic.ttf".source = "${jetBrainsMono}/JetBrainsMonoNerdFont-Italic.ttf";
+    home.file.".local/share/fonts/JetBrainsMonoNerdFont-Light.ttf".source = "${jetBrainsMono}/JetBrainsMonoNerdFont-Light.ttf";
+    home.file.".local/share/fonts/JetBrainsMonoNerdFont-LightItalic.ttf".source = "${jetBrainsMono}/JetBrainsMonoNerdFont-LightItalic.ttf";
+    home.file.".local/share/fonts/JetBrainsMonoNerdFont-Medium.ttf".source = "${jetBrainsMono}/JetBrainsMonoNerdFont-Medium.ttf";
+    home.file.".local/share/fonts/JetBrainsMonoNerdFont-MediumItalic.ttf".source = "${jetBrainsMono}/JetBrainsMonoNerdFont-MediumItalic.ttf";
     home.file.".local/share/fonts/JetBrainsMonoNerdFont-Regular.ttf".source = "${jetBrainsMono}/JetBrainsMonoNerdFont-Regular.ttf";
     home.file.".local/share/fonts/JetBrainsMonoNerdFont-SemiBold.ttf".source = "${jetBrainsMono}/JetBrainsMonoNerdFont-SemiBold.ttf";
     home.file.".local/share/fonts/JetBrainsMonoNerdFont-SemiBoldItalic.ttf".source = "${jetBrainsMono}/JetBrainsMonoNerdFont-SemiBoldItalic.ttf";
