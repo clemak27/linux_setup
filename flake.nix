@@ -86,7 +86,7 @@
         nixModule
         home-manager.nixosModules.home-manager
 
-        ./modules/autoupdate.nix
+        # ./modules/autoupdate.nix
         ./modules/gaming.nix
         ./modules/general.nix
         ./modules/kde
