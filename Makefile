@@ -49,6 +49,7 @@ applications/default:
 	curl -L --url https://github.com/jeffvli/feishin/releases/download/v$(FEISHIN_VERSION)/Feishin-$(FEISHIN_VERSION)-linux-x86_64.AppImage -o $$HOME/.local/bin/feishin
 	chmod +x $$HOME/.local/bin/feishin
 	echo -e "[Desktop Entry]\nName=Feishin\nExec=$$HOME/.local/bin/feishin\nType=Application\nCategories=Multimedia" > $$HOME/.local/share/applications/feishin.desktop
+	ln -sf $$PWD/dotfiles/mpv.conf $$HOME/.var/app/io.mpv.Mpv/config/mpv/mpv.conf
 
 .PHONY: applications/games
 applications/games:
