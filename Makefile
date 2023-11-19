@@ -109,6 +109,7 @@ adwGtkTheme:
 	curl -Lo tmp/adw-gtk3.tar.xz --url https://github.com/lassekongo83/adw-gtk3/releases/download/v$(ADW_GTK3_VERSION)/adw-gtk3v$(ADW_GTK3_URL_VERSION).tar.xz
 	tar xf tmp/adw-gtk3.tar.xz --directory $$HOME/.local/share/themes
 	flatpak install -y com.github.GradienceTeam.Gradience org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+	flatpak override --user --filesystem=xdg-config/gtk-3.0 --filesystem=xdg-config/gtk-4.0
 
 .PHONY: papirusIconTheme
 papirusIconTheme:
