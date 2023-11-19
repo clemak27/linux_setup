@@ -47,6 +47,7 @@ in
     nvim.enable = true;
     tmux.enable = false;
     tools.enable = true;
+    todo.enable = true;
     zsh.enable = true;
     zellij.enable = true;
     zellij.bar = "file:~/.config/zellij/custom-zellij-bar.wasm";
@@ -54,7 +55,27 @@ in
   };
 
   xdg.configFile."zellij/custom-zellij-bar.wasm".source = "${pkgs.czb.custom-zellij-bar}/bin/custom-zellij-bar.wasm";
-  # xdg.configFile."mpv/mpv.conf".source = ../dotfiles/mpv.conf;
+  xdg.configFile = {
+    "zellij/layouts/notes.kdl".text = ''
+      layout {
+          pane size=1 borderless=true {
+            plugin location="file:~/.config/zellij/custom-zellij-bar.wasm"
+          }
+          pane split_direction="vertical" {
+            pane {
+              cwd "~/Notes"
+              name "nvim"
+            }
+            pane {
+              cwd "~/Notes"
+              name "tasks"
+              // command ""
+              size "40%"
+            }
+          }
+      }
+    '';
+  };
 
   home.packages = [
     pkgs.wl-clipboard
