@@ -44,8 +44,7 @@ applications/default:
 		org.mozilla.Thunderbird \
 		org.pipewire.Helvum \
 		org.signal.Signal
-	mkdir -p $$HOME/.local/bin
-	mkdir -p $$HOME/.local/share/applications
+	mkdir -p $$HOME/.local/bin $$HOME/.local/share/applications
 	curl -L --url https://github.com/jeffvli/feishin/releases/download/v$(FEISHIN_VERSION)/Feishin-$(FEISHIN_VERSION)-linux-x86_64.AppImage -o $$HOME/.local/bin/feishin
 	chmod +x $$HOME/.local/bin/feishin
 	echo -e "[Desktop Entry]\nName=Feishin\nExec=$$HOME/.local/bin/feishin\nType=Application\nCategories=Multimedia" > $$HOME/.local/share/applications/feishin.desktop
@@ -105,9 +104,8 @@ jbMonoFont:
 
 .PHONY: adwGtkTheme
 adwGtkTheme:
-	mkdir -p tmp
-	mkdir -p $$HOME/.local/share/themes
 	curl -Lo tmp/adw-gtk3.tar.xz --url https://github.com/lassekongo83/adw-gtk3/releases/download/v$(ADW_GTK3_VERSION)/adw-gtk3v3-6.tar.xz
+	mkdir -p tmp $$HOME/.local/share/themes
 	tar xf tmp/adw-gtk3.tar.xz --directory $$HOME/.local/share/themes
 	flatpak install -y com.github.GradienceTeam.Gradience org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
 
@@ -117,6 +115,7 @@ papirusIconTheme:
 
 .PHONY: catppuccinCursor
 catppuccinCursor:
+	mkdir -p $$HOME/.local/share/icons
 	git clone https://github.com/catppuccin/cursors.git tmp/catppuccinCursor
 	unzip tmp/catppuccinCursor/cursors/Catppuccin-Mocha-Dark-Cursors.zip -d $$HOME/.local/share/icons
 
@@ -127,8 +126,7 @@ kde: applications/kde catppuccinColorscheme spacerAsPager customPanel
 
 .PHONY: catppuccinColorscheme
 catppuccinColorscheme:
-	mkdir -p tmp/catppuccinColorscheme
-	mkdir -p $$HOME/.local/share/color-schemes
+	mkdir -p tmp/catppuccinColorscheme $$HOME/.local/share/color-schemes
 	curl -Lo tmp/catppuccinColorscheme.tar.gz "https://github.com/catppuccin/kde/releases/download/v0.2.4/Mocha-color-schemes.tar.gz"
 	tar xf tmp/catppuccinColorscheme.tar.gz --directory tmp/catppuccinColorscheme
 	cp tmp/catppuccinColorscheme/Mocha-color-schemes/CatppuccinMochaMauve.colors $$HOME/.local/share/color-schemes/CatppuccinMochaMauve.colors
