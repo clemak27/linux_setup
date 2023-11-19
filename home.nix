@@ -88,6 +88,8 @@ in
 
     mpvBin
     cdProject
+
+    pkgs.tdtPkgs.tdt
   ];
 
   home.file = {
