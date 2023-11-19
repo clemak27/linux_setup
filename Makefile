@@ -1,5 +1,6 @@
 JBMONO_VERSION=3.0.2
 ADW_GTK3_VERSION=3.6
+ADW_GTK3_URL_VERSION=3-6
 SPACER_AS_PAGER_VERSION=1.2.0
 FEISHIN_VERSION=0.5.1
 
@@ -104,8 +105,8 @@ jbMonoFont:
 
 .PHONY: adwGtkTheme
 adwGtkTheme:
-	curl -Lo tmp/adw-gtk3.tar.xz --url https://github.com/lassekongo83/adw-gtk3/releases/download/v$(ADW_GTK3_VERSION)/adw-gtk3v3-6.tar.xz
 	mkdir -p tmp $$HOME/.local/share/themes
+	curl -Lo tmp/adw-gtk3.tar.xz --url https://github.com/lassekongo83/adw-gtk3/releases/download/v$(ADW_GTK3_VERSION)/adw-gtk3v$(ADW_GTK3_URL_VERSION).tar.xz
 	tar xf tmp/adw-gtk3.tar.xz --directory $$HOME/.local/share/themes
 	flatpak install -y com.github.GradienceTeam.Gradience org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
 
