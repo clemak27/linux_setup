@@ -10,13 +10,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v7
-      - name: Replace needed files
-        run: |
-          touch someFile && \
-          sed -i 's#builtins\.readFile /home/clemens/\.ssh/id_ed25519\.pub#builtins\.readFile /home/runner/work/linux_setup/linux_setup/someFile#g' modules/home.nix && \
-          sed -i 's#builtins\.readFile "/etc/wireguard/public_key"#builtins\.readFile /home/runner/work/linux_setup/linux_setup/someFile#g' hosts/silfur/wireguard.nix
-          sed -i 's#builtins\.readFile "/etc/wireguard/private_key"#builtins\.readFile /home/runner/work/linux_setup/linux_setup/someFile#g' hosts/silfur/wireguard.nix
-          sed -i 's#builtins\.readFile "/etc/wireguard/pre_shared_key"#builtins\.readFile /home/runner/work/linux_setup/linux_setup/someFile#g' hosts/silfur/wireguard.nix
       - name: Replace tdt references
         run: |
           grep -n "tdt =" flake.nix | awk -F: '{print $1+4}' | xargs -I {} sed -i '{}c\ ' flake.nix && \
@@ -26,7 +19,7 @@ jobs:
           grep -n "tdt =" flake.nix | awk -F: '{print $1+0}' | xargs -I {} sed -i '{}c\ ' flake.nix && \
           sed -ie "s|, tdt||g" flake.nix && \
           sed -ie "s|tdtPkg.*||g" flake.nix && \
-          sed -ie "s|pkgs\.tdtPkg.*||g" modules/home.nix
+          sed -ie "s|pkgs\.tdtPkg.*||g" home.nix
       - name: Replace czb references
         run: |
           grep -n "custom-zellij-bar =" flake.nix | awk -F: '{print $1+4}' | xargs -I {} sed -i '{}c\ ' flake.nix && \
@@ -36,7 +29,7 @@ jobs:
           grep -n "custom-zellij-bar =" flake.nix | awk -F: '{print $1+0}' | xargs -I {} sed -i '{}c\ ' flake.nix && \
           sed -ie "s|, custom-zellij-bar ||g" flake.nix && \
           sed -ie "s|czb = .*||g" flake.nix && \
-          sed -ie "s|xdg\.configFile.*||g" modules/home.nix
+          sed -ie "s|xdg\.configFile.*||g" home.nix
       - name: Replace nixpkgs-fmt references
         run: |
           sed -ie "s|nixpkgs-fmt.*||g" flake.nix
