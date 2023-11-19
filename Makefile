@@ -82,6 +82,8 @@ extra/argentum:
 	flatpak install -y flathub org.openrgb.OpenRGB
 	curl -LO https://gitlab.com/CalcProgrammer1/OpenRGB/-/jobs/artifacts/master/raw/60-openrgb.rules?job=Linux+64+AppImage&inline=false
 	sudo mv 60-openrgb.rules /etc/udev/rules.d/
+	sudo udevadm control --reload-rules
+	sudo udevadm trigger
 	sudo hostnamectl hostname argentum
 
 .PHONY: extra/silfur
