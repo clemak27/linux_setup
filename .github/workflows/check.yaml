@@ -20,16 +20,6 @@ jobs:
           sed -ie "s|, tdt||g" flake.nix && \
           sed -ie "s|tdtPkg.*||g" flake.nix && \
           sed -ie "s|pkgs\.tdtPkg.*||g" home.nix
-      - name: Replace czb references
-        run: |
-          grep -n "custom-zellij-bar =" flake.nix | awk -F: '{print $1+4}' | xargs -I {} sed -i '{}c\ ' flake.nix && \
-          grep -n "custom-zellij-bar =" flake.nix | awk -F: '{print $1+3}' | xargs -I {} sed -i '{}c\ ' flake.nix && \
-          grep -n "custom-zellij-bar =" flake.nix | awk -F: '{print $1+2}' | xargs -I {} sed -i '{}c\ ' flake.nix && \
-          grep -n "custom-zellij-bar =" flake.nix | awk -F: '{print $1+1}' | xargs -I {} sed -i '{}c\ ' flake.nix && \
-          grep -n "custom-zellij-bar =" flake.nix | awk -F: '{print $1+0}' | xargs -I {} sed -i '{}c\ ' flake.nix && \
-          sed -ie "s|, custom-zellij-bar ||g" flake.nix && \
-          sed -ie "s|czb = .*||g" flake.nix && \
-          sed -ie "s|xdg\.configFile.*||g" home.nix
       - name: Replace nixpkgs-fmt references
         run: |
           sed -ie "s|nixpkgs-fmt.*||g" flake.nix

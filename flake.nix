@@ -27,10 +27,8 @@
       inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
 
-    custom-zellij-bar = {
-      url = "git+ssh://git@gitea.wallstreet30.cc:222/clemak27/custom-zellij-bar.git";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
+    zjstatus = {
+      url = "github:dj95/zjstatus";
     };
 
     plasma-manager = {
@@ -44,7 +42,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, pre-commit-hooks, nix-index-database, plasma-manager, nurl, custom-zellij-bar, tdt }:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, pre-commit-hooks, nix-index-database, plasma-manager, nurl, tdt, zjstatus }:
     let
       legacyPkgs = nixpkgs.legacyPackages.x86_64-linux;
       overlay-stable = final: prev: {
@@ -52,7 +50,7 @@
       };
       overlay-customPkgs = final: prev: {
         tdtPkgs = tdt.packages.x86_64-linux;
-        czb = custom-zellij-bar.packages.x86_64-linux;
+        zjStatus = zjstatus.packages.x86_64-linux.default;
       };
       nixModule = ({ config, pkgs, ... }: {
         nixpkgs.overlays = [ overlay-stable overlay-customPkgs ];

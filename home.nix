@@ -19,6 +19,27 @@ let
   mpvBin = pkgs.writeShellScriptBin "mpv" ''
     flatpak run io.mpv.Mpv "$@"
   '';
+  zjBar = "file:${pkgs.zjStatus}/bin/zjstatus.wasm";
+  zjBarOptions = '' {
+      format_left  "#[bg=#11111B] {mode}#[bg=#11111B] {tabs}"
+      format_right ""
+      format_space "#[bg=#11111B]"
+
+      mode_normal        "#[bg=#11111B,fg=green,bold]NORMAL"
+      mode_locked        "#[bg=#11111B,fg=red,bold] LOCKED"
+      mode_resize        "#[bg=#11111B,fg=#fab387,bold] RESIZE"
+      mode_pane          "#[bg=#11111B,fg=#fab387,bold] PANE"
+      mode_tab           "#[bg=#11111B,fg=#fab387,bold] TAB"
+      mode_scroll        "#[bg=#11111B,fg=#fab387,bold] SCROLL"
+      mode_rename_tab    "#[bg=#11111B,fg=#fab387,bold] RENAME TAB"
+      mode_rename_pane   "#[bg=#11111B,fg=#fab387,bold] RENAME PANE"
+      mode_session       "#[bg=#11111B,fg=#fab387,bold] SESSION"
+      mode_move          "#[bg=#11111B,fg=#fab387,bold] MOVE"
+
+      tab_normal   "#[fg=#9399B2,bg=#11111B] {index}: {name} "
+      tab_active   "#[fg=#cdd6f4,bg=#1E1E2E,bold] {index}: {name} "
+    }
+  '';
 in
 {
   imports = [
@@ -50,16 +71,16 @@ in
     todo.enable = true;
     zsh.enable = true;
     zellij.enable = true;
-    zellij.bar = "file:~/.config/zellij/custom-zellij-bar.wasm";
+    zellij.bar = zjBar;
+    zellij.barOptions = zjBarOptions;
     helix.enable = false;
   };
 
-  xdg.configFile."zellij/custom-zellij-bar.wasm".source = "${pkgs.czb.custom-zellij-bar}/bin/custom-zellij-bar.wasm";
   xdg.configFile = {
     "zellij/layouts/notes.kdl".text = ''
       layout {
           pane size=1 borderless=true {
-            plugin location="file:~/.config/zellij/custom-zellij-bar.wasm"
+            plugin location="${zjBar}" ${zjBarOptions}
           }
           pane split_direction="vertical" {
             pane {
@@ -69,7 +90,7 @@ in
             pane {
               cwd "~/Notes"
               name "tasks"
-              // command ""
+              command "tdt"
               size "40%"
             }
           }
@@ -105,6 +126,7 @@ in
         { name = "hmsl"; value = "home-manager switch --impure --flake /home/clemens/Projects/linux_setup --override-input homecfg 'path:/home/clemens/Projects/homecfg'"; }
         { name = "youtube-dl"; value = "yt-dlp"; }
         { name = "youtube-dl-music"; value = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\""; }
+        { name = "zjNotes"; value = "zellij action new-tab --name Notes --layout notes"; }
       ]
     );
 
