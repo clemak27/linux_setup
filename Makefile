@@ -102,7 +102,7 @@ customization: jbMonoFont adwGtkTheme papirusIconTheme catppuccinCursor
 
 .PHONY: jbMonoFont
 jbMonoFont:
-	mkdir -p tmp
+	mkdir -p tmp $$HOME/.local/share/fonts
 	curl -Lo tmp/jbMono.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v$(JBMONO_VERSION)/JetBrainsMono.zip"
 	unzip tmp/jbMono.zip -d $$HOME/.local/share/fonts
 
