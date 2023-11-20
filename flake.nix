@@ -72,6 +72,50 @@
             plasma-manager.homeManagerModules.plasma-manager
           ];
         };
+
+        deck = home-manager.lib.homeManagerConfiguration {
+          pkgs = legacyPkgs;
+          modules = [
+            nixModule
+            homecfg.nixosModules.homecfg
+            nix-index-database.hmModules.nix-index
+            ({ config, pkgs, ... }: {
+              home = {
+                username = "deck";
+                homeDirectory = "/home/deck";
+                stateVersion = "23.05";
+                packages = [
+                  pkgs.gnumake
+                ];
+              };
+              news.display = "silent";
+              homecfg = {
+                git.enable = true;
+                tools.enable = true;
+                zsh.enable = true;
+              };
+              services.syncthing.enable = true;
+              programs.zsh = {
+                shellAliases = builtins.listToAttrs (
+                  [
+                    { name = "hms"; value = "home-manager switch --flake /home/deck/Projects/linux_setup"; }
+                  ]
+                );
+
+                initExtra = ''
+                  if [ -z "$NIX_PROFILES" ]; then
+                    . $HOME/.nix-profile/etc/profile.d/nix.sh
+                  fi
+
+                  # export correct shell
+                  export SHELL="$HOME/.nix-profile/bin/zsh"
+
+                  export GIT_SSH="/usr/bin/ssh";
+                '';
+              };
+            })
+          ];
+        };
       };
 
       checks.x86_64-linux = {
@@ -93,13 +137,14 @@
       };
 
       devShells.x86_64-linux.default =
-        legacyPkgs.mkShell {
-          inherit (self.checks.x86_64-linux.pre-commit-check) shellHook;
+        legacyPkgs.mkShell
+          {
+            inherit (self.checks.x86_64-linux.pre-commit-check) shellHook;
 
-          packages = with legacyPkgs; [
-            sops
-            nurl.packages.x86_64-linux.default
-          ];
-        };
+            packages = with legacyPkgs; [
+              sops
+              nurl.packages.x86_64-linux.default
+            ];
+          };
     };
 }
