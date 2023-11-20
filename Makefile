@@ -134,7 +134,7 @@ catppuccinCursor:
 ### kde customization
 
 .PHONY: kde
-kde: applications/kde catppuccinColorscheme spacerAsPager customPanel
+kde: applications/kde catppuccinColorscheme konsoleTheme spacerAsPager customPanel
 
 .PHONY: catppuccinColorscheme
 catppuccinColorscheme:
@@ -142,6 +142,12 @@ catppuccinColorscheme:
 	curl -Lo tmp/catppuccinColorscheme.tar.gz "https://github.com/catppuccin/kde/releases/download/v0.2.4/Mocha-color-schemes.tar.gz"
 	tar xf tmp/catppuccinColorscheme.tar.gz --directory tmp/catppuccinColorscheme
 	cp tmp/catppuccinColorscheme/Mocha-color-schemes/CatppuccinMochaMauve.colors $$HOME/.local/share/color-schemes/CatppuccinMochaMauve.colors
+
+.PHONY: konsoleTheme
+konsoleTheme:
+	mkdir -p tmp $$HOME/.local/share/konsole
+	cd tmp && git clone https://github.com/catppuccin/konsole
+	cp tmp/konsole/Catppuccin-Mocha.colorscheme $$HOME/.local/share/konsole
 
 .PHONY: spacerAsPager
 spacerAsPager:
