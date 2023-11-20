@@ -20,6 +20,13 @@ argentum: applications/base applications/default applications/games extra/argent
 .PHONY: silfur
 silfur: applications/base applications/default applications/games extra/silfur customization kde hmInit
 
+.PHONY: deck
+deck: customization catppuccinColorscheme konsoleTheme
+	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+	flatpak install -y flathub org.mozilla.firefox org.freedesktop.Platform.ffmpeg-full \
+		com.discordapp.Discord com.valvesoftware.Steam.CompatibilityTool.Proton-GE \
+		org.prismlauncher.PrismLauncher org.zdoom.GZDoom
+
 ### applications
 
 .PHONY: applications/base

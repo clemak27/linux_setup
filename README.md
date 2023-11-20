@@ -8,7 +8,7 @@
 <!--   /> -->
 <!-- </p> -->
 
-This repo contains my dotfiles + setup for my Linux PCs.
+This repo contains my dotfiles + setup for my Linux PCs + Steam Deck.
 
 ## About
 
