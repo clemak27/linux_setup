@@ -183,3 +183,7 @@ nix:
 	nix run home-manager/master -- init --switch && \
 	rm -rf $$HOME/.config/home-manager/ && \
 	home-manager switch --flake . --impure
+
+.PHONY: update-flake
+update-flake:
+	nix flake update --commit-lock-file  --option commit-lockfile-summary "chore: update flake"
