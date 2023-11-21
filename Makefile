@@ -137,7 +137,8 @@ papirusIconTheme:
 
 .PHONY: catppuccinCursor
 catppuccinCursor:
-	mkdir -p $$HOME/.local/share/icons
+	mkdir -p tmp $$HOME/.local/share/icons
+	rm -rf tmp/catppuccinCursor
 	git clone https://github.com/catppuccin/cursors.git tmp/catppuccinCursor
 	unzip tmp/catppuccinCursor/cursors/Catppuccin-Mocha-Dark-Cursors.zip -d $$HOME/.local/share/icons
 
@@ -156,16 +157,17 @@ catppuccinColorscheme:
 .PHONY: konsoleTheme
 konsoleTheme:
 	mkdir -p tmp $$HOME/.local/share/konsole
+	rm -rf tmp/konsole
 	cd tmp && git clone https://github.com/catppuccin/konsole
 	cp tmp/konsole/Catppuccin-Mocha.colorscheme $$HOME/.local/share/konsole
 
 .PHONY: spacerAsPager
 spacerAsPager:
 	mkdir -p tmp/spacerAsPager
+	rm -rf tmp/spacerAsPager/plasmoid-spacer-as-pager
 	cd tmp/spacerAsPager && \
 	git clone https://github.com/eatsu/plasmoid-spacer-as-pager.git --branch=$(SPACER_AS_PAGER_VERSION) && \
-	cd plasmoid-spacer-as-pager && \
-	kpackagetool5 -i package
+	cd plasmoid-spacer-as-pager && kpackagetool5 -i package
 
 .PHONY: customPanel
 customPanel:
