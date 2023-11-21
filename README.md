@@ -13,7 +13,7 @@ This repo contains my dotfiles + setup for my Linux PCs + Steam Deck.
 ## About
 
 This Repo contains the config for my Desktop PC (`argentum`) and my
-Laptop(`silfur`). Both are running Fedora Kionite and use Nix as package
+Laptop(`silfur`). Both are running Fedora Kinoite and use Nix as package
 manager. This means I have a base system and GUI applications that are
 automatically updated, and a declarative terminal config for my tastes and
 needs.
