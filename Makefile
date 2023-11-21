@@ -108,10 +108,20 @@ extra/silfur:
 customization: jbMonoFont adwGtkTheme papirusIconTheme catppuccinCursor
 
 .PHONY: jbMonoFont
-jbMonoFont:
+jbMonoFont: jbMonoFont/download jbMonoFont/cleanup
+
+.PHONY: jbMonoFont/download
+jbMonoFont/download:
 	mkdir -p tmp $$HOME/.local/share/fonts
 	curl -Lo tmp/jbMono.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v$(JBMONO_VERSION)/JetBrainsMono.zip"
-	unzip tmp/jbMono.zip -d $$HOME/.local/share/fonts
+	unzip -o tmp/jbMono.zip -d $$HOME/.local/share/fonts
+
+.PHONY: jbMonoFont/cleanup
+jbMonoFont/cleanup:
+	cd $$HOME/.local/share/fonts && find JetBrainsMonoNerdFontPropo* | xargs rm -f
+	cd $$HOME/.local/share/fonts && find JetBrainsMonoNerdFontMono* | xargs rm -f
+	cd $$HOME/.local/share/fonts && find JetBrainsMonoNL* | xargs rm -f
+	cd $$HOME/.local/share/fonts && rm OFL.txt && rm readme.md
 
 .PHONY: adwGtkTheme
 adwGtkTheme:
