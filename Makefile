@@ -31,7 +31,7 @@ deck: customization catppuccinColorscheme konsoleTheme
 
 .PHONY: applications/base
 applications/base:
-	rpm-ostree install --idempotent podman-docker vim make
+	rpm-ostree install --idempotent podman-docker vim make qemu-user-binfmt
 	rpm-ostree override remove firefox firefox-langpacks
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	flatpak install -y flathub \
