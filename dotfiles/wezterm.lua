@@ -8,7 +8,6 @@ return {
   -- leads to weirdly bold font
   -- front_end = "WebGpu",
   enable_wayland = true,
-  animation_fps = 144,
 
   color_scheme = "Catppuccin Mocha",
   window_background_opacity = 1.0,
