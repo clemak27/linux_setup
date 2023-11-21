@@ -5,7 +5,7 @@ SPACER_AS_PAGER_VERSION=1.2.0
 FEISHIN_VERSION=0.5.1
 
 .PHONY: all
-all: applications/base customization kde hmInit
+all: applications/base customization kde nix
 
 .PHONY: test
 test:
@@ -15,10 +15,10 @@ clean:
 	rm -rf tmp
 
 .PHONY: argentum
-argentum: applications/base applications/default applications/games extra/argentum customization kde hmInit
+argentum: applications/base applications/default applications/games extra/argentum customization kde nix
 
 .PHONY: silfur
-silfur: applications/base applications/default applications/games extra/silfur customization kde hmInit
+silfur: applications/base applications/default applications/games extra/silfur customization kde nix
 
 .PHONY: deck
 deck: customization catppuccinColorscheme konsoleTheme
@@ -174,8 +174,8 @@ customPanel:
 
 ### nix + home-manager
 
-.PHONY: hmInit
-hmInit:
+.PHONY: nix
+nix:
 	curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm && \
 	. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh && \
 	nix run home-manager/master -- init --switch && \
