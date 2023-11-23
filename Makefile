@@ -140,7 +140,7 @@ catppuccinCursor:
 	mkdir -p tmp $$HOME/.local/share/icons
 	rm -rf tmp/catppuccinCursor
 	git clone https://github.com/catppuccin/cursors.git tmp/catppuccinCursor
-	unzip tmp/catppuccinCursor/cursors/Catppuccin-Mocha-Dark-Cursors.zip -d $$HOME/.local/share/icons
+	unzip -o tmp/catppuccinCursor/cursors/Catppuccin-Mocha-Dark-Cursors.zip -d $$HOME/.local/share/icons
 
 ### kde customization
 
