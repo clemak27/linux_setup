@@ -23,7 +23,7 @@ silfur: applications/base applications/default applications/games extra/silfur c
 .PHONY: deck
 deck: customization catppuccinColorscheme konsoleTheme
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-	flatpak install -y flathub org.mozilla.firefox org.freedesktop.Platform.ffmpeg-full \
+	flatpak install -y flathub org.mozilla.firefox org.freedesktop.Platform.ffmpeg-full io.mpv.Mpv \
 		com.discordapp.Discord com.valvesoftware.Steam.CompatibilityTool.Proton-GE \
 		org.prismlauncher.PrismLauncher org.zdoom.GZDoom
 
