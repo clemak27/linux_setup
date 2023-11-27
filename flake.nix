@@ -98,7 +98,7 @@
               programs.zsh = {
                 shellAliases = builtins.listToAttrs (
                   [
-                    { name = "hms"; value = "home-manager switch --flake /home/deck/Projects/linux_setup"; }
+                    { name = "hms"; value = "git -C /home/deck/Projects/linux_setup pull --rebase && home-manager switch --flake /home/deck/Projects/linux_setup"; }
                   ]
                 );
 
