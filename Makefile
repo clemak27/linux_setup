@@ -97,10 +97,18 @@ extra/argentum:
 .PHONY: extra/silfur
 extra/silfur:
 	rpm-ostree install --idempotent wireguard-tools
-	# TODO update
+	rpm-ostree install --idempotent --apply-live https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-39.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-39.noarch.rpm
 	rpm-ostree install --idempotent xorg-x11-drv-nvidia akmod-nvidia
-	rpm-ostree kargs --append-if-missing=rd.driver.blacklist=nouveau --append-if-missing=modprobe.blacklist=nouveau --append-if-missing=nvidia-drm.modeset=1
+	rpm-ostree kargs --append-if-missing=rd.driver.blacklist=nouveau --append-if-missing=modprobe.blacklist=nouveau --append-if-missing=nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
 	sudo hostnamectl hostname silfur
+	echo "export __NV_PRIME_RENDER_OFFLOAD=1" > prime-run
+	echo "export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0" >> prime-run
+	echo "export __GLX_VENDOR_LIBRARY_NAME=nvidia" >> prime-run
+	echo "export __VK_LAYER_NV_optimus=NVIDIA_only" >> prime-run
+	echo 'exec -a "$$0" "$$@"' >> prime-run
+	chmod +x prime-run
+	sudo mv prime-run /usr/local/bin
+	flatpak update -y
 
 ### customization
 
