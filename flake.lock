@@ -156,12 +156,23 @@
       }
     },
     "homecfg": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "pre-commit-hooks": [
+          "pre-commit-hooks"
+        ]
+      },
       "locked": {
-        "lastModified": 1701416793,
-        "narHash": "sha256-oBGajXA2wOep7cLkHD7NYxoYJcie/S6crW0UMNO6u+w=",
+        "lastModified": 1701515296,
+        "narHash": "sha256-MuTeIersJEOm4Fk/l78loGtRZFYE3M7gq3kQJT6eRJU=",
         "owner": "clemak27",
         "repo": "homecfg",
-        "rev": "498600944be0257ed74d5bfdb5cc2421c4bebfbe",
+        "rev": "fa2b50b33be305fe9f0379e05d08dc8413d58cda",
         "type": "github"
       },
       "original": {

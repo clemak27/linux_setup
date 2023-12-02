@@ -9,6 +9,9 @@
     };
     homecfg = {
       url = "github:clemak27/homecfg";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
     };
 
     pre-commit-hooks = {
@@ -67,7 +70,7 @@
           modules = [
             nixModule
             ./home.nix
-            homecfg.nixosModules.homecfg
+            homecfg.hmModules.homecfg
             nix-index-database.hmModules.nix-index
             plasma-manager.homeManagerModules.plasma-manager
           ];
@@ -77,7 +80,7 @@
           pkgs = legacyPkgs;
           modules = [
             nixModule
-            homecfg.nixosModules.homecfg
+            homecfg.hmModules.homecfg
             nix-index-database.hmModules.nix-index
             ({ config, pkgs, ... }: {
               home = {

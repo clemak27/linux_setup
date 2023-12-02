@@ -8,8 +8,6 @@ let
 
       if [[ ! -z $ZELLIJ ]]; then
         zellij action new-tab --cwd $path --name $pname --layout dev
-      elif [[ ! -z $TMUX ]]; then
-        tmux new-window -c $path -n $pname nvim \; split-window -v -l 13 -d -c $path
       else
         cd $path
       fi
@@ -66,14 +64,12 @@ in
       gh = true;
     };
     nvim.enable = true;
-    tmux.enable = false;
     tools.enable = true;
     todo.enable = true;
     zsh.enable = true;
     zellij.enable = true;
     zellij.bar = zjBar;
     zellij.barOptions = zjBarOptions;
-    helix.enable = false;
   };
 
   xdg.configFile = {
