@@ -30,8 +30,8 @@ deck: customization catppuccinColorscheme konsoleTheme
 ### applications
 
 .PHONY: applications/base
-applications/base:
-	rpm-ostree install --idempotent podman-docker vim make qemu-user-binfmt
+applications/base: podman
+	rpm-ostree install --idempotent vim make qemu-user-binfmt
 	rpm-ostree override remove firefox firefox-langpacks
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	flatpak install -y flathub \
@@ -41,6 +41,13 @@ applications/base:
 	flatpak override --user --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
 	ln -sf $$PWD/dotfiles/wezterm.lua $$HOME/.wezterm.lua
 
+.PHONY: podman
+podman:
+	rpm-ostree install --idempotent podman-docker
+	sudo touch /etc/containers/nodocker
+	systemctl --user enable podman.socket
+	mkdir -p $$HOME/.config/containers
+	echo -e "[engine]\nstatic_dir = \"/home/clemens/.local/share/containers/storage/libpod\"\nvolume_path = \"/home/clemens/.local/share/containers/storage/libpod\"" > $$HOME/.config/containers/containers.conf
 
 .PHONY: applications/default
 applications/default:
