@@ -138,7 +138,7 @@ in
       export LANG='en_US.UTF-8'
 
       export GIT_SSH="/usr/bin/ssh";
-      # export DOCKER_HOST=unix://$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}')
+      export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
 
       # autostart tmux
       if command -v tmux &> /dev/null; then
