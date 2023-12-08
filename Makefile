@@ -86,7 +86,8 @@ applications/games:
 applications/kde:
 	rpm-ostree install --idempotent ksshaskpass
 	flatpak install -y flathub \
-		org.kde.gwenview
+		org.kde.gwenview \
+		org.kde.okular
 	echo -e "[Desktop Entry]\nExec=$$HOME/Projects/linux_setup/kde/kssaskpass.sh\nIcon=dialog-scripts\nName=kssaskpass.sh\nType=Application\nX-KDE-AutostartScript=true" > $$HOME/.config/autostart/kssaskpass.sh.desktop
 
 ### host-specific setup
