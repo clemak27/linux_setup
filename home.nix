@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   cdProject = pkgs.writeShellScriptBin "cdp" ''
-    path=$(fd --type=d --hidden ".git" --exclude gitea-repos --absolute-path $HOME/Projects | grep ".git/" | sd "/.git/" "" | fzf)
+    path=$(fd --type=d --hidden --no-ignore ".git" --exclude node_modules --exclude tmp --absolute-path $HOME/Projects | grep ".git/" | sd "/.git/" "" | fzf)
     if [ "$path" != "" ]; then
       pname=$(basename $path)
       path="/home/clemens/Projects/$pname"
