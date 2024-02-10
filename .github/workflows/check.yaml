@@ -9,7 +9,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v8
+        uses: DeterminateSystems/nix-installer-action@v9
       - name: Replace tdt references
         run: |
           grep -n "tdt =" flake.nix | awk -F: '{print $1+4}' | xargs -I {} sed -i '{}c\ ' flake.nix && \
