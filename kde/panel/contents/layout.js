@@ -21,13 +21,14 @@ var kickoff = panel.addWidget("org.kde.plasma.kickoff")
 kickoff.currentConfigGroup = ["Shortcuts"]
 kickoff.writeConfig("global", "Alt+F1")
 
-var taskmanager = panel.addWidget("org.kde.plasma.taskmanager")
+var taskmanager = panel.addWidget("org.kde.plasma.icontasks")
 taskmanager.currentConfigGroup = ["General"]
 taskmanager.writeConfig("groupingStrategy", 0)
 taskmanager.writeConfig("launchers", "")
 taskmanager.writeConfig("middleClickAction", "Close")
 taskmanager.writeConfig("minimizeActiveTaskOnClick", false)
 taskmanager.writeConfig("showOnlyCurrentScreen", true)
+taskmanager.writeConfig("showOnlyCurrentDesktop", false)
 
 var spaceraspager = panel.addWidget("com.github.eatsu.spaceraspager")
 spaceraspager.currentConfigGroup = ["General"]
