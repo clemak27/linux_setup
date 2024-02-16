@@ -95,6 +95,11 @@ applications/kde:
 applications/distrobox:
 	if ! command -v distrobox &> /dev/null; then curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --prefix $$HOME/.local; fi
 
+.PHONY: applications/games/dsda
+applications/games/dsda: applications/distrobox
+	distrobox create --image ubuntu:24.04 --name dsda -Y --no-entry
+	distrobox enter dsda -- bash -c "sudo apt update && sudo apt install -y software-properties-common && sudo add-apt-repository -y universe && sudo apt update && sudo apt install -y dsda-doom && distrobox-export --bin /usr/games/dsda-doom --export-path ~/.local/bin"
+
 ### host-specific setup
 
 .PHONY: extra/argentum
