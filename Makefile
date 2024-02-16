@@ -1,8 +1,8 @@
 JBMONO_VERSION=3.0.2
 ADW_GTK3_VERSION=3.6
 ADW_GTK3_URL_VERSION=3-6
-SPACER_AS_PAGER_VERSION=1.2.0
 FEISHIN_VERSION=0.5.1
+SPACER_AS_PAGER_VERSION=1.3.0
 
 .PHONY: all
 all: applications/base customization kde nix
@@ -189,7 +189,7 @@ spacerAsPager:
 	rm -rf tmp/spacerAsPager/plasmoid-spacer-as-pager
 	cd tmp/spacerAsPager && \
 	git clone https://github.com/eatsu/plasmoid-spacer-as-pager.git --branch=$(SPACER_AS_PAGER_VERSION) && \
-	cd plasmoid-spacer-as-pager && kpackagetool5 -i package
+	cd plasmoid-spacer-as-pager && kpackagetool5 -u package
 
 .PHONY: customPanel
 customPanel:
