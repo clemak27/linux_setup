@@ -91,6 +91,10 @@ applications/kde:
 		org.kde.okular
 	echo -e "[Desktop Entry]\nExec=$$HOME/Projects/linux_setup/kde/kssaskpass.sh\nIcon=dialog-scripts\nName=kssaskpass.sh\nType=Application\nX-KDE-AutostartScript=true" > $$HOME/.config/autostart/kssaskpass.sh.desktop
 
+.PHONY: applications/distrobox
+applications/distrobox:
+	if ! command -v distrobox &> /dev/null; then curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --prefix $$HOME/.local; fi
+
 ### host-specific setup
 
 .PHONY: extra/argentum
