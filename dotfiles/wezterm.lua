@@ -10,7 +10,10 @@ return {
   enable_wayland = true,
 
   color_scheme = "Catppuccin Mocha",
-  window_background_opacity = 1.0,
+  colors = {
+    background = "#11111b",
+  },
+  window_background_opacity = 0.85,
   xcursor_theme = "Catppuccin-Mocha-Dark-Cursors",
 
   font = wezterm.font_with_fallback({
