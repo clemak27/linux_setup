@@ -19,23 +19,23 @@ let
   '';
   zjBar = "file:${pkgs.zjStatus}/bin/zjstatus.wasm";
   zjBarOptions = '' {
-      format_left  "#[bg=#11111B] {mode}#[bg=#11111B] {tabs}"
+      format_left  " {mode} {tabs}"
       format_right ""
-      format_space "#[bg=#11111B]"
+      format_space ""
 
-      mode_normal        "#[bg=#11111B,fg=green,bold]NORMAL"
-      mode_locked        "#[bg=#11111B,fg=red,bold] LOCKED"
-      mode_resize        "#[bg=#11111B,fg=#fab387,bold] RESIZE"
-      mode_pane          "#[bg=#11111B,fg=#fab387,bold] PANE"
-      mode_tab           "#[bg=#11111B,fg=#fab387,bold] TAB"
-      mode_scroll        "#[bg=#11111B,fg=#fab387,bold] SCROLL"
-      mode_rename_tab    "#[bg=#11111B,fg=#fab387,bold] RENAME TAB"
-      mode_rename_pane   "#[bg=#11111B,fg=#fab387,bold] RENAME PANE"
-      mode_session       "#[bg=#11111B,fg=#fab387,bold] SESSION"
-      mode_move          "#[bg=#11111B,fg=#fab387,bold] MOVE"
+      mode_normal        "#[fg=green,bold]NORMAL"
+      mode_locked        "#[fg=red,bold] LOCKED"
+      mode_resize        "#[fg=#fab387,bold] RESIZE"
+      mode_pane          "#[fg=#fab387,bold] PANE"
+      mode_tab           "#[fg=#fab387,bold] TAB"
+      mode_scroll        "#[fg=#fab387,bold] SCROLL"
+      mode_rename_tab    "#[fg=#fab387,bold] RENAME TAB"
+      mode_rename_pane   "#[fg=#fab387,bold] RENAME PANE"
+      mode_session       "#[fg=#fab387,bold] SESSION"
+      mode_move          "#[fg=#fab387,bold] MOVE"
 
-      tab_normal   "#[fg=#9399B2,bg=#11111B] {index}: {name} "
-      tab_active   "#[fg=#cdd6f4,bg=#1E1E2E,bold] {index}: {name} "
+      tab_normal   "#[fg=#9399B2] {index}: {name} "
+      tab_active   "#[fg=#cdd6f4,bold] {index}: {name} "
     }
   '';
 in
@@ -64,6 +64,7 @@ in
       gh = true;
     };
     nvim.enable = true;
+    nvim.transparent = true;
     tools.enable = true;
     todo.enable = true;
     zsh.enable = true;
