@@ -17,6 +17,9 @@ let
   mpvBin = pkgs.writeShellScriptBin "mpv" ''
     flatpak run io.mpv.Mpv "$@"
   '';
+  firefoxBin = pkgs.writeShellScriptBin "firefox" ''
+    flatpak run org.mozilla.firefox "$@"
+  '';
   zjBar = "file:${pkgs.zjStatus}/bin/zjstatus.wasm";
   zjBarOptions = '' {
       format_left  " {mode} {tabs}"
@@ -105,6 +108,7 @@ in
     pkgs.ytfzf
 
     mpvBin
+    firefoxBin
     cdProject
 
     pkgs.tdtPkgs.tdt
