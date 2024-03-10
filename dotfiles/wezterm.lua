@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 -- local mux = wezterm.mux
 
 return {
-  default_prog = { "/home/clemens/.nix-profile/bin/zsh" },
+  default_prog = { "/home/clemens/.local/bin/distrobox-main" },
 
   -- leads to weirdly bold font
   -- front_end = "WebGpu",

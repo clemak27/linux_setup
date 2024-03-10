@@ -8,15 +8,10 @@
 <!--   /> -->
 <!-- </p> -->
 
-This repo contains my dotfiles + setup for my Linux PCs + Steam Deck.
+This repo contains my dotfiles + setup for my Linux PCs.
 
-## About
-
-This Repo contains the config for my Desktop PC (`argentum`) and my
-Laptop(`silfur`). Both are running Fedora Kinoite and use Nix as package
-manager. This means I have a base system and GUI applications that are
-automatically updated, and a declarative terminal config for my tastes and
-needs.
+Both are running Fedora Kinoite. The base system is managed with `rpm-ostree`,
+GUI applications with flatpaks and my shell/terminal setup using distrobox.
 
 This is for my own usage and preferences, but you are of course free to use it
 as inspiration.

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+path=$(fd --type=d --hidden --no-ignore ".git" --exclude node_modules --exclude tmp --absolute-path $HOME/Projects | grep ".git/" | sd "/.git/" "" | fzf)
+if [ "$path" != "" ]; then
+  pname=$(basename $path)
+  path="/home/clemens/Projects/$pname"
+
+  if [[ ! -z $ZELLIJ ]]; then
+    zellij action new-tab --cwd $path --name $pname --layout dev
+  else
+    cd $path
+  fi
+fi

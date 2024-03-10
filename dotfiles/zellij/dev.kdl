@@ -1,0 +1,31 @@
+layout {
+    pane size=1 borderless=true {
+        plugin location="file:/home/clemens/.config/zellij/zjstatus.wasm" {
+          format_left  " {mode} {tabs}"
+          format_right ""
+          format_space ""
+
+          mode_normal        "#[fg=green,bold]NORMAL"
+          mode_locked        "#[fg=red,bold] LOCKED"
+          mode_resize        "#[fg=#fab387,bold] RESIZE"
+          mode_pane          "#[fg=#fab387,bold] PANE"
+          mode_tab           "#[fg=#fab387,bold] TAB"
+          mode_scroll        "#[fg=#fab387,bold] SCROLL"
+          mode_rename_tab    "#[fg=#fab387,bold] RENAME TAB"
+          mode_rename_pane   "#[fg=#fab387,bold] RENAME PANE"
+          mode_session       "#[fg=#fab387,bold] SESSION"
+          mode_move          "#[fg=#fab387,bold] MOVE"
+
+          tab_normal   "#[fg=#9399B2] {index}: {name} "
+          tab_active   "#[fg=#cdd6f4,bold] {index}: {name} "
+        }
+    }
+    pane split_direction="vertical" size="80%"{
+        pane {
+            // command "nvim"
+            focus true
+            name "nvim"
+        }
+    }
+    pane
+}

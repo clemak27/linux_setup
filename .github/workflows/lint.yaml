@@ -21,12 +21,3 @@ jobs:
       - name: Run actionlint
         run: ${{ steps.get_actionlint.outputs.executable }} -color
         shell: bash
-  nixpkgs-fmt:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v9
-      - name: Run nixpkgs-fmt
-        run: nix run nixpkgs#nixpkgs-fmt -- --check .

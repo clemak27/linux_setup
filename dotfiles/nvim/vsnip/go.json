@@ -1,0 +1,11 @@
+{
+  "iferr": {
+    "prefix": "iferr",
+    "body": [
+      "if err != nil {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Inserts a if err != nil statement"
+  }
+}

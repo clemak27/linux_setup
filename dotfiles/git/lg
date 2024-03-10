@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [[ ! -z $ZELLIJ ]]; then
+  zellij run -c -- lazygit && zellij action toggle-fullscreen
+else
+  lazygit
+fi
