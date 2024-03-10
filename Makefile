@@ -97,8 +97,7 @@ applications/distrobox:
 
 .PHONY: applications/games/dsda
 applications/games/dsda: applications/distrobox
-	distrobox create --image ubuntu:24.04 --name dsda -Y --no-entry
-	distrobox enter dsda -- bash -c "sudo apt update && sudo apt install -y software-properties-common && sudo add-apt-repository -y universe && sudo apt update && sudo apt install -y dsda-doom && distrobox-export --bin /usr/games/dsda-doom --export-path ~/.local/bin"
+	distrobox assemble create --name dsda
 
 ### host-specific setup
 
