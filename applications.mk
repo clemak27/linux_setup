@@ -3,12 +3,18 @@
 FEISHIN_VERSION=0.5.3
 
 .PHONY: applications
-applications: applications/base applications/default applications/games applications/kde
+applications: applications/basic applications/default applications/games applications/kde
 
 .PHONY: applications/base
-applications/base: podman firefox wezterm syncthing main
+applications/base:
 	rpm-ostree install --idempotent vim make zsh distrobox
+	# reboot is needed so the base packages are installed
+	if ! command -v distrobox > /dev/null; then exit 1; fi
 	sudo usermod -s /usr/bin/zsh clemens
+
+.PHONY: applications/basic
+applications/basic: podman firefox wezterm syncthing main
+
 
 .PHONY: firefox
 firefox:
@@ -41,11 +47,11 @@ podman:
 	restorecon -RFv /home/clemens/.local/share/containers
 
 .PHONY: syncthing
-syncthing:
+syncthing: applications/base
 	distrobox assemble create --name syncthing
 
 .PHONY: main
-main:
+main: applications/base
 	distrobox assemble create --name main
 	echo "distrobox-enter -n main" > $$HOME/.local/bin/distrobox-main
 	chmod +x $$HOME/.local/bin/distrobox-main

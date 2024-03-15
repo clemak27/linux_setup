@@ -1,10 +1,10 @@
 ### host-specific setup
 
 .PHONY: argentum
-argentum: applications/base applications/default applications/games extra/argentum customization kde
+argentum: applications/basic applications/default applications/games extra/argentum customization kde
 
 .PHONY: silfur
-silfur: applications/base applications/default applications/games extra/silfur customization kde
+silfur: applications/basic applications/default applications/games extra/silfur customization kde
 
 .PHONY: deck
 deck: customization catppuccinColorscheme konsoleTheme
