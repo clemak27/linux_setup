@@ -86,6 +86,11 @@ if command -v starship &> /dev/null; then
   eval "$(starship init zsh)"
 fi
 
+## dev
+if command -v java &> /dev/null; then
+  export JAVA_HOME=/usr/lib/jvm/java-17-openjdk/
+fi
+
 ## tools
 if command -v eza &> /dev/null; then
   alias 'ls'='eza --icons'
