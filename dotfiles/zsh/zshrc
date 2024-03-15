@@ -26,8 +26,10 @@ export PATH="$PATH:$HOME/.local/bin"
 if [ -n "${CONTAINER_ID}" ]; then
   export PATH="$PATH:$HOME/.cargo/bin:$HOME/.go/bin:$HOME/.local/bin/npm/bin:$HOME/.local/share/nvim/mason/bin"
   export SHELL=/usr/sbin/zsh
+  alias 'hzsh'='distrobox-host-exec zsh'
 else
   export ZSH_THEME=robbyrussell
+  alias 'db'='distrobox'
 fi
 
 # oh-my-zsh
@@ -44,8 +46,6 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     git clone https://github.com/gradle/gradle-completion $HOME/.oh-my-zsh/custom/plugins/gradle-completion
   fi
 fi
-
-
 
 # custom functions
 for file in ~/.zsh_functions/*; do . $file; done
