@@ -38,7 +38,6 @@ return {
           "yamlfmt",
 
           -- nix
-          "nil",
           "nixpkgs-fmt",
 
           -- lua
