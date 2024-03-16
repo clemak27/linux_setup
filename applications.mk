@@ -53,8 +53,6 @@ syncthing: applications/base
 .PHONY: main
 main: applications/base
 	distrobox assemble create --name main
-	echo "distrobox-enter -n main" > $$HOME/.local/bin/distrobox-main
-	chmod +x $$HOME/.local/bin/distrobox-main
 
 .PHONY: applications/default
 applications/default:
