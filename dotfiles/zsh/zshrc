@@ -93,8 +93,8 @@ fi
 
 ## tools
 if command -v eza &> /dev/null; then
-  alias 'ls'='eza --icons'
-  alias 'lsa'='eza --icons -hal'
+  alias 'ls'='eza --icons=automatic'
+  alias 'lsa'='eza --icons=automatic -hal'
 fi
 
 ## todo
