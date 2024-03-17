@@ -53,13 +53,6 @@ local jdtls_config = function()
   local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
   local workspace_dir = os.getenv("HOME") .. "/.jdtls-workspace/" .. project_name
 
-  local handle = io.popen("which java")
-  local javaBin = handle:read("*a")
-  handle:close()
-
-  javaBin = javaBin:gsub("\r", "")
-  javaBin = javaBin:gsub("\n", "")
-
   local bundles = {
     vim.fn.glob(masonPath .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"),
   }
@@ -72,7 +65,7 @@ local jdtls_config = function()
 
   return {
     cmd = {
-      javaBin,
+      "java",
       "-Declipse.application=org.eclipse.jdt.ls.core.id1",
       "-Dosgi.bundles.defaultStartLevel=4",
       "-Declipse.product=org.eclipse.jdt.ls.core.product",
