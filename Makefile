@@ -3,6 +3,7 @@ include customization.mk
 include dotfiles.mk
 include hosts.mk
 include kde.mk
+include ./gnome/gnome.mk
 
 .PHONY: all
 all: applications/base customization kde
