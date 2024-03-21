@@ -7,6 +7,7 @@ return {
       "mxsdev/nvim-dap-vscode-js",
       "theHamsta/nvim-dap-virtual-text",
       "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
     },
     ft = { "go", "java", "javascript", "typescript" },
     config = function()
