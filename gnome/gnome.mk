@@ -1,0 +1,37 @@
+# UNITE_VERSION=v77
+SCROLL_VERSION=v36
+BLUR_MY_SHELL_VERSION=v58
+
+### gnome customization
+
+.PHONY: gnome
+gnome: gnome/applications gnome/extensions gnome/dconf gnome/catppuccinGtk
+
+.PHONY: gnome/applications
+gnome/applications:
+	rpm-ostree install --idempotent \
+		gnome-shell-extension-appindicator \
+		gnome-shell-extension-gsconnect \
+		gnome-shell-extension-user-theme \
+		gnome-tweaks
+
+.PHONY: gnome/extensions
+gnome/extensions:
+	mkdir -p tmp
+	mkdir -p $$HOME/.local/share/gnome-shell/extensions
+	# curl -L -o tmp/unite-shell-$(UNITE_VERSION).zip --url https://github.com/hardpixel/unite-shell/releases/download/$(UNITE_VERSION)/unite-shell-$(UNITE_VERSION).zip
+	# unzip tmp/unite-shell-$(UNITE_VERSION).zip -d $$HOME/.local/share/gnome-shell/extensions
+	curl -L -o tmp/scroll-workspaces-$(SCROLL_VERSION).zip --url https://extensions.gnome.org/extension-data/scroll-workspacesgfxmonk.net.$(SCROLL_VERSION).shell-extension.zip
+	unzip tmp/scroll-workspaces-$(SCROLL_VERSION).zip -d $$HOME/.local/share/gnome-shell/extensions/scroll-workspaces@gfxmonk.net
+	curl -L -o tmp/blur-my-shell@aunetx.zip --url https://github.com/aunetx/blur-my-shell/releases/download/$(BLUR_MY_SHELL_VERSION)/blur-my-shell@aunetx.shell-extension.zip
+	unzip tmp/blur-my-shell@aunetx.zip -d $$HOME/.local/share/gnome-shell/extensions/blur-my-shell@aunetx
+
+.PHONY: gnome/dconf
+gnome/dconf:
+	./dconf.sh
+
+.PHONY: gnome/catppuccinGtk
+gnome/catppuccinGtk:
+	mkdir -p tmp $$HOME/.local/share/themes
+	curl -Lo tmp/cp-gtk.zip --url https://github.com/catppuccin/gtk/releases/download/v0.7.1/Catppuccin-Mocha-Standard-Blue-Dark.zip
+	unzip tmp/cp-gtk.zip -d $$HOME/.local/share/themes
