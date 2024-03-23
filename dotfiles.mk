@@ -62,7 +62,7 @@ dotfiles/zellij:
 	ln -sf "$(DOTFILES)/zellij/cdp" "$$HOME/.local/bin/cdp"
 
 .PHONY: dotfiles/zsh
-dotfiles/zsh:
+dotfiles/zsh: dotfiles/omz
 	[[ -d $$HOME/.oh-my-zsh ]] || curl -fsSL -o omz.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh -c
 	ln -sf "$(DOTFILES)/zsh/zshrc" "$$HOME/.zshrc"
 	ln -sf "$(DOTFILES)/zsh/starship.toml" "$(CONFIG)/starship.toml"
