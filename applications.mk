@@ -58,6 +58,10 @@ syncthing:
 main: applications/base
 	distrobox assemble create --name main
 
+.PHONY: steambox
+steambox:
+	distrobox assemble create --name steambox
+
 .PHONY: applications/default
 applications/default:
 	flatpak install -y flathub \
