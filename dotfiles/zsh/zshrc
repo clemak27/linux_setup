@@ -41,10 +41,6 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
 
   ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
   source $HOME/.oh-my-zsh/oh-my-zsh.sh
-
-  if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/gradle-completion" ]; then
-    git clone https://github.com/gradle/gradle-completion $HOME/.oh-my-zsh/custom/plugins/gradle-completion
-  fi
 fi
 
 # custom functions

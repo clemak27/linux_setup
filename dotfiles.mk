@@ -62,12 +62,10 @@ dotfiles/zellij:
 	ln -sf "$(DOTFILES)/zellij/cdp" "$$HOME/.local/bin/cdp"
 
 .PHONY: dotfiles/zsh
-dotfiles/zsh: dotfiles/omz
+dotfiles/zsh:
 	[[ -d $$HOME/.oh-my-zsh ]] || curl -fsSL -o omz.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh -c
+	[[ -d $$HOME/.oh-my-zsh/custom/plugins/gradle-completion ]] || git clone https://github.com/gradle/gradle-completion $$HOME/.oh-my-zsh/custom/plugins/gradle-completion
 	ln -sf "$(DOTFILES)/zsh/zshrc" "$$HOME/.zshrc"
 	ln -sf "$(DOTFILES)/zsh/starship.toml" "$(CONFIG)/starship.toml"
 	rm -rf "$$HOME/.zsh_functions"
 	ln -sf "$(DOTFILES)/zsh/zsh_functions" "$$HOME/.zsh_functions"
-
-dotfiles/omz:
-	sh -c "$$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
