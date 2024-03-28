@@ -13,6 +13,7 @@ dotfiles/dev:
 .PHONY: dotfiles/git
 dotfiles/git:
 	mkdir -p "$(CONFIG)/git"
+	mkdir -p "$$HOME/.local/bin"
 	ln -sf "$(DOTFILES)/git/lg" "$$HOME/.local/bin/lg"
 	cp "$(DOTFILES)/git/config" "$(CONFIG)/git/config"
 	git config --global user.signingkey "$$(cat $$HOME/.ssh/id_ed25519.pub)"
@@ -37,9 +38,11 @@ dotfiles/nvim:
 dotfiles/tools:
 	mkdir -p "$(CONFIG)/bat"
 	ln -sf "$(DOTFILES)/tools/bat.config" "$(CONFIG)/bat/config"
+	mkdir -p "$$HOME/.local/bin"
 	ln -sf "$(DOTFILES)/tools/rfv" "$$HOME/.local/bin/rfv"
 	mkdir -p "$(CONFIG)/tealdeer"
 	ln -sf "$(DOTFILES)/tools/tealdeer.toml" "$(CONFIG)/tealdeer/config.toml"
+	mkdir -p "$(CONFIG)/ranger"
 	ln -sf "$(DOTFILES)/tools/ranger.rc" "$(CONFIG)/ranger/rc.conf"
 	go install github.com/sachaos/viddy@latest
 
@@ -63,7 +66,7 @@ dotfiles/zellij:
 
 .PHONY: dotfiles/zsh
 dotfiles/zsh:
-	[[ -d $$HOME/.oh-my-zsh ]] || curl -fsSL -o omz.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh -c
+	[[ -d $$HOME/.oh-my-zsh ]] || (curl -fsSL -o omz.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh && omz.sh && rm -f omz.sh)
 	[[ -d $$HOME/.oh-my-zsh/custom/plugins/gradle-completion ]] || git clone https://github.com/gradle/gradle-completion $$HOME/.oh-my-zsh/custom/plugins/gradle-completion
 	ln -sf "$(DOTFILES)/zsh/zshrc" "$$HOME/.zshrc"
 	ln -sf "$(DOTFILES)/zsh/starship.toml" "$(CONFIG)/starship.toml"
