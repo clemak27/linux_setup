@@ -56,11 +56,11 @@ syncthing:
 
 .PHONY: main
 main: applications/base
-	distrobox assemble create --name main
+	distrobox assemble create --name main --replace
 
 .PHONY: steambox
 steambox:
-	distrobox assemble create --name steambox
+	distrobox assemble create --name steambox --replace
 
 .PHONY: applications/default
 applications/default:
@@ -107,4 +107,4 @@ applications/kde:
 
 .PHONY: applications/dsda
 applications/dsda:
-	distrobox assemble create --name dsda
+	distrobox assemble create --name dsda --replace
