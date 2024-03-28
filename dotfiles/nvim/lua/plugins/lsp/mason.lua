@@ -62,6 +62,7 @@ return {
           "js-debug-adapter",
           "vue-language-server",
           "typescript-language-server",
+          "eslint-lsp",
         },
       })
     end,
