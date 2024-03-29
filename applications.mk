@@ -3,7 +3,7 @@
 FEISHIN_VERSION=0.5.3
 
 .PHONY: applications
-applications: applications/basic applications/default applications/games applications/kde
+applications: applications/basic applications/default applications/games
 
 .PHONY: applications/base
 applications/base:
@@ -97,13 +97,6 @@ applications/games: applications/dsda
 	sudo mv 60-steam-input.rules /etc/udev/rules.d/
 	curl -LO https://raw.githubusercontent.com/ValveSoftware/steam-devices/master/60-steam-vr.rules
 	sudo mv 60-steam-vr.rules /etc/udev/rules.d/
-
-applications/kde:
-	rpm-ostree install --idempotent ksshaskpass
-	flatpak install -y flathub \
-		org.kde.gwenview \
-		org.kde.okular
-	echo -e "[Desktop Entry]\nExec=$$HOME/Projects/linux_setup/kde/kssaskpass.sh\nIcon=dialog-scripts\nName=kssaskpass.sh\nType=Application\nX-KDE-AutostartScript=true" > $$HOME/.config/autostart/kssaskpass.sh.desktop
 
 .PHONY: applications/dsda
 applications/dsda:
