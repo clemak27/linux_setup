@@ -15,8 +15,11 @@ gnome/applications:
 		gnome-shell-extension-user-theme \
 		gnome-tweaks
 	flatpak install -y flathub \
+		com.github.tchx84.Flatseal \
 		org.gnome.Loupe \
-		org.gnome.Weather
+		org.gnome.Weather \
+		org.gnome.Calendar \
+		org.gnome.Todo
 
 .PHONY: gnome/extensions
 gnome/extensions:
