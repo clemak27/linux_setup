@@ -87,11 +87,11 @@ indicator=true
 [org/gnome/shell/extensions/unite]
 autofocus-windows=false
 enable-titlebar-actions=false
-extend-left-box=true
+extend-left-box=false
 hide-activities-button='never'
 hide-app-menu-icon=false
 hide-window-titlebars='maximized'
-notifications-position='right'
+notifications-position='center'
 reduce-panel-spacing=true
 restrict-to-primary-screen=true
 show-appmenu-button=false
