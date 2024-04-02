@@ -46,6 +46,11 @@ fi
 # custom functions
 for file in ~/.zsh_functions/*; do . $file; done
 
+# direnv
+eval "$(direnv hook zsh)"
+export DIRENV_LOG_FORMAT=""
+export PRE_COMMIT_COLOR="never"
+
 export LANG='en_US.UTF-8'
 export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
 export BROWSER=firefox
