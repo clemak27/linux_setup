@@ -13,13 +13,13 @@ gnome/applications:
 		gnome-shell-extension-appindicator \
 		gnome-shell-extension-gsconnect \
 		gnome-shell-extension-user-theme \
-		gnome-tweaks
+		gnome-tweaks \
+		evolution
 	flatpak install -y flathub \
 		com.github.tchx84.Flatseal \
 		org.gnome.Loupe \
 		org.gnome.Weather \
-		org.gnome.Calendar \
-		org.gnome.Todo
+		org.gnome.Calendar
 
 .PHONY: gnome/extensions
 gnome/extensions:
