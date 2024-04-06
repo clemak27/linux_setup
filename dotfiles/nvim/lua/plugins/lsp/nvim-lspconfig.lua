@@ -90,7 +90,6 @@ return {
       local servers = {
         "bashls",
         "cssls",
-        "efm",
         "eslint",
         "gopls",
         "golangci_lint_ls",
@@ -245,56 +244,6 @@ return {
             })
             lspconfig["yamlls"].setup(cfg)
             return
-          end
-
-          if server == "efm" then
-            config.filetypes = { "markdown", "dockerfile", "yaml", "sh" }
-            config.init_options = { documentFormatting = false }
-            config.settings = {
-              loglevel = 1,
-              languages = {
-                markdown = {
-                  {
-                    lintCommand = "markdownlint --stdin",
-                    lintStdin = true,
-                    lintIgnoreExitCode = true,
-                    lintFormats = {
-                      "stdin:%l %m",
-                      "stdin:%l:%c %m",
-                      "stdin: %l: %m",
-                    },
-                    lintSeverity = 2,
-                  },
-                },
-                dockerfile = {
-                  {
-                    lintCommand = "hadolint --no-color -",
-                    lintStdin = true,
-                    lintIgnoreExitCode = true,
-                    lintFormats = { "-:%l %.%# %trror: %m", "-:%l %.%# %tarning: %m", "-:%l %.%# %tnfo: %m" },
-                    rootMarkers = { ".hadolint.yaml", "Dockerfile" },
-                  },
-                },
-                yaml = {
-                  {
-                    lintCommand = "yamllint -f parsable -",
-                    lintStdin = true,
-                    lintIgnoreExitCode = true,
-                    lintFormats = {
-                      "%s:%l:%c: [%tarning] %m",
-                      "%s:%l:%c: [%trror] %m",
-                    },
-                  },
-                },
-                sh = {
-                  {
-                    lintCommand = "shellcheck --color=never --format=gcc -",
-                    lintStdin = true,
-                    lintFormats = { "-:%l:%c: %trror: %m", "-:%l:%c: %tarning: %m", "-:%l:%c: %tote: %m" },
-                  },
-                },
-              },
-            }
           end
 
           lspconfig[server].setup(config)
