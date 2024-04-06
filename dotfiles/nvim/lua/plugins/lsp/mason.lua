@@ -16,7 +16,6 @@ return {
         ensure_installed = {
           -- other
           "css-lsp",
-          "efm",
           "hadolint",
           "html-lsp",
           "json-lsp",
