@@ -44,6 +44,7 @@ dotfiles/tools:
 	ln -sf "$(DOTFILES)/tools/tealdeer.toml" "$(CONFIG)/tealdeer/config.toml"
 	mkdir -p "$(CONFIG)/ranger"
 	ln -sf "$(DOTFILES)/tools/ranger.rc" "$(CONFIG)/ranger/rc.conf"
+	[[ -d $$HOME/.config/ranger/plugins/ranger_devicons ]] || git clone https://github.com/alexanderjeurissen/ranger_devicons.git $$HOME/.config/ranger/plugins/ranger_devicons
 	go install github.com/sachaos/viddy@latest
 
 .PHONY: dotfiles/todo
