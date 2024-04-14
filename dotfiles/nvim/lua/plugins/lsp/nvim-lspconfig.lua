@@ -166,7 +166,7 @@ return {
             }
           end
 
-          if server == "volar" then
+          if server == "volar" and vim.fn.isdirectory(vim.fn.getcwd() .. "/node_modules/vue") ~= false then
             config.filetypes = {
               "typescript",
               "javascript",
@@ -175,6 +175,10 @@ return {
               "vue",
               "json",
             }
+          end
+
+          if server == "tsserver" and vim.fn.isdirectory(vim.fn.getcwd() .. "/node_modules/vue") ~= false then
+            config.filetypes = {}
           end
 
           if server == "ltex" then
@@ -243,7 +247,6 @@ return {
               lspconfig = config,
             })
             lspconfig["yamlls"].setup(cfg)
-            return
           end
 
           lspconfig[server].setup(config)
