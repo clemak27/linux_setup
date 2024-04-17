@@ -62,7 +62,7 @@ dotfiles/zellij:
 	ln -sf "$(DOTFILES)/zellij/custom.kdl" "$(CONFIG)/zellij/layouts/custom.kdl"
 	ln -sf "$(DOTFILES)/zellij/dev.kdl" "$(CONFIG)/zellij/layouts/dev.kdl"
 	ln -sf "$(DOTFILES)/zellij/notes.kdl" "$(CONFIG)/zellij/layouts/notes.kdl"
-	curl -L --silent -o "$(CONFIG)/zellij/zjstatus.wasm" https://github.com/dj95/zjstatus/releases/download/v0.13.1/zjstatus.wasm
+	curl -L --silent -o "$(CONFIG)/zellij/zjstatus.wasm" https://github.com/dj95/zjstatus/releases/download/v0.14.0/zjstatus.wasm
 	ln -sf "$(DOTFILES)/zellij/cdp" "$$HOME/.local/bin/cdp"
 
 .PHONY: dotfiles/zsh
