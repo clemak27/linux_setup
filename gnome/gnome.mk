@@ -1,7 +1,7 @@
 UNITE_VERSION=v78
 SCROLL_VERSION=v36
 BLUR_MY_SHELL_VERSION=v61
-
+CATPPUCCIN_GTK_VERSION=0.7.3
 ### gnome customization
 
 .PHONY: gnome
@@ -43,5 +43,5 @@ gnome/dconf:
 .PHONY: gnome/catppuccinGtk
 gnome/catppuccinGtk:
 	mkdir -p tmp $$HOME/.local/share/themes
-	curl -Lo tmp/cp-gtk.zip --url https://github.com/catppuccin/gtk/releases/download/v0.7.1/Catppuccin-Mocha-Standard-Blue-Dark.zip
+	curl -Lo tmp/cp-gtk.zip --url https://github.com/catppuccin/gtk/releases/download/v$(CATPPUCCIN_GTK_VERSION)/Catppuccin-Mocha-Standard-Blue-Dark.zip
 	unzip tmp/cp-gtk.zip -d $$HOME/.local/share/themes
