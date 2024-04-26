@@ -178,7 +178,7 @@ return {
           end
 
           if server == "tsserver" and vim.fn.isdirectory(vim.fn.getcwd() .. "/node_modules/vue") ~= false then
-            config.filetypes = {}
+            config.filetypes = nil
           end
 
           if server == "ltex" then
