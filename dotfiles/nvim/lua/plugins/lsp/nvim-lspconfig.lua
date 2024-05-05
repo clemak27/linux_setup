@@ -178,7 +178,7 @@ return {
           end
 
           if server == "tsserver" and vim.fn.isdirectory(vim.fn.getcwd() .. "/node_modules/vue") ~= false then
-            config.filetypes = nil
+            config.filetypes = { "imaginaryFiletype" }
           end
 
           if server == "ltex" then
@@ -207,7 +207,7 @@ return {
 
             local ltexEnabled = true
             if os.getenv("NVIM_LTEX_ENABLE") == "false" then
-              ltexEnabled = false
+              config.filetypes = { "imaginaryFiletype" }
             end
 
             config.settings = {
