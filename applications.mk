@@ -63,9 +63,8 @@ steambox:
 	distrobox assemble create --name steambox --replace
 
 .PHONY: applications/default
-applications/default:
+applications/default: applications/mpv
 	flatpak install -y flathub \
-		io.mpv.Mpv \
 		org.gimp.GIMP \
 		org.kde.kid3 \
 		org.libreoffice.LibreOffice \
@@ -76,9 +75,17 @@ applications/default:
 	curl -L --url https://github.com/jeffvli/feishin/releases/download/v$(FEISHIN_VERSION)/Feishin-$(FEISHIN_VERSION)-linux-x86_64.AppImage -o $$HOME/.local/bin/feishin
 	chmod +x $$HOME/.local/bin/feishin
 	echo -e "[Desktop Entry]\nName=Feishin\nExec=$$HOME/.local/bin/feishin\nType=Application\nCategories=Multimedia\nIcon=multimedia-audio-player" > $$HOME/.local/share/applications/feishin.desktop
+
+applications/mpv:
+	flatpak install -y flathub io.mpv.Mpv
+	mkdir -p $$HOME/.local/bin $$HOME/.local/share/applications $$HOME/.local/share/fonts
 	ln -sf $$PWD/dotfiles/mpv.conf $$HOME/.var/app/io.mpv.Mpv/config/mpv/mpv.conf
 	echo 'flatpak run io.mpv.Mpv "$@"' > "$$HOME/.local/bin/mpv"
 	chmod +x "$$HOME/.local/bin/mpv"
+	curl -L --url https://raw.githubusercontent.com/cyl0/ModernX/main/modernx.lua -o $$HOME/.var/app/io.mpv.Mpv/config/mpv/scripts/modernx.lua
+	curl -L --url https://github.com/zavoloklom/material-design-iconic-font/releases/download/2.2.0/material-design-iconic-font.zip -o tmp/md_icons.zip
+	unzip -o tmp/md_icons.zip -d tmp/md_icons
+	mv tmp/md_icons/fonts/Material-Design-Iconic-Font.ttf $$HOME/.local/share/fonts
 
 .PHONY: applications/games
 applications/games: applications/dsda
