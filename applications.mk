@@ -89,15 +89,13 @@ applications/mpv:
 
 .PHONY: applications/games
 applications/games: applications/dsda
-	# TODO add gamemode
 	flatpak install -y flathub \
-		com.discordapp.Discord \
 		com.valvesoftware.Steam \
+		dev.vencord.Vesktop \
 		io.github.Foldex.AdwSteamGtk \
 		org.freedesktop.Platform.VulkanLayer.MangoHud \
 		org.freedesktop.Platform.VulkanLayer.gamescope \
 		org.freedesktop.Platform.ffmpeg-full \
-		com.valvesoftware.Steam.CompatibilityTool.Proton-GE \
 		org.prismlauncher.PrismLauncher \
 		org.zdoom.GZDoom
 	curl -LO https://raw.githubusercontent.com/ValveSoftware/steam-devices/master/60-steam-input.rules
