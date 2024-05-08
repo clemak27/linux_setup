@@ -81,6 +81,13 @@ favorite-apps=['org.gnome.Nautilus.desktop', 'org.mozilla.firefox.desktop', 'org
 override-background-dynamically=true
 unblur-in-overview=false
 
+[org/gnome/shell/extensions/blur-my-shell/applications]
+blur=true
+dynamic-opacity=false
+opacity=255
+sigma=15
+whitelist=['org.wezfurlong.wezterm']
+
 [org/gnome/shell/extensions/net/gfxmonk/scroll-workspaces]
 indicator=true
 

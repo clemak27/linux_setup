@@ -13,7 +13,7 @@ return {
   colors = {
     background = "#11111b",
   },
-  window_background_opacity = 0.85,
+  window_background_opacity = 0.80,
   xcursor_theme = "Catppuccin-Mocha-Dark-Cursors",
 
   font = wezterm.font_with_fallback({
