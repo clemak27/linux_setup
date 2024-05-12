@@ -149,19 +149,22 @@ return {
             }
           end
 
-          if server == "volar" and vim.fn.isdirectory(vim.fn.getcwd() .. "/node_modules/vue") ~= false then
-            config.filetypes = {
-              "typescript",
-              "javascript",
-              "javascriptreact",
-              "typescriptreact",
-              "vue",
-              "json",
-            }
-          end
-
           if server == "tsserver" and vim.fn.isdirectory(vim.fn.getcwd() .. "/node_modules/vue") ~= false then
-            config.filetypes = { "imaginaryFiletype" }
+            config.init_options = {
+              plugins = {
+                {
+                  name = "@vue/typescript-plugin",
+                  -- npm i --save-dev @vue/typescript-plugin
+                  location = os.getenv("HOME") .. "/.local/bin/npm/lib/node_modules/@vue/typescript-plugin",
+                  languages = { "javascript", "typescript", "vue" },
+                },
+              },
+            }
+            config.filetypes = {
+              "javascript",
+              "typescript",
+              "vue",
+            }
           end
 
           if server == "ltex" then
