@@ -6,8 +6,22 @@ return {
     {
       "rcarriga/nvim-notify",
       config = function()
+        local stages = require("notify.stages.slide")("top_down")
         require("notify").setup({
           background_colour = "#1e1e2e",
+          render = "compact",
+          stages = {
+            function(...)
+              local opts = stages[1](...)
+              if opts then
+                opts.border = "none"
+                opts.row = opts.row + 1
+              end
+              return opts
+            end,
+            unpack(stages, 2),
+          },
+          timeout = 5000,
         })
         vim.notify = require("notify")
       end,
