@@ -15,7 +15,7 @@ return {
               local opts = stages[1](...)
               if opts then
                 opts.border = "none"
-                opts.row = opts.row + 1
+                opts.row = opts.row
               end
               return opts
             end,
