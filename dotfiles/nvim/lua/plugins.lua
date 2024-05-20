@@ -13,27 +13,6 @@ return {
     end,
   },
   {
-    "tpope/vim-commentary",
-    config = function()
-      vim.api.nvim_create_augroup("nix_comment_fix", { clear = true })
-      vim.api.nvim_create_autocmd({ "FileType" }, {
-        pattern = "nix",
-        group = "nix_comment_fix",
-        callback = function()
-          vim.api.nvim_exec([[ setlocal commentstring=#\ %s ]], false)
-        end,
-      })
-      vim.api.nvim_create_augroup("kotlin_comment_fix", { clear = true })
-      vim.api.nvim_create_autocmd({ "FileType" }, {
-        pattern = "kotlin",
-        group = "kotlin_comment_fix",
-        callback = function()
-          vim.api.nvim_exec([[ setlocal commentstring=//\ %s ]], false)
-        end,
-      })
-    end,
-  },
-  {
     "calops/hmts.nvim",
     ft = { "nix" },
   },
