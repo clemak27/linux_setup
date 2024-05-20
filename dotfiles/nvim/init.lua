@@ -64,6 +64,9 @@ vim.o.showtabline = 0
 -- Specify the behavior when switching between buffers
 vim.o.switchbuf = "useopen,usetab,newtab"
 
+-- disable term sync, since it leads to issues with zellij
+vim.o.termsync = false
+
 vim.api.nvim_exec2(
   [[
   " Dont show mode in statusline
