@@ -40,9 +40,6 @@ vim.o.magic = true
 vim.o.showmatch = true
 -- How many tenths of a second to blink when matching brackets
 vim.o.mat = 2
--- No annoying sound on errors
-vim.o.t_vb = ""
-vim.o.tm = 500
 -- Set utf8 as standard encoding and en_US as the standard language
 vim.o.encoding = "utf8"
 -- Use Unix as the standard file type
