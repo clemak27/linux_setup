@@ -51,7 +51,6 @@ return {
             lsp_fallback = true,
           })
         end, bufopts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
         vim.keymap.set("n", "gR", vim.lsp.buf.rename, bufopts)
         vim.keymap.set("n", "ga", vim.lsp.buf.code_action, bufopts)
         vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
