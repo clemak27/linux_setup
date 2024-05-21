@@ -13,8 +13,6 @@ return {
     end,
   },
   {
-    "calops/hmts.nvim",
-    ft = { "nix" },
   },
   {
     "windwp/nvim-autopairs",
