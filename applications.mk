@@ -32,7 +32,8 @@ wezterm:
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	flatpak install -y flathub \
 		org.wezfurlong.wezterm
-	ln -sf $$PWD/dotfiles/wezterm.lua $$HOME/.wezterm.lua
+	mkdir -p $$HOME/.config/wezterm
+	ln -sf $$PWD/dotfiles/wezterm/wezterm.lua $$HOME/.config/wezterm/wezterm.lua
 
 .PHONY: podman
 podman:
@@ -79,7 +80,7 @@ applications/default: applications/mpv
 applications/mpv:
 	flatpak install -y flathub io.mpv.Mpv
 	mkdir -p $$HOME/.local/bin $$HOME/.local/share/applications $$HOME/.local/share/fonts
-	ln -sf $$PWD/dotfiles/mpv.conf $$HOME/.var/app/io.mpv.Mpv/config/mpv/mpv.conf
+	ln -sf $$PWD/dotfiles/mpv/mpv.conf $$HOME/.var/app/io.mpv.Mpv/config/mpv/mpv.conf
 	echo 'flatpak run io.mpv.Mpv "$@"' > "$$HOME/.local/bin/mpv"
 	chmod +x "$$HOME/.local/bin/mpv"
 	curl -L --url https://raw.githubusercontent.com/cyl0/ModernX/main/modernx.lua -o $$HOME/.var/app/io.mpv.Mpv/config/mpv/scripts/modernx.lua

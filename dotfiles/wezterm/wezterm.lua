@@ -1,6 +1,32 @@
 local wezterm = require("wezterm")
--- local act = wezterm.action
 -- local mux = wezterm.mux
+
+-- local bindings = require("bindings")
+
+local tabBarColors = {
+  background = "#11111b",
+  active_tab = {
+    bg_color = "#1e1e2e",
+    fg_color = "#cdd6f4",
+    intensity = "Bold",
+  },
+  inactive_tab = {
+    bg_color = "#1e1e2e",
+    fg_color = "#a6adc8",
+  },
+  inactive_tab_hover = {
+    bg_color = "#585b70",
+    fg_color = "#a6adc8",
+  },
+  new_tab = {
+    bg_color = "#1e1e2e",
+    fg_color = "#a6adc8",
+  },
+  new_tab_hover = {
+    bg_color = "#585b70",
+    fg_color = "#a6adc8",
+  },
+}
 
 return {
   default_prog = { "/usr/bin/distrobox-enter", "-n", "main" },
