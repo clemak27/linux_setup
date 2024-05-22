@@ -7,6 +7,8 @@ if [[ -n $ZELLIJ ]]; then
   else
     zellij run -c -- lazygit && zellij action toggle-fullscreen
   fi
+elif [[ -n $WEZTERM_PANE ]]; then
+    wezterm cli zoom-pane --pane-id "$(wezterm cli split-pane -- zsh -c "distrobox-enter main -- zsh -c 'source ~/.zshrc && lazygit'")"
 else
   lazygit
 fi
