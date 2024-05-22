@@ -146,25 +146,6 @@ if command -v kubectl &> /dev/null; then
   alias 'kns'='kubens'
 fi
 
-## zellij
-if command -v zellij &> /dev/null; then
-  alias -- 'zjNotes'='zellij action new-tab --name Notes --layout notes'
-
-  if [ ! "$ZELLIJ" ]; then
-    grep -q "main.*EXITED" <(zellij ls)
-    mainExited=$?
-    grep -q "main" <(zellij ls)
-    mainExists=$?
-
-    if [ $mainExited = 0 ]; then
-      zellij attach main
-    elif [ $mainExited = 1 ] && [ $mainExists = 1 ]; then
-      zellij -s main
-    fi
-  fi
-fi
-
-
 # if [ -z "$NIX_PROFILES" ]; then
 #   . $HOME/.nix-profile/etc/profile.d/nix.sh
 # fi
