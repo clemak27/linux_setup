@@ -1,35 +1,9 @@
 local wezterm = require("wezterm")
--- local mux = wezterm.mux
+local bindings = require("bindings")
 
--- local bindings = require("bindings")
-
-local tabBarColors = {
-  background = "#11111b",
-  active_tab = {
-    bg_color = "#1e1e2e",
-    fg_color = "#cdd6f4",
-    intensity = "Bold",
-  },
-  inactive_tab = {
-    bg_color = "#1e1e2e",
-    fg_color = "#a6adc8",
-  },
-  inactive_tab_hover = {
-    bg_color = "#585b70",
-    fg_color = "#a6adc8",
-  },
-  new_tab = {
-    bg_color = "#1e1e2e",
-    fg_color = "#a6adc8",
-  },
-  new_tab_hover = {
-    bg_color = "#585b70",
-    fg_color = "#a6adc8",
-  },
-}
-
-return {
+local weztermCfg = {
   default_prog = { "/usr/bin/distrobox-enter", "-n", "main" },
+  default_cwd = "/var/home/clemens",
 
   -- leads to weirdly bold font
   -- front_end = "WebGpu",
@@ -38,7 +12,32 @@ return {
   color_scheme = "Catppuccin Mocha",
   colors = {
     background = "#11111b",
+    tab_bar = {
+      background = "#11111b",
+      active_tab = {
+        bg_color = "#1e1e2e",
+        fg_color = "#cdd6f4",
+        intensity = "Bold",
+      },
+      inactive_tab = {
+        bg_color = "#11111b",
+        fg_color = "#a6adc8",
+      },
+      inactive_tab_hover = {
+        bg_color = "#11111b",
+        fg_color = "#a6adc8",
+      },
+      new_tab = {
+        bg_color = "#1e1e2e",
+        fg_color = "#a6adc8",
+      },
+      new_tab_hover = {
+        bg_color = "#1e1e2e",
+        fg_color = "#a6adc8",
+      },
+    },
   },
+
   window_background_opacity = 0.80,
   xcursor_theme = "Catppuccin-Mocha-Dark-Cursors",
 
@@ -51,7 +50,6 @@ return {
   font_size = 10.0,
   line_height = 0.9,
 
-  enable_tab_bar = false,
   window_close_confirmation = "NeverPrompt",
   audible_bell = "Disabled",
   hide_mouse_cursor_when_typing = false,
@@ -64,3 +62,7 @@ return {
     bottom = 0,
   },
 }
+
+bindings.apply_to_config(weztermCfg)
+
+return weztermCfg

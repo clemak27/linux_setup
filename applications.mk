@@ -34,6 +34,7 @@ wezterm:
 		org.wezfurlong.wezterm
 	mkdir -p $$HOME/.config/wezterm
 	ln -sf $$PWD/dotfiles/wezterm/wezterm.lua $$HOME/.config/wezterm/wezterm.lua
+	ln -sf $$PWD/dotfiles/wezterm/bindings.lua $$HOME/.config/wezterm/bindings.lua
 
 .PHONY: podman
 podman:
