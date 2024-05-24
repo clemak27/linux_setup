@@ -4,7 +4,7 @@ DOTFILES=$$PWD/dotfiles
 CONFIG=$$HOME/.config
 
 .PHONY: dotfiles
-dotfiles: dotfiles/dev dotfiles/git dotfiles/nvim dotfiles/tools dotfiles/k8s dotfiles/zellij dotfiles/zsh dotfiles/todo
+dotfiles: dotfiles/dev dotfiles/git dotfiles/nvim dotfiles/tools dotfiles/k8s dotfiles/zsh dotfiles/todo
 
 .PHONY: dotfiles/dev
 dotfiles/dev:
@@ -55,15 +55,6 @@ dotfiles/todo:
 .PHONY: dotfiles/k8s
 dotfiles/k8s:
 	go install github.com/hidetatz/kubecolor/cmd/kubecolor@latest
-
-.PHONY: dotfiles/zellij
-dotfiles/zellij:
-	mkdir -p "$(CONFIG)/zellij/layouts"
-	ln -sf "$(DOTFILES)/zellij/config.kdl" "$(CONFIG)/zellij/config.kdl"
-	ln -sf "$(DOTFILES)/zellij/custom.kdl" "$(CONFIG)/zellij/layouts/custom.kdl"
-	ln -sf "$(DOTFILES)/zellij/dev.kdl" "$(CONFIG)/zellij/layouts/dev.kdl"
-	ln -sf "$(DOTFILES)/zellij/notes.kdl" "$(CONFIG)/zellij/layouts/notes.kdl"
-	curl -L --silent -o "$(CONFIG)/zellij/zjstatus.wasm" https://github.com/dj95/zjstatus/releases/download/v0.14.0/zjstatus.wasm
 
 .PHONY: dotfiles/zsh
 dotfiles/zsh:
