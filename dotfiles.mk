@@ -46,6 +46,7 @@ dotfiles/tools:
 	ln -sf "$(DOTFILES)/tools/ranger.rc" "$(CONFIG)/ranger/rc.conf"
 	[[ -d $$HOME/.config/ranger/plugins/ranger_devicons ]] || git clone https://github.com/alexanderjeurissen/ranger_devicons.git $$HOME/.config/ranger/plugins/ranger_devicons
 	go install github.com/sachaos/viddy@latest
+	ln -sf "$(DOTFILES)/tools/cdp" "$$HOME/.local/bin/cdp"
 
 .PHONY: dotfiles/todo
 dotfiles/todo:
@@ -63,7 +64,6 @@ dotfiles/zellij:
 	ln -sf "$(DOTFILES)/zellij/dev.kdl" "$(CONFIG)/zellij/layouts/dev.kdl"
 	ln -sf "$(DOTFILES)/zellij/notes.kdl" "$(CONFIG)/zellij/layouts/notes.kdl"
 	curl -L --silent -o "$(CONFIG)/zellij/zjstatus.wasm" https://github.com/dj95/zjstatus/releases/download/v0.14.0/zjstatus.wasm
-	ln -sf "$(DOTFILES)/zellij/cdp" "$$HOME/.local/bin/cdp"
 
 .PHONY: dotfiles/zsh
 dotfiles/zsh:
