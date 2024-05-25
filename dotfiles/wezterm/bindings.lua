@@ -107,13 +107,14 @@ function module.apply_to_config(config)
           end),
         }),
       },
-
+      { key = "x", action = act.CloseCurrentTab({ confirm = false }) },
       { key = "Escape", action = "PopKeyTable" },
     },
     pane_mode = {
       { key = "r", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
       { key = "d", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-      { key = "z", action = act.TogglePaneZoomState },
+      { key = "f", action = act.TogglePaneZoomState },
+      { key = "x", action = act.CloseCurrentPane({ confirm = false }) },
       { key = "Escape", action = "PopKeyTable" },
     },
     resize_mode = {
