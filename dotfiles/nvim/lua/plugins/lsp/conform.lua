@@ -27,6 +27,7 @@ return {
           nix = { "nixpkgs_fmt" },
           go = { "goimports", "gofumpt" },
           sh = { "shfmt" },
+          python = { "black" },
         },
       })
     end,

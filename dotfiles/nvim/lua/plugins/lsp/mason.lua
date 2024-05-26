@@ -65,6 +65,10 @@ return {
 
           -- rust
           "rust-analyzer",
+
+          -- python
+          "jedi-language-server",
+          "black",
         },
       })
     end,
