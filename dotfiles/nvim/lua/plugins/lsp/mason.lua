@@ -49,6 +49,7 @@ return {
           "goimports",
           "golangci-lint",
           "golangci-lint-langserver",
+          "gomodifytags",
           "gopls",
 
           -- java

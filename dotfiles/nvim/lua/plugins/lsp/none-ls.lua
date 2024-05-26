@@ -22,6 +22,8 @@ return {
       null_ls.setup({
         border = border,
         sources = {
+          null_ls.builtins.code_actions.gomodifytags,
+
           null_ls.builtins.diagnostics.hadolint,
           null_ls.builtins.diagnostics.markdownlint,
           null_ls.builtins.diagnostics.yamllint,
