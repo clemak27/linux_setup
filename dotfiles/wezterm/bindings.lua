@@ -115,6 +115,7 @@ function module.apply_to_config(config)
       { key = "d", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
       { key = "f", action = act.TogglePaneZoomState },
       { key = "x", action = act.CloseCurrentPane({ confirm = false }) },
+      { key = "c", action = act.ClearScrollback("ScrollbackAndViewport") },
       { key = "Escape", action = "PopKeyTable" },
     },
     resize_mode = {
