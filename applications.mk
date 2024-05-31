@@ -24,7 +24,7 @@ firefox:
 		org.freedesktop.Platform.ffmpeg-full \
 		org.mozilla.firefox
 	flatpak override --user --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
-	echo 'flatpak run org.mozilla.firefox "$@"' > "$$HOME/.local/bin/firefox"
+	echo 'flatpak run org.mozilla.firefox "$$@"' > "$$HOME/.local/bin/firefox"
 	chmod +x "$$HOME/.local/bin/firefox"
 
 .PHONY: wezterm
@@ -35,7 +35,8 @@ wezterm:
 	mkdir -p $$HOME/.config/wezterm
 	ln -sf $$PWD/dotfiles/wezterm/wezterm.lua $$HOME/.config/wezterm/wezterm.lua
 	ln -sf $$PWD/dotfiles/wezterm/bindings.lua $$HOME/.config/wezterm/bindings.lua
-	echo 'flatpak run org.wezfurlong.wezterm "$@"' > "$$HOME/.local/bin/wezterm"
+	echo 'flatpak run org.wezfurlong.wezterm "$$@"' > "$$HOME/.local/bin/wezterm"
+	chmod +x "$$HOME/.local/bin/wezterm"
 
 .PHONY: podman
 podman:
@@ -83,7 +84,7 @@ applications/mpv:
 	flatpak install -y flathub io.mpv.Mpv
 	mkdir -p $$HOME/.local/bin $$HOME/.local/share/applications $$HOME/.local/share/fonts
 	ln -sf $$PWD/dotfiles/mpv/mpv.conf $$HOME/.var/app/io.mpv.Mpv/config/mpv/mpv.conf
-	echo 'flatpak run io.mpv.Mpv "$@"' > "$$HOME/.local/bin/mpv"
+	echo 'flatpak run io.mpv.Mpv "$$@"' > "$$HOME/.local/bin/mpv"
 	chmod +x "$$HOME/.local/bin/mpv"
 	curl -L --url https://raw.githubusercontent.com/cyl0/ModernX/main/modernx.lua -o $$HOME/.var/app/io.mpv.Mpv/config/mpv/scripts/modernx.lua
 	curl -L --url https://github.com/zavoloklom/material-design-iconic-font/releases/download/2.2.0/material-design-iconic-font.zip -o tmp/md_icons.zip
