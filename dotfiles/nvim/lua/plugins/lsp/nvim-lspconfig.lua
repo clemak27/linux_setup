@@ -12,7 +12,16 @@ return {
         end,
       },
       "barreiroleo/ltex_extra.nvim",
-      "folke/neodev.nvim",
+      {
+        "folke/lazydev.nvim",
+        ft = "lua",
+        opts = {
+          library = {
+            vim.env.LAZY .. "/luvit-meta/library",
+          },
+        },
+      },
+      { "Bilal2453/luvit-meta", lazy = true },
     },
     config = function()
       local set_border = function()
@@ -124,7 +133,6 @@ return {
           end
 
           if server == "lua_ls" then
-            require("neodev").setup()
             config.cmd = { "lua-language-server" }
             config.settings = {
               Lua = {
