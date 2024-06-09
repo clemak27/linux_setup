@@ -97,6 +97,7 @@ applications/games: applications/dsda
 		com.valvesoftware.Steam \
 		dev.vencord.Vesktop \
 		io.github.Foldex.AdwSteamGtk \
+		net.lutris.Lutris \
 		org.freedesktop.Platform.VulkanLayer.MangoHud \
 		org.freedesktop.Platform.VulkanLayer.gamescope \
 		org.freedesktop.Platform.ffmpeg-full \
