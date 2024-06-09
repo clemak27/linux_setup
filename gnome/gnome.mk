@@ -17,6 +17,7 @@ gnome/applications:
 		evolution
 	flatpak install -y flathub \
 		com.github.tchx84.Flatseal \
+		org.gnome.Evince \
 		org.gnome.Loupe \
 		org.gnome.Weather \
 		org.gnome.Calendar
