@@ -111,3 +111,10 @@ applications/games: applications/dsda
 .PHONY: applications/dsda
 applications/dsda:
 	distrobox assemble create --name dsda --replace
+
+.PHONY: applications/music
+applications/music:
+	flatpak install -y flathub \
+		org.ardour.Ardour \
+		org.freedesktop.LinuxAudio.Plugins.Surge-XT \
+		org.guitarix.Guitarix
