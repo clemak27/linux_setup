@@ -19,6 +19,15 @@ return {
         yaml = { "yamllint" },
       }
 
+      local gradleRoot = vim.fs.root(0, "build.gradle")
+      if gradleRoot ~= nil then
+        local checkstyleCfg = gradleRoot .. "/config/checkstyle/checkstyle.xml"
+        if vim.fs.find(checkstyleCfg, {}) then
+          require("lint").linters.checkstyle.args = { "-c", checkstyleCfg }
+          require("lint").linters_by_ft.java = { "checkstyle" }
+        end
+      end
+
       vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "TextChanged" }, {
         callback = function()
           require("lint").try_lint()
