@@ -2,9 +2,6 @@ local wezterm = require("wezterm")
 local bindings = require("bindings")
 
 local weztermCfg = {
-  default_prog = { "/usr/bin/distrobox-enter", "-n", "main" },
-  default_cwd = "/var/home/clemens",
-
   -- leads to weirdly bold font
   -- front_end = "WebGpu",
   enable_wayland = true,
@@ -39,7 +36,7 @@ local weztermCfg = {
   },
 
   window_background_opacity = 0.80,
-  xcursor_theme = "Catppuccin-Mocha-Dark-Cursors",
+  xcursor_theme = "catppuccin-mocha-dark-cursors",
 
   font = wezterm.font_with_fallback({
     "JetbrainsMono Nerd Font",
