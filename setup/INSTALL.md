@@ -11,18 +11,23 @@
 ### NixOS install
 
 - boot from live USB
-- checkout repo: `git clone https://github.com/clemak27/linux_setup`
+- Open a terminal and checkout the repo:
+  `git clone https://github.com/clemak27/linux_setup`
 - `cd linux_setup/setup`
-- update `setup_nixos.sh` with the device where nix should be installed (check
+- update `setup_disc.sh` with the device where nix should be installed (check
   with `lsblk`)
-- run `sudo ./setup_nixos.sh`
-- install it with `sudo nixos-install`
-- reboot into new system
+- run `sudo ./setup_disc.sh`
+- update the config of the host in the repo with the generated
+  `/mnt/etc/nixos/hardware-configuration.nix` and the `deviceUUID` of the root
+  partition in `configuration.nix`.
+- Install NixOS with
+  `sudo nixos-install --root /mnt --flake .#<hostname> --impure`
+- reboot
 
 ### Configuring the system
 
 - login as normal user
-- checkout repo: (if there is a backed up ssh key, use it to clone with ssh)
+- checkout the repo: (if there is a backed up ssh key, use it to clone with ssh)
 
   ```sh
   mkdir -p ~/Projects
@@ -31,21 +36,9 @@
   git submodule update --remote --rebase
   ```
 
-- run the next script:
-- `cd linux_setup/setup`
-- run `./setup_system.sh`
-- `cd ..`
-- edit the config:
-  - copy the device uuid from the init config to the actual one
-  - set the swapfile and mounting options according to [btrfs config](#btrfs
-    config)
-- run
-
-```sh
-sudo nixos-rebuild boot --flake .
-```
-
-- reboot
+- update the config of the host in the repo again with the generated
+  `/mnt/etc/nixos/hardware-configuration.nix` and the `deviceUUID` of the root
+  partition in `configuration.nix`.
 
 ## Notes
 
@@ -85,4 +78,5 @@ The files where WireGuard reads the keys from needs to be created manually.
 
 1. The files should have no line ending. If you insert the keys with vim, use
    `:set nofixeol noeol`, to prevent adding a newline when saving.
-2. The file should be updated to have `400` (read only) permission after creating them.
+2. The file should be updated to have `400` (read only) permission after
+   creating them.
