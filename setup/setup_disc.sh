@@ -6,7 +6,6 @@
 
 device="/dev/vda"
 passphrase="abcd"
-hostname="virtual"
 
 # ------------------------------------- functions ----------------------------------
 
@@ -63,7 +62,7 @@ mount -o subvol=swap $unencryptedRoot /mnt/swap
 # Create the swap file with copy-on-write and compression disabled:
 truncate -s 0 /mnt/swap/swapfile
 chattr +C /mnt/swap/swapfile
-btrfs property set /mnt/swap/swapfile compression none
+btrfs property set /mnt/swap compression none
 dd if=/dev/zero of=/mnt/swap/swapfile bs=1M count=$swapSize
 chmod 0600 /mnt/swap/swapfile
 mkswap /mnt/swap/swapfile
@@ -77,55 +76,4 @@ nixos-generate-config --root /mnt
 
 deviceUUID=$(lsblk --fs | grep "crypto_LUKS" | awk '{print $4}')
 
-# overwrite the configuration.nix
-cat << 'EOF' > /mnt/etc/nixos/configuration.nix
-{ config, pkgs, ... }:
-{
-  imports = [
-    ./hardware-configuration.nix
-  ];
-
-  users.users.clemens = {
-    isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
-    password = "1234";
-  };
-
-  environment.systemPackages = with pkgs; [
-    zsh
-    vim
-    wget
-    curl
-    w3m
-    git
-    parted
-  ];
-
-  networking.networkmanager.enable = true;
-  system.stateVersion = "24.05";
-
-  time.timeZone = "Europe/Vienna";
-  i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    keyMap = "de";
-  };
-
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.efiSupport = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.luks.devices.luksroot = {
-    preLVM = true;
-    allowDiscards = true;
-EOF
-{
-  echo "    device = \"/dev/disk/by-uuid/$deviceUUID\";"
-  echo "  };"
-  echo "  networking.hostName = \"$hostname\";"
-  echo "}"
-} >> /mnt/etc/nixos/configuration.nix
-
-nixos-install
-shutdown -r 0
+echo "uuid of device: $deviceUUID"
