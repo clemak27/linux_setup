@@ -23,6 +23,8 @@
   boot.initrd.systemd.enable = true;
   security.tpm2.enable = true;
 
+  services.fwupd.enable = true;
+
   networking.networkmanager.enable = true;
   networking.useDHCP = false;
 
