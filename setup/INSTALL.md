@@ -10,24 +10,26 @@
 
 ### NixOS install
 
-- boot from live USB
+- Disable Secure Boot
+- Boot from live USB
 - Open a terminal and checkout the repo:
   `git clone https://github.com/clemak27/linux_setup`
 - `cd linux_setup/setup`
-- update `setup_disc.sh` with the device where nix should be installed (check
+- Update `setup_disc.sh` with the device where nix should be installed (check
   with `lsblk`)
-- run `sudo ./setup_disc.sh`
-- update the config of the host in the repo with the generated
+- Run `sudo ./setup_disc.sh`
+- Update the config of the host in the repo with the generated
   `/mnt/etc/nixos/hardware-configuration.nix` and the `deviceUUID` of the root
   partition in `configuration.nix`.
+- Make sure the `nixosConfiguration` does not include `secureboot.nix`
 - Install NixOS with
   `sudo nixos-install --root /mnt --flake .#<hostname> --impure`
-- reboot
+- Reboot
 
 ### Configuring the system
 
-- login as normal user
-- checkout the repo: (if there is a backed up ssh key, use it to clone with ssh)
+- Login as normal user
+- Checkout the repo: (if there is a backed up ssh key, use it to clone with ssh)
 
   ```sh
   mkdir -p ~/Projects
@@ -36,7 +38,7 @@
   git submodule update --remote --rebase
   ```
 
-- update the config of the host in the repo again with the generated
+- Update the config of the host in the repo again with the generated
   `/mnt/etc/nixos/hardware-configuration.nix` and the `deviceUUID` of the root
   partition in `configuration.nix`.
 
@@ -80,3 +82,22 @@ The files where WireGuard reads the keys from needs to be created manually.
    `:set nofixeol noeol`, to prevent adding a newline when saving.
 2. The file should be updated to have `400` (read only) permission after
    creating them.
+
+### TPM
+
+Based on
+[this guide](https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md).
+
+- After installing, TPM should be set up correctly
+- Check if Secure Boot is disabled and TPM enabled: `bootctl status`
+- Create keys with `sudo sbctl create-keys`
+- Add `secureboot.nix` to the list of modules for the `nixosConfiguration`
+- Rebuild the system and check the status: `sudo sbctl verify`
+- Reboot into BIOS and enable Secure Boot, it should be in Setup Mode (delete
+  the Platform key for this if there is no option, or delete everything if it
+  doesn't work).
+- Enrol the keys in Secure Boot: `sudo sbctl enroll-keys --microsoft`
+- After another reboot, Secure Boot should be enabled, check with
+  `bootctl status`.
+- Enable automatic unlocking with
+  `sudo systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=0+7 /dev/<encrypted disk>`

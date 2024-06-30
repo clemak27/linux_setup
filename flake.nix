@@ -15,9 +15,14 @@
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, nix-index-database }:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, nix-index-database, lanzaboote }:
     let
       legacyPkgs = nixpkgs.legacyPackages.x86_64-linux;
       overlay-stable = final: prev: {
@@ -54,6 +59,7 @@
       };
       defaultModules = [
         nixModule
+        lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
 
         ./modules/gnome
@@ -71,6 +77,7 @@
         system = "x86_64-linux";
         modules = defaultModules ++ [
           ./hosts/maxwell/configuration.nix
+          ./modules/secureboot.nix
         ];
       };
 
