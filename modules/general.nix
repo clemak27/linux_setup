@@ -20,6 +20,9 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.initrd.systemd.enable = true;
+  security.tpm2.enable = true;
+
   networking.networkmanager.enable = true;
   networking.useDHCP = false;
 
