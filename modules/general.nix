@@ -15,9 +15,8 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.efiSupport = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.editor = false;
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.systemd.enable = true;
