@@ -20,9 +20,14 @@
       url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-23.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, nix-index-database, lanzaboote }:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, nix-index-database, lanzaboote, nix-on-droid }:
     let
       legacyPkgs = nixpkgs.legacyPackages.x86_64-linux;
       overlay-stable = final: prev: {
@@ -87,6 +92,42 @@
       #     ./hosts/silfur/configuration.nix
       #   ];
       # };
+
+      nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+        system = "aarch64-linux";
+        modules = [
+          ({ config, lib, pkgs, ... }: {
+            environment.packages = with pkgs; [
+              vim
+              wget
+              curl
+              git
+              zsh
+            ];
+            system.stateVersion = "23.11";
+
+            nix = {
+              extraOptions = ''
+                experimental-features = nix-command flakes
+              '';
+            };
+
+
+            time.timeZone = "Europe/Vienna";
+
+            home-manager = {
+              useGlobalPkgs = true;
+
+              config =
+                { config, lib, pkgs, ... }:
+                {
+                  # Read the changelog before changing this value
+                  home.stateVersion = "23.11";
+                };
+            };
+          })
+        ];
+      };
 
       homeConfigurations = {
         deck = home-manager.lib.homeManagerConfiguration {
