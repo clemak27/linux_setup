@@ -16,36 +16,37 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/85cd4901-2920-4d9e-b88f-07403408765b";
+      device = "/dev/disk/by-uuid/e8142b28-b057-4866-9720-b9ccea072159";
       fsType = "btrfs";
       options = [ "subvol=root" ];
     };
 
   fileSystems."/home" =
     {
-      device = "/dev/disk/by-uuid/85cd4901-2920-4d9e-b88f-07403408765b";
+      device = "/dev/disk/by-uuid/e8142b28-b057-4866-9720-b9ccea072159";
       fsType = "btrfs";
       options = [ "subvol=home" ];
     };
 
   fileSystems."/nix" =
     {
-      device = "/dev/disk/by-uuid/85cd4901-2920-4d9e-b88f-07403408765b";
+      device = "/dev/disk/by-uuid/e8142b28-b057-4866-9720-b9ccea072159";
       fsType = "btrfs";
       options = [ "subvol=nix" ];
     };
 
   fileSystems."/swap" =
     {
-      device = "/dev/disk/by-uuid/85cd4901-2920-4d9e-b88f-07403408765b";
+      device = "/dev/disk/by-uuid/e8142b28-b057-4866-9720-b9ccea072159";
       fsType = "btrfs";
       options = [ "subvol=swap" ];
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/8497-CF6E";
+      device = "/dev/disk/by-uuid/23B0-3F67";
       fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
   swapDevices = [{ device = "/swap/swapfile"; }];
@@ -55,9 +56,9 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp0s20f0u2.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp59s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
