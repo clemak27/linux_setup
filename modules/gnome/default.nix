@@ -6,15 +6,15 @@
   services.xserver.desktopManager.gnome.enable = true;
   environment.gnome.excludePackages = with pkgs; [
     gnome.gnome-music
-    gnome.gnome-terminal
+    gnome-terminal
     epiphany
-    gnome.totem
+    totem
     gnome-tour
-    gnome.geary
+    geary
   ];
 
   environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
+    gnome-tweaks
     evolution
     libnotify
 
