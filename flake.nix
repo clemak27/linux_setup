@@ -81,12 +81,13 @@
         ];
       };
 
-      # nixosConfigurations.silfur = nixpkgs.lib.nixosSystem {
-      #   system = "x86_64-linux";
-      #   modules = defaultModules ++ [
-      #     ./hosts/silfur/configuration.nix
-      #   ];
-      # };
+      nixosConfigurations.newton = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = defaultModules ++ [
+          ./hosts/newton/configuration.nix
+          ./modules/secureboot.nix
+        ];
+      };
 
       homeConfigurations = {
         deck = home-manager.lib.homeManagerConfiguration {

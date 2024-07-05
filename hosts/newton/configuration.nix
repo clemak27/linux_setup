@@ -12,10 +12,13 @@
   networking.hostName = "newton";
 
   boot.initrd.luks.devices.luksroot = {
-    device = "/dev/disk/by-uuid/44ef95bc-238e-419c-8ffe-bcb7088da0f7";
+    device = "/dev/disk/by-uuid/ebc5b301-9320-496f-866f-6b808d6beba2";
     preLVM = true;
     allowDiscards = true;
   };
+
+  # Configure keymap in X11
+  services.xserver.xkb.layout = "de";
 
   system.stateVersion = "24.05";
 }
