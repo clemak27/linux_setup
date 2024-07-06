@@ -1,10 +1,16 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+let
+  nixDsda = pkgs.writeShellScriptBin "dsda-doom" ''
+    ${pkgs.nixgl.nixGLDefault}/bin/nixGL ${pkgs.dsda-doom}/bin/dsda-doom "$@"
+  '';
+in
+{
   home = {
     username = "deck";
     homeDirectory = "/home/deck";
     stateVersion = "24.05";
     packages = [
-      pkgs.dsda-doom
+      nixDsda
     ];
   };
   news.display = "silent";
@@ -17,7 +23,7 @@
   programs.zsh = {
     shellAliases = builtins.listToAttrs (
       [
-        { name = "hms"; value = "git -C /home/deck/Projects/linux_setup pull --rebase && home-manager switch --flake /home/deck/Projects/linux_setup"; }
+        { name = "hms"; value = "git -C /home/deck/Projects/linux_setup pull --rebase && home-manager switch --flake /home/deck/Projects/linux_setup --impure"; }
       ]
     );
 
