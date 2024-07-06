@@ -1,4 +1,4 @@
-({ config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
   jetBrainsMono = pkgs.fetchzip {
     url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip";
@@ -142,4 +142,4 @@ in
         ];
       };
   };
-})
+}
