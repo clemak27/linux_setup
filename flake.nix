@@ -25,20 +25,24 @@
       url = "github:nix-community/nix-on-droid/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, nix-index-database, lanzaboote, nix-on-droid }:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, nix-index-database, lanzaboote, nix-on-droid, nixgl }:
     let
       legacyPkgs = nixpkgs.legacyPackages.x86_64-linux;
       overlay-stable = final: prev: {
         stable = nixpkgs-stable.legacyPackages.x86_64-linux;
       };
-      # overlay-customPkgs = final: prev: {
-      #   tdtPkgs = tdt.packages.x86_64-linux;
-      #   czb = custom-zellij-bar.packages.x86_64-linux;
-      # };
+      overlay-customPkgs = final: prev: {
+        nixgl = nixgl.defaultPackage.x86_64-linux;
+      };
       nixModule = ({ config, pkgs, ... }: {
-        nixpkgs.overlays = [ overlay-stable ];
+        nixpkgs.overlays = [ overlay-stable overlay-customPkgs ];
         nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
         nixpkgs.config = {
           allowUnfree = true;
