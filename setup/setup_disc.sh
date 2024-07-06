@@ -6,6 +6,7 @@
 
 device="/dev/vda"
 passphrase="abcd"
+hostname="virtual"
 
 # ------------------------------------- functions ----------------------------------
 
@@ -73,6 +74,7 @@ mount $bootPartition /mnt/boot
 
 # Generate the NixOS config
 nixos-generate-config --root /mnt
+cat /mnt/etc/nixos/hardware-configuration.nix > "../hosts/$hostname/hardware-configuration.nix"
 
 deviceUUID=$(lsblk --fs | grep "crypto_LUKS" | awk '{print $4}')
 
