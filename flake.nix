@@ -62,7 +62,7 @@
           nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
         };
       };
-      defaultModules = [
+      desktopModules = [
         nixModule
         lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
@@ -71,6 +71,7 @@
         ./modules/gaming.nix
         ./modules/general.nix
         ./modules/pipewire.nix
+        ./modules/secureboot.nix
         ./modules/ssh.nix
         ./modules/virt-manager.nix
 
@@ -80,17 +81,15 @@
     {
       nixosConfigurations.maxwell = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = defaultModules ++ [
+        modules = desktopModules ++ [
           ./hosts/maxwell/configuration.nix
-          ./modules/secureboot.nix
         ];
       };
 
       nixosConfigurations.newton = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = defaultModules ++ [
+        modules = desktopModules ++ [
           ./hosts/newton/configuration.nix
-          ./modules/secureboot.nix
         ];
       };
 
@@ -101,16 +100,14 @@
         ];
       };
 
-      homeConfigurations = {
-        deck = home-manager.lib.homeManagerConfiguration {
-          pkgs = legacyPkgs;
-          modules = [
-            nixModule
-            homecfg.hmModules.homecfg
-            nix-index-database.hmModules.nix-index
-            ./hosts/fermi/configuration.nix
-          ];
-        };
+      homeConfigurations.deck = home-manager.lib.homeManagerConfiguration {
+        pkgs = legacyPkgs;
+        modules = [
+          nixModule
+          homecfg.hmModules.homecfg
+          nix-index-database.hmModules.nix-index
+          ./hosts/fermi/configuration.nix
+        ];
       };
 
       devShell.x86_64-linux =
