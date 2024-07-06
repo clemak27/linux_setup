@@ -28,8 +28,8 @@ in
   #   Option "metamodes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
   # '';
   boot.kernelParams = [ "nvidia-drm.modeset=1" ];
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport32Bit = true;
+  hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
   hardware.pulseaudio.support32Bit = true;
 
   environment.systemPackages = [ prime-run ];
