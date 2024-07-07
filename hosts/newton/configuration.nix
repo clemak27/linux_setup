@@ -6,7 +6,6 @@
     ./wireguard.nix
 
     ./gpu.nix
-    ./laptop.nix
   ];
 
   networking.hostName = "newton";
@@ -19,6 +18,9 @@
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "de";
+
+  services.libinput.enable = true;
+  hardware.xone.enable = true;
 
   system.stateVersion = "24.05";
 }
