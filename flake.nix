@@ -9,6 +9,8 @@
     };
     homecfg = {
       url = "github:clemak27/homecfg";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
 
     nix-index-database = {
