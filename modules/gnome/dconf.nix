@@ -98,6 +98,7 @@ with lib.hm.gvariant;
       disable-user-extensions = false;
       disabled-extensions = [ ];
       enabled-extensions = [ "blur-my-shell@aunetx" "appindicatorsupport@rgcjonas.gmail.com" "gsconnect@andyholmes.github.io" "user-theme@gnome-shell-extensions.gcampax.github.com" "unite@hardpixel.eu" "pip-on-top@rafostar.github.com" "panelScroll@sun.wxg@gmail.com" ];
+      favorite-apps = [ "org.gnome.Nautilus.desktop" "firefox.desktop" "org.wezfurlong.wezterm.desktop" "feishin.desktop" ];
     };
 
     "org/gnome/shell/extensions/blur-my-shell" = {
