@@ -7,7 +7,6 @@ if [ "$path" != "" ]; then
   if [[ -n $WEZTERM_PANE ]]; then
     new_pane=$(wezterm cli spawn --cwd "$path")
     wezterm cli set-tab-title "$pname" --pane-id "$new_pane"
-    wezterm cli split-pane --pane-id "$new_pane" --bottom --cells 18 --cwd "$path"
     wezterm cli activate-pane --pane-id "$new_pane"
     printf "nvim\n" | wezterm cli send-text --pane-id "$new_pane" --no-paste
   else
