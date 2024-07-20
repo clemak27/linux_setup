@@ -46,6 +46,7 @@ in
   home.file.".local/bin/cdp".source = ../dotfiles/wezterm/cdp;
 
   home.packages = [
+    pkgs.calibre
     pkgs.feishin
     pkgs.gimp
     pkgs.helvum
