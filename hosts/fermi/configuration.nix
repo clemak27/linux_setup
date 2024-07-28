@@ -1,8 +1,12 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 let
-  nixDsda = pkgs.writeShellScriptBin "dsda-doom" ''
-    ${pkgs.nixgl.nixGLDefault}/bin/nixGL ${pkgs.dsda-doom}/bin/dsda-doom "$@"
-  '';
+  nixDsda = pkgs.writeShellApplication {
+    name = "dsda-doom";
+    runtimeInputs = with pkgs; [ nixgl.nixGLDefault dsda-doom ];
+    text = ''
+      nixGL dsda-doom "$@"
+    '';
+  };
 in
 {
   home = {
