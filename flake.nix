@@ -102,7 +102,7 @@
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
         system = "aarch64-linux";
         modules = [
-          ./hosts/enchilada/configuration.nix
+          ./hosts/planck/configuration.nix
         ];
       };
 

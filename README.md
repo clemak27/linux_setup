@@ -14,8 +14,8 @@ This repo contains my dotfiles, Nix-config and setup for my Linux devices:
   - Runs NixOS
 - `fermi`: Steam Deck
   - Runs SteamOS + home-manager
-- `echilada`: Oneplus 6
-  - Runs LineageOS + nix-on-droid
+- `planck`: Pixel 8 Pro
+  - Runs GrapheneOS + nix-on-droid
 
 This is for my own usage and preferences, but you are of course free to use it
 as inspiration.
