@@ -2,8 +2,9 @@ local wezterm = require("wezterm")
 local bindings = require("bindings")
 
 local weztermCfg = {
-  -- leads to weirdly bold font
-  -- front_end = "WebGpu",
+  -- WebGpu leads to weirdly bold font
+  -- needed as workaround for https://github.com/wez/wezterm/issues/5990
+  front_end = "WebGpu",
   enable_wayland = true,
 
   color_scheme = "Catppuccin Mocha",
