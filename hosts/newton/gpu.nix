@@ -13,6 +13,8 @@ let
   };
 in
 {
+  # https://github.com/NixOS/nixpkgs/pull/337289
+  hardware.nvidia.open = true;
   # add novideo driver with prime :(
   nixpkgs.config.allowUnfree = true;
   services.xserver.videoDrivers = [ "nvidia" ];
