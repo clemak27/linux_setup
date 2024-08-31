@@ -5,7 +5,7 @@
   services.xserver.displayManager.gdm.wayland = true;
   services.xserver.desktopManager.gnome.enable = true;
   environment.gnome.excludePackages = with pkgs; [
-    gnome.gnome-music
+    gnome-music
     gnome-terminal
     epiphany
     totem
