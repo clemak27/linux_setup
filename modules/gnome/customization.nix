@@ -45,7 +45,6 @@ in
       source =
         pkgs.fetchzip {
           url = "https://github.com/catppuccin/gtk/releases/download/v1.0.3/catppuccin-mocha-blue-standard+default.zip";
-          # hash = "sha256-QJ68fQG8beGtcn/6UTMQJHnjkMuBu3Iuw428B8o1RXY=";
           hash = "sha256-AtYLGiez+Hm36KO788aS6FwSOzOkvuNKflDepACsL+o=";
           stripRoot = false;
         };

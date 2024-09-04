@@ -35,6 +35,8 @@ in
 
   services.syncthing.enable = true;
 
+  programs.firefox.enable = true;
+
   programs.mpv.enable = true;
   xdg.configFile."mpv/mpv.conf".source = ../dotfiles/mpv/mpv.conf;
   xdg.configFile."mpv/scripts/modernx.lua".source = "${mpvUI}";
@@ -45,26 +47,24 @@ in
   xdg.configFile."wezterm/bindings.lua".source = ../dotfiles/wezterm/bindings.lua;
   home.file.".local/bin/cdp".source = ../dotfiles/wezterm/cdp;
 
-  home.packages = [
-    pkgs.calibre
-    pkgs.feishin
-    pkgs.gimp
-    pkgs.helvum
-    pkgs.kid3
-    pkgs.libreoffice
-    pkgs.signal-desktop
-    pkgs.vesktop
+  home.packages = with pkgs; [
+    calibre
+    feishin
+    gimp
+    helvum
+    kid3
+    libreoffice
+    signal-desktop
+    vesktop
 
-    pkgs.wl-clipboard
-    pkgs.wl-clipboard-x11
+    wl-clipboard
+    wl-clipboard-x11
 
-    pkgs.scrcpy
-    pkgs.unrar
-    pkgs.yt-dlp
-    pkgs.ytfzf
+    scrcpy
+    unrar
+    yt-dlp
+    ytfzf
   ];
-
-  programs.firefox.enable = true;
 
   programs.zsh = {
     shellAliases = builtins.listToAttrs (
