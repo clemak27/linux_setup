@@ -2,8 +2,6 @@ local wezterm = require("wezterm")
 local bindings = require("bindings")
 
 local weztermCfg = {
-  -- WebGpu leads to weirdly bold font
-  -- needed as workaround for https://github.com/wez/wezterm/issues/5990
   front_end = "WebGpu",
   enable_wayland = true,
 
@@ -40,7 +38,7 @@ local weztermCfg = {
   xcursor_theme = "catppuccin-mocha-dark-cursors",
 
   font = wezterm.font_with_fallback({
-    "JetbrainsMono Nerd Font",
+    { family = "JetBrainsMono Nerd Font", weight = "Light" },
     "Noto Color Emoji",
   }),
   harfbuzz_features = { "calt=0", "clig=0", "liga=0" }, -- disable ligatures
