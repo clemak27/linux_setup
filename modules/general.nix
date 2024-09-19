@@ -24,6 +24,7 @@
   security.tpm2.enable = true;
 
   services.fwupd.enable = true;
+  hardware.enableRedistributableFirmware = true;
 
   networking.networkmanager.enable = true;
   networking.useDHCP = false;
