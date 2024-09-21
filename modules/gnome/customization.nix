@@ -51,6 +51,9 @@ in
       recursive = true;
     };
 
-    xdg.configFile."presets/user/catppuccin-mocha-46.json".source = ./catppuccin-mocha-46.json;
+    xdg.configFile = {
+      "gtk-4.0/gtk.css".source = ./gtk.css;
+      "gtk-3.0/gtk.css".source = ./gtk.css;
+    };
   };
 }
