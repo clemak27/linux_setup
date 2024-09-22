@@ -60,6 +60,7 @@ in
     wl-clipboard
     wl-clipboard-x11
 
+    podman-compose
     scrcpy
     unrar
     yt-dlp
