@@ -1,15 +1,4 @@
 { config, pkgs, ... }:
-let
-  mpvUI = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/cyl0/ModernX/main/modernx.lua";
-    hash = "sha256-Vfd6bWu8z7RqB8HzuKctxM9/AHAN7/P4KHQ4IRXGx4Y=";
-  };
-  mpvFont = pkgs.fetchzip {
-    url = "https://github.com/zavoloklom/material-design-iconic-font/releases/download/2.2.0/material-design-iconic-font.zip";
-    hash = "sha256-xYoJjzxnjnCXZES7UVhNsk3T9MazK1KlNFzcTBsWv+M=";
-    stripRoot = false;
-  };
-in
 {
   imports = [
     ./gnome/customization.nix
@@ -39,8 +28,6 @@ in
 
   programs.mpv.enable = true;
   xdg.configFile."mpv/mpv.conf".source = ../dotfiles/mpv/mpv.conf;
-  xdg.configFile."mpv/scripts/modernx.lua".source = "${mpvUI}";
-  home.file.".local/share/fonts/Material-Design-Iconic-Font.ttf".source = config.lib.file.mkOutOfStoreSymlink "${mpvFont}/fonts/Material-Design-Iconic-Font.ttf";
 
   programs.wezterm.enable = true;
   xdg.configFile."wezterm/wezterm.lua".source = ../dotfiles/wezterm/wezterm.lua;
@@ -48,6 +35,8 @@ in
   home.file.".local/bin/cdp".source = ../dotfiles/wezterm/cdp;
 
   home.packages = with pkgs; [
+    wl-clipboard
+
     calibre
     feishin
     gimp
@@ -57,14 +46,10 @@ in
     signal-desktop
     vesktop
 
-    wl-clipboard
-    wl-clipboard-x11
-
     podman-compose
     scrcpy
     unrar
     yt-dlp
-    ytfzf
   ];
 
   programs.zsh = {
