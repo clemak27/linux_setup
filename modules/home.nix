@@ -1,4 +1,64 @@
 { config, pkgs, ... }:
+let
+  newFont = pkgs.iosevka.override {
+    privateBuildPlan = {
+      family = "Iosevka Custom";
+      spacing = "term";
+      serifs = "sans";
+      noCvSs = true;
+      exportGlyphNames = false;
+      noLigation = true;
+
+      variants = {
+        inherits = "ss14";
+        design = {
+          zero = "slashed";
+        };
+      };
+
+      weights = {
+        Light = {
+          shape = 300;
+          menu = 300;
+          css = 300;
+        };
+        Regular = {
+          shape = 400;
+          menu = 400;
+          css = 400;
+        };
+        Medium = {
+          shape = 500;
+          menu = 500;
+          css = 500;
+        };
+        SemiBold = {
+          shape = 600;
+          menu = 600;
+          css = 600;
+        };
+        Bold = {
+          shape = 700;
+          menu = 700;
+          css = 700;
+        };
+      };
+      widths = {
+        Condensed = {
+          shape = 500;
+          menu = 3;
+          css = "condensed";
+        };
+        Normal = {
+          shape = 600;
+          menu = 5;
+          css = "normal";
+        };
+      };
+    };
+    set = "custom";
+  };
+in
 {
   imports = [
     ./gnome/customization.nix
@@ -50,6 +110,8 @@
     scrcpy
     unrar
     yt-dlp
+
+    newFont
   ];
 
   programs.zsh = {

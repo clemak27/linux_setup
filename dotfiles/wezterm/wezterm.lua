@@ -38,6 +38,7 @@ local weztermCfg = {
   xcursor_theme = "catppuccin-mocha-dark-cursors",
 
   font = wezterm.font_with_fallback({
+    "Iosevka Custom",
     { family = "JetBrainsMono Nerd Font", weight = "Light" },
     "Noto Color Emoji",
   }),
