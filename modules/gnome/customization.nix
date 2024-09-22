@@ -22,6 +22,13 @@ in
 
       hydrapaper
       celluloid
+
+      catppuccin-cursors.mochaDark
+      papirus-icon-theme
+      (catppuccin-kvantum.override {
+        accent = "Blue";
+        variant = "Mocha";
+      })
     ];
 
     home.file.".local/share/fonts/JetBrainsMonoNerdFont-Bold.ttf".source = config.lib.file.mkOutOfStoreSymlink "${jetBrainsMono}/JetBrainsMonoNerdFont-Bold.ttf";

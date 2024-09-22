@@ -18,16 +18,8 @@
     evolution
     libnotify
 
-    papirus-icon-theme
-    gradience
     adw-gtk3
-    catppuccin-cursors.mochaDark
-
     libsForQt5.qtstyleplugin-kvantum
-    (catppuccin-kvantum.override {
-      accent = "Blue";
-      variant = "Mocha";
-    })
   ];
 
   environment.sessionVariables.GST_PLUGIN_SYSTEM_PATH_1_0 = lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0" [
