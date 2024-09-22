@@ -59,6 +59,7 @@
 
   networking.firewall.enable = false;
 
+  users.groups.adbusers = { };
   services.udev.packages = [
     pkgs.android-udev-rules
   ];
