@@ -1,3 +1,6 @@
+/* UNITE windowDecorations */
+@import url('/etc/profiles/per-user/clemens/share/gnome-shell/extensions/unite@hardpixel.eu/styles/gtk4/buttons-left/maximized.css');
+/* windowDecorations UNITE */
 @define-color accent_color rgb(116, 199, 236);
 @define-color accent_bg_color rgb(137, 180, 250);
 @define-color accent_fg_color rgb(17, 17, 27);
