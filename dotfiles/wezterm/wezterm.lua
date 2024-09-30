@@ -1,40 +1,47 @@
 local wezterm = require("wezterm")
 local bindings = require("bindings")
 
+local custom_colors = {
+  base = "#1e1e2e",
+  crust = "#11111b",
+  text = "#cdd6f4",
+  subtext0 = "#a6adc8",
+}
+
 local weztermCfg = {
   front_end = "WebGpu",
   enable_wayland = true,
 
   color_scheme = "Catppuccin Mocha",
   colors = {
-    background = "#11111b",
+    background = custom_colors.crust,
     tab_bar = {
-      background = "#11111b",
+      background = custom_colors.crust,
       active_tab = {
-        bg_color = "#1e1e2e",
-        fg_color = "#cdd6f4",
+        bg_color = custom_colors.base,
+        fg_color = custom_colors.text,
         intensity = "Bold",
       },
       inactive_tab = {
-        bg_color = "#11111b",
-        fg_color = "#a6adc8",
+        bg_color = custom_colors.crust,
+        fg_color = custom_colors.subtext0,
       },
       inactive_tab_hover = {
-        bg_color = "#11111b",
-        fg_color = "#a6adc8",
+        bg_color = custom_colors.crust,
+        fg_color = custom_colors.subtext0,
       },
       new_tab = {
-        bg_color = "#1e1e2e",
-        fg_color = "#a6adc8",
+        bg_color = custom_colors.base,
+        fg_color = custom_colors.subtext0,
       },
       new_tab_hover = {
-        bg_color = "#1e1e2e",
-        fg_color = "#a6adc8",
+        bg_color = custom_colors.base,
+        fg_color = custom_colors.subtext0,
       },
     },
   },
 
-  window_background_opacity = 0.80,
+  window_background_opacity = 0.8,
   xcursor_theme = "catppuccin-mocha-dark-cursors",
 
   font = wezterm.font_with_fallback({
