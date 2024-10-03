@@ -1,4 +1,32 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
+let
+  cdp = pkgs.writeShellApplication {
+    name = "cdp";
+    runtimeInputs = with pkgs; [
+      wezterm
+      fd
+      sd
+      fzf
+      gnugrep
+      neovim
+    ];
+    text = /*bash*/ ''
+      path=$(fd --type=d --hidden --no-ignore ".git" --exclude node_modules --exclude tmp --absolute-path "$HOME/Projects" | grep ".git/" | sd "/.git/" "" | fzf)
+      if [ "$path" != "" ]; then
+        pname=$(basename "$path")
+
+        if [[ -n $WEZTERM_PANE ]]; then
+          new_pane=$(wezterm cli spawn --cwd "$path")
+          wezterm cli set-tab-title "$pname" --pane-id "$new_pane"
+          wezterm cli activate-pane --pane-id "$new_pane"
+          printf "nvim\n" | wezterm cli send-text --pane-id "$new_pane" --no-paste
+        else
+          cd "$path" || exit 1
+        fi
+      fi
+    '';
+  };
+in
 {
   imports = [
     ./gnome/customization.nix
@@ -32,9 +60,9 @@
   programs.wezterm.enable = true;
   xdg.configFile."wezterm/wezterm.lua".source = ../dotfiles/wezterm/wezterm.lua;
   xdg.configFile."wezterm/bindings.lua".source = ../dotfiles/wezterm/bindings.lua;
-  home.file.".local/bin/cdp".source = ../dotfiles/wezterm/cdp;
 
   home.packages = with pkgs; [
+    cdp
     wl-clipboard
 
     calibre
