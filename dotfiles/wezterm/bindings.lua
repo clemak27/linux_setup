@@ -36,7 +36,6 @@ wezterm.on("switch-to-left", function(window, pane)
     window:perform_action(wezterm.action.ActivateTabRelative(-1), pane)
   end
 end)
-
 wezterm.on("switch-to-right", function(window, pane)
   local tab = window:mux_window():active_tab()
 
@@ -54,12 +53,6 @@ function module.apply_to_config(config)
   config.use_fancy_tab_bar = false
   config.tab_max_width = 64
   config.show_new_tab_button_in_tab_bar = false
-
-  config.inactive_pane_hsb = {
-    saturation = 1.0,
-    brightness = 1.0,
-  }
-
   config.keys = {
     {
       key = "t",

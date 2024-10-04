@@ -58,8 +58,11 @@ in
   xdg.configFile."mpv/mpv.conf".source = ../dotfiles/mpv/mpv.conf;
 
   programs.wezterm.enable = true;
-  xdg.configFile."wezterm/wezterm.lua".source = ../dotfiles/wezterm/wezterm.lua;
-  xdg.configFile."wezterm/bindings.lua".source = ../dotfiles/wezterm/bindings.lua;
+  xdg.configFile = {
+    "wezterm/bindings.lua".source = ../dotfiles/wezterm/bindings.lua;
+    "wezterm/opacity.lua".source = ../dotfiles/wezterm/opacity.lua;
+    "wezterm/wezterm.lua".source = ../dotfiles/wezterm/wezterm.lua;
+  };
 
   home.packages = with pkgs; [
     cdp
