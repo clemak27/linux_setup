@@ -70,6 +70,9 @@
     enable = true;
     dockerCompat = true;
   };
+  environment.sessionVariables = {
+    DOCKER_HOST = "unix://$XDG_RUNTIME_DIR/podman/podman.sock";
+  };
 
   programs.mtr.enable = true;
   programs.gnupg.agent = {
