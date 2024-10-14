@@ -97,7 +97,7 @@ with lib.hm.gvariant;
     "org/gnome/shell" = {
       disable-user-extensions = false;
       disabled-extensions = [ ];
-      enabled-extensions = [ "blur-my-shell@aunetx" "appindicatorsupport@rgcjonas.gmail.com" "gsconnect@andyholmes.github.io" "user-theme@gnome-shell-extensions.gcampax.github.com" "unite@hardpixel.eu" "pip-on-top@rafostar.github.com" "panelScroll@sun.wxg@gmail.com" ];
+      enabled-extensions = [ "blur-my-shell@aunetx" "appindicatorsupport@rgcjonas.gmail.com" "gsconnect@andyholmes.github.io" "user-theme@gnome-shell-extensions.gcampax.github.com" "unite@hardpixel.eu" "pip-on-top@rafostar.github.com" "panelScroll@sun.wxg@gmail.com" "openbar@neuromorph" ];
       favorite-apps = [ "org.gnome.Nautilus.desktop" "firefox.desktop" "org.wezfurlong.wezterm.desktop" "feishin.desktop" ];
     };
 
@@ -113,7 +113,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
-      blur = true;
+      blur = false;
       brightness = 1.0;
       customize = true;
       override-background = true;
@@ -151,8 +151,32 @@ with lib.hm.gvariant;
       window-buttons-theme = "catppuccin";
     };
 
+    "org/gnome/shell/extensions/openbar" = {
+      apply-flatpak = false;
+      apply-gtk = false;
+      auto-bgalpha = true;
+      autofg-bar = true;
+      autofg-menu = true;
+      autohg-bar = true;
+      autohg-menu = true;
+      autotheme-dark = "Color";
+      autotheme-font = true;
+      autotheme-light = "Color";
+      autotheme-refresh = true;
+      color-scheme = "prefer-dark";
+      notif-radius = 10.0;
+      position = "Top";
+      qtoggle-radius = 10.0;
+      set-fullscreen = true;
+      set-notifications = false;
+      set-overview = true;
+      set-yarutheme = false;
+      shadow = false;
+      wmaxbar = true;
+    };
+
     "org/gnome/shell/extensions/user-theme" = {
-      name = "catppuccin-mocha-blue-standard+default";
+      name = "";
     };
 
     "org/gnome/shell/extensions/panelScroll" = {

@@ -14,11 +14,12 @@ in
   config = {
     home.packages = with pkgs; [
       gnomeExtensions.appindicator
-      gnomeExtensions.unite
-      gnomeExtensions.gsconnect
       gnomeExtensions.blur-my-shell
-      gnomeExtensions.pip-on-top
+      gnomeExtensions.gsconnect
+      gnomeExtensions.open-bar
       gnomeExtensions.panel-scroll
+      gnomeExtensions.pip-on-top
+      gnomeExtensions.unite
 
       hydrapaper
       celluloid
@@ -47,20 +48,5 @@ in
     home.file.".local/share/fonts/JetBrainsMonoNerdFont-SemiBoldItalic.ttf".source = config.lib.file.mkOutOfStoreSymlink "${jetBrainsMono}/JetBrainsMonoNerdFont-SemiBoldItalic.ttf";
     home.file.".local/share/fonts/JetBrainsMonoNerdFont-Thin.ttf".source = config.lib.file.mkOutOfStoreSymlink "${jetBrainsMono}/JetBrainsMonoNerdFont-Thin.ttf";
     home.file.".local/share/fonts/JetBrainsMonoNerdFont-ThinItalic.ttf".source = config.lib.file.mkOutOfStoreSymlink "${jetBrainsMono}/JetBrainsMonoNerdFont-ThinItalic.ttf";
-
-    home.file.".themes" = {
-      source =
-        pkgs.fetchzip {
-          url = "https://github.com/catppuccin/gtk/releases/download/v1.0.3/catppuccin-mocha-blue-standard+default.zip";
-          hash = "sha256-AtYLGiez+Hm36KO788aS6FwSOzOkvuNKflDepACsL+o=";
-          stripRoot = false;
-        };
-      recursive = true;
-    };
-
-    xdg.configFile = {
-      "gtk-4.0/gtk.css".source = ./gtk.css;
-      "gtk-3.0/gtk.css".source = ./gtk.css;
-    };
   };
 }
