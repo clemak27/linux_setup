@@ -157,7 +157,6 @@ with lib.hm.gvariant;
       auto-bgalpha = true;
       autofg-bar = true;
       autofg-menu = true;
-      autohg-bar = true;
       autohg-menu = true;
       autotheme-dark = "Color";
       autotheme-font = true;
