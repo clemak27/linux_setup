@@ -27,8 +27,8 @@ in
       catppuccin-cursors.mochaDark
       papirus-icon-theme
       (catppuccin-kvantum.override {
-        accent = "Blue";
-        variant = "Mocha";
+        accent = "blue";
+        variant = "mocha";
       })
     ];
 
