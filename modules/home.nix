@@ -68,7 +68,7 @@ in
     cdp
     wl-clipboard
 
-    stable.calibre
+    calibre
     feishin
     gimp
     helvum
