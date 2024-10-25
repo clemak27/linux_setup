@@ -151,28 +151,28 @@ with lib.hm.gvariant;
       window-buttons-theme = "catppuccin";
     };
 
-    "org/gnome/shell/extensions/openbar" = {
-      apply-flatpak = false;
-      apply-gtk = false;
-      auto-bgalpha = true;
-      autofg-bar = true;
-      autofg-menu = true;
-      autohg-menu = true;
-      autotheme-dark = "Color";
-      autotheme-font = true;
-      autotheme-light = "Color";
-      autotheme-refresh = true;
-      color-scheme = "prefer-dark";
-      notif-radius = 10.0;
-      position = "Top";
-      qtoggle-radius = 10.0;
-      set-fullscreen = true;
-      set-notifications = false;
-      set-overview = true;
-      set-yarutheme = false;
-      shadow = false;
-      wmaxbar = true;
-    };
+    # "org/gnome/shell/extensions/openbar" = {
+    #   apply-flatpak = false;
+    #   apply-gtk = false;
+    #   auto-bgalpha = true;
+    #   autofg-bar = true;
+    #   autofg-menu = true;
+    #   autohg-menu = true;
+    #   autotheme-dark = "Color";
+    #   autotheme-font = true;
+    #   autotheme-light = "Color";
+    #   autotheme-refresh = true;
+    #   color-scheme = "prefer-dark";
+    #   notif-radius = 10.0;
+    #   position = "Top";
+    #   qtoggle-radius = 10.0;
+    #   set-fullscreen = true;
+    #   set-notifications = false;
+    #   set-overview = true;
+    #   set-yarutheme = false;
+    #   shadow = false;
+    #   wmaxbar = true;
+    # };
 
     "org/gnome/shell/extensions/user-theme" = {
       name = "";
