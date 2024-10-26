@@ -20,6 +20,13 @@
 
     adw-gtk3
     libsForQt5.qtstyleplugin-kvantum
+
+    catppuccin-cursors.mochaDark
+    papirus-icon-theme
+    (catppuccin-kvantum.override {
+      accent = "blue";
+      variant = "mocha";
+    })
   ];
 
   environment.sessionVariables.GST_PLUGIN_SYSTEM_PATH_1_0 = lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0" [
