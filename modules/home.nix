@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   cdp = pkgs.writeShellApplication {
     name = "cdp";
@@ -29,7 +29,7 @@ let
 in
 {
   imports = [
-    ./gnome/customization.nix
+    ./kde/config.nix
   ];
 
   homecfg = {
@@ -70,9 +70,7 @@ in
 
     calibre
     feishin
-    gimp
     helvum
-    kid3
     libreoffice
     signal-desktop
     vesktop
