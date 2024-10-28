@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 local bindings = require("bindings")
-local opacity = require("opacity")
+-- local opacity = require("opacity")
 
 local weztermCfg = {
   front_end = "WebGpu",
@@ -31,6 +31,40 @@ local weztermCfg = {
 }
 
 bindings.apply_to_config(weztermCfg)
-opacity.apply_to_config(weztermCfg)
+-- opacity.apply_to_config(weztermCfg)
+local cp_colors = {
+  base = "#121212",
+  crust = "#000000",
+  text = "#cdd6f4",
+  subtext0 = "#a6adc8",
+}
+
+weztermCfg.colors = {
+  background = cp_colors.base,
+  tab_bar = {
+    background = cp_colors.crust,
+    active_tab = {
+      bg_color = cp_colors.base,
+      fg_color = cp_colors.text,
+      intensity = "Bold",
+    },
+    inactive_tab = {
+      bg_color = cp_colors.crust,
+      fg_color = cp_colors.subtext0,
+    },
+    inactive_tab_hover = {
+      bg_color = cp_colors.crust,
+      fg_color = cp_colors.subtext0,
+    },
+    new_tab = {
+      bg_color = cp_colors.base,
+      fg_color = cp_colors.subtext0,
+    },
+    new_tab_hover = {
+      bg_color = cp_colors.base,
+      fg_color = cp_colors.subtext0,
+    },
+  },
+}
 
 return weztermCfg

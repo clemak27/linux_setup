@@ -1,8 +1,8 @@
 local wezterm = require("wezterm")
 
 local cp_colors = {
-  base = "#1e1e2e",
-  crust = "#11111b",
+  base = "#121212",
+  crust = "#000000",
   text = "#cdd6f4",
   subtext0 = "#a6adc8",
 }
