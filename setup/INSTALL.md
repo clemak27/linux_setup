@@ -37,13 +37,14 @@
   `/mnt/etc/nixos/hardware-configuration.nix` and the `deviceUUID` of the root
   partition in `configuration.nix`.
 - Apply additional changes as needed.
-- Setup flatpak if needed:
+- Setup flatpak:
 
   ```sh
-  flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-  flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-  flatpak install -y org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark com.github.tchx84.Flatseal
-  flatpak override --user --filesystem=xdg-config/gtk-3.0 --filesystem=xdg-config/gtk-4.0
+  ```
+
+- Install gaming stuff if needed/wanted:
+
+  ```sh
   ```
 
 - Done.

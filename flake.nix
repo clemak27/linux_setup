@@ -33,18 +33,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zjstatus = {
-      url = "github:dj95/zjstatus";
-    };
-
     plasma-manager = {
       url = "github:pjones/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, nix-index-database, lanzaboote, nix-on-droid, nixgl, zjstatus, plasma-manager }:
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, nix-index-database, lanzaboote, nix-on-droid, nixgl, plasma-manager, nix-flatpak }:
     let
       legacyPkgs = nixpkgs.legacyPackages.x86_64-linux;
       overlay-stable = final: prev: {
@@ -52,7 +50,6 @@
       };
       overlay-customPkgs = final: prev: {
         nixgl = nixgl.defaultPackage.x86_64-linux;
-        zjstatus = zjstatus.packages.x86_64-linux.default;
       };
       nixModule = ({ config, pkgs, ... }: {
         nixpkgs.overlays = [ overlay-stable overlay-customPkgs ];
@@ -69,6 +66,7 @@
             homecfg.hmModules.homecfg
             nix-index-database.hmModules.nix-index
             plasma-manager.homeManagerModules.plasma-manager
+            nix-flatpak.homeManagerModules.nix-flatpak
             ./modules/home.nix
           ];
           home = {
@@ -84,6 +82,7 @@
         nixModule
         lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
+        nix-flatpak.nixosModules.nix-flatpak
 
         ./modules/kde
         ./modules/gaming.nix
