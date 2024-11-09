@@ -26,7 +26,7 @@ in
   time.timeZone = "Europe/Vienna";
 
   terminal.colors = {
-    background = "#1e1e2e";
+    background = "#121212";
     foreground = "#cdd6f4";
     cursor = "#cdd6f4";
     color0 = "#45475a";
