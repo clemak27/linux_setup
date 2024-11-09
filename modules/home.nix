@@ -67,17 +67,28 @@ in
     cdp
     wl-clipboard
 
-    calibre
     feishin
-    helvum
-    libreoffice
-    signal-desktop
-    vesktop
 
     podman-compose
     scrcpy
     unrar
     yt-dlp
+  ];
+
+  services.flatpak.packages = [
+    # gtk theme
+    "org.gtk.Gtk3theme.adw-gtk3"
+    "org.gtk.Gtk3theme.adw-gtk3-dark"
+    # gaming
+    "com.valvesoftware.Steam"
+    "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
+    "dev.vencord.Vesktop"
+    "net.lutris.Lutris"
+    # gui
+    "com.calibre_ebook.calibre"
+    "org.libreoffice.LibreOffice"
+    "org.pipewire.Helvum"
+    "org.signal.Signal"
   ];
 
   programs.zsh = {
