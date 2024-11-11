@@ -37,27 +37,18 @@
   `/mnt/etc/nixos/hardware-configuration.nix` and the `deviceUUID` of the root
   partition in `configuration.nix`.
 - Apply additional changes as needed.
-- Setup flatpak:
-
-  ```sh
-  ```
-
-- Install gaming stuff if needed/wanted:
-
-  ```sh
-  ```
-
-- Done.
 
 ## Notes
 
 ### Updating
 
 ```sh
-nix flake update --commit-lock-file --option commit-lockfile-summary "chore(flake): update flake.lock"
+nix flake update --commit-lock-file --option commit-lockfile-summary "chore(flake): update flake.lock" && \
+sudo nixos-rebuild boot --flake . --impure && \
+git push && \
+flatpak update -y && \
+systemctl reboot
 ```
-
-Then `switch`/`boot` to new generation, if everything works push it.
 
 ### To convert an ssh ed25519 key to an age key
 
