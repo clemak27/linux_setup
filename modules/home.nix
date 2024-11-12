@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 let
   cdp = pkgs.writeShellApplication {
     name = "cdp";
@@ -89,6 +89,7 @@ in
     "org.libreoffice.LibreOffice"
     "org.pipewire.Helvum"
     "org.signal.Signal"
+    "hu.irl.cameractrls"
   ];
 
   programs.zsh = {
