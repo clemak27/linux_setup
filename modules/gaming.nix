@@ -6,6 +6,8 @@
     "org.freedesktop.Platform.VulkanLayer.gamescope//24.08"
   ];
 
+  hardware.steam-hardware.enable = true;
+
   environment.systemPackages = with pkgs; [
     gamemode
 
