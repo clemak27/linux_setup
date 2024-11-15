@@ -1,11 +1,11 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   # mount additional HDDs
 
   fileSystems."/home/clemens/Games" = {
-    device = "/dev/disk/by-uuid/67de20f1-9d79-42ba-aec1-2ff30faf5dd9";
-    fsType = "ext4";
-    options = [ "defaults" ];
+    device = "/dev/disk/by-uuid/1d007512-92c1-40ba-8863-f50589b88437";
+    fsType = "btrfs";
+    options = [ "compress=zstd" ];
   };
 
   environment.systemPackages = [
