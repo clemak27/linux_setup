@@ -90,6 +90,8 @@ in
     "org.pipewire.Helvum"
     "org.signal.Signal"
     "hu.irl.cameractrls"
+    # general
+    "org.freedesktop.Platform.ffmpeg-full"
   ];
 
   programs.zsh = {
