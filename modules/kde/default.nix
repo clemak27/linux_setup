@@ -32,16 +32,11 @@
     ];
   };
 
-  environment.sessionVariables = {
-    SSH_ASKPASS = "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
-    SSH_ASKPASS_REQUIRE = "prefer";
-  };
-
   programs.kde-pim = {
     enable = true;
     kmail = true;
     kontact = true;
-    merkuro = true;
+    merkuro = false;
   };
 
   qt.enable = true;

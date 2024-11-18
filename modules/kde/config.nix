@@ -12,6 +12,7 @@ let
 in
 {
   config = {
+
     # use ksshaskpass to manage ssh keys
     xdg.configFile."autostart/ksshaskpass.desktop".text = ''
       [Desktop Entry]
