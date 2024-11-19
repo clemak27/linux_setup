@@ -103,12 +103,9 @@ in
       ]
     );
 
-    sessionVariables = {
-      LC_ALL = "en_US.UTF-8";
-    };
-
     initExtra = ''
       compdef _podman docker
+      export LC_ALL=en_US.UTF-8
     '';
   };
 
