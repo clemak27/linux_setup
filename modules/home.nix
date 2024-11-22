@@ -34,7 +34,7 @@ in
 
   homecfg = {
     dev.enable = true;
-    fun.enable = true;
+    fun.enable = false;
     k8s.enable = true;
     k8s.k9s = false;
     git = {
