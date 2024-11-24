@@ -1,27 +1,6 @@
-{ pkgs, ... }:
-let
-  kssh = pkgs.writeShellApplication {
-    name = "kssh";
-    runtimeInputs = with pkgs; [
-      kdePackages.ksshaskpass
-    ];
-    text = ''
-      SSH_ASKPASS=ksshaskpass ssh-add < /dev/null
-    '';
-  };
-in
+{ ... }:
 {
   config = {
-
-    # use ksshaskpass to manage ssh keys
-    xdg.configFile."autostart/ksshaskpass.desktop".text = ''
-      [Desktop Entry]
-      Exec=${kssh}/bin/kssh
-      Icon=application-x-shellscript
-      Name=ksshaskpass
-      Type=Application
-    '';
-
     home.file.".local/share/konsole/MochaMatte.colorscheme".source = ./MochaMatte.colorscheme;
 
     programs.plasma = {
