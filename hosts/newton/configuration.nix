@@ -5,7 +5,7 @@
     ./mounts.nix
     ./wireguard.nix
 
-    ./gpu.nix
+    ./gpu.nix # https://www.youtube.com/watch?v=OF_5EKNX0Eg
   ];
 
   networking.hostName = "newton";
@@ -16,7 +16,6 @@
     allowDiscards = true;
   };
 
-  # Configure keymap in X11
   services.xserver.xkb.layout = "de";
 
   services.libinput.enable = true;

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   cdp = pkgs.writeShellApplication {
     name = "cdp";
@@ -59,8 +59,8 @@ in
 
   programs.wezterm.enable = true;
   xdg.configFile = {
-    "wezterm/bindings.lua".source = ../dotfiles/wezterm/bindings.lua;
-    "wezterm/wezterm.lua".source = ../dotfiles/wezterm/wezterm.lua;
+    "wezterm/bindings.lua".source = config.lib.file.mkOutOfStoreSymlink /home/clemens/Projects/linux_setup/dotfiles/wezterm/bindings.lua;
+    "wezterm/wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink /home/clemens/Projects/linux_setup/dotfiles/wezterm/wezterm.lua;
   };
 
   home.packages = with pkgs; [

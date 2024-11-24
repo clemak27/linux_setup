@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -15,7 +15,6 @@
     allowDiscards = true;
   };
 
-  # Configure keymap in X11
   services.xserver.xkb.layout = "us";
 
   system.stateVersion = "24.05";

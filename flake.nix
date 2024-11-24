@@ -84,13 +84,10 @@
         home-manager.nixosModules.home-manager
         nix-flatpak.nixosModules.nix-flatpak
 
-        ./modules/kde
-        ./modules/gaming.nix
-        ./modules/general.nix
-        ./modules/pipewire.nix
+        ./modules/default.nix
+        ./modules/desktop.nix
+        ./modules/kde/default.nix
         ./modules/secureboot.nix
-        ./modules/ssh.nix
-        ./modules/virt-manager.nix
 
         hmModule
       ];
