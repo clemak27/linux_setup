@@ -6,8 +6,9 @@
   services.displayManager.defaultSession = "plasma";
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    oxygen
+    akregator
     khelpcenter
+    oxygen
     plasma-browser-integration
   ];
 
