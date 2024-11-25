@@ -43,6 +43,11 @@
     zjstatus = {
       url = "github:dj95/zjstatus";
     };
+
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -58,6 +63,7 @@
     , plasma-manager
     , nix-flatpak
     , zjstatus
+    , disko
     }:
     let
       legacyPkgs = nixpkgs.legacyPackages.x86_64-linux;
@@ -100,6 +106,7 @@
         lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
         nix-flatpak.nixosModules.nix-flatpak
+        disko.nixosModules.disko
 
         ./modules/default.nix
         ./modules/desktop.nix
