@@ -6,25 +6,28 @@
 
 - create live USB (if there is none yet)
 - create new branch for host
-- prepare config in hosts directory
+- prepare config in `hosts` directory
+  - Make sure all options requiring files to exist in the system are not enabled
+    (e.g. git signing in the `homecfg`, Wireguard, ...)
+  - Make sure the `nixosConfiguration` does not include `secureboot.nix`
 
 ### NixOS install
 
 - Disable Secure Boot
 - Boot from live USB
 - Open a terminal and checkout the repo:
-  `git clone https://github.com/clemak27/linux_setup`
-- `cd linux_setup/setup`
-- Update `setup_disc.sh` with the device where nix should be installed (check
-  with `lsblk`)
-- Run `sudo ./setup_disc.sh`
-- Update the config of the host in the repo with the `deviceUUID` of the root
-  partition in `configuration.nix`.
-- Optionally, set `users.users.<name>.initialPassword`. Otherwise, you would
-  need to log in as root after rebooting to set it up.
-- Make sure all options requiring files to exist in the system are not enabled
-  (e.g. git signing in the `homecfg`, Wireguard, ...)
-- Make sure the `nixosConfiguration` does not include `secureboot.nix`
+  `git clone https://github.com/clemak27/linux_setup --branch feat/maxwell-9700x`
+- `cd linux_setup`
+- Update `hosts/<hostname>/disko.nix` with the device where nix should be
+  installed (check with `lsblk`)
+- Create a file containing the passphrase:
+  `echo -n "superSecret" > /tmp/secret.key`
+- Run
+  `sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount hosts/<hostname>/disko.nix`
+- Set `users.users.<name>.initialPassword`. Otherwise, you would need to log in
+  as root after rebooting to set it up.
+- Update the hardware-configuration:
+  `nixos-generate-config --no-filesystems --root /mnt > hosts/<hostname>/hardware-configuration.nix`
 - Install NixOS with
   `sudo nixos-install --root /mnt --flake .#<hostname> --impure`
 - Reboot
@@ -34,41 +37,10 @@
 - Login as normal user.
 - Checkout the repo with git.
 - Update the config of the host in the repo again with the generated
-  `/mnt/etc/nixos/hardware-configuration.nix` and the `deviceUUID` of the root
-  partition in `configuration.nix`.
+  `/mnt/etc/nixos/hardware-configuration.nix`.
 - Apply additional changes as needed.
 
 ## Notes
-
-### To convert an ssh ed25519 key to an age key
-
-```sh
-mkdir -p ~/.config/sops/age
-cp $HOME/.ssh/id_ed25519 /tmp/id_ed25519
-ssh-keygen -p -N "" -f /tmp/id_ed25519
-ssh-to-age -private-key -i /tmp/id_ed25519 > ~/.config/sops/age/keys.txt
-rm /tmp/id_ed25519
-age-keygen -y ~/.config/sops/age/keys.txt
-```
-
-### btrfs config
-
-`nixos-generate-config --show-hardware-config` doesn't detect mount options
-automatically, so to enable compression, you must specify it and other mount
-options in a persistent configuration:
-
-```nix
-fileSystems = {
-  "/".options = [ "compress=zstd" ];
-  "/home".options = [ "compress=zstd" ];
-  "/nix".options = [ "compress=zstd" "noatime" ];
-  "/swap".options = [ "noatime" ];
-};
-```
-
-For the swapfile, add `swapDevices = [ { device = "/swap/swapfile"; } ];`
-
-[Source](https://nixos.wiki/wiki/Btrfs)
 
 ### WireGuard
 
