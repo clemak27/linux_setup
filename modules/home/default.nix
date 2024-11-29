@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
-    ./kde/config.nix
-    ./wezterm.nix
+    ../kde/config.nix
+    ./kitty.nix
   ];
 
   homecfg = {
