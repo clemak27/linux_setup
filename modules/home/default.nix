@@ -26,7 +26,12 @@
   programs.firefox.enable = true;
 
   programs.mpv.enable = true;
-  xdg.configFile."mpv/mpv.conf".source = ../dotfiles/mpv/mpv.conf;
+  xdg.configFile."mpv/mpv.conf".text = ''
+    autofit-larger=40%x40%
+    ytdl-format="bestvideo[height<=?1080]+bestaudio/best"
+    no-keepaspect-window
+    volume=80
+  '';
 
   home.packages = with pkgs; [
     wl-clipboard
