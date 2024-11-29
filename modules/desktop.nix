@@ -13,7 +13,7 @@
       };
       aggregatedFonts = pkgs.buildEnv {
         name = "system-fonts";
-        paths = config.fonts.fonts;
+        paths = config.fonts.packages;
         pathsToLink = [ "/share/fonts" ];
       };
     in
