@@ -54,7 +54,7 @@ in
       font.name = "JetBrainsMono Nerd Font";
       font.size = 10.0;
       shellIntegration.enableZshIntegration = false;
-      theme = "Catppuccin-Mocha";
+      themeFile = "Catppuccin-Mocha";
       settings = {
         enable_audio_bell = false;
         update_check_interval = 0;
