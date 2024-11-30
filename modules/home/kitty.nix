@@ -43,8 +43,8 @@ in
           mode_rename_pane   "#[bg=#000000,fg=#fab387,bold] RENAME PANE"
           mode_session       "#[bg=#000000,fg=#fab387,bold] SESSION"
           mode_move          "#[bg=#000000,fg=#fab387,bold] MOVE"
-          tab_normal   "#[fg=#9399B2,bg=#000000] {index}: {name} "
-          tab_active   "#[fg=#cdd6f4,bg=#121212,bold] {index}: {name} "
+          tab_normal   "#[fg=#9399B2,bg=#000000] {name} "
+          tab_active   "#[fg=#cdd6f4,bg=#121212,bold] {name} "
         }'';
       };
     };
