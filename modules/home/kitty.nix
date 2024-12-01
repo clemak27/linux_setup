@@ -79,9 +79,9 @@ in
       initExtra = ''
         if [[ $TERM = "xterm-kitty" ]]; then
           if [[ -z $ZELLIJ_SESSION_NAME ]]; then
-            if [[ $(zellij list-sessions | grep "main.*EXITED" > /dev/null) ]]; then
+            if $(zellij list-sessions | grep -q "main.*EXITED"); then
               zellij attach main
-            elif [[ ! $(zellij list-sessions | grep "main" > /dev/null) ]]; then
+            elif ! $(zellij list-sessions | grep -q "main"); then
               zellij --new-session-with-layout=custom --session=main
             fi
           fi
