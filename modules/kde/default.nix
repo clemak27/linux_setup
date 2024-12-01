@@ -28,8 +28,8 @@
   ];
 
   fonts = {
-    packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    packages = [
+      pkgs.nerd-fonts.jetbrains-mono
     ];
   };
 
