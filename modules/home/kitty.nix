@@ -16,7 +16,7 @@ let
         pname=$(basename "$path")
 
         if [[ -n $ZELLIJ_SESSION_NAME ]]; then
-          zellij action new-tab --name="$pname" --cwd="$path" --layout custom
+          zellij action new-tab --name="$pname" --cwd="$path" --layout default
         else
           cd "$path" || exit 1
         fi
@@ -29,7 +29,8 @@ in
     homecfg = {
       zellij = {
         enable = true;
-        zjstatusOptions = ''{
+        bar = "file:${pkgs.zjstatus}/bin/zjstatus.wasm";
+        barOpts = ''{
           format_left  "#[bg=#000000] {mode}#[bg=#000000] {tabs}"
           format_right ""
           format_space "#[bg=#000000]"
@@ -82,7 +83,7 @@ in
             if $(zellij list-sessions | grep -q "main.*EXITED"); then
               zellij attach main
             elif ! $(zellij list-sessions | grep -q "main"); then
-              zellij --new-session-with-layout=custom --session=main
+              zellij --new-session-with-layout=default --session=main
             fi
           fi
         fi
