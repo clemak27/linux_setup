@@ -2,8 +2,16 @@
 {
   services.xserver.enable = true;
   services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.displayManager.defaultSession = "plasma";
+  services.displayManager = {
+    sddm = {
+      enable = true;
+      wayland = {
+        enable = true;
+        compositor = "kwin";
+      };
+    };
+    defaultSession = "plasma";
+  };
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     akregator
