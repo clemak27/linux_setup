@@ -45,7 +45,20 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, homecfg, nix-index-database, lanzaboote, nix-on-droid, nixgl, plasma-manager, nix-flatpak, zjstatus }:
+  outputs =
+    { self
+    , nixpkgs
+    , nixpkgs-stable
+    , home-manager
+    , homecfg
+    , nix-index-database
+    , lanzaboote
+    , nix-on-droid
+    , nixgl
+    , plasma-manager
+    , nix-flatpak
+    , zjstatus
+    }:
     let
       legacyPkgs = nixpkgs.legacyPackages.x86_64-linux;
       overlay-stable = final: prev: {
@@ -55,7 +68,7 @@
         nixgl = nixgl.defaultPackage.x86_64-linux;
         zjstatus = zjstatus.packages.x86_64-linux.default;
       };
-      nixModule = ({ config, pkgs, ... }: {
+      nixModule = ({ ... }: {
         nixpkgs.overlays = [ overlay-stable overlay-customPkgs ];
         nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
         nixpkgs.config = {
@@ -65,7 +78,7 @@
       hmModule = {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.clemens = { config, pkgs, ... }: {
+        home-manager.users.clemens = { ... }: {
           imports = [
             homecfg.hmModules.homecfg
             nix-index-database.hmModules.nix-index
