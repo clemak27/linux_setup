@@ -52,8 +52,13 @@
   qt.platformTheme = "kde";
   qt.style = "breeze";
 
-  environment.sessionVariables = {
-    SSH_ASKPASS = "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
+  programs.ssh = {
+    startAgent = true;
+    enableAskPassword = true;
+    askPassword = "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
+  };
+
+  environment.variables = {
     SSH_ASKPASS_REQUIRE = "prefer";
   };
 }
