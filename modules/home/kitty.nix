@@ -6,7 +6,6 @@ let
       fd
       fzf
       gnugrep
-      neovim
       sd
       zellij
     ];
@@ -16,7 +15,7 @@ let
         pname=$(basename "$path")
 
         if [[ -n $ZELLIJ_SESSION_NAME ]]; then
-          zellij action new-tab --name="$pname" --cwd="$path" --layout default
+          zellij action new-tab --name="$pname" --cwd="$path" --layout nvim
         else
           cd "$path" || exit 1
         fi
