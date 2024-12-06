@@ -145,7 +145,6 @@
         legacyPkgs.mkShell {
           packages = with legacyPkgs; [
             sops
-            dconf2nix
             efibootmgr
             sbctl
           ];
