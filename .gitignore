@@ -5,3 +5,4 @@ Session.vim
 dconf.settings
 .pre-commit-config.yaml
 tmp
+result

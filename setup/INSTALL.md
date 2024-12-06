@@ -40,16 +40,6 @@
 
 ## Notes
 
-### Updating
-
-```sh
-nix flake update --commit-lock-file --option commit-lockfile-summary "chore(flake): update flake.lock" && \
-sudo nixos-rebuild boot --flake . --impure && \
-git push && \
-flatpak update -y && \
-systemctl reboot
-```
-
 ### To convert an ssh ed25519 key to an age key
 
 ```sh

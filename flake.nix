@@ -147,6 +147,7 @@
             sops
             efibootmgr
             sbctl
+            nvd
           ];
         };
     };
