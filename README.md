@@ -5,10 +5,10 @@ This repo contains my dotfiles, Nix-config and setup for my Linux devices:
 - `maxwell`: Desktop-PC
   - Runs NixOS
   - Current Specs:
-    - CPU: AMD Ryzen 5 2600
+    - CPU: AMD Ryzen 7 9700X
     - GPU: AMD ATI Sapphire Radeon RX 6700
-    - Board: MSI B450M GAMING PLUS
-    - Memory: 16 GB
+    - Board: MSI MAG B650 TOMAHAWK WIFI
+    - Memory: 32 GB
     - Screens: 3440x1440 + 1920x1080
 - `newton`: Dell XPS15 (7590)
   - Runs NixOS
