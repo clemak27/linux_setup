@@ -52,7 +52,6 @@
     "com.valvesoftware.Steam"
     "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
     "dev.vencord.Vesktop"
-    "net.lutris.Lutris"
     # gui
     "com.calibre_ebook.calibre"
     "org.libreoffice.LibreOffice"
