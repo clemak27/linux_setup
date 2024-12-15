@@ -52,6 +52,31 @@ in
 
     programs.plasma = {
       enable = true;
+      window-rules = [
+        {
+          description = "Firefox PiP";
+          match = {
+            window-class = {
+              value = "firefox";
+              type = "substring";
+            };
+            title = "Picture-in-Picture";
+            window-types = [ "normal" ];
+          };
+          apply = {
+            above = true;
+            aboverule = 2;
+            desktops = "\\0";
+            desktopsrule = 2;
+            skippager = true;
+            skippagerrule = 2;
+            skipswitcher = true;
+            skipswitcherrule = 2;
+            skiptaskbar = true;
+            skiptaskbarrule = 2;
+          };
+        }
+      ];
       configFile = {
         "dolphinrc"."DetailsMode"."ExpandableFolders" = false;
         "dolphinrc"."DetailsMode"."PreviewSize" = 32;
