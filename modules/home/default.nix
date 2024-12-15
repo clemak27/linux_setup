@@ -12,7 +12,7 @@
       enable = true;
       user = "clemak27";
       email = "clemak27@mailbox.org";
-      ssh_key = builtins.readFile /home/clemens/.ssh/id_ed25519.pub;
+      # ssh_key = builtins.readFile /home/clemens/.ssh/id_ed25519.pub;
       gh = true;
     };
     nvim.enable = true;
