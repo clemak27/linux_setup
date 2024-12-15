@@ -126,6 +126,13 @@
         ];
       };
 
+      nixosConfigurations.lagrange = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = desktopModules ++ [
+          ./hosts/lagrange/configuration.nix
+        ];
+      };
+
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
         system = "aarch64-linux";
         modules = [
