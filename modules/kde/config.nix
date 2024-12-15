@@ -12,6 +12,7 @@ let
   accents = {
     "maxwell" = "#365282";
     "newton" = "#029677";
+    "lagrange" = "#d2780d";
   };
   lookupAccent = attrs: key:
     if attrs ? "${key}" then attrs."${key}" else "#760088";
