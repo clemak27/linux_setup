@@ -13,7 +13,6 @@
               type = "EF00";
               content = {
                 type = "filesystem";
-                extraArgs = [ "-L" "boot" ];
                 format = "vfat";
                 mountpoint = "/boot";
                 mountOptions = [ "fmask=0022" "dmask=0022" ];
@@ -49,7 +48,6 @@
             size = "100%";
             content = {
               type = "btrfs";
-              extraArgs = [ "-L" "nixos" ];
               subvolumes = {
                 "root" = {
                   mountpoint = "/";
