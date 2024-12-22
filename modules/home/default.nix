@@ -59,7 +59,7 @@
     "org.signal.Signal"
     "hu.irl.cameractrls"
     # general
-    "org.freedesktop.Platform.ffmpeg-full"
+    "org.freedesktop.Platform.ffmpeg-full//24.08"
   ];
 
   programs.zsh = {
