@@ -44,24 +44,6 @@
     yt-dlp
   ];
 
-  services.flatpak.packages = [
-    # gtk theme
-    "org.gtk.Gtk3theme.adw-gtk3"
-    "org.gtk.Gtk3theme.adw-gtk3-dark"
-    # gaming
-    "com.valvesoftware.Steam"
-    "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
-    "dev.vencord.Vesktop"
-    # gui
-    "com.calibre_ebook.calibre"
-    "org.libreoffice.LibreOffice"
-    "org.pipewire.Helvum"
-    "org.signal.Signal"
-    "hu.irl.cameractrls"
-    # general
-    "org.freedesktop.Platform.ffmpeg-full//24.08"
-  ];
-
   programs.zsh = {
     shellAliases = builtins.listToAttrs [
       { name = "hcsl"; value = "sudo nixos-rebuild test --impure --flake /home/clemens/Projects/linux_setup --override-input homecfg 'path:/home/clemens/Projects/homecfg'"; }
