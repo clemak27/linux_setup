@@ -39,7 +39,4 @@ in
   hardware.pulseaudio.support32Bit = true;
 
   environment.systemPackages = [ primeRun ];
-
-  # https://github.com/NixOS/nixpkgs/issues/357643
-  boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_6_11;
 }
