@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -20,6 +20,13 @@
 
   services.libinput.enable = true;
   hardware.xone.enable = true;
+
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/etc/secureboot";
+  };
 
   system.stateVersion = "24.05";
 }

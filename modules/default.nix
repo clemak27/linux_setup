@@ -83,6 +83,7 @@
     dig
     gettext
     parted
+    sbctl
     usbutils
     wget
   ];

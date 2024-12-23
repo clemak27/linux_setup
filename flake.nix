@@ -111,7 +111,6 @@
         ./modules/default.nix
         ./modules/desktop.nix
         ./modules/kde/default.nix
-        ./modules/secureboot.nix
 
         hmModule
       ];

@@ -61,7 +61,17 @@ Based on
 - After installing, TPM should be set up correctly
 - Check if Secure Boot is disabled and TPM enabled: `bootctl status`
 - Create keys with `sudo sbctl create-keys`
-- Add `secureboot.nix` to the list of modules for the `nixosConfiguration`
+- Add lanzaboote to the config for the host:
+
+  ```nix
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/var/lib/sbctl"; # was /etc/secureboot in older versions
+  };
+  ```
+
 - Rebuild the system and check the status: `sudo sbctl verify`
 - Reboot into BIOS and enable Secure Boot, it should be in Setup Mode (delete
   the Platform key for this if there is no option, or delete everything if it
