@@ -19,10 +19,10 @@ flatpak/system:
 flatpak/user:
 	flatpak install -y --user flathub \
     com.calibre_ebook.calibre \
+    com.obsproject.Studio \
     com.valvesoftware.Steam \
     com.valvesoftware.Steam.CompatibilityTool.Proton-GE \
     dev.vencord.Vesktop \
-    hu.irl.cameractrls \
     org.freedesktop.Platform.ffmpeg-full//24.08 \
     org.gtk.Gtk3theme.adw-gtk3 \
     org.gtk.Gtk3theme.adw-gtk3-dark \
