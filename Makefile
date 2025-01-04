@@ -12,11 +12,13 @@ flatpak: flatpak/user flatpak/system
 	sudo flatpak override --filesystem=xdg-config/gtk-4.0
 
 flatpak/system:
+	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 	flatpak install -y --system flathub \
     org.freedesktop.Platform.VulkanLayer.MangoHud//24.08 \
     org.freedesktop.Platform.VulkanLayer.gamescope//24.08
 
 flatpak/user:
+	flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 	flatpak install -y --user flathub \
     com.calibre_ebook.calibre \
     com.obsproject.Studio \
