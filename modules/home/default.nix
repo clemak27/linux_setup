@@ -2,7 +2,7 @@
 {
   imports = [
     ../kde/config.nix
-    ./kitty.nix
+    ./wezterm
   ];
 
   homecfg = {

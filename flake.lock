@@ -258,11 +258,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1735554641,
-        "narHash": "sha256-KaLZ8t8Wwvt6q9Mx+mF/IM0I2MxW0HpQjuVPMz+uPHc=",
+        "lastModified": 1736189618,
+        "narHash": "sha256-Uo68iPI9Qogm4mz98J0ZuU2HNtTxycY+9tJ0M1OCZr0=",
         "owner": "clemak27",
         "repo": "homecfg",
-        "rev": "75f900587275d23c53ea2e7b7b87f96fb961158e",
+        "rev": "2eeaacdf5c948162453ac589daa44c9c1b847d83",
         "type": "github"
       },
       "original": {
