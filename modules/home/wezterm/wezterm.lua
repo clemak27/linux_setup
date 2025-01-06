@@ -68,13 +68,13 @@ local weztermCfg = {
   line_height = 1.0,
   harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 
-  window_decorations = "RESIZE",
+  window_decorations = "TITLE | RESIZE",
   window_close_confirmation = "NeverPrompt",
   window_padding = {
-    left = 1,
-    right = 1,
-    top = 1,
-    bottom = 1,
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
   },
 
   audible_bell = "Disabled",
