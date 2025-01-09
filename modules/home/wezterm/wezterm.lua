@@ -1,20 +1,6 @@
 local wezterm = require("wezterm")
 local bindings = require("bindings")
 
-local function i_hate_nvidia()
-  local f = io.popen("/run/current-system/sw/bin/hostname")
-  if f == nil then
-    return true
-  end
-  local hostname = f:read("*a") or ""
-  f:close()
-  hostname = string.gsub(hostname, "\n$", "")
-  if hostname == "newton" then
-    return false
-  end
-  return true
-end
-
 local cp_colors = {
   base = "#121212",
   crust = "#000000",
@@ -24,7 +10,7 @@ local cp_colors = {
 
 local weztermCfg = {
   front_end = "WebGpu",
-  enable_wayland = i_hate_nvidia(),
+  enable_wayland = false,
 
   color_scheme = "Catppuccin Mocha",
   window_background_opacity = nil,

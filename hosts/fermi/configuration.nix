@@ -2,13 +2,20 @@
 let
   nixDsda = pkgs.writeShellApplication {
     name = "dsda-doom";
-    runtimeInputs = with pkgs; [ nixgl.nixGLDefault dsda-doom ];
+    runtimeInputs = with pkgs; [
+      nixgl.nixGLDefault
+      dsda-doom
+    ];
     text = ''
       nixGL dsda-doom "$@"
     '';
   };
 in
 {
+  imports = [
+    ../../modules/home
+  ];
+
   home = {
     username = "deck";
     homeDirectory = "/home/deck";
@@ -17,19 +24,24 @@ in
       nixDsda
     ];
   };
+
   news.display = "silent";
+
   homecfg = {
     git.enable = true;
     tools.enable = true;
     zsh.enable = true;
   };
+
   services.syncthing.enable = true;
+
   programs.zsh = {
-    shellAliases = builtins.listToAttrs (
-      [
-        { name = "hms"; value = "git -C /home/deck/Projects/linux_setup pull --rebase && home-manager switch --flake /home/deck/Projects/linux_setup --impure"; }
-      ]
-    );
+    shellAliases = builtins.listToAttrs ([
+      {
+        name = "hms";
+        value = "git -C /home/deck/Projects/linux_setup pull --rebase && home-manager switch --flake /home/deck/Projects/linux_setup --impure";
+      }
+    ]);
 
     initExtra = ''
       if [ -z "$NIX_PROFILES" ]; then

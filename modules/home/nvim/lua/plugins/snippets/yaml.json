@@ -1,0 +1,9 @@
+{
+  "yamllint-disable": {
+    "prefix": "yamllint-disable",
+    "body": [
+      "# yamllint disable-line rule:${1:rule}"
+    ],
+    "description": "Inserts a yamllint-disable comment"
+  }
+}

@@ -14,8 +14,7 @@ let
     "newton" = "#029677";
     "lagrange" = "#d2780d";
   };
-  lookupAccent = attrs: key:
-    if attrs ? "${key}" then attrs."${key}" else "#760088";
+  lookupAccent = attrs: key: if attrs ? "${key}" then attrs."${key}" else "#760088";
   theme = ''
     @define-color window_bg_color #000000;
     @define-color window_fg_color #f8f8f2;
@@ -47,6 +46,31 @@ in
     '';
 
     home.file.".local/share/konsole/MochaMatte.colorscheme".source = ./MochaMatte.colorscheme;
+
+    programs.zsh = {
+      shellAliases = builtins.listToAttrs ([
+        {
+          name = "youtube-dl";
+          value = "yt-dlp";
+        }
+        {
+          name = "youtube-dl-music";
+          value = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\"";
+        }
+      ]);
+      initExtra = builtins.concatStringsSep "\n" [
+        # set correct locale
+        "export LC_ALL=en_US.UTF-8"
+      ];
+    };
+
+    home.packages = with pkgs; [
+      feishin
+      mpv
+      yt-dlp
+
+      scrcpy
+    ];
 
     xdg.configFile."gtk-3.0/gtk.css".text = theme;
     xdg.configFile."gtk-4.0/gtk.css".text = theme;

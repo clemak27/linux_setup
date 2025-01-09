@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   jetBrainsMono = pkgs.fetchzip {
     url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip";
@@ -21,7 +26,6 @@ in
       experimental-features = nix-command flakes
     '';
   };
-
 
   time.timeZone = "Europe/Vienna";
 
@@ -53,7 +57,12 @@ in
     useGlobalPkgs = true;
 
     config =
-      { config, lib, pkgs, ... }:
+      {
+        config,
+        lib,
+        pkgs,
+        ...
+      }:
 
       {
         # Read the changelog before changing this value
@@ -79,49 +88,92 @@ in
             ];
             custom = "$HOME/.oh-my-zsh/custom";
           };
-          shellAliases = builtins.listToAttrs (
-            [
-              { name = "cd.."; value = "cd .."; }
-              { name = "clear"; value = "printf '\\33c\\e[3J'"; }
-              { name = "q"; value = "exit"; }
-              { name = "hms"; value = "git -C $HOME/Projects/linux_setup pull --rebase && nix-on-droid switch --flake $HOME/Projects/linux_setup"; }
-              { name = "gcm"; value = "git commit -v -m"; }
-              { name = "gdc"; value = "git diff --cached"; }
-              { name = "gdm"; value = "git diff --cached master"; }
-              { name = "gfmm"; value = "git fetch origin && git merge origin/master"; }
-              { name = "gprom"; value = "if git branch -a | grep -E 'remotes/origin/master' > /dev/null; then git pull --rebase origin master; else git pull --rebase origin main; fi"; }
-              { name = "gpskip"; value = "git push -o ci.skip"; }
-              { name = "gs"; value = "git status"; }
-              { name = "gst"; value = "git stash"; }
-              { name = "gstd"; value = "git stash drop"; }
-              { name = "gstp"; value = "git stash pop"; }
-              { name = "gsurr"; value = "git submodule update --remote --rebase"; }
-              { name = "gus"; value = "git reset HEAD"; }
-            ]
-          );
+          shellAliases = builtins.listToAttrs ([
+            {
+              name = "cd..";
+              value = "cd ..";
+            }
+            {
+              name = "clear";
+              value = "printf '\\33c\\e[3J'";
+            }
+            {
+              name = "q";
+              value = "exit";
+            }
+            {
+              name = "hms";
+              value = "git -C $HOME/Projects/linux_setup pull --rebase && nix-on-droid switch --flake $HOME/Projects/linux_setup";
+            }
+            {
+              name = "gcm";
+              value = "git commit -v -m";
+            }
+            {
+              name = "gdc";
+              value = "git diff --cached";
+            }
+            {
+              name = "gdm";
+              value = "git diff --cached master";
+            }
+            {
+              name = "gfmm";
+              value = "git fetch origin && git merge origin/master";
+            }
+            {
+              name = "gprom";
+              value = "if git branch -a | grep -E 'remotes/origin/master' > /dev/null; then git pull --rebase origin master; else git pull --rebase origin main; fi";
+            }
+            {
+              name = "gpskip";
+              value = "git push -o ci.skip";
+            }
+            {
+              name = "gs";
+              value = "git status";
+            }
+            {
+              name = "gst";
+              value = "git stash";
+            }
+            {
+              name = "gstd";
+              value = "git stash drop";
+            }
+            {
+              name = "gstp";
+              value = "git stash pop";
+            }
+            {
+              name = "gsurr";
+              value = "git submodule update --remote --rebase";
+            }
+            {
+              name = "gus";
+              value = "git reset HEAD";
+            }
+          ]);
 
           sessionVariables = {
             PATH = "$PATH:$HOME/.cargo/bin:$HOME/.go/bin:$HOME/.local/bin:$HOME/.local/bin/npm/bin:$HOME/.local/share/nvim/mason/bin";
           };
 
-          initExtra = builtins.concatStringsSep "\n" (
-            [
-              # no beeps
-              "unsetopt beep"
-              # don't save duplicates in zsh_history
-              "setopt HIST_SAVE_NO_DUPS"
-              # https://github.com/zsh-users/zsh-syntax-highlighting#why-must-zsh-syntax-highlightingzsh-be-sourced-at-the-end-of-the-zshrc-file
-              "source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-            ]
-          );
+          initExtra = builtins.concatStringsSep "\n" ([
+            # no beeps
+            "unsetopt beep"
+            # don't save duplicates in zsh_history
+            "setopt HIST_SAVE_NO_DUPS"
+            # https://github.com/zsh-users/zsh-syntax-highlighting#why-must-zsh-syntax-highlightingzsh-be-sourced-at-the-end-of-the-zshrc-file
+            "source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+          ]);
         };
 
-        home.file.".oh-my-zsh/custom/plugins/zsh-syntax-highlighting".source =
-          builtins.fetchGit {
-            url = "https://github.com/zsh-users/zsh-syntax-highlighting.git";
-            ref = "master";
-            rev = "e0165eaa730dd0fa321a6a6de74f092fe87630b0";
-          };
+        home.file.".oh-my-zsh/custom/plugins/zsh-syntax-highlighting".source = builtins.fetchGit {
+          url = "https://github.com/zsh-users/zsh-syntax-highlighting.git";
+          ref = "master";
+          rev = "e0165eaa730dd0fa321a6a6de74f092fe87630b0";
+        };
 
         programs.dircolors.enable = true;
 

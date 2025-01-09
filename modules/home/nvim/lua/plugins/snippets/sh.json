@@ -1,0 +1,36 @@
+{
+  "heredoc": {
+    "prefix": "heredoc",
+    "body": [
+      "cat << EOF > file.txt",
+      "\t$0",
+      "EOF"
+    ],
+    "description": "Inserts a heredoc redirecting into a file"
+  },
+  "shellcheck_disable": {
+    "prefix": "shellcheck_disable",
+    "body": [
+      "# shellcheck disable=SC$0"
+    ],
+    "description": "Inserts a shellcheck disable directive"
+  },
+  "nix-shebang": {
+    "prefix": "nix-shebang",
+    "body": [
+      "#!/bin/sh",
+      "# shellcheck shell=bash",
+      "",
+      "set -eo pipefail"
+    ],
+    "description": "Inserts shebang"
+  },
+  "for-in-array": {
+    "prefix": "for-in-array",
+    "body": [
+      "for $0 in \"${$1[@]}\"; do",
+      "done"
+    ],
+    "description": "Inserts for loop over bash array"
+  }
+}

@@ -9,7 +9,11 @@
       mkRoSymBind = path: {
         device = path;
         fsType = "fuse.bindfs";
-        options = [ "ro" "resolve-symlinks" "x-gvfs-hide" ];
+        options = [
+          "ro"
+          "resolve-symlinks"
+          "x-gvfs-hide"
+        ];
       };
       aggregatedFonts = pkgs.buildEnv {
         name = "system-fonts";
@@ -22,6 +26,9 @@
       "/usr/share/icons" = mkRoSymBind (config.system.path + "/share/icons");
       "/usr/share/fonts" = mkRoSymBind (aggregatedFonts + "/share/fonts");
     };
+
+  # browser
+  programs.firefox.enable = true;
 
   # audio
   security.rtkit.enable = true;
