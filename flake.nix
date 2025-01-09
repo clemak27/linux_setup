@@ -7,11 +7,6 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    homecfg = {
-      url = "github:clemak27/homecfg";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
 
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
@@ -39,29 +34,30 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    zjstatus = {
-      url = "github:dj95/zjstatus";
-    };
-
     disko = {
       url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    pre-commit-hooks = {
+      url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs =
-    { self
-    , nixpkgs
-    , nixpkgs-stable
-    , home-manager
-    , homecfg
-    , nix-index-database
-    , lanzaboote
-    , nix-on-droid
-    , nixgl
-    , plasma-manager
-    , zjstatus
-    , disko
+    {
+      self,
+      nixpkgs,
+      nixpkgs-stable,
+      home-manager,
+      nix-index-database,
+      lanzaboote,
+      nix-on-droid,
+      nixgl,
+      plasma-manager,
+      disko,
+      pre-commit-hooks,
     }:
     let
       legacyPkgs = nixpkgs.legacyPackages.x86_64-linux;
@@ -70,33 +66,59 @@
       };
       overlay-customPkgs = final: prev: {
         nixgl = nixgl.defaultPackage.x86_64-linux;
-        zjstatus = zjstatus.packages.x86_64-linux.default;
       };
-      nixModule = ({ ... }: {
-        nixpkgs.overlays = [ overlay-stable overlay-customPkgs ];
-        nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
-        nixpkgs.config = {
-          allowUnfree = true;
-        };
-      });
-      hmModule = {
+      nixModule = (
+        { ... }:
+        {
+          nixpkgs.overlays = [
+            overlay-stable
+            overlay-customPkgs
+          ];
+          nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
+          nixpkgs.config = {
+            allowUnfree = true;
+          };
+        }
+      );
+      hmDesktopModule = {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.clemens = { ... }: {
-          imports = [
-            homecfg.hmModules.homecfg
-            nix-index-database.hmModules.nix-index
-            plasma-manager.homeManagerModules.plasma-manager
-            ./modules/home/default.nix
-          ];
-          home = {
-            username = "clemens";
-            homeDirectory = "/home/clemens";
-            stateVersion = "24.05";
-          };
+        home-manager.users.clemens =
+          { pkgs, ... }:
+          {
+            imports = [
+              nix-index-database.hmModules.nix-index
+              plasma-manager.homeManagerModules.plasma-manager
+              ./modules/home
+              ./modules/kde/config.nix
+            ];
 
-          nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
-        };
+            home = {
+              username = "clemens";
+              homeDirectory = "/home/clemens";
+              stateVersion = "24.05";
+            };
+
+            nix.registry.nixpkgs.flake = self.inputs.nixpkgs;
+
+            homecfg = {
+              dev.enable = true;
+              git = {
+                enable = true;
+                user = "clemak27";
+                email = "clemak27@mailbox.org";
+                ssh_key = builtins.readFile /home/clemens/.ssh/id_ed25519.pub;
+                gh = true;
+              };
+              k8s.enable = true;
+              nvim.enable = true;
+              tools.enable = true;
+              wezterm.enable = true;
+              zsh.enable = true;
+            };
+
+            services.syncthing.enable = true;
+          };
       };
       desktopModules = [
         nixModule
@@ -108,7 +130,7 @@
         ./modules/desktop.nix
         ./modules/kde/default.nix
 
-        hmModule
+        hmDesktopModule
       ];
     in
     {
@@ -144,20 +166,29 @@
         pkgs = legacyPkgs;
         modules = [
           nixModule
-          homecfg.hmModules.homecfg
           nix-index-database.hmModules.nix-index
           ./hosts/fermi/configuration.nix
         ];
       };
 
-      devShell.x86_64-linux =
-        legacyPkgs.mkShell {
-          packages = with legacyPkgs; [
-            sops
-            efibootmgr
-            sbctl
-            nvd
-          ];
+      checks.x86_64-linux = {
+        pre-commit-check = pre-commit-hooks.lib.x86_64-linux.run {
+          src = ./.;
+          hooks = {
+            nixfmt-rfc-style.enable = true;
+            commitizen.enable = true;
+          };
         };
+      };
+
+      devShell.x86_64-linux = legacyPkgs.mkShell {
+        inherit (self.checks.x86_64-linux.pre-commit-check) shellHook;
+        packages = with legacyPkgs; [
+          sops
+          efibootmgr
+          sbctl
+          nvd
+        ];
+      };
     };
 }

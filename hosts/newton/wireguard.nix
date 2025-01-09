@@ -14,7 +14,10 @@
         {
           publicKey = builtins.readFile "/etc/wireguard/public_key";
           presharedKeyFile = "/etc/wireguard/pre_shared_key";
-          allowedIPs = [ "0.0.0.0/0" "::0/0" ];
+          allowedIPs = [
+            "0.0.0.0/0"
+            "::0/0"
+          ];
           endpoint = "wallstreet30.cc:51820";
           persistentKeepalive = 25;
         }

@@ -52,7 +52,11 @@
   users = {
     users.clemens = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "adbusers" ];
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+        "adbusers"
+      ];
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOCyRaO8psuZI2i/+inKS5jn765Uypds8ORj/nVkgSE3 maxwell"
