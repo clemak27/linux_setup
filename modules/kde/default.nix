@@ -52,6 +52,8 @@
   qt.platformTheme = "kde";
   qt.style = "breeze";
 
+  services.geoclue2.enable = true;
+
   programs.ssh = {
     startAgent = true;
     enableAskPassword = true;
