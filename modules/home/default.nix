@@ -16,7 +16,6 @@
       gh = true;
     };
     nvim.enable = true;
-    nvim.transparent = true;
     tools.enable = true;
     zsh.enable = true;
   };
