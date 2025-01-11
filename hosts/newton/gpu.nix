@@ -36,7 +36,7 @@ in
   boot.kernelParams = [ "nvidia-drm.modeset=1" ];
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
-  hardware.pulseaudio.support32Bit = true;
+  services.pulseaudio.support32Bit = true;
 
   environment.systemPackages = [ primeRun ];
 }

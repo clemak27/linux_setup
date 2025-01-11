@@ -40,7 +40,7 @@
     jack.enable = true;
   };
   hardware.bluetooth.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   # virt-manager
   virtualisation.libvirtd.enable = true;
