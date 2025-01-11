@@ -34,6 +34,8 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
     disko = {
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,6 +58,7 @@
       nix-on-droid,
       nixgl,
       plasma-manager,
+      nix-flatpak,
       disko,
       pre-commit-hooks,
     }:
@@ -89,6 +92,7 @@
             imports = [
               nix-index-database.hmModules.nix-index
               plasma-manager.homeManagerModules.plasma-manager
+              nix-flatpak.homeManagerModules.nix-flatpak
               ./modules/home
               ./modules/kde/config.nix
             ];
@@ -118,12 +122,31 @@
             };
 
             services.syncthing.enable = true;
+            services.flatpak.packages = [
+              # general
+              "org.freedesktop.Platform.ffmpeg-full//24.08"
+              # sudo flatpak override --filesystem=xdg-config/gtk-3.0
+              # sudo flatpak override --filesystem=xdg-config/gtk-4.0
+              "org.gtk.Gtk3theme.adw-gtk3"
+              "org.gtk.Gtk3theme.adw-gtk3-dark"
+              # gaming
+              "com.valvesoftware.Steam"
+              "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
+              "dev.vencord.Vesktop"
+              # gui
+              "com.calibre_ebook.calibre"
+              "com.obsproject.Studio"
+              "hu.irl.cameractrls"
+              "org.libreoffice.LibreOffice"
+              "org.signal.Signal"
+            ];
           };
       };
       desktopModules = [
         nixModule
         lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
+        nix-flatpak.nixosModules.nix-flatpak
         disko.nixosModules.disko
 
         ./modules/default.nix
