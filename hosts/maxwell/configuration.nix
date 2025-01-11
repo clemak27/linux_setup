@@ -27,11 +27,16 @@
       options = [ "compress=zstd" ];
     };
 
-    # "/home/clemens/nfs/media" = {
-    #   device = "192.168.178.100:/media";
-    #   fsType = "nfs";
-    #   options = [ "x-systemd.automount" "_netdev" "x-systemd.idle-timeout=60" "noauto" ];
-    # };
+    "/home/clemens/nfs/media" = {
+      device = "192.168.178.100:/media";
+      fsType = "nfs";
+      options = [
+        "x-systemd.automount"
+        "_netdev"
+        "x-systemd.idle-timeout=60"
+        "noauto"
+      ];
+    };
   };
 
   boot.loader.systemd-boot.enable = lib.mkForce false;
