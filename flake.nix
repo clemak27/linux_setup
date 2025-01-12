@@ -122,14 +122,20 @@
             };
 
             services.syncthing.enable = true;
-            services.flatpak.packages = [
-              "com.calibre_ebook.calibre"
-              "com.obsproject.Studio"
-              "dev.vencord.Vesktop"
-              "hu.irl.cameractrls"
-              "org.libreoffice.LibreOffice"
-              "org.signal.Signal"
-            ];
+            services.flatpak = {
+              packages = [
+                "com.calibre_ebook.calibre"
+                "com.obsproject.Studio"
+                "dev.vencord.Vesktop"
+                "hu.irl.cameractrls"
+                "org.libreoffice.LibreOffice"
+                "org.signal.Signal"
+              ];
+              update.auto = {
+                enable = true;
+                onCalendar = "daily";
+              };
+            };
           };
       };
       desktopModules = [
