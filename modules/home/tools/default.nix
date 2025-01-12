@@ -15,7 +15,7 @@ in
       android-tools
       bat
       bat-extras.batman
-      btop
+      htop
       curl
       cyme
       eza
@@ -81,7 +81,7 @@ in
       }
       {
         name = "top";
-        value = "btop -p 1";
+        value = "htop";
       }
     ]);
 
