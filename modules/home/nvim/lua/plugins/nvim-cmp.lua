@@ -41,6 +41,11 @@ return {
           },
         },
         completion = {
+          list = {
+            selection = {
+              preselect = false,
+            },
+          },
           keyword = {
             range = "full",
           },
