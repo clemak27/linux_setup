@@ -18,7 +18,7 @@ return {
         end,
         no_italic = false,
         integrations = {
-          cmp = true,
+          blink_cmp = true,
           fidget = true,
           gitgutter = true,
           gitsigns = true,

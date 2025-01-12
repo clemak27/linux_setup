@@ -48,7 +48,7 @@ return {
 
   set_base_config = function()
     return {
-      capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      capabilities = require("blink.cmp").get_lsp_capabilities(),
       on_attach = require("plugins.lsp.util").on_attach,
     }
   end,
