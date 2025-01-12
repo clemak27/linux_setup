@@ -35,6 +35,13 @@
     krita
   ];
 
+  services.flatpak.packages = [
+    "org.gtk.Gtk3theme.adw-gtk3"
+    "org.gtk.Gtk3theme.adw-gtk3-dark"
+    # sudo flatpak override --filesystem=xdg-config/gtk-3.0
+    # sudo flatpak override --filesystem=xdg-config/gtk-4.0
+  ];
+
   fonts = {
     packages = [
       pkgs.nerd-fonts.jetbrains-mono

@@ -123,19 +123,9 @@
 
             services.syncthing.enable = true;
             services.flatpak.packages = [
-              # general
-              "org.freedesktop.Platform.ffmpeg-full//24.08"
-              # sudo flatpak override --filesystem=xdg-config/gtk-3.0
-              # sudo flatpak override --filesystem=xdg-config/gtk-4.0
-              "org.gtk.Gtk3theme.adw-gtk3"
-              "org.gtk.Gtk3theme.adw-gtk3-dark"
-              # gaming
-              "com.valvesoftware.Steam"
-              "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
-              "dev.vencord.Vesktop"
-              # gui
               "com.calibre_ebook.calibre"
               "com.obsproject.Studio"
+              "dev.vencord.Vesktop"
               "hu.irl.cameractrls"
               "org.libreoffice.LibreOffice"
               "org.signal.Signal"
