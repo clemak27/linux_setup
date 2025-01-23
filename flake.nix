@@ -130,7 +130,20 @@
                 "hu.irl.cameractrls"
                 "org.libreoffice.LibreOffice"
                 "org.signal.Signal"
+                "com.valvesoftware.Steam"
+                "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
+                "org.freedesktop.Platform.VulkanLayer.MangoHud//24.08"
+                "org.freedesktop.Platform.VulkanLayer.gamescope//24.08"
+                "org.freedesktop.Platform.ffmpeg-full//24.08"
               ];
+              overrides = {
+                global = {
+                  Context.filesystems = [
+                    "xdg-config/gtk-3.0"
+                    "xdg-config/gtk-4.0"
+                  ];
+                };
+              };
               update.auto = {
                 enable = true;
                 onCalendar = "daily";

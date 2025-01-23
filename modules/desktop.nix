@@ -51,14 +51,6 @@
   hardware.steam-hardware.enable = true;
   environment.systemPackages = with pkgs; [
     gamemode
-
     dsda-doom
-  ];
-  services.flatpak.packages = [
-    "com.valvesoftware.Steam"
-    "com.valvesoftware.Steam.CompatibilityTool.Proton-GE"
-    "org.freedesktop.Platform.VulkanLayer.MangoHud//24.08"
-    "org.freedesktop.Platform.VulkanLayer.gamescope//24.08"
-    "org.freedesktop.Platform.ffmpeg-full//24.08"
   ];
 }
