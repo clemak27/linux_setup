@@ -26,7 +26,7 @@ in
         deno
         gcc
         nodejs_22
-        python311
+        python312
         yarn
 
         # html/css/json/eslint
