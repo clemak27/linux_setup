@@ -33,7 +33,7 @@ return {
 
       vim.api.nvim_create_augroup("format_on_write", { clear = true })
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-        pattern = "*.go,*.js,*.ts,*.lua,*.bash,*.sh,*.nix",
+        pattern = "*.go,*.js,*.ts,*.lua,*.bash,*.sh,*.nix,*.rs",
         group = "format_on_write",
         callback = function(args)
           require("conform").format({
