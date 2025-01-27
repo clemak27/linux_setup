@@ -144,6 +144,9 @@
                     "xdg-config/gtk-4.0"
                   ];
                 };
+                "com.valvesoftware.Steam".Context = {
+                  talk-name = [ "org.freedesktop.Flatpak" ];
+                };
               };
               update.auto = {
                 enable = true;
