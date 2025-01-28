@@ -15,16 +15,6 @@
     ],
     "description": "Inserts a shellcheck disable directive"
   },
-  "nix-shebang": {
-    "prefix": "nix-shebang",
-    "body": [
-      "#!/bin/sh",
-      "# shellcheck shell=bash",
-      "",
-      "set -eo pipefail"
-    ],
-    "description": "Inserts shebang"
-  },
   "for-in-array": {
     "prefix": "for-in-array",
     "body": [

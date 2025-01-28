@@ -97,4 +97,6 @@
     zsh.enable = true;
     gnupg.agent.enable = true;
   };
+
+  services.envfs.enable = true;
 }
