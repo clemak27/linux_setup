@@ -34,6 +34,30 @@ in
   };
 
   services.syncthing.enable = true;
+  services.flatpak = {
+    enable = true;
+    packages = [
+      "net.retrodeck.retrodeck"
+      "org.freedesktop.Platform.ffmpeg-full//24.08"
+      "org.gtk.Gtk3theme.adw-gtk3"
+      "org.gtk.Gtk3theme.adw-gtk3-dark"
+      "org.kde.haruna"
+      "org.mozilla.firefox"
+      "org.prismlauncher.PrismLauncher"
+    ];
+    overrides = {
+      global = {
+        Context.filesystems = [
+          "xdg-config/gtk-3.0"
+          "xdg-config/gtk-4.0"
+        ];
+      };
+    };
+    update.auto = {
+      enable = true;
+      onCalendar = "daily";
+    };
+  };
 
   programs.zsh = {
     shellAliases = builtins.listToAttrs ([

@@ -148,6 +148,7 @@
         modules = [
           nixModule
           nix-index-database.hmModules.nix-index
+          nix-flatpak.homeManagerModules.nix-flatpak
           ./hosts/fermi/configuration.nix
         ];
       };
