@@ -25,6 +25,8 @@
   services.syncthing.enable = true;
   services.flatpak = {
     packages = [
+      "org.gtk.Gtk3theme.adw-gtk3"
+      "org.gtk.Gtk3theme.adw-gtk3-dark"
       "com.calibre_ebook.calibre"
       "com.obsproject.Studio"
       "dev.vencord.Vesktop"
