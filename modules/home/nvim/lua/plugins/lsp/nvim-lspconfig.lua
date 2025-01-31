@@ -108,7 +108,16 @@ return {
           end
 
           if server == "jsonls" then
-            config.filetypes = { "json", "json5" }
+            config.filetypes = { "json", "jsonc", "json5" }
+            -- this is not 100% correct, but this way jsonls doesn't complain about comments in json5 files
+            vim.api.nvim_create_augroup("json5_ft", { clear = true })
+            vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+              pattern = "*.json5",
+              group = "json5_ft",
+              callback = function()
+                vim.api.nvim_exec2("set filetype=jsonc", { output = false })
+              end,
+            })
           end
 
           if server == "lua_ls" then
