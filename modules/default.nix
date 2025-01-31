@@ -99,4 +99,9 @@
   };
 
   services.envfs.enable = true;
+
+  # remove once https://github.com/NixOS/nixpkgs/pull/377468 is in unstable
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-31.7.7"
+  ];
 }
