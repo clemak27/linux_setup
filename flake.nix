@@ -105,7 +105,6 @@
         nixModule
         lanzaboote.nixosModules.lanzaboote
         home-manager.nixosModules.home-manager
-        nix-flatpak.nixosModules.nix-flatpak
         disko.nixosModules.disko
 
         ./modules/default.nix
