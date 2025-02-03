@@ -53,4 +53,10 @@
     gamemode
     dsda-doom
   ];
+
+  # appimage support
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
 }
