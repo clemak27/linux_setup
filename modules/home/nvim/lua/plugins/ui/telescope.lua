@@ -52,15 +52,14 @@ return {
         end, {})
       end
 
-      vim.keymap.set("n", "<leader>f", builtin.find_files, {})
-      vim.keymap.set("n", "<leader>ff", function()
+      vim.keymap.set("n", "<leader>f", function()
         builtin.find_files({ find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" } })
       end, {})
 
       vim.keymap.set("n", "<leader>c", builtin.commands, {})
-      vim.keymap.set("n", "<leader>cc", builtin.command_history, {})
+      vim.keymap.set("n", "<leader>C", builtin.command_history, {})
       vim.keymap.set("n", "<leader>l", builtin.builtin, {})
-      vim.keymap.set("n", "<leader>ll", builtin.resume, {})
+      vim.keymap.set("n", "<leader>L", builtin.resume, {})
     end,
   },
 }
