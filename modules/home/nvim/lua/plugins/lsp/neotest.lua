@@ -21,6 +21,12 @@ return {
         },
       })
 
+      vim.api.nvim_create_user_command("NeotestRunClosest", function()
+        require("neotest").run.run({ suite = false })
+      end, {})
+      vim.api.nvim_create_user_command("NeotestRunFile", function()
+        require("neotest").run.run({ suite = false, vim.fn.expand("%") })
+      end, {})
       vim.api.nvim_create_user_command("NeotestDebug", function()
         require("neotest").run.run({ suite = false, strategy = "dap" })
       end, {})

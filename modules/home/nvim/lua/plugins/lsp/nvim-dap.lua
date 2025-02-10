@@ -36,20 +36,6 @@ return {
 
       -- go
       require("dap-go").setup()
-      vim.api.nvim_create_augroup("godap_cmd", { clear = true })
-      vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-        pattern = "*.go",
-        group = "godap_cmd",
-        callback = function()
-          vim.api.nvim_create_user_command("DapGoDebugTest", function()
-            require("dap-go").debug_test()
-          end, {})
-
-          vim.api.nvim_create_user_command("DapGoDebugLastTest", function()
-            require("dap-go").debug_last_test()
-          end, {})
-        end,
-      })
 
       -- java workaround for debugging more complex tests:
       -- 1. start server with gradle --rerun-tasks test --tests "DemoApplicationTests.contextLoads"
