@@ -8,6 +8,7 @@ return {
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
       "fredrikaverpil/neotest-golang",
+      "rcasia/neotest-java",
     },
     config = function()
       require("neotest").setup({
@@ -17,6 +18,9 @@ return {
         adapters = {
           require("neotest-golang")({
             dap_go_enabled = true,
+          }),
+          require("neotest-java")({
+            ignore_wrapper = false,
           }),
         },
       })
