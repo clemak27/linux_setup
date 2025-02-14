@@ -205,6 +205,9 @@ return {
             config.settings = {
               yaml = {
                 keyOrdering = false,
+                editor = {
+                  formatOnType = false,
+                },
               },
             }
           end
