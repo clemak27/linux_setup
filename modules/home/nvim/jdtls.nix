@@ -2,14 +2,14 @@
 let
   jdtlsSource =
     let
-      version = "1.43.0";
+      version = "1.44.0";
     in
     pkgs.stdenv.mkDerivation {
       name = "jdtls-source";
       version = "${version}";
       src = pkgs.fetchurl {
-        url = "https://download.eclipse.org/jdtls/milestones/${version}/jdt-language-server-${version}-202412191447.tar.gz";
-        hash = "sha256-46M/+Iiq8dmY7AtuDx7LjurFPu+I3eIiBMPNM3nl+5g=";
+        url = "https://download.eclipse.org/jdtls/milestones/${version}/jdt-language-server-${version}-202501221502.tar.gz";
+        hash = "sha256-0+q4TwbRSPx6CKGvRv9kuAQdpAAwRRWGPWLKTmzacrM=";
       };
       unpackPhase = ":";
       nativeBuildInputs = [ ];
