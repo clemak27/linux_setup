@@ -85,6 +85,28 @@ let
         cp -R "./tmp/extension" "$out"
       '';
     };
+
+  gradleLs =
+    let
+      version = "3.15.0";
+    in
+    pkgs.stdenv.mkDerivation {
+      name = "vscode-gradle";
+      version = "${version}";
+      src = pkgs.fetchurl {
+        # https://open-vsx.org/extension/vscjava/vscode-gradle
+        url = "https://open-vsx.org/api/vscjava/vscode-gradle/${version}/file/vscjava.vscode-gradle-${version}.vsix";
+        hash = "sha256-/aX/6deD+vXF2DF6V/uXji0/0A0jXkTAGRermQDjpNI=";
+      };
+      unpackPhase = ":";
+      nativeBuildInputs = [ pkgs.unzip ];
+      installPhase = ''
+        cp "$src" "tmp.zip"
+        mkdir -p ./tmp
+        unzip "tmp.zip" -d ./tmp
+        cp -R "./tmp/extension" "$out"
+      '';
+    };
 in
 {
   programs.neovim.extraPackages = with pkgs; [
@@ -98,5 +120,6 @@ in
     ".jdtls/bundles/java-test".source = javaTest;
     ".jdtls/bundles/java-debug-adapter".source = javaDebug;
     ".jdtls/bundles/vscode-spring-boot".source = springExtensions;
+    ".jdtls/bundles/vscode-gradle".source = gradleLs;
   };
 }

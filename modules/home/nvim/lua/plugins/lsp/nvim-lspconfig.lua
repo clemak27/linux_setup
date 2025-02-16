@@ -82,6 +82,7 @@ return {
         "eslint",
         "gopls",
         "golangci_lint_ls",
+        "gradle_ls",
         "html",
         "jsonls",
         "jedi_language_server",
@@ -147,6 +148,14 @@ return {
               },
             }
             vim.lsp.inlay_hint.enable(true)
+          end
+
+          if server == "gradle_ls" then
+            config.cmd = {
+              "java",
+              "-jar",
+              os.getenv("HOME") .. "/.jdtls/bundles/vscode-gradle/lib/gradle-language-server.jar",
+            }
           end
 
           if server == "ts_ls" and vim.fn.isdirectory(vim.fn.getcwd() .. "/node_modules/vue") ~= false then
