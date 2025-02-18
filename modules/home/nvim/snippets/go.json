@@ -7,5 +7,14 @@
       "}"
     ],
     "description": "Inserts a if err != nil statement"
+  },
+  "iffuncerr": {
+    "prefix": "iffuncerr",
+    "body": [
+      "if err := $1; err != nil {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Inserts a function call with inline errorhandling"
   }
 }
