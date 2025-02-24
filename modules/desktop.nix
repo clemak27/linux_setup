@@ -1,5 +1,9 @@
 { pkgs, config, ... }:
 {
+  imports = [
+    ./firefox.nix
+  ];
+
   # flatpak
   services.flatpak.enable = true;
   # https://github.com/NixOS/nixpkgs/issues/119433#issuecomment-1326957279
@@ -26,9 +30,6 @@
       "/usr/share/icons" = mkRoSymBind (config.system.path + "/share/icons");
       "/usr/share/fonts" = mkRoSymBind (aggregatedFonts + "/share/fonts");
     };
-
-  # browser
-  programs.firefox.enable = true;
 
   # audio
   security.rtkit.enable = true;
