@@ -3,7 +3,7 @@
   programs.firefox = {
     enable = true;
     languagePacks = [
-      "en-US"
+      "en-CA"
       "de"
     ];
     nativeMessagingHosts.packages = with pkgs; [
