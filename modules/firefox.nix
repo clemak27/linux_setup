@@ -8,6 +8,7 @@
     ];
     nativeMessagingHosts.packages = with pkgs; [
       firefoxpwa
+      tridactyl-native
     ];
     policies = {
       AppAutoUpdate = false;
