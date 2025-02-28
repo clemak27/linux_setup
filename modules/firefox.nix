@@ -1,10 +1,13 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.firefox = {
     enable = true;
     languagePacks = [
       "en-US"
       "de"
+    ];
+    nativeMessagingHosts.packages = with pkgs; [
+      firefoxpwa
     ];
     policies = {
       AppAutoUpdate = false;
@@ -76,6 +79,11 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/file/4427769/privacy_badger17-2025.1.29.xpi";
           installation_mode = "force_installed";
         };
+        # Progressive Web Apps for Firefox
+        "firefoxpwa@filips.si" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4437768/pwas_for_firefox-2.14.1.xpi";
+          installation_mode = "force_installed";
+        };
         # Reddit Enhancement Suite
         "jid1-xUfzOsOFlzSOXg@jetpack" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/file/4424459/reddit_enhancement_suite-5.24.8.xpi";
@@ -134,4 +142,8 @@
       };
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    firefoxpwa
+  ];
 }
