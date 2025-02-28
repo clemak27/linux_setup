@@ -192,7 +192,7 @@ return {
               end
 
               require("ltex_extra").setup({
-                load_langs = { "en-US", "de-DE" },
+                load_langs = { "en-GB", "de-DE" },
                 init_check = true,
                 path = configPath,
               })

@@ -41,7 +41,7 @@
   # locale
   time.timeZone = "Europe/Vienna";
   i18n = {
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = "en_GB.UTF-8";
     extraLocaleSettings = {
       LC_TIME = "de_DE.UTF-8";
     };

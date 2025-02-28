@@ -59,7 +59,7 @@ in
       ]);
       initExtra = builtins.concatStringsSep "\n" [
         # set correct locale
-        "export LC_ALL=en_US.UTF-8"
+        "export LC_ALL=en_GB.UTF-8"
       ];
     };
 
@@ -155,7 +155,7 @@ in
         # "kxkbrc"."Layout"."LayoutList" = "us";
         # "kxkbrc"."Layout"."Use" = true;
         # "kxkbrc"."Layout"."VariantList" = "altgr-intl";
-        "plasma-localerc"."Formats"."LANG" = "en_US.UTF-8";
+        "plasma-localerc"."Formats"."LANG" = "en_GB.UTF-8";
         "plasma-localerc"."Formats"."LC_ADDRESS" = "de_AT.UTF-8";
         "plasma-localerc"."Formats"."LC_MEASUREMENT" = "de_AT.UTF-8";
         "plasma-localerc"."Formats"."LC_MONETARY" = "de_AT.UTF-8";
