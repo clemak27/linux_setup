@@ -14,7 +14,7 @@
       AppAutoUpdate = false;
       BackgroundAppUpdate = false;
       DisableFirefoxStudies = true;
-      DisableFirefoxAccounts = true;
+      DisableFirefoxAccounts = false;
       DisableProfileRefresh = true;
       DisableSetDesktopBackground = true;
       DisplayMenuBar = "default-off";
