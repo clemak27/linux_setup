@@ -56,6 +56,16 @@ return {
           },
           opts = { skip = true },
         },
+        {
+          filter = {
+            warning = true,
+            any = {
+              -- Neotest Go sometimes spams this
+              { find = "Failed to decode JSON line:" },
+            },
+          },
+          opts = { skip = true },
+        },
       },
       presets = {
         bottom_search = true,
