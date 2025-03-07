@@ -1,0 +1,206 @@
+{
+  "mermaid_flow": {
+    "prefix": "mermaid_flow",
+    "body": [
+      "```mermaid",
+      "graph TD",
+      "\tA[Christmas] -->|Get money| B(Go shopping)",
+      "\tB --> C{Let me think}",
+      "\tC -->|One| D[Laptop]",
+      "\tC -->|Two| E[iPhone]",
+      "\tC -->|Three| F[fa:fa-car Car]",
+      "```"
+    ],
+    "description": "Inserts a mermaid flow chart"
+  },
+  "mermaid_sequence": {
+    "prefix": "mermaid_sequence",
+    "body": [
+      "```mermaid",
+      "sequenceDiagram",
+      "\tAlice->>+John: Hello John, how are you?",
+      "\tAlice->>+John: John, can you hear me?",
+      "\tJohn-->>-Alice: Hi Alice, I can hear you!",
+      "\tJohn-->>-Alice: I feel great!",
+      "```"
+    ],
+    "description": "Inserts a mermaid sequence diagram"
+  },
+  "mermaid_class": {
+    "prefix": "mermaid_class",
+    "body": [
+      "```mermaid",
+      "classDiagram",
+      "\tAnimal <|-- Duck",
+      "\tAnimal <|-- Fish",
+      "\tAnimal <|-- Zebra",
+      "\tAnimal : +int age",
+      "\tAnimal : +String gender",
+      "\tAnimal: +isMammal()",
+      "\tAnimal: +mate()",
+      "\tclass Duck{",
+      "\t\t+String beakColor",
+      "\t\t+swim()",
+      "\t\t+quack()",
+      "\t}",
+      "\tclass Fish{",
+      "\t\t-int sizeInFeet",
+      "\t\t-canEat()",
+      "\t}",
+      "\tclass Zebra{",
+      "\t\t+bool is_wild",
+      "\t\t+run()",
+      "\t}",
+      "```"
+    ],
+    "description": "Inserts a mermaid class diagram"
+  },
+  "mermaid_state": {
+    "prefix": "mermaid_state",
+    "body": [
+      "```mermaid",
+      "stateDiagram-v2",
+      "\t[*] --> Still",
+      "\tStill --> [*]",
+      "\tStill --> Moving",
+      "\tMoving --> Still",
+      "\tMoving --> Crash",
+      "\tCrash --> [*]",
+      "```"
+    ],
+    "description": "Inserts a mermaid state diagram"
+  },
+  "mermaid_gantt": {
+    "prefix": "mermaid_gantt",
+    "body": [
+      "```mermaid",
+      "gantt",
+      "\ttitle A Gantt Diagram",
+      "\tdateFormat  YYYY-MM-DD",
+      "\tsection Section",
+      "\tA task           :a1, 2014-01-01, 30d",
+      "\tAnother task     :after a1  , 20d",
+      "\tsection Another",
+      "\tTask in sec      :2014-01-12  , 12d",
+      "\tanother task      : 24d",
+      "```"
+    ],
+    "description": "Inserts a mermaid gantt diagram"
+  },
+  "mermaid_pie": {
+    "prefix": "mermaid_pie",
+    "body": [
+      "```mermaid",
+      "pie title Pets adopted by volunteers",
+      "\t\"Dogs\" : 386",
+      "\t\"Cats\" : 85",
+      "\t\"Rats\" : 15",
+      "```"
+    ],
+    "description": "Inserts a mermaid pie chart"
+  },
+  "mermaid_er": {
+    "prefix": "mermaid_er",
+    "body": [
+      "```mermaid",
+      "erDiagram",
+      "\tCUSTOMER }|..|{ DELIVERY-ADDRESS : has",
+      "\tCUSTOMER ||--o{ ORDER : places",
+      "\tCUSTOMER ||--o{ INVOICE : \"liable for\"",
+      "\tDELIVERY-ADDRESS ||--o{ ORDER : receives",
+      "\tINVOICE ||--|{ ORDER : covers",
+      "\tORDER ||--|{ ORDER-ITEM : includes",
+      "\tPRODUCT-CATEGORY ||--|{ PRODUCT : contains",
+      "\tPRODUCT ||--o{ ORDER-ITEM : \"ordered in\"",
+      "```"
+    ],
+    "description": "Inserts a mermaid ER diagram"
+  },
+  "mermaid_journey": {
+    "prefix": "mermaid_journey",
+    "body": [
+      "```mermaid",
+      "\tjourney",
+      "\ttitle My working day",
+      "\tsection Go to work",
+      "\t\tMake tea: 5: Me",
+      "\t\tGo upstairs: 3: Me",
+      "\t\tDo work: 1: Me, Cat",
+      "\tsection Go home",
+      "\t\tGo downstairs: 5: Me",
+      "\t\tSit down: 3: Me",
+      "```"
+    ],
+    "description": "Inserts a mermaid User Journey"
+  },
+  "mermaid_git": {
+    "prefix": "mermaid_git",
+    "body": [
+      "```mermaid",
+      "gitGraph",
+      "\tcommit",
+      "\tcommit",
+      "\tbranch develop",
+      "\tcheckout develop",
+      "\tcommit",
+      "\tcommit",
+      "\tcheckout main",
+      "\tmerge develop",
+      "\tcommit",
+      "\tcommit",
+      "```"
+    ],
+    "description": "Inserts a mermaid Git Graph"
+  },
+  "collapsible_section": {
+    "prefix": "collapsible_section",
+    "body": [
+      "<details><summary>${1:section title}</summary>",
+      "$0",
+      "</details>"
+    ],
+    "description": "Inserts a mermaid Git Graph"
+  },
+  "mdl-disable": {
+    "prefix": "mdl-disable",
+    "body": [
+      "<!-- markdownlint-disable -->"
+    ],
+    "description": "Inserts a markdownlint-disable comment"
+  },
+  "mdl-disable-nl": {
+    "prefix": "mdl-disable-nl",
+    "body": [
+      "<!-- markdownlint-disable-next-line -->"
+    ],
+    "description": "Inserts a markdownlint-disable comment"
+  },
+  "mdl-capture": {
+    "prefix": "mdl-capture",
+    "body": [
+      "<!-- markdownlint-capture -->"
+    ],
+    "description": "Inserts a markdownlint-capture comment"
+  },
+  "mdl-restore": {
+    "prefix": "mdl-restore",
+    "body": [
+      "<!-- markdownlint-restore -->"
+    ],
+    "description": "Inserts a markdownlint-restore comment"
+  },
+  "ltex_disable": {
+    "prefix": "ltex_disable",
+    "body": [
+      "<!-- LTex: enabled=false -->"
+    ],
+    "description": "Inserts a ltex disable comment"
+  },
+  "ltex_enable": {
+    "prefix": "ltex_enable",
+    "body": [
+      "<!-- LTex: enabled=true -->"
+    ],
+    "description": "Inserts a ltex enable comment"
+  }
+}
