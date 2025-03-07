@@ -1,0 +1,18 @@
+[Firefox PiP]
+Description=Firefox PiP
+above=true
+aboverule=2
+desktops=\\0
+desktopsrule=2
+skippager=true
+skippagerrule=2
+skipswitcher=true
+skipswitcherrule=2
+skiptaskbar=true
+skiptaskbarrule=2
+title=Picture-in-Picture
+titlematch=1
+types=1
+wmclass=firefox firefox
+wmclasscomplete=true
+wmclassmatch=1

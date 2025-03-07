@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if git branch -a | grep -E 'remotes/origin/master' > /dev/null; then
+  git checkout master
+else
+  git checkout main
+fi
+
+git pull --rebase --autostash
+
+git remote prune origin
+
+branches=$(git branch --merged | grep -Ev "(^\*|master|main)" || echo "")
+if [ "$branches" != "" ]; then echo "$branches" | xargs git branch -d; fi
