@@ -1,0 +1,192 @@
+# shellcheck disable=all
+
+typeset -U path cdpath fpath manpath
+PROMPT_EOL_MARK=""
+ZSH_DISABLE_COMPFIX="false"
+
+HISTSIZE="50000"
+SAVEHIST="25000"
+HISTFILE="$HOME/.zsh_history"
+
+setopt HIST_FCNTL_LOCK
+setopt HIST_IGNORE_DUPS
+unsetopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+unsetopt HIST_EXPIRE_DUPS_FIRST
+setopt SHARE_HISTORY
+unsetopt EXTENDED_HISTORY
+unsetopt beep
+setopt HIST_SAVE_NO_DUPS
+
+export GOPATH="$HOME/.go"
+export GOTOOLCHAIN="local"
+export PATH="$PATH:$HOME/.local/bin"
+export SSH_ASKPASS_REQUIRE="prefer"
+
+if [ -n "${CONTAINER_ID}" ]; then
+  export PATH="$PATH:$HOME/.cargo/bin:$HOME/.go/bin:$HOME/.local/bin/npm/bin:$HOME/.local/share/nvim/mason/bin"
+  export SHELL=/usr/sbin/zsh
+  alias 'hzsh'='distrobox-host-exec zsh'
+else
+  export ZSH_THEME=robbyrussell
+  alias 'db'='distrobox'
+  function dbs() {
+    distrobox-ephemeral \
+    --name tmpshell \
+    --pull \
+    --no-entry \
+    --image quay.io/toolbx/arch-toolbox:latest \
+    --additional-packages "$@"
+  }
+fi
+
+# oh-my-zsh
+if [ -d "$HOME/.oh-my-zsh" ]; then
+  plugins=(npm golang gradle-completion git kubectl extract rsync)
+  if command -v fzf &> /dev/null; then
+    plugins+=(fzf)
+  fi
+
+  ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+  source $HOME/.oh-my-zsh/oh-my-zsh.sh
+fi
+
+# direnv
+if command -v direnv &> /dev/null; then
+  eval "$(direnv hook zsh)"
+  export DIRENV_LOG_FORMAT=""
+  export PRE_COMMIT_COLOR="never"
+fi
+
+export LANG='en_GB.UTF-8'
+export BROWSER=firefox
+
+# podman
+if command -v podman &> /dev/null; then
+  export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
+  source <(podman completion zsh)
+  compdef docker=podman
+fi
+
+# sd distrobox
+if [ "$HOSTNAME" = "fermi" ]; then
+  distrobox-host-exec +si:localuser:$USER > /dev/null
+  export PIPEWIRE_RUNTIME_DIR=/dev/null
+  export PATH="$HOME/.local/bin/distrobox/bin:$PATH"
+fi
+
+# Aliases
+alias 'cd..'='cd ..'
+alias 'clear'='printf '\''\33c\e[3J'\'''
+alias 'q'='exit'
+alias 'watch'='viddy --disable_auto_save'
+
+# fzf
+if command -v fzf &> /dev/null; then
+  export FZF_DEFAULT_COMMAND="rg --files --hidden"
+  export FZF_DEFAULT_OPTS="--height=99% --layout=reverse --info=inline --border=sharp --margin=2 --padding=1 --color=bg+:#313244,spinner:#f5e0dc,hl:#f38ba8 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+fi
+
+## bat
+if command -v bat &> /dev/null; then
+  alias -- 'cat'='bat'
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  export MANROFFOPT="-c"
+fi
+
+## yt-dlp
+if command -v yt-dlp &> /dev/null; then
+  alias 'youtube-dl'='yt-dlp'
+  alias 'youtube-dl-music'='yt-dlp --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s"'
+fi
+
+## starship
+if command -v starship &> /dev/null; then
+  eval "$(starship init zsh)"
+fi
+
+## dev
+if command -v java &> /dev/null; then
+  export JAVA_HOME=/usr/lib/jvm/java-21-openjdk/
+fi
+
+## tools
+if command -v eza &> /dev/null; then
+  alias 'ls'='eza --icons=automatic'
+  alias 'lsa'='eza --icons=automatic -hal'
+fi
+if command -v cyme &> /dev/null; then
+  alias 'lsusb'='cyme --lsusb'
+fi
+if command -v htop &> /dev/null; then
+  alias 'top'='htop'
+fi
+
+## git
+if command -v git &> /dev/null; then
+  alias 'gcm'='git commit -v -m'
+  alias 'gdc'='git diff --cached'
+  alias 'gfmm'='git fetch origin && git merge origin/master'
+  alias 'gprom'='if git branch -a | grep -E '\''remotes/origin/master'\'' > /dev/null; then git pull --rebase origin master; else git pull --rebase origin main; fi'
+  alias 'gpskip'='git push -o ci.skip'
+  alias 'grf'='git checkout main && git fetch upstream && git pull upstream main && git push origin main'
+  alias 'gs'='git status'
+  alias 'gst'='git stash'
+  alias 'gstd'='git stash drop'
+  alias 'gstp'='git stash pop'
+  alias 'gsurr'='git submodule update --remote --rebase'
+  alias 'gus'='git reset HEAD'
+
+  if ! command -v delta &> /dev/null; then
+    export GIT_PAGER=less
+    export LESS="-F -X $LESS"
+  fi
+fi
+
+## nvim
+if command -v nvim &> /dev/null; then
+  alias 'vi'='nvim'
+  alias 'vim'='nvim'
+  alias 'vimdiff'='nvim -d'
+  export EDITOR=nvim
+  export VISUAL=nvim
+  export NVIM_TRANSPARENT="true"
+fi
+
+## k8s
+if command -v kubectl &> /dev/null; then
+  if command -v kubecolor &> /dev/null; then
+    source <(kubectl completion zsh)
+    alias kubectl=kubecolor
+    compdef kubecolor=kubectl
+  fi
+
+  alias 'kctx'='kubectx'
+  alias 'kns'='kubens'
+
+  # https://github.com/ohmyzsh/ohmyzsh/issues/12515
+  unalias k &> /dev/null || :
+  function k() { kubecolor "$@" }
+  compdef _kubectl k
+
+  export PATH="$HOME/.krew/bin:$PATH"
+
+  function kj() { kubectl "$@" -o json | jq; }
+  compdef kj=kubectl
+  function ky() { kubectl "$@" -o yaml | bat -p -P --language=yaml; }
+  compdef ky=kubectl
+  function wk() { viddy --disable_auto_save --no-title kubecolor --force-colors "$@"; }
+  compdef wk=kubectl
+  function kgaw() { viddy  --disable_auto_save --no-title kubecolor --force-colors get all; }
+fi
+
+## source extra config
+if [ -f "$HOME/.zshrc_extra" ]; then
+  source $HOME/.zshrc_extra
+fi
+
+## highlighting
+if [ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
