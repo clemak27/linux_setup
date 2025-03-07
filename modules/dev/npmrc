@@ -1,0 +1,2 @@
+prefix=~/.local/bin/npm
+save-exact=true
