@@ -1,9 +1,9 @@
 # My Linux setup
 
-This repo contains my dotfiles, Nix-config and setup for my Linux devices:
+This repo contains my dotfiles and setup for my Linux devices:
 
 - `maxwell`: Desktop-PC
-  - Runs NixOS
+  - Runs Fedora Kinoite
   - Current Specs:
     - CPU: AMD Ryzen 7 9700X
     - GPU: AMD ATI Sapphire Radeon RX 6700
@@ -11,11 +11,11 @@ This repo contains my dotfiles, Nix-config and setup for my Linux devices:
     - Memory: 32 GB
     - Screens: 3440x1440 + 1920x1080
 - `newton`: Dell XPS15 (7590)
-  - Runs NixOS
+  - Runs Fedora Kinoite
 - `fermi`: Steam Deck
-  - Runs SteamOS + home-manager
+  - Runs SteamOS
 - `planck`: Pixel 8 Pro
-  - Runs GrapheneOS + nix-on-droid
+  - Runs GrapheneOS + termux
 
 This is for my own usage and preferences, but you are of course free to use it
 as inspiration.
