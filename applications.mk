@@ -66,13 +66,6 @@ applications/games: applications/dsda
 	curl -LO https://raw.githubusercontent.com/ValveSoftware/steam-devices/master/60-steam-vr.rules
 	sudo mv 60-steam-vr.rules /etc/udev/rules.d/
 
-applications/kde:
-	rpm-ostree install --idempotent ksshaskpass
-	flatpak install -y flathub \
-		org.kde.gwenview \
-		org.kde.okular
-	echo -e "[Desktop Entry]\nExec=$$HOME/Projects/linux_setup/kde/kssaskpass.sh\nIcon=dialog-scripts\nName=kssaskpass.sh\nType=Application\nX-KDE-AutostartScript=true" > $$HOME/.config/autostart/kssaskpass.sh.desktop
-
 .PHONY: applications/dsda
 applications/dsda:
 	distrobox assemble create --name dsda --replace

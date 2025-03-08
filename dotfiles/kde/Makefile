@@ -1,0 +1,88 @@
+DOTFILES=$$PWD/dotfiles
+CONFIG=$$HOME/.config
+
+.PHONY: dotfiles/kde
+dotfiles/kde: ksshaskpass bbColorscheme konsoleTheme ## setup KDE Plasma
+  # local CONF="/home/${YOUR_USER}/.config/dolphinrc"
+  # kwriteconfig6 --file "${CONF}" --group "General" --key "ShowSpaceInfo" "false"
+
+  # "dolphinrc"."DetailsMode"."ExpandableFolders" = false;
+  # "dolphinrc"."DetailsMode"."PreviewSize" = 32;
+  # "dolphinrc"."General"."ConfirmClosingMultipleTabs" = false;
+  # "dolphinrc"."General"."RememberOpenedTabs" = false;
+  # "dolphinrc"."General"."ShowZoomSlider" = false;
+  # "dolphinrc"."KFileDialog Settings"."Places Icons Auto-resize" = false;
+  # "dolphinrc"."KFileDialog Settings"."Places Icons Static Size" = 22;
+  # "kcminputrc"."Mouse"."cursorTheme" = "breeze_cursors";
+  # "kdeglobals"."General"."accentColorFromWallpaper" = true;
+  # "kdeglobals"."Icons"."Theme" = "Papirus-Dark";
+  # "kdeglobals"."KDE"."ShowDeleteCommand" = false;
+  # "kdeglobals"."KFileDialog Settings"."Allow Expansion" = false;
+  # "kdeglobals"."KFileDialog Settings"."Automatically select filename extension" = true;
+  # "kdeglobals"."KFileDialog Settings"."Breadcrumb Navigation" = true;
+  # "kdeglobals"."KFileDialog Settings"."Decoration position" = 2;
+  # "kdeglobals"."KFileDialog Settings"."LocationCombo Completionmode" = 5;
+  # "kdeglobals"."KFileDialog Settings"."PathCombo Completionmode" = 5;
+  # "kdeglobals"."KFileDialog Settings"."Show Bookmarks" = false;
+  # "kdeglobals"."KFileDialog Settings"."Show Full Path" = false;
+  # "kdeglobals"."KFileDialog Settings"."Show Inline Previews" = true;
+  # "kdeglobals"."KFileDialog Settings"."Show Preview" = false;
+  # "kdeglobals"."KFileDialog Settings"."Show Speedbar" = true;
+  # "kdeglobals"."KFileDialog Settings"."Show hidden files" = false;
+  # "kdeglobals"."KFileDialog Settings"."Sort by" = "Name";
+  # "kdeglobals"."KFileDialog Settings"."Sort directories first" = true;
+  # "kdeglobals"."KFileDialog Settings"."Sort hidden files last" = false;
+  # "kdeglobals"."KFileDialog Settings"."Sort reversed" = false;
+  # "kdeglobals"."KFileDialog Settings"."Speedbar Width" = 140;
+  # "kdeglobals"."KFileDialog Settings"."View Style" = "DetailTree";
+  # "kdeglobals"."PreviewSettings"."EnableRemoteFolderThumbnail" = false;
+  # "kdeglobals"."PreviewSettings"."MaximumRemoteSize" = 0;
+  # "kiorc"."Confirmations"."ConfirmDelete" = true;
+  # "kiorc"."Confirmations"."ConfirmEmptyTrash" = true;
+  # "kiorc"."Confirmations"."ConfirmTrash" = false;
+  # "kiorc"."Executable scripts"."behaviourOnLaunch" = "alwaysAsk";
+  # "klaunchrc"."BusyCursorSettings"."Bouncing" = false;
+  # "krunnerrc"."General"."FreeFloating" = true;
+  # "krunnerrc"."Plugins"."krunner_katesessionsEnabled" = false;
+  # "krunnerrc"."Plugins"."krunner_konsoleprofilesEnabled" = false;
+  # "krunnerrc"."Plugins/Favorites"."plugins" = "krunner_services,krunner_systemsettings";
+  # "kscreenlockerrc"."Daemon"."Autolock" = false;
+  # "kscreenlockerrc"."Daemon"."Timeout" = 0;
+  # "kwinrc"."Effect-overview"."BorderActivate" = 9;
+  # "kwinrc"."NightColor"."Active" = true;
+  # "kwinrc"."NightColor"."NightTemperature" = 4400;
+  # "kwinrc"."Plugins"."blurEnabled" = false;
+  # "kwinrc"."Plugins"."contrastEnabled" = false;
+  # "kwinrc"."Xwayland"."Scale" = 1;
+  # "kwinrc"."org.kde.kdecoration2"."ButtonsOnLeft" = "X";
+  # "kwinrc"."org.kde.kdecoration2"."ButtonsOnRight" = "F";
+  # # "kxkbrc"."Layout"."LayoutList" = "us";
+  # # "kxkbrc"."Layout"."Use" = true;
+  # # "kxkbrc"."Layout"."VariantList" = "altgr-intl";
+  # "plasma-localerc"."Formats"."LANG" = "en_GB.UTF-8";
+  # "plasma-localerc"."Formats"."LC_ADDRESS" = "de_AT.UTF-8";
+  # "plasma-localerc"."Formats"."LC_MEASUREMENT" = "de_AT.UTF-8";
+  # "plasma-localerc"."Formats"."LC_MONETARY" = "de_AT.UTF-8";
+  # "plasma-localerc"."Formats"."LC_NAME" = "de_AT.UTF-8";
+  # "plasma-localerc"."Formats"."LC_NUMERIC" = "de_AT.UTF-8";
+  # "plasma-localerc"."Formats"."LC_PAPER" = "de_AT.UTF-8";
+  # "plasma-localerc"."Formats"."LC_TELEPHONE" = "de_AT.UTF-8";
+  # "plasma-localerc"."Formats"."LC_TIME" = "de_AT.UTF-8";
+
+.PHONY: ksshaskpass
+ksshaskpass:
+	rpm-ostree install --idempotent ksshaskpass
+	# flatpak install -y flathub \
+	# 	org.kde.gwenview \
+	# 	org.kde.okular
+	mkdir -p $$HOME/.config/autostart
+	echo -e "[Desktop Entry]\nExec=$$HOME/Projects/linux_setup/dotfiles/kde/kssaskpass.sh\nIcon=dialog-scripts\nName=kssaskpass.sh\nType=Application\nX-KDE-AutostartScript=true" > $$HOME/.config/autostart/kssaskpass.sh.desktop
+
+.PHONY: bbColorscheme
+bbColorscheme:
+	ln -sf $(DOTFILES)/kde/BlackBreeze.colors $$HOME/.local/share/color-schemes
+
+.PHONY: konsoleTheme
+konsoleTheme:
+	mkdir -p tmp $$HOME/.local/share/konsole
+	ln -sf $(DOTFILES)/kde/MochaMatte.colorscheme $$HOME/.local/share/konsole

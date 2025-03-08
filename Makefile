@@ -1,9 +1,10 @@
 help: ## Show this help.
-	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
+	@grep -F -h "##" $(MAKEFILE_LIST) | grep -F -v grep -F | sed -e 's/\\$$//' | sed -e 's/##//'
 
 include dotfiles/dev/Makefile
 include dotfiles/firefox/Makefile
 include dotfiles/git/Makefile
+include dotfiles/kde/Makefile
 include dotfiles/nvim/Makefile
 include dotfiles/syncthing/Makefile
 include dotfiles/tools/Makefile

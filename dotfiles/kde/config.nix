@@ -1,14 +1,5 @@
 { pkgs, osConfig, ... }:
 let
-  kssh = pkgs.writeShellApplication {
-    name = "kssh";
-    runtimeInputs = with pkgs; [
-      kdePackages.ksshaskpass
-    ];
-    text = ''
-      SSH_ASKPASS=ksshaskpass ssh-add < /dev/null
-    '';
-  };
   accents = {
     "maxwell" = "#365282";
     "newton" = "#029677";
@@ -35,39 +26,9 @@ let
 in
 {
   config = {
-    # use ksshaskpass to manage ssh keys
-    xdg.configFile."autostart/ksshaskpass.desktop".text = ''
-      [Desktop Entry]
-      Exec=${kssh}/bin/kssh
-      Icon=application-x-shellscript
-      Name=ksshaskpass
-      Type=Application
-    '';
-
-    home.file.".local/share/konsole/MochaMatte.colorscheme".source = ./MochaMatte.colorscheme;
-
-    programs.zsh = {
-      shellAliases = builtins.listToAttrs ([
-        {
-          name = "youtube-dl";
-          value = "yt-dlp";
-        }
-        {
-          name = "youtube-dl-music";
-          value = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\"";
-        }
-      ]);
-      initExtra = builtins.concatStringsSep "\n" [
-        # set correct locale
-        "export LC_ALL=en_GB.UTF-8"
-      ];
-    };
-
     home.packages = with pkgs; [
       feishin
       mpv
-      yt-dlp
-
       scrcpy
     ];
 
