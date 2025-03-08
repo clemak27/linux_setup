@@ -60,7 +60,7 @@ syncthing:
 
 .PHONY: main
 main: applications/base
-	distrobox assemble create --name main --replace
+	distrobox assemble create --name wezterm --replace
 
 .PHONY: steambox
 steambox:

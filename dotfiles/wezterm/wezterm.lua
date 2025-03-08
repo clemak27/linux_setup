@@ -9,8 +9,6 @@ local cp_colors = {
 }
 
 local weztermCfg = {
-  default_prog = { "distrobox", "enter", "main" },
-
   front_end = "WebGpu",
   enable_wayland = true,
 
