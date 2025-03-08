@@ -36,9 +36,6 @@ return {
           "yamllint",
           "yamlfmt",
 
-          -- nix
-          "nixpkgs-fmt",
-
           -- lua
           "lua-language-server",
           "stylua",

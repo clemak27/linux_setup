@@ -163,6 +163,9 @@
           efibootmgr
           sbctl
           nvd
+
+          nixd
+          nixfmt-rfc-style
         ];
       };
     };
