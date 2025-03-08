@@ -36,7 +36,7 @@ fi
 
 # oh-my-zsh
 if [ -d "$HOME/.oh-my-zsh" ]; then
-  plugins=(npm golang gradle-completion git kubectl fd ripgrep extract rsync)
+  plugins=(npm golang gradle-completion git kubectl extract rsync)
   if command -v fzf &> /dev/null; then
     plugins+=(fzf)
   fi
