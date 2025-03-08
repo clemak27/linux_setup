@@ -39,8 +39,8 @@ dotfiles/tools:
 	mkdir -p "$$HOME/.local/bin"
 	mkdir -p "$(CONFIG)/tealdeer"
 	ln -sf "$(DOTFILES)/tools/tealdeer.toml" "$(CONFIG)/tealdeer/config.toml"
-	go install github.com/sachaos/viddy@latest
 	ln -sf "$(DOTFILES)/tools/cdp" "$$HOME/.local/bin/cdp"
+	# TODO go install github.com/sachaos/viddy@latest
 
 .PHONY: dotfiles/k8s
 dotfiles/k8s:
