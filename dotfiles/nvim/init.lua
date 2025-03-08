@@ -1,122 +1,46 @@
 ----------------------------------------- general settings -----------------------------------------
 
--- enable termguicolors for colorschemes
-vim.o.termguicolors = true
--- enable mouse support
-vim.o.mouse = "a"
--- line number
-vim.o.number = true
--- use system clipboard
-vim.cmd([[set clipboard+=unnamedplus]])
--- Sets how many lines of history VIM has to remember
-vim.o.history = 500
--- Set to auto read when a file is changed from the outside
-vim.o.autoread = true
--- Set 7 lines to the cursor - when moving vertically using j/k
-vim.o.so = 7
--- Turn on the Wild menu
-vim.o.wildmenu = true
--- Ignore compiled files
-vim.o.wildignore = "*.o,*~,*.pyc,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store"
---Always show current position
-vim.o.ruler = true
--- Height of the command bar
-vim.o.cmdheight = 0
--- A buffer becomes hidden when it is abandoned
-vim.o.hid = true
--- Ignore case when searching
-vim.o.ignorecase = true
--- When searching try to be smart about cases
-vim.o.smartcase = true
--- Highlight search results
-vim.o.hlsearch = true
--- Makes search act like search in modern browsers
-vim.o.incsearch = true
--- Don't redraw while executing macros (good performance config)
-vim.o.lazyredraw = false
--- For regular expressions turn magic on
-vim.o.magic = true
--- Show matching brackets when text indicator is over them
-vim.o.showmatch = true
--- How many tenths of a second to blink when matching brackets
-vim.o.mat = 2
--- Set utf8 as standard encoding and en_US as the standard language
-vim.o.encoding = "utf8"
--- Use Unix as the standard file type
-vim.o.ffs = "unix,dos,mac"
--- Use spaces instead of tabs
-vim.o.expandtab = true
--- Be smart when using tabs
-vim.o.smarttab = true
--- 1 tab == 2 spaces
-vim.o.shiftwidth = 2
-vim.o.tabstop = 2
--- Auto indent
 vim.o.ai = true
--- Smart indent
-vim.o.si = true
--- Wrap lines
-vim.o.wrap = true
--- Always show the status line
+vim.o.autoread = true
+vim.o.backspace = "eol,start,indent"
+vim.o.backup = false
+vim.o.clipboard = "unnamedplus"
+vim.o.cmdheight = 0
+vim.o.cursorline = true
+vim.o.encoding = "utf8"
+vim.o.expandtab = true
+vim.o.ffs = "unix,dos,mac"
+vim.o.fillchars = "eob: "
+vim.o.hid = true
+vim.o.history = 1000
+vim.o.hlsearch = true
+vim.o.ignorecase = true
+vim.o.incsearch = true
 vim.o.laststatus = 3
--- Always show the tab/buffer line
+vim.o.lazyredraw = false
+vim.o.magic = true
+vim.o.mat = 2
+vim.o.mouse = "a"
+vim.o.number = true
+vim.o.ruler = true
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.o.shiftwidth = 2
+vim.o.showmatch = true
+vim.o.showmode = false
 vim.o.showtabline = 0
--- Specify the behavior when switching between buffers
+vim.o.si = true
+vim.o.smartcase = true
+vim.o.smarttab = true
+vim.o.so = 7
+vim.o.swapfile = false
 vim.o.switchbuf = "useopen,usetab,newtab"
-
-vim.api.nvim_exec2(
-  [[
-  " Dont show mode in statusline
-  set noshowmode
-  " E355: Unknown option: noshowmode
-
-  " Configure backspace so it acts as it should act
-  set backspace=eol,start,indent
-  set whichwrap+=<,>,h,l
-  " Turn backup off
-  set nobackup
-  set nowb
-  set noswapfile
-  " E355: Unknown option: nobackup
-  " E355: Unknown option: nowb
-  " E355: Unknown option: noswapfile
-]],
-  { output = false }
-)
-
--- Return to last edit position when opening files
-vim.api.nvim_create_augroup("reopen_pos", { clear = true })
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = "*",
-  group = "reopen_pos",
-  callback = function()
-    local mark = vim.api.nvim_buf_get_mark(0, '"')
-    local lcount = vim.api.nvim_buf_line_count(0)
-    if mark[1] > 0 and mark[1] <= lcount then
-      pcall(vim.api.nvim_win_set_cursor, 0, mark)
-    end
-  end,
-})
-
--- Autoload on file changes
-vim.api.nvim_create_augroup("reload_on_change", { clear = true })
-vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
-  pattern = "*",
-  group = "reload_on_change",
-  callback = function()
-    vim.api.nvim_exec2([[ if mode() != 'c' | checktime | endif ]], { output = false })
-  end,
-})
-vim.api.nvim_create_autocmd({ "FileChangedShellPost" }, {
-  pattern = "*",
-  group = "reload_on_change",
-  callback = function()
-    vim.api.nvim_exec2(
-      [[ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None ]],
-      { output = false }
-    )
-  end,
-})
+vim.o.tabstop = 2
+vim.o.termguicolors = true
+vim.o.wb = false
+vim.o.whichwrap = "<,>,h,l"
+vim.o.wildignore = "*.o,*~,*.pyc,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store"
+vim.o.wildmenu = true
+vim.o.wrap = true
 
 ----------------------------------------- autocmds -----------------------------------------
 
@@ -198,7 +122,6 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave"
 })
 
 -- don't show highlights after searching
--- https://this-week-in-neovim.org/2023/Jan/9#tips
 local ns = vim.api.nvim_create_namespace("toggle_hlsearch")
 local function toggle_hlsearch(char)
   if vim.fn.mode() == "n" then
@@ -252,6 +175,7 @@ vim_map("0", "^")
 vim_map("ß", "$")
 -- Map save
 vim_map("gs", ":wa<CR>")
+
 ----------------------------------------- plugins -----------------------------------------
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

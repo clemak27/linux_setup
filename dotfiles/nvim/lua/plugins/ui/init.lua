@@ -31,4 +31,10 @@ return {
     end,
   },
   "stevearc/dressing.nvim",
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("ibl").setup()
+    end,
+  },
 }

@@ -3,14 +3,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "williamboman/mason-lspconfig.nvim",
-      "mfussenegger/nvim-jdtls",
-      {
-        "someone-stole-my-name/yaml-companion.nvim",
-        config = function()
-          require("telescope").load_extension("yaml_schema")
-        end,
-      },
       "barreiroleo/ltex_extra.nvim",
       {
         "folke/lazydev.nvim",
@@ -21,80 +13,68 @@ return {
           },
         },
       },
-      { "Bilal2453/luvit-meta", lazy = true },
+      {
+        "Bilal2453/luvit-meta",
+        lazy = true,
+      },
+      {
+        "stevearc/overseer.nvim",
+        config = function()
+          require("overseer").setup({
+            task_list = {
+              min_height = 14,
+            },
+            component_aliases = {
+              -- Most tasks are initialized with the default components
+              default = {
+                { "display_duration", detail_level = 2 },
+                "on_output_summarize",
+                "on_exit_set_status",
+                "on_complete_notify",
+                { "on_complete_dispose", require_view = { "SUCCESS", "FAILURE" } },
+                { "open_output", on_start = "always" },
+              },
+              -- Tasks from tasks.json use these components
+              default_vscode = {
+                "default",
+                "on_result_diagnostics",
+              },
+            },
+          })
+          local opt = { noremap = true, silent = true }
+
+          vim.api.nvim_set_keymap("n", "<Leader>t", [[<Cmd>OverseerToggle<CR>]], opt)
+          vim.api.nvim_set_keymap("n", "<Leader>tr", [[<Cmd>OverseerRun<CR>]], opt)
+        end,
+      },
+      {
+        "folke/trouble.nvim",
+        config = function()
+          require("trouble").setup({})
+          local opt = { noremap = true, silent = true }
+
+          vim.api.nvim_set_keymap("n", "<Leader>d", [[<Cmd>Trouble diagnostics toggle<CR>]], opt)
+          vim.api.nvim_set_keymap("n", "<Leader>s", [[<Cmd>Trouble lsp_document_symbols toggle<CR>]], opt)
+          vim.api.nvim_set_keymap("n", "<Leader>q", [[<Cmd>Trouble quickfix toggle<CR>]], opt)
+        end,
+      },
+      {
+        "rachartier/tiny-inline-diagnostic.nvim",
+        event = "VeryLazy",
+        priority = 1000,
+        config = function()
+          vim.diagnostic.config({ virtual_text = false })
+          require("tiny-inline-diagnostic").setup({
+            preset = "powerline",
+            hi = {
+              background = "#121212",
+            },
+          })
+        end,
+      },
     },
     config = function()
-      local set_border = function()
-        local border = {
-          { "╭", "FloatBorder" },
-          { "─", "FloatBorder" },
-          { "╮", "FloatBorder" },
-          { "│", "FloatBorder" },
-          { "╯", "FloatBorder" },
-          { "─", "FloatBorder" },
-          { "╰", "FloatBorder" },
-          { "│", "FloatBorder" },
-        }
-
-        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-          border = border,
-        })
-      end
-
-      local set_mappings = function()
-        -- See :help vim.lsp.* for documentation on any of the below functions
-        local builtin = require("telescope.builtin")
-        local bufopts = { noremap = true, silent = true, buffer = bufnr }
-
-        vim.keymap.set("n", "gd", builtin.lsp_definitions, bufopts)
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-        vim.keymap.set("n", "gr", function()
-          builtin.lsp_references({ show_line = false })
-        end, bufopts)
-        vim.keymap.set("n", "gi", builtin.lsp_implementations, bufopts)
-        vim.keymap.set("n", "gt", builtin.lsp_type_definitions, bufopts)
-        vim.keymap.set("n", "<leader>s", builtin.lsp_document_symbols, {})
-        vim.keymap.set("n", "gf", function()
-          require("conform").format({
-            timeout_ms = 500,
-            lsp_fallback = true,
-          })
-        end, bufopts)
-        vim.keymap.set("n", "gR", vim.lsp.buf.rename, bufopts)
-        vim.keymap.set("n", "ga", vim.lsp.buf.code_action, bufopts)
-        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
-        vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
-      end
-
-      -- Use an on_attach function to only map the following keys
-      -- after the language server attaches to the current buffer
-      local on_attach = function(client, bufnr)
-        local function buf_set_option(...)
-          vim.api.nvim_buf_set_option(bufnr, ...)
-        end
-
-        set_border()
-        set_mappings()
-
-        --Enable completion triggered by <c-x><c-o>
-        buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-      end
-
-      -- config that activates keymaps and enables snippet support
-      local function set_base_config()
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities.textDocument.completion.completionItem.snippetSupport = true
-        return {
-          -- enable snippet support
-          capabilities = capabilities,
-          -- map buffer local keybindings when the language server attaches
-          on_attach = on_attach,
-        }
-      end
-
       local lspconfig = require("lspconfig")
-
-      require("mason-lspconfig").setup()
 
       local servers = {
         "bashls",
@@ -104,17 +84,17 @@ return {
         "golangci_lint_ls",
         "gradle_ls",
         "html",
-        -- jdtls is configured in ftplugin/java.lua
         "jsonls",
         "jedi_language_server",
         "kotlin_language_server",
         "ltex",
-        "nil_ls",
+        "nixd",
         "lua_ls",
         "rust_analyzer",
         "terraformls",
         "texlab",
-        "tsserver",
+        "ts_ls",
+        "biome",
         "vimls",
         "volar",
         "yamlls",
@@ -122,14 +102,23 @@ return {
 
       local function setup_servers()
         for _, server in pairs(servers) do
-          local config = set_base_config()
+          local config = require("plugins.lsp.util").set_base_config()
 
           if server == "bashls" then
             config.filetypes = { "bash", "sh", "zsh" }
           end
 
           if server == "jsonls" then
-            config.filetypes = { "json", "json5" }
+            config.filetypes = { "json", "jsonc", "json5" }
+            -- this is not 100% correct, but this way jsonls doesn't complain about comments in json5 files
+            vim.api.nvim_create_augroup("json5_ft", { clear = true })
+            vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+              pattern = "*.json5",
+              group = "json5_ft",
+              callback = function()
+                vim.api.nvim_exec2("set filetype=jsonc", { output = false })
+              end,
+            })
           end
 
           if server == "lua_ls" then
@@ -147,17 +136,29 @@ return {
             config.settings = {
               gopls = {
                 gofumpt = true,
+                ["ui.inlayhint.hints"] = {
+                  assignVariableTypes = false,
+                  compositeLiteralFields = false,
+                  compositeLiteralTypes = false,
+                  constantValues = false,
+                  functionTypeParameters = true,
+                  parameterNames = true,
+                  rangeVariableTypes = false,
+                },
               },
             }
+            vim.lsp.inlay_hint.enable(true)
           end
 
           if server == "gradle_ls" then
-            config.settings = {
-              gradleWrapperEnabled = true,
+            config.cmd = {
+              "java",
+              "-jar",
+              os.getenv("HOME") .. "/.jdtls/bundles/vscode-gradle/lib/gradle-language-server.jar",
             }
           end
 
-          if server == "tsserver" and vim.fn.isdirectory(vim.fn.getcwd() .. "/node_modules/vue") ~= false then
+          if server == "ts_ls" and vim.fn.isdirectory(vim.fn.getcwd() .. "/node_modules/vue") ~= false then
             config.init_options = {
               plugins = {
                 {
@@ -177,12 +178,10 @@ return {
 
           if server == "ltex" then
             config.on_attach = function(client, bufnr)
-              local function buf_set_option(...)
-                vim.api.nvim_buf_set_option(bufnr, ...)
-              end
+              local function buf_set_option(...) end
 
-              set_border()
-              set_mappings()
+              require("plugins.lsp.util").set_hover_border()
+              require("plugins.lsp.util").set_mappings()
 
               --Enable completion triggered by <c-x><c-o>
               buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -193,7 +192,7 @@ return {
               end
 
               require("ltex_extra").setup({
-                load_langs = { "en-US", "de-DE" },
+                load_langs = { "en-GB", "de-DE" },
                 init_check = true,
                 path = configPath,
               })
@@ -212,35 +211,29 @@ return {
           end
 
           if server == "yamlls" then
-            local function loadSchemas(schemaFile)
-              local f = io.open(schemaFile)
-              if f ~= nil then
-                local content = f:read("*all")
-                f:close()
-                return vim.json.decode(content)
-              else
-                return {}
-              end
-            end
-
             config.settings = {
               yaml = {
                 keyOrdering = false,
+                editor = {
+                  formatOnType = false,
+                },
               },
             }
+          end
 
-            local cfg = require("yaml-companion").setup({
-              -- additional schemas are loaded from a file like this:
-              -- [
-              --   {
-              --     "name": "argoproj.io/application_v1alpha1",
-              --     "uri": "https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json"
-              --   }
-              -- ]
-              schemas = loadSchemas(os.getenv("HOME") .. "/.yaml-schema.json"),
-              lspconfig = config,
-            })
-            lspconfig["yamlls"].setup(cfg)
+          if server == "nixd" then
+            config.settings = {
+              nixd = {
+                diagnostic = {
+                  suppress = {
+                    "sema-escaping-with",
+                  },
+                },
+                formatting = {
+                  command = { "nixfmt" },
+                },
+              },
+            }
           end
 
           lspconfig[server].setup(config)
@@ -257,21 +250,22 @@ return {
       end
 
       -- show borders around lspconfig windows
-      require("lspconfig.ui.windows").default_options.border = "single"
+      require("lspconfig.ui.windows").default_options.border = require("plugins.lsp.util").rounded_border()
+    end,
+  },
+  {
+    "jmbuhr/otter.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      vim.api.nvim_create_user_command("OtterEnable", function()
+        require("otter").activate()
+      end, {})
 
-      -- format on save
-      vim.api.nvim_create_augroup("format_on_write", { clear = true })
-      vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-        pattern = "*.go,*.js,*.ts,*.lua,*.bash,*.sh,*.nix",
-        group = "format_on_write",
-        callback = function(args)
-          require("conform").format({
-            bufnr = args.buf,
-            timeout_ms = 500,
-            lsp_fallback = true,
-          })
-        end,
-      })
+      vim.api.nvim_create_user_command("OtterDisable", function()
+        require("otter").deactivate()
+      end, {})
     end,
   },
 }

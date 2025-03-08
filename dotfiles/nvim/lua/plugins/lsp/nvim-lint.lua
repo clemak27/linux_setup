@@ -22,7 +22,8 @@ return {
       local gradleRoot = vim.fs.root(0, "build.gradle")
       if gradleRoot ~= nil then
         local checkstyleCfg = gradleRoot .. "/config/checkstyle/checkstyle.xml"
-        if vim.fs.find(checkstyleCfg, {}) then
+        local foundConfig = vim.fs.find(checkstyleCfg, { limit = 1, type = "file" })
+        if foundConfig[0] ~= nil then
           require("lint").linters.checkstyle.args = { "-c", checkstyleCfg }
           require("lint").linters_by_ft.java = { "checkstyle" }
         end

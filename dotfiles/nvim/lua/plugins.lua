@@ -41,13 +41,34 @@ return {
   "antoinemadec/FixCursorHold.nvim",
   {
     "rmagatti/auto-session",
+    lazy = false,
+    opts = {
+      log_level = "error",
+      suppressed_dirs = { "~/", "~/Projects" },
+      session_lens = {
+        load_on_setup = false,
+      },
+      cwd_change_handling = false,
+    },
+  },
+  "tpope/vim-fugitive",
+  {
+    "echasnovski/mini.ai",
+    version = false,
     config = function()
-      vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-      require("auto-session").setup({
-        log_level = "error",
-        auto_session_suppress_dirs = { "~/", "~/Projects" },
+      require("mini.ai").setup({
+        custom_textobjects = {
+          -- Whole buffer
+          e = function()
+            local from = { line = 1, col = 1 }
+            local to = {
+              line = vim.fn.line("$"),
+              col = math.max(vim.fn.getline("$"):len(), 1),
+            }
+            return { from = from, to = to }
+          end,
+        },
       })
     end,
   },
-  "tpope/vim-fugitive",
 }

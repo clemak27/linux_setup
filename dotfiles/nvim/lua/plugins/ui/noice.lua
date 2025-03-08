@@ -6,8 +6,9 @@ return {
     {
       "rcarriga/nvim-notify",
       config = function()
+        local colors = require("catppuccin.palettes").get_palette("mocha")
         require("notify").setup({
-          background_colour = "#1e1e2e",
+          background_colour = colors.base,
         })
         vim.notify = require("notify")
       end,
@@ -45,7 +46,22 @@ return {
               { find = "%d more lines" },
               { find = "%d lines changed" },
               { find = "%d lines yanked" },
+              { find = "%d buffers wiped out" },
               { find = "Replaced %d line with %d lines" },
+              -- this is a workaround for spring-boot.nvim, which fails
+              -- to show definitions in java files, and dynamically changing
+              -- the handler didn't work
+              { find = "'width' key must be a positive Integer" },
+            },
+          },
+          opts = { skip = true },
+        },
+        {
+          filter = {
+            warning = true,
+            any = {
+              -- Neotest Go sometimes spams this
+              { find = "Failed to decode JSON line:" },
             },
           },
           opts = { skip = true },
