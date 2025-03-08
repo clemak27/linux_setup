@@ -1,7 +1,10 @@
-include applications.mk
-include customization.mk
-include dotfiles.mk
-include hosts.mk
+help:           ## Show this help.
+	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
+
+# include applications.mk
+# include customization.mk
+include dotfiles/dev
+# include hosts.mk
 # include ./gnome/gnome.mk
 
 .PHONY: all

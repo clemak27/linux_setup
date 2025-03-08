@@ -13,30 +13,7 @@ applications/base:
 	sudo usermod -s /usr/bin/zsh clemens
 
 .PHONY: applications/basic
-applications/basic: podman firefox wezterm syncthing main
-
-
-.PHONY: firefox
-firefox:
-	rpm-ostree override remove firefox firefox-langpacks
-	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-	flatpak install -y flathub \
-		org.freedesktop.Platform.ffmpeg-full \
-		org.mozilla.firefox
-	flatpak override --user --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
-	echo 'flatpak run org.mozilla.firefox "$$@"' > "$$HOME/.local/bin/firefox"
-	chmod +x "$$HOME/.local/bin/firefox"
-
-.PHONY: wezterm
-wezterm:
-	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-	flatpak install -y flathub \
-		org.wezfurlong.wezterm
-	mkdir -p $$HOME/.config/wezterm
-	ln -sf $$PWD/dotfiles/wezterm/wezterm.lua $$HOME/.config/wezterm/wezterm.lua
-	ln -sf $$PWD/dotfiles/wezterm/bindings.lua $$HOME/.config/wezterm/bindings.lua
-	echo 'flatpak run org.wezfurlong.wezterm "$$@"' > "$$HOME/.local/bin/wezterm"
-	chmod +x "$$HOME/.local/bin/wezterm"
+applications/basic: podman main
 
 .PHONY: podman
 podman:
@@ -48,15 +25,7 @@ podman:
 	echo -e "[engine]\nstatic_dir = \"/home/clemens/.local/share/containers/storage/libpod\"\nvolume_path = \"/home/clemens/.local/share/containers/storage/libpod\"" > $$HOME/.config/containers/containers.conf
 	# https://github.com/containers/podman/issues/3234#issuecomment-497541854
 	# https://github.com/containers/podman/issues/10817#issuecomment-1563103744
-	restorecon -RFv /home/clemens/.local/share/containers
-
-.PHONY: syncthing
-syncthing:
-	mkdir -p $$HOME/.config/containers/systemd
-	cp syncthing.container $$HOME/.config/containers/systemd/syncthing.container
-	systemctl --user daemon-reload
-	systemctl --user start syncthing
-	loginctl enable-linger
+	# restorecon -RFv /home/clemens/.local/share/containers
 
 .PHONY: main
 main: applications/base
@@ -67,7 +36,7 @@ steambox:
 	distrobox assemble create --name steambox --replace
 
 .PHONY: applications/default
-applications/default: applications/mpv
+applications/default:
 	flatpak install -y flathub \
 		org.gimp.GIMP \
 		org.kde.kid3 \
@@ -79,17 +48,6 @@ applications/default: applications/mpv
 	curl -L --url https://github.com/jeffvli/feishin/releases/download/v$(FEISHIN_VERSION)/Feishin-$(FEISHIN_VERSION)-linux-x86_64.AppImage -o $$HOME/.local/bin/feishin
 	chmod +x $$HOME/.local/bin/feishin
 	echo -e "[Desktop Entry]\nName=Feishin\nExec=$$HOME/.local/bin/feishin\nType=Application\nCategories=Multimedia\nIcon=multimedia-audio-player" > $$HOME/.local/share/applications/feishin.desktop
-
-applications/mpv:
-	flatpak install -y flathub io.mpv.Mpv
-	mkdir -p $$HOME/.local/bin $$HOME/.local/share/applications $$HOME/.local/share/fonts
-	ln -sf $$PWD/dotfiles/mpv/mpv.conf $$HOME/.var/app/io.mpv.Mpv/config/mpv/mpv.conf
-	echo 'flatpak run io.mpv.Mpv "$$@"' > "$$HOME/.local/bin/mpv"
-	chmod +x "$$HOME/.local/bin/mpv"
-	curl -L --url https://raw.githubusercontent.com/cyl0/ModernX/main/modernx.lua -o $$HOME/.var/app/io.mpv.Mpv/config/mpv/scripts/modernx.lua
-	curl -L --url https://github.com/zavoloklom/material-design-iconic-font/releases/download/2.2.0/material-design-iconic-font.zip -o tmp/md_icons.zip
-	unzip -o tmp/md_icons.zip -d tmp/md_icons
-	mv tmp/md_icons/fonts/Material-Design-Iconic-Font.ttf $$HOME/.local/share/fonts
 
 .PHONY: applications/games
 applications/games: applications/dsda

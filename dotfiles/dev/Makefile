@@ -1,8 +1,6 @@
-### link dotfiles
-
 DOTFILES=$$PWD/dotfiles
 CONFIG=$$HOME/.config
 
-.PHONY: run
-run:
+.PHONY: dev
+dev:
 	ln -sf "$(DOTFILES)/dev/npmrc" "$$HOME/.npmrc"
