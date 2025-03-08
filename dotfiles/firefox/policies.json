@@ -33,10 +33,6 @@
         "install_url": "https://addons.mozilla.org/firefox/downloads/file/4433330/latest.xpi",
         "installation_mode": "force_installed"
       },
-      "firefoxpwa@filips.si": {
-        "install_url": "https://addons.mozilla.org/firefox/downloads/file/4437768/latest.xpi",
-        "installation_mode": "force_installed"
-      },
       "jid1-MnnxcxisBPnSXQ@jetpack": {
         "install_url": "https://addons.mozilla.org/firefox/downloads/file/4427769/latest.xpi",
         "installation_mode": "force_installed"
