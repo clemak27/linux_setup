@@ -1,8 +1,12 @@
-upgrade:
-	nix flake update --commit-lock-file --option commit-lockfile-summary "chore(flake): update flake.lock"
-	nixos-rebuild build --flake . --impure
-	nvd diff /run/current-system result/
-	sudo nixos-rebuild boot --flake . --impure
-	git push
-	flatpak update -y
-	systemctl reboot
+include applications.mk
+include customization.mk
+include dotfiles.mk
+include hosts.mk
+# include ./gnome/gnome.mk
+
+.PHONY: all
+all: applications/base customization kde
+
+.PHONY: clean
+clean:
+	rm -rf tmp
