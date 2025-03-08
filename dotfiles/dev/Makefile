@@ -1,6 +1,6 @@
 DOTFILES=$$PWD/dotfiles
 CONFIG=$$HOME/.config
 
-.PHONY: dev
-dev:
+.PHONY: dotfiles/dev
+dotfiles/dev: ## setup development tools
 	ln -sf "$(DOTFILES)/dev/npmrc" "$$HOME/.npmrc"

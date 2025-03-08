@@ -1,8 +1,8 @@
 DOTFILES=$$PWD/dotfiles
 CONFIG=$$HOME/.config
 
-.PHONY: nvim
-nvim:
+.PHONY: dotfiles/nvim
+dotfiles/nvim: ## setup neovim
 	rm -rf "$(CONFIG)/nvim"
 	mkdir -p "$(CONFIG)/nvim"
 	ln -sf "$(DOTFILES)/nvim/init.lua" "$(CONFIG)/nvim/init.lua"

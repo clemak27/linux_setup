@@ -1,5 +1,5 @@
-.PHONY: wezterm
-wezterm:
+.PHONY: dotfiles/wezterm
+dotfiles/wezterm: ## setup wezterm-container
 	# flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	# flatpak install -y flathub org.wezfurlong.wezterm
 	mkdir -p $$HOME/.config/wezterm

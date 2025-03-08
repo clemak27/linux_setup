@@ -1,11 +1,14 @@
-help:           ## Show this help.
+help: ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
-# include applications.mk
-# include customization.mk
-include dotfiles/dev
-# include hosts.mk
-# include ./gnome/gnome.mk
+include dotfiles/dev/Makefile
+include dotfiles/firefox/Makefile
+include dotfiles/git/Makefile
+include dotfiles/nvim/Makefile
+include dotfiles/syncthing/Makefile
+include dotfiles/tools/Makefile
+include dotfiles/wezterm/Makefile
+include dotfiles/zsh/Makefile
 
 .PHONY: all
 all: applications/base customization kde

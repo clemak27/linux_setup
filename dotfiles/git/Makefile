@@ -1,8 +1,8 @@
 DOTFILES=$$PWD/dotfiles
 CONFIG=$$HOME/.config
 
-.PHONY: git
-git:
+.PHONY: dotfiles/git
+dotfiles/git: ## setup git
 	mkdir -p "$(CONFIG)/git"
 	mkdir -p "$$HOME/.local/bin"
 	ln -sf "$(DOTFILES)/git/lg" "$$HOME/.local/bin/lg"

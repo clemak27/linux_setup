@@ -1,5 +1,7 @@
-.PHONY: firefox
-firefox:
+DOTFILES=$$PWD/dotfiles
+
+.PHONY: dotfiles/firefox
+dotfiles/firefox: ## setup firefox
 	rpm-ostree override remove firefox firefox-langpacks
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	flatpak install -y flathub \
@@ -9,7 +11,7 @@ firefox:
 	echo 'flatpak run org.mozilla.firefox "$$@"' > "$$HOME/.local/bin/firefox"
 	chmod +x "$$HOME/.local/bin/firefox"
 	mkdir -p $$XDG_DATA_HOME/flatpak/extension/org.mozilla.firefox.systemconfig/x86_64/stable/policies
-	cp ./policies.json $$XDG_DATA_HOME/flatpak/extension/org.mozilla.firefox.systemconfig/x86_64/stable/policies/policies.json
+	cp $(DOTFILES)/firefox/policies.json $$XDG_DATA_HOME/flatpak/extension/org.mozilla.firefox.systemconfig/x86_64/stable/policies/policies.json
 
 
 # "firefoxpwa@filips.si": {
