@@ -7,11 +7,20 @@ CONFIG=$$HOME/.config
 .PHONY: dotfiles/kde
 dotfiles/kde: applications ksshaskpass config customization ## setup KDE Plasma
 
+FEISHIN_VERSION=0.5.12
+
 .PHONY: applications
 applications:
 	flatpak install -y flathub \
 		org.kde.krita \
-		org.kde.haruna
+		org.kde.haruna \
+		org.kde.kid3 \
+		org.libreoffice.LibreOffice \
+		org.signal.Signal
+	mkdir -p $$HOME/.local/bin $$HOME/.local/share/applications
+	curl -L --url https://github.com/jeffvli/feishin/releases/download/v$(FEISHIN_VERSION)/Feishin-$(FEISHIN_VERSION)-linux-x86_64.AppImage -o $$HOME/.local/bin/feishin
+	chmod +x $$HOME/.local/bin/feishin
+	echo -e "[Desktop Entry]\nName=Feishin\nExec=$$HOME/.local/bin/feishin\nType=Application\nCategories=Multimedia\nIcon=feishin" > $$HOME/.local/share/applications/feishin.desktop
 
 .PHONY: ksshaskpass
 ksshaskpass:

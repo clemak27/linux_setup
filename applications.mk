@@ -1,7 +1,5 @@
 ### applications
 
-FEISHIN_VERSION=0.5.3
-
 .PHONY: applications
 applications: applications/basic applications/default applications/games applications/kde
 
@@ -34,20 +32,6 @@ main: applications/base
 .PHONY: steambox
 steambox:
 	distrobox assemble create --name steambox --replace
-
-.PHONY: applications/default
-applications/default:
-	flatpak install -y flathub \
-		org.gimp.GIMP \
-		org.kde.kid3 \
-		org.libreoffice.LibreOffice \
-		org.mozilla.Thunderbird \
-		org.pipewire.Helvum \
-		org.signal.Signal
-	mkdir -p $$HOME/.local/bin $$HOME/.local/share/applications
-	curl -L --url https://github.com/jeffvli/feishin/releases/download/v$(FEISHIN_VERSION)/Feishin-$(FEISHIN_VERSION)-linux-x86_64.AppImage -o $$HOME/.local/bin/feishin
-	chmod +x $$HOME/.local/bin/feishin
-	echo -e "[Desktop Entry]\nName=Feishin\nExec=$$HOME/.local/bin/feishin\nType=Application\nCategories=Multimedia\nIcon=multimedia-audio-player" > $$HOME/.local/share/applications/feishin.desktop
 
 .PHONY: applications/games
 applications/games: applications/dsda
