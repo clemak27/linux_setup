@@ -12,6 +12,8 @@ include dotfiles/tools/Makefile
 include dotfiles/wezterm/Makefile
 include dotfiles/zsh/Makefile
 
+all: dotfiles/dev dotfiles/firefox dotfiles/gaming dotfiles/git dotfiles/kde dotfiles/nvim dotfiles/syncthing dotfiles/tools dotfiles/wezterm dotfiles/zsh
+
 # To set up TPM2 unlocking, first, find the LUKS device you want to enroll. This is probably in /etc/crypttab. You can also use sudo cryptsetup status /dev/mapper/luks* to identify the device.
 #
 # $ sudo rpm-ostree kargs --append=rd.luks.options=tpm2-device=auto
