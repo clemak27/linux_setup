@@ -4,8 +4,15 @@ return {
     ft = { "java" },
     config = function()
       local jdtls_config = function()
+        -- mkdir -p ~/.jdtls/bundles
+        -- ln -sf ~/.local/share/nvim/mason/packages/jdtls ~/.jdtls/jdtls
+        -- ln -sf ~/.local/share/nvim/mason/packages/java-test ~/.jdtls/bundles/java-test
+        -- ln -sf ~/.local/share/nvim/mason/packages/java-debug-adapter ~/.jdtls/bundles/java-debug-adapter
+
         local jdtlsHome = os.getenv("HOME") .. "/.jdtls"
-        local lspJar = jdtlsHome .. "/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar"
+        -- local masonPath = os.getenv("HOME") .. "/.local/share/nvim/mason/packages"
+        local jdtlsSource = os.getenv("HOME") .. "/.jdtls/jdtls"
+        local lspJar = jdtlsSource .. "/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar"
 
         local osName = ""
         if vim.loop.os_uname().sysname == "Darwin" then
@@ -13,7 +20,7 @@ return {
         else
           osName = "linux"
         end
-        local lspConfig = jdtlsHome .. "/config_" .. osName
+        local lspConfig = jdtlsSource .. "/config_" .. osName
 
         local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
         local workspace_dir = jdtlsHome .. "/workspaces/" .. project_name
@@ -24,7 +31,7 @@ return {
         }
 
         vim.list_extend(bundles, vim.split(vim.fn.glob(bundlePath .. "/java-test/*.jar"), "\n"))
-        vim.list_extend(bundles, vim.split(vim.fn.glob(bundlePath .. "/vscode-spring-boot/jars/*.jar"), "\n"))
+        -- vim.list_extend(bundles, vim.split(vim.fn.glob(bundlePath .. "/vscode-spring-boot/jars/*.jar"), "\n"))
 
         return {
           cmd = {
@@ -124,23 +131,23 @@ return {
       })
     end,
   },
-  {
-    "JavaHello/spring-boot.nvim",
-    dependencies = {
-      "mfussenegger/nvim-jdtls",
-    },
-    config = function()
-      vim.g.spring_boot = {
-        jdt_extensions_path = os.getenv("HOME") .. "/.jdtls/bundles/vscode-spring-boot/jars",
-      }
-      require("spring_boot").setup({
-        ls_path = os.getenv("HOME") .. "/.jdtls/bundles/vscode-spring-boot/language-server",
-        server = {
-          handlers = {
-            ["textDocument/inlayHint"] = function() end,
-          },
-        },
-      })
-    end,
-  },
+  -- {
+  --   "JavaHello/spring-boot.nvim",
+  --   dependencies = {
+  --     "mfussenegger/nvim-jdtls",
+  --   },
+  --   config = function()
+  --     vim.g.spring_boot = {
+  --       jdt_extensions_path = os.getenv("HOME") .. "/.jdtls/bundles/vscode-spring-boot/jars",
+  --     }
+  --     require("spring_boot").setup({
+  --       ls_path = os.getenv("HOME") .. "/.jdtls/bundles/vscode-spring-boot/language-server",
+  --       server = {
+  --         handlers = {
+  --           ["textDocument/inlayHint"] = function() end,
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
 }
