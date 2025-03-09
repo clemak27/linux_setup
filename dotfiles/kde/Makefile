@@ -14,61 +14,67 @@ dotfiles/kde: ksshaskpass bbColorscheme konsoleTheme ## setup KDE Plasma
 	kwriteconfig6 --file "$(CONFIG)/dolphinrc" --group "KFileDialog Settings" --key "Places Icons Auto-resize" "false"
 	kwriteconfig6 --file "$(CONFIG)/dolphinrc" --group "KFileDialog Settings" --key "Places Icons Static Size" "22"
 
-  # "kcminputrc"."Mouse"."cursorTheme" = "breeze_cursors";
-  # "kdeglobals"."General"."accentColorFromWallpaper" = true;
-  # "kdeglobals"."Icons"."Theme" = "Papirus-Dark";
-  # "kdeglobals"."KDE"."ShowDeleteCommand" = false;
-  # "kdeglobals"."KFileDialog Settings"."Allow Expansion" = false;
-  # "kdeglobals"."KFileDialog Settings"."Automatically select filename extension" = true;
-  # "kdeglobals"."KFileDialog Settings"."Breadcrumb Navigation" = true;
-  # "kdeglobals"."KFileDialog Settings"."Decoration position" = 2;
-  # "kdeglobals"."KFileDialog Settings"."LocationCombo Completionmode" = 5;
-  # "kdeglobals"."KFileDialog Settings"."PathCombo Completionmode" = 5;
-  # "kdeglobals"."KFileDialog Settings"."Show Bookmarks" = false;
-  # "kdeglobals"."KFileDialog Settings"."Show Full Path" = false;
-  # "kdeglobals"."KFileDialog Settings"."Show Inline Previews" = true;
-  # "kdeglobals"."KFileDialog Settings"."Show Preview" = false;
-  # "kdeglobals"."KFileDialog Settings"."Show Speedbar" = true;
-  # "kdeglobals"."KFileDialog Settings"."Show hidden files" = false;
-  # "kdeglobals"."KFileDialog Settings"."Sort by" = "Name";
-  # "kdeglobals"."KFileDialog Settings"."Sort directories first" = true;
-  # "kdeglobals"."KFileDialog Settings"."Sort hidden files last" = false;
-  # "kdeglobals"."KFileDialog Settings"."Sort reversed" = false;
-  # "kdeglobals"."KFileDialog Settings"."Speedbar Width" = 140;
-  # "kdeglobals"."KFileDialog Settings"."View Style" = "DetailTree";
-  # "kdeglobals"."PreviewSettings"."EnableRemoteFolderThumbnail" = false;
-  # "kdeglobals"."PreviewSettings"."MaximumRemoteSize" = 0;
-  # "kiorc"."Confirmations"."ConfirmDelete" = true;
-  # "kiorc"."Confirmations"."ConfirmEmptyTrash" = true;
-  # "kiorc"."Confirmations"."ConfirmTrash" = false;
-  # "kiorc"."Executable scripts"."behaviourOnLaunch" = "alwaysAsk";
-  # "klaunchrc"."BusyCursorSettings"."Bouncing" = false;
-  # "krunnerrc"."General"."FreeFloating" = true;
-  # "krunnerrc"."Plugins"."krunner_katesessionsEnabled" = false;
-  # "krunnerrc"."Plugins"."krunner_konsoleprofilesEnabled" = false;
-  # "krunnerrc"."Plugins/Favorites"."plugins" = "krunner_services,krunner_systemsettings";
-  # "kscreenlockerrc"."Daemon"."Autolock" = false;
-  # "kscreenlockerrc"."Daemon"."Timeout" = 0;
-  # "kwinrc"."Effect-overview"."BorderActivate" = 9;
-  # "kwinrc"."NightColor"."Active" = true;
-  # "kwinrc"."NightColor"."NightTemperature" = 4400;
-  # "kwinrc"."Plugins"."blurEnabled" = false;
-  # "kwinrc"."Plugins"."contrastEnabled" = false;
-  # "kwinrc"."Xwayland"."Scale" = 1;
-  # "kwinrc"."org.kde.kdecoration2"."ButtonsOnLeft" = "X";
-  # "kwinrc"."org.kde.kdecoration2"."ButtonsOnRight" = "F";
-  # # "kxkbrc"."Layout"."LayoutList" = "us";
-  # # "kxkbrc"."Layout"."Use" = true;
-  # # "kxkbrc"."Layout"."VariantList" = "altgr-intl";
-  # "plasma-localerc"."Formats"."LANG" = "en_GB.UTF-8";
-  # "plasma-localerc"."Formats"."LC_ADDRESS" = "de_AT.UTF-8";
-  # "plasma-localerc"."Formats"."LC_MEASUREMENT" = "de_AT.UTF-8";
-  # "plasma-localerc"."Formats"."LC_MONETARY" = "de_AT.UTF-8";
-  # "plasma-localerc"."Formats"."LC_NAME" = "de_AT.UTF-8";
-  # "plasma-localerc"."Formats"."LC_NUMERIC" = "de_AT.UTF-8";
-  # "plasma-localerc"."Formats"."LC_PAPER" = "de_AT.UTF-8";
-  # "plasma-localerc"."Formats"."LC_TELEPHONE" = "de_AT.UTF-8";
-  # "plasma-localerc"."Formats"."LC_TIME" = "de_AT.UTF-8";
+	kwriteconfig6 --file "$(CONFIG)/kcminputrc" --group "Mouse" --key "cursorTheme" "breeze_cursors"
+
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "General" --key "accentColorFromWallpaper" "true"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "Icons" --key "Theme" "Papirus-Dark"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KDE" --key "ShowDeleteCommand" "false"
+
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "Allow Expansion" "false"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "Automatically select filename extension" "true"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "Breadcrumb Navigation" "true"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "Decoration position" "2"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "LocationCombo Completionmode" "5"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "PathCombo Completionmode" "5"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "Show Bookmarks" "false"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "Show Full Path" "false"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "Show Inline Previews" "true"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "Show Preview" "false"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "Show Speedbar" "true"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "Show hidden files" "false"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "Sort by" "Name"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "Sort directories first" "true"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "Sort hidden files last" "false"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "Sort reversed" "false"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "Speedbar Width" "140"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "KFileDialog Settings" --key "View Style" "DetailTree"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "PreviewSettings" --key "EnableRemoteFolderThumbnail" "false"
+	kwriteconfig6 --file "$(CONFIG)/kdeglobals" --group "PreviewSettings" --key "MaximumRemoteSize" "0"
+
+	kwriteconfig6 --file "$(CONFIG)/kiorc" --group "Confirmations" --key "ConfirmDelete" "true"
+	kwriteconfig6 --file "$(CONFIG)/kiorc" --group "Confirmations" --key "ConfirmEmptyTrash" "true"
+	kwriteconfig6 --file "$(CONFIG)/kiorc" --group "Confirmations" --key "ConfirmTrash" "false"
+	kwriteconfig6 --file "$(CONFIG)/kiorc" --group "Executable scripts" --key "behaviourOnLaunch" "alwaysAsk"
+
+	kwriteconfig6 --file "$(CONFIG)/klaunchrc" --group "BusyCursorSettings" --key "Bouncing" "false"
+	kwriteconfig6 --file "$(CONFIG)/krunnerrc" --group "General" --key "FreeFloating" "true"
+	kwriteconfig6 --file "$(CONFIG)/krunnerrc" --group "Plugins" --key "krunner_katesessionsEnabled" "false"
+	kwriteconfig6 --file "$(CONFIG)/krunnerrc" --group "Plugins" --key "krunner_konsoleprofilesEnabled" "false"
+	kwriteconfig6 --file "$(CONFIG)/krunnerrc" --group "Plugins/Favorites" --key "plugins" "krunner_services,krunner_systemsettings"
+	kwriteconfig6 --file "$(CONFIG)/kscreenlockerrc" --group "Daemon" --key "Autolock" "false"
+	kwriteconfig6 --file "$(CONFIG)/kscreenlockerrc" --group "Daemon" --key "Timeout" "0"
+	kwriteconfig6 --file "$(CONFIG)/kwinrc" --group "Effect-overview" --key "BorderActivate" "9"
+	kwriteconfig6 --file "$(CONFIG)/kwinrc" --group "NightColor" --key "Active" "true"
+	kwriteconfig6 --file "$(CONFIG)/kwinrc" --group "NightColor" --key "NightTemperature" "4400"
+	kwriteconfig6 --file "$(CONFIG)/kwinrc" --group "Plugins" --key "blurEnabled" "false"
+	kwriteconfig6 --file "$(CONFIG)/kwinrc" --group "Plugins" --key "contrastEnabled" "false"
+	kwriteconfig6 --file "$(CONFIG)/kwinrc" --group "Xwayland" --key "Scale" "1"
+	kwriteconfig6 --file "$(CONFIG)/kwinrc" --group "org --key kde.kdecoration2"."ButtonsOnLeft" "X"
+	kwriteconfig6 --file "$(CONFIG)/kwinrc" --group "org --key kde.kdecoration2"."ButtonsOnRight" "F"
+
+	kwriteconfig6 "$(CONFIG)/kxkbrc" --group "Layout" --key "LayoutList" "us"
+	kwriteconfig6 "$(CONFIG)/kxkbrc" --group "Layout" --key "Use" "true"
+	kwriteconfig6 "$(CONFIG)/kxkbrc" --group "Layout" --key "VariantList" "altgr-intl"
+
+	kwriteconfig6 --file "$(CONFIG)/plasma-localerc" --group "Formats" --key "LANG" "en_GB.UTF-8"
+	kwriteconfig6 --file "$(CONFIG)/plasma-localerc" --group "Formats" --key "LC_ADDRESS" "de_AT.UTF-8"
+	kwriteconfig6 --file "$(CONFIG)/plasma-localerc" --group "Formats" --key "LC_MEASUREMENT" "de_AT.UTF-8"
+	kwriteconfig6 --file "$(CONFIG)/plasma-localerc" --group "Formats" --key "LC_MONETARY" "de_AT.UTF-8"
+	kwriteconfig6 --file "$(CONFIG)/plasma-localerc" --group "Formats" --key "LC_NAME" "de_AT.UTF-8"
+	kwriteconfig6 --file "$(CONFIG)/plasma-localerc" --group "Formats" --key "LC_NUMERIC" "de_AT.UTF-8"
+	kwriteconfig6 --file "$(CONFIG)/plasma-localerc" --group "Formats" --key "LC_PAPER" "de_AT.UTF-8"
+	kwriteconfig6 --file "$(CONFIG)/plasma-localerc" --group "Formats" --key "LC_TELEPHONE" "de_AT.UTF-8"
+	kwriteconfig6 --file "$(CONFIG)/plasma-localerc" --group "Formats" --key "LC_TIME" "de_AT.UTF-8"
 
 .PHONY: ksshaskpass
 ksshaskpass:
