@@ -7,7 +7,7 @@ CONFIG=$$HOME/.config
 .PHONY: dotfiles/kde
 dotfiles/kde: applications ksshaskpass config customization ## setup KDE Plasma
 
-FEISHIN_VERSION=0.5.12
+FEISHIN_VERSION=0.12.2
 
 .PHONY: applications
 applications:
