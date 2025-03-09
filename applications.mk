@@ -25,17 +25,9 @@ podman:
 	# https://github.com/containers/podman/issues/10817#issuecomment-1563103744
 	# restorecon -RFv /home/clemens/.local/share/containers
 
-.PHONY: main
-main: applications/base
-	distrobox assemble create --name wezterm --replace
-
 .PHONY: steambox
 steambox:
 	distrobox assemble create --name steambox --replace
-
-.PHONY: applications/dsda
-applications/dsda:
-	distrobox assemble create --name dsda --replace
 
 .PHONY: applications/music
 applications/music:
