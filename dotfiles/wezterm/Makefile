@@ -5,6 +5,10 @@ CONFIG=$$HOME/.config
 dotfiles/wezterm: ## setup wezterm-container
 	distrobox assemble create --file $(DOTFILES)/wezterm/distrobox.ini --name wezterm --replace
 	distrobox enter wezterm -- distrobox-export --app wezterm
+	distrobox enter wezterm -- rm -rf $$HOME/.cache/paru && git clone https://aur.archlinux.org/paru.git $$HOME/.cache/paru
+	distrobox enter wezterm -- zsh -c "cd $$HOME/.cache/paru && makepkg -si --noconfirm"
+	distrobox enter wezterm -- paru -Syu --noconfirm viddy kubecolor
+	distrobox enter wezterm -- rm -rf $$HOME/.cache/paru
 	mkdir -p $(CONFIG)/wezterm
 	ln -sf $$PWD/dotfiles/wezterm/wezterm.lua $(CONFIG)/wezterm/wezterm.lua
 	ln -sf $$PWD/dotfiles/wezterm/bindings.lua $(CONFIG)/wezterm/bindings.lua
