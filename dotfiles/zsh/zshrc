@@ -53,8 +53,12 @@ if command -v direnv &> /dev/null; then
 fi
 
 export LANG='en_GB.UTF-8'
-export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
 export BROWSER=firefox
+
+# podman
+export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
+source <(podman completion zsh)
+compdef docker=podman
 
 # eval "$(/nix/store/iwymjihzrc017zafhga2ai71mkxa2m6s-direnv-2.34.0/bin/direnv hook zsh)"
 
