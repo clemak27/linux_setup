@@ -33,23 +33,6 @@ main: applications/base
 steambox:
 	distrobox assemble create --name steambox --replace
 
-.PHONY: applications/games
-applications/games: applications/dsda
-	flatpak install -y flathub \
-		com.valvesoftware.Steam \
-		dev.vencord.Vesktop \
-		io.github.Foldex.AdwSteamGtk \
-		net.lutris.Lutris \
-		org.freedesktop.Platform.VulkanLayer.MangoHud \
-		org.freedesktop.Platform.VulkanLayer.gamescope \
-		org.freedesktop.Platform.ffmpeg-full \
-		org.prismlauncher.PrismLauncher \
-		org.zdoom.GZDoom
-	curl -LO https://raw.githubusercontent.com/ValveSoftware/steam-devices/master/60-steam-input.rules
-	sudo mv 60-steam-input.rules /etc/udev/rules.d/
-	curl -LO https://raw.githubusercontent.com/ValveSoftware/steam-devices/master/60-steam-vr.rules
-	sudo mv 60-steam-vr.rules /etc/udev/rules.d/
-
 .PHONY: applications/dsda
 applications/dsda:
 	distrobox assemble create --name dsda --replace

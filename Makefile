@@ -3,6 +3,7 @@ help: ## Show this help.
 
 include dotfiles/dev/Makefile
 include dotfiles/firefox/Makefile
+include dotfiles/gaming/Makefile
 include dotfiles/git/Makefile
 include dotfiles/kde/Makefile
 include dotfiles/nvim/Makefile

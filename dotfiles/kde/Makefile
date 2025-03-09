@@ -12,9 +12,12 @@ FEISHIN_VERSION=0.5.12
 .PHONY: applications
 applications:
 	flatpak install -y flathub \
-		org.kde.krita \
+		com.calibre_ebook.calibre \
+		com.obsproject.Studio \
+		hu.irl.cameractrls \
 		org.kde.haruna \
 		org.kde.kid3 \
+		org.kde.krita \
 		org.libreoffice.LibreOffice \
 		org.signal.Signal
 	mkdir -p $$HOME/.local/bin $$HOME/.local/share/applications
@@ -140,7 +143,7 @@ adwGtkTheme:
 	mkdir -p tmp $$HOME/.local/share/themes
 	curl -Lo tmp/adw-gtk3.tar.xz --url https://github.com/lassekongo83/adw-gtk3/releases/download/v$(ADW_GTK3_VERSION)/adw-gtk3v$(ADW_GTK3_VERSION).tar.xz
 	tar xf tmp/adw-gtk3.tar.xz --directory $$HOME/.local/share/themes
-	flatpak install -y org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+	flatpak install flathub -y org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
 	flatpak override --user --filesystem=xdg-config/gtk-3.0 --filesystem=xdg-config/gtk-4.0
 	ln -sf $(DOTFILES)/kde/gtk.css $$HOME/.config/gtk-3.0/gtk.css
 	ln -sf $(DOTFILES)/kde/gtk.css $$HOME/.config/gtk-4.0/gtk.css
