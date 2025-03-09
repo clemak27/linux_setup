@@ -100,6 +100,10 @@ return {
         "yamlls",
       }
 
+      if vim.fn.executable("nixd") == 1 then
+        table.insert(servers, "nixd")
+      end
+
       local function setup_servers()
         for _, server in pairs(servers) do
           local config = require("plugins.lsp.util").set_base_config()
