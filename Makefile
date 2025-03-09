@@ -12,7 +12,10 @@ include dotfiles/tools/Makefile
 include dotfiles/wezterm/Makefile
 include dotfiles/zsh/Makefile
 
-all: dotfiles/dev dotfiles/firefox dotfiles/gaming dotfiles/git dotfiles/kde dotfiles/nvim dotfiles/syncthing dotfiles/tools dotfiles/wezterm dotfiles/zsh
+upgrade: ## Upgrade the system
+	rpm-ostree upgrade
+	flatpak update -y
+	distrobox enter wezterm -- paru -Syu
 
 # To set up TPM2 unlocking, first, find the LUKS device you want to enroll. This is probably in /etc/crypttab. You can also use sudo cryptsetup status /dev/mapper/luks* to identify the device.
 #
