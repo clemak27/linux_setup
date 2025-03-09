@@ -5,7 +5,22 @@ CONFIG=$$HOME/.config
   # kwriteconfig6 --file "${CONF}" --group "General" --key "ShowSpaceInfo" "false"
 	#
 .PHONY: dotfiles/kde
-dotfiles/kde: ksshaskpass bbColorscheme konsoleTheme ## setup KDE Plasma
+dotfiles/kde: applications ksshaskpass config customization ## setup KDE Plasma
+
+.PHONY: applications
+applications:
+	flatpak install -y flathub \
+		org.kde.krita \
+		org.kde.haruna
+
+.PHONY: ksshaskpass
+ksshaskpass:
+	rpm-ostree install --idempotent ksshaskpass
+	mkdir -p $$HOME/.config/autostart
+	echo -e "[Desktop Entry]\nExec=$$HOME/Projects/linux_setup/dotfiles/kde/kssaskpass.sh\nIcon=dialog-scripts\nName=kssaskpass.sh\nType=Application\nX-KDE-AutostartScript=true" > $$HOME/.config/autostart/kssaskpass.sh.desktop
+
+.PHONY: config
+config:
 	kwriteconfig6 --file "$(CONFIG)/dolphinrc" --group "DetailsMode" --key "ExpandableFolders" "false"
 	kwriteconfig6 --file "$(CONFIG)/dolphinrc" --group "DetailsMode" --key "PreviewSize" "32"
 	kwriteconfig6 --file "$(CONFIG)/dolphinrc" --group "General" --key "ConfirmClosingMultipleTabs" "false"
@@ -62,9 +77,9 @@ dotfiles/kde: ksshaskpass bbColorscheme konsoleTheme ## setup KDE Plasma
 	kwriteconfig6 --file "$(CONFIG)/kwinrc" --group "org --key kde.kdecoration2"."ButtonsOnLeft" "X"
 	kwriteconfig6 --file "$(CONFIG)/kwinrc" --group "org --key kde.kdecoration2"."ButtonsOnRight" "F"
 
-	kwriteconfig6 "$(CONFIG)/kxkbrc" --group "Layout" --key "LayoutList" "us"
-	kwriteconfig6 "$(CONFIG)/kxkbrc" --group "Layout" --key "Use" "true"
-	kwriteconfig6 "$(CONFIG)/kxkbrc" --group "Layout" --key "VariantList" "altgr-intl"
+	# kwriteconfig6 "$(CONFIG)/kxkbrc" --group "Layout" --key "LayoutList" "us"
+	# kwriteconfig6 "$(CONFIG)/kxkbrc" --group "Layout" --key "Use" "true"
+	# kwriteconfig6 "$(CONFIG)/kxkbrc" --group "Layout" --key "VariantList" "altgr-intl"
 
 	kwriteconfig6 --file "$(CONFIG)/plasma-localerc" --group "Formats" --key "LANG" "en_GB.UTF-8"
 	kwriteconfig6 --file "$(CONFIG)/plasma-localerc" --group "Formats" --key "LC_ADDRESS" "de_AT.UTF-8"
@@ -76,14 +91,31 @@ dotfiles/kde: ksshaskpass bbColorscheme konsoleTheme ## setup KDE Plasma
 	kwriteconfig6 --file "$(CONFIG)/plasma-localerc" --group "Formats" --key "LC_TELEPHONE" "de_AT.UTF-8"
 	kwriteconfig6 --file "$(CONFIG)/plasma-localerc" --group "Formats" --key "LC_TIME" "de_AT.UTF-8"
 
-.PHONY: ksshaskpass
-ksshaskpass:
-	rpm-ostree install --idempotent ksshaskpass
-	# flatpak install -y flathub \
-	# 	org.kde.gwenview \
-	# 	org.kde.okular
-	mkdir -p $$HOME/.config/autostart
-	echo -e "[Desktop Entry]\nExec=$$HOME/Projects/linux_setup/dotfiles/kde/kssaskpass.sh\nIcon=dialog-scripts\nName=kssaskpass.sh\nType=Application\nX-KDE-AutostartScript=true" > $$HOME/.config/autostart/kssaskpass.sh.desktop
+JBMONO_VERSION=3.2.1
+ADW_GTK3_VERSION=5.6
+
+.PHONY: customization
+customization: jbMonoFont adwGtkTheme papirusIconTheme bbColorscheme konsoleTheme
+
+.PHONY: jbMonoFont
+jbMonoFont: jbMonoFont/download jbMonoFont/cleanup
+
+.PHONY: jbMonoFont/download
+jbMonoFont/download:
+	mkdir -p tmp $$HOME/.local/share/fonts
+	curl -Lo tmp/jbMono.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v$(JBMONO_VERSION)/JetBrainsMono.zip"
+	unzip -o tmp/jbMono.zip -d $$HOME/.local/share/fonts
+
+.PHONY: jbMonoFont/cleanup
+jbMonoFont/cleanup:
+	cd $$HOME/.local/share/fonts && find JetBrainsMonoNerdFontPropo* | xargs rm -f
+	cd $$HOME/.local/share/fonts && find JetBrainsMonoNerdFontMono* | xargs rm -f
+	cd $$HOME/.local/share/fonts && find JetBrainsMonoNL* | xargs rm -f
+	cd $$HOME/.local/share/fonts && rm OFL.txt && rm README.md
+
+.PHONY: papirusIconTheme
+papirusIconTheme:
+	wget -qO- https://git.io/papirus-icon-theme-install | DESTDIR="$$HOME/.local/share/icons" sh
 
 .PHONY: bbColorscheme
 bbColorscheme:
@@ -93,3 +125,13 @@ bbColorscheme:
 konsoleTheme:
 	mkdir -p tmp $$HOME/.local/share/konsole
 	ln -sf $(DOTFILES)/kde/MochaMatte.colorscheme $$HOME/.local/share/konsole
+
+.PHONY: adwGtkTheme
+adwGtkTheme:
+	mkdir -p tmp $$HOME/.local/share/themes
+	curl -Lo tmp/adw-gtk3.tar.xz --url https://github.com/lassekongo83/adw-gtk3/releases/download/v$(ADW_GTK3_VERSION)/adw-gtk3v$(ADW_GTK3_VERSION).tar.xz
+	tar xf tmp/adw-gtk3.tar.xz --directory $$HOME/.local/share/themes
+	flatpak install -y org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+	flatpak override --user --filesystem=xdg-config/gtk-3.0 --filesystem=xdg-config/gtk-4.0
+	ln -sf $(DOTFILES)/kde/gtk.css $$HOME/.config/gtk-3.0/gtk.css
+	ln -sf $(DOTFILES)/kde/gtk.css $$HOME/.config/gtk-4.0/gtk.css
