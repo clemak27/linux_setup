@@ -9,4 +9,3 @@ dotfiles/tools: ## setup cli-tools
 	mkdir -p "$(CONFIG)/tealdeer"
 	ln -sf "$(DOTFILES)/tools/tealdeer.toml" "$(CONFIG)/tealdeer/config.toml"
 	ln -sf "$(DOTFILES)/tools/cdp" "$$HOME/.local/bin/cdp"
-	# TODO go install github.com/sachaos/viddy@latest

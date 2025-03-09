@@ -102,6 +102,12 @@ if command -v eza &> /dev/null; then
   alias 'ls'='eza --icons=automatic'
   alias 'lsa'='eza --icons=automatic -hal'
 fi
+if command -v cyme &> /dev/null; then
+  alias 'lsusb'='cyme --lsusb'
+fi
+if command -v htop &> /dev/null; then
+  alias 'top'='htop'
+fi
 
 ## git
 if command -v git &> /dev/null; then
@@ -153,7 +159,7 @@ if command -v kubectl &> /dev/null; then
   compdef ky=kubectl
   function wk() { viddy --no-title kubecolor --force-colors "$@"; }
   compdef wk=kubectl
-  function kgaw() { viddy --no-title kubecolor get all; }
+  function kgaw() { viddy --no-title kubecolor --force-colors get all; }
 fi
 
 # if [ -z "$NIX_PROFILES" ]; then
