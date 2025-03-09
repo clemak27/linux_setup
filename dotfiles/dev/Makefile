@@ -3,4 +3,6 @@ CONFIG=$$HOME/.config
 
 .PHONY: dotfiles/dev
 dotfiles/dev: ## setup development tools
-	ln -sf "$(DOTFILES)/dev/npmrc" "$$HOME/.npmrc"
+	mkdir -p "$$HOME/.local/bin"
+	echo "prefix=~/.local/bin/npm\nsave-exact=true" > "$$HOME/.npmrc"
+	echo "GOTOOLCHAIN=local" > "$$HOME/.config/go/env"

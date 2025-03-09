@@ -55,7 +55,7 @@ if command -v direnv &> /dev/null; then
   export PRE_COMMIT_COLOR="never"
 fi
 
-export LANG='en_US.UTF-8'
+export LANG='en_GB.UTF-8'
 export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
 export BROWSER=firefox
 
@@ -93,7 +93,7 @@ fi
 
 ## dev
 if command -v java &> /dev/null; then
-  export JAVA_HOME=/usr/lib/jvm/java-17-openjdk/
+  export JAVA_HOME=/usr/lib/jvm/java-21-openjdk/
 fi
 
 ## tools
@@ -101,12 +101,6 @@ if command -v eza &> /dev/null; then
   alias 'ls'='eza --icons=automatic'
   alias 'lsa'='eza --icons=automatic -hal'
 fi
-
-## todo
-if command -v todo.sh &> /dev/null; then
-  alias 'todo'='todo.sh'
-fi
-
 
 ## git
 if command -v git &> /dev/null; then
@@ -137,15 +131,21 @@ fi
 
 ## k8s
 if command -v kubectl &> /dev/null; then
-  if [ -e "$GOPATH/bin/kubecolor" ]; then
+  if command -v kubecolor &> /dev/null; then
     source <(kubectl completion zsh)
     alias kubectl=kubecolor
     compdef kubecolor=kubectl
   fi
 
   alias 'kctx'='kubectx'
-  alias 'kgaw'='[ -e $GOPATH/bin/kubecolor ] && watch -n 1 --no-title kubecolor get all --force-colors ||  watch -n 1 --no-title kubectl get all'
   alias 'kns'='kubens'
+
+  # https://github.com/ohmyzsh/ohmyzsh/issues/12515
+  unalias k &> /dev/null || :
+  function k() { kubectl "$@" }
+  compdef _kubectl k
+
+  export PATH="$HOME/.krew/bin:$PATH"
 fi
 
 # if [ -z "$NIX_PROFILES" ]; then

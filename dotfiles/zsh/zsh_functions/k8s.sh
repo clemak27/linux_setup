@@ -7,4 +7,5 @@ if command -v kubectl &> /dev/null; then
   compdef ky=kubectl
   function wk() { viddy --no-title kubecolor --force-colors "$@"; }
   compdef wk=kubectl
+  function kgaw() { viddy --no-title kubecolor get all; }
 fi
