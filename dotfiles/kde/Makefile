@@ -1,18 +1,19 @@
 DOTFILES=$$PWD/dotfiles
 CONFIG=$$HOME/.config
 
-.PHONY: dotfiles/kde
-dotfiles/kde: ksshaskpass bbColorscheme konsoleTheme ## setup KDE Plasma
   # local CONF="/home/${YOUR_USER}/.config/dolphinrc"
   # kwriteconfig6 --file "${CONF}" --group "General" --key "ShowSpaceInfo" "false"
+	#
+.PHONY: dotfiles/kde
+dotfiles/kde: ksshaskpass bbColorscheme konsoleTheme ## setup KDE Plasma
+	kwriteconfig6 --file "$(CONFIG)/dolphinrc" --group "DetailsMode" --key "ExpandableFolders" "false"
+	kwriteconfig6 --file "$(CONFIG)/dolphinrc" --group "DetailsMode" --key "PreviewSize" "32"
+	kwriteconfig6 --file "$(CONFIG)/dolphinrc" --group "General" --key "ConfirmClosingMultipleTabs" "false"
+	kwriteconfig6 --file "$(CONFIG)/dolphinrc" --group "General" --key "RememberOpenedTabs" "false"
+	kwriteconfig6 --file "$(CONFIG)/dolphinrc" --group "General" --key "ShowZoomSlider" "false"
+	kwriteconfig6 --file "$(CONFIG)/dolphinrc" --group "KFileDialog Settings" --key "Places Icons Auto-resize" "false"
+	kwriteconfig6 --file "$(CONFIG)/dolphinrc" --group "KFileDialog Settings" --key "Places Icons Static Size" "22"
 
-  # "dolphinrc"."DetailsMode"."ExpandableFolders" = false;
-  # "dolphinrc"."DetailsMode"."PreviewSize" = 32;
-  # "dolphinrc"."General"."ConfirmClosingMultipleTabs" = false;
-  # "dolphinrc"."General"."RememberOpenedTabs" = false;
-  # "dolphinrc"."General"."ShowZoomSlider" = false;
-  # "dolphinrc"."KFileDialog Settings"."Places Icons Auto-resize" = false;
-  # "dolphinrc"."KFileDialog Settings"."Places Icons Static Size" = 22;
   # "kcminputrc"."Mouse"."cursorTheme" = "breeze_cursors";
   # "kdeglobals"."General"."accentColorFromWallpaper" = true;
   # "kdeglobals"."Icons"."Theme" = "Papirus-Dark";

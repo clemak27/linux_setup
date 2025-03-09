@@ -9,6 +9,10 @@ local cp_colors = {
 }
 
 local weztermCfg = {
+  -- default_prog = { "/usr/bin/distrobox-enter", "-n", "main" },
+  -- default_cwd = "/var/home/clemens",
+  xcursor_theme = "breeze_cursors",
+
   front_end = "WebGpu",
   enable_wayland = true,
 
