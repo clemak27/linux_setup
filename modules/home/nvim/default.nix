@@ -50,8 +50,6 @@ in
         shfmt
 
         # nix
-        nixd
-        nixfmt-rfc-style
 
         # lua
         lua-language-server
