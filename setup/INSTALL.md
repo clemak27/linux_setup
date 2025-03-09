@@ -5,7 +5,6 @@
 ### Preparation
 
 - create live USB (if there is none yet)
-- create new branch for host
 - prepare config in `hosts` directory
   - Make sure all options requiring files to exist in the system are not enabled
     (e.g. git signing in the `homecfg`, Wireguard, ...)

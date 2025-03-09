@@ -34,6 +34,9 @@
 	line-numbers-plus-style = "green"
 	line-numbers-right-style = "blue"
 
+[fetch]
+	prune = "true"
+
 [gpg]
 	format = "ssh"
 
@@ -44,11 +47,10 @@
 	diffFilter = "delta --color-only"
 
 [init]
-    defaultBranch = main
+  defaultBranch = main
 
 [pull]
 	rebase = "true"
 
-[user]
-	email = "clemak27@mailbox.org"
-	name = "clemak27"
+[rebase]
+	autoStash = "true"

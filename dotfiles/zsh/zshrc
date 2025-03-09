@@ -45,9 +45,6 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
   source $HOME/.oh-my-zsh/oh-my-zsh.sh
 fi
 
-# custom functions
-for file in ~/.zsh_functions/*; do . $file; done
-
 # direnv
 if command -v direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
@@ -106,7 +103,6 @@ fi
 if command -v git &> /dev/null; then
   alias 'gcm'='git commit -v -m'
   alias 'gdc'='git diff --cached'
-  alias 'gdm'='git diff --cached master'
   alias 'gfmm'='git fetch origin && git merge origin/master'
   alias 'gprom'='if git branch -a | grep -E '\''remotes/origin/master'\'' > /dev/null; then git pull --rebase origin master; else git pull --rebase origin main; fi'
   alias 'gpskip'='git push -o ci.skip'
@@ -146,6 +142,14 @@ if command -v kubectl &> /dev/null; then
   compdef _kubectl k
 
   export PATH="$HOME/.krew/bin:$PATH"
+
+  function kj() { kubectl "$@" -o json | jq; }
+  compdef kj=kubectl
+  function ky() { kubectl "$@" -o yaml | bat -p -P --language=yaml; }
+  compdef ky=kubectl
+  function wk() { viddy --no-title kubecolor --force-colors "$@"; }
+  compdef wk=kubectl
+  function kgaw() { viddy --no-title kubecolor get all; }
 fi
 
 # if [ -z "$NIX_PROFILES" ]; then

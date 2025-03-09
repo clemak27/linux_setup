@@ -4,8 +4,9 @@ CONFIG=$$HOME/.config
 .PHONY: dotfiles/git
 dotfiles/git: ## setup git
 	mkdir -p "$(CONFIG)/git"
+	mkdir -p "$(CONFIG)/lazygit"
 	mkdir -p "$$HOME/.local/bin"
 	ln -sf "$(DOTFILES)/git/lg" "$$HOME/.local/bin/lg"
+	ln -sf "$(DOTFILES)/git/gcmld" "$$HOME/.local/bin/gcmld"
 	cp "$(DOTFILES)/git/config" "$(CONFIG)/git/config"
-	git config --global user.signingkey "$$(cat $$HOME/.ssh/id_ed25519.pub)"
-	echo "$$(git config --global user.email) $$(cat $$HOME/.ssh/id_ed25519.pub)" > $$HOME/.ssh/allowed_signers
+	ln -sf "$(DOTFILES)/git/lgconfig" "$(CONFIG)/lazygit/config.yml"
