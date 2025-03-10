@@ -5,20 +5,6 @@
     ./hardware-configuration.nix
   ];
 
-  networking.hostName = "maxwell";
-
-  services.xserver.xkb.layout = "us";
-
-  environment.systemPackages = with pkgs; [
-    nfs-utils
-    piper
-  ];
-
-  # devices
-  services.ratbagd.enable = true;
-  services.hardware.openrgb.enable = true;
-  hardware.keyboard.qmk.enable = true;
-
   # mounts
   fileSystems = {
     "/home/clemens/Games" = {
@@ -38,13 +24,4 @@
       ];
     };
   };
-
-  boot.loader.systemd-boot.enable = lib.mkForce false;
-
-  boot.lanzaboote = {
-    enable = true;
-    pkiBundle = "/etc/secureboot";
-  };
-
-  system.stateVersion = "24.05";
 }
