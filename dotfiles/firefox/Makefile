@@ -1,7 +1,11 @@
 .PHONY: dotfiles/firefox
 dotfiles/firefox: ## setup firefox
-	rpm-ostree override remove firefox firefox-langpacks
-	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+	# rpm-ostree override remove firefox firefox-langpacks
+	# https://github.com/fedora-silverblue/silverblue-docs/blob/master/modules/ROOT/pages/tips-and-tricks.adoc#hiding-the-default-browser-firefox
+	sudo mkdir -p /usr/local/share/applications/
+	sudo cp /usr/share/applications/org.mozilla.firefox.desktop /usr/local/share/applications/
+	sudo sed -i "2a\\NotShowIn=GNOME;KDE" /usr/local/share/applications/org.mozilla.firefox.desktop
+	sudo update-desktop-database /usr/local/share/applications/
 	flatpak install -y flathub \
 		org.freedesktop.Platform.ffmpeg-full \
 		org.mozilla.firefox

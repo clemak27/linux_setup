@@ -6,6 +6,7 @@ applications: applications/basic applications/default applications/games applica
 .PHONY: applications/base
 applications/base:
 	rpm-ostree install --idempotent vim make zsh distrobox
+	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	# reboot is needed so the base packages are installed
 	if ! command -v distrobox > /dev/null; then exit 1; fi
 	sudo usermod -s /usr/bin/zsh clemens
