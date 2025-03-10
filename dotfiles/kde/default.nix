@@ -1,12 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    libnotify
-
     kdePackages.kdepim-addons
-
-    haruna
-    kid3-kde
     krita
   ];
 
@@ -16,12 +11,6 @@
     kontact = true;
     merkuro = false;
   };
-
-  qt.enable = true;
-  qt.platformTheme = "kde";
-  qt.style = "breeze";
-
-  services.geoclue2.enable = true;
 
   programs.ssh = {
     startAgent = true;

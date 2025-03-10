@@ -1,6 +1,3 @@
-DOTFILES=$$PWD/dotfiles
-CONFIG=$$HOME/.config
-
 .PHONY: dotfiles/dev
 dotfiles/dev: ## setup development tools
 	mkdir -p "$$HOME/.local/bin"

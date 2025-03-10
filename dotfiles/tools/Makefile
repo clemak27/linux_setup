@@ -1,6 +1,3 @@
-DOTFILES=$$PWD/dotfiles
-CONFIG=$$HOME/.config
-
 .PHONY: dotfiles/tools
 dotfiles/tools: ## setup cli-tools
 	mkdir -p "$(CONFIG)/bat"

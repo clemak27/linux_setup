@@ -1,6 +1,3 @@
-DOTFILES=$$PWD/dotfiles
-CONFIG=$$HOME/.config
-
 .PHONY: dotfiles/wezterm
 dotfiles/wezterm: ## setup wezterm-container
 	distrobox assemble create --file $(DOTFILES)/wezterm/distrobox.ini --name wezterm --replace

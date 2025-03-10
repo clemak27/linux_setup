@@ -1,8 +1,9 @@
 help: ## Show this help.
 	@grep -F -h "##" $(MAKEFILE_LIST) | grep -F -v grep -F | sed -e 's/\\$$//' | sed -e 's/##//'
 
-DOTFILES=$$PWD/dotfiles
 CONFIG=$$HOME/.config
+DOTFILES=$$PWD/dotfiles
+HOSTS=$$PWD/hosts/
 
 include dotfiles/dev/Makefile
 include dotfiles/firefox/Makefile

@@ -1,16 +1,13 @@
-DOTFILES=$$PWD/dotfiles
-CONFIG=$$HOME/.config
-
   # local CONF="/home/${YOUR_USER}/.config/dolphinrc"
   # kwriteconfig6 --file "${CONF}" --group "General" --key "ShowSpaceInfo" "false"
 	#
 .PHONY: dotfiles/kde
-dotfiles/kde: applications ksshaskpass config customization ## setup KDE Plasma
+dotfiles/kde: kde/applications kde/ksshaskpass kde/config kde/customization ## setup KDE Plasma
 
 FEISHIN_VERSION=0.12.2
 
-.PHONY: applications
-applications:
+.PHONY: kde/applications
+kde/applications:
 	flatpak install -y flathub \
 		com.calibre_ebook.calibre \
 		com.obsproject.Studio \
@@ -25,14 +22,14 @@ applications:
 	chmod +x $$HOME/.local/bin/feishin
 	echo -e "[Desktop Entry]\nName=Feishin\nExec=$$HOME/.local/bin/feishin\nType=Application\nCategories=Multimedia\nIcon=feishin" > $$HOME/.local/share/applications/feishin.desktop
 
-.PHONY: ksshaskpass
-ksshaskpass:
+.PHONY: kde/ksshaskpass
+kde/ksshaskpass:
 	rpm-ostree install --idempotent ksshaskpass
 	mkdir -p $$HOME/.config/autostart
 	echo -e "[Desktop Entry]\nExec=$$HOME/Projects/linux_setup/dotfiles/kde/kssaskpass.sh\nIcon=dialog-scripts\nName=kssaskpass.sh\nType=Application\nX-KDE-AutostartScript=true" > $$HOME/.config/autostart/kssaskpass.sh.desktop
 
-.PHONY: config
-config:
+.PHONY: kde/config
+kde/config:
 	kwriteconfig6 --file "$(CONFIG)/dolphinrc" --group "DetailsMode" --key "ExpandableFolders" "false"
 	kwriteconfig6 --file "$(CONFIG)/dolphinrc" --group "DetailsMode" --key "PreviewSize" "32"
 	kwriteconfig6 --file "$(CONFIG)/dolphinrc" --group "General" --key "ConfirmClosingMultipleTabs" "false"
@@ -106,44 +103,42 @@ config:
 JBMONO_VERSION=3.2.1
 ADW_GTK3_VERSION=5.6
 
-.PHONY: customization
-customization: jbMonoFont adwGtkTheme papirusIconTheme bbColorscheme konsoleTheme
+.PHONY: kde/customization
+kde/customization: jbMonoFont adwGtkTheme papirusIconTheme bbColorscheme konsoleTheme
 
-.PHONY: jbMonoFont
-jbMonoFont: jbMonoFont/download jbMonoFont/cleanup
+.PHONY: kde/jbMonoFont
+kde/jbMonoFont: jbMonoFont/download jbMonoFont/cleanup
 
-.PHONY: jbMonoFont/download
-jbMonoFont/download:
+.PHONY: kde/jbMonoFont/download
+kde/jbMonoFont/download:
 	mkdir -p tmp $$HOME/.local/share/fonts
 	curl -Lo tmp/jbMono.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v$(JBMONO_VERSION)/JetBrainsMono.zip"
 	unzip -o tmp/jbMono.zip -d $$HOME/.local/share/fonts
 
-.PHONY: jbMonoFont/cleanup
-jbMonoFont/cleanup:
+.PHONY: kde/jbMonoFont/cleanup
+kde/jbMonoFont/cleanup:
 	cd $$HOME/.local/share/fonts && find JetBrainsMonoNerdFontPropo* | xargs rm -f
 	cd $$HOME/.local/share/fonts && find JetBrainsMonoNerdFontMono* | xargs rm -f
 	cd $$HOME/.local/share/fonts && find JetBrainsMonoNL* | xargs rm -f
 	cd $$HOME/.local/share/fonts && rm OFL.txt && rm README.md
 
-.PHONY: papirusIconTheme
-papirusIconTheme:
+.PHONY: kde/papirusIconTheme
+kde/papirusIconTheme:
 	wget -qO- https://git.io/papirus-icon-theme-install | DESTDIR="$$HOME/.local/share/icons" sh
 
-.PHONY: bbColorscheme
-bbColorscheme:
+.PHONY: kde/bbColorscheme
+kde/bbColorscheme:
 	ln -sf $(DOTFILES)/kde/BlackBreeze.colors $$HOME/.local/share/color-schemes
 
-.PHONY: konsoleTheme
-konsoleTheme:
+.PHONY: kde/konsoleTheme
+kde/konsoleTheme:
 	mkdir -p tmp $$HOME/.local/share/konsole
 	ln -sf $(DOTFILES)/kde/MochaMatte.colorscheme $$HOME/.local/share/konsole
 
-.PHONY: adwGtkTheme
-adwGtkTheme:
-	mkdir -p tmp $$HOME/.local/share/themes
+.PHONY: kde/adwGtkTheme
+kde/adwGtkTheme:
+	mkdir -p tmp $$HOME/.local/share/themes $(CONFIG)/gtk-3.0 $(CONFIG)/gtk-4.0
 	curl -Lo tmp/adw-gtk3.tar.xz --url https://github.com/lassekongo83/adw-gtk3/releases/download/v$(ADW_GTK3_VERSION)/adw-gtk3v$(ADW_GTK3_VERSION).tar.xz
 	tar xf tmp/adw-gtk3.tar.xz --directory $$HOME/.local/share/themes
 	flatpak install flathub -y org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
 	flatpak override --user --filesystem=xdg-config/gtk-3.0 --filesystem=xdg-config/gtk-4.0
-	ln -sf $(DOTFILES)/kde/gtk.css $$HOME/.config/gtk-3.0/gtk.css
-	ln -sf $(DOTFILES)/kde/gtk.css $$HOME/.config/gtk-4.0/gtk.css

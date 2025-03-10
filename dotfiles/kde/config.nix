@@ -2,13 +2,8 @@
 let
   # move gtk.css to host config when it exists
   accents = {
-    "maxwell" = "#365282";
     "newton" = "#029677";
   };
-  lookupAccent = attrs: key: if attrs ? "${key}" then attrs."${key}" else "#760088";
-  theme = ''
-    @define-color accent_bg_color ${lookupAccent accents osConfig.networking.hostName};
-  '';
 in
 {
   config = {

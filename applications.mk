@@ -10,9 +10,6 @@ applications/base:
 	if ! command -v distrobox > /dev/null; then exit 1; fi
 	sudo usermod -s /usr/bin/zsh clemens
 
-.PHONY: applications/basic
-applications/basic: podman main
-
 .PHONY: steambox
 steambox:
 	distrobox assemble create --name steambox --replace

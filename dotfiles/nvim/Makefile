@@ -1,6 +1,3 @@
-DOTFILES=$$PWD/dotfiles
-CONFIG=$$HOME/.config
-
 .PHONY: dotfiles/nvim
 dotfiles/nvim: ## setup neovim
 	rm -rf "$(CONFIG)/nvim"

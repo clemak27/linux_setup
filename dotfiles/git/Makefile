@@ -1,6 +1,3 @@
-DOTFILES=$$PWD/dotfiles
-CONFIG=$$HOME/.config
-
 .PHONY: dotfiles/git
 dotfiles/git: ## setup git
 	mkdir -p "$(CONFIG)/git"

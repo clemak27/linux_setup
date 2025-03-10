@@ -1,6 +1,3 @@
-DOTFILES=$$PWD/dotfiles
-CONFIG=$$HOME/.config
-
 .PHONY: hosts/newton
 hosts/newton: dotfiles/dev dotfiles/firefox dotfiles/gaming dotfiles/git dotfiles/kde dotfiles/nvim dotfiles/syncthing dotfiles/tools dotfiles/wezterm dotfiles/zsh
 	# git

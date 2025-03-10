@@ -2,7 +2,7 @@
 @define-color window_fg_color #f8f8f2;
 @define-color view_bg_color #121212;
 @define-color view_fg_color @window_fg_color;
-@define-color accent_bg_color #760088;
+@define-color accent_bg_color #365282;
 @define-color accent_color @accent_bg_color;
 @define-color headerbar_bg_color @window_bg_color;
 @define-color headerbar_fg_color @window_fg_color;

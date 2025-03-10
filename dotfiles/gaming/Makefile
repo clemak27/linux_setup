@@ -1,6 +1,3 @@
-DOTFILES=$$PWD/dotfiles
-CONFIG=$$HOME/.config
-
 .PHONY: dotfiles/gaming
 dotfiles/gaming:
 	rpm-ostree install --idempotent steam-devices gamemode

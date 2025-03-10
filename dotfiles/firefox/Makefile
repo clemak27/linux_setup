@@ -1,5 +1,3 @@
-DOTFILES=$$PWD/dotfiles
-
 .PHONY: dotfiles/firefox
 dotfiles/firefox: ## setup firefox
 	rpm-ostree override remove firefox firefox-langpacks

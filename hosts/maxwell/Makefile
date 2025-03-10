@@ -1,6 +1,3 @@
-DOTFILES=$$PWD/dotfiles
-CONFIG=$$HOME/.config
-
 .PHONY: hosts/maxwell
 hosts/maxwell: dotfiles/dev dotfiles/firefox dotfiles/gaming dotfiles/git dotfiles/kde dotfiles/nvim dotfiles/syncthing dotfiles/tools dotfiles/wezterm dotfiles/zsh
 	# git
@@ -18,6 +15,8 @@ hosts/maxwell: dotfiles/dev dotfiles/firefox dotfiles/gaming dotfiles/git dotfil
 	sudo mv 60-openrgb.rules /etc/udev/rules.d/
 	sudo udevadm control --reload-rules
 	sudo udevadm trigger
-
+	# theme
+	ln -sf $(HOSTS)/maxwell/gtk.css $$HOME/.config/gtk-3.0/gtk.css
+	ln -sf $(HOSTS)/maxwell/gtk.css $$HOME/.config/gtk-4.0/gtk.css
 	# /dev/disk/by-uuid/1d007512-92c1-40ba-8863-f50589b88437 /home/clemens/Games btrfs compress=zstd 0 0
 	# 192.168.178.100:/media /home/clemens/nfs/media nfs x-systemd.automount,_netdev,x-systemd.idle-timeout=60,noauto 0 0
