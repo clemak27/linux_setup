@@ -104,10 +104,10 @@ JBMONO_VERSION=3.2.1
 ADW_GTK3_VERSION=5.6
 
 .PHONY: kde/customization
-kde/customization: jbMonoFont adwGtkTheme papirusIconTheme bbColorscheme konsoleTheme
+kde/customization: kde/jbMonoFont kde/adwGtkTheme kde/papirusIconTheme kde/bbColorscheme kde/konsoleTheme
 
 .PHONY: kde/jbMonoFont
-kde/jbMonoFont: jbMonoFont/download jbMonoFont/cleanup
+kde/jbMonoFont: kde/jbMonoFont/download kde/jbMonoFont/cleanup
 
 .PHONY: kde/jbMonoFont/download
 kde/jbMonoFont/download:
