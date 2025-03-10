@@ -59,8 +59,6 @@
       ];
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOCyRaO8psuZI2i/+inKS5jn765Uypds8ORj/nVkgSE3 maxwell"
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN3PSHWVz5/LwHEEfo+7y2o5KH7dlLyfySWnyyi7LLxe newton"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICsk9Bh5+4ZsEDFGb7mXDiClvsLwM+jMNr+SPf+auyu7 planck"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA35xMqpMFnqqkPUyDR5KMNQsDMkEKQLIvyvMk0HzVux boltzmann"
       ];
@@ -71,32 +69,4 @@
   services.udev.packages = [
     pkgs.android-udev-rules
   ];
-
-  # podman
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-  };
-  environment.sessionVariables = {
-    DOCKER_HOST = "unix://$XDG_RUNTIME_DIR/podman/podman.sock";
-  };
-
-  # packages
-  environment.systemPackages = with pkgs; [
-    curl
-    dig
-    gettext
-    parted
-    sbctl
-    usbutils
-    wget
-  ];
-  programs = {
-    git.enable = true;
-    vim.enable = true;
-    zsh.enable = true;
-    gnupg.agent.enable = true;
-  };
-
-  services.envfs.enable = true;
 }

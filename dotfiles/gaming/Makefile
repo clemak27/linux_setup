@@ -3,7 +3,7 @@ CONFIG=$$HOME/.config
 
 .PHONY: dotfiles/gaming
 dotfiles/gaming:
-	rpm-ostree install --idempotent steam-devices
+	rpm-ostree install --idempotent steam-devices gamemode
 	flatpak install -y flathub \
 		com.valvesoftware.Steam \
 		com.valvesoftware.Steam.CompatibilityTool.Proton-GE \

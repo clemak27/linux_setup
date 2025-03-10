@@ -1,5 +1,5 @@
-.PHONY: podman
-podman:
+.PHONY: dotfiles/podman
+dotfiles/podman:
 	rpm-ostree install --idempotent podman-docker podman-compose
 	sudo touch /etc/containers/nodocker
 	systemctl --user enable podman.socket
