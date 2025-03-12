@@ -9,6 +9,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "fredrikaverpil/neotest-golang",
       "rcasia/neotest-java",
+      "nvim-neotest/neotest-jest",
     },
     config = function()
       require("neotest").setup({
@@ -22,6 +23,7 @@ return {
           require("neotest-java")({
             ignore_wrapper = false,
           }),
+          require("neotest-jest")({}),
         },
       })
 
