@@ -239,11 +239,16 @@ return {
       setup_servers()
 
       -- customize signs
-      local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-      end
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN] = " ",
+            [vim.diagnostic.severity.HINT] = " ",
+            [vim.diagnostic.severity.INFO] = " ",
+          },
+        },
+      })
 
       -- show borders around lspconfig windows
       require("lspconfig.ui.windows").default_options.border = require("plugins.lsp.util").rounded_border()
