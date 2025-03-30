@@ -7,7 +7,7 @@ return {
         local jdtlsHome = os.getenv("HOME") .. "/.jdtls"
         local masonPath = os.getenv("HOME") .. "/.local/share/nvim/mason/packages"
         local jdtlsSource = masonPath .. "/jdtls"
-        local lspJar = jdtlsSource .. "/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar"
+        local lspJar = jdtlsSource .. "/plugins/org.eclipse.equinox.launcher_1.6.1000.v20250131-0606.jar"
 
         local osName = ""
         if vim.loop.os_uname().sysname == "Darwin" then
