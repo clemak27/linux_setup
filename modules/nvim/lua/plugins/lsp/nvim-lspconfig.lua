@@ -176,7 +176,7 @@ return {
             config.on_attach = function(client, bufnr)
               local function buf_set_option(...) end
 
-              require("plugins.lsp.util").set_hover_border()
+              vim.o.winborder = "rounded"
               require("plugins.lsp.util").set_mappings()
 
               --Enable completion triggered by <c-x><c-o>
@@ -249,9 +249,6 @@ return {
           },
         },
       })
-
-      -- show borders around lspconfig windows
-      require("lspconfig.ui.windows").default_options.border = require("plugins.lsp.util").rounded_border()
     end,
   },
   {

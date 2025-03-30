@@ -1,23 +1,4 @@
 return {
-  rounded_border = function()
-    return {
-      { "╭", "FloatBorder" },
-      { "─", "FloatBorder" },
-      { "╮", "FloatBorder" },
-      { "│", "FloatBorder" },
-      { "╯", "FloatBorder" },
-      { "─", "FloatBorder" },
-      { "╰", "FloatBorder" },
-      { "│", "FloatBorder" },
-    }
-  end,
-
-  set_hover_border = function()
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-      border = require("plugins.lsp.util").rounded_border(),
-    })
-  end,
-
   set_mappings = function()
     local telescope = require("telescope.builtin")
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -42,7 +23,7 @@ return {
   end,
 
   on_attach = function(client, bufnr)
-    require("plugins.lsp.util").set_hover_border()
+    vim.o.winborder = "rounded"
     require("plugins.lsp.util").set_mappings()
   end,
 

@@ -93,7 +93,7 @@ return {
           on_attach = function(client, bufnr)
             local function buf_set_option(...) end
 
-            require("plugins.lsp.util").set_hover_border()
+            vim.o.winborder = "rounded"
             require("plugins.lsp.util").set_mappings()
 
             buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")

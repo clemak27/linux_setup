@@ -60,6 +60,20 @@ return {
       vim.keymap.set("n", "<leader>C", builtin.command_history, {})
       vim.keymap.set("n", "<leader>l", builtin.builtin, {})
       vim.keymap.set("n", "<leader>L", builtin.resume, {})
+
+      -- https://github.com/nvim-telescope/telescope.nvim/issues/3436#issuecomment-2756267300
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "TelescopeFindPre",
+        callback = function()
+          vim.opt_local.winborder = "none"
+          vim.api.nvim_create_autocmd("WinLeave", {
+            once = true,
+            callback = function()
+              vim.opt_local.winborder = "rounded"
+            end,
+          })
+        end,
+      })
     end,
   },
 }
