@@ -31,12 +31,20 @@ else
   export ZSH_THEME=robbyrussell
   alias 'db'='distrobox'
   function dbs() {
-    distrobox-ephemeral \
-    --name tmpshell \
-    --pull \
-    --no-entry \
-    --image quay.io/toolbx/arch-toolbox:latest \
-    --additional-packages "$@"
+    if [[ "$#" -gt 0 ]]; then
+      distrobox-ephemeral \
+        --name tmpshell \
+        --pull \
+        --no-entry \
+        --image quay.io/toolbx/arch-toolbox:latest \
+        --additional-packages "$@"
+    else
+      distrobox-ephemeral \
+        --name tmpshell \
+        --pull \
+        --no-entry \
+        --image quay.io/toolbx/arch-toolbox:latest
+    fi
   }
 fi
 
