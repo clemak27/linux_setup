@@ -45,6 +45,17 @@ sudo restorecon /etc/udev/rules.d/60-openrgb.rules
 sudo udevadm control --reload-rules
 sudo udevadm trigger
 
+mkdir -p "$HOME/.config/autostart"
+cat << EOF > "$HOME/.config/autostart/openrgb.sh.desktop"
+[Desktop Entry]
+Exec=$HOME/Projects/linux_setup/hosts/maxwell/openrgb.sh
+Icon=application-x-shellscript
+Name=openrgb.sh
+Type=Application
+X-KDE-AutostartScript=true
+EOF
+
 # 192.168.178.100:/media /home/clemens/nfs/media nfs x-systemd.automount,_netdev,x-systemd.idle-timeout=60,noauto 0 0
+# systemctl daemon-reload
 
 systemctl reboot
