@@ -46,12 +46,6 @@ return {
       vim.keymap.set("n", "<leader>b", builtin.buffers, {})
       vim.keymap.set("n", "<leader>r", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", {})
 
-      if os.execute("command -v lg &> /dev/null") == 0 then
-        vim.keymap.set("n", "<leader>g", function()
-          io.popen("lg")
-        end, {})
-      end
-
       vim.keymap.set("n", "<leader>f", function()
         builtin.find_files({ find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" } })
       end, {})

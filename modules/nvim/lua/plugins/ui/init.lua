@@ -32,9 +32,36 @@ return {
   },
   "stevearc/dressing.nvim",
   {
-    "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      require("ibl").setup()
-    end,
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      bigfile = {
+        enabled = true,
+      },
+      indent = {
+        enabled = true,
+        animate = {
+          enabled = false,
+        },
+      },
+      quickfile = {
+        enabled = true,
+      },
+      styles = {
+        lazygit = {
+          border = "rounded",
+        },
+      },
+    },
+    keys = {
+      {
+        "<leader>g",
+        function()
+          Snacks.lazygit()
+        end,
+        desc = "lazygit",
+      },
+    },
   },
 }
