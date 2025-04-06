@@ -6,13 +6,13 @@ vim.o.backspace = "eol,start,indent"
 vim.o.backup = false
 vim.o.clipboard = "unnamedplus"
 vim.o.cmdheight = 0
-vim.o.cursorline = true
+vim.o.cursorline = false
 vim.o.encoding = "utf8"
 vim.o.expandtab = true
 vim.o.ffs = "unix,dos,mac"
 vim.o.fillchars = "eob: "
 vim.o.hid = true
-vim.o.history = 1000
+vim.o.history = 10000
 vim.o.hlsearch = true
 vim.o.ignorecase = true
 vim.o.incsearch = true
@@ -45,33 +45,18 @@ vim.o.wrap = true
 ----------------------------------------- autocmds -----------------------------------------
 
 -- filetypes
-vim.api.nvim_create_augroup("coreos_ft", { clear = true })
+vim.api.nvim_create_augroup("yaml_ft", { clear = true })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = "*.bu",
-  group = "coreos_ft",
+  pattern = { "*.bu", ".yamllint" },
+  group = "yaml_ft",
   callback = function()
     vim.api.nvim_exec2("set filetype=yaml", { output = false })
   end,
 })
+vim.api.nvim_create_augroup("json_ft", { clear = true })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = "*.ign",
-  group = "coreos_ft",
-  callback = function()
-    vim.api.nvim_exec2("set filetype=json", { output = false })
-  end,
-})
-
-vim.api.nvim_create_augroup("linting_ft", { clear = true })
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = ".yamllint",
-  group = "linting_ft",
-  callback = function()
-    vim.api.nvim_exec2("set filetype=yaml", { output = false })
-  end,
-})
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = ".markdownlintrc",
-  group = "linting_ft",
+  pattern = { "*.ign", ".markdownlintrc" },
+  group = "json_ft",
   callback = function()
     vim.api.nvim_exec2("set filetype=json", { output = false })
   end,
@@ -80,7 +65,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 vim.api.nvim_create_augroup("tsconfig_ft", { clear = true })
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "tsconfig.json",
-  group = "coreos_ft",
+  group = "tsconfig_ft",
   callback = function()
     vim.api.nvim_exec2("set filetype=jsonc", { output = false })
   end,
