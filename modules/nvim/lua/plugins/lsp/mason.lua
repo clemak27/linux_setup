@@ -69,6 +69,7 @@ return {
           "jedi-language-server",
           "black",
         },
+        auto_update = true,
       })
     end,
   },
