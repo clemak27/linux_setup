@@ -131,17 +131,32 @@ __kde_config() {
 ###
 
 __kde_jbm() {
-  jbmono_version=3.2.1
-
-  mkdir -p tmp "$HOME/.local/share/fonts"
-  curl -Lo tmp/jbMono.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v${jbmono_version}/JetBrainsMono.zip"
-  unzip -o tmp/jbMono.zip -d "$HOME/.local/share/fonts"
+  mkdir -p "$HOME/.local/share/fonts"
   cd "$HOME/.local/share/fonts" || exit 1
-  find JetBrainsMonoNerdFontPropo* | xargs rm -f
-  find JetBrainsMonoNerdFontMono* | xargs rm -f
-  find JetBrainsMonoNL* | xargs rm -f
-  rm OFL.txt && rm README.md
-  cd "$module_dir" || exit 1
+
+  variants=(
+    "Bold"
+    "BoldItalic"
+    "ExtraBold"
+    "ExtraBoldItalic"
+    "ExtraLight"
+    "ExtraLightItalic"
+    "Italic"
+    "Light"
+    "LightItalic"
+    "Medium"
+    "MediumItalic"
+    "Regular"
+    "SemiBold"
+    "SemiBoldItalic"
+    "Thin"
+    "ThinItalic"
+  )
+
+  for var in "${variants[@]}"; do
+    curl -sLO \
+      --url "https://github.com/ryanoasis/nerd-fonts/raw/refs/heads/master/patched-fonts/JetBrainsMono/Ligatures/$var/JetBrainsMonoNerdFont-$var.ttf"
+  done
 }
 
 __kde_papirus() {
