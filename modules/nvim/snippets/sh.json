@@ -18,7 +18,7 @@
   "for-in-array": {
     "prefix": "for-in-array",
     "body": [
-      "for $0 in \"${$1[@]}\"; do",
+      "for $1 in \"\\${$0[@]\\}\"; do",
       "done"
     ],
     "description": "Inserts for loop over bash array"
