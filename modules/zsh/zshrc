@@ -105,7 +105,7 @@ fi
 ## yt-dlp
 if command -v yt-dlp &> /dev/null; then
   alias 'youtube-dl'='yt-dlp'
-  alias 'youtube-dl-music'='yt-dlp --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s"'
+  alias 'youtube-dl-music'='yt-dlp --extract-audio --audio-format mp3'
 fi
 
 ## starship
