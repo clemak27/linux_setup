@@ -38,4 +38,8 @@ curl -L \
 
 termux-setup-storage
 
+ln -sf "$HOME/storage/downloads" "$HOME/Downloads"
+ln -sf "$HOME/storage/pictures" "$HOME/Pictures"
+ln -sf "$HOME/storage/music" "$HOME/Music"
+
 exit 0
