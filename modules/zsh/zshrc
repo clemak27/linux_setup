@@ -74,6 +74,7 @@ if command -v podman &> /dev/null; then
   export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
   source <(podman completion zsh)
   compdef docker=podman
+  export TESTCONTAINERS_RYUK_DISABLED=true
 fi
 
 # sd distrobox
