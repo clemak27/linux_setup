@@ -16,12 +16,14 @@ return {
         ensure_installed = {
           -- other
           "css-lsp",
-          "hadolint",
           "html-lsp",
           "json-lsp",
           "kotlin-language-server",
           "prettier",
-          "shellcheck",
+
+          -- container
+          "dockerfile-language-server",
+          "hadolint",
 
           -- md
           "markdownlint",
@@ -29,6 +31,7 @@ return {
 
           -- sh
           "bash-language-server",
+          "shellcheck",
           "shfmt",
 
           -- yaml

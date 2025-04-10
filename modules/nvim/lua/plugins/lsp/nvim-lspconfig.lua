@@ -80,6 +80,7 @@ return {
         "bashls",
         "cssls",
         "eslint",
+        "dockerls",
         "gopls",
         "golangci_lint_ls",
         "gradle_ls",
@@ -104,139 +105,135 @@ return {
         table.insert(servers, "nixd")
       end
 
-      local function setup_servers()
-        for _, server in pairs(servers) do
-          local config = require("plugins.lsp.util").set_base_config()
+      for _, server in pairs(servers) do
+        local config = require("plugins.lsp.util").set_base_config()
 
-          if server == "bashls" then
-            config.filetypes = { "bash", "sh", "zsh" }
-          end
+        if server == "bashls" then
+          config.filetypes = { "bash", "sh", "zsh" }
+        end
 
-          if server == "jsonls" then
-            config.filetypes = { "json", "jsonc", "json5" }
-            -- this is not 100% correct, but this way jsonls doesn't complain about comments in json5 files
-            vim.api.nvim_create_augroup("json5_ft", { clear = true })
-            vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-              pattern = "*.json5",
-              group = "json5_ft",
-              callback = function()
-                vim.api.nvim_exec2("set filetype=jsonc", { output = false })
-              end,
+        if server == "jsonls" then
+          config.filetypes = { "json", "jsonc", "json5" }
+          -- this is not 100% correct, but this way jsonls doesn't complain about comments in json5 files
+          vim.api.nvim_create_augroup("json5_ft", { clear = true })
+          vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+            pattern = "*.json5",
+            group = "json5_ft",
+            callback = function()
+              vim.api.nvim_exec2("set filetype=jsonc", { output = false })
+            end,
+          })
+        end
+
+        if server == "lua_ls" then
+          config.cmd = { "lua-language-server" }
+          config.settings = {
+            Lua = {
+              telemetry = {
+                enable = false,
+              },
+            },
+          }
+        end
+
+        if server == "gopls" then
+          config.settings = {
+            gopls = {
+              gofumpt = true,
+              ["ui.inlayhint.hints"] = {
+                assignVariableTypes = false,
+                compositeLiteralFields = false,
+                compositeLiteralTypes = false,
+                constantValues = false,
+                functionTypeParameters = true,
+                parameterNames = true,
+                rangeVariableTypes = false,
+              },
+            },
+          }
+          vim.lsp.inlay_hint.enable(true)
+        end
+
+        if server == "ts_ls" and vim.fn.isdirectory(vim.fn.getcwd() .. "/node_modules/vue") ~= false then
+          config.init_options = {
+            plugins = {
+              {
+                name = "@vue/typescript-plugin",
+                -- npm i --save-dev @vue/typescript-plugin
+                location = os.getenv("HOME") .. "/.local/bin/npm/lib/node_modules/@vue/typescript-plugin",
+                languages = { "javascript", "typescript", "vue" },
+              },
+            },
+          }
+          config.filetypes = {
+            "javascript",
+            "typescript",
+            "vue",
+          }
+        end
+
+        if server == "ltex" then
+          config.on_attach = function(client, bufnr)
+            local function buf_set_option(...) end
+
+            vim.o.winborder = "rounded"
+            require("plugins.lsp.util").set_mappings()
+
+            --Enable completion triggered by <c-x><c-o>
+            buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+
+            local configPath = os.getenv("HOME") .. "/.ltex"
+            if os.getenv("NVIM_LTEX_LOCAL_CONFIG") == "true" then
+              configPath = ".ltex"
+            end
+
+            require("ltex_extra").setup({
+              load_langs = { "en-GB", "de-DE" },
+              init_check = true,
+              path = configPath,
             })
           end
 
-          if server == "lua_ls" then
-            config.cmd = { "lua-language-server" }
-            config.settings = {
-              Lua = {
-                telemetry = {
-                  enable = false,
-                },
-              },
-            }
+          local ltexEnabled = true
+          if os.getenv("NVIM_LTEX_ENABLE") == "false" then
+            config.filetypes = { "imaginaryFiletype" }
           end
 
-          if server == "gopls" then
-            config.settings = {
-              gopls = {
-                gofumpt = true,
-                ["ui.inlayhint.hints"] = {
-                  assignVariableTypes = false,
-                  compositeLiteralFields = false,
-                  compositeLiteralTypes = false,
-                  constantValues = false,
-                  functionTypeParameters = true,
-                  parameterNames = true,
-                  rangeVariableTypes = false,
-                },
-              },
-            }
-            vim.lsp.inlay_hint.enable(true)
-          end
-
-          if server == "ts_ls" and vim.fn.isdirectory(vim.fn.getcwd() .. "/node_modules/vue") ~= false then
-            config.init_options = {
-              plugins = {
-                {
-                  name = "@vue/typescript-plugin",
-                  -- npm i --save-dev @vue/typescript-plugin
-                  location = os.getenv("HOME") .. "/.local/bin/npm/lib/node_modules/@vue/typescript-plugin",
-                  languages = { "javascript", "typescript", "vue" },
-                },
-              },
-            }
-            config.filetypes = {
-              "javascript",
-              "typescript",
-              "vue",
-            }
-          end
-
-          if server == "ltex" then
-            config.on_attach = function(client, bufnr)
-              local function buf_set_option(...) end
-
-              vim.o.winborder = "rounded"
-              require("plugins.lsp.util").set_mappings()
-
-              --Enable completion triggered by <c-x><c-o>
-              buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-
-              local configPath = os.getenv("HOME") .. "/.ltex"
-              if os.getenv("NVIM_LTEX_LOCAL_CONFIG") == "true" then
-                configPath = ".ltex"
-              end
-
-              require("ltex_extra").setup({
-                load_langs = { "en-GB", "de-DE" },
-                init_check = true,
-                path = configPath,
-              })
-            end
-
-            local ltexEnabled = true
-            if os.getenv("NVIM_LTEX_ENABLE") == "false" then
-              config.filetypes = { "imaginaryFiletype" }
-            end
-
-            config.settings = {
-              ltex = {
-                enabled = ltexEnabled,
-              },
-            }
-          end
-
-          if server == "yamlls" then
-            config.settings = {
-              yaml = {
-                keyOrdering = false,
-                editor = {
-                  formatOnType = false,
-                },
-              },
-            }
-          end
-
-          if server == "nixd" then
-            config.settings = {
-              nixd = {
-                diagnostic = {
-                  suppress = {
-                    "sema-escaping-with",
-                  },
-                },
-                formatting = {
-                  command = { "nixfmt" },
-                },
-              },
-            }
-          end
-
-          lspconfig[server].setup(config)
+          config.settings = {
+            ltex = {
+              enabled = ltexEnabled,
+            },
+          }
         end
-      end
 
-      setup_servers()
+        if server == "yamlls" then
+          config.settings = {
+            yaml = {
+              keyOrdering = false,
+              editor = {
+                formatOnType = false,
+              },
+            },
+          }
+        end
+
+        if server == "nixd" then
+          config.settings = {
+            nixd = {
+              diagnostic = {
+                suppress = {
+                  "sema-escaping-with",
+                },
+              },
+              formatting = {
+                command = { "nixfmt" },
+              },
+            },
+          }
+        end
+
+        lspconfig[server].setup(config)
+      end
 
       -- customize signs
       vim.diagnostic.config({
