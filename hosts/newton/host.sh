@@ -47,20 +47,9 @@ export __NV_PRIME_RENDER_OFFLOAD=1
 export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export __VK_LAYER_NV_optimus=NVIDIA_only
-export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 exec -a "$$0" "$$@"
 EOF
 chmod +x prime-run
 sudo mv prime-run /usr/local/bin
-
-flatpak --user override --env=__NV_PRIME_RENDER_OFFLOAD=1 net.retrodeck.retrodeck
-flatpak --user override --env=__NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0 net.retrodeck.retrodeck
-flatpak --user override --env=__GLX_VENDOR_LIBRARY_NAME=nvidia net.retrodeck.retrodeck
-flatpak --user override --env=__VK_LAYER_NV_optimus=NVIDIA_only net.retrodeck.retrodeck
-
-flatpak --user override --env=__NV_PRIME_RENDER_OFFLOAD=1 com.valvesoftware.Steam
-flatpak --user override --env=__NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0 com.valvesoftware.Steam
-flatpak --user override --env=__GLX_VENDOR_LIBRARY_NAME=nvidia com.valvesoftware.Steam
-flatpak --user override --env=__VK_LAYER_NV_optimus=NVIDIA_only com.valvesoftware.Steam
 
 systemctl reboot
