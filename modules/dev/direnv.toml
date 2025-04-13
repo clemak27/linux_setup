@@ -1,0 +1,4 @@
+# https://github.com/direnv/direnv/issues/68#issuecomment-2799578737
+[global]
+log_format = "-"
+log_filter = "^$"
