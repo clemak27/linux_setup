@@ -12,9 +12,12 @@ return {
           ["<Tab>"] = {
             function(cmp)
               if cmp.snippet_active() then
+                if cmp.is_menu_visible() then
+                  return cmp.select_next()
+                end
                 return cmp.accept()
               else
-                return require("blink.cmp").select_next()
+                return cmp.select_next()
               end
             end,
             "snippet_forward",
