@@ -27,6 +27,11 @@ return {
       update_focused_file = {
         enable = true,
       },
+      actions = {
+        change_dir = {
+          enable = false,
+        },
+      },
     })
 
     local opt = { noremap = true, silent = true }
