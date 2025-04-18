@@ -14,6 +14,8 @@ return {
             NvimTreeVertSplit = { link = "VertSplit" },
             ["@field"] = { fg = colors.red },
             ["@comment.todo.comment"] = { fg = colors.yellow, bg = nil },
+            DapBreakpointColor = { fg = colors.red },
+            DapIconColor = { fg = colors.green },
           }
         end,
         no_italic = false,
