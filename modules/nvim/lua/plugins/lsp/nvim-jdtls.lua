@@ -94,12 +94,8 @@ return {
             },
           },
           on_attach = function(client, bufnr)
-            local function buf_set_option(...) end
-
             vim.o.winborder = "rounded"
             require("plugins.lsp.util").set_mappings()
-
-            buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
             vim.lsp.inlay_hint.enable(true)
 

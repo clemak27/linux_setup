@@ -88,7 +88,7 @@ return {
         "jsonls",
         "jedi_language_server",
         "kotlin_language_server",
-        "ltex",
+        "ltex_plus",
         "nixd",
         "lua_ls",
         "rust_analyzer",
@@ -172,25 +172,15 @@ return {
           }
         end
 
-        if server == "ltex" then
+        if server == "ltex_plus" then
           config.on_attach = function(client, bufnr)
-            local function buf_set_option(...) end
-
             vim.o.winborder = "rounded"
             require("plugins.lsp.util").set_mappings()
-
-            --Enable completion triggered by <c-x><c-o>
-            buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-
-            local configPath = os.getenv("HOME") .. "/.ltex"
-            if os.getenv("NVIM_LTEX_LOCAL_CONFIG") == "true" then
-              configPath = ".ltex"
-            end
 
             require("ltex_extra").setup({
               load_langs = { "en-GB", "de-DE" },
               init_check = true,
-              path = configPath,
+              path = os.getenv("HOME") .. "/.ltex",
             })
           end
 

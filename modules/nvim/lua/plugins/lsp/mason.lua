@@ -27,7 +27,7 @@ return {
 
           -- md
           "markdownlint",
-          "ltex-ls",
+          "ltex-ls-plus",
 
           -- sh
           "bash-language-server",
