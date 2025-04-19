@@ -67,6 +67,7 @@ local weztermCfg = {
   },
 
   audible_bell = "Disabled",
+  warn_about_missing_glyphs = false,
 }
 
 bindings.apply_to_config(weztermCfg)
