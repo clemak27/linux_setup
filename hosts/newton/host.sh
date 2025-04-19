@@ -6,7 +6,7 @@ host_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
 rpm-ostree install --idempotent vim make zsh distrobox
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-rpm-ostree install --idempotent https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-41.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-41.noarch.rpm
+rpm-ostree install --idempotent https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-42.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-42.noarch.rpm
 # reboot is needed so the base packages are installed
 if ! command -v distrobox > /dev/null; then systemctl reboot; fi
 sudo usermod -s /usr/bin/zsh clemens
