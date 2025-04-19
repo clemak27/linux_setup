@@ -40,16 +40,5 @@ cp "$host_dir/gtk.css" "$HOME/.config/gtk-4.0/gtk.css"
 # shit gpu
 rpm-ostree install --idempotent xorg-x11-drv-nvidia akmod-nvidia
 rpm-ostree kargs --append-if-missing=rd.driver.blacklist=nouveau --append-if-missing=modprobe.blacklist=nouveau --append-if-missing=nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
-cat << EOF > prime-run
-#!/bin/sh
-
-export __NV_PRIME_RENDER_OFFLOAD=1
-export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-export __VK_LAYER_NV_optimus=NVIDIA_only
-exec -a "$$0" "$$@"
-EOF
-chmod +x prime-run
-sudo mv prime-run /usr/local/bin
 
 systemctl reboot
