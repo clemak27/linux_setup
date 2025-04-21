@@ -10,12 +10,12 @@ if [[ -z "$TERMUX_VERSION" ]]; then
 fi
 
 # termux-change-repo
-# pkg install -y git zsh make build-essential
+# pkg install -y git
 # mkdir -p .config ~/Projects
 # cd Projects
 # git clone https://github.com/clemak27/linux_setup
 # cd linux_setup
-# ./hosts/planck/host.sh
+# ./setup/termux/host.sh
 
 pkg install -y git git-delta lazygit
 pkg install -y zsh starship zsh-completions
@@ -24,6 +24,8 @@ pkg install -y bat eza fd fzf htop jq yazi ripgrep sd tealdeer tree unrar unzip
 
 mkdir -p "$HOME/.termux"
 ln -sf "$host_dir/colors.properties" "$HOME/.termux/colors.properties"
+
+"$host_dir/../kinoite/06-chezmoi.sh"
 
 curl -L \
   --url https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/NoLigatures/Regular/JetBrainsMonoNLNerdFontMono-Regular.ttf \

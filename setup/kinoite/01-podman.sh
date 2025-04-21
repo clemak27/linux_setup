@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eo pipefail
+set -xueo pipefail
 
 rpm-ostree install --idempotent podman-docker podman-compose
 sudo mkdir -p /etc/containers

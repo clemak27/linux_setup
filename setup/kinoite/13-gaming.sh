@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eo pipefail
+set -xueo pipefail
 
 rpm-ostree install --idempotent steam-devices
 flatpak install -y flathub \
