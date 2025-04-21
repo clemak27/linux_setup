@@ -14,28 +14,12 @@ sudo sed -i 's/enabled=1/enabled=0/' \
   /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:phracek:PyCharm.repo \
   /etc/yum.repos.d/google-chrome.repo
 
-"$host_dir/../../modules/dev/module.sh"
 "$host_dir/../../modules/firefox/module.sh"
 "$host_dir/../../modules/gaming/module.sh"
-"$host_dir/../../modules/git/module.sh"
 "$host_dir/../../modules/kde/module.sh"
-"$host_dir/../../modules/nvim/module.sh"
 "$host_dir/../../modules/podman/module.sh"
 "$host_dir/../../modules/syncthing/module.sh"
-"$host_dir/../../modules/tools/module.sh"
 "$host_dir/../../modules/wezterm/module.sh"
-"$host_dir/../../modules/zsh/module.sh"
-
-# git
-pubKey=$(cat "$HOME/.ssh/id_ed25519.pub")
-git config --global user.email "clemak27@mailbox.org"
-git config --global user.name "clemak27"
-git config --global user.signingkey "$pubKey"
-echo "clemak27@mailbox.org $pubKey" > "$HOME/.ssh/allowed_signers"
-
-# theme
-cp "$host_dir/gtk.css" "$HOME/.config/gtk-3.0/gtk.css"
-cp "$host_dir/gtk.css" "$HOME/.config/gtk-4.0/gtk.css"
 
 # shit gpu
 rpm-ostree install --idempotent xorg-x11-drv-nvidia akmod-nvidia

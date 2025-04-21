@@ -23,11 +23,6 @@ flatpak install -y flathub org.wezfurlong.wezterm
 printf 'flatpak run --env=WEZTERM_PANE=$WEZTERM_PANE --env=WEZTERM_UNIX_SOCKET=$WEZTERM_UNIX_SOCKET org.wezfurlong.wezterm "$@"' > "$bin_dir/wezterm"
 chmod +x "$bin_dir/wezterm"
 
-# config
-mkdir -p "$config_dir/wezterm"
-ln -sf "$module_dir/wezterm.lua" "$config_dir/wezterm/wezterm.lua"
-ln -sf "$module_dir/bindings.lua" "$config_dir/wezterm/bindings.lua"
-
 # setup additional completions
 cat /usr/share/zsh/site-functions/_flatpak > _flatpak
 podman cp _flatpak main:/usr/share/zsh/site-functions/_flatpak

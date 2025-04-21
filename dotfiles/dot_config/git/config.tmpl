@@ -51,3 +51,14 @@
 
 [rebase]
 	autoStash = "true"
+{{ if eq .chezmoi.hostname "maxwell" }}
+[user]
+	email = clemak27@mailbox.org
+	name = clemak27
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOCyRaO8psuZI2i/+inKS5jn765Uypds8ORj/nVkgSE3 argentum
+{{- else if eq .chezmoi.hostname "newton" }}
+[user]
+	email = clemak27@mailbox.org
+	name = clemak27
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN3PSHWVz5/LwHEEfo+7y2o5KH7dlLyfySWnyyi7LLxe silfur
+{{- end }}
