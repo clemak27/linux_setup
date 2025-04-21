@@ -6,3 +6,5 @@ dconf.settings
 .pre-commit-config.yaml
 tmp
 result
+bin/chezmoi
+!dotfiles/**/bin

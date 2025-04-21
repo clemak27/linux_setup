@@ -4,8 +4,6 @@ set -eo pipefail
 
 host_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
-config_dir="$HOME/.config"
-
 if [[ -z "$TERMUX_VERSION" ]]; then
   echo "not running on termux"
   exit 1
@@ -20,14 +18,9 @@ fi
 # ./hosts/planck/host.sh
 
 pkg install -y git git-delta lazygit
-"$host_dir/../../modules/git/module.sh"
-
 pkg install -y zsh starship zsh-completions
-"$host_dir/../../modules/zsh/module.sh"
 chsh -s zsh
-
 pkg install -y bat eza fd fzf htop jq yazi ripgrep sd tealdeer tree unrar unzip
-"$host_dir/../../modules/tools/module.sh"
 
 mkdir -p "$HOME/.termux"
 ln -sf "$host_dir/colors.properties" "$HOME/.termux/colors.properties"
