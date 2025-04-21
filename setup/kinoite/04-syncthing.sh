@@ -1,3 +1,11 @@
+#!/bin/bash
+
+set -xueo pipefail
+
+mkdir -p "$HOME/.local/state/syncthing"
+mkdir -p "$HOME/.config/containers/systemd"
+
+cat << EOF > "$HOME/.config/containers/systemd/syncthing.container"
 [Container]
 Image=docker.io/syncthing/syncthing
 AutoUpdate=registry
@@ -15,3 +23,8 @@ TimeoutStartSec=900
 
 [Install]
 WantedBy=default.target
+EOF
+
+systemctl --user daemon-reload
+systemctl --user start syncthing
+loginctl enable-linger

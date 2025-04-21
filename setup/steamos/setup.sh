@@ -3,15 +3,7 @@
 set -eo pipefail
 
 host_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
-
-"$host_dir/../../modules/git/module.sh"
-"$host_dir/../../modules/tools/module.sh"
-"$host_dir/../../modules/zsh/module.sh"
-
 bin_dir="$HOME/.local/bin"
-
-mkdir -p "$HOME/.local/share/konsole"
-ln -sf "$host_dir/../../modules/kde/MochaMatte.colorscheme" "$HOME/.local/share/konsole"
 
 # install latest distrobox
 mkdir -p "$bin_dir/distrobox"
@@ -35,6 +27,8 @@ EOF
 systemctl --user daemon-reload
 systemctl --user enable syncthing.service
 systemctl --user start syncthing.service
+
+"$host_dir/../kinoite/06-chezmoi.sh"
 
 flatpak install --user -y flathub \
   net.lutris.Lutris \
