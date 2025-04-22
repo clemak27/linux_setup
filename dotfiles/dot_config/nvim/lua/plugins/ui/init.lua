@@ -66,6 +66,14 @@ return {
         lazygit = {
           border = "rounded",
         },
+        terminal = {
+          border = "rounded",
+        },
+      },
+      terminal = {
+        win = {
+          position = "float",
+        },
       },
     },
     keys = {
