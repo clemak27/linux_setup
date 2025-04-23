@@ -22,12 +22,6 @@ return {
       messages = {
         view_search = false,
       },
-      -- https://github.com/folke/noice.nvim/issues/1082#issuecomment-2757739573
-      views = {
-        cmdline_popup = {
-          border = { style = "none" },
-        },
-      },
       lsp = {
         hover = {
           enabled = false,
