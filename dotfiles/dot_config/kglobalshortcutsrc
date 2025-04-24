@@ -268,5 +268,8 @@ _launch=Search\tMeta+Space\tAlt+F2
 [services][org.kde.spectacle.desktop]
 RecordWindow=none
 
+[services][org.mozilla.firefox.desktop]
+_launch=Meta+B
+
 [services][org.wezfurlong.wezterm.desktop]
 _launch=Meta+Return
