@@ -13,7 +13,7 @@ This repo contains my dotfiles and setup for my Linux devices:
 - `newton`: Dell XPS15 (7590)
   - Runs Fedora Kinoite
 - `fermi`: Steam Deck
-  - Runs SteamOS
+  - Runs bazzite
 - `planck`: Pixel 8 Pro
   - Runs GrapheneOS + termux
 
