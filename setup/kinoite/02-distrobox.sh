@@ -11,6 +11,7 @@ init_hooks=$(
   sudo ln -sf /usr/bin/distrobox-host-exec /usr/bin/rpm-ostree;
   sudo ln -sf /usr/bin/distrobox-host-exec /usr/bin/systemctl;
   sudo ln -sf /usr/bin/distrobox-host-exec /usr/bin/xdg-open;
+  sudo ln -sf /usr/bin/distrobox-host-exec /usr/bin/ksshaskpass;
   sudo usermod -s /usr/bin/zsh clemens;
 EOF
 )
