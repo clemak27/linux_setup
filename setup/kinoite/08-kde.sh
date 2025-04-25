@@ -7,19 +7,19 @@ config_dir="$HOME/.config"
 rpm-ostree install --idempotent ksshaskpass
 mkdir -p "$config_dir/autostart"
 
-cat << EOF > "$config_dir/autostart/kssaskpass.sh"
+mkdir -p "$config_dir/autostart/scripts"
+cat << EOF > "$config_dir/autostart/scripts/ksshaskpass.sh"
 #!/bin/bash
 
 SSH_ASKPASS=ksshaskpass ssh-add < /dev/null
 EOF
+chmod +x "$config_dir/autostart/scripts/ksshaskpass.sh"
 
-chmod +x "$config_dir/autostart/kssaskpass.sh"
-
-cat << EOF > "$config_dir/autostart/kssaskpass.sh.desktop"
+cat << EOF > "$config_dir/autostart/ksshaskpass.sh.desktop"
 [Desktop Entry]
-Exec=$config_dir/autostart/kssaskpass.sh
+Exec=$config_dir/autostart/scripts/ksshaskpass.sh
 Icon=application-x-shellscript
-Name=kssaskpass.sh
+Name=ksshaskpass.sh
 Type=Application
 X-KDE-AutostartScript=true
 EOF

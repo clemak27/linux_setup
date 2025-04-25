@@ -11,18 +11,17 @@ if [ "$HOSTNAME" = "maxwell" ]; then
   sudo udevadm control --reload-rules
   sudo udevadm trigger
 
-  cat << EOF > "$HOME/.config/autostart/openrgb.sh"
+  mkdir -p "$HOME/.config/autostart/scripts"
+  cat << EOF > "$HOME/.config/autostart/scripts/openrgb.sh"
 #!/bin/bash
 
 /usr/bin/flatpak run org.openrgb.OpenRGB -p default
 EOF
+  chmod +x "$HOME/.config/autostart/scripts/openrgb.sh"
 
-  chmod +x "$HOME/.config/autostart/openrgb.sh"
-
-  mkdir -p "$HOME/.config/autostart"
   cat << EOF > "$HOME/.config/autostart/openrgb.sh.desktop"
 [Desktop Entry]
-Exec=$HOME/.config/autostart/openrgb.sh
+Exec=$HOME/.config/autostart/scripts/openrgb.sh
 Icon=application-x-shellscript
 Name=openrgb.sh
 Type=Application
