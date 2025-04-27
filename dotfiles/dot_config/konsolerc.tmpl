@@ -1,0 +1,12 @@
+[Desktop Entry]
+{{- if eq .chezmoi.hostname "fermi" }}
+DefaultProfile=main.profile
+{{- else }}
+DefaultProfile=host.profile
+{{- end }}
+
+[General]
+ConfigVersion=1
+
+[UiSettings]
+ColorScheme=
