@@ -51,5 +51,5 @@ variants=(
 for var in "${variants[@]}"; do
   echo "Downloading JetBrainsMonoNerdFont-${var} (${jbm_version})..."
   curl -fsLO \
-    --url "https://github.com/ryanoasis/nerd-fonts/raw/refs/tags/v${jbm_version}/patched-fonts/JetBrainsMono/Ligatures/${var}/JetBrainsMonoNerdFont-${var}.ttf"
+    --url "https://github.com/ryanoasis/nerd-fonts/raw/refs/tags/v${jbm_version}/patched-fonts/JetBrainsMono/NoLigatures/${var}/JetBrainsMonoNLNerdFont-${var}.ttf"
 done

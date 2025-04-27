@@ -50,7 +50,7 @@ local weztermCfg = {
   },
 
   font = wezterm.font_with_fallback({
-    { family = "JetBrainsMono Nerd Font" },
+    { family = "JetBrainsMonoNL Nerd Font" },
     "Noto Color Emoji",
   }),
   font_size = 10.0,
