@@ -56,6 +56,7 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
   fi
 
   ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+  zstyle ':omz:update' mode disabled
   source $HOME/.oh-my-zsh/oh-my-zsh.sh
 fi
 
