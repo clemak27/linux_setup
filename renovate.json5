@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "branchPrefix": "renovate/",
+  "username": "renovate",
+  "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
+  "onboarding": false,
+  "platform": "github",
+  "forkProcessing": "disabled",
+  "repositories": [
+    "clemak27/linux_setup"
+  ],
+  "extends": [":semanticCommitScopeDisabled"],
+  "commitMessageAction": "update",
+  "customManagers": [
+    {
+      // https://regex101.com/r/AxTOhn/1
+      "customType": "regex",
+      "fileMatch": ["./dotfiles/run_onchange_customization.sh"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s\\S+?=(?<currentValue>\\S+)"
+      ]
+    }
+  ]
+}
