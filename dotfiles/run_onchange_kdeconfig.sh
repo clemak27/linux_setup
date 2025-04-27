@@ -1,28 +1,8 @@
 #!/bin/bash
 
-set -xueo pipefail
+set -eo pipefail
 
 config_dir="$HOME/.config"
-
-rpm-ostree install --idempotent ksshaskpass
-mkdir -p "$config_dir/autostart"
-
-mkdir -p "$config_dir/autostart/scripts"
-cat << EOF > "$config_dir/autostart/scripts/ksshaskpass.sh"
-#!/bin/bash
-
-SSH_ASKPASS=ksshaskpass ssh-add < /dev/null
-EOF
-chmod +x "$config_dir/autostart/scripts/ksshaskpass.sh"
-
-cat << EOF > "$config_dir/autostart/ksshaskpass.sh.desktop"
-[Desktop Entry]
-Exec=$config_dir/autostart/scripts/ksshaskpass.sh
-Icon=application-x-shellscript
-Name=ksshaskpass.sh
-Type=Application
-X-KDE-AutostartScript=true
-EOF
 
 kwriteconfig6 --file "$config_dir/dolphinrc" --group "DetailsMode" --key "ExpandableFolders" "false"
 kwriteconfig6 --file "$config_dir/dolphinrc" --group "DetailsMode" --key "PreviewSize" "32"
