@@ -4,7 +4,7 @@ set -eo pipefail
 
 # adw-gtk3
 
-# renovate: datasource=github-tags depName=lassekongo83/adw-gtk3
+# renovate: datasource=github-tags depName=lassekongo83/adw-gtk3 versioning=loose
 adw_gtk3_version=6.0
 
 mkdir -p tmp "$HOME/.local/share/themes"
@@ -13,7 +13,7 @@ tar xf tmp/adw-gtk3.tar.xz --directory "$HOME/.local/share/themes"
 
 # papirus
 
-# renovate: datasource=github-tags depName=PapirusDevelopmentTeam/papirus-icon-theme
+# renovate: datasource=github-tags depName=PapirusDevelopmentTeam/papirus-icon-theme versioning=loose
 papirus_version=20250201
 
 wget -qO- https://git.io/papirus-icon-theme-install | DESTDIR="$HOME/.local/share/icons" EXTRA_THEMES="Papirus-Dark" TAG=$papirus_version sh
