@@ -1,1 +1,3 @@
-flatpak run org.mozilla.firefox "$@"
+#!/bin/bash
+
+/usr/bin/flatpak run org.mozilla.firefox "$@"
