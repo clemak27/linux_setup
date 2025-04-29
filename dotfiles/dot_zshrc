@@ -77,13 +77,6 @@ if command -v podman &> /dev/null; then
   export TESTCONTAINERS_RYUK_DISABLED=true
 fi
 
-# sd distrobox
-if [ "$HOSTNAME" = "fermi" ]; then
-  distrobox-host-exec +si:localuser:$USER > /dev/null
-  export PIPEWIRE_RUNTIME_DIR=/dev/null
-  export PATH="$HOME/.local/bin/distrobox/bin:$PATH"
-fi
-
 # Aliases
 alias 'cd..'='cd ..'
 alias 'clear'='printf '\''\33c\e[3J'\'''
