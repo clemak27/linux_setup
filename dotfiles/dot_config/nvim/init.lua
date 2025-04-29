@@ -41,6 +41,7 @@ vim.o.whichwrap = "<,>,h,l"
 vim.o.wildignore = "*.o,*~,*.pyc,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store"
 vim.o.wildmenu = true
 vim.o.wrap = true
+vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,t:block-TermCursor"
 
 ----------------------------------------- autocmds -----------------------------------------
 
