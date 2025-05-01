@@ -14,6 +14,8 @@
 @define-color accent_bg_color #365282;
 {{- else if eq .chezmoi.hostname "newton" }}
 @define-color accent_bg_color #4031a9;
+{{- else if eq .chezmoi.hostname "fermi" }}
+@define-color accent_bg_color #65448c;
 {{- end }}
 @define-color accent_color @accent_bg_color;
 
