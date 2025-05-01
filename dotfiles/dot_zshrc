@@ -69,6 +69,11 @@ fi
 export LANG='en_GB.UTF-8'
 export BROWSER=firefox
 
+# chezmoi
+if command -v chezmoi &> /dev/null; then
+  source <(chezmoi completion zsh)
+fi
+
 # podman
 if command -v podman &> /dev/null; then
   export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
