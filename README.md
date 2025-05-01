@@ -18,4 +18,6 @@ This repo contains my dotfiles and setup for my Linux devices:
   - Runs GrapheneOS + termux
 
 This is for my own usage and preferences, but you are of course free to use it
-as inspiration.
+as inspiration. I use chezmoi for managing my dotfiles. I could probably build a
+custom image with all the additional setup I do, but I'm mostly satisfied how it
+works for now.
