@@ -16,7 +16,10 @@ fi
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo sed -i 's/enabled=1/enabled=0/' \
   /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:phracek:PyCharm.repo \
-  /etc/yum.repos.d/google-chrome.repo
+  /etc/yum.repos.d/fedora-cisco-openh264.repo \
+  /etc/yum.repos.d/google-chrome.repo \
+  /etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo \
+  /etc/yum.repos.d/rpmfusion-nonfree-steam.repo
 
 if [ "$HOSTNAME" = "newton" ]; then
   # shit gpu
