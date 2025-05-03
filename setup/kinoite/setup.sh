@@ -13,7 +13,6 @@ if ! command -v zsh &> /dev/null; then
   sudo usermod -s /usr/bin/zsh clemens
 fi
 
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo sed -i 's/enabled=1/enabled=0/' \
   /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:phracek:PyCharm.repo \
   /etc/yum.repos.d/fedora-cisco-openh264.repo \
@@ -29,6 +28,23 @@ if [ "$HOSTNAME" = "newton" ]; then
   rpm-ostree install --idempotent xorg-x11-drv-nvidia akmod-nvidia
   rpm-ostree kargs --append-if-missing=rd.driver.blacklist=nouveau --append-if-missing=modprobe.blacklist=nouveau --append-if-missing=nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
 fi
+
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-modify --enable flathub
+# flatpak list --columns=application,origin | grep fedora | grep -v "org.fedoraproject" | awk '{ print $1 }'
+flatpak uninstall -y \
+  org.kde.kmahjongg \
+  org.kde.kmines \
+  org.kde.kolourpaint \
+  org.kde.krdc
+flatpak install -y --reinstall flathub \
+  org.kde.elisa \
+  org.kde.gwenview \
+  org.kde.kcalc \
+  org.kde.okular \
+  org.kde.skanpage
+flatpak uninstall -y --unused
+flatpak remote-delete fedora
 
 ## podman
 
