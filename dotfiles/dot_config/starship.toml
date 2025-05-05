@@ -70,6 +70,7 @@ symbol = " "
 
 [kubernetes]
 disabled = true
+symbol = "󱃾 "
 
 [line_break]
 disabled = true
