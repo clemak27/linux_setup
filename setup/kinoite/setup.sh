@@ -36,13 +36,13 @@ flatpak uninstall -y \
   org.kde.kmahjongg \
   org.kde.kmines \
   org.kde.kolourpaint \
-  org.kde.krdc
+  org.kde.krdc \
+  org.kde.skanpage
 flatpak install -y --reinstall flathub \
   org.kde.elisa \
   org.kde.gwenview \
   org.kde.kcalc \
-  org.kde.okular \
-  org.kde.skanpage
+  org.kde.okular
 flatpak uninstall -y --unused
 flatpak remote-delete fedora
 
