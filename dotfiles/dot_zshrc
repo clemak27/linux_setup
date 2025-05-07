@@ -112,6 +112,11 @@ if command -v starship &> /dev/null; then
   eval "$(starship init zsh)"
 fi
 
+## wezterm
+if command -v wezterm &> /dev/null; then
+  source <(wezterm shell-completion --shell zsh)
+fi
+
 ## dev
 if command -v java &> /dev/null; then
   export JAVA_HOME=/usr/lib/jvm/java-21-openjdk/
