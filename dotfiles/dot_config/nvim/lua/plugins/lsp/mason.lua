@@ -1,9 +1,8 @@
 -- ---------------------------------------- mason --------------------------------------------------------
 return {
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     dependencies = {
-      "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
     config = function()
@@ -72,7 +71,8 @@ return {
           "jedi-language-server",
           "black",
         },
-        auto_update = true,
+        auto_update = false,
+        run_on_start = false,
       })
     end,
   },
