@@ -54,10 +54,23 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("chezmoi").setup({
-        notification = {
-          on_open = false,
-          on_apply = true,
-          on_watch = false,
+        events = {
+          on_open = {
+            notification = {
+              enable = false,
+            },
+          },
+          on_watch = {
+            notification = {
+              enable = false,
+            },
+          },
+          on_apply = {
+            notification = {
+              enable = true,
+              msg = "Successfully applied",
+            },
+          },
         },
       })
 
