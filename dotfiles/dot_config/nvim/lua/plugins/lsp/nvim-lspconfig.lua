@@ -72,6 +72,13 @@ return {
           })
         end,
       },
+      {
+        "jmbuhr/otter.nvim",
+        dependencies = {
+          "nvim-treesitter/nvim-treesitter",
+        },
+        opts = {},
+      },
     },
     config = function()
       local lspconfig = require("lspconfig")
@@ -236,21 +243,6 @@ return {
           },
         },
       })
-    end,
-  },
-  {
-    "jmbuhr/otter.nvim",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = function()
-      vim.api.nvim_create_user_command("OtterEnable", function()
-        require("otter").activate()
-      end, {})
-
-      vim.api.nvim_create_user_command("OtterDisable", function()
-        require("otter").deactivate()
-      end, {})
     end,
   },
 }
