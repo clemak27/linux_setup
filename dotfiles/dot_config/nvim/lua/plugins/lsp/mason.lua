@@ -71,8 +71,7 @@ return {
           "jedi-language-server",
           "black",
         },
-        auto_update = false,
-        run_on_start = false,
+        auto_update = true,
       })
     end,
   },
