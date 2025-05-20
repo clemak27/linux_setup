@@ -51,7 +51,6 @@ return {
       cwd_change_handling = false,
     },
   },
-  "tpope/vim-fugitive",
   {
     "echasnovski/mini.ai",
     version = false,
