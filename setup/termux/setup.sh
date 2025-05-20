@@ -58,7 +58,8 @@ mkdir -p "$HOME/.config/git"
 cat "$HOME/Projects/linux_setup/dotfiles/dot_config/git/config.tmpl" | chezmoi execute-template > "$HOME/.config/git/config"
 
 mkdir -p "$HOME/.config/lazygit"
-ln -sf "$HOME/Projects/linux_setup/dotfiles/dot_config/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
+cp --remove-destination "$HOME/Projects/linux_setup/dotfiles/dot_config/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
+printf "gui:\n  enlargedSideViewLocation: top" >> "$HOME/.config/lazygit/config.yml"
 
 mkdir -p "$HOME/.config/tealdeer"
 ln -sf "$HOME/Projects/linux_setup/dotfiles/dot_config/tealdeer/config.toml" "$HOME/.config/tealdeer/config.toml"
