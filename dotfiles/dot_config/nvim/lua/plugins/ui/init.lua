@@ -84,6 +84,13 @@ return {
         end,
         desc = "lazygit",
       },
+      {
+        "<leader>`",
+        function()
+          Snacks.terminal.open()
+        end,
+        desc = "terminal",
+      },
     },
   },
 }
