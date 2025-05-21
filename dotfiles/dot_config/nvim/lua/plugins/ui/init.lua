@@ -91,6 +91,13 @@ return {
         end,
         desc = "terminal",
       },
+      {
+        "<leader>-",
+        function()
+          Snacks.terminal.open("yazi")
+        end,
+        desc = "yazi",
+      },
     },
   },
 }
