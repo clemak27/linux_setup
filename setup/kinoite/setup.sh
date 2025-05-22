@@ -9,7 +9,7 @@ host_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 sudo -v
 
 if ! command -v zsh &> /dev/null; then
-  rpm-ostree install --idempotent --apply-live distrobox vim zsh
+  rpm-ostree install --idempotent --apply-live distrobox vim wl-clipboard zsh
   sudo usermod -s /usr/bin/zsh clemens
 fi
 
