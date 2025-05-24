@@ -162,7 +162,6 @@ if command -v nvim &> /dev/null; then
   alias 'vimdiff'='nvim -d'
   export EDITOR=nvim
   export VISUAL=nvim
-  export NVIM_TRANSPARENT="true"
 fi
 
 ## k8s
