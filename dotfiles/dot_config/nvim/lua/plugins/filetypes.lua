@@ -45,8 +45,4 @@ return {
       vim.api.nvim_buf_set_keymap(0, "v", "d", "d<cmd>AutolistRecalculate<cr>", opts)
     end,
   },
-  {
-    "calops/hmts.nvim",
-    version = "*",
-  },
 }
