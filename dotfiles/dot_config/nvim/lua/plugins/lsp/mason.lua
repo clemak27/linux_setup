@@ -18,37 +18,27 @@ return {
           "html-lsp",
           "json-lsp",
           "kotlin-language-server",
-          "prettier",
+          "pkl-lsp",
 
           -- container
           "dockerfile-language-server",
-          "hadolint",
 
           -- md
-          "markdownlint",
           "ltex-ls-plus",
 
           -- sh
           "bash-language-server",
-          "shellcheck",
-          "shfmt",
 
           -- yaml
           "yaml-language-server",
-          "yamllint",
-          "yamlfmt",
 
           -- lua
           "lua-language-server",
-          "stylua",
 
           -- go
           "delve",
-          "gofumpt",
           "goimports",
-          "golangci-lint",
           "golangci-lint-langserver",
-          "gomodifytags",
           "gopls",
 
           -- java
@@ -58,7 +48,6 @@ return {
           "java-test",
 
           -- js
-          "biome",
           "js-debug-adapter",
           "vue-language-server",
           "typescript-language-server",
@@ -69,7 +58,6 @@ return {
 
           -- python
           "jedi-language-server",
-          "black",
         },
         auto_update = true,
       })

@@ -2,14 +2,12 @@
 
 set -eo pipefail
 
-host_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+sudo -v
 
 ## base
 
-sudo -v
-
 if ! command -v zsh &> /dev/null; then
-  rpm-ostree install --idempotent --apply-live distrobox vim wl-clipboard zsh
+  rpm-ostree install --idempotent --apply-live distrobox gcc-c++ vim wl-clipboard zsh
   sudo usermod -s /usr/bin/zsh clemens
 fi
 
@@ -28,6 +26,8 @@ if [ "$HOSTNAME" = "newton" ]; then
   rpm-ostree install --idempotent xorg-x11-drv-nvidia akmod-nvidia
   rpm-ostree kargs --append-if-missing=rd.driver.blacklist=nouveau --append-if-missing=modprobe.blacklist=nouveau --append-if-missing=nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
 fi
+
+## applications
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak remote-modify --enable flathub
@@ -109,7 +109,7 @@ Comment=neovim
 Keywords=shell;prompt;command;commandline;cmd;editor;
 Icon=io.neovim.nvim
 StartupWMClass=io.neovim.nvim
-Exec=flatpak run org.wezfurlong.wezterm start --always-new-process --class=io.neovim.nvim distrobox-enter main -- nvim %F
+Exec=flatpak run org.wezfurlong.wezterm start --always-new-process --class=io.neovim.nvim zsh -c 'source ~/.zshrc && nvim %F'
 Type=Application
 Categories=Development;
 Terminal=false
@@ -160,30 +160,14 @@ chmod u+x chmz
 rm -f chmz
 mkdir -p "$HOME/.config/chezmoi"
 printf "sourceDir: %s/Projects/linux_setup" "$HOME" > "$HOME/.config/chezmoi/chezmoi.yaml"
-"$HOME/.local/bin/chezmoi" apply
+"$HOME/.local/bin/chezmoi" apply --force
 
-## distrobox
+## mise
 
-/usr/bin/distrobox assemble create --file "$host_dir/box.ini" --name main
-
-# paru
-/usr/bin/distrobox enter main -- rm -rf "$HOME/.cache/paru" && git clone https://aur.archlinux.org/paru.git "$HOME/.cache/paru"
-/usr/bin/distrobox enter main -- zsh -c "cd $HOME/.cache/paru && makepkg -si --noconfirm"
-/usr/bin/distrobox enter main -- paru -Syu --noconfirm viddy kubecolor
-/usr/bin/distrobox enter main -- rm -rf "$HOME/.cache/paru"
-
-# nix
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix/tag/v3.0.0 -o /tmp/nix.sh
-chmod +x /tmp/nix.sh
-/usr/bin/distrobox enter main -- zsh -c "/tmp/nix.sh install linux --no-confirm --init none"
-/usr/bin/distrobox enter main -- zsh -c "sudo chown -R clemens /nix"
-/usr/bin/distrobox enter main -- zsh -c "nix profile install nixpkgs#nixd nixpkgs#nixfmt-rfc-style nixpkgs#direnv"
-rm -f /tmp/nix.sh
-
-# additional completions
-cat /usr/share/zsh/site-functions/_flatpak > _flatpak
-podman cp _flatpak main:/usr/share/zsh/site-functions/_flatpak
-rm -f _flatpak
+curl https://mise.run | sh
+"$HOME/.local/bin/mise" x python -- pip install --user pipx
+"$HOME/.local/bin/mise" trust
+"$HOME/.local/bin/mise" install -y
 
 ## syncthing
 

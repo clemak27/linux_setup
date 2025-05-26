@@ -23,47 +23,34 @@ export GOTOOLCHAIN="local"
 export PATH="$PATH:$HOME/.local/bin"
 export SSH_ASKPASS_REQUIRE="prefer"
 
-if [ -n "${CONTAINER_ID}" ]; then
   export PATH="$PATH:$HOME/.cargo/bin:$HOME/.go/bin:$HOME/.local/bin/npm/bin:$HOME/.local/share/nvim/mason/bin"
+if [ -n "${CONTAINER_ID}" ]; then
   export SHELL=/usr/sbin/zsh
   alias 'hzsh'='distrobox-host-exec zsh'
 else
-  export ZSH_THEME=robbyrussell
   alias 'db'='distrobox'
-  function dbs() {
-    if [[ "$#" -gt 0 ]]; then
-      distrobox-ephemeral \
-        --name tmpshell \
-        --pull \
-        --no-entry \
-        --image quay.io/toolbx/arch-toolbox:latest \
-        --additional-packages "$@"
-    else
-      distrobox-ephemeral \
-        --name tmpshell \
-        --pull \
-        --no-entry \
-        --image quay.io/toolbx/arch-toolbox:latest
-    fi
-  }
 fi
 
 # oh-my-zsh
 if [ -d "$HOME/.oh-my-zsh" ]; then
-  plugins=(npm golang gradle-completion git kubectl extract rsync)
-  if command -v fzf &> /dev/null; then
-    plugins+=(fzf)
-  fi
+  plugins=(npm golang gradle-completion git kubectl extract rsync zsh-syntax-highlighting mise fzf)
 
   ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
   zstyle ':omz:update' mode disabled
+
+  fpath+=$ZSH_CUSTOM/completions
+  fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+  autoload -U compinit && compinit
   source $HOME/.oh-my-zsh/oh-my-zsh.sh
+  compinit
 fi
 
-# direnv
-if command -v direnv &> /dev/null; then
-  eval "$(direnv hook zsh)"
-  export PRE_COMMIT_COLOR="never"
+# mise
+if command -v mise &> /dev/null; then
+  eval "$(mise activate zsh)"
+fi
+if command -v hk &> /dev/null; then
+  eval "$(hk completion zsh)"
 fi
 
 export LANG='en_GB.UTF-8'
@@ -110,16 +97,13 @@ fi
 ## starship
 if command -v starship &> /dev/null; then
   eval "$(starship init zsh)"
+else
+  export ZSH_THEME=robbyrussell
 fi
 
 ## wezterm
 if command -v wezterm &> /dev/null; then
   source <(wezterm shell-completion --shell zsh)
-fi
-
-## dev
-if command -v java &> /dev/null; then
-  export JAVA_HOME=/usr/lib/jvm/java-21-openjdk/
 fi
 
 ## tools
@@ -172,6 +156,10 @@ if command -v kubectl &> /dev/null; then
     compdef kubecolor=kubectl
   fi
 
+  if command -v stern &> /dev/null; then
+    source <(stern --completion zsh)
+  fi
+
   alias 'kctx'='kubectx'
   alias 'kns'='kubens'
 
@@ -192,12 +180,6 @@ if command -v kubectl &> /dev/null; then
 fi
 
 ## source extra config
-if [ -f "$HOME/.zshrc_extra" ]; then
-  source $HOME/.zshrc_extra
+if [ -d "$HOME/.zshrc_extra" ]; then
+  source $HOME/.zshrc_extra/*.zsh
 fi
-
-## highlighting
-if [ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
-  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
