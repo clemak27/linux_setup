@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-host_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+sudo -v
 
 ## base
 
@@ -71,15 +71,15 @@ chmod u+x chmz
 rm -f chmz
 mkdir -p "$HOME/.config/chezmoi"
 printf "sourceDir: %s/Projects/linux_setup" "$HOME" > "$HOME/.config/chezmoi/chezmoi.yaml"
-"$HOME/.local/bin/chezmoi" apply
+"$HOME/.local/bin/chezmoi" apply --force
 
-## distrobox
+## mise
 
-/usr/bin/distrobox assemble create --file "$host_dir/box.ini" --name main
-
-cat /usr/share/zsh/site-functions/_flatpak > _flatpak
-podman cp _flatpak main:/usr/share/zsh/site-functions/_flatpak
-rm -f _flatpak
+rpm-ostree install --idempotent gcc-c++
+curl https://mise.run | sh
+"$HOME/.local/bin/mise" x python -- pip install --user pipx
+"$HOME/.local/bin/mise" trust
+"$HOME/.local/bin/mise" install -y
 
 ## syncthing
 

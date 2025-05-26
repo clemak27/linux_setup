@@ -1,0 +1,80 @@
+[tools]
+
+# git
+lazygit = "latest"
+delta = "latest"
+github-cli = "latest"
+
+# python
+python = "latest"
+black = "latest"
+
+# js
+node = "latest"
+biome = "latest"
+
+
+# go
+go = "latest"
+gofumpt = "latest"
+golangci-lint = "latest"
+# goimports = "latest"
+
+# container
+hadolint = "latest"
+
+# java
+java = "latest"
+gradle = "latest"
+kotlin = "latest"
+
+# md
+"npm:markdownlint-cli" = "latest"
+"npm:prettier" = "latest"
+
+# sh
+shellcheck = "latest"
+shfmt = "latest"
+
+# mise
+hk = "latest"
+pkl = "latest"
+usage = "latest"
+
+# yaml
+yamlfmt = "latest"
+yamllint = "latest"
+
+# lua
+stylua = "latest"
+
+# tools
+bat = "latest"
+eza = "latest"
+fd = "latest"
+fzf = "latest"
+jq = "latest"
+neovim = "latest"
+"pipx:pgcli" = { version = "latest", uvx_args = "--with psycopg_binary" }
+ripgrep = "latest"
+sd = "latest"
+starship = "latest"
+"ubi:tealdeer-rs/tealdeer" = "latest"
+uv = "latest"
+viddy = "latest"
+yazi = "latest"
+yq = "latest"
+yt-dlp = "latest"
+
+# k8s
+helm = "latest"
+krew = "latest"
+"ubi:kubecolor/kubecolor" = "latest"
+kubectl = "latest"
+kubectx = "latest"
+kubens = "latest"
+kustomize = "latest"
+stern = "latest"
+
+[env]
+HK_MISE = true

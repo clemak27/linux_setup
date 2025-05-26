@@ -27,8 +27,8 @@ return {
       vim.api.nvim_create_augroup("chezmoi_watch", { clear = true })
       vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
         pattern = {
-          os.getenv("HOME") .. "/Projects/linux_setup/dotfiles/*",
-          "/var" .. os.getenv("HOME") .. "/Projects/linux_setup/dotfiles/*",
+          "/home/" .. os.getenv("HOME") .. "/Projects/linux_setup/dotfiles/*",
+          "/var/home/" .. os.getenv("HOME") .. "/Projects/linux_setup/dotfiles/*",
         },
         group = "chezmoi_watch",
         callback = function(args)

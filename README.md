@@ -21,3 +21,14 @@ This is for my own usage and preferences, but you are of course free to use it
 as inspiration. I use chezmoi for managing my dotfiles. I could probably build a
 custom image with all the additional setup I do, but I'm mostly satisfied how it
 works for now.
+
+## Package Managers
+
+My current setup works like this:
+
+- OS specific stuff → `rpm-ostree`
+- GUI applications → `flatpak`
+- almost everything terminal/CLI related is managed with `mise-en-place`
+- nvim-plugins with `lazy.nvim`
+- LSP + DAP with `mason.nvim`
+- sometimes `nix` for one-time commands and project-specific config

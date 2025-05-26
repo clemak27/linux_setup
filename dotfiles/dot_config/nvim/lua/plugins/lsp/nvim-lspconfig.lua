@@ -18,6 +18,19 @@ return {
         lazy = true,
       },
       {
+        "apple/pkl-neovim",
+        lazy = true,
+        ft = "pkl",
+        build = function()
+          require("pkl-neovim").init()
+        end,
+        config = function()
+          vim.g.pkl_neovim = {
+            start_command = { "pkl-lsp" },
+          }
+        end,
+      },
+      {
         "stevearc/overseer.nvim",
         config = function()
           require("overseer").setup({
