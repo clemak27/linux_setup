@@ -177,7 +177,8 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix/
 chmod +x /tmp/nix.sh
 /usr/bin/distrobox enter main -- zsh -c "/tmp/nix.sh install linux --no-confirm --init none"
 /usr/bin/distrobox enter main -- zsh -c "sudo chown -R clemens /nix"
-rm /tmp/nix.sh
+/usr/bin/distrobox enter main -- zsh -c "nix profile install nixpkgs#nixd nixpkgs#nixfmt-rfc-style nixpkgs#direnv"
+rm -f /tmp/nix.sh
 
 # additional completions
 cat /usr/share/zsh/site-functions/_flatpak > _flatpak
