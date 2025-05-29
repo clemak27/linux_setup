@@ -17,8 +17,6 @@ return {
           "css-lsp",
           "html-lsp",
           "json-lsp",
-          "kotlin-language-server",
-          "pkl-lsp",
 
           -- container
           "dockerfile-language-server",
@@ -36,8 +34,6 @@ return {
           "lua-language-server",
 
           -- go
-          "delve",
-          "goimports",
           "golangci-lint-langserver",
           "gopls",
 
@@ -52,12 +48,6 @@ return {
           "vue-language-server",
           "typescript-language-server",
           "eslint-lsp",
-
-          -- rust
-          "rust-analyzer",
-
-          -- python
-          "jedi-language-server",
         },
         auto_update = true,
       })

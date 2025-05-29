@@ -1,0 +1,112 @@
+# hadolint ignore=DL3007
+FROM quay.io/toolbx/arch-toolbox:latest
+
+# some base packages
+
+RUN pacman -Syu --noconfirm \
+  zsh \
+  git \
+  base-devel \
+  curl
+
+# aur
+
+RUN useradd -m -G wheel -s /bin/zsh paru && \
+  sed -Ei 's/^#\ (%wheel.*NOPASSWD.*)/\1/' /etc/sudoers
+USER paru
+
+RUN git clone https://aur.archlinux.org/paru.git "/tmp/paru" && \
+  cd /tmp/paru && \
+  makepkg -si --noconfirm && \
+  rm -rf "/tmp/paru"
+
+USER root
+
+# nix
+
+# renovate: datasource=github-tags depName=DeterminateSystems/nix-installer versioning=loose
+RUN nixinstaller_version=3.6.1 && \
+  curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix/tag/v$nixinstaller_version -o /tmp/nix.sh && \
+  chmod +x /tmp/nix.sh && \
+  /tmp/nix.sh install linux --no-confirm --init none && \
+  rm -f /tmp/nix.sh
+RUN /nix/var/nix/profiles/default/bin/nix run nixpkgs#hello && chown -R 1000 /nix
+COPY 99_nix_profile.hook /usr/share/libalpm/hooks/99_nix_profile.hook
+
+# access host commands
+
+RUN ln -sf /usr/bin/distrobox-host-exec /usr/local/bin/podman && \
+  ln -sf /usr/bin/distrobox-host-exec /usr/local/bin/docker && \
+  ln -sf /usr/bin/distrobox-host-exec /usr/local/bin/flatpak && \
+  ln -sf /usr/bin/distrobox-host-exec /usr/local/bin/buildah && \
+  ln -sf /usr/bin/distrobox-host-exec /usr/bin/rpm-ostree && \
+  ln -sf /usr/bin/distrobox-host-exec /usr/bin/systemctl && \
+  ln -sf /usr/bin/distrobox-host-exec /usr/bin/xdg-open && \
+  ln -sf /usr/bin/distrobox-host-exec /usr/bin/ksshaskpass && \
+  ln -sf /usr/bin/distrobox-host-exec /usr/bin/update-desktop-database && \
+  ln -sf /usr/bin/distrobox-host-exec /usr/bin/gtk-update-icon-cache && \
+  ln -sf /usr/bin/distrobox-host-exec /usr/bin/wl-copy && \
+  ln -sf /usr/bin/distrobox-host-exec /usr/bin/wl-paste
+
+# additional packages
+
+RUN paru -Syu --noconfirm \
+  android-tools \
+  bat \
+  biome \
+  cyme \
+  delve \
+  eza \
+  fd \
+  fzf \
+  gcc \
+  git-delta \
+  github-cli \
+  go \
+  go-tools \
+  go-yq \
+  gradle \
+  helm \
+  htop \
+  hurl \
+  jdk21-openjdk \
+  jq \
+  krew \
+  kubectl \
+  kubectx \
+  kustomize \
+  lazygit \
+  markdownlint-cli \
+  neovim\
+  nodejs-lts-jod \
+  npm \
+  pgcli \
+  prettier \
+  ripgrep \
+  scrcpy \
+  sd \
+  shellcheck \
+  shfmt \
+  starship \
+  stern \
+  tealdeer \
+  tree \
+  unrar \
+  unzip \
+  yamlfmt \
+  yamllint \
+  yazi \
+  yt-dlp \
+  zsh-completions
+  # hadolint \
+  # viddy \
+  # kubecolor  \
+
+# ¯\_(ツ)_/¯
+
+LABEL com.github.containers.toolbox="true" \
+  name="archnix" \
+  version="0.0.1" \
+  usage="This image is meant to be used with the distrobox command" \
+  summary="Arch Linux image that includes the Nix package manager" \
+  maintainer="Clemens Czermak <clemak27@mailbox.org>"

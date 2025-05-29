@@ -24,11 +24,15 @@ works for now.
 
 ## Package Managers
 
-My current setup works like this:
+My setup works like this:
 
-- OS specific stuff → `rpm-ostree`
-- GUI applications → `flatpak`
-- almost everything terminal/CLI related is managed with `mise-en-place`
-- nvim-plugins with `lazy.nvim`
-- LSP + DAP with `mason.nvim`
-- sometimes `nix` for one-time commands and project-specific config
+- OS specific stuff -> `rpm-ostree`
+- GUI applications -> `flatpak`
+- everything terminal/cli related is running in a distrobox:
+  - `quay.io/toolbx/arch-toolbox:latest` as base
+  - `pacman`/`paru` for the basic stuff
+  - programming languages and associated tools are managed with
+    `nix`/`home-manager` (although not in a reproducible way lol)
+  - nvim-plugins with `lazy.nvim`
+  - LSP + DAP with `mason.nvim` (which might change in the future)
+  - for project-specific dependencies, I use `nix` flakes

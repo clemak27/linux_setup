@@ -28,33 +28,30 @@ if [ -n "${CONTAINER_ID}" ]; then
   export SHELL=/usr/sbin/zsh
   alias 'hzsh'='distrobox-host-exec zsh'
 else
+  export ZSH_THEME=robbyrussell
   alias 'db'='distrobox'
 fi
 
 # oh-my-zsh
 if [ -d "$HOME/.oh-my-zsh" ]; then
-  plugins=(npm golang gradle-completion git kubectl extract rsync zsh-syntax-highlighting mise fzf)
-
+  plugins=(npm golang gradle-completion git kubectl extract rsync zsh-syntax-highlighting)
   ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
   zstyle ':omz:update' mode disabled
 
-  fpath+=$ZSH_CUSTOM/completions
-  fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
   autoload -U compinit && compinit
   source $HOME/.oh-my-zsh/oh-my-zsh.sh
-  compinit
-fi
-
-# mise
-if command -v mise &> /dev/null; then
-  eval "$(mise activate zsh)"
-fi
-if command -v hk &> /dev/null; then
-  eval "$(hk completion zsh)"
+  # compinit
 fi
 
 export LANG='en_GB.UTF-8'
 export BROWSER=firefox
+
+# direnv
+if command -v direnv &> /dev/null; then
+  eval "$(direnv hook zsh)"
+  export PRE_COMMIT_COLOR="never"
+  source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+fi
 
 # chezmoi
 if command -v chezmoi &> /dev/null; then
@@ -111,6 +108,10 @@ if command -v eza &> /dev/null; then
   alias 'ls'='eza --icons=automatic'
   alias 'lsa'='eza --icons=automatic -hal'
 fi
+if command -v fzf &> /dev/null; then
+  source <(fzf --zsh)
+fi
+
 if command -v cyme &> /dev/null; then
   alias 'lsusb'='cyme --lsusb'
 fi

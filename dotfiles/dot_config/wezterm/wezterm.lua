@@ -9,6 +9,7 @@ local cp_colors = {
 }
 
 local weztermCfg = {
+  default_prog = { "/usr/bin/distrobox-enter", "main" },
   xcursor_theme = "breeze_cursors",
 
   front_end = "OpenGL",

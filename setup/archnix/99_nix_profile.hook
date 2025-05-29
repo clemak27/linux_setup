@@ -1,0 +1,10 @@
+# /usr/share/libalpm/hooks/distrobox_post_hook.sh.hook
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = nix profile upgrade hook
+When = PostTransaction
+Exec = /nix/var/nix/profiles/default/bin/nix profile upgrade --all

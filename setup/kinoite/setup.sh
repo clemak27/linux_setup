@@ -2,6 +2,8 @@
 
 set -eo pipefail
 
+host_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
 sudo -v
 
 ## base
@@ -109,7 +111,7 @@ Comment=neovim
 Keywords=shell;prompt;command;commandline;cmd;editor;
 Icon=io.neovim.nvim
 StartupWMClass=io.neovim.nvim
-Exec=flatpak run org.wezfurlong.wezterm start --always-new-process --class=io.neovim.nvim zsh -c 'source ~/.zshrc && nvim %F'
+Exec=flatpak run org.wezfurlong.wezterm start --always-new-process --class=io.neovim.nvim distrobox-enter main -- $HOME/.nix-profile/bin/nvim %F
 Type=Application
 Categories=Development;
 Terminal=false
@@ -161,13 +163,11 @@ rm -f chmz
 mkdir -p "$HOME/.config/chezmoi"
 printf "sourceDir: %s/Projects/linux_setup" "$HOME" > "$HOME/.config/chezmoi/chezmoi.yaml"
 "$HOME/.local/bin/chezmoi" apply --force
+cat /usr/share/zsh/site-functions/_flatpak > "$HOME/.oh-my-zsh/custom/completions/_flatpak"
 
-## mise
+# container
 
-curl https://mise.run | sh
-"$HOME/.local/bin/mise" x python -- pip install --user pipx
-"$HOME/.local/bin/mise" trust
-"$HOME/.local/bin/mise" install -y
+"$host_dir/../archnix/build.sh"
 
 ## syncthing
 
