@@ -21,3 +21,18 @@ This is for my own usage and preferences, but you are of course free to use it
 as inspiration. I use chezmoi for managing my dotfiles. I could probably build a
 custom image with all the additional setup I do, but I'm mostly satisfied how it
 works for now.
+
+## Package Managers
+
+My setup works like this:
+
+- OS specific stuff -> `rpm-ostree`
+- GUI applications -> `flatpak`
+- everything terminal/cli related is running in a distrobox:
+  - `quay.io/toolbx/arch-toolbox:latest` as base
+  - `pacman`/`paru` for the basic stuff
+  - programming languages and associated tools are managed with
+    `nix`/`home-manager` (although not in a reproducible way lol)
+  - nvim-plugins with `lazy.nvim`
+  - LSP + DAP with `mason.nvim` (which might change in the future)
+  - for project-specific dependencies, I use `nix` flakes

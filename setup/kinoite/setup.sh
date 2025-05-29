@@ -109,7 +109,7 @@ Comment=neovim
 Keywords=shell;prompt;command;commandline;cmd;editor;
 Icon=io.neovim.nvim
 StartupWMClass=io.neovim.nvim
-Exec=flatpak run org.wezfurlong.wezterm start --always-new-process --class=io.neovim.nvim distrobox-enter main -- nvim %F
+Exec=flatpak run org.wezfurlong.wezterm start --always-new-process --class=io.neovim.nvim distrobox-enter main -- $HOME/.nix-profile/bin/nvim %F
 Type=Application
 Categories=Development;
 Terminal=false
@@ -164,26 +164,23 @@ printf "sourceDir: %s/Projects/linux_setup" "$HOME" > "$HOME/.config/chezmoi/che
 
 ## distrobox
 
-/usr/bin/distrobox assemble create --file "$host_dir/box.ini" --name main
-
-# paru
-/usr/bin/distrobox enter main -- rm -rf "$HOME/.cache/paru" && git clone https://aur.archlinux.org/paru.git "$HOME/.cache/paru"
-/usr/bin/distrobox enter main -- zsh -c "cd $HOME/.cache/paru && makepkg -si --noconfirm"
-/usr/bin/distrobox enter main -- paru -Syu --noconfirm viddy kubecolor
-/usr/bin/distrobox enter main -- rm -rf "$HOME/.cache/paru"
-
-# nix
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix/tag/v3.0.0 -o /tmp/nix.sh
+/usr/bin/distrobox assemble create --file "$host_dir/box.ini" --name main --replace
+# renovate: datasource=github-tags depName=DeterminateSystems/nix-installer versioning=loose
+nixinstaller_version=3.6.1
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix/tag/v$nixinstaller_version -o /tmp/nix.sh
 chmod +x /tmp/nix.sh
 /usr/bin/distrobox enter main -- zsh -c "/tmp/nix.sh install linux --no-confirm --init none"
 /usr/bin/distrobox enter main -- zsh -c "sudo chown -R clemens /nix"
-/usr/bin/distrobox enter main -- zsh -c "nix profile install nixpkgs#nixd nixpkgs#nixfmt-rfc-style nixpkgs#direnv"
 rm -f /tmp/nix.sh
+/usr/bin/distrobox enter main -- zsh -c 'PATH="/nix/var/nix/profiles/default/bin:$PATH" nix run home-manager -- switch'
 
 # additional completions
 cat /usr/share/zsh/site-functions/_flatpak > _flatpak
 podman cp _flatpak main:/usr/share/zsh/site-functions/_flatpak
 rm -f _flatpak
+curl -fLO https://raw.githubusercontent.com/NixOS/nix/refs/heads/master/misc/zsh/completion.zsh
+podman cp completion.zsh main:/usr/share/zsh/site-functions/_nix
+rm -f completion.zsh
 
 ## syncthing
 

@@ -30,22 +30,6 @@ if [ -n "${CONTAINER_ID}" ]; then
 else
   export ZSH_THEME=robbyrussell
   alias 'db'='distrobox'
-  function dbs() {
-    if [[ "$#" -gt 0 ]]; then
-      distrobox-ephemeral \
-        --name tmpshell \
-        --pull \
-        --no-entry \
-        --image quay.io/toolbx/arch-toolbox:latest \
-        --additional-packages "$@"
-    else
-      distrobox-ephemeral \
-        --name tmpshell \
-        --pull \
-        --no-entry \
-        --image quay.io/toolbx/arch-toolbox:latest
-    fi
-  }
 fi
 
 # oh-my-zsh
@@ -117,11 +101,6 @@ if command -v wezterm &> /dev/null; then
   source <(wezterm shell-completion --shell zsh)
 fi
 
-## dev
-if command -v java &> /dev/null; then
-  export JAVA_HOME=/usr/lib/jvm/java-21-openjdk/
-fi
-
 ## tools
 if command -v eza &> /dev/null; then
   alias 'ls'='eza --icons=automatic'
@@ -172,6 +151,10 @@ if command -v kubectl &> /dev/null; then
     compdef kubecolor=kubectl
   fi
 
+  if command -v stern &> /dev/null; then
+    source <(stern --completion zsh)
+  fi
+
   alias 'kctx'='kubectx'
   alias 'kns'='kubens'
 
@@ -197,7 +180,6 @@ if [ -f "$HOME/.zshrc_extra" ]; then
 fi
 
 ## highlighting
-if [ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
-  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -f "$HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+  source $HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-
