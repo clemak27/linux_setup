@@ -25,10 +25,10 @@ return {
 
         -- local bundlePath = jdtlsHome .. "/bundles"
         local bundles = {
-          vim.fn.glob(masonPath .. "/java-debug-adapter/com.microsoft.java.debug.plugin-*.jar"),
+          vim.fn.glob(masonPath .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"),
         }
 
-        vim.list_extend(bundles, vim.split(vim.fn.glob(masonPath .. "/java-test/*.jar"), "\n"))
+        vim.list_extend(bundles, vim.split(vim.fn.glob(masonPath .. "/java-test/extension/server/*.jar"), "\n"))
         -- vim.list_extend(bundles, vim.split(vim.fn.glob(bundlePath .. "/vscode-spring-boot/jars/*.jar"), "\n"))
 
         return {
