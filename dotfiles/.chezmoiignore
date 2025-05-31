@@ -1,1 +1,4 @@
 .oh-my-zsh/cache/**
+{{- if eq .chezmoi.hostname "fermi" }}
+.local/share/applications/org.kde.kontact.desktop
+{{- end }}
