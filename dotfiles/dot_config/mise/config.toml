@@ -76,5 +76,9 @@ kubens = "latest"
 kustomize = "latest"
 stern = "latest"
 
+## gay shit since it's pride month
+"ubi:fastfetch-cli/fastfetch" = { version = "latest", extract_all = "true", bin_path = "usr/bin" }
+"pipx:hyfetch" = "latest"
+
 [env]
 HK_MISE = true
