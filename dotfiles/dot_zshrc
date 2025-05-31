@@ -181,5 +181,5 @@ fi
 
 ## source extra config
 if [ -d "$HOME/.zshrc_extra" ]; then
-  source $HOME/.zshrc_extra/*.zsh
+  for f in $HOME/.zshrc_extra/*.zsh; do source $f; done
 fi
