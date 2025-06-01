@@ -33,6 +33,7 @@ EOF
   /usr/bin/distrobox enter nix -- zsh -c "sudo chown -R clemens /nix"
   rm -f /tmp/nix.sh /tmp/nix-init.ini
   /usr/bin/distrobox enter nix -- zsh -c 'PATH="/nix/var/nix/profiles/default/bin:$PATH" nix profile install nixpkgs#nixd nixpkgs#nixfmt-rfc-style'
+  mkdir -p ~/.oh-my-zsh/custom/completions
   curl -fLO https://raw.githubusercontent.com/NixOS/nix/refs/heads/master/misc/zsh/completion.zsh
   mv completion.zsh ~/.oh-my-zsh/custom/completions/_nix
 }
