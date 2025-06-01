@@ -165,7 +165,6 @@ printf "sourceDir: %s/Projects/linux_setup" "$HOME" > "$HOME/.config/chezmoi/che
 ## mise
 
 curl https://mise.run | sh
-"$HOME/.local/bin/mise" x python -- pip install --user pipx
 "$HOME/.local/bin/mise" trust
 "$HOME/.local/bin/mise" install -y
 
