@@ -31,6 +31,11 @@ else
   alias 'db'='distrobox'
 fi
 
+# mise
+if command -v mise &> /dev/null; then
+  eval "$(mise activate zsh)"
+fi
+
 # oh-my-zsh
 if [ -d "$HOME/.oh-my-zsh" ]; then
   plugins=(npm golang gradle-completion git kubectl extract rsync zsh-syntax-highlighting mise fzf)
@@ -43,14 +48,6 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
   autoload -U compinit && compinit
   source $HOME/.oh-my-zsh/oh-my-zsh.sh
   compinit
-fi
-
-# mise
-if command -v mise &> /dev/null; then
-  eval "$(mise activate zsh)"
-fi
-if command -v hk &> /dev/null; then
-  eval "$(hk completion zsh)"
 fi
 
 export LANG='en_GB.UTF-8'
@@ -116,6 +113,9 @@ if command -v cyme &> /dev/null; then
 fi
 if command -v htop &> /dev/null; then
   alias 'top'='htop'
+fi
+if command -v hk &> /dev/null; then
+  eval "$(hk completion zsh)"
 fi
 
 ## git
