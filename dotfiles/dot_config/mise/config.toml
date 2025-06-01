@@ -26,7 +26,6 @@ hadolint = "latest"
 # java
 java = "latest"
 gradle = "latest"
-kotlin = "latest"
 
 # md
 "npm:markdownlint-cli" = "latest"
@@ -50,6 +49,7 @@ stylua = "latest"
 
 # tools
 bat = "latest"
+cosign = "latest"
 eza = "latest"
 fd = "latest"
 fzf = "latest"
