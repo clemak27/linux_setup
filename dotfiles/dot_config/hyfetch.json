@@ -13,7 +13,7 @@
     },
     "backend": "fastfetch",
     "args": null,
-    "distro": null,
+    "distro": "kinoite",
     "pride_month_shown": [],
     "pride_month_disable": false
 }
