@@ -22,23 +22,7 @@
   exact = true
   stripComponents = 1
   refreshPeriod = "168h"
-[".oh-my-zsh/custom/completions/_kubectx.zsh"]
+[".oh-my-zsh/custom/completions/_nix"]
     type = "file"
-    url = "https://raw.githubusercontent.com/ahmetb/kubectx/refs/heads/master/completion/_kubectx.zsh"
-    refreshPeriod = "168h"
-[".oh-my-zsh/custom/completions/_kubens.zsh"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/ahmetb/kubectx/refs/heads/master/completion/_kubens.zsh"
-    refreshPeriod = "168h"
-[".oh-my-zsh/custom/completions/_fd"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/sharkdp/fd/refs/heads/master/contrib/completion/_fd"
-    refreshPeriod = "168h"
-[".oh-my-zsh/custom/completions/_sd"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/chmln/sd/refs/heads/master/gen/completions/_sd"
-    refreshPeriod = "168h"
-[".oh-my-zsh/custom/completions/_eza"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/eza-community/eza/refs/heads/main/completions/zsh/_eza"
+    url = "https://raw.githubusercontent.com/NixOS/nix/refs/heads/master/misc/zsh/completion.zsh"
     refreshPeriod = "168h"

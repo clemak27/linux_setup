@@ -4,6 +4,8 @@ set -eo pipefail
 
 sudo -v
 
+script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
 ## base
 
 if ! command -v zsh &> /dev/null; then
@@ -152,21 +154,34 @@ sudo mv 60-steam-input.rules /etc/udev/rules.d/
 curl -LO https://raw.githubusercontent.com/ValveSoftware/steam-devices/master/60-steam-vr.rules
 sudo mv 60-steam-vr.rules /etc/udev/rules.d/
 
-## chezmoi
+## brew
 
-curl -fsLS get.chezmoi.io > chmz
-chmod u+x chmz
-./chmz -b "$HOME/.local/bin"
-rm -f chmz
+brew_version="4.5.4"
+brew_dir="/home/linuxbrew/.linuxbrew"
+
+curl -fL -o /tmp/homebrew.tar.gz https://github.com/Homebrew/brew/archive/refs/tags/$brew_version.tar.gz
+mkdir -p /tmp/homebrew
+tar --zstd -xvf /tmp/homebrew.tar.gz -C /tmp/homebrew
+sudo mkdir -p "$brew_dir/bin" "$brew_dir/share/zsh/site-functions" "$brew_dir/Cellar"
+sudo chown -R 1000:1000 $brew_dir
+cp -R -n /tmp/homebrew/brew-$brew_version "$brew_dir/Homebrew"
+ln -sf "$brew_dir/Homebrew/bin/brew" "$brew_dir/bin/brew"
+ln -sf "$brew_dir/Homebrew/share/zsh/site-functions/_brew" "$brew_dir/share/zsh/site-functions/_brew"
+rm -rf /tmp/homebrew /tmp/homebrew.tar.gz
+
+export HOMEBREW_CELLAR=$brew_dir/Cellar
+export HOMEBREW_PREFIX=$brew_dir
+export HOMEBREW_REPOSITORY=$brew_dir/Homebrew
+export PATH="$brew_dir/bin:$PATH"
+brew bundle install --file "$script_dir/Brewfile"
+
+## homedir
+
 mkdir -p "$HOME/.config/chezmoi"
 printf "sourceDir: %s/Projects/linux_setup" "$HOME" > "$HOME/.config/chezmoi/chezmoi.yaml"
-"$HOME/.local/bin/chezmoi" apply --force
-
-## mise
-
-curl https://mise.run | sh
-"$HOME/.local/bin/mise" trust
-"$HOME/.local/bin/mise" install -y
+chezmoi apply --force
+mise trust -y
+mise install -y
 
 ## syncthing
 

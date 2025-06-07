@@ -90,6 +90,15 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
+vim.api.nvim_create_augroup("brewfile_ft", { clear = true })
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "Brewfile",
+  group = "brewfile_ft",
+  callback = function()
+    vim.api.nvim_exec2("set filetype=ruby", { output = false })
+  end,
+})
+
 -- relative line numbers
 vim.api.nvim_create_augroup("numbertoggle", { clear = true })
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {

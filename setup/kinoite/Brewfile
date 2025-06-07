@@ -1,0 +1,69 @@
+# tools
+brew "bat"
+brew "chezmoi"
+brew "cosign"
+brew "eza"
+brew "fd"
+brew "fzf"
+brew "jq"
+brew "mise"
+brew "neovim"
+brew "pgcli"
+brew "ripgrep"
+brew "sd"
+brew "starship"
+brew "tealdeer"
+brew "viddy"
+brew "yazi"
+brew "yq"
+brew "yt-dlp"
+
+# git
+brew "delta"
+brew "gh"
+brew "lazygit"
+
+# container
+brew "hadolint"
+
+# md
+brew "markdownlint-cli"
+brew "prettier"
+
+# sh
+brew "shellcheck"
+brew "shfmt"
+
+# yaml
+brew "yamlfmt"
+brew "yamllint"
+
+# lua
+brew "stylua"
+
+# k8s
+brew "helm"
+brew "krew"
+brew "kubecolor"
+brew "kubectl"
+brew "kubectx"
+brew "kustomize"
+brew "stern"
+
+# go
+brew "go"
+brew "gofumpt"
+brew "goimports"
+brew "golangci-lint"
+
+# nodejs
+brew "biome"
+brew "node"
+
+# java
+brew "gradle"
+brew "openjdk@21"
+
+# gay shit
+brew "fastfetch"
+brew "hyfetch"
