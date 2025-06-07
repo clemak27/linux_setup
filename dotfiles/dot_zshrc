@@ -18,40 +18,47 @@ unsetopt EXTENDED_HISTORY
 unsetopt beep
 setopt HIST_SAVE_NO_DUPS
 
+export BROWSER=$HOME/.local/bin/firefox
 export GOPATH="$HOME/.go"
 export GOTOOLCHAIN="local"
+export LANG='en_GB.UTF-8'
 export PATH="$PATH:$HOME/.local/bin"
 export SSH_ASKPASS_REQUIRE="prefer"
 
-  export PATH="$PATH:$HOME/.cargo/bin:$HOME/.go/bin:$HOME/.local/bin/npm/bin:$HOME/.local/share/nvim/mason/bin"
-if [ -n "${CONTAINER_ID}" ]; then
-  export SHELL=/usr/sbin/zsh
-  alias 'hzsh'='distrobox-host-exec zsh'
-else
-  alias 'db'='distrobox'
-fi
+alias 'db'='distrobox'
 
-# mise
-if command -v mise &> /dev/null; then
-  eval "$(mise activate zsh)"
+if [ -d "/home/linuxbrew" ]; then
+  export HOMEBREW_CELLAR=/home/linuxbrew/.linuxbrew/Cellar
+  export HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
+  export HOMEBREW_REPOSITORY=/home/linuxbrew/.linuxbrew/Homebrew
+  export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin:$HOME/.go/bin:$HOME/.local/bin/npm/bin"
 fi
 
 # oh-my-zsh
 if [ -d "$HOME/.oh-my-zsh" ]; then
-  plugins=(npm golang gradle-completion git kubectl extract rsync zsh-syntax-highlighting mise fzf)
+  plugins=(npm golang gradle-completion git kubectl extract rsync zsh-syntax-highlighting fzf)
 
   ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
   zstyle ':omz:update' mode disabled
 
   fpath+=$ZSH_CUSTOM/completions
+  fpath+=/home/linuxbrew/.linuxbrew/share/zsh/site-functions
   fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
   autoload -U compinit && compinit
   source $HOME/.oh-my-zsh/oh-my-zsh.sh
   compinit
 fi
 
-export LANG='en_GB.UTF-8'
-export BROWSER=$HOME/.local/bin/firefox
+# direnv
+if command -v direnv &> /dev/null; then
+  eval "$(direnv hook zsh)"
+  export PRE_COMMIT_COLOR="never"
+fi
+
+# mise
+if command -v mise &> /dev/null; then
+  eval "$(mise activate zsh)"
+fi
 
 # chezmoi
 if command -v chezmoi &> /dev/null; then
