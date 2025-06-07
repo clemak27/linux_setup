@@ -165,9 +165,24 @@ printf "sourceDir: %s/Projects/linux_setup" "$HOME" > "$HOME/.config/chezmoi/che
 "$HOME/.local/bin/chezmoi" apply --force
 cat /usr/share/zsh/site-functions/_flatpak > "$HOME/.oh-my-zsh/custom/completions/_flatpak"
 
-# container
+## nix
 
-"$host_dir/../archnix/build.sh"
+# https://github.com/DeterminateSystems/nix-installer/issues/1445#issuecomment-2856334377
+sudo tee /etc/ostree/prepare-root.conf << 'EOL'
+[composefs]
+enabled = yes
+[root]
+transient = true
+EOL
+
+rpm-ostree initramfs-etc --reboot --arg=-I --track=/etc/ostree/prepare-root.conf
+
+# renovate: datasource=github-tags depName=DeterminateSystems/nix-installer versioning=loose
+nixinstaller_version=3.6.1
+curl --proto '=https' --tlsv1.2 -sSf -L "https://install.determinate.systems/nix/tag/v$nixinstaller_version" -o /tmp/nix.sh
+chmod +x /tmp/nix.sh
+/tmp/nix.sh install linux --no-confirm
+rm -f /tmp/nix.sh
 
 ## syncthing
 
