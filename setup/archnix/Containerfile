@@ -4,10 +4,11 @@ FROM quay.io/toolbx/arch-toolbox:latest
 # some base packages
 
 RUN pacman -Syu --noconfirm \
-  zsh \
-  git \
   base-devel \
-  curl
+  breeze \
+  curl \
+  git \
+  zsh
 
 # aur
 
@@ -30,7 +31,7 @@ RUN nixinstaller_version=3.6.1 && \
   chmod +x /tmp/nix.sh && \
   /tmp/nix.sh install linux --no-confirm --init none && \
   rm -f /tmp/nix.sh
-RUN /nix/var/nix/profiles/default/bin/nix run nixpkgs#hello && chown -R 1000 /nix
+RUN /nix/var/nix/profiles/default/bin/nix run nixpkgs#hello
 COPY 99_nix_profile.hook /usr/share/libalpm/hooks/99_nix_profile.hook
 
 # access host commands
@@ -50,7 +51,7 @@ RUN ln -sf /usr/bin/distrobox-host-exec /usr/local/bin/podman && \
 
 # additional packages
 
-RUN paru -Syu --noconfirm \
+RUN paru -Syu --noconfirm --needed \
   android-tools \
   bat \
   biome \
@@ -98,9 +99,13 @@ RUN paru -Syu --noconfirm \
   yazi \
   yt-dlp \
   zsh-completions
-  # hadolint \
-  # viddy \
-  # kubecolor  \
+
+USER paru
+
+RUN paru -Syu --noconfirm --needed \
+  hadolint-bin \
+  viddy-bin
+  # kubecolor \
 
 # ¯\_(ツ)_/¯
 
