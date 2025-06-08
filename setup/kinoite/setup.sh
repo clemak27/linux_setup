@@ -82,7 +82,8 @@ flatpak install -y flathub \
   org.signal.Signal
 flatpak override --user --filesystem=xdg-config/gtk-3.0 --filesystem=xdg-config/gtk-4.0
 
-feishin_version=0.13.0
+# renovate: datasource=github-tags depName=jeffvli/feishin versioning=loose
+feishin_version=0.14.0
 
 mkdir -p "$HOME/.local/bin" "$HOME/.local/share/applications"
 curl -L --url https://github.com/jeffvli/feishin/releases/download/v${feishin_version}/Feishin-${feishin_version}-linux-x86_64.AppImage -o "$HOME/.local/bin/feishin"
