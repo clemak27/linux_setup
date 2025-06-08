@@ -13,6 +13,7 @@ if ! command -v zsh &> /dev/null; then
   sudo usermod -s /usr/bin/zsh clemens
 fi
 
+# disable unused registries
 sudo sed -i 's/enabled=1/enabled=0/' \
   /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:phracek:PyCharm.repo \
   /etc/yum.repos.d/fedora-cisco-openh264.repo \
@@ -57,16 +58,7 @@ systemctl --user enable podman.socket
 
 ## firefox
 
-# disable default FF
-# https://github.com/fedora-silverblue/silverblue-docs/blob/master/modules/ROOT/pages/tips-and-tricks.adoc#hiding-the-default-browser-firefox
-if [ -f "/usr/share/applications/org.mozilla.firefox.desktop" ]; then
-  sudo mkdir -p /usr/local/share/applications/
-  sudo cp /usr/share/applications/org.mozilla.firefox.desktop /usr/local/share/applications/
-  sudo sed -i "2a\\NotShowIn=GNOME;KDE" /usr/local/share/applications/org.mozilla.firefox.desktop
-  sudo update-desktop-database /usr/local/share/applications/
-fi
-
-## install flatpak
+rpm-ostree override remove firefox firefox-langpacks
 flatpak install -y flathub \
   org.freedesktop.Platform.ffmpeg-full//24.08 \
   org.mozilla.firefox
