@@ -31,6 +31,7 @@ if [ -d "/home/linuxbrew" ]; then
   export HOMEBREW_CELLAR=/home/linuxbrew/.linuxbrew/Cellar
   export HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
   export HOMEBREW_REPOSITORY=/home/linuxbrew/.linuxbrew/Homebrew
+  export HOMEBREW_NO_ANALYTICS=1
   export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin:$HOME/.go/bin:$HOME/.local/bin/npm/bin"
 fi
 

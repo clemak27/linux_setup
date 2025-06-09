@@ -138,6 +138,7 @@ rm -rf /tmp/homebrew /tmp/homebrew.tar.gz
 export HOMEBREW_CELLAR=$brew_dir/Cellar
 export HOMEBREW_PREFIX=$brew_dir
 export HOMEBREW_REPOSITORY=$brew_dir/Homebrew
+export HOMEBREW_NO_ANALYTICS=1
 export PATH="$brew_dir/bin:$PATH"
 brew bundle install --file "$script_dir/Brewfile"
 
