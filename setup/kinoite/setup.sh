@@ -127,7 +127,7 @@ brew_dir="/home/linuxbrew/.linuxbrew"
 
 curl -fL -o /tmp/homebrew.tar.gz https://github.com/Homebrew/brew/archive/refs/tags/$brew_version.tar.gz
 mkdir -p /tmp/homebrew
-tar --zstd -xvf /tmp/homebrew.tar.gz -C /tmp/homebrew
+tar -xvf /tmp/homebrew.tar.gz -C /tmp/homebrew
 sudo mkdir -p "$brew_dir/bin" "$brew_dir/share/zsh/site-functions" "$brew_dir/Cellar"
 sudo chown -R 1000:1000 $brew_dir
 cp -R -n /tmp/homebrew/brew-$brew_version "$brew_dir/Homebrew"
