@@ -62,7 +62,7 @@ brew "node"
 
 # java
 brew "gradle"
-brew "openjdk@21"
+brew "openjdk"
 
 # gay shit
 brew "fastfetch"
