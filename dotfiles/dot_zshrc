@@ -187,6 +187,11 @@ if command -v kubectl &> /dev/null; then
   function kgaw() { viddy  --disable_auto_save --no-title kubecolor --force-colors get all; }
 fi
 
+## hl
+if command -v flux &> /dev/null; then
+  source <(flux completion zsh)
+fi
+
 ## source extra config
 if [ -d "$HOME/.zshrc_extra" ]; then
   for f in $HOME/.zshrc_extra/*.zsh; do source $f; done
