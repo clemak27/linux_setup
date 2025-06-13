@@ -190,6 +190,7 @@ fi
 ## hl
 if command -v flux &> /dev/null; then
   source <(flux completion zsh)
+  function fgaw() { viddy --disable_auto_save --no-title flux get all -A; }
 fi
 
 ## source extra config
