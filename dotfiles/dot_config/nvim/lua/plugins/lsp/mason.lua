@@ -52,12 +52,6 @@ return {
           "vue-language-server",
           "typescript-language-server",
           "eslint-lsp",
-
-          -- rust
-          "rust-analyzer",
-
-          -- python
-          "jedi-language-server",
         },
         auto_update = true,
       })
