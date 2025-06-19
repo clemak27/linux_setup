@@ -1,5 +1,6 @@
 return {
   "nvim-tree/nvim-tree.lua",
+  tag = "nvim-tree-v1.13.0",
   config = function()
     vim.api.nvim_create_autocmd({ "BufEnter" }, {
       pattern = "NvimTree*",
