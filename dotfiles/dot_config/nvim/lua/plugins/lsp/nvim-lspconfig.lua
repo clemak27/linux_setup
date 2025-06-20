@@ -114,7 +114,6 @@ return {
         "nixd",
         "rust_analyzer",
         "terraformls",
-        "texlab",
         "tinymist",
         "ts_ls",
         "vimls",
