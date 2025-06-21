@@ -19,6 +19,7 @@ return {
           "json-lsp",
           "kotlin-language-server",
           "pkl-lsp",
+          "taplo",
 
           -- container
           "dockerfile-language-server",

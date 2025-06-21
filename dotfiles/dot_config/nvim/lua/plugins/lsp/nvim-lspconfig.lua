@@ -113,6 +113,7 @@ return {
         "lua_ls",
         "nixd",
         "rust_analyzer",
+        "taplo",
         "terraformls",
         "tinymist",
         "ts_ls",
