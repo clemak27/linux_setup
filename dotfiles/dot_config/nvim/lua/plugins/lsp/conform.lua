@@ -28,12 +28,13 @@ return {
           go = { "goimports", "gofumpt" },
           sh = { "shfmt" },
           python = { "black" },
+          typst = { "typstyle" },
         },
       })
 
       vim.api.nvim_create_augroup("format_on_write", { clear = true })
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-        pattern = "*.go,*.js,*.ts,*.lua,*.bash,*.sh,*.nix,*.rs",
+        pattern = "*.go,*.js,*.ts,*.lua,*.bash,*.sh,*.nix,*.rs,*.typ",
         group = "format_on_write",
         callback = function(args)
           require("conform").format({
