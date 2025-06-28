@@ -4,6 +4,8 @@ set -eo pipefail
 
 sudo -v
 
+script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
 ## base
 
 ujust switch-to-ext4
@@ -63,22 +65,15 @@ flatpak --user override --filesystem=~/Downloads net.lutris.Lutris
 flatpak --user override --nofilesystem=home net.lutris.Lutris
 flatpak --user override --nofilesystem=host net.lutris.Lutris
 
-## chezmoi
+## homedir
 
-curl -fsLS get.chezmoi.io > chmz
-chmod u+x chmz
-./chmz -b "$HOME/.local/bin"
-rm -f chmz
+brew bundle install --file "$script_dir/Brewfile"
+
 mkdir -p "$HOME/.config/chezmoi"
 printf "sourceDir: %s/Projects/linux_setup" "$HOME" > "$HOME/.config/chezmoi/chezmoi.yaml"
-"$HOME/.local/bin/chezmoi" apply --force
-
-## mise
-
-rpm-ostree install --idempotent gcc-c++
-curl https://mise.run | sh
-"$HOME/.local/bin/mise" trust
-"$HOME/.local/bin/mise" install -y
+chezmoi apply --force
+mise trust -y
+mise install -y
 
 ## syncthing
 
