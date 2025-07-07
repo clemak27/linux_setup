@@ -20,6 +20,7 @@ vim.o.laststatus = 3
 vim.o.lazyredraw = false
 vim.o.magic = true
 vim.o.mat = 2
+vim.o.maxmempattern = 5000
 vim.o.mouse = "a"
 vim.o.number = true
 vim.o.ruler = true
