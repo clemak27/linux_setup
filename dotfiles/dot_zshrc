@@ -41,6 +41,9 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
 
   ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
   zstyle ':omz:update' mode disabled
+  zstyle ':completion:*' use-cache on
+
+  export PATH=".:$PATH"
 
   fpath+=$ZSH_CUSTOM/completions
   fpath+=/home/linuxbrew/.linuxbrew/share/zsh/site-functions
