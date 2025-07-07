@@ -13,6 +13,8 @@ return {
             cwd = require("conform.formatters.prettier").cwd,
             range_args = require("conform.formatters.prettier").range_args,
             args = {
+              "--parser",
+              "markdown",
               "--prose-wrap",
               "always",
               "--stdin-filepath",
