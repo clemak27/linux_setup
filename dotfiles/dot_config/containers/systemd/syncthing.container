@@ -1,5 +1,5 @@
 [Container]
-Image=docker.io/syncthing/syncthing
+Image=docker.io/syncthing/syncthing:1.29.3
 AutoUpdate=registry
 Network=host
 Volume=%h:%h
