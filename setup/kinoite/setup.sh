@@ -27,7 +27,11 @@ if [ "$HOSTNAME" = "newton" ]; then
     "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" \
     "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
   rpm-ostree install --idempotent xorg-x11-drv-nvidia akmod-nvidia
-  rpm-ostree kargs --append-if-missing=rd.driver.blacklist=nouveau --append-if-missing=modprobe.blacklist=nouveau --append-if-missing=nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
+  rpm-ostree kargs \
+    --append-if-missing=rd.driver.blacklist=nouveau,nova_core \
+    --append-if-missing=modprobe.blacklist=nouveau,nova_core \
+    --append-if-missing=nvidia-drm.modeset=1 \
+    --append-if-missing=initcall_blacklist=simpledrm_platform_driver_init
 fi
 
 ## applications
