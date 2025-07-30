@@ -15,9 +15,10 @@ local weztermCfg = {
   enable_wayland = true,
 
   color_scheme = "Catppuccin Mocha",
-  window_background_opacity = nil,
+  window_background_opacity = 0.8,
   colors = {
-    background = cp_colors.base,
+    background = "#000000",
+    split = "#555095",
     tab_bar = {
       background = cp_colors.crust,
       active_tab = {

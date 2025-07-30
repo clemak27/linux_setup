@@ -22,6 +22,17 @@ wmclass=firefox
 wmclasscomplete=true
 wmclassmatch=2
 
+[21d15c92-14ac-4b5c-ae4d-d27f16440763]
+Description=portait screen
+desktops=\\0
+desktopsrule=2
+maximizehoriz=true
+maximizehorizrule=3
+maximizevert=true
+maximizevertrule=3
+wmclass=(feishin|Signal|org\\.kde\\.kontact|vesktop)
+wmclassmatch=3
+
 [General]
-count=1
-rules=1
+count=2
+rules=1,21d15c92-14ac-4b5c-ae4d-d27f16440763

@@ -87,6 +87,17 @@ flatpak install -y flathub \
   org.wezfurlong.wezterm
 flatpak override --user --filesystem=xdg-config/gtk-3.0 --filesystem=xdg-config/gtk-4.0
 
+# luisbocanegra.panel.colorizer
+# luisbocanegra.panelspacer.extended
+# org.dhruv8sh.kara
+# krohnkite
+if [ ! -f "/etc/yum.repos.d/home_paul4us.repo" ]; then
+  curl -fL -o home_paul4us.repo https://download.opensuse.org/repositories/home:paul4us/Fedora_42/home:paul4us.repo
+  sudo cp home_paul4us.repo /etc/yum.repos.d
+  sudo restorecon /etc/yum.repos.d/home_paul4us.repo
+  rpm-ostree install --idempotent klassy
+fi
+
 ## openrgb
 
 if [ "$HOSTNAME" = "maxwell" ]; then
