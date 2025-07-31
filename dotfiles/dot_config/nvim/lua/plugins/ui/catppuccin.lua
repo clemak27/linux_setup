@@ -8,6 +8,10 @@ return {
         flavour = "mocha",
         compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
         transparent_background = true,
+        float = {
+          transparent = true,
+          solid = false,
+        },
         color_overrides = {},
         custom_highlights = function(colors)
           return {
