@@ -8,6 +8,8 @@ local cp_colors = {
   subtext0 = "#a6adc8",
 }
 
+local accentColor = "#555095"
+
 local weztermCfg = {
   xcursor_theme = "breeze_cursors",
 
@@ -18,7 +20,7 @@ local weztermCfg = {
   window_background_opacity = 0.8,
   colors = {
     background = "#000000",
-    split = "#555095",
+    split = accentColor,
     tab_bar = {
       background = cp_colors.crust,
       active_tab = {
