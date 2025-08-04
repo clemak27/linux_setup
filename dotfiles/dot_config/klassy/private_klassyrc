@@ -1,0 +1,22 @@
+[Global]
+LookAndFeelSet=org.kde.breeze.desktop
+
+[Windeco]
+BoldButtonIcons=BoldIconsHiDpiOnly
+ButtonIconStyle=StyleOxygen
+
+[Windeco Exception 0]
+BorderSize=0
+Enabled=true
+ExceptionBorder=false
+ExceptionPreset=
+ExceptionProgramNamePattern=
+ExceptionWindowPropertyPattern=.*
+ExceptionWindowPropertyType=0
+HideTitleBar=true
+OpaqueTitleBar=false
+PreventApplyOpacityToHeader=false
+
+[WindowOutlineStyle]
+ThinWindowOutlineThickness=2.499999999999999
+WindowOutlineAccentColorOpacityActive=100
