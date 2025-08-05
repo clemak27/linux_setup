@@ -2,6 +2,7 @@ return {
   {
     "catppuccin/nvim",
     as = "catppuccin",
+    tag = "v1.11.0",
     priority = 1000,
     config = function()
       require("catppuccin").setup({
