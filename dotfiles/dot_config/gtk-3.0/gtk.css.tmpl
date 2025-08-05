@@ -10,13 +10,7 @@
 @define-color dialog_fg_color @popover_fg_color;
 @define-color card_bg_color rgba(255, 255, 255, 0.05);
 @define-color card_fg_color @window_fg_color;
-{{- if eq .chezmoi.hostname "maxwell" }}
 @define-color accent_bg_color #555095;
-{{- else if eq .chezmoi.hostname "newton" }}
-@define-color accent_bg_color #4031a9;
-{{- else if eq .chezmoi.hostname "fermi" }}
-@define-color accent_bg_color #65448c;
-{{- end }}
 @define-color accent_color @accent_bg_color;
 
 @import 'colors.css';
