@@ -5,6 +5,7 @@ LookAndFeelSet=org.kde.breeze.desktop
 BoldButtonIcons=BoldIconsHiDpiOnly
 ButtonIconStyle=StyleOxygen
 
+{{- if not (eq .chezmoi.hostname "fermi") }}
 [Windeco Exception 0]
 BorderSize=0
 Enabled=true
@@ -16,7 +17,8 @@ ExceptionWindowPropertyType=0
 HideTitleBar=true
 OpaqueTitleBar=false
 PreventApplyOpacityToHeader=false
+{{- end }}
 
 [WindowOutlineStyle]
-ThinWindowOutlineThickness=2.499999999999999
+ThinWindowOutlineThickness=2.5
 WindowOutlineAccentColorOpacityActive=100
