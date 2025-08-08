@@ -22,6 +22,7 @@ wmclass=firefox
 wmclasscomplete=true
 wmclassmatch=2
 
+{{ if eq .chezmoi.hostname "maxwell" }}
 [21d15c92-14ac-4b5c-ae4d-d27f16440763]
 Description=portait screen
 desktops=\\0
@@ -36,3 +37,8 @@ wmclassmatch=3
 [General]
 count=2
 rules=1,21d15c92-14ac-4b5c-ae4d-d27f16440763
+{{ else }}
+[General]
+count=1
+rules=1
+{{ end }}

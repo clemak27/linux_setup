@@ -67,7 +67,9 @@ kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "
 kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "theme" "Klassy"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "library" "org.kde.klassy"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "floatingTitle" "Picture-in-Picture"
-kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "ignoreScreen" "DP-3"
+if [ "$HOSTNAME" = "maxwell" ]; then
+  kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "ignoreScreen" "DP-3"
+fi
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "preventMinimize" "false"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "screenGapBetween" "9"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "screenGapBottom" "9"
