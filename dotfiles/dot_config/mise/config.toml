@@ -2,6 +2,7 @@
 hk = "latest"
 pkl = "latest"
 usage = "latest"
+"pipx:catt" = "latest"
 
 [env]
 HK_MISE = true
