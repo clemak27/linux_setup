@@ -62,10 +62,10 @@ local weztermCfg = {
   window_decorations = "TITLE | RESIZE",
   window_close_confirmation = "NeverPrompt",
   window_padding = {
-    left = 1,
-    right = 1,
-    top = 1,
-    bottom = 1,
+    left = 2,
+    right = 2,
+    top = 2,
+    bottom = 2,
   },
 
   audible_bell = "Disabled",
