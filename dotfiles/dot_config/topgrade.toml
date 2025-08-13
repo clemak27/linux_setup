@@ -1,0 +1,22 @@
+[misc]
+disable = ["containers", "toolbx", "node", "vim", "yazi", "uv", "shell"]
+no_retry = true
+cleanup = true
+no_self_update = true
+assume_yes = true
+
+[post_commands]
+"Chezmoi" = "chezmoi apply --force"
+
+[linux]
+rpm_ostree = true
+
+[git]
+repos = ["~/Projects/linux_setup/"]
+arguments = "--rebase --autostash"
+
+[firmware]
+upgrade = true
+
+[flatpak]
+use_sudo = false
