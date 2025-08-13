@@ -28,7 +28,7 @@ if [ ! -d "$HOME/.local/share/plasma/plasmoids/org.dhruv8sh.kara" ]; then
   tar xzf v$kara_version.tar.gz
   cd kara-$kara_version || :
   sh install.sh
-  cd .. || :
+  cd /tmp/plasma_ext || :
 fi
 
 if [ ! -d "$HOME/.local/share/kwin/scripts/krohnkite" ]; then
@@ -43,4 +43,13 @@ if [ ! -f "/etc/yum.repos.d/home_paul4us.repo" ]; then
   sudo cp home_paul4us.repo /etc/yum.repos.d
   sudo restorecon /etc/yum.repos.d/home_paul4us.repo
   rpm-ostree install --idempotent klassy
+fi
+
+if [ ! -d "$HOME/.local/share/kwin/effects/kwin4_effect_geometry_change" ]; then
+  geometry_version=1.5
+  geometry_tar=kwin4_effect_geometry_change_1_5.tar.gz
+
+  curl -fLO https://github.com/peterfajdiga/kwin4_effect_geometry_change/releases/download/v$geometry_version/$geometry_tar
+  tar xzf $geometry_tar
+  mv kwin4_effect_geometry_change "$HOME/.local/share/kwin/effects/kwin4_effect_geometry_change"
 fi

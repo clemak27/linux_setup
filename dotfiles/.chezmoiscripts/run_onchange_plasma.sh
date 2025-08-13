@@ -61,6 +61,8 @@ kwriteconfig6 --file "$config_dir/kwinrc" --group "NightColor" --key "Active" "t
 kwriteconfig6 --file "$config_dir/kwinrc" --group "NightColor" --key "NightTemperature" "4400"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "blurEnabled" "true"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "contrastEnabled" "false"
+kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "krohnkiteEnabled" "true"
+kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "kwin4_effect_geometry_changeEnabled" "true"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Xwayland" --key "Scale" "1"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "ButtonsOnLeft" "X"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "ButtonsOnRight" "F"
