@@ -78,6 +78,7 @@ flatpak override --user --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.
 rpm-ostree install --idempotent ksshaskpass kontact
 flatpak install -y flathub \
   com.calibre_ebook.calibre \
+  com.github.wwmm.easyeffects \
   com.obsproject.Studio \
   hu.irl.cameractrls \
   org.gimp.GIMP \
