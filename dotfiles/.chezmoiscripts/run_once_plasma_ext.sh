@@ -26,9 +26,8 @@ if [ ! -d "$HOME/.local/share/plasma/plasmoids/org.dhruv8sh.kara" ]; then
 
   curl -fLO https://github.com/dhruv8sh/kara/archive/refs/tags/v$kara_version.tar.gz
   tar xzf v$kara_version.tar.gz
-  cd kara-$kara_version || :
-  sh install.sh
-  cd /tmp/plasma_ext || :
+  mkdir -p "$HOME/.local/share/plasma/plasmoids"
+  mv kara-$kara_version "$HOME/.local/share/plasma/plasmoids/org.dhruv8sh.kara"
 fi
 
 if [ ! -d "$HOME/.local/share/kwin/scripts/krohnkite" ]; then
@@ -51,5 +50,6 @@ if [ ! -d "$HOME/.local/share/kwin/effects/kwin4_effect_geometry_change" ]; then
 
   curl -fLO https://github.com/peterfajdiga/kwin4_effect_geometry_change/releases/download/v$geometry_version/$geometry_tar
   tar xzf $geometry_tar
+  mkdir -p "$HOME/.local/share/kwin/effects"
   mv kwin4_effect_geometry_change "$HOME/.local/share/kwin/effects/kwin4_effect_geometry_change"
 fi
