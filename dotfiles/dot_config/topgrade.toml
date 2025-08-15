@@ -1,17 +1,24 @@
 [misc]
-disable = ["containers", "toolbx", "node", "vim", "yazi", "uv", "shell"]
 no_retry = true
 cleanup = true
 no_self_update = true
 assume_yes = true
-
-[post_commands]
-"Chezmoi" = "chezmoi apply --force"
+only = [
+  "system",
+  "firmware",
+  "flatpak",
+  "brew_cask",
+  "brew_formula",
+  "mise",
+  "krew",
+  "git_repos",
+]
 
 [linux]
 rpm_ostree = true
 
 [git]
+pull_predefined = false
 repos = ["~/Projects/linux_setup/"]
 arguments = "--rebase --autostash"
 
@@ -20,3 +27,8 @@ upgrade = true
 
 [flatpak]
 use_sudo = false
+
+[post_commands]
+# the upstream command does not read the config, this should also happen after git_repos
+# https://github.com/topgrade-rs/topgrade/blob/main/src/steps/generic.rs#L856
+"chezmoi" = "chezmoi apply --force"
