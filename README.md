@@ -6,7 +6,7 @@ This repo contains my dotfiles and setup for my Linux devices:
   - Runs Fedora Kinoite
   - Current Specs:
     - CPU: AMD Ryzen 7 9700X
-    - GPU: AMD ATI Sapphire Radeon RX 6700
+    - GPU: AMD Radeon RX 6700 XT
     - Board: MSI MAG B650 TOMAHAWK WIFI
     - Memory: 32 GB
     - Screens: 3440x1440 + 1920x1080
@@ -24,10 +24,12 @@ as inspiration.
 
 My current setup works like this:
 
-| What              | Where           |
-| ----------------- | --------------- |
-| OS specific stuff | `rpm-ostree`    |
-| GUI               | `flatpak`       |
-| nvim-plugins      | `lazy.nvim`     |
-| LSP/DAP           | `mason.nvim`    |
-| dotfiles          | `chezmoi`       |
+| What              | Where        |
+| ----------------- | ------------ |
+| OS specific stuff | `rpm-ostree` |
+| GUI               | `flatpak`    |
+| TUI               | `brew`       |
+| nvim-plugins      | `lazy.nvim`  |
+| LSP/DAP           | `mason.nvim` |
+| dotfiles          | `chezmoi`    |
+| project-specific  | `mise`       |
