@@ -21,16 +21,11 @@ sudo sed -i 's/enabled=1/enabled=0/' \
   /etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo \
   /etc/yum.repos.d/rpmfusion-nonfree-steam.repo
 
-# nonfree repos
-rpm-ostree install \
-  "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" \
-  "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
-
-# aptx
-rpm-ostree install --idempotent pipewire-codec-aptx
-
 if [ "$HOSTNAME" = "newton" ]; then
   # shit gpu
+  rpm-ostree install \
+    "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" \
+    "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
   rpm-ostree install --idempotent xorg-x11-drv-nvidia akmod-nvidia
   rpm-ostree kargs \
     --append-if-missing=rd.driver.blacklist=nouveau,nova_core \
