@@ -52,7 +52,7 @@ return {
     },
   },
   {
-    "echasnovski/mini.ai",
+    "nvim-mini/mini.ai",
     version = false,
     config = function()
       require("mini.ai").setup({
