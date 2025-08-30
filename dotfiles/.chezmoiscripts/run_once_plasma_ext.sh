@@ -39,7 +39,7 @@ fi
 
 if [ ! -f "/etc/yum.repos.d/home_paul4us.repo" ]; then
   curl -fL -o home_paul4us.repo https://download.opensuse.org/repositories/home:paul4us/Fedora_42/home:paul4us.repo
-  sudo cp home_paul4us.repo /etc/yum.repos.d
+  sudo mv home_paul4us.repo /etc/yum.repos.d
   sudo restorecon /etc/yum.repos.d/home_paul4us.repo
   rpm-ostree install --idempotent klassy
 fi
