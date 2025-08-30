@@ -118,6 +118,7 @@ flatpak install -y flathub \
   com.valvesoftware.Steam \
   com.valvesoftware.Steam.CompatibilityTool.Proton-GE \
   dev.vencord.Vesktop \
+  io.github.Foldex.AdwSteamGtk \
   net.lutris.Lutris \
   net.retrodeck.retrodeck \
   org.freedesktop.Platform.VulkanLayer.MangoHud//24.08 \
