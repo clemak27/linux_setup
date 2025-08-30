@@ -61,4 +61,9 @@
 	email = clemak27@mailbox.org
 	name = clemak27
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN3PSHWVz5/LwHEEfo+7y2o5KH7dlLyfySWnyyi7LLxe silfur
+{{- else if eq .chezmoi.hostname "lagrange" }}
+[user]
+	email = clemak27@mailbox.org
+	name = clemak27
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGjRDUS9h4F+p7C6U+0jJtChS+wMUew7lhwhimuuVAhz lagrange
 {{- end }}
