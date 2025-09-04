@@ -3,6 +3,8 @@ hk = "latest"
 pkl = "latest"
 usage = "latest"
 "pipx:catt" = "latest"
+# https://github.com/kubernetes/kubernetes/issues/133864
+kubectl = "1.33.4"
 
 [env]
 HK_MISE = true
