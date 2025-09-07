@@ -8,7 +8,7 @@ local cp_colors = {
   subtext0 = "#a6adc8",
 }
 
-local accentColor = "#555095"
+local accentColor = "#926ee4"
 
 local weztermCfg = {
   xcursor_theme = "breeze_cursors",
