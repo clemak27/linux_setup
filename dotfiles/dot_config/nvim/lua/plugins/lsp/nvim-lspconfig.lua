@@ -198,6 +198,7 @@ return {
         "rust_analyzer",
         "taplo",
         "terraformls",
+        "tailwindcss",
         "tinymist",
         "ts_ls",
         "vimls",
