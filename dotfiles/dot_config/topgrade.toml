@@ -32,3 +32,4 @@ use_sudo = false
 # the upstream command does not read the config, this should also happen after git_repos
 # https://github.com/topgrade-rs/topgrade/blob/main/src/steps/generic.rs#L856
 "chezmoi" = "chezmoi apply --force"
+"mise-en-place tools" = "mise i -y"
