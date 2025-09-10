@@ -26,11 +26,4 @@ return {
     vim.o.winborder = "rounded"
     require("plugins.lsp.util").set_mappings()
   end,
-
-  set_base_config = function()
-    return {
-      capabilities = require("blink.cmp").get_lsp_capabilities(),
-      on_attach = require("plugins.lsp.util").on_attach,
-    }
-  end,
 }

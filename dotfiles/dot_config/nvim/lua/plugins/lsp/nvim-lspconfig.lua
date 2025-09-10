@@ -177,143 +177,89 @@ return {
       },
     },
     config = function()
-      local lspconfig = require("lspconfig")
+      vim.lsp.config("*", {
+        capabilities = require("blink.cmp").get_lsp_capabilities(),
+        on_attach = require("plugins.lsp.util").on_attach,
+      })
 
-      local servers = {
-        "bashls",
-        "biome",
-        "cssls",
-        "dockerls",
-        "eslint",
-        "golangci_lint_ls",
-        "gopls",
-        "gradle_ls",
-        "html",
-        "jedi_language_server",
-        "jsonls",
-        "kotlin_language_server",
-        "ltex_plus",
-        "lua_ls",
-        "nixd",
-        "rust_analyzer",
-        "taplo",
-        "terraformls",
-        "tailwindcss",
-        "tinymist",
-        "ts_ls",
-        "vimls",
-        "volar",
-        "yamlls",
-      }
+      vim.lsp.config("bashls", { filetypes = { "bash", "sh", "zsh" } })
+      vim.lsp.enable("bashls")
+
+      vim.lsp.enable("biome")
+      vim.lsp.enable("cssls")
+      vim.lsp.enable("dockerls")
+      vim.lsp.enable("eslint")
+      vim.lsp.enable("golangci_lint_ls")
+
+      vim.lsp.config("gopls", {
+        settings = {
+          gopls = {
+            gofumpt = true,
+            ["ui.inlayhint.hints"] = {
+              assignVariableTypes = false,
+              compositeLiteralFields = false,
+              compositeLiteralTypes = false,
+              constantValues = false,
+              functionTypeParameters = true,
+              parameterNames = true,
+              rangeVariableTypes = false,
+            },
+          },
+        },
+      })
+      vim.lsp.inlay_hint.enable(true)
+      vim.lsp.enable("gopls")
+
+      vim.lsp.enable("gradle_ls")
+      vim.lsp.enable("html")
+      vim.lsp.enable("jedi_language_server")
+
+      -- this is not 100% correct, but this way jsonls doesn't complain about comments in json5 files
+      vim.api.nvim_create_augroup("json5_ft", { clear = true })
+      vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+        pattern = "*.json5",
+        group = "json5_ft",
+        callback = function()
+          vim.api.nvim_exec2("set filetype=jsonc", { output = false })
+        end,
+      })
+      vim.lsp.config("jsonls", { filetypes = { "json", "jsonc", "json5" } })
+      vim.lsp.enable("jsonls")
+
+      vim.lsp.enable("kotlin_language_server")
+
+      vim.lsp.config("ltex_plus", {
+        on_attach = function(client, bufnr)
+          vim.o.winborder = "rounded"
+          require("plugins.lsp.util").set_mappings()
+
+          require("ltex_extra").setup({
+            load_langs = { "en-GB", "de-DE" },
+            init_check = true,
+            path = os.getenv("HOME") .. "/.ltex",
+          })
+        end,
+      })
+      if os.getenv("NVIM_LTEX_ENABLE") == "false" then
+        vim.lsp.config("ltex_plus", { filetypes = { "imaginaryFiletype" } })
+      end
+      vim.lsp.enable("ltex_plus")
+
+      vim.lsp.config("lua_ls", {
+        cmd = { "lua-language-server" },
+        settings = {
+          Lua = {
+            telemetry = {
+              enable = false,
+            },
+          },
+        },
+      })
+      vim.lsp.enable("lua_ls")
 
       if vim.fn.executable("nixd") == 1 then
-        table.insert(servers, "nixd")
-      end
-
-      for _, server in pairs(servers) do
-        local config = require("plugins.lsp.util").set_base_config()
-
-        if server == "bashls" then
-          config.filetypes = { "bash", "sh", "zsh" }
-        end
-
-        if server == "jsonls" then
-          config.filetypes = { "json", "jsonc", "json5" }
-          -- this is not 100% correct, but this way jsonls doesn't complain about comments in json5 files
-          vim.api.nvim_create_augroup("json5_ft", { clear = true })
-          vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-            pattern = "*.json5",
-            group = "json5_ft",
-            callback = function()
-              vim.api.nvim_exec2("set filetype=jsonc", { output = false })
-            end,
-          })
-        end
-
-        if server == "lua_ls" then
-          config.cmd = { "lua-language-server" }
-          config.settings = {
-            Lua = {
-              telemetry = {
-                enable = false,
-              },
-            },
-          }
-        end
-
-        if server == "gopls" then
-          config.settings = {
-            gopls = {
-              gofumpt = true,
-              ["ui.inlayhint.hints"] = {
-                assignVariableTypes = false,
-                compositeLiteralFields = false,
-                compositeLiteralTypes = false,
-                constantValues = false,
-                functionTypeParameters = true,
-                parameterNames = true,
-                rangeVariableTypes = false,
-              },
-            },
-          }
-          vim.lsp.inlay_hint.enable(true)
-        end
-
-        if server == "ts_ls" and vim.fn.isdirectory(vim.fn.getcwd() .. "/node_modules/vue") ~= false then
-          config.init_options = {
-            plugins = {
-              {
-                name = "@vue/typescript-plugin",
-                -- npm i --save-dev @vue/typescript-plugin
-                location = os.getenv("HOME") .. "/.local/bin/npm/lib/node_modules/@vue/typescript-plugin",
-                languages = { "javascript", "typescript", "vue" },
-              },
-            },
-          }
-          config.filetypes = {
-            "javascript",
-            "typescript",
-            "vue",
-          }
-        end
-
-        if server == "ltex_plus" then
-          config.on_attach = function(client, bufnr)
-            vim.o.winborder = "rounded"
-            require("plugins.lsp.util").set_mappings()
-
-            require("ltex_extra").setup({
-              load_langs = { "en-GB", "de-DE" },
-              init_check = true,
-              path = os.getenv("HOME") .. "/.ltex",
-            })
-          end
-
-          local ltexEnabled = true
-          if os.getenv("NVIM_LTEX_ENABLE") == "false" then
-            config.filetypes = { "imaginaryFiletype" }
-          end
-
-          config.settings = {
-            ltex = {
-              enabled = ltexEnabled,
-            },
-          }
-        end
-
-        if server == "yamlls" then
-          config.settings = {
-            yaml = {
-              keyOrdering = false,
-              editor = {
-                formatOnType = false,
-              },
-            },
-          }
-        end
-
-        if server == "nixd" then
-          config.settings = {
+        vim.lsp.config("nixd", {
+          settings = {
             nixd = {
               diagnostic = {
                 suppress = {
@@ -324,11 +270,52 @@ return {
                 command = { "nixfmt" },
               },
             },
-          }
-        end
-
-        lspconfig[server].setup(config)
+          },
+        })
+        vim.lsp.enable("nixd")
       end
+
+      vim.lsp.enable("rust_analyzer")
+      vim.lsp.enable("taplo")
+      vim.lsp.enable("tofu_ls")
+      vim.lsp.enable("tailwindcss")
+      vim.lsp.enable("tinymist")
+      vim.lsp.enable("ts_ls")
+
+      if vim.fn.isdirectory(vim.fn.getcwd() .. "/node_modules/vue") ~= false then
+        vim.lsp.config("ts_ls", {
+          init_options = {
+            plugins = {
+              {
+                name = "@vue/typescript-plugin",
+                -- npm i --save-dev @vue/typescript-plugin
+                location = os.getenv("HOME") .. "/.local/bin/npm/lib/node_modules/@vue/typescript-plugin",
+                languages = { "javascript", "typescript", "vue" },
+              },
+            },
+          },
+          filetypes = {
+            "javascript",
+            "typescript",
+            "vue",
+          },
+        })
+      end
+
+      vim.lsp.enable("vimls")
+      vim.lsp.enable("vue_ls")
+
+      vim.lsp.config("yamlls", {
+        settings = {
+          yaml = {
+            keyOrdering = false,
+            editor = {
+              formatOnType = false,
+            },
+          },
+        },
+      })
+      vim.lsp.enable("yamlls")
 
       -- customize signs
       vim.diagnostic.config({
