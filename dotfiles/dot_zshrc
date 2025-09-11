@@ -43,7 +43,9 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
   zstyle ':omz:update' mode disabled
   zstyle ':completion:*' use-cache on
 
-  export PATH=".:$PATH"
+  gradlew() {
+      [ -x ./gradlew ] && ./gradlew "$@"
+  }
 
   fpath+=$ZSH_CUSTOM/completions
   fpath+=/home/linuxbrew/.linuxbrew/share/zsh/site-functions
