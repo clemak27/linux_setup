@@ -6,7 +6,7 @@ mkdir -p /tmp/plasma_ext
 cd /tmp/plasma_ext || :
 
 # renovate: datasource=github-tags depName=luisbocanegra/plasma-panel-colorizer versioning=loose
-panel_colorizer_version=4.3.2
+panel_colorizer_version=5.0.0
 panel_colorizer_plasmoid=plasmoid-panel-colorizer-v$panel_colorizer_version.plasmoid
 curl -fLO https://github.com/luisbocanegra/plasma-panel-colorizer/releases/download/v$panel_colorizer_version/$panel_colorizer_plasmoid
 
