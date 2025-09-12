@@ -1,0 +1,25 @@
+*             text=auto
+*.css         text diff=css
+*.eps         binary
+*.gif         binary
+*.go          text diff=golang
+*.gradle      text diff=java
+*.gradle.kts  text diff=kotlin
+*.groovy      text diff=java
+*.htm         text diff=html
+*.html        text diff=html
+*.ico         binary
+*.java        text diff=java
+*.jpeg        binary
+*.jpg         binary
+*.kt          text diff=kotlin
+*.md          text diff=markdown linguist-detectable
+*.patch       -text
+*.png         binary
+*.py          text diff=python
+*.rs          text diff=rust
+*.scss        text diff=css
+*.svg         text
+*.tif         binary
+*.tiff        binary
+*.toml        text diff=toml
