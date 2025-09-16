@@ -17,7 +17,7 @@ local weztermCfg = {
   enable_wayland = true,
 
   color_scheme = "Catppuccin Mocha",
-  window_background_opacity = 0.8,
+  window_background_opacity = 0.7,
   colors = {
     background = "#000000",
     split = accentColor,
