@@ -66,7 +66,7 @@ if [ ! -f "/etc/yum.repos.d/home_paul4us.repo" ]; then
   rpm-ostree install --idempotent klassy
 fi
 
-if ! rpm-ostree status -b --jsonpath=".deployments[0].requested-local-packages[0]" | grep kwin-better-blur; then
+if ! rpm-ostree status -b --jsonpath=".deployments[0].requested-local-packages[0]" | grep kwin-better-blur &> /dev/null; then
   distrobox-create --name better-blur-setup --additional-packages "git cmake extra-cmake-modules gcc-g++ kf6-kwindowsystem-devel plasma-workspace-devel libplasma-devel qt6-qtbase-private-devel qt6-qtbase-devel cmake kwin-devel extra-cmake-modules kwin-devel kf6-knotifications-devel kf6-kio-devel kf6-kcrash-devel kf6-ki18n-devel kf6-kguiaddons-devel libepoxy-devel kf6-kglobalaccel-devel kf6-kcmutils-devel kf6-kconfigwidgets-devel kf6-kdeclarative-devel kdecoration-devel kf6-kglobalaccel kf6-kdeclarative libplasma kf6-kio qt6-qtbase kf6-kguiaddons kf6-ki18n wayland-devel libdrm-devel rpm-build"
   distrobox-enter better-blur-setup -- zsh -c 'git clone https://github.com/taj-ny/kwin-effects-forceblur --branch=v1.5.0; cd kwin-effects-forceblur; mkdir build; cd build; cmake .. -DCMAKE_INSTALL_PREFIX=/usr; make -j$(nproc); cpack -V -G RPM;'
   distrobox-stop better-blur-setup --yes
