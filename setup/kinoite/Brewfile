@@ -3,6 +3,7 @@ brew "bat"
 brew "chezmoi"
 brew "cosign"
 brew "eza"
+brew "fastfetch"
 brew "fd"
 brew "fzf"
 brew "jq"
@@ -65,7 +66,3 @@ brew "node"
 # java
 brew "gradle"
 brew "openjdk"
-
-# gay shit
-brew "fastfetch"
-brew "hyfetch"
