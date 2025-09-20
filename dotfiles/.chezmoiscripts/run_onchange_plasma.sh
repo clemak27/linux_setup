@@ -15,7 +15,7 @@ kwriteconfig6 --file "$config_dir/dolphinrc" --group "KFileDialog Settings" --ke
 kwriteconfig6 --file "$config_dir/kcminputrc" --group "Mouse" --key "cursorTheme" "breeze_cursors"
 
 kwriteconfig6 --file "$config_dir/kdeglobals" --group "General" --key "ColorScheme" "BlackBreeze"
-kwriteconfig6 --file "$config_dir/kdeglobals" --group "General" --key "AccentColor" "85,80,149"
+kwriteconfig6 --file "$config_dir/kdeglobals" --group "General" --key "AccentColor" "146,110,228"
 kwriteconfig6 --file "$config_dir/kdeglobals" --group "General" --key "accentColorFromWallpaper" "false"
 kwriteconfig6 --file "$config_dir/kdeglobals" --group "Icons" --key "Theme" "Papirus-Dark"
 kwriteconfig6 --file "$config_dir/kdeglobals" --group "KDE" --key "ShowDeleteCommand" "false"
