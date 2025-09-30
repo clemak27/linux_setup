@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -eo pipefail
+
+# Brewfile hash: {{ include "dot_Brewfile" | sha256sum }}
+brew bundle install --global

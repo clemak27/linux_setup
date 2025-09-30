@@ -67,7 +67,7 @@ flatpak --user override --nofilesystem=host net.lutris.Lutris
 
 ## homedir
 
-brew bundle install --file "$script_dir/Brewfile"
+brew bundle install --file "$HOME/Projects/linux_setup/dotfiles/dot_Brewfile"
 
 mkdir -p "$HOME/.config/chezmoi"
 printf "sourceDir: %s/Projects/linux_setup" "$HOME" > "$HOME/.config/chezmoi/chezmoi.yaml"

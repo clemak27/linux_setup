@@ -146,7 +146,7 @@ export HOMEBREW_PREFIX=$brew_dir
 export HOMEBREW_REPOSITORY=$brew_dir/Homebrew
 export HOMEBREW_NO_ANALYTICS=1
 export PATH="$brew_dir/bin:$PATH"
-brew bundle install --file "$script_dir/Brewfile"
+brew bundle install --file "$HOME/Projects/linux_setup/dotfiles/dot_Brewfile"
 
 ## homedir
 
