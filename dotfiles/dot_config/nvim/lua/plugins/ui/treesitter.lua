@@ -33,9 +33,9 @@ return {
       indent = {
         enable = true,
       },
-      -- does not compile on macOS
       ignore_install = {
         "phpdoc",
+        "ipkg",
       },
     })
   end,
