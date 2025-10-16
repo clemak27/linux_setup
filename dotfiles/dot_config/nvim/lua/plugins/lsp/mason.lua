@@ -17,7 +17,7 @@ return {
           "css-lsp",
           "html-lsp",
           "json-lsp",
-          "kotlin-language-server",
+          "kotlin-lsp",
           "pkl-lsp",
           "taplo",
 

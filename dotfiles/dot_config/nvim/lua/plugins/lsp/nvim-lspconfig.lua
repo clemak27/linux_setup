@@ -226,7 +226,7 @@ return {
       vim.lsp.config("jsonls", { filetypes = { "json", "jsonc", "json5" } })
       vim.lsp.enable("jsonls")
 
-      vim.lsp.enable("kotlin_language_server")
+      vim.lsp.enable("kotlin_lsp")
 
       vim.lsp.config("ltex_plus", {
         on_attach = function(client, bufnr)
