@@ -9,6 +9,7 @@ only = [
   "flatpak",
   "brew_cask",
   "brew_formula",
+  "distrobox",
   "mise",
   "krew",
   "git_repos",
