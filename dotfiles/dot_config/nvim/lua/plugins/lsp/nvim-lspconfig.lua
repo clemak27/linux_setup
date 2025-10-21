@@ -32,6 +32,8 @@ return {
       },
       {
         "stevearc/overseer.nvim",
+        -- https://github.com/stevearc/overseer.nvim/pull/448
+        tag = "v1.6.0",
         config = function()
           require("overseer").setup({
             task_list = {
