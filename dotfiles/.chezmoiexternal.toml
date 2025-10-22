@@ -6,7 +6,7 @@
   refreshPeriod = "168h"
 [".oh-my-zsh/custom/plugins/gradle-completion"]
   type = "archive"
-  url = "https://github.com/gradle/gradle-completion/archive/master.tar.gz"
+  url = "https://github.com/gradle/gradle-completion/releases/download/v1.6.0/gradle-completion-1.6.0.tar.gz"
   exact = true
   stripComponents = 1
   refreshPeriod = "168h"
