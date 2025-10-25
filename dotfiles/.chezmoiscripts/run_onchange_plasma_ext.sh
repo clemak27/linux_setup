@@ -16,7 +16,7 @@ if [ "$panel_colorizer_current" != "$panel_colorizer_version" ]; then
 fi
 
 # renovate: datasource=github-tags depName=luisbocanegra/plasma-panel-spacer-extended versioning=loose
-panelspacer_extended_version=1.11.2
+panelspacer_extended_version=1.11.3
 panelspacer_extended_plasmoid=plasmoid-spacer-extended-v$panelspacer_extended_version.plasmoid
 panelspacer_extended_current=$(cat "$HOME/.local/share/plasma/plasmoids/luisbocanegra.panelspacer.extended/metadata.json" | jq -r '.KPlugin.Version' || echo "0.0.0")
 
