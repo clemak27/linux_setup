@@ -110,6 +110,8 @@ flatpak install -y flathub \
   io.github.Foldex.AdwSteamGtk \
   net.lutris.Lutris \
   net.retrodeck.retrodeck \
+  org.freedesktop.Platform.VulkanLayer.MangoHud//25.08 \
+  org.freedesktop.Platform.VulkanLayer.gamescope//25.08 \
   org.freedesktop.Platform.VulkanLayer.MangoHud//24.08 \
   org.freedesktop.Platform.VulkanLayer.gamescope//24.08 \
   org.freedesktop.Platform.VulkanLayer.MangoHud//23.08 \
