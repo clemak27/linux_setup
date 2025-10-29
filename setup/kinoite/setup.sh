@@ -4,22 +4,7 @@ set -eo pipefail
 
 sudo -v
 
-script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
-
 ## base
-
-if ! command -v zsh &> /dev/null; then
-  rpm-ostree install --idempotent --apply-live distrobox gcc-c++ vim wl-clipboard zsh
-  sudo usermod -s /usr/bin/zsh clemens
-fi
-
-# disable unused registries
-sudo sed -i 's/enabled=1/enabled=0/' \
-  /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:phracek:PyCharm.repo \
-  /etc/yum.repos.d/fedora-cisco-openh264.repo \
-  /etc/yum.repos.d/google-chrome.repo \
-  /etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo \
-  /etc/yum.repos.d/rpmfusion-nonfree-steam.repo
 
 if [ "$HOSTNAME" = "newton" ]; then
   # shit gpu
@@ -55,14 +40,10 @@ flatpak remote-delete fedora
 
 ## podman
 
-rpm-ostree install --idempotent podman-docker podman-compose
-sudo mkdir -p /etc/containers
-sudo touch /etc/containers/nodocker
 systemctl --user enable podman.socket
 
 ## firefox
 
-rpm-ostree override remove firefox firefox-langpacks
 flatpak install -y flathub \
   org.freedesktop.Platform.ffmpeg-full//24.08 \
   org.mozilla.firefox
@@ -70,7 +51,6 @@ flatpak override --user --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.
 
 ## kde
 
-rpm-ostree install --idempotent ksshaskpass kontact
 flatpak install -y flathub \
   com.calibre_ebook.calibre \
   com.github.wwmm.easyeffects \
@@ -91,18 +71,11 @@ flatpak override --user --filesystem=xdg-config/gtk-3.0 --filesystem=xdg-config/
 ## openrgb
 
 if [ "$HOSTNAME" = "maxwell" ]; then
-  mkdir -p "$HOME/.local/share/applications"
   flatpak install -y flathub org.openrgb.OpenRGB
-  curl -LO "https://openrgb.org/releases/release_0.9/60-openrgb.rules"
-  sudo mv 60-openrgb.rules /etc/udev/rules.d/
-  sudo restorecon /etc/udev/rules.d/60-openrgb.rules
-  sudo udevadm control --reload-rules
-  sudo udevadm trigger
 fi
 
 ## gaming
 
-rpm-ostree install --idempotent steam-devices
 flatpak install -y flathub \
   com.valvesoftware.Steam \
   com.valvesoftware.Steam.CompatibilityTool.Proton-GE \
@@ -123,10 +96,6 @@ flatpak --user override --filesystem=~/Games net.lutris.Lutris
 flatpak --user override --filesystem=~/Downloads net.lutris.Lutris
 flatpak --user override --nofilesystem=home net.lutris.Lutris
 flatpak --user override --nofilesystem=host net.lutris.Lutris
-curl -LO https://raw.githubusercontent.com/ValveSoftware/steam-devices/master/60-steam-input.rules
-sudo mv 60-steam-input.rules /etc/udev/rules.d/
-curl -LO https://raw.githubusercontent.com/ValveSoftware/steam-devices/master/60-steam-vr.rules
-sudo mv 60-steam-vr.rules /etc/udev/rules.d/
 
 ## brew
 
