@@ -6,7 +6,7 @@ mkdir -p /tmp/plasma_ext
 cd /tmp/plasma_ext || :
 
 # renovate: datasource=github-tags depName=luisbocanegra/plasma-panel-colorizer versioning=loose
-panel_colorizer_version=5.1.0
+panel_colorizer_version=5.2.1
 panel_colorizer_plasmoid=plasmoid-panel-colorizer-v$panel_colorizer_version.plasmoid
 panel_colorizer_current=$(cat "$HOME/.local/share/plasma/plasmoids/luisbocanegra.panel.colorizer/metadata.json" | jq -r '.KPlugin.Version' || echo "0.0.0")
 
