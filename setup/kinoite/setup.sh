@@ -8,9 +8,6 @@ sudo -v
 
 if [ "$HOSTNAME" = "newton" ]; then
   # shit gpu
-  rpm-ostree install \
-    "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" \
-    "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
   rpm-ostree install --idempotent xorg-x11-drv-nvidia akmod-nvidia
   rpm-ostree kargs \
     --append-if-missing=rd.driver.blacklist=nouveau,nova_core \
