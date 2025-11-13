@@ -96,7 +96,7 @@ flatpak --user override --nofilesystem=host net.lutris.Lutris
 
 ## brew
 
-brew_version="4.5.4"
+brew_version="5.0.0"
 brew_dir="/home/linuxbrew/.linuxbrew"
 
 curl -fL -o /tmp/homebrew.tar.gz https://github.com/Homebrew/brew/archive/refs/tags/$brew_version.tar.gz
