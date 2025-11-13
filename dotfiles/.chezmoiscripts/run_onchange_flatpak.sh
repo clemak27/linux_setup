@@ -87,5 +87,3 @@ else
   flatpak --user override --nofilesystem=home net.lutris.Lutris
   flatpak --user override --nofilesystem=host net.lutris.Lutris
 fi
-
-flatpak uninstall -y --unused
