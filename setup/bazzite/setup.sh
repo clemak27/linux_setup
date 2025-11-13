@@ -34,37 +34,6 @@ sudo mkdir -p /etc/containers
 sudo touch /etc/containers/nodocker
 systemctl --user enable podman.socket
 
-## firefox
-
-flatpak install -y flathub \
-  org.freedesktop.Platform.ffmpeg-full//24.08 \
-  org.mozilla.firefox
-flatpak override --user --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
-
-## kde
-
-rpm-ostree install --idempotent konsole
-flatpak install -y flathub \
-  org.gtk.Gtk3theme.adw-gtk3 \
-  org.gtk.Gtk3theme.adw-gtk3-dark
-flatpak override --user --filesystem=xdg-config/gtk-3.0 --filesystem=xdg-config/gtk-4.0
-
-## gaming
-
-flatpak install -y flathub \
-  net.lutris.Lutris \
-  net.retrodeck.retrodeck \
-  org.freedesktop.Platform.VulkanLayer.MangoHud//23.08 \
-  org.freedesktop.Platform.VulkanLayer.MangoHud//24.08 \
-  org.freedesktop.Platform.VulkanLayer.gamescope//23.08 \
-  org.freedesktop.Platform.VulkanLayer.gamescope//24.08 \
-  org.freedesktop.Platform.ffmpeg-full//24.08
-flatpak --user override --filesystem=~/Games net.retrodeck.retrodeck
-flatpak --user override --filesystem=~/Games net.lutris.Lutris
-flatpak --user override --filesystem=~/Downloads net.lutris.Lutris
-flatpak --user override --nofilesystem=home net.lutris.Lutris
-flatpak --user override --nofilesystem=host net.lutris.Lutris
-
 ## homedir
 
 brew bundle install --file "$HOME/Projects/linux_setup/dotfiles/dot_Brewfile"
