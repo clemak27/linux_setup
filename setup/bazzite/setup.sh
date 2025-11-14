@@ -6,31 +6,14 @@ sudo -v
 
 ## base
 
-ujust switch-to-ext4
-ujust setup-luks-tpm-unlock
-
-hostnamectl hostname fermi
-
-if ! command -v zsh &> /dev/null; then
-  rpm-ostree install --idempotent zsh
+if [ "$HOSTNAME" != "fermi" ]; then
+  ujust switch-to-ext4
+  ujust setup-luks-tpm-unlock
+  hostnamectl hostname fermi
   systemctl reboot
 fi
-sudo usermod -s /usr/bin/zsh clemens
 
-if command -v lutris &> /dev/null; then rpm-ostree override remove lutris; fi
 if flatpak list | grep Flatseal &> /dev/null; then flatpak uninstall -y com.github.tchx84.Flatseal; fi
-
-sudo mkdir -p /usr/local/share/applications/
-sudo cp /usr/share/applications/org.gnome.Ptyxis.desktop /usr/local/share/applications/
-sudo sed -i "2a\\NotShowIn=GNOME;KDE" /usr/local/share/applications/org.gnome.Ptyxis.desktop
-sudo update-desktop-database /usr/local/share/applications/
-
-## podman
-
-rpm-ostree install --idempotent podman-docker
-sudo mkdir -p /etc/containers
-sudo touch /etc/containers/nodocker
-systemctl --user enable podman.socket
 
 ## homedir
 
