@@ -4,8 +4,6 @@ set -eo pipefail
 
 sudo -v
 
-script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
-
 ## base
 
 ujust switch-to-ext4

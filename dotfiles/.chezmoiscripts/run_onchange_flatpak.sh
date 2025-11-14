@@ -21,6 +21,9 @@ flatpak install -y flathub \
   org.kde.okular \
   org.mozilla.firefox
 
+flatpak override --user --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
+flatpak override --user --filesystem=xdg-config/gtk-3.0 --filesystem=xdg-config/gtk-4.0
+
 # plasma
 
 if [ "$HOSTNAME" != "fermi" ]; then
@@ -38,9 +41,6 @@ if [ "$HOSTNAME" != "fermi" ]; then
     org.signal.Signal \
     org.wezfurlong.wezterm
 fi
-
-flatpak override --user --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
-flatpak override --user --filesystem=xdg-config/gtk-3.0 --filesystem=xdg-config/gtk-4.0
 
 # openrgb
 
@@ -74,7 +74,6 @@ if [ "$HOSTNAME" != "fermi" ]; then
   flatpak --user override --nofilesystem=host net.lutris.Lutris
 else
   flatpak install -y flathub \
-    net.lutris.Lutris \
     net.retrodeck.retrodeck \
     org.freedesktop.Platform.VulkanLayer.MangoHud//23.08 \
     org.freedesktop.Platform.VulkanLayer.MangoHud//24.08 \
@@ -82,8 +81,4 @@ else
     org.freedesktop.Platform.VulkanLayer.gamescope//24.08 \
     org.freedesktop.Platform.ffmpeg-full//24.08
   flatpak --user override --filesystem=~/Games net.retrodeck.retrodeck
-  flatpak --user override --filesystem=~/Games net.lutris.Lutris
-  flatpak --user override --filesystem=~/Downloads net.lutris.Lutris
-  flatpak --user override --nofilesystem=home net.lutris.Lutris
-  flatpak --user override --nofilesystem=host net.lutris.Lutris
 fi
