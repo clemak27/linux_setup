@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rvben/rumdl/main/rumdl.schema.json
+
+[global]
+respect-gitignore = true
+
+[MD007]
+indent = 2
+
+[MD013]
+line-length = 80
+code-blocks = false
+tables = false
+headings = true
+reflow = true
+
+[MD060]
+enabled = true
+style = "aligned"

@@ -14,7 +14,6 @@ return {
       })
 
       require("lint").linters_by_ft = {
-        markdown = { "markdownlint" },
         dockerfile = { "hadolint" },
         yaml = { "yamllint" },
       }

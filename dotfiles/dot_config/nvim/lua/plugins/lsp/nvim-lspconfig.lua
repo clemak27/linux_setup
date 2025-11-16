@@ -277,6 +277,7 @@ return {
         vim.lsp.enable("nixd")
       end
 
+      vim.lsp.enable("rumdl")
       vim.lsp.enable("rust_analyzer")
       vim.lsp.enable("taplo")
       vim.lsp.enable("tofu_ls")

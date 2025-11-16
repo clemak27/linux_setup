@@ -31,8 +31,7 @@ brew "lazygit"
 brew "hadolint"
 
 # md
-brew "markdownlint-cli"
-brew "prettier"
+brew "rumdl"
 
 # sh
 brew "shellcheck"

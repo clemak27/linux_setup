@@ -8,22 +8,8 @@ return {
           shfmt = {
             args = { "-i", "2", "-sr", "-ci", "-filename", "$FILENAME" },
           },
-          prettiermd = {
-            command = require("conform.formatters.prettier").command,
-            cwd = require("conform.formatters.prettier").cwd,
-            range_args = require("conform.formatters.prettier").range_args,
-            args = {
-              "--parser",
-              "markdown",
-              "--prose-wrap",
-              "always",
-              "--stdin-filepath",
-              "$FILENAME",
-            },
-          },
         },
         formatters_by_ft = {
-          markdown = { "prettiermd" },
           yaml = { "yamlfmt" },
           lua = { "stylua" },
           nix = { "nixpkgs_fmt" },
