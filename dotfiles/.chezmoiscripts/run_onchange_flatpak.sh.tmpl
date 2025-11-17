@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -eo pipefail
+
+# yeet fedora
+
+if flatpak remotes | grep fedora > /dev/null; then
+  # flatpak list --columns=application,origin | grep fedora | grep -v "org.fedoraproject" | awk '{ print $1 }'
+  flatpak remote-delete fedora
+fi
+
+# Flatpakfile hash: {{ include "dot_Flatpakfile.tmpl" | sha256sum }}
+readarray -t refs < "$HOME/.Flatpakfile"
+flatpak install -y "${refs[@]}"
+
+flatpak override --user --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
+flatpak override --user --filesystem=xdg-config/gtk-3.0 --filesystem=xdg-config/gtk-4.0
+
+if flatpak list | grep "com\.valvesoftware\.Steam" &> /dev/null; then
+  flatpak --user override --filesystem=~/Games com.valvesoftware.Steam
+fi
+
+if flatpak list | grep "net\.retrodeck\.retrodeck" &> /dev/null; then
+  flatpak --user override --filesystem=~/Games net.retrodeck.retrodeck
+fi
+
+if flatpak list | grep "net\.lutris\.Lutris" &> /dev/null; then
+  flatpak --user override --filesystem=~/Games net.lutris.Lutris
+  flatpak --user override --filesystem=~/Downloads net.lutris.Lutris
+  flatpak --user override --nofilesystem=home net.lutris.Lutris
+  flatpak --user override --nofilesystem=host net.lutris.Lutris
+fi
