@@ -4,6 +4,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "barreiroleo/ltex_extra.nvim",
+      "https://gitlab.com/schrieveslaach/sonarlint.nvim",
       {
         "folke/lazydev.nvim",
         ft = "lua",
@@ -319,6 +320,22 @@ return {
         },
       })
       vim.lsp.enable("yamlls")
+
+      require("sonarlint").setup({
+        server = {
+          cmd = {
+            "sonarlint-language-server",
+            "-stdio",
+            "-analyzers",
+            vim.fn.expand("$MASON/share/sonarlint-analyzers/sonargo.jar"),
+            vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjava.jar"),
+          },
+        },
+        filetypes = {
+          "go",
+          "java",
+        },
+      })
 
       -- customize signs
       vim.diagnostic.config({

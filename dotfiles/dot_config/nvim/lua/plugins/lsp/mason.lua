@@ -19,6 +19,7 @@ return {
           "json-lsp",
           "kotlin-lsp",
           "pkl-lsp",
+          "sonarlint-language-server",
           "taplo",
 
           -- container
