@@ -74,6 +74,7 @@
       "extensions.ml.enabled": false,
       "extensions.shield-recipe-client.enabled": false,
       "extensions.webextensions.restrictedDomains": "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,addons.mozilla.org,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,support.mozilla.org,sync.services.mozilla.com,localhost",
+      "gfx.webrender.layer-compositor": true,
       "pdfjs.enablescripting": false,
       "svg.context-properties.content.enabled": true,
       "toolkit.legacyUserProfileCustomizations.stylesheets": true,
