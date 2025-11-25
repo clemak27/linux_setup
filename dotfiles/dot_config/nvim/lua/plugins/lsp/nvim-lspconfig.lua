@@ -281,6 +281,7 @@ return {
       vim.lsp.enable("rumdl")
       vim.lsp.enable("rust_analyzer")
       vim.lsp.enable("taplo")
+      vim.lsp.enable("templ")
       vim.lsp.enable("tofu_ls")
       vim.lsp.enable("tailwindcss")
       vim.lsp.enable("tinymist")

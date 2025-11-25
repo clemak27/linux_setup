@@ -42,6 +42,7 @@ return {
           "goimports",
           "golangci-lint-langserver",
           "gopls",
+          "templ",
 
           -- java
           "jdtls",
