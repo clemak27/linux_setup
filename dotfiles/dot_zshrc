@@ -202,3 +202,11 @@ fi
 if [ -d "$HOME/.zshrc_extra" ]; then
   for f in $HOME/.zshrc_extra/*.zsh; do source $f; done
 fi
+
+## zoxide
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+  alias 'cd'='z'
+  alias 'cdi'='zi'
+fi
+

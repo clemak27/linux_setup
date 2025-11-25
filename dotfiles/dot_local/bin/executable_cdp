@@ -4,9 +4,9 @@ path=$(fd --type=d --hidden --no-ignore ".git" --exclude node_modules --exclude 
 if [ "$path" != "" ]; then
   pname=$(basename "$path")
 
-  new_pane=$(wezterm cli spawn --cwd "$path")
-  wezterm cli set-tab-title "$pname" --pane-id "$new_pane"
-  wezterm cli activate-pane --pane-id "$new_pane"
-  printf "cd %s\n" "$path" | wezterm cli send-text --pane-id "$new_pane" --no-paste # wezterm resolves the home symlink to /var/home, breaking some stuff
-  printf "nvim\n" | wezterm cli send-text --pane-id "$new_pane" --no-paste
+  if [[ -n "$WEZTERM_PANE" ]]; then
+    wezterm cli set-tab-title "$pname"
+    printf "z %s\n" "$path" | wezterm cli send-text --pane-id "$WEZTERM_PANE" --no-paste # wezterm resolves the home symlink to /var/home, breaking some stuff
+    printf "nvim\n" | wezterm cli send-text --pane-id "$WEZTERM_PANE" --no-paste
+  fi
 fi
