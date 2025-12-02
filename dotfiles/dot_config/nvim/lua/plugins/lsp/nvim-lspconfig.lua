@@ -33,117 +33,25 @@ return {
       },
       {
         "stevearc/overseer.nvim",
-        -- https://github.com/stevearc/overseer.nvim/pull/448
-        tag = "v1.6.0",
+        ref = "00e01e68b92773fcd1fcd530c126faf2b6851007",
         config = function()
-          require("overseer").setup({
+          local overseer = require("overseer")
+
+          overseer.setup({
             task_list = {
               min_height = 14,
             },
-            component_aliases = {
-              -- Most tasks are initialized with the default components
-              default = {
-                { "display_duration", detail_level = 2 },
-                "on_output_summarize",
-                "on_exit_set_status",
-                "on_complete_notify",
-                { "on_complete_dispose", require_view = { "SUCCESS", "FAILURE" } },
-                { "open_output", on_start = "always" },
-              },
-              -- Tasks from tasks.json use these components
-              default_vscode = {
-                "default",
-                "on_result_diagnostics",
-              },
-            },
           })
+
+          overseer.add_template_hook(nil, function(task_defn, util)
+            util.remove_component(task_defn, { "open_output" })
+            util.add_component(task_defn, { "open_output", on_start = "always" })
+          end)
+
           local opt = { noremap = true, silent = true }
 
           vim.api.nvim_set_keymap("n", "<Leader>t", [[<Cmd>OverseerToggle<CR>]], opt)
           vim.api.nvim_set_keymap("n", "<Leader>tr", [[<Cmd>OverseerRun<CR>]], opt)
-
-          -- https://github.com/stevearc/overseer.nvim/pull/414
-          local log = require("overseer.log")
-          local overseer = require("overseer")
-
-          local tmpl = {
-            priority = 60,
-            params = {
-              args = { type = "list", delimiter = " " },
-              cwd = { optional = true },
-            },
-            builder = function(params)
-              local cmd = { "mise", "run" }
-              return {
-                args = params.args,
-                cmd = cmd,
-                cwd = params.cwd,
-              }
-            end,
-          }
-
-          local function get_mise_file(opts)
-            local is_misefile = function(name)
-              name = name:lower()
-              return name == "mise.toml" or name == ".mise.toml"
-            end
-            return vim.fs.find(is_misefile, { upward = true, path = opts.dir })[1]
-          end
-
-          local miseTemplate = {
-            name = "mise",
-            cache_key = function(opts)
-              return get_mise_file(opts)
-            end,
-            condition = {
-              callback = function(opts)
-                if vim.fn.executable("mise") == 0 then
-                  return false, 'Command "mise" not found'
-                end
-                if not get_mise_file(opts) then
-                  return false, "No mise.toml found"
-                end
-                return true
-              end,
-            },
-            generator = function(opts, cb)
-              local ret = {}
-              local jid = vim.fn.jobstart({ "mise", "tasks", "--json" }, {
-                stdout_buffered = true,
-                on_stdout = vim.schedule_wrap(function(_, output)
-                  local ok, data = pcall(vim.json.decode, table.concat(output, ""), { luanil = { object = true } })
-                  if not ok then
-                    log:error("mise produced invalid json: %s\n%s", data, output)
-                    cb(ret)
-                    return
-                  end
-                  assert(data)
-                  for _, value in pairs(data) do
-                    table.insert(
-                      ret,
-                      overseer.wrap_template(tmpl, {
-                        name = string.format("mise %s", value.name),
-                        desc = value.description ~= "" and value.description or nil,
-                      }, {
-                        args = { value.name },
-                        cwd = opts.dir,
-                      })
-                    )
-                  end
-                  cb(ret)
-                end),
-              })
-              if jid == 0 then
-                log:error('Passed invalid arguments to "mise tasks"')
-                cb(ret)
-              elseif jid == -1 then
-                log:error('"mise" is not executable')
-                cb(ret)
-              end
-            end,
-          }
-
-          overseer.register_template(miseTemplate)
         end,
       },
       {
