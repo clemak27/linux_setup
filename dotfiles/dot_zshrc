@@ -52,7 +52,6 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
   fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
   autoload -U compinit && compinit
   source $HOME/.oh-my-zsh/oh-my-zsh.sh
-  compinit
 fi
 
 # direnv
