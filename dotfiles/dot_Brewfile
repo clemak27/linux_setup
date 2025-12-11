@@ -46,6 +46,8 @@ brew "yamllint"
 brew "stylua"
 
 # k8s
+tap "fluxcd/tap"
+brew "fluxcd/tap/flux"
 brew "helm"
 brew "krew"
 brew "kubecolor"
