@@ -1,43 +1,27 @@
 -- ---------------------------------------- treesitter ---------------------------------------------------------
 return {
   "nvim-treesitter/nvim-treesitter",
+  branch = "main",
+  lazy = false,
+  build = ":TSUpdate",
   config = function()
-    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-    parser_config.hurl = {
-      install_info = {
-        url = "https://github.com/pfeiferj/tree-sitter-hurl.git",
-        files = { "src/parser.c" },
-        branch = "main",
-        generate_requires_npm = false,
-        requires_generate_from_grammar = false,
-      },
-      filetype = "hurl",
-    }
-    parser_config.kdl = {
-      install_info = {
-        url = "https://github.com/amaanq/tree-sitter-kdl",
-        files = { "src/parser.c", "src/scanner.c" },
-        branch = "master",
-      },
-      filetype = "kdl",
-    }
+    require("nvim-treesitter").install("all")
 
-    require("nvim-treesitter.configs").setup({
-      ensure_installed = "all",
-      highlight = {
-        enable = true,
-      },
-      incremental_selection = {
-        enable = false,
-      },
-      indent = {
-        enable = true,
-      },
-      ignore_install = {
-        "phpdoc",
-        "ipkg",
-      },
+    -- this is not ideal
+    local langs = require("nvim-treesitter").get_installed()
+    table.insert(langs, "sh")
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = langs,
+      callback = function()
+        -- syntax highlighting
+        vim.treesitter.start()
+        -- indentation
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        -- folds
+        -- vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        -- vim.wo.foldmethod = "expr"
+      end,
     })
   end,
-  build = ":TSUpdate",
 }
