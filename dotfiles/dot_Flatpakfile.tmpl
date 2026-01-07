@@ -9,14 +9,10 @@ org.kde.haruna
 org.mozilla.firefox
 
 {{- if not (eq .chezmoi.hostname "fermi") }}
-fm.reaper.Reaper
 hu.irl.cameractrls
-org.blender.Blender
 org.gimp.GIMP
 org.gimp.GIMP.HEIC
 org.gimp.GIMP.Plugin.GMic//3
-org.godotengine.Godot
-org.kde.krita
 org.libreoffice.LibreOffice
 org.signal.Signal
 org.wezfurlong.wezterm
@@ -29,16 +25,20 @@ com.obsproject.Studio
 com.valvesoftware.Steam
 com.valvesoftware.Steam.CompatibilityTool.Proton-GE
 dev.vencord.Vesktop
+fm.reaper.Reaper
 io.github.Foldex.AdwSteamGtk
 net.lutris.Lutris
 net.retrodeck.retrodeck
+org.blender.Blender
 org.freedesktop.Platform.VulkanLayer.MangoHud//23.08
 org.freedesktop.Platform.VulkanLayer.MangoHud//24.08
 org.freedesktop.Platform.VulkanLayer.MangoHud//25.08
 org.freedesktop.Platform.VulkanLayer.gamescope//23.08
 org.freedesktop.Platform.VulkanLayer.gamescope//24.08
 org.freedesktop.Platform.VulkanLayer.gamescope//25.08
+org.godotengine.Godot
 org.kde.kid3
+org.kde.krita
 {{- else if eq .chezmoi.hostname "fermi" }}
 net.retrodeck.retrodeck
 org.freedesktop.Platform.VulkanLayer.MangoHud//23.08
