@@ -7,7 +7,7 @@ if [ "$HOSTNAME" = "fermi" ]; then
 fi
 
 # renovate: datasource=github-tags depName=jeffvli/feishin versioning=loose
-feishin_version=1.2.0
+feishin_version=1.3.0
 
 mkdir -p "$HOME/.local/bin" "$HOME/.local/share/applications"
 curl -L --url https://github.com/jeffvli/feishin/releases/download/v${feishin_version}/Feishin-linux-x86_64.AppImage -o "$HOME/.local/bin/feishin"
