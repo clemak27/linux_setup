@@ -4,6 +4,10 @@ set -eo pipefail
 
 config_dir="$HOME/.config"
 
+if [ "$XDG_CURRENT_DESKTOP" != "KDE" ]; then
+  exit 0
+fi
+
 kwriteconfig6 --file "$config_dir/dolphinrc" --group "DetailsMode" --key "ExpandableFolders" "false"
 kwriteconfig6 --file "$config_dir/dolphinrc" --group "DetailsMode" --key "PreviewSize" "32"
 kwriteconfig6 --file "$config_dir/dolphinrc" --group "General" --key "ConfirmClosingMultipleTabs" "false"
