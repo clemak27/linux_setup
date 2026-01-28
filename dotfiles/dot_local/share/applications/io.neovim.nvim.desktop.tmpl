@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=nvim
+Comment=neovim
+Keywords=shell;prompt;command;commandline;cmd;editor;
+Icon=io.neovim.nvim
+StartupWMClass=io.neovim.nvim
+Type=Application
+Categories=Development;
+Terminal=false
+{{- if (eq (env "XDG_CURRENT_DESKTOP") "KDE") }}
+Exec=/var/home/linuxbrew/.linuxbrew/bin/wezterm start --always-new-process --class=io.neovim.nvim zsh -c 'source ~/.zshrc && nvim %F'
+{{- else }}
+# TODO fix
+Exec=ghostty +new-window --class=io.neovim.nvim -e nvim %F
+{{- end }}

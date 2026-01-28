@@ -70,7 +70,8 @@ brew "node"
 # java
 brew "gradle"
 brew "openjdk"
-
+{{ if (eq (env "XDG_CURRENT_DESKTOP") "KDE") }}
 # wezterm
 tap "wezterm/wezterm-linuxbrew"
 brew "wezterm/wezterm-linuxbrew/wezterm"
+{{- end }}
