@@ -4,3 +4,24 @@
 .local/share/applications/io.neovim.nvim.desktop
 .local/bin/wezterm
 {{- end }}
+{{- if not (eq (env "XDG_CURRENT_DESKTOP") "KDE") }}
+.config/autostart/ksshaskpass.sh.desktop
+.config/autostart/scripts/ksshaskpass.sh
+.config/gtk-3.0
+.config/gtk-4.0
+.config/kglobalshortcutsrc
+.config/klassy
+.config/konsolerc
+.config/kwinrc
+.config/kwinrulesrc
+.config/panel-colorizer
+.config/wezterm
+.local/share/applications/wezterm.desktop
+.local/share/color-schemes
+.local/share/konsole
+.local/share/org.kde.syntax-highlighting
+{{- else }}
+.config/DankMaterialShell
+.config/niri
+.config/ghostty
+{{- end }}

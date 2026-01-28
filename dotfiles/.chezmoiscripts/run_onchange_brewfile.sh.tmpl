@@ -2,5 +2,5 @@
 
 set -eo pipefail
 
-# Brewfile hash: {{ include "dot_Brewfile" | sha256sum }}
+# Brewfile hash: {{ include "dot_Brewfile.tmpl" | sha256sum }}
 brew bundle install --global
