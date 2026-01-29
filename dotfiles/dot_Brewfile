@@ -70,3 +70,7 @@ brew "node"
 # java
 brew "gradle"
 brew "openjdk"
+
+# wezterm
+tap "wezterm/wezterm-linuxbrew"
+brew "wezterm/wezterm-linuxbrew/wezterm"

@@ -304,5 +304,5 @@ ToggleTouchpad=Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku
 [services][org.mozilla.firefox.desktop]
 _launch=Meta+B
 
-[services][org.wezfurlong.wezterm.desktop]
+[services][wezterm.desktop]
 _launch=Meta+Return
