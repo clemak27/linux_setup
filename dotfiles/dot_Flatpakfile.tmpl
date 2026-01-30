@@ -9,7 +9,7 @@ org.kde.gwenview
 org.kde.kcalc
 org.kde.okular
 org.kde.haruna
-{{- else }}
+{{- else if (eq (env "XDG_CURRENT_DESKTOP") "niri") }}
 io.github.kolunmi.Bazaar
 org.gnome.Evolution
 org.gnome.Loupe

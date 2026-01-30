@@ -4,7 +4,7 @@
 .local/share/applications/io.neovim.nvim.desktop
 .local/bin/wezterm
 {{- end }}
-{{- if not (eq (env "XDG_CURRENT_DESKTOP") "KDE") }}
+{{- if (eq (env "XDG_CURRENT_DESKTOP") "niri") }}
 .config/autostart/ksshaskpass.sh.desktop
 .config/autostart/scripts/ksshaskpass.sh
 .config/gtk-3.0
@@ -20,7 +20,7 @@
 .local/share/color-schemes
 .local/share/konsole
 .local/share/org.kde.syntax-highlighting
-{{- else }}
+{{- else if (eq (env "XDG_CURRENT_DESKTOP") "kde") }}
 .config/DankMaterialShell
 .config/niri
 .config/ghostty
