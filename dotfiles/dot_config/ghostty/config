@@ -33,7 +33,7 @@ keybind = ctrl+shift+l=clear_screen
 
 keybind = ctrl+shift+f=write_screen_file:open
 keybind = ctrl+shift+y=write_screen_file:copy
-keybind = ctrl+shift+p=write_screen_file:paste
+keybind = ctrl+shift+u=write_screen_file:paste
 
 keybind = ctrl+shift+a=select_all
 keybind = ctrl+shift+c=copy_to_clipboard
