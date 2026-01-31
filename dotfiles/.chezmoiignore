@@ -7,8 +7,6 @@
 {{- if (eq (env "XDG_CURRENT_DESKTOP") "niri") }}
 .config/autostart/ksshaskpass.sh.desktop
 .config/autostart/scripts/ksshaskpass.sh
-.config/gtk-3.0
-.config/gtk-4.0
 .config/kglobalshortcutsrc
 .config/klassy
 .config/konsolerc
