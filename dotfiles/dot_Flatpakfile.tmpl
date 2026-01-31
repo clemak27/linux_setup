@@ -10,6 +10,7 @@ org.kde.kcalc
 org.kde.okular
 org.kde.haruna
 {{- else if (eq (env "XDG_CURRENT_DESKTOP") "niri") }}
+com.github.tchx84.Flatseal
 io.github.kolunmi.Bazaar
 org.gnome.Evolution
 org.gnome.Loupe
@@ -18,7 +19,6 @@ org.gnome.Showtime
 org.gnome.baobab
 org.gnome.seahorse.Application
 {{- end }}
-
 
 {{- if not (eq .chezmoi.hostname "fermi") }}
 hu.irl.cameractrls
