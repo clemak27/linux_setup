@@ -11,6 +11,10 @@ window-rule {
     open-floating true
 }
 
+overview {
+    backdrop-color "#060606"
+}
+
 binds {
     Mod+Slash { show-hotkey-overlay; }
     Mod+Return hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
