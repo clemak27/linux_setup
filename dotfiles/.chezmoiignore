@@ -16,6 +16,7 @@
 .config/kwinrulesrc
 .config/panel-colorizer
 .config/wezterm
+.local/bin/cdp
 .local/share/applications/wezterm.desktop
 .local/share/color-schemes
 .local/share/konsole
