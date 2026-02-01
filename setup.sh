@@ -114,6 +114,8 @@ fi
 
 if [ "$XDG_CURRENT_DESKTOP" == "niri" ]; then
   gsettings set org.gnome.desktop.wm.preferences button-layout ':close'
+  systemctl --user enable --now gcr-ssh-agent.socket
+  systemctl --user enable --now gcr-ssh-agent.service
 fi
 
 ## brew
