@@ -15,6 +15,15 @@ overview {
     backdrop-color "#060606"
 }
 
+input {
+    touchpad {
+        tap
+        dwt
+        natural-scroll
+        disabled-on-external-mouse
+    }
+}
+
 binds {
     Mod+Slash { show-hotkey-overlay; }
     Mod+Return hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
