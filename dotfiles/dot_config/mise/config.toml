@@ -4,6 +4,7 @@ pkl = "latest"
 usage = "latest"
 "pipx:catt" = "latest"
 "pipx:qrcode" = "latest"
+"github:ifd3f/caligula" = "latest"
 
 [env]
 HK_MISE = true
