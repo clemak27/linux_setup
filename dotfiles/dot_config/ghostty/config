@@ -3,8 +3,8 @@ font-feature = -calt, -liga, -dlig
 font-size = 10
 font-style = Regular
 
-window-padding-x = 2
-window-padding-y = 2
+window-padding-x = 3
+window-padding-y = 3
 window-padding-balance = true
 window-decoration = false
 
