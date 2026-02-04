@@ -33,7 +33,7 @@ return {
       },
       {
         "stevearc/overseer.nvim",
-        ref = "00e01e68b92773fcd1fcd530c126faf2b6851007",
+        version = "v2.*",
         config = function()
           local overseer = require("overseer")
 
