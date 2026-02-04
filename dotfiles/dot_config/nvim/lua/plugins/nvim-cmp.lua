@@ -4,7 +4,7 @@ return {
     "saghen/blink.cmp",
     lazy = false, -- lazy loading handled internally
     dependencies = "rafamadriz/friendly-snippets",
-    version = "v0.*",
+    version = "v1.*",
     config = function()
       require("blink.cmp").setup({
         keymap = {
