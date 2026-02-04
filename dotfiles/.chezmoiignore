@@ -12,6 +12,7 @@
 .config/konsolerc
 .config/kwinrc
 .config/kwinrulesrc
+.config/mimeapps.list
 .config/panel-colorizer
 .config/wezterm
 .local/bin/cdp
