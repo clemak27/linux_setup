@@ -12,7 +12,6 @@
 .config/konsolerc
 .config/kwinrc
 .config/kwinrulesrc
-.config/mimeapps.list
 .config/panel-colorizer
 .config/wezterm
 .local/bin/cdp
@@ -23,6 +22,7 @@
 {{- else if (eq (env "XDG_CURRENT_DESKTOP") "kde") }}
 .config/environment.d/90-dms.conf
 .config/DankMaterialShell
+.config/mimeapps.list
 .config/niri
 .config/ghostty
 {{- end }}
