@@ -54,3 +54,9 @@ org.freedesktop.Platform.VulkanLayer.MangoHud//24.08
 org.freedesktop.Platform.VulkanLayer.gamescope//23.08
 org.freedesktop.Platform.VulkanLayer.gamescope//24.08
 {{- end }}
+
+{{- if eq .chezmoi.hostname "maxwell" }}
+com.bambulab.BambuStudio
+org.blender.Blender
+org.freecad.FreeCAD
+{{- end }}
