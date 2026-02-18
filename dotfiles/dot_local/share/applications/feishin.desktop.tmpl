@@ -1,7 +1,13 @@
 [Desktop Entry]
 Name=Feishin
+GenericName=Music player
 Exec=/home/{{- .chezmoi.username }}/.local/bin/feishin
+TryExec=/home/{{- .chezmoi.username }}/.local/bin/feishin
+Terminal=false
 Type=Application
-Categories=Multimedia
 Icon=/home/{{- .chezmoi.username }}/.local/share/applications/feishin.png
-Description=A modern self-hosted music player
+StartupWMClass=feishin
+SingleMainWindow=true
+Categories=AudioVideo;Audio;Player;Music;
+Keywords=Navidrome;Jellyfin;Subsonic;OpenSubsonic
+Comment=A player for your self-hosted music server
