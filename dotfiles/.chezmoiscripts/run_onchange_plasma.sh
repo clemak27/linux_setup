@@ -66,27 +66,33 @@ kwriteconfig6 --file "$config_dir/kwinrc" --group "NightColor" --key "NightTempe
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "blurEnabled" "false"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "contrastEnabled" "false"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "glassEnabled" "true"
-kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "krohnkiteEnabled" "true"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "kwin4_effect_geometry_changeEnabled" "true"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Xwayland" --key "Scale" "1"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "ButtonsOnLeft" "X"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "ButtonsOnRight" "F"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "theme" "Klassy"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "library" "org.kde.klassy"
-kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "floatingTitle" "Picture-in-Picture"
-if [ "$HOSTNAME" = "maxwell" ]; then
-  kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "ignoreScreen" "DP-3"
-fi
-kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "preventMinimize" "false"
-kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "screenGapBetween" "9"
-kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "screenGapBottom" "9"
-kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "screenGapLeft" "9"
-kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "screenGapRight" "9"
-kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "screenGapTop" "9"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Effect-blurplus" --key "BlurStrength" "6"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Effect-blurplus" --key "NoiseStrength" "3"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Effect-blurplus" --key "WindowClasses" "org.wezfurlong.wezterm"
 kwriteconfig6 --file "$config_dir/kxkbrc" --group "Layout" --key "Options" "caps:escape_shifted_capslock"
+
+if [ "$HOSTNAME" != "fermi" ]; then
+  kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "krohnkiteEnabled" "true"
+  kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "floatingTitle" "Picture-in-Picture"
+  kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "preventMinimize" "false"
+  kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "screenGapBetween" "9"
+  kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "screenGapBottom" "9"
+  kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "screenGapLeft" "9"
+  kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "screenGapRight" "9"
+  kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "screenGapTop" "9"
+  if [ "$HOSTNAME" = "maxwell" ]; then
+    kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "ignoreScreen" "DP-3"
+  fi
+else
+  kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "krohnkiteEnabled" "false"
+  kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "karouselEnabled" "true"
+fi
 
 kwriteconfig6 --file "$config_dir/plasma-localerc" --group "Formats" --key "LANG" "en_GB.UTF-8"
 kwriteconfig6 --file "$config_dir/plasma-localerc" --group "Formats" --key "LC_ADDRESS" "de_AT.UTF-8"
