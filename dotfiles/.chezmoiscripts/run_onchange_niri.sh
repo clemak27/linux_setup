@@ -28,4 +28,8 @@ if [ -f "$dms_config" ]; then
   yq -iP '.osdPosition = 7' "$dms_config" -o json
   yq -iP '.osdAlwaysShowValue = true' "$dms_config" -o json
   yq -iP '.lockBeforeSuspend = true' "$dms_config" -o json
+  yq -iP '.dankLauncherV2BorderEnabled = true' "$dms_config" -o json
+  yq -iP '.dankLauncherV2BorderThickness = 2' "$dms_config" -o json
+  yq -iP '.dankLauncherV2BorderColor = "primary"' "$dms_config" -o json
+  yq -iP '.lockScreenPowerOffMonitorsOnLock = true' "$dms_config" -o json
 fi

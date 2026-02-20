@@ -37,7 +37,7 @@ binds {
     }
 
     Mod+Alt+L hotkey-overlay-title="Lock Screen" {
-        spawn-sh "niri msg action power-off-monitors && dms ipc lock lock";
+        spawn-sh "dms ipc lock lock";
     }
 
     XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
