@@ -1,5 +1,3 @@
-spawn-at-startup "kdeconnect-indicator"
-
 hotkey-overlay {
     skip-at-startup
 }
