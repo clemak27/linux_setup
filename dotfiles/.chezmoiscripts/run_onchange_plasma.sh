@@ -68,8 +68,6 @@ kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "contrastEnabl
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "glassEnabled" "true"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "kwin4_effect_geometry_changeEnabled" "true"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Xwayland" --key "Scale" "1"
-kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "ButtonsOnLeft" "X"
-kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "ButtonsOnRight" "F"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "theme" "Klassy"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "library" "org.kde.klassy"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Effect-blurplus" --key "BlurStrength" "6"
@@ -86,12 +84,17 @@ if [ "$HOSTNAME" != "fermi" ]; then
   kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "screenGapLeft" "9"
   kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "screenGapRight" "9"
   kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "screenGapTop" "9"
+  kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "ButtonsOnLeft" "X"
+  kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "ButtonsOnRight" "F"
   if [ "$HOSTNAME" = "maxwell" ]; then
     kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-krohnkite" --key "ignoreScreen" "DP-3"
   fi
 else
   kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "krohnkiteEnabled" "false"
   kwriteconfig6 --file "$config_dir/kwinrc" --group "Plugins" --key "karouselEnabled" "true"
+  kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "ButtonsOnLeft" ""
+  kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "ButtonsOnRight" "X"
+  kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-karousel" --key "untileOnDrag" "false"
 fi
 
 kwriteconfig6 --file "$config_dir/plasma-localerc" --group "Formats" --key "LANG" "en_GB.UTF-8"
