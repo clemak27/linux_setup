@@ -25,13 +25,14 @@ shell-integration-features = no-cursor
 app-notifications = false
 resize-overlay = never
 auto-update = off
+clipboard-paste-protection = false
 
 keybind = clear
 
 keybind = ctrl+shift+,=reload_config
 keybind = ctrl+shift+l=clear_screen
 
-keybind = ctrl+shift+f=write_screen_file:open
+keybind = ctrl+shift+f=start_search
 keybind = ctrl+shift+y=write_screen_file:copy
 keybind = ctrl+shift+u=write_screen_file:paste
 
