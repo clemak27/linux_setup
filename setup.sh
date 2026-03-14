@@ -25,7 +25,9 @@ if [[ -n "$TERMUX_VERSION" ]]; then
 
   pkg install -y zsh starship zsh-completions \
     git git-delta lazygit \
-    bat chezmoi eza fd fzf htop jq yazi ripgrep sd tealdeer tree unrar unzip
+    bat chezmoi eza fastfetch fd fzf htop jq yazi ripgrep sd tealdeer tree unrar unzip viddy \
+    kubectl kubecolor
+
   chsh -s zsh
 
   echo "setup colors"
@@ -86,6 +88,8 @@ if [[ -n "$TERMUX_VERSION" ]]; then
   mkdir -p "$HOME/.local/bin"
   cp --remove-destination "$HOME/Projects/linux_setup/dotfiles/dot_local/bin/executable_gcmld" "$HOME/.local/bin/gcmld"
   chmod u+x "$HOME/.local/bin/gcmld"
+
+  exit 0
 fi
 
 sudo -v
