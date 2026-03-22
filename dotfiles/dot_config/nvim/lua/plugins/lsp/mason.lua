@@ -14,6 +14,7 @@ return {
       require("mason-tool-installer").setup({
         ensure_installed = {
           -- other
+          "clangd",
           "css-lsp",
           "html-lsp",
           "json-lsp",

@@ -86,6 +86,7 @@ return {
         },
         opts = {},
       },
+      "Aietes/esp32.nvim",
     },
     config = function()
       vim.lsp.config("*", {
@@ -119,6 +120,14 @@ return {
         },
       })
       vim.lsp.inlay_hint.enable(true)
+
+      if vim.uv.fs_stat(vim.fn.getcwd() .. "/sdkconfig") then
+        local esp32 = require("esp32")
+        vim.lsp.config("clangd", esp32.lsp_config())
+        vim.lsp.config("clangd", { filetypes = { "c" } })
+        vim.lsp.enable("clangd")
+      end
+
       vim.lsp.enable("gopls")
 
       vim.lsp.enable("gradle_ls")
