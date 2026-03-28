@@ -30,3 +30,11 @@ if flatpak list | grep "net\.lutris\.Lutris" &> /dev/null; then
   flatpak --user override --nofilesystem=home net.lutris.Lutris
   flatpak --user override --nofilesystem=host net.lutris.Lutris
 fi
+
+{{ if eq .chezmoi.hostname "maxwell" }}
+# renovate: datasource=github-tags depName=OrcaSlicer/OrcaSlicer versioning=loose
+orca_version=2.3.2
+
+curl -fL -o /tmp/orca.flatpak "https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v${orca_version}/OrcaSlicer-Linux-flatpak_V${orca_version}_x86_64.flatpak"
+flatpak install --user -y /tmp/orca.flatpak
+{{ end }}
