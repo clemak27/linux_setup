@@ -34,3 +34,4 @@ use_sudo = false
 # https://github.com/topgrade-rs/topgrade/blob/main/src/steps/generic.rs#L856
 "chezmoi" = "chezmoi apply --force"
 "mise-en-place tools" = "mise i -y"
+"nvim" = "nvim --headless \"+Lazy! sync\" +qa"
