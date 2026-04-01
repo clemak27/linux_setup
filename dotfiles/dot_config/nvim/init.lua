@@ -120,6 +120,8 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave"
 -- don't show highlights after searching
 vim.cmd("packadd nohlsearch")
 
+-- enable undotree
+vim.cmd("packadd nvim.undotree")
 ----------------------------------------- mappings -----------------------------------------
 
 local function vim_map(keyMap, action)
@@ -159,6 +161,7 @@ vim_map("0", "^")
 vim_map("ß", "$")
 -- Map save
 vim_map("gs", ":wa<CR>")
+vim.keymap.set("n", "<leader>u", require("undotree").open)
 
 ----------------------------------------- plugins -----------------------------------------
 
