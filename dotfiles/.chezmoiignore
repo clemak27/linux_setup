@@ -25,4 +25,5 @@
 .config/mimeapps.list
 .config/niri
 .config/ghostty
+.local/share/applications/io.neovim.nvim.desktop
 {{- end }}

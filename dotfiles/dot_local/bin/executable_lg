@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [[ -n $WEZTERM_PANE ]]; then
-  wezterm cli zoom-pane --pane-id "$(wezterm cli split-pane --percent 1 -- zsh -c 'source ~/.zshrc && lazygit')"
-else
-  if command -v lazygit &> /dev/null; then
-    lazygit
-  fi
-fi

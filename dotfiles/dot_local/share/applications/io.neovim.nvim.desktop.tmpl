@@ -8,7 +8,7 @@ Type=Application
 Categories=Development;
 Terminal=false
 {{- if (eq (env "XDG_CURRENT_DESKTOP") "KDE") }}
-Exec=/var/home/linuxbrew/.linuxbrew/bin/wezterm start --always-new-process --class=io.neovim.nvim zsh -c 'source ~/.zshrc && nvim %F'
+Exec=konsole --nofork -e zsh -c 'source ~/.zshrc && nvim %F'
 {{- else }}
 Exec=ghostty --class=io.neovim.nvim -e /home/linuxbrew/.linuxbrew/bin/nvim %F
 {{- end }}

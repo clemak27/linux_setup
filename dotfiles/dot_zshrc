@@ -110,14 +110,10 @@ else
   export ZSH_THEME=robbyrussell
 fi
 
-## wezterm
-if command -v wezterm &> /dev/null; then
-  source <(wezterm shell-completion --shell zsh)
-else
-  function cdp() {
-    cd $(fd --type=d --hidden --no-ignore ".git" --exclude node_modules --exclude tmp --absolute-path "$HOME/Projects" | grep ".git/" | sd "/.git/" "" | fzf) && nvim
-  }
-fi
+# cd to repo and open nvim
+function cdp() {
+  cd $(fd --type=d --hidden --no-ignore ".git" --exclude node_modules --exclude tmp --absolute-path "$HOME/Projects" | grep ".git/" | sd "/.git/" "" | fzf) && nvim
+}
 
 ## tools
 if command -v eza &> /dev/null; then
