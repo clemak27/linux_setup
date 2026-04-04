@@ -1,0 +1,9 @@
+[tools]
+actionlint = "1.7.12"
+yamllint = "1.38.0"
+
+[tasks.lint]
+run = """
+actionlint
+yamllint .
+"""

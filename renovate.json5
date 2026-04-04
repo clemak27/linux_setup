@@ -5,6 +5,7 @@
   "forkProcessing": "disabled",
   "extends": [":semanticCommitScopeDisabled"],
   "commitMessageAction": "update",
+  "pinDigests": true,
   "regexManagers": [
     {
       "fileMatch": [".*\\.sh", ".*\\.tmpl"],
@@ -19,6 +20,18 @@
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s\\S+?=.+:(?<currentValue>\\S+)"
       ]
+    }
+  ],
+  "packageRules": [
+    {
+      "matchManagers": [
+        "mise"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "automerge": true
     }
   ]
 }

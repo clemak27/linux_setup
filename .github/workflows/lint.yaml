@@ -1,23 +1,25 @@
 ---
 name: lint
+
 on:
   - pull_request
+
 jobs:
+  actionlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install tools
+        uses: jdx/mise-action@v4
+      - name: Run actionlint
+        run: actionlint
+
   yamllint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Install tools
+        uses: jdx/mise-action@v4
       - name: Run yamllint
-        uses: karancode/yamllint-github-action@master
-  actionlint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - name: Download actionlint
-        id: get_actionlint
-        run: bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
-        shell: bash
-      - name: Run actionlint
-        run: ${{ steps.get_actionlint.outputs.executable }} -color
-        shell: bash
+        run: yamllint .
