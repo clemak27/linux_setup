@@ -140,6 +140,7 @@ printf "sourceDir: %s/Projects/linux_setup" "$HOME" > "$HOME/.config/chezmoi/che
 chezmoi apply --force
 mise trust -y
 mise install -y
+nvim --headless "+Lazy! sync" +qa
 
 ## syncthing
 
