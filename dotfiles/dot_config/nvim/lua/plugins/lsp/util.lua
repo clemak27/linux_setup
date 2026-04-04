@@ -18,6 +18,10 @@ return {
         lsp_fallback = true,
       })
     end, bufopts)
+    -- https://github.com/rmagatti/auto-session/issues/512
+    vim.keymap.set("n", "K", function()
+      vim.lsp.buf.hover({ border = "rounded", focusable = false })
+    end, bufopts)
     vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
     vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
   end,
