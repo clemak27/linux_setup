@@ -6,7 +6,11 @@ font-style = Regular
 window-padding-x = 3
 window-padding-y = 3
 window-padding-balance = true
+{{- if (eq (env "XDG_CURRENT_DESKTOP") "KDE") }}
+window-decoration = true
+{{- else if (eq (env "XDG_CURRENT_DESKTOP") "niri") }}
 window-decoration = false
+{{- end }}
 
 window-inherit-working-directory = false
 working-directory = home
