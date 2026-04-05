@@ -149,6 +149,10 @@ if command -v git &> /dev/null; then
     export GIT_PAGER=less
     export LESS="-F -X $LESS"
   fi
+
+  if ! command -v lazygit &> /dev/null; then
+    alias 'lg'='lazygit'
+  fi
 fi
 
 ## nvim
