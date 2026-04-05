@@ -5,7 +5,6 @@
   "forkProcessing": "disabled",
   "extends": [":semanticCommitScopeDisabled"],
   "commitMessageAction": "update",
-  "pinDigests": true,
   "regexManagers": [
     {
       "fileMatch": [".*\\.sh", ".*\\.tmpl"],
