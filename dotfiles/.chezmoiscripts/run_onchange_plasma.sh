@@ -78,7 +78,7 @@ kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-karousel" --key "gapsO
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-karousel" --key "gapsOuterLeft" "9"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-karousel" --key "gapsOuterRight" "9"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-karousel" --key "gapsOuterTop" "9"
-kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-karousel" --key "presetWidths" "33%, 50%, 100%"
+kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-karousel" --key "presetWidths" "33%, 50%, 66%"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-karousel" --key "stackOffsetX" "9"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Script-karousel" --key "untileOnDrag" "false"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Xwayland" --key "Scale" "1"
