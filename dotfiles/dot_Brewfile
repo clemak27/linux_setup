@@ -73,3 +73,6 @@ brew "node"
 # java
 brew "gradle"
 brew "openjdk"
+
+# casks
+cask "font-jetbrains-mono-nerd-font"
