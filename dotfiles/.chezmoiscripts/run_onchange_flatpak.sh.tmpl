@@ -11,7 +11,7 @@ fi
 
 # Flatpakfile hash: {{ include "dot_Flatpakfile.tmpl" | sha256sum }}
 readarray -t refs < "$HOME/.Flatpakfile"
-flatpak install -y "${refs[@]}"
+flatpak install --system -y "${refs[@]}"
 
 flatpak override --user --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
 flatpak override --user --filesystem=xdg-config/gtk-3.0 --filesystem=xdg-config/gtk-4.0
@@ -32,6 +32,9 @@ if flatpak list | grep "net\.lutris\.Lutris" &> /dev/null; then
 fi
 
 {{ if eq .chezmoi.hostname "maxwell" }}
+if flatpak list | grep "com\.orcaslicer\.OrcaSlicer" &> /dev/null; then
+  exit 0
+fi
 # renovate: datasource=github-tags depName=OrcaSlicer/OrcaSlicer versioning=loose
 orca_version=2.3.2
 
