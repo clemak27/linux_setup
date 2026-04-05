@@ -12,6 +12,7 @@ kwriteconfig6 --file "$config_dir/dolphinrc" --group "DetailsMode" --key "Expand
 kwriteconfig6 --file "$config_dir/dolphinrc" --group "DetailsMode" --key "PreviewSize" "32"
 kwriteconfig6 --file "$config_dir/dolphinrc" --group "General" --key "ConfirmClosingMultipleTabs" "false"
 kwriteconfig6 --file "$config_dir/dolphinrc" --group "General" --key "RememberOpenedTabs" "false"
+kwriteconfig6 --file "$config_dir/dolphinrc" --group "General" --key "ShowStatusBar" "FullWidth"
 kwriteconfig6 --file "$config_dir/dolphinrc" --group "General" --key "ShowZoomSlider" "false"
 kwriteconfig6 --file "$config_dir/dolphinrc" --group "KFileDialog Settings" --key "Places Icons Auto-resize" "false"
 kwriteconfig6 --file "$config_dir/dolphinrc" --group "KFileDialog Settings" --key "Places Icons Static Size" "22"
