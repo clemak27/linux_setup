@@ -32,4 +32,5 @@ if [ -f "$dms_config" ]; then
   yq -iP '.dankLauncherV2BorderThickness = 2' "$dms_config" -o json
   yq -iP '.dankLauncherV2BorderColor = "primary"' "$dms_config" -o json
   yq -iP '.lockScreenPowerOffMonitorsOnLock = true' "$dms_config" -o json
+  yq -iP '.matugenTemplateNeovim = false' "$dms_config" -o json
 fi
