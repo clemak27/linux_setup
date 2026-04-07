@@ -3,7 +3,7 @@ return {
   "akinsho/bufferline.nvim",
   config = function()
     require("bufferline").setup({
-      highlights = require("catppuccin.groups.integrations.bufferline").get(),
+      highlights = require("catppuccin.special.bufferline").get_theme(),
       options = {
         right_mouse_command = "vertical sbuffer %d",
         middle_mouse_command = "bdelete! %d",

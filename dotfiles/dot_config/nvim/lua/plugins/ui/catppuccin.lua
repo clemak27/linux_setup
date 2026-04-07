@@ -2,7 +2,7 @@ return {
   {
     "catppuccin/nvim",
     as = "catppuccin",
-    tag = "v1.11.0",
+    tag = "v2.0.0",
     priority = 1000,
     config = function()
       require("catppuccin").setup({
@@ -38,7 +38,7 @@ return {
         },
       })
 
-      vim.cmd.colorscheme("catppuccin")
+      vim.cmd.colorscheme("catppuccin-nvim")
       vim.wo.cursorlineopt = "number"
     end,
   },
