@@ -1,27 +1,14 @@
 [Global]
 LookAndFeelSet=org.kde.breeze.desktop
-
-[ShadowStyle]
-ShadowSize=ShadowNone
+RefreshedConfig=6.5.3
 
 [Windeco]
-BoldButtonIcons=BoldIconsHiDpiOnly
 ButtonIconStyle=StyleOxygen
-
-{{- if not (eq .chezmoi.hostname "fermi") }}
-[Windeco Exception 0]
-BorderSize=0
-Enabled=true
-ExceptionBorder=false
-ExceptionPreset=
-ExceptionProgramNamePattern=
-ExceptionWindowPropertyPattern=.*
-ExceptionWindowPropertyType=0
-HideTitleBar=true
-OpaqueTitleBar=false
-PreventApplyOpacityToHeader=false
-{{- end }}
+DrawTitleBarSeparator=false
+WindowCornerRadius=5.0
 
 [WindowOutlineStyle]
 ThinWindowOutlineThickness=2.5
 WindowOutlineAccentColorOpacityActive=100
+WindowOutlineStyleActive=WindowOutlineAccentColor
+WindowOutlineThickness=2

@@ -90,11 +90,11 @@ Color=205,214,244
 
 [General]
 Anchor=0.5,0.5
-Blur=false
+Blur=true
 ColorRandomization=false
 Description=MochaMatte
 FillStyle=Tile
-Opacity=1
+Opacity=0.70
 Wallpaper=
 WallpaperFlipType=NoFlip
 WallpaperOpacity=1
