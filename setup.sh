@@ -116,27 +116,9 @@ elif [ "$HOSTNAME" = "newton" ]; then
     --append-if-missing=initcall_blacklist=simpledrm_platform_driver_init
 fi
 
-if [ "$XDG_CURRENT_DESKTOP" == "niri" ]; then
-  systemctl --user enable --now gcr-ssh-agent.socket
-  systemctl --user enable --now gcr-ssh-agent.service
-fi
-
-## brew
-
-brew_dir="/var/home/linuxbrew/.linuxbrew"
-
-export HOMEBREW_CELLAR=$brew_dir/Cellar
-export HOMEBREW_PREFIX=$brew_dir
-export HOMEBREW_REPOSITORY=$brew_dir/Homebrew
-export HOMEBREW_NO_ANALYTICS=1
-export PATH="$brew_dir/bin:$PATH"
-
-brew bundle install --file "$HOME/Projects/linux_setup/dotfiles/dot_Brewfile"
-
 ## homedir
 
-mkdir -p "$HOME/.config/chezmoi"
-printf "sourceDir: %s/Projects/linux_setup" "$HOME" > "$HOME/.config/chezmoi/chezmoi.yaml"
+brew install chezmoi
 chezmoi apply --force
 mise trust -y
 mise install -y
