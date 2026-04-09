@@ -370,10 +370,7 @@ switch to next activity=none,,Switch to Next Activity
 switch to previous activity=none,,Switch to Previous Activity
 toggle do not disturb=none,,Toggle do not disturb
 
-[services][firefox.desktop]
-new-window=Meta+B
-
-[services][org.kde.konsole.desktop]
+[services][ghostty.desktop]
 _launch=Meta+Return
 
 [services][org.kde.krunner.desktop]

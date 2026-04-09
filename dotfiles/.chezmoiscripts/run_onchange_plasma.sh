@@ -62,7 +62,7 @@ kwriteconfig6 --file "$config_dir/kscreenlockerrc" --group "Daemon" --key "Timeo
 
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Effect-blurplus" --key "BlurStrength" "6"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Effect-blurplus" --key "NoiseStrength" "3"
-kwriteconfig6 --file "$config_dir/kwinrc" --group "Effect-blurplus" --key "WindowClasses" "org.kde.konsole\nghostty"
+kwriteconfig6 --file "$config_dir/kwinrc" --group "Effect-blurplus" --key "WindowClasses" "ghostty"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "Effect-overview" --key "BorderActivate" "9"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "KDE" --key "widgetStyle" "Klassy"
 kwriteconfig6 --file "$config_dir/kwinrc" --group "NightColor" --key "Active" "true"

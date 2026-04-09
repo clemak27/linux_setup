@@ -7,8 +7,4 @@ StartupWMClass=io.neovim.nvim
 Type=Application
 Categories=Development;
 Terminal=false
-{{- if (eq (env "XDG_CURRENT_DESKTOP") "KDE") }}
-Exec=konsole --nofork -e zsh -c 'source ~/.zshrc && nvim %F'
-{{- else }}
 Exec=ghostty --class=io.neovim.nvim -e /home/linuxbrew/.linuxbrew/bin/nvim %F
-{{- end }}
