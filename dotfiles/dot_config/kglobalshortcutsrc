@@ -232,13 +232,13 @@ karousel-column-move-to-desktop-8=none,none,Karousel: Move column to desktop 8
 karousel-column-move-to-desktop-9=none,none,Karousel: Move column to desktop 9
 karousel-column-toggle-stacked=,none,Karousel: Toggle stacked layout for focused column
 karousel-column-width-decrease=,none,Karousel: Decrease column width
-karousel-column-width-increase=,none,Karousel: Increase column width
-karousel-column-width-maximize=Meta+F,none,Karousel: Increase column width to maximum
+karousel-column-width-increase=Meta+F,none,Karousel: Increase column width
+karousel-column-width-maximize=none,none,Karousel: Increase column width to maximum
 karousel-column-width-minimize=,none,Karousel: Decrease column width to minimum
 karousel-columns-squeeze-left=,none,Karousel: Squeeze left column onto the screen
 karousel-columns-squeeze-right=,none,Karousel: Squeeze right column onto the screen
 karousel-columns-width-equalize=,none,Karousel: Equalize widths of visible columns
-karousel-cycle-preset-widths=,none,Karousel: Cycle through preset column widths
+karousel-cycle-preset-widths=Meta+R,none,Karousel: Cycle through preset column widths
 karousel-cycle-preset-widths-reverse=,none,Karousel: Cycle through preset column widths in reverse
 karousel-focus-1=Meta+1,none,Karousel: Move focus to column 1
 karousel-focus-10=,none,Karousel: Move focus to column 10
@@ -252,14 +252,14 @@ karousel-focus-6=,none,Karousel: Move focus to column 6
 karousel-focus-7=,none,Karousel: Move focus to column 7
 karousel-focus-8=,none,Karousel: Move focus to column 8
 karousel-focus-9=,none,Karousel: Move focus to column 9
-karousel-focus-down=Meta+J,none,Karousel: Move focus down
+karousel-focus-down=Meta+Down\tMeta+J,none,Karousel: Move focus down
 karousel-focus-end=none,none,Karousel: Move focus to end
-karousel-focus-left=Meta+H,none,Karousel: Move focus left
+karousel-focus-left=Meta+H\tMeta+Left,none,Karousel: Move focus left
 karousel-focus-next=,none,Karousel: Move focus to the next window in grid
 karousel-focus-previous=,none,Karousel: Move focus to the previous window in grid
-karousel-focus-right=Meta+L,none,Karousel: Move focus right
+karousel-focus-right=Meta+Right\tMeta+L,none,Karousel: Move focus right
 karousel-focus-start=,none,Karousel: Move focus to start
-karousel-focus-up=Meta+K,none,Karousel: Move focus up
+karousel-focus-up=Meta+Up\tMeta+K,none,Karousel: Move focus up
 karousel-grid-scroll-end=none,none,Karousel: Scroll to end
 karousel-grid-scroll-focused=Meta+C,none,Karousel: Center focused window
 karousel-grid-scroll-left=none,none,Karousel: Scroll left
@@ -370,15 +370,19 @@ switch to next activity=none,,Switch to Next Activity
 switch to previous activity=none,,Switch to Previous Activity
 toggle do not disturb=none,,Toggle do not disturb
 
+[services][com.mitchellh.ghostty.desktop]
+_launch=Meta+Return
+
 [services][ghostty.desktop]
 _launch=Meta+Return
+
+[services][org.kde.konsole.desktop]
+_launch=none
 
 [services][org.kde.krunner.desktop]
 _launch=Search\tMeta+Space\tAlt+F2
 
 [services][org.kde.spectacle.desktop]
-CurrentMonitorScreenShot=
-OpenWithoutScreenshot=
 RecordRegion=Meta+Shift+R
 RecordWindow=none
 
