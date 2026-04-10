@@ -4,3 +4,12 @@ git:
   pagers:
     - colorArg: always
       pager: delta --dark --paging=never
+gui:
+  theme:
+    activeBorderColor:
+      - "#fab387"
+      - bold
+    inactiveBorderColor:
+      - blue
+    selectedLineBgColor:
+      - "#45475a"
