@@ -6,14 +6,6 @@ return {
   config = function()
     local C = require("catppuccin.palettes").get_palette("mocha")
 
-    local function macro_recording()
-      local mode = require("noice").api.statusline.mode.get()
-      if mode then
-        return string.match(mode, "^recording @.*") or ""
-      end
-      return ""
-    end
-
     require("lualine").setup({
       options = {
         theme = "catppuccin-nvim",
@@ -48,7 +40,9 @@ return {
             separator = "|",
           },
           {
-            macro_recording,
+            require("noice").api.statusline.mode.get,
+            cond = require("noice").api.statusline.mode.has,
+            color = { fg = "#ff9e64" },
           },
         },
         lualine_x = {
