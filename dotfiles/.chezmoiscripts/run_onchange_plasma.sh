@@ -24,7 +24,7 @@ kwriteconfig6 --file "$config_dir/kdeglobals" --group "General" --key "ColorSche
 kwriteconfig6 --file "$config_dir/kdeglobals" --group "General" --key "TerminalApplication" "/usr/bin/ghostty --gtk-single-instance=true"
 kwriteconfig6 --file "$config_dir/kdeglobals" --group "General" --key "TerminalService" "com.mitchellh.ghostty.desktop"
 kwriteconfig6 --file "$config_dir/kdeglobals" --group "General" --key "accentColorFromWallpaper" "false"
-kwriteconfig6 --file "$config_dir/kdeglobals" --group "Icons" --key "Theme" "Papirus-Dark"
+kwriteconfig6 --file "$config_dir/kdeglobals" --group "Icons" --key "Theme" "Papirus"
 kwriteconfig6 --file "$config_dir/kdeglobals" --group "KDE" --key "ShowDeleteCommand" "false"
 kwriteconfig6 --file "$config_dir/kdeglobals" --group "KDE" --key "widgetStyle" "Klassy"
 kwriteconfig6 --file "$config_dir/kdeglobals" --group "KFileDialog Settings" --key "Allow Expansion" "false"
