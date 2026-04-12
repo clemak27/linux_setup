@@ -30,6 +30,7 @@ brew "zoxide"
 # git
 brew "delta"
 brew "gh"
+brew "git-credential-oauth"
 brew "lazygit"
 
 # container
