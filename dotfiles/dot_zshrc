@@ -150,7 +150,7 @@ if command -v git &> /dev/null; then
     export LESS="-F -X $LESS"
   fi
 
-  if ! command -v lazygit &> /dev/null; then
+  if command -v lazygit &> /dev/null; then
     alias 'lg'='lazygit'
   fi
 fi
