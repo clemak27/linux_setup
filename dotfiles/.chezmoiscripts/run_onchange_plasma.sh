@@ -91,6 +91,7 @@ kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "
 kwriteconfig6 --file "$config_dir/kwinrc" --group "org.kde.kdecoration2" --key "theme" "Klassy"
 
 kwriteconfig6 --file "$config_dir/kxkbrc" --group "Layout" --key "Options" "caps:escape_shifted_capslock"
+kwriteconfig6 --file "$config_dir/kxkbrc" --group "Layout" --key "ResetOldOptions" "true"
 
 kwriteconfig6 --file "$config_dir/plasma-localerc" --group "Formats" --key "LANG" "en_GB.UTF-8"
 kwriteconfig6 --file "$config_dir/plasma-localerc" --group "Formats" --key "LC_ADDRESS" "de_AT.UTF-8"
