@@ -37,7 +37,7 @@ fi
 
 # oh-my-zsh
 if [ -d "$HOME/.oh-my-zsh" ]; then
-  plugins=(npm golang gradle-completion git kubectl extract rsync zsh-syntax-highlighting fzf)
+  plugins=(npm golang gradle-completion git kubectl extract rsync zsh-syntax-highlighting)
 
   ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
   zstyle ':omz:update' mode disabled
@@ -88,6 +88,7 @@ alias 'watch'='viddy --disable_auto_save'
 if command -v fzf &> /dev/null; then
   export FZF_DEFAULT_COMMAND="rg --files --hidden"
   export FZF_DEFAULT_OPTS="--height=99% --layout=reverse --info=inline --border=sharp --margin=2 --padding=1 --color=bg+:#313244,spinner:#f5e0dc,hl:#f38ba8 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+  eval "$(fzf --zsh)"
 fi
 
 ## bat
