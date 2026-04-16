@@ -3,20 +3,7 @@
 typeset -U path cdpath fpath manpath
 PROMPT_EOL_MARK=""
 ZSH_DISABLE_COMPFIX="false"
-
-HISTSIZE="50000"
-SAVEHIST="25000"
-HISTFILE="$HOME/.zsh_history"
-
-setopt HIST_FCNTL_LOCK
-setopt HIST_IGNORE_DUPS
-unsetopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-unsetopt HIST_EXPIRE_DUPS_FIRST
-setopt SHARE_HISTORY
-unsetopt EXTENDED_HISTORY
 unsetopt beep
-setopt HIST_SAVE_NO_DUPS
 
 export BROWSER=$HOME/.local/bin/firefox
 export GOPATH="$HOME/.go"
@@ -58,6 +45,26 @@ fi
 if command -v direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
   export PRE_COMMIT_COLOR="never"
+fi
+
+# atuin
+if command -v atuin &> /dev/null; then
+  eval "$(atuin init zsh --disable-up-arrow --disable-ai)"
+  unset HISTFILE
+  fc -R =(atuin search --cmd-only --limit 100)
+else
+  HISTSIZE="50000"
+  SAVEHIST="25000"
+  HISTFILE="$HOME/.zsh_history"
+
+  setopt HIST_FCNTL_LOCK
+  setopt HIST_IGNORE_DUPS
+  unsetopt HIST_IGNORE_ALL_DUPS
+  setopt HIST_IGNORE_SPACE
+  unsetopt HIST_EXPIRE_DUPS_FIRST
+  setopt SHARE_HISTORY
+  unsetopt EXTENDED_HISTORY
+  setopt HIST_SAVE_NO_DUPS
 fi
 
 # mise

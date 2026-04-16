@@ -1,0 +1,23 @@
+auto_sync = false
+update_check = false
+search_mode = "fuzzy"
+style = "full"
+inline_height = 0
+invert = true
+show_numeric_shortcuts = false
+enter_accept = false
+
+[keys]
+scroll_exits = false
+exit_past_line_start = false
+accept_past_line_end = false
+
+[sync]
+records = true
+
+[daemon]
+enabled = true
+autostart = true
+
+[theme]
+name = "catppuccin-mocha"

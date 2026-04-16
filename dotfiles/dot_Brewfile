@@ -1,4 +1,5 @@
 # tools
+brew "atuin"
 brew "bat"
 brew "chezmoi"
 brew "cosign"
