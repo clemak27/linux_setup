@@ -47,6 +47,13 @@ if command -v direnv &> /dev/null; then
   export PRE_COMMIT_COLOR="never"
 fi
 
+# fzf
+if command -v fzf &> /dev/null; then
+  export FZF_DEFAULT_COMMAND="rg --files --hidden"
+  export FZF_DEFAULT_OPTS="--height=99% --layout=reverse --info=inline --border=sharp --margin=2 --padding=1 --color=bg+:#313244,spinner:#f5e0dc,hl:#f38ba8 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+  eval "$(fzf --zsh)"
+fi
+
 # atuin
 if command -v atuin &> /dev/null; then
   eval "$(atuin init zsh --disable-up-arrow --disable-ai)"
@@ -90,13 +97,6 @@ alias 'cd..'='cd ..'
 alias 'clear'='printf '\''\33c\e[3J'\'''
 alias 'q'='exit'
 alias 'watch'='viddy --disable_auto_save'
-
-# fzf
-if command -v fzf &> /dev/null; then
-  export FZF_DEFAULT_COMMAND="rg --files --hidden"
-  export FZF_DEFAULT_OPTS="--height=99% --layout=reverse --info=inline --border=sharp --margin=2 --padding=1 --color=bg+:#313244,spinner:#f5e0dc,hl:#f38ba8 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-  eval "$(fzf --zsh)"
-fi
 
 ## bat
 if command -v bat &> /dev/null; then
