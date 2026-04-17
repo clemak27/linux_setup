@@ -25,7 +25,7 @@ if [[ -n "$TERMUX_VERSION" ]]; then
 
   pkg install -y zsh starship zsh-completions \
     git git-delta lazygit \
-    bat chezmoi eza fastfetch fd fzf htop jq yazi ripgrep sd tealdeer tree unrar unzip viddy \
+    atuin bat chezmoi eza fastfetch fd fzf htop jq yazi ripgrep sd tealdeer tree unrar unzip viddy \
     kubectl kubecolor
 
   chsh -s zsh
@@ -69,6 +69,10 @@ if [[ -n "$TERMUX_VERSION" ]]; then
   ln -sf "$HOME/Projects/linux_setup/dotfiles/dot_zshrc" "$HOME/.zshrc"
   ln -sf "$HOME/Projects/linux_setup/dotfiles/dot_config/starship.toml" "$HOME/.config/starship.toml"
 
+  mkdir -p "$HOME/.config/atuin"
+  ln -sf "$HOME/Projects/linux_setup/dotfiles/dot_config/atuin/config.toml" "$HOME/.config/atuin/config.toml"
+  ln -sf "$HOME/Projects/linux_setup/dotfiles/dot_config/atuin/themes" "$HOME/.config/atuin/themes"
+
   mkdir -p "$HOME/.config/bat"
   ln -sf "$HOME/Projects/linux_setup/dotfiles/dot_config/bat/config" "$HOME/.config/bat/config"
 
@@ -77,7 +81,7 @@ if [[ -n "$TERMUX_VERSION" ]]; then
 
   mkdir -p "$HOME/.config/lazygit"
   cp --remove-destination "$HOME/Projects/linux_setup/dotfiles/dot_config/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
-  printf "gui:\n  enlargedSideViewLocation: top" >> "$HOME/.config/lazygit/config.yml"
+  printf "\n  enlargedSideViewLocation: top" >> "$HOME/.config/lazygit/config.yml"
 
   mkdir -p "$HOME/.config/tealdeer"
   ln -sf "$HOME/Projects/linux_setup/dotfiles/dot_config/tealdeer/config.toml" "$HOME/.config/tealdeer/config.toml"
