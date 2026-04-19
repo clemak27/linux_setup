@@ -180,7 +180,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
   ui = {
-    border = "single",
+    border = "rounded",
   },
   checker = {
     enabled = true,
