@@ -10,14 +10,25 @@ return {
 
   "kyazdani42/nvim-web-devicons",
   {
-    "brenoprata10/nvim-highlight-colors",
+    "catgoose/nvim-colorizer.lua",
     config = function()
-      require("nvim-highlight-colors").setup({
-        render = "virtual",
-        virtual_symbol = "󰝤",
-        virtual_symbol_prefix = " ",
-        virtual_symbol_suffix = " ",
-        virtual_symbol_position = "inline",
+      require("colorizer").setup({
+        options = {
+          parsers = {
+            css_fn = true,
+            names = {
+              enable = false,
+            },
+          },
+          display = {
+            mode = "virtualtext",
+            virtualtext = {
+              char = "󰝤",
+              position = "before",
+              hl_mode = "foreground",
+            },
+          },
+        },
       })
     end,
   },
