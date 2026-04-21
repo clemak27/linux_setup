@@ -22,3 +22,7 @@
   exact = true
   stripComponents = 1
   refreshPeriod = "168h"
+[".config/ghostty/shaders/cursor_warp.glsl"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/sahaj-b/ghostty-cursor-shaders/refs/heads/main/cursor_warp.glsl"
+  refreshPeriod = "168h"
