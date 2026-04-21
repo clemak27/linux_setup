@@ -88,16 +88,16 @@ return {
       },
       {
         "Aietes/esp32.nvim",
-        cond = function ()
+        cond = function()
           return vim.uv.fs_stat(vim.fn.getcwd() .. "/sdkconfig")
         end,
-        config = function ()
+        config = function()
           local esp32 = require("esp32")
           vim.lsp.config("clangd", esp32.lsp_config())
           vim.lsp.config("clangd", { filetypes = { "c" } })
           vim.lsp.enable("clangd")
-        end
-      }
+        end,
+      },
     },
     config = function()
       vim.lsp.config("*", {
@@ -203,7 +203,9 @@ return {
       vim.lsp.enable("taplo")
       vim.lsp.enable("templ")
       vim.lsp.enable("tofu_ls")
-      vim.lsp.enable("tailwindcss")
+      if vim.fn.executable("tailwindcss-language-server") == 1 then
+        vim.lsp.enable("tailwindcss")
+      end
       vim.lsp.enable("tinymist")
       vim.lsp.enable("ts_ls")
 
