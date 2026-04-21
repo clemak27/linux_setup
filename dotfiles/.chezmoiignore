@@ -2,7 +2,6 @@
 {{- if eq .chezmoi.hostname "fermi" }}
 .local/share/applications/org.kde.kontact.desktop
 .local/share/applications/io.neovim.nvim.desktop
-.local/bin/wezterm
 {{- end }}
 {{- if (eq (env "XDG_CURRENT_DESKTOP") "niri") }}
 .config/autostart/ksshaskpass.sh.desktop
@@ -13,9 +12,7 @@
 .config/kwinrc
 .config/kwinrulesrc
 .config/panel-colorizer
-.config/wezterm
 .local/bin/cdp
-.local/share/applications/wezterm.desktop
 .local/share/color-schemes
 .local/share/konsole
 .local/share/org.kde.syntax-highlighting
