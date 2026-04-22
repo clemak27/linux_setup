@@ -196,13 +196,25 @@ if command -v kubectl &> /dev/null; then
 
   export PATH="$HOME/.krew/bin:$PATH"
 
-  function kj() { kubectl "$@" -o json | jq; }
-  compdef kj=kubectl
-  function ky() { kubectl "$@" -o yaml | bat -p -P --language=yaml; }
-  compdef ky=kubectl
-  function wk() { viddy --disable_auto_save --no-title kubecolor --force-colors "$@"; }
-  compdef wk=kubectl
-  function kgaw() { viddy  --disable_auto_save --no-title kubecolor --force-colors get all; }
+  function _build_kubectl_out_alias {
+    setopt localoptions norcexpandparam
+
+    # alias function
+    eval "function $1 { $2 }"
+
+    # completion function
+    eval "function _$1 {
+      words=(kubectl \"\${words[@]:1}\")
+      _kubectl
+    }"
+
+    compdef _$1 $1
+  }
+
+  _build_kubectl_out_alias "kj"  'kubecolor --paging -o json "$@";'
+  _build_kubectl_out_alias "ky"  'kubecolor --paging -o yaml "$@";'
+  _build_kubectl_out_alias "wk"  'viddy --disable_auto_save --no-title kubecolor --force-colors "$@";'
+  _build_kubectl_out_alias "kgaw"  'viddy  --disable_auto_save --no-title kubecolor --force-colors get all "$@";'
 fi
 
 ## hl
