@@ -86,6 +86,13 @@ return {
           position = "float",
         },
       },
+      image = {
+        doc = {
+          enabled = true,
+          inline = false,
+          float = true,
+        },
+      },
     },
     keys = {
       {
