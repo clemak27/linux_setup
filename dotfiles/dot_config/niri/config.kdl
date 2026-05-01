@@ -9,6 +9,15 @@ window-rule {
     open-floating true
 }
 
+// Enable blur for ghostty
+window-rule {
+    match app-id="^com.mitchellh.ghostty$"
+
+    background-effect {
+        blur true
+    }
+}
+
 overview {
     backdrop-color "#060606"
 }
