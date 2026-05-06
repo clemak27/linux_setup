@@ -5,8 +5,7 @@ return {
     require("bufferline").setup({
       highlights = require("catppuccin.special.bufferline").get_theme(),
       options = {
-        right_mouse_command = "vertical sbuffer %d",
-        middle_mouse_command = "bdelete! %d",
+        right_mouse_command = "bdelete! %d",
         diagnostics = false,
         show_buffer_icons = true,
         show_buffer_close_icons = true,
