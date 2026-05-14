@@ -1,4 +1,7 @@
 .oh-my-zsh/cache/**
+.local/bin/nix
+.local/bin/nixd
+.local/bin/nixpkgs-fmt
 {{- if eq .chezmoi.hostname "fermi" }}
 .local/share/applications/org.kde.kontact.desktop
 .local/share/applications/io.neovim.nvim.desktop
