@@ -133,6 +133,7 @@ nvim --headless "+Lazy! sync" +qa
 mkdir -p "$HOME/.local/state/syncthing"
 systemctl --user daemon-reload
 systemctl --user start syncthing
+systemctl --user enable app-com.mitchellh.ghostty.service
 loginctl enable-linger
 
 systemctl reboot

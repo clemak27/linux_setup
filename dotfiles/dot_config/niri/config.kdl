@@ -33,7 +33,7 @@ input {
 
 binds {
     Mod+Slash { show-hotkey-overlay; }
-    Mod+Return hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
+    Mod+Return hotkey-overlay-title="Open Terminal" { spawn "ghostty" "+new-window"; }
     Mod+E hotkey-overlay-title="Open File Manager" { spawn "nautilus"; }
     Mod+B hotkey-overlay-title="Open Browser" { spawn "flatpak" "run" "org.mozilla.firefox"; }
     Mod+Space hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
