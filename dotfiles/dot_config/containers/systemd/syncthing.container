@@ -1,5 +1,4 @@
 [Container]
-# renovate: datasource=github-tags depName=syncthing/syncthing versioning=loose
 Image=docker.io/syncthing/syncthing:2.1.0
 AutoUpdate=registry
 Network=host
