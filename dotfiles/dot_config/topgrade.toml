@@ -35,3 +35,4 @@ use_sudo = false
 "chezmoi" = "chezmoi apply --force"
 "mise-en-place tools" = "mise i -y"
 "nvim" = "nvim --headless \"+Lazy! sync\" +qa"
+"nix" = "nix profile upgrade --all"
