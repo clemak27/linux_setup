@@ -13,47 +13,17 @@ return {
       })
       require("mason-tool-installer").setup({
         ensure_installed = {
-          -- other
-          "clangd",
-          "css-lsp",
-          "html-lsp",
-          "json-lsp",
-          "kotlin-lsp",
-          "pkl-lsp",
-          "sonarlint-language-server",
-          "taplo",
-
-          -- container
-          "dockerfile-language-server",
-
-          -- md
-          "ltex-ls-plus",
-
-          -- sh
-          "bash-language-server",
-
-          -- yaml
-          "yaml-language-server",
-
-          -- lua
-          "lua-language-server",
-
-          -- go
-          "delve",
-          "goimports",
-          "golangci-lint-langserver",
-          "gopls",
-          "templ",
-
           -- java
           "jdtls",
           "gradle-language-server",
           "java-debug-adapter",
           "java-test",
 
-          -- js
+          -- other
+          "clangd",
+          "kotlin-lsp",
+          "sonarlint-language-server",
           "typescript-language-server",
-          "eslint-lsp",
         },
         auto_update = true,
       })

@@ -34,21 +34,26 @@ brew "gh"
 brew "git-credential-oauth"
 brew "lazygit"
 
-# container
+# containerfile
+brew "dockerfile-language-server"
 brew "hadolint"
 
 # md
+brew "ltex-ls-plus"
 brew "rumdl"
 
 # sh
+brew "bash-language-server"
 brew "shellcheck"
 brew "shfmt"
 
 # yaml
+brew "yaml-language-server"
 brew "yamlfmt"
 brew "yamllint"
 
 # lua
+brew "lua-language-server"
 brew "stylua"
 
 # k8s
@@ -63,10 +68,14 @@ brew "kustomize"
 brew "stern"
 
 # go
+brew "delve"
 brew "go"
 brew "gofumpt"
 brew "goimports"
 brew "golangci-lint"
+brew "golangci-lint-langserver"
+brew "gopls"
+brew "templ"
 
 # nodejs
 brew "biome"
@@ -75,6 +84,11 @@ brew "node"
 # java
 brew "gradle"
 brew "openjdk"
+
+# other
+brew "pkl-lsp"
+brew "taplo"
+brew "vscode-langservers-extracted"
 
 # casks
 cask "font-jetbrains-mono-nerd-font"
