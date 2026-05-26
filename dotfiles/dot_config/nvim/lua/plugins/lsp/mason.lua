@@ -52,8 +52,6 @@ return {
           "java-test",
 
           -- js
-          "js-debug-adapter",
-          "vue-language-server",
           "typescript-language-server",
           "eslint-lsp",
         },
