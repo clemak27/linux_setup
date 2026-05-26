@@ -26,7 +26,3 @@
   type = "file"
   url = "https://raw.githubusercontent.com/sahaj-b/ghostty-cursor-shaders/refs/heads/main/cursor_warp.glsl"
   refreshPeriod = "168h"
-[".oh-my-zsh/custom/completions/_nix"]
-  type = "file"
-  url = "https://raw.githubusercontent.com/NixOS/nix/refs/heads/master/misc/zsh/completion.zsh"
-  refreshPeriod = "168h"
