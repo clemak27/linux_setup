@@ -41,6 +41,11 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
   source $HOME/.oh-my-zsh/oh-my-zsh.sh
 fi
 
+# nix
+if command -v nix &> /dev/null; then
+  export PATH="$HOME/.nix-profile/bin:$PATH"
+fi
+
 # direnv
 if command -v direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
