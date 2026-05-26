@@ -127,6 +127,7 @@ chezmoi apply --force
 mise trust -y
 mise install -y
 nvim --headless "+Lazy! sync" +qa
+nix profile add nixpkgs#nixd nixpkgs#nixpkgs-fmt
 
 ## syncthing
 
