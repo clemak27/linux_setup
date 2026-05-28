@@ -1,8 +1,10 @@
 [Default Applications]
 application/pdf=org.gnome.Papers.desktop
 application/x-shellscript=io.neovim.nvim.desktop
+image/bmp=org.gnome.Loupe.desktop
 image/gif=org.gnome.Loupe.desktop
 image/jpeg=org.gnome.Loupe.desktop
 image/png=org.gnome.Loupe.desktop
+text/markdown=io.neovim.nvim.desktop
 text/plain=io.neovim.nvim.desktop
 x-scheme-handler/discord=dev.vencord.Vesktop.desktop
