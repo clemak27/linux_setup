@@ -32,4 +32,18 @@ return {
       vim.api.nvim_buf_set_keymap(0, "v", "d", "d<cmd>AutolistRecalculate<cr>", opts)
     end,
   },
+  {
+    "phrmendes/todotxt.nvim",
+    ft = { "todotxt" },
+    config = function()
+      require("todotxt").setup({
+        todotxt = vim.env.HOME .. "/Notes/todo.txt",
+        donetxt = vim.env.HOME .. "/Notes/done.txt",
+        ghost_text = {
+          enable = false,
+        },
+        parser = "ts",
+      })
+    end,
+  },
 }
