@@ -33,4 +33,10 @@ if [ -f "$dms_config" ]; then
   yq -iP '.dankLauncherV2BorderColor = "primary"' "$dms_config" -o json
   yq -iP '.lockScreenPowerOffMonitorsOnLock = true' "$dms_config" -o json
   yq -iP '.matugenTemplateNeovim = false' "$dms_config" -o json
+  yq -iP '.currentThemeName = "dynamic"' "$dms_config" -o json
+  yq -iP '.currentThemeCategory = "dynamic"' "$dms_config" -o json
+  yq -iP '.matugenScheme = "scheme-content"' "$dms_config" -o json
+  yq -iP '.cornerRadius = 7' "$dms_config" -o json
+  yq -iP '.niriLayoutRadiusOverride = 7' "$dms_config" -o json
+
 fi
