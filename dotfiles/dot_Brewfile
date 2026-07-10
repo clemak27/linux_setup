@@ -86,6 +86,11 @@ brew "node"
 brew "gradle"
 brew "openjdk"
 
+# rust
+brew "bacon"
+brew "bacon-ls"
+brew "rust-analyzer"
+
 # other
 brew "pkl-lsp"
 brew "taplo"

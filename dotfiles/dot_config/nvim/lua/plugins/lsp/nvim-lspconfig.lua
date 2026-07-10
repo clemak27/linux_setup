@@ -105,6 +105,8 @@ return {
         on_attach = require("plugins.lsp.util").on_attach,
       })
 
+      vim.lsp.enable("bacon-ls")
+
       vim.lsp.config("bashls", { filetypes = { "bash", "sh", "zsh" } })
       vim.lsp.enable("bashls")
 
