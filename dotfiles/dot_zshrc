@@ -133,8 +133,8 @@ function cdp() {
 
 ## tools
 if command -v eza &> /dev/null; then
-  alias 'ls'='eza --icons=automatic'
-  alias 'lsa'='eza --icons=automatic -hal'
+  alias 'ls'='eza --icons=auto'
+  alias 'lsa'='eza --icons=auto -hal'
 fi
 if command -v cyme &> /dev/null; then
   alias 'lsusb'='cyme --lsusb'
