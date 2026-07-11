@@ -18,6 +18,15 @@ window-rule {
     }
 }
 
+// Enable blur for nvim
+window-rule {
+    match app-id="^io.neovim.nvim$"
+
+    background-effect {
+        blur true
+    }
+}
+
 overview {
     backdrop-color "#060606"
 }
