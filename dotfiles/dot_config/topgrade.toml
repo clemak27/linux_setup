@@ -36,3 +36,4 @@ use_sudo = false
 "mise-en-place tools" = "mise i -y"
 "nvim" = "nvim --headless \"+Lazy! sync\" +qa"
 "nix" = "nix profile upgrade --all"
+"dms plugins" = "dms plugins update --all"
