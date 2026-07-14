@@ -25,30 +25,30 @@ dconf write /org/gtk/Settings/FileChooser/sort-order '"ascending"'
 dconf write /org/gtk/Settings/FileChooser/type-format '"category"'
 
 if [ -f "$dms_config" ]; then
-  yq -iP '.widgetBackgroundColor = "s"' "$dms_config" -o json
-  yq -iP '.niriLayoutGapsOverride = 10' "$dms_config" -o json
-  yq -iP '.cursorSettings.theme = "breeze_cursors"' "$dms_config" -o json
-  yq -iP '.iconTheme = "Papirus-Dark"' "$dms_config" -o json
-  yq -iP '.fontFamily = "Noto Sans"' "$dms_config" -o json
-  yq -iP '.monoFontFamily = "JetBrainsMonoNL Nerd Font"' "$dms_config" -o json
-  yq -iP '.clockDateFormat = "dd.MM.yyyy"' "$dms_config" -o json
-  yq -iP '.useAutoLocation = true' "$dms_config" -o json
+  yq -iP '.blurWallpaperOnOverview = false' "$dms_config" -o json
+  yq -iP '.blurredWallpaperLayer = true' "$dms_config" -o json
   yq -iP '.centeringMode = "geometric"' "$dms_config" -o json
-  yq -iP '.osdPosition = 7' "$dms_config" -o json
-  yq -iP '.osdAlwaysShowValue = true' "$dms_config" -o json
-  yq -iP '.lockBeforeSuspend = true' "$dms_config" -o json
+  yq -iP '.clockDateFormat = "dd.MM.yyyy"' "$dms_config" -o json
+  yq -iP '.cornerRadius = 7' "$dms_config" -o json
+  yq -iP '.currentThemeCategory = "dynamic"' "$dms_config" -o json
+  yq -iP '.currentThemeName = "dynamic"' "$dms_config" -o json
+  yq -iP '.cursorSettings.theme = "breeze_cursors"' "$dms_config" -o json
+  yq -iP '.dankLauncherV2BorderColor = "primary"' "$dms_config" -o json
   yq -iP '.dankLauncherV2BorderEnabled = true' "$dms_config" -o json
   yq -iP '.dankLauncherV2BorderThickness = 2' "$dms_config" -o json
-  yq -iP '.dankLauncherV2BorderColor = "primary"' "$dms_config" -o json
+  yq -iP '.fontFamily = "Noto Sans"' "$dms_config" -o json
+  yq -iP '.iconTheme = "Papirus-Dark"' "$dms_config" -o json
+  yq -iP '.lockBeforeSuspend = true' "$dms_config" -o json
   yq -iP '.lockScreenPowerOffMonitorsOnLock = true' "$dms_config" -o json
-  yq -iP '.matugenTemplateNeovim = false' "$dms_config" -o json
-  yq -iP '.currentThemeName = "dynamic"' "$dms_config" -o json
-  yq -iP '.currentThemeCategory = "dynamic"' "$dms_config" -o json
   yq -iP '.matugenScheme = "scheme-content"' "$dms_config" -o json
-  yq -iP '.cornerRadius = 7' "$dms_config" -o json
+  yq -iP '.matugenTemplateNeovim = false' "$dms_config" -o json
+  yq -iP '.monoFontFamily = "JetBrainsMonoNL Nerd Font"' "$dms_config" -o json
+  yq -iP '.niriLayoutGapsOverride = 10' "$dms_config" -o json
   yq -iP '.niriLayoutRadiusOverride = 7' "$dms_config" -o json
-  yq -iP '.blurredWallpaperLayer = true' "$dms_config" -o json
-  yq -iP '.blurWallpaperOnOverview = false' "$dms_config" -o json
+  yq -iP '.osdAlwaysShowValue = true' "$dms_config" -o json
+  yq -iP '.osdPosition = 7' "$dms_config" -o json
+  yq -iP '.useAutoLocation = true' "$dms_config" -o json
+  yq -iP '.widgetBackgroundColor = "s"' "$dms_config" -o json
 
 fi
 
