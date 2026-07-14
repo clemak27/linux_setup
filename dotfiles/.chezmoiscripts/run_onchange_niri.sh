@@ -47,6 +47,9 @@ if [ -f "$dms_config" ]; then
   yq -iP '.matugenScheme = "scheme-content"' "$dms_config" -o json
   yq -iP '.cornerRadius = 7' "$dms_config" -o json
   yq -iP '.niriLayoutRadiusOverride = 7' "$dms_config" -o json
+  yq -iP '.blurredWallpaperLayer = true' "$dms_config" -o json
+  yq -iP '.blurWallpaperOnOverview = false' "$dms_config" -o json
+
 fi
 
 dms plugins install Calculator &> /dev/null || :
