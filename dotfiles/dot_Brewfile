@@ -1,4 +1,5 @@
 # tools
+brew "age"
 brew "atuin"
 brew "bat"
 brew "chezmoi"
