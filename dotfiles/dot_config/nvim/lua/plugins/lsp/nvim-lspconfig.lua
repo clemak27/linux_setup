@@ -135,7 +135,8 @@ return {
       vim.lsp.inlay_hint.enable(true)
       vim.lsp.enable("gopls")
 
-      vim.lsp.enable("gradle_ls")
+      -- https://github.com/mason-org/mason.nvim/issues/2105
+      -- vim.lsp.enable("gradle_ls")
       vim.lsp.enable("html")
       vim.lsp.enable("jedi_language_server")
 
