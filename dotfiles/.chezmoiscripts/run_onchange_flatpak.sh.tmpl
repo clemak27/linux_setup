@@ -20,6 +20,11 @@ if flatpak list | grep "com\.valvesoftware\.Steam" &> /dev/null; then
   flatpak --user override --filesystem=~/Games com.valvesoftware.Steam
 fi
 
+if flatpak list | grep "com\.github\.Matoking\.protontricks" &> /dev/null; then
+  flatpak --user override --filesystem=~/.var/app/com.valvesoftware.Steam/.local/share/Steam com.github.Matoking.protontricks
+  flatpak --user override --filesystem=~/Games/SteamLibrary com.github.Matoking.protontricks
+fi
+
 if flatpak list | grep "net\.retrodeck\.retrodeck" &> /dev/null; then
   flatpak --user override --filesystem=~/Games net.retrodeck.retrodeck
 fi
