@@ -36,4 +36,6 @@ use_sudo = false
 "mise-en-place tools" = "mise i -y"
 "nvim" = "nvim --headless \"+Lazy! sync\" +qa"
 "nix" = "nix profile upgrade --all"
+{{- if (eq (env "XDG_CURRENT_DESKTOP") "niri") }}
 "dms plugins" = "dms plugins update --all"
+{{- end }}
