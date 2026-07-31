@@ -52,6 +52,7 @@ brew "rumdl"
 # sh
 brew "bash-language-server"
 brew "shellcheck"
+brew "shellharden"
 brew "shfmt"
 
 # yaml

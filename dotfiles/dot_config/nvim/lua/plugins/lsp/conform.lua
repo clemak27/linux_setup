@@ -14,7 +14,7 @@ return {
           lua = { "stylua" },
           nix = { "nixpkgs_fmt" },
           go = { "goimports", "gofumpt" },
-          sh = { "shfmt" },
+          sh = { "shfmt", "shellharden" },
           python = { "black" },
           typst = { "typstyle" },
         },
