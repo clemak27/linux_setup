@@ -4,7 +4,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "barreiroleo/ltex_extra.nvim",
-      "https://gitlab.com/schrieveslaach/sonarlint.nvim",
+      "https://gitlab.com/schrieveslaach/sonarlint.nvim.git",
       {
         "folke/lazydev.nvim",
         ft = "lua",
