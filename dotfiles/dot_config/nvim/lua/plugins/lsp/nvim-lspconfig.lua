@@ -105,6 +105,16 @@ return {
         on_attach = require("plugins.lsp.util").on_attach,
       })
 
+      vim.lsp.config("bacon-ls", {
+        cmd = { "bacon-ls" },
+        filetypes = { "rust" },
+        root_markers = { ".bacon-locations", "Cargo.toml" },
+        settings = {
+          bacon_ls = {
+            backend = "bacon",
+          },
+        },
+      })
       vim.lsp.enable("bacon-ls")
 
       vim.lsp.config("bashls", { filetypes = { "bash", "sh", "zsh" } })
@@ -202,6 +212,15 @@ return {
       end
 
       vim.lsp.enable("rumdl")
+      vim.lsp.config("rust_analyzer", {
+        settings = {
+          ["rust-analyzer"] = {
+            diagnostics = {
+              enable = false,
+            },
+          },
+        },
+      })
       vim.lsp.enable("rust_analyzer")
       vim.lsp.enable("taplo")
       vim.lsp.enable("templ")
