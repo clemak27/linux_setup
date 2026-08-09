@@ -43,12 +43,19 @@ return {
     "rmagatti/auto-session",
     lazy = false,
     opts = {
+      close_filetypes_on_save = {
+        "NvimTree",
+        "OverseerList",
+        "OverseerOutput",
+        "checkhealth",
+        "snacks_terminal",
+      },
+      cwd_change_handling = false,
       log_level = "error",
-      suppressed_dirs = { "~/", "~/Projects" },
       session_lens = {
         load_on_setup = false,
       },
-      cwd_change_handling = false,
+      suppressed_dirs = { "~/", "~/Projects" },
     },
   },
   {
