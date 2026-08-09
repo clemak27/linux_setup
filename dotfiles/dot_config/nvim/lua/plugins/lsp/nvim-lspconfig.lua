@@ -5,6 +5,7 @@ return {
     dependencies = {
       "barreiroleo/ltex_extra.nvim",
       "https://gitlab.com/schrieveslaach/sonarlint.nvim.git",
+      "mosheavni/yaml-companion.nvim",
       {
         "folke/lazydev.nvim",
         ft = "lua",
@@ -254,16 +255,21 @@ return {
       vim.lsp.enable("vimls")
       vim.lsp.enable("vue_ls")
 
-      vim.lsp.config("yamlls", {
-        settings = {
-          yaml = {
-            keyOrdering = false,
-            editor = {
-              formatOnType = false,
+      vim.lsp.config(
+        "yamlls",
+        require("yaml-companion").setup({
+          lspconfig = {
+            settings = {
+              yaml = {
+                keyOrdering = false,
+                editor = {
+                  formatOnType = false,
+                },
+              },
             },
           },
-        },
-      })
+        })
+      )
       vim.lsp.enable("yamlls")
 
       require("sonarlint").setup({
