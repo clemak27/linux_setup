@@ -17,6 +17,7 @@ return {
           sh = { "shfmt", "shellharden" },
           python = { "black" },
           typst = { "typstyle" },
+          rust = { "rustfmt" },
         },
       })
 
