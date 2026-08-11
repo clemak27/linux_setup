@@ -10,14 +10,14 @@ return {
           },
         },
         formatters_by_ft = {
-          yaml = { "yamlfmt" },
+          go = { "goimports", "gofumpt" },
           lua = { "stylua" },
           nix = { "nixpkgs_fmt" },
-          go = { "goimports", "gofumpt" },
-          sh = { "shfmt", "shellharden" },
           python = { "black" },
-          typst = { "typstyle" },
           rust = { "rustfmt" },
+          sh = { "shfmt", "shellharden" },
+          typst = { "typstyle" },
+          yaml = { "yamlfmt" },
         },
       })
 
