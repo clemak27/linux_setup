@@ -1,5 +1,8 @@
 {
   "trustedtaps": [
     "fluxcd/tap"
+  ],
+  "trustedformulae": [
+    "can1357/tap/omp"
   ]
 }

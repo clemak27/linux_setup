@@ -1,0 +1,27 @@
+---
+modelRoles:
+  default: llama.cpp/ggml-org/Qwen3.6-35B-A3B-GGUF:Q4_K_M
+symbolPreset: nerd
+composer:
+  shape: pi
+theme:
+  dark: dark-catppuccin
+setupVersion: 2
+statusLine:
+  separator: none
+  transparent: true
+  compactThinkingLevel: false
+  showHookStatus: true
+  contextLine: percentage
+autoResume: true
+startup:
+  quiet: true
+  checkUpdate: false
+memory:
+  backend: "off"
+terminal:
+  showProgress: true
+defaultThinkingLevel: auto
+textVerbosity: low
+personality: default
+hideThinkingBlock: true

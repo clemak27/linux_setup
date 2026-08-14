@@ -43,6 +43,11 @@ brew "gh"
 brew "git-credential-oauth"
 brew "lazygit"
 
+# slop
+tap "can1357/tap"
+brew "can1357/tap/omp"
+brew "llama.cpp"
+
 # containerfile
 brew "dockerfile-language-server"
 brew "hadolint"

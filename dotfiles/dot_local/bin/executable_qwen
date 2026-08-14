@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# https://gist.github.com/Fyko/169a27c8b54be84a7135200ea4959f10
+AMD_VULKAN_ICD=RADV llama serve -hf ggml-org/Qwen3.6-35B-A3B-GGUF:Q4_K_M \
+  -ngl 25 \
+  -c 131072 \
+  -fa on \
+  --cache-type-k q4_0 \
+  --cache-type-v q4_0 \
+  -np 1 \
+  --host 0.0.0.0 \
+  --port 8080

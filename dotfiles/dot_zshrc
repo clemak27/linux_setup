@@ -120,6 +120,11 @@ if command -v yt-dlp &> /dev/null; then
   alias 'youtube-dl-music'='yt-dlp --extract-audio --audio-format mp3'
 fi
 
+## omp
+if command -v omp &> /dev/null; then
+  eval "$(omp completions zsh)"
+fi
+
 ## starship
 if command -v starship &> /dev/null; then
   eval "$(starship init zsh)"
