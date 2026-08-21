@@ -38,6 +38,7 @@ brew "zoxide"
 
 # git
 brew "delta"
+brew "forgejo-cli"
 brew "gh"
 brew "git-credential-oauth"
 brew "lazygit"
