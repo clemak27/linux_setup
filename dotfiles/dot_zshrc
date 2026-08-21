@@ -179,8 +179,9 @@ if command -v nvim &> /dev/null; then
   alias 'vimdiff'='nvim -d'
   export EDITOR=nvim
   export VISUAL=nvim
-  alias 'tmpmd'='vim $(mktemp --suffix=".md")'
-  alias 'tmpjson'='vim $(mktemp --suffix=".json")'
+  alias 'tmpjson'='nvim $(mktemp --suffix=".json")'
+  alias 'tmpmd'='nvim $(mktemp --suffix=".md")'
+  alias 'tmpyaml'='nvim $(mktemp --suffix=".yaml")'
 fi
 
 ## k8s
