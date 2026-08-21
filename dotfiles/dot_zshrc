@@ -63,7 +63,7 @@ fi
 if command -v atuin &> /dev/null; then
   eval "$(atuin init zsh --disable-up-arrow --disable-ai)"
   unset HISTFILE
-  fc -R =(atuin search --cmd-only --limit 100)
+  fc -R =(atuin search --cmd-only --limit 500)
 else
   HISTSIZE="50000"
   SAVEHIST="25000"
