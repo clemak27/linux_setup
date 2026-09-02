@@ -67,8 +67,8 @@ brew "lua-language-server"
 brew "stylua"
 
 # k8s
-tap "fluxcd/tap"
-brew "fluxcd/tap/flux"
+tap "fluxcd/tap", trusted: true
+brew "fluxcd/tap/flux", trusted: true
 brew "helm"
 brew "krew"
 brew "kubecolor"
