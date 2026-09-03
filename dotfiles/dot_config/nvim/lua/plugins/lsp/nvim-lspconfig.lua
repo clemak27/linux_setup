@@ -225,12 +225,12 @@ return {
         },
       })
       vim.lsp.enable("rust_analyzer")
-      vim.lsp.enable("taplo")
       vim.lsp.enable("templ")
       vim.lsp.enable("tofu_ls")
       if vim.fn.executable("tailwindcss-language-server") == 1 then
         vim.lsp.enable("tailwindcss")
       end
+      vim.lsp.enable("tombi")
       vim.lsp.enable("tinymist")
       vim.lsp.enable("ts_ls")
 

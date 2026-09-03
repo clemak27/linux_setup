@@ -102,7 +102,7 @@ brew "rust-analyzer"
 
 # other
 brew "pkl-lsp"
-brew "taplo"
+brew "tombi"
 brew "vscode-langservers-extracted"
 
 # casks
