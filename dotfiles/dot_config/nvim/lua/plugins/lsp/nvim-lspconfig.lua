@@ -233,29 +233,7 @@ return {
       vim.lsp.enable("tombi")
       vim.lsp.enable("tinymist")
       vim.lsp.enable("ts_ls")
-
-      if vim.fn.isdirectory(vim.fn.getcwd() .. "/node_modules/vue") ~= false then
-        vim.lsp.config("ts_ls", {
-          init_options = {
-            plugins = {
-              {
-                name = "@vue/typescript-plugin",
-                -- npm i --save-dev @vue/typescript-plugin
-                location = os.getenv("HOME") .. "/.local/bin/npm/lib/node_modules/@vue/typescript-plugin",
-                languages = { "javascript", "typescript", "vue" },
-              },
-            },
-          },
-          filetypes = {
-            "javascript",
-            "typescript",
-            "vue",
-          },
-        })
-      end
-
       vim.lsp.enable("vimls")
-      vim.lsp.enable("vue_ls")
 
       vim.lsp.config(
         "yamlls",
