@@ -22,5 +22,21 @@
       "done"
     ],
     "description": "Inserts for loop over bash array"
+  },
+  "flags": {
+    "prefix": "flags",
+    "body": [
+      "while [ \\$# -gt 0 ]; do",
+      "\tcase \"\\$@\" in",
+      "\t\t$1",
+      "\t\t*)",
+      "\t\t\techo \"Invalid option: \\$1\" >&2",
+      "\t\t\texit 1",
+      "\t\t\t;;",
+      "\t\tesac",
+      "\t\tshift",
+      "done"
+    ],
+    "description": "Inserts for loop over bash array"
   }
 }
