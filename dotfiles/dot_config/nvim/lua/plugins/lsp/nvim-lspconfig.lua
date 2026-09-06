@@ -49,10 +49,29 @@ return {
             util.add_component(task_defn, { "open_output", on_start = "always" })
           end)
 
+          vim.api.nvim_create_user_command("OverseerRestartLast", function()
+            local task_list = require("overseer.task_list")
+            local tasks = overseer.list_tasks({
+              status = {
+                overseer.STATUS.SUCCESS,
+                overseer.STATUS.FAILURE,
+                overseer.STATUS.CANCELED,
+              },
+              sort = task_list.sort_finished_recently,
+            })
+            if vim.tbl_isempty(tasks) then
+              vim.notify("No tasks found", vim.log.levels.WARN)
+            else
+              local most_recent = tasks[1]
+              overseer.run_action(most_recent, "restart")
+            end
+          end, {})
+
           local opt = { noremap = true, silent = true }
 
           vim.api.nvim_set_keymap("n", "<Leader>t", [[<Cmd>OverseerToggle<CR>]], opt)
           vim.api.nvim_set_keymap("n", "<Leader>tr", [[<Cmd>OverseerRun<CR>]], opt)
+          vim.api.nvim_set_keymap("n", "<Leader>tR", [[<Cmd>OverseerRestartLast<CR>]], opt)
         end,
       },
       {
