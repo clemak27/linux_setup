@@ -98,6 +98,7 @@ brew "openjdk"
 # rust
 brew "bacon"
 brew "bacon-ls"
+brew "cargo-binstall"
 brew "rust"
 brew "rust-analyzer"
 
