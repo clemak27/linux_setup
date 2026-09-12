@@ -137,4 +137,11 @@ systemctl --user start syncthing
 systemctl --user enable app-com.mitchellh.ghostty.service
 loginctl enable-linger
 
+## music-assistant
+
+if [ "$HOSTNAME" = "maxwell" ]; then
+  mkdir -p /home/clemens/.local/share/music-assistant
+  systemctl --user enable --now music-assistant
+fi
+
 systemctl reboot
