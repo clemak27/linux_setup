@@ -103,6 +103,7 @@ cask "kotlin-lsp"
 brew "bacon"
 brew "bacon-ls"
 brew "cargo-binstall"
+brew "gdb"
 brew "rust"
 brew "rust-analyzer"
 
