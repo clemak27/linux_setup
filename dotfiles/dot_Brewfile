@@ -92,9 +92,11 @@ brew "templ"
 brew "biome"
 brew "node"
 
-# java
+# jdk
 brew "gradle"
+brew "kotlin"
 brew "openjdk"
+cask "kotlin-lsp"
 
 # rust
 brew "bacon"
