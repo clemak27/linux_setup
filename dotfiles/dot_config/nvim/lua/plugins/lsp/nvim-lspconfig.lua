@@ -33,6 +33,11 @@ return {
         end,
       },
       {
+        "mrcjkb/rustaceanvim",
+        version = "^9",
+        lazy = false,
+      },
+      {
         "stevearc/overseer.nvim",
         version = "v2.*",
         config = function()
@@ -243,7 +248,6 @@ return {
           },
         },
       })
-      vim.lsp.enable("rust_analyzer")
       vim.lsp.enable("templ")
       vim.lsp.enable("tofu_ls")
       if vim.fn.executable("tailwindcss-language-server") == 1 then

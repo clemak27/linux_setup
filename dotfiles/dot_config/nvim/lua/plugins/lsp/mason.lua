@@ -21,7 +21,7 @@ return {
 
           -- other
           "clangd",
-          "cpptools",
+          "codelldb",
           "sonarlint-language-server",
           "typescript-language-server",
         },
