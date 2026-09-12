@@ -34,6 +34,10 @@ return {
 
       dap.defaults.fallback.switchbuf = "useopen,uselast"
 
+      vim.api.nvim_create_user_command("DapUIClose", function()
+        dapui.close()
+      end, {})
+
       -- go
       require("dap-go").setup()
 
