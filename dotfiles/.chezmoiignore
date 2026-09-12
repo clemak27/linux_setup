@@ -6,6 +6,9 @@
 .local/share/applications/org.kde.kontact.desktop
 .local/share/applications/io.neovim.nvim.desktop
 {{- end }}
+{{- if not (eq .chezmoi.hostname "maxwell") }}
+.config/containers/systemd/music-assistant.container
+{{- end }}
 {{- if (eq (env "XDG_CURRENT_DESKTOP") "niri") }}
 .config/autostart/ksshaskpass.sh.desktop
 .config/autostart/scripts/ksshaskpass.sh
