@@ -21,7 +21,6 @@ return {
 
           -- other
           "clangd",
-          "kotlin-lsp",
           "sonarlint-language-server",
           "typescript-language-server",
         },
