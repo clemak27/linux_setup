@@ -1,5 +1,2 @@
-[tools]
-"pipx:qrcode" = "latest"
-
 [env]
 HK_MISE = true
