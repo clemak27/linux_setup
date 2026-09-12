@@ -26,3 +26,7 @@
   type = "file"
   url = "https://raw.githubusercontent.com/sahaj-b/ghostty-cursor-shaders/refs/heads/main/cursor_warp.glsl"
   refreshPeriod = "168h"
+[".config/ghostty/shaders/crt.glsl"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/luiscarlospando/crt-shader-with-chromatic-aberration-glow-scanlines-dot-matrix/refs/heads/main/crt-shader-with-chromatic-aberration-glow-scanlines-dot-matrix.glsl"
+  refreshPeriod = "168h"
