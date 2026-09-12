@@ -55,6 +55,7 @@ binds {
     Mod+Alt+L hotkey-overlay-title="Lock Screen" {
         spawn-sh "dms ipc lock lock";
     }
+    Mod+P hotkey-overlay-title="Switch Profile" { spawn "dms" "ipc" "call" "outputs" "cycleProfile"; }
 
     XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
     XF86AudioNext allow-when-locked=true { spawn "playerctl" "next"; }
