@@ -71,6 +71,7 @@ brew "stylua"
 tap "fluxcd/tap", trusted: true
 brew "fluxcd/tap/flux", trusted: true
 brew "helm"
+brew "helm-ls"
 brew "krew"
 brew "kubecolor"
 brew "kubectl"
