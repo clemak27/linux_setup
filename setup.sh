@@ -104,6 +104,7 @@ if lsb_release -as | grep "Bazzite"; then
   if [ "$HOSTNAME" != "fermi" ]; then
     ujust switch-to-ext4
     ujust setup-luks-tpm-unlock
+    ujust setup-decky
     hostnamectl hostname fermi
     systemctl reboot
   fi
