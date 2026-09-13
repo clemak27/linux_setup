@@ -8,6 +8,7 @@
 {{- end }}
 {{- if not (eq .chezmoi.hostname "maxwell") }}
 .config/containers/systemd/music-assistant.container
+.config/DankMaterialShell/monitors.json
 {{- end }}
 {{- if (eq (env "XDG_CURRENT_DESKTOP") "niri") }}
 .config/autostart/ksshaskpass.sh.desktop
