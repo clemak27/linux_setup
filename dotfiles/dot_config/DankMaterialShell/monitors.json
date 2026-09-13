@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "configurations": [
+    {
+      "id": "profile_1781246577447_e73gtw",
+      "name": "default",
+      "outputs": {
+        "DP-3": {
+          "mode": "1920x1080@144.000",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "scale": 1,
+          "transform": "90",
+          "vrr": false,
+          "disabled": false,
+          "niri": {
+            "hotCorners": {
+              "off": true
+            },
+            "layout": {
+              "alwaysCenterSingleColumn": true,
+              "presetColumnWidths": [
+                {
+                  "type": "proportion",
+                  "value": 1
+                }
+              ],
+              "defaultColumnWidth": {
+                "type": "proportion",
+                "value": 1
+              }
+            },
+            "disabled": false
+          }
+        },
+        "DP-2": {
+          "mode": "3440x1440@143.975",
+          "position": {
+            "x": 1080,
+            "y": 241
+          },
+          "scale": 1,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "niri": {
+            "focusAtStartup": true
+          }
+        }
+      }
+    },
+    {
+      "id": "profile_1789330008418_s78mzmn",
+      "name": "streaming",
+      "outputs": {
+        "DP-3": {
+          "mode": "1920x1080@144.000",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "scale": 1,
+          "transform": "90",
+          "vrr": false,
+          "disabled": true,
+          "niri": {
+            "hotCorners": {
+              "off": true
+            },
+            "layout": {
+              "alwaysCenterSingleColumn": true,
+              "presetColumnWidths": [
+                {
+                  "type": "proportion",
+                  "value": 1
+                }
+              ],
+              "defaultColumnWidth": {
+                "type": "proportion",
+                "value": 1
+              }
+            }
+          }
+        },
+        "DP-2": {
+          "mode": "1920x1080@60.000",
+          "position": {
+            "x": 1080,
+            "y": 241
+          },
+          "scale": 1,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "niri": {
+            "focusAtStartup": true
+          }
+        }
+      }
+    }
+  ]
+}
