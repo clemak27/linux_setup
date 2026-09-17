@@ -6,5 +6,12 @@
       "}"
     ],
     "description": "record"
+  },
+  "soutv": {
+    "prefix": "soutv",
+    "body": [
+      "System.out.println(\"${1:var} = \" + $1);$0"
+    ],
+    "description": "print var to sout"
   }
 }
