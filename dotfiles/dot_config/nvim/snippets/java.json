@@ -1,5 +1,5 @@
 {
-  "class": {
+  "record": {
     "prefix": "record",
     "body": [
       "public record ${TM_FILENAME_BASE}($0) {",
