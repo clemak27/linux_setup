@@ -45,6 +45,7 @@ brew "git-credential-oauth"
 brew "lazygit"
 
 # containerfile
+brew "docker-credential-helper"
 brew "dockerfile-language-server"
 brew "hadolint"
 
