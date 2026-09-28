@@ -189,6 +189,11 @@ return {
       vim.lsp.config("jsonls", { filetypes = { "json", "jsonc", "json5" } })
       vim.lsp.enable("jsonls")
 
+      local kotlin_lsp =
+        vim.fn.glob("/var/home/linuxbrew/.linuxbrew/Caskroom/kotlin-lsp/*/kotlin-server-*/bin/intellij-server")
+      vim.lsp.config("kotlin_lsp", {
+        cmd = { kotlin_lsp, "--stdio" },
+      })
       vim.lsp.enable("kotlin_lsp")
 
       vim.lsp.config("ltex_plus", {
