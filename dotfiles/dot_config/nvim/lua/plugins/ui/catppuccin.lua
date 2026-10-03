@@ -8,12 +8,19 @@ return {
       require("catppuccin").setup({
         flavour = "mocha",
         compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
-        transparent_background = true,
+        transparent_background = false,
         float = {
           transparent = true,
           solid = false,
         },
-        color_overrides = {},
+        color_overrides = {
+          mocha = {
+            surface0 = "#2e2e2e",
+            base = "#090909",
+            crust = "#060606",
+            mantle = "#000000",
+          },
+        },
         custom_highlights = function(colors)
           return {
             NvimTreeVertSplit = { link = "VertSplit" },
@@ -21,6 +28,7 @@ return {
             ["@comment.todo.comment"] = { fg = colors.yellow, bg = nil },
             DapBreakpointColor = { fg = colors.red },
             DapIconColor = { fg = colors.green },
+            LspInlayHint = { bg = colors.base },
           }
         end,
         no_italic = false,

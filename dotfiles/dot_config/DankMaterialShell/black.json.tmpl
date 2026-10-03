@@ -1,0 +1,39 @@
+{
+  "name": "Custom Black",
+  "secondary": "#b4befe",
+  "surface": "#000000",
+  "surfaceText": "#cdd6f4",
+  "surfaceContainer": "#060606",
+  "surfaceContainerHigh": "#121212",
+  "surfaceContainerHighest": "#202020",
+  "surfaceVariant": "#1e1e1e",
+  "surfaceVariantText": "#a6adc8",
+  "surfaceTint": "#2e2e2e",
+  "background": "#000000",
+  "backgroundText": "#cdd6f4",
+  "error": "#f38ba8",
+  "warning": "#f9e2af",
+  "info": "#94e2d5",
+  "matugen_type": "scheme-tonal-spot",
+{{- if (eq .chezmoi.hostname "maxwell") }}
+  "primary": "#c3c4e4",
+  "primaryText": "#202020",
+  "primaryContainer": "#c3c4e4",
+  "outline": "#8e928b"
+{{- else if (eq .chezmoi.hostname "newton") }}
+  "primary": "#c1c6d6",
+  "primaryText": "#202020",
+  "primaryContainer": "#c1c6d6",
+  "outline": "#909096"
+{{- else if (eq .chezmoi.hostname "lagrange") }}
+  "primary": "#c0c9bd",
+  "primaryText": "#202020",
+  "primaryContainer": "#c0c9bd",
+  "outline": "#8e928b"
+{{- else }}
+  "primary": "#6666ce",
+  "primaryText": "#cdd6f4",
+  "primaryContainer": "#6666ce",
+  "outline": "#1f1f62"
+{{- end }}
+}
