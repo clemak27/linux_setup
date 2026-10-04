@@ -25,7 +25,9 @@ background-blur = true
 
 cursor-style = block
 cursor-style-blink = false
+{{- if not (eq .chezmoi.hostname "newton") }}
 custom-shader = shaders/cursor_warp.glsl
+{{- end }}
 shell-integration-features = no-cursor
 app-notifications = false
 resize-overlay = never
