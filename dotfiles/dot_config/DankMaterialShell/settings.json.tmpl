@@ -29,12 +29,7 @@
     {
       "id": "bluetooth",
       "enabled": true,
-      "width": 25
-    },
-    {
-      "id": "builtin_display_profiles",
-      "enabled": true,
-      "width": 25
+      "width": 50
     },
     {
       "id": "audioOutput",
@@ -46,8 +41,21 @@
       "enabled": true,
       "width": 50
     },
+{{- if not (eq .chezmoi.hostname "maxwell") }}
     {
       "id": "builtin_vpn",
+      "enabled": true,
+      "width": 50
+    },
+{{- end }}
+    {
+      "id": "doNotDisturb",
+      "enabled": true,
+      "width": 50
+    }
+{{- if not (or (eq .chezmoi.hostname "maxwell") (eq .chezmoi.hostname "lagrange"))}}
+    ,{
+      "id": "builtin_display_profiles",
       "enabled": true,
       "width": 50
     },
@@ -56,6 +64,7 @@
       "enabled": true,
       "width": 50
     }
+{{- end }}
   ],
   "runningAppsCurrentWorkspace": false,
   "appIdSubstitutions": [],
@@ -133,7 +142,8 @@
         },
         {
           "id": "controlCenterButton",
-          "enabled": true
+          "enabled": true,
+          "showBatteryIcon": true
         }
       ],
       "spacing": 0,
