@@ -13,7 +13,14 @@ return {
           transparent = true,
           solid = false,
         },
-        color_overrides = {},
+        color_overrides = {
+          mocha = {
+            surface0 = "#2e2e2e",
+            base = "#090909",
+            crust = "#060606",
+            mantle = "#000000",
+          },
+        },
         custom_highlights = function(colors)
           return {
             NvimTreeVertSplit = { link = "VertSplit" },
