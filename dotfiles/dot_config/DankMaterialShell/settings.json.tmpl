@@ -101,6 +101,14 @@
       "name": "Main Bar",
       "enabled": true,
       "position": 0,
+{{- if eq .chezmoi.hostname "maxwell" }}
+      "screenPreferences": [
+        {
+          "name": "DP-2",
+          "model": "DELL S3422DWG"
+        }
+      ],
+{{- end }}
       "showOnLastDisplay": true,
       "leftWidgets": [
         "workspaceSwitcher",
@@ -187,6 +195,82 @@
       "maximizeWidgetText": false,
       "removeWidgetPadding": false
     }
+{{- if eq .chezmoi.hostname "maxwell" }}
+    ,{
+      "id": "bar1769785466288",
+      "name": "Bar 2",
+      "enabled": true,
+      "position": 0,
+      "screenPreferences": [
+        {
+          "name": "DP-3",
+          "model": "24G2W1G4"
+        }
+      ],
+      "showOnLastDisplay": false,
+      "leftWidgets": [
+        "workspaceSwitcher"
+      ],
+      "centerWidgets": [
+        {
+          "id": "focusedWindow",
+          "enabled": true
+        }
+      ],
+      "rightWidgets": [
+        {
+          "id": "cpuUsage",
+          "enabled": true,
+          "minimumWidth": true
+        },
+        {
+          "id": "memUsage",
+          "enabled": true,
+          "minimumWidth": true
+        },
+        {
+          "id": "clock",
+          "enabled": true,
+          "clockCompactMode": true
+        }
+      ],
+      "spacing": 0,
+      "innerPadding": 4,
+      "bottomGap": 0,
+      "transparency": 0,
+      "widgetTransparency": 1,
+      "squareCorners": false,
+      "noBackground": false,
+      "gothCornersEnabled": false,
+      "gothCornerRadiusOverride": false,
+      "gothCornerRadiusValue": 12,
+      "borderEnabled": false,
+      "borderColor": "surfaceText",
+      "borderOpacity": 1,
+      "borderThickness": 1,
+      "widgetOutlineEnabled": true,
+      "widgetOutlineColor": "primary",
+      "widgetOutlineOpacity": 1,
+      "widgetOutlineThickness": 2,
+      "fontScale": 1,
+      "autoHide": false,
+      "autoHideDelay": 250,
+      "showOnWindowsOpen": false,
+      "openOnOverview": false,
+      "visible": true,
+      "popupGapsAuto": true,
+      "popupGapsManual": 4,
+      "maximizeDetection": true,
+      "scrollEnabled": true,
+      "scrollXBehavior": "column",
+      "scrollYBehavior": "workspace",
+      "shadowIntensity": 0,
+      "shadowOpacity": 60,
+      "shadowColorMode": "text",
+      "shadowCustomColor": "#000000",
+      "attachToScreenEdge": false
+    }
+{{- end}}
   ],
   "desktopClockCustomColor": {
     "r": 1,
