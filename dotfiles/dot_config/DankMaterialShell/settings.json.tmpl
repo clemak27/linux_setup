@@ -1,14 +1,17 @@
 {
-  "currentThemeName": "dynamic",
-  "currentThemeCategory": "dynamic",
+  "currentThemeName": "custom",
+  "currentThemeCategory": "custom",
+  "customThemeFile": "{{ .chezmoi.homeDir }}/.config/DankMaterialShell/black.json",
   "matugenScheme": "scheme-content",
   "widgetBackgroundColor": "s",
-  "cornerRadius": 7,
+  "cornerRadius": 3,
   "niriLayoutGapsOverride": 10,
-  "niriLayoutRadiusOverride": 7,
+  "niriLayoutRadiusOverride": 3,
   "clockFormat": "24h",
   "barElevationEnabled": false,
+  "blurEnabled": true,
   "blurredWallpaperLayer": true,
+  "systemTrayIconTintMode": "primary",
   "controlCenterShowMicPercent": true,
   "controlCenterWidgets": [
     {
@@ -66,12 +69,14 @@
     }
 {{- end }}
   ],
+  "workspaceUnfocusedCustomColor": "#505050",
   "runningAppsCurrentWorkspace": false,
   "appIdSubstitutions": [],
   "centeringMode": "geometric",
   "clockDateFormat": "dd.MM.yyyy",
   "dankLauncherV2BorderEnabled": true,
   "useAutoLocation": true,
+  "iconThemeDark": "Papirus-Dark",
   "cursorSettings": {
     "theme": "breeze_cursors",
     "size": 24,
@@ -88,6 +93,7 @@
       "cursorHideTimeout": 0
     }
   },
+  "launcherLogoMode": "os",
   "fontFamily": "Noto Sans",
   "monoFontFamily": "JetBrainsMonoNL Nerd Font",
   "lockBeforeSuspend": true,
@@ -111,12 +117,19 @@
 {{- end }}
       "showOnLastDisplay": true,
       "leftWidgets": [
-        "workspaceSwitcher",
+        {
+          "id": "launcherButton",
+          "enabled": true
+        },
+        {
+          "id": "workspaceSwitcher",
+          "enabled": true
+        },
         {
           "id": "focusedWindow",
           "enabled": true,
-          "focusedWindowCompactMode": false,
-          "focusedWindowSize": 1
+          "focusedWindowShowIcon": true,
+          "focusedWindowSize": 2
         }
       ],
       "centerWidgets": [
@@ -124,10 +137,6 @@
           "id": "clock",
           "enabled": true,
           "clockCompactMode": false
-        },
-        {
-          "id": "weather",
-          "enabled": true
         }
       ],
       "rightWidgets": [
@@ -137,11 +146,11 @@
           "mediaSize": 2
         },
         {
-          "id": "systemTray",
+          "id": "dankKDEConnect",
           "enabled": true
         },
         {
-          "id": "dankKDEConnect",
+          "id": "systemTray",
           "enabled": true
         },
         {
@@ -157,18 +166,18 @@
       "spacing": 0,
       "innerPadding": 4,
       "bottomGap": 0,
-      "transparency": 0,
-      "widgetTransparency": 1,
+      "transparency": 0.65,
+      "widgetTransparency": 0,
       "squareCorners": true,
       "noBackground": false,
       "gothCornersEnabled": false,
       "gothCornerRadiusOverride": false,
       "gothCornerRadiusValue": 12,
       "borderEnabled": false,
-      "borderColor": "surfaceText",
+      "borderColor": "primary",
       "borderOpacity": 1,
       "borderThickness": 2,
-      "widgetOutlineEnabled": true,
+      "widgetOutlineEnabled": false,
       "widgetOutlineColor": "primary",
       "widgetOutlineOpacity": 1,
       "widgetOutlineThickness": 2,
@@ -188,12 +197,10 @@
       "shadowOpacity": 60,
       "shadowColorMode": "text",
       "shadowCustomColor": "#000000",
-      "clickThrough": false,
       "attachToScreenEdge": false,
-      "island": false,
       "maximizeWidgetIcons": false,
       "maximizeWidgetText": false,
-      "removeWidgetPadding": false
+      "useOverlayLayer": false
     }
 {{- if eq .chezmoi.hostname "maxwell" }}
     ,{
@@ -237,18 +244,18 @@
       "spacing": 0,
       "innerPadding": 4,
       "bottomGap": 0,
-      "transparency": 0,
-      "widgetTransparency": 1,
-      "squareCorners": false,
+      "transparency": 0.65,
+      "widgetTransparency": 0,
+      "squareCorners": true,
       "noBackground": false,
       "gothCornersEnabled": false,
       "gothCornerRadiusOverride": false,
       "gothCornerRadiusValue": 12,
       "borderEnabled": false,
-      "borderColor": "surfaceText",
+      "borderColor": "primary",
       "borderOpacity": 1,
-      "borderThickness": 1,
-      "widgetOutlineEnabled": true,
+      "borderThickness": 2,
+      "widgetOutlineEnabled": false,
       "widgetOutlineColor": "primary",
       "widgetOutlineOpacity": 1,
       "widgetOutlineThickness": 2,
@@ -268,7 +275,10 @@
       "shadowOpacity": 60,
       "shadowColorMode": "text",
       "shadowCustomColor": "#000000",
-      "attachToScreenEdge": false
+      "attachToScreenEdge": false,
+      "maximizeWidgetIcons": false,
+      "maximizeWidgetText": false,
+      "useOverlayLayer": false
     }
 {{- end}}
   ],
@@ -301,6 +311,12 @@
   "builtInPluginSettings": {
     "dms_settings_search": {
       "trigger": "?"
+    },
+    "dms_power": {
+      "trigger": "pw"
+    },
+    "dms_qr_generator": {
+      "trigger": "qrg"
     }
   },
   "configVersion": 18
