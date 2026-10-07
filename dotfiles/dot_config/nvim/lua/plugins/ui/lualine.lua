@@ -2,7 +2,14 @@
 
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = {},
+  dependencies = {
+    {
+      "linrongbin16/lsp-progress.nvim",
+      config = function()
+        require("lsp-progress").setup()
+      end,
+    },
+  },
   config = function()
     local C = require("catppuccin.palettes").get_palette("mocha")
 
@@ -40,6 +47,11 @@ return {
             separator = "|",
           },
           {
+            function()
+              return require("lsp-progress").progress()
+            end,
+          },
+          {
             require("noice").api.statusline.mode.get,
             cond = require("noice").api.statusline.mode.has,
             color = { fg = "#ff9e64" },
@@ -64,6 +76,13 @@ return {
       winbar = {},
       inactive_winbar = {},
       extensions = {},
+    })
+    -- listen lsp-progress event and refresh lualine
+    vim.api.nvim_create_augroup("lualine_augroup", { clear = true })
+    vim.api.nvim_create_autocmd("User", {
+      group = "lualine_augroup",
+      pattern = "LspProgressStatusUpdated",
+      callback = require("lualine").refresh,
     })
   end,
 }
