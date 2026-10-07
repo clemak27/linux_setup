@@ -11,6 +11,7 @@ return {
         },
         formatters_by_ft = {
           go = { "goimports", "gofumpt" },
+          kotlin = { "ktlint" },
           lua = { "stylua" },
           nix = { "nixpkgs_fmt" },
           python = { "black" },
@@ -23,12 +24,12 @@ return {
 
       vim.api.nvim_create_augroup("format_on_write", { clear = true })
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-        pattern = "*.go,*.js,*.ts,*.lua,*.bash,*.sh,*.nix,*.rs,*.typ",
+        pattern = "*.go,*.js,*.ts,*.lua,*.bash,*.sh,*.nix,*.rs,*.typ,*.kt",
         group = "format_on_write",
         callback = function(args)
           require("conform").format({
             bufnr = args.buf,
-            timeout_ms = 500,
+            timeout_ms = 1000,
             lsp_fallback = true,
           })
         end,

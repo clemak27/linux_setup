@@ -97,6 +97,7 @@ brew "node"
 # jdk
 brew "gradle"
 brew "kotlin"
+brew "ktlint"
 brew "openjdk"
 cask "kotlin-lsp"
 
