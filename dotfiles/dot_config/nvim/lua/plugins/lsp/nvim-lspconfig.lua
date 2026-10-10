@@ -38,6 +38,20 @@ return {
         lazy = false,
       },
       {
+        "AlexandrosAlexiou/kotlin.nvim",
+        ft = { "kotlin" },
+        dependencies = {
+          "stevearc/oil.nvim",
+          "folke/trouble.nvim",
+        },
+        config = function()
+          vim.env.KOTLIN_LSP_DIR = vim.fn.glob("/var/home/linuxbrew/.linuxbrew/Caskroom/kotlin-lsp/*/kotlin-server-*")
+          require("kotlin").setup({
+            reload_workspace = { on_build_file_save = "always" },
+          })
+        end,
+      },
+      {
         "stevearc/overseer.nvim",
         version = "v2.*",
         config = function()
@@ -188,13 +202,6 @@ return {
       })
       vim.lsp.config("jsonls", { filetypes = { "json", "jsonc", "json5" } })
       vim.lsp.enable("jsonls")
-
-      local kotlin_lsp =
-        vim.fn.glob("/var/home/linuxbrew/.linuxbrew/Caskroom/kotlin-lsp/*/kotlin-server-*/bin/intellij-server")
-      vim.lsp.config("kotlin_lsp", {
-        cmd = { kotlin_lsp, "--stdio" },
-      })
-      vim.lsp.enable("kotlin_lsp")
 
       vim.lsp.config("ltex_plus", {
         on_attach = function(client, bufnr)
