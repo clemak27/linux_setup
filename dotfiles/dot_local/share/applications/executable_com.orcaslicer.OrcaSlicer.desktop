@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=OrcaSlicer
+GenericName=3D Printing Software
+Icon=com.orcaslicer.OrcaSlicer
+# https://github.com/OrcaSlicer/OrcaSlicer/issues/15930
+Exec=/usr/bin/flatpak run --env=LIBGL_ALWAYS_SOFTWARE=1 --branch=stable --arch=x86_64 --command=entrypoint --file-forwarding com.orcaslicer.OrcaSlicer @@u %U @@
+Terminal=false
+Type=Application
+PrefersNonDefaultGPU=true
+X-KDE-RunOnDiscreteGpu=true
+MimeType=model/stl;model/3mf;application/vnd.ms-3mfdocument;application/prs.wavefront-obj;application/x-amf;x-scheme-handler/orcaslicer;model/step;
+Categories=Graphics;3DGraphics;Engineering;
+Keywords=3D;Printing;Slicer;slice;3D;printer;convert;gcode;stl;obj;amf;SLA
+StartupNotify=false
+StartupWMClass=orca-slicer
+X-Desktop-File-Install-Version=0.28
+X-Flatpak=com.orcaslicer.OrcaSlicer

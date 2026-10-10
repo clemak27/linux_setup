@@ -9,6 +9,7 @@
 {{- if not (eq .chezmoi.hostname "maxwell") }}
 .config/containers/systemd/music-assistant.container
 .config/DankMaterialShell/monitors.json
+.local/share/applications/com.orcaslicer.OrcaSlicer.desktop
 {{- end }}
 {{- if (eq (env "XDG_CURRENT_DESKTOP") "niri") }}
 .config/autostart/ksshaskpass.sh.desktop
