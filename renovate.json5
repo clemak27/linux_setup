@@ -21,6 +21,16 @@
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s\\S+?=.+:(?<currentValue>\\S+)"
       ]
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["hk\\.pkl"],
+      "matchStrings": [
+        "package://github\\.com/(?<depName>jdx/hk)/releases/download/v(?<currentValue>\\d+\\.\\d+\\.\\d+)/hk@\\d+\\.\\d+\\.\\d+#"
+      ],
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver",
+      "autoReplaceStringTemplate": "package://github.com/{{{depName}}}/releases/download/v{{{newValue}}}/hk@{{{newValue}}}#"
     }
   ],
   "packageRules": [
