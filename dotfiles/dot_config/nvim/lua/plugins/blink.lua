@@ -63,6 +63,7 @@ return {
           accept = {
             auto_brackets = {
               enabled = true,
+              blocked_filetypes = { "kotlin" },
             },
           },
           menu = {

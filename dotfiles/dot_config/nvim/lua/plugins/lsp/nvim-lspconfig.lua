@@ -47,6 +47,7 @@ return {
         config = function()
           vim.env.KOTLIN_LSP_DIR = vim.fn.glob("/var/home/linuxbrew/.linuxbrew/Caskroom/kotlin-lsp/*/kotlin-server-*")
           require("kotlin").setup({
+            inlay_hints = { enabled = true },
             reload_workspace = { on_build_file_save = "always" },
           })
         end,

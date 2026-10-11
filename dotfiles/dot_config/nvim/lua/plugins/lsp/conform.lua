@@ -11,7 +11,6 @@ return {
         },
         formatters_by_ft = {
           go = { "goimports", "gofumpt" },
-          kotlin = { "ktlint" },
           lua = { "stylua" },
           nix = { "nixpkgs_fmt" },
           python = { "black" },
