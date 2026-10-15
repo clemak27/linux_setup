@@ -19,7 +19,7 @@ kwriteconfig6 --file "$config_dir/dolphinrc" --group "KFileDialog Settings" --ke
 
 kwriteconfig6 --file "$config_dir/kcminputrc" --group "Mouse" --key "cursorTheme" "breeze_cursors"
 
-kwriteconfig6 --file "$config_dir/kdeglobals" --group "General" --key "AccentColor" "146,110,228"
+kwriteconfig6 --file "$config_dir/kdeglobals" --group "General" --key "AccentColor" "123, 104, 238" #7b68ee
 kwriteconfig6 --file "$config_dir/kdeglobals" --group "General" --key "ColorScheme" "BlackBreeze"
 kwriteconfig6 --file "$config_dir/kdeglobals" --group "General" --key "TerminalApplication" "/usr/bin/ghostty --gtk-single-instance=true"
 kwriteconfig6 --file "$config_dir/kdeglobals" --group "General" --key "TerminalService" "com.mitchellh.ghostty.desktop"
