@@ -30,14 +30,23 @@
       ],
       "datasourceTemplate": "github-releases",
       "versioningTemplate": "semver",
-      "autoReplaceStringTemplate": "package://github.com/{{{depName}}}/releases/download/v{{{newValue}}}/hk@{{{newValue}}}#",
-      "automerge": true
+      "autoReplaceStringTemplate": "package://github.com/{{{depName}}}/releases/download/v{{{newValue}}}/hk@{{{newValue}}}#"
     }
   ],
   "packageRules": [
     {
       "matchManagers": [
         "mise"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "automerge": true
+    },
+    {
+      "matchPackageNames": [
+        "jdx/hk"
       ],
       "matchUpdateTypes": [
         "minor",
