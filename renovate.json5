@@ -46,6 +46,7 @@
     },
     {
       "matchPackageNames": [
+        "ghcr.io/music-assistant/server",
         "jdx/hk"
       ],
       "matchUpdateTypes": [
@@ -53,6 +54,15 @@
         "patch"
       ],
       "automerge": true
+    },
+    {
+      "matchFileNames": [
+        ".github/**"
+      ],
+      "extends": [
+        ":semanticCommitScopeDisabled"
+      ],
+      "semanticCommitType": "ci"
     }
   ]
 }
