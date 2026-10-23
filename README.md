@@ -3,7 +3,7 @@
 This repo contains my dotfiles and setup for my Linux devices:
 
 - `maxwell`: Desktop-PC
-  - Runs Fedora Kinoite
+  - Runs Fedora with niri + dux shell
   - Current Specs:
     - CPU: AMD Ryzen 7 9700X
     - GPU: AMD Radeon RX 6700 XT
@@ -11,7 +11,7 @@ This repo contains my dotfiles and setup for my Linux devices:
     - Memory: 32 GB
     - Screens: 3440x1440 + 1920x1080
 - `newton`: Dell XPS15 (7590)
-  - Runs Fedora Kinoite
+  - Runs Fedora with niri + dux shell
 - `fermi`: Steam Deck
   - Runs bazzite
 - `planck`: Pixel 8 Pro
