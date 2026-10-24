@@ -14,6 +14,7 @@ readarray -t refs < "$HOME/.Flatpakfile"
 flatpak install --system -y "${refs[@]}"
 
 flatpak override --user --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.firefox
+flatpak override --user --talk-name=org.freedesktop.NativeMessagingProxy org.mozilla.firefox
 flatpak override --user --filesystem=xdg-config/gtk-3.0 --filesystem=xdg-config/gtk-4.0
 
 if flatpak list | grep "com\.valvesoftware\.Steam" &> /dev/null; then
