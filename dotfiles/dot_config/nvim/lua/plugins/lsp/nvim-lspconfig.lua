@@ -251,6 +251,7 @@ return {
         vim.lsp.enable("nixd")
       end
 
+      vim.lsp.enable("openscad_lsp")
       vim.lsp.enable("rumdl")
       vim.lsp.config("rust_analyzer", {
         settings = {

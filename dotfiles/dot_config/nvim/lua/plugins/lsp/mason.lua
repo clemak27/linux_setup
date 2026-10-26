@@ -22,6 +22,7 @@ return {
           -- other
           "clangd",
           "codelldb",
+          "openscad-lsp",
           "sonarlint-language-server",
           "typescript-language-server",
         },
