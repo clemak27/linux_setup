@@ -91,7 +91,8 @@
       "toolkit.telemetry.shutdownPingSender.enabled": false,
       "toolkit.telemetry.unified": false,
       "toolkit.telemetry.unifiedIsOptIn": false,
-      "toolkit.telemetry.updatePing.enabled": false
+      "toolkit.telemetry.updatePing.enabled": false,
+      "widget.use-xdg-desktop-portal.native-messaging-proxy": 1
     },
     "PromptForDownloadLocation": false,
     "ShowHomeButton": false,
