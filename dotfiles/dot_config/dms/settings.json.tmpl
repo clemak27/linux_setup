@@ -139,6 +139,7 @@
   "lockScreenPowerOffMonitorsOnLock": true,
   "osdAlwaysShowValue": true,
   "osdPosition": 7,
+  "osdMediaPlaybackEnabled": false,
   "osdPowerProfileEnabled": true,
   "barConfigs": [
     {
@@ -244,7 +245,10 @@
       "maximizeWidgetText": false,
       "useOverlayLayer": false,
       "followInterfaceStyle": false,
-      "widgetFollowInterfaceStyle": false
+      "widgetFollowInterfaceStyle": false,
+      "widgetStyle": "pills",
+      "surfaceColor": "custom",
+      "surfaceCustomColor": "#000000"
     }
 {{- if eq .chezmoi.hostname "maxwell" }}
     ,{
@@ -328,7 +332,10 @@
       "maximizeWidgetText": false,
       "useOverlayLayer": false,
       "followInterfaceStyle": false,
-      "widgetFollowInterfaceStyle": false
+      "widgetFollowInterfaceStyle": false,
+      "widgetStyle": "pills",
+      "surfaceColor": "custom",
+      "surfaceCustomColor": "#000000"
     }
 {{- end}}
   ],
@@ -428,16 +435,16 @@
   "dashCards": [
     {
       "id": "clock",
-      "w": 1,
-      "h": 2,
+      "w": 2,
+      "h": 1,
       "col": 0,
       "row": 0
     },
     {
       "id": "weather",
-      "w": 1,
+      "w": 2,
       "h": 1,
-      "col": 1,
+      "col": 2,
       "row": 0
     },
     {
@@ -452,21 +459,28 @@
       "w": 1,
       "h": 2,
       "col": 0,
-      "row": 2
+      "row": 1
     },
     {
       "id": "user",
-      "w": 3,
+      "w": 2,
       "h": 1,
-      "col": 2,
+      "col": 4,
       "row": 0
     },
     {
       "id": "media",
-      "w": 1,
+      "w": 2,
       "h": 3,
       "col": 4,
       "row": 1
+    },
+    {
+      "id": "network",
+      "w": 1,
+      "h": 1,
+      "col": 0,
+      "row": 3
     }
   ],
   "mediaLyricsProviders": [
