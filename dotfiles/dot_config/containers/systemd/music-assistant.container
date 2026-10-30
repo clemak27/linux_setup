@@ -1,5 +1,5 @@
 [Container]
-Image=ghcr.io/music-assistant/server:2.10.8
+Image=ghcr.io/music-assistant/server:2.10.9
 AutoUpdate=registry
 Network=host
 Volume=%h/.local/share/music-assistant:/data
