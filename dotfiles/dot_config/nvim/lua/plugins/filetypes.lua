@@ -53,4 +53,5 @@ return {
       disabled = false,
     },
   },
+  { "ngynkvn/gotmpl.nvim", opts = {} },
 }

@@ -37,7 +37,7 @@ return {
     config = function()
       require("illuminate").configure({
         delay = 1000,
-        filetypes_denylist = { "NvimTree" },
+        filetypes_denylist = { "NvimTree", "gotmpl" },
       })
     end,
   },
