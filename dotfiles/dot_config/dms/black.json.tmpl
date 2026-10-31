@@ -1,6 +1,6 @@
 {
   "name": "black",
-  "secondary": "#b4befe",
+  "secondary": "#6f8396",
   "surface": "#121212",
   "surfaceText": "#cdd6f4",
   "surfaceContainer": "#060606",
@@ -15,25 +15,8 @@
   "warning": "#f9e2af",
   "info": "#94e2d5",
   "matugen_type": "scheme-tonal-spot",
-{{- if (eq .chezmoi.hostname "maxwell") }}
   "primary": "#c3c4e4",
   "primaryText": "#202020",
   "primaryContainer": "#c3c4e4",
   "outline": "#777777"
-{{- else if (eq .chezmoi.hostname "newton") }}
-  "primary": "#c1c6d6",
-  "primaryText": "#202020",
-  "primaryContainer": "#c1c6d6",
-  "outline": "#909096"
-{{- else if (eq .chezmoi.hostname "lagrange") }}
-  "primary": "#c0c9bd",
-  "primaryText": "#202020",
-  "primaryContainer": "#c0c9bd",
-  "outline": "#777777"
-{{- else }}
-  "primary": "#7b68ee",
-  "primaryText": "#202020",
-  "primaryContainer": "#c3c4e4",
-  "outline": "#777777"
-{{- end }}
 }
