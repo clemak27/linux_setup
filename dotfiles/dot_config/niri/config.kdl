@@ -182,6 +182,7 @@ binds {
 }
 
 include optional=true "dms/alttab.kdl"
+include optional=true "dms/binds-next.kdl"
 include optional=true "dms/binds.kdl"
 include optional=true "dms/colors.kdl"
 include optional=true "dms/cursor.kdl"
