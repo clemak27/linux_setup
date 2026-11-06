@@ -165,8 +165,7 @@
         },
         {
           "id": "workspaceSwitcher",
-          "enabled": true,
-          "workspaceUnfocusedCustomColor": "#505050"
+          "enabled": true
         },
         {
           "id": "focusedWindow",
@@ -249,7 +248,8 @@
       "widgetFollowInterfaceStyle": false,
       "widgetStyle": "pills",
       "surfaceColor": "custom",
-      "surfaceCustomColor": "#000000"
+      "surfaceCustomColor": "#000000",
+      "widgetPadding": 5
     }
 {{- if eq .chezmoi.hostname "maxwell" }}
     ,{
@@ -267,8 +267,7 @@
       "leftWidgets": [
         {
           "id": "workspaceSwitcher",
-          "enabled": true,
-          "workspaceUnfocusedCustomColor": "#505050"
+          "enabled": true
         }
       ],
       "centerWidgets": [
@@ -336,7 +335,8 @@
       "widgetFollowInterfaceStyle": false,
       "widgetStyle": "pills",
       "surfaceColor": "custom",
-      "surfaceCustomColor": "#000000"
+      "surfaceCustomColor": "#000000",
+      "widgetPadding": 5
     }
 {{- end}}
   ],
@@ -355,7 +355,7 @@
     }
   },
   "configVersion": 42,
-  "radiusStrength": 9,
+  "radiusStrength": 3,
   "blurBorderEnabled": true,
   "dockConfigs": [
     {
@@ -368,6 +368,7 @@
       "showOnLastDisplay": true,
       "position": 1,
       "mode": "compact",
+      "middleClickAction": "close",
       "taskbarAlign": "center",
       "widgetExpansion": "popout",
       "iconSize": 40,
@@ -547,7 +548,11 @@
     },
     "overview": {
       "panelRows": 4
-    }
+    },
+    "clock": {
+      "seconds": true,
+      "date": true
+     }
   },
   "desktopContextMenu": "off",
   "popupTransparency": 1,
@@ -732,5 +737,9 @@
         "syncPositionAcrossScreens": true
       }
     }
-  ]
+  ],
+  "interfaceStyle": "expressive",
+  "density": "dense",
+  "sectionDividerOpacity": 0.1,
+  "radiusMode": "scale"
 }
