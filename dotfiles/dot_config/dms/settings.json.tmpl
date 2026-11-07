@@ -2,10 +2,10 @@
   "currentThemeName": "custom",
   "currentThemeCategory": "custom",
   "customThemeFile": "{{ .chezmoi.homeDir }}/.config/dms/black.json",
-  "matugenScheme": "scheme-content",
+  "matugenScheme": "scheme-neutral",
   "widgetBackgroundColor": "s",
   "niriLayoutGapsOverride": 10,
-  "niriLayoutRadiusOverride": 3,
+  "niriLayoutRadiusOverride": -1,
   "clockFormat": "24h",
   "barElevationEnabled": false,
   "blurEnabled": true,
@@ -355,7 +355,7 @@
     }
   },
   "configVersion": 42,
-  "radiusStrength": 3,
+  "radiusStrength": 10,
   "blurBorderEnabled": true,
   "dockConfigs": [
     {
@@ -552,7 +552,7 @@
     "clock": {
       "seconds": true,
       "date": true
-     }
+    }
   },
   "desktopContextMenu": "off",
   "popupTransparency": 1,
@@ -741,5 +741,10 @@
   "interfaceStyle": "expressive",
   "density": "dense",
   "sectionDividerOpacity": 0.1,
-  "radiusMode": "scale"
+  "radiusMode": "scale",
+  "matugenSpec": "dms",
+  "matugenSourceMode": "value",
+  "matugenSeedColor": "#6f8396",
+  "matugenContrast": 0,
+  "blurWallpaperOnOverview": false
 }
