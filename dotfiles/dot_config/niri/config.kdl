@@ -1,3 +1,5 @@
+spawn-at-startup "noctalia"
+
 hotkey-overlay {
     skip-at-startup
 }
@@ -25,6 +27,13 @@ window-rule {
     background-effect {
         blur true
     }
+}
+
+window-rule {
+    geometry-corner-radius 3
+    clip-to-geometry true
+    tiled-state true
+    draw-border-with-background false
 }
 
 overview {
@@ -181,12 +190,60 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
-include optional=true "dms/alttab.kdl"
-include optional=true "dms/binds-next.kdl"
-include optional=true "dms/binds.kdl"
-include optional=true "dms/colors.kdl"
-include optional=true "dms/cursor.kdl"
-include optional=true "dms/layout.kdl"
-include optional=true "dms/outputs.kdl"
-include optional=true "dms/windowrules.kdl"
-include optional=true "dms/wpblur.kdl"
+layer-rule {
+  match namespace="^noctalia-backdrop"
+  place-within-backdrop true
+}
+
+layout {
+    background-color "transparent"
+
+    gaps 10
+
+    focus-ring {
+        width 1
+        active-color   "#b3c9df"
+        inactive-color "#333333"
+        urgent-color   "#f38ba8"
+    }
+
+    border {
+        width 1
+        active-color   "#b3c9df"
+        inactive-color "#333333"
+        urgent-color   "#f38ba8"
+    }
+
+    shadow {
+        color "#00000070"
+    }
+
+    tab-indicator {
+        active-color   "#b3c9df"
+        inactive-color "#333333"
+        urgent-color   "#f38ba8"
+    }
+
+    insert-hint {
+        color "#b3c9df80"
+    }
+}
+
+recent-windows {
+    highlight {
+        active-color   "#c3c4e4"
+        urgent-color   "#f38ba8"
+    }
+}
+
+cursor {
+    xcursor-theme "breeze_cursors"
+    xcursor-size 24
+}
+
+output "DP-3" {
+    mode "1920x1080@144.001"
+    scale 1
+    position x=0 y=0
+    focus-at-startup
+}
