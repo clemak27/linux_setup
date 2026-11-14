@@ -46,7 +46,6 @@
     },
     {
       "matchPackageNames": [
-        "ghcr.io/music-assistant/server",
         "jdx/hk"
       ],
       "matchUpdateTypes": [
