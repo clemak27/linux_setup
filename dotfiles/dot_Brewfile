@@ -110,6 +110,7 @@ brew "rust"
 brew "rust-analyzer"
 
 # other
+brew "can1357/tap/omp", trusted: true
 brew "pkl-lsp"
 brew "tombi"
 brew "vscode-langservers-extracted"
