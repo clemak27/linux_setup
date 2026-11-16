@@ -1,0 +1,19 @@
+[Container]
+Image=ghcr.io/ggml-org/llama.cpp:server-vulkan
+AddDevice=/dev/kfd
+AddDevice=/dev/dri
+PublishPort=13370:13370
+Volume=%h/.llama.cpp/models.ini:/etc/llama.cpp/config.ini:z
+Volume=%h/.llama.cpp/models:/etc/llama.cpp/models:z
+Environment=HOME=%h
+Environment=AMD_VULKAN_ICD=RADV
+Exec=--models-preset /etc/llama.cpp/config.ini --host 0.0.0.0 --port 13370
+UserNS=keep-id
+User=1000:1000
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target

@@ -114,5 +114,8 @@ brew "pkl-lsp"
 brew "tombi"
 brew "vscode-langservers-extracted"
 
+# slop
+brew "can1357/tap/omp", trusted: true
+
 # casks
 cask "font-jetbrains-mono-nerd-font"

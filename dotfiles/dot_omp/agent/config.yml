@@ -1,0 +1,42 @@
+---
+symbolPreset: nerd
+composer:
+  shape: pi
+theme:
+  dark: dark-catppuccin
+setupVersion: 3
+statusLine:
+  separator: none
+  transparent: true
+  compactThinkingLevel: false
+  showHookStatus: true
+  contextLine: percentage
+autoResume: true
+startup:
+  quiet: true
+  checkUpdate: false
+memory:
+  backend: "off"
+terminal:
+  showProgress: true
+defaultThinkingLevel: auto
+textVerbosity: low
+personality: default
+hideThinkingBlock: true
+searxng:
+  endpoint: https://searxng.wallstreet30.cc
+modelRoles:
+  web: web/searxng
+retry:
+  fallbackChains:
+    web:
+      - web/parallel
+      - web/hosted
+      - web/exa
+      - web/firecrawl
+      - web/startpage
+      - web/duckduckgo
+      - web/ecosia
+      - web/google
+      - web/mojeek
+      - web/public

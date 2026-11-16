@@ -8,6 +8,9 @@
 {{- end }}
 {{- if not (eq .chezmoi.hostname "maxwell") }}
 .config/DankMaterialShell/monitors.json
+.config/.omp
+.config/containers/systemd/llama-cpp.container
+.llama.cpp
 {{- end }}
 {{- if (eq (env "XDG_CURRENT_DESKTOP") "niri") }}
 .config/autostart/ksshaskpass.sh.desktop
