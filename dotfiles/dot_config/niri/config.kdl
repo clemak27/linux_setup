@@ -35,6 +35,47 @@ overview {
     backdrop-color "#060606"
 }
 
+layout {
+    background-color "transparent"
+
+    focus-ring {
+        width 1
+        active-color   "#b3c9df"
+        inactive-color "#333333"
+        urgent-color   "#f38ba8"
+    }
+
+    border {
+        width 1
+        active-color   "#b3c9df"
+        inactive-color "#333333"
+        urgent-color   "#f38ba8"
+    }
+
+    shadow {
+        color "#00000070"
+    }
+
+    tab-indicator {
+        active-color   "#b3c9df"
+        inactive-color "#333333"
+        urgent-color   "#f38ba8"
+    }
+
+    insert-hint {
+        color "#b3c9df80"
+    }
+
+    gaps 10
+}
+
+window-rule {
+    geometry-corner-radius 3
+    clip-to-geometry true
+    tiled-state true
+    draw-border-with-background false
+}
+
 input {
     touchpad {
         tap
@@ -188,9 +229,7 @@ binds {
 include optional=true "dms/alttab.kdl"
 include optional=true "dms/binds-next.kdl"
 include optional=true "dms/binds.kdl"
-include optional=true "dms/colors.kdl"
 include optional=true "dms/cursor.kdl"
-include optional=true "dms/layout.kdl"
 include optional=true "dms/outputs.kdl"
 include optional=true "dms/windowrules.kdl"
 include optional=true "dms/wpblur.kdl"
