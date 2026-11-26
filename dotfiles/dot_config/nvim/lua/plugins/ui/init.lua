@@ -110,6 +110,18 @@ return {
         desc = "terminal",
       },
       {
+        "<leader>~",
+        function()
+          Snacks.terminal.open(nil, {
+            win = {
+              position = "bottom",
+              height = 0.3,
+            },
+          })
+        end,
+        desc = "bottom terminal",
+      },
+      {
         "<leader>-",
         function()
           Snacks.terminal.open("yazi")
