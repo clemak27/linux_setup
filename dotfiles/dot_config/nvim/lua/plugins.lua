@@ -56,6 +56,11 @@ return {
         load_on_setup = false,
       },
       suppressed_dirs = { "~/", "~/Projects" },
+      pre_restore_cmds = {
+        function()
+          return vim.fn.argc(-1) > 0 and false or nil
+        end,
+      },
     },
   },
   {
@@ -118,5 +123,10 @@ return {
         map.manipulate("decrement", "gvisual")
       end)
     end,
+  },
+  -- nvim -c 'CodeDiff --exit-on-close origin/main...HEAD'
+  {
+    "esmuellert/codediff.nvim",
+    cmd = "CodeDiff",
   },
 }
