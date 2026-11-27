@@ -176,7 +176,9 @@ fi
 if command -v nvim &> /dev/null; then
   alias 'vi'='nvim'
   alias 'vim'='nvim'
-  alias 'vimdiff'='nvim -d'
+  vimdiff() {
+    nvim +"CodeDiff --exit-on-close file $1 $2" -- "$1" "$2"
+  }
   export EDITOR=nvim
   export VISUAL=nvim
   alias 'tmpjson'='nvim $(mktemp --suffix=".json")'
