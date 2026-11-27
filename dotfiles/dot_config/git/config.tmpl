@@ -99,3 +99,10 @@ oauthClientId = e328adef-7b46-45b8-9985-a6f3931acce8
 [hook "hk-prepare-commit-msg"]
     command = test \"${HK:-1}\" = \"0\" || /var/home/linuxbrew/.linuxbrew/bin/mise x hk -- hk run prepare-commit-msg --from-hook
     event = prepare-commit-msg
+
+[diff]
+	tool = codediff
+[difftool "codediff"]
+	cmd = nvim \"$LOCAL\" \"$REMOTE\" +\"CodeDiff --exit-on-close file $LOCAL $REMOTE\"
+[difftool]
+	prompt = false
