@@ -2,8 +2,15 @@
   "yamllint-disable": {
     "prefix": "yamllint-disable",
     "body": [
+      "# yamllint disable rule:${1:rule}"
+    ],
+    "description": "Inserts a yamllint disable comment"
+  },
+  "yamllint-disable-nl": {
+    "prefix": "yamllint-disable-line",
+    "body": [
       "# yamllint disable-line rule:${1:rule}"
     ],
-    "description": "Inserts a yamllint-disable comment"
+    "description": "Inserts a yamllint disable-line comment"
   }
 }
