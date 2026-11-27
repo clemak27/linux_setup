@@ -183,6 +183,7 @@ if command -v nvim &> /dev/null; then
   export VISUAL=nvim
   alias 'tmpjson'='nvim $(mktemp --suffix=".json")'
   alias 'tmpmd'='nvim $(mktemp --suffix=".md")'
+  alias 'tmpsh'='f=$(mktemp --suffix=".sh") && chmod +x "$f" && vim "$f"'
   alias 'tmpyaml'='nvim $(mktemp --suffix=".yaml")'
 fi
 
