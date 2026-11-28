@@ -5,6 +5,7 @@ git:
     - colorArg: always
       command: delta --dark --paging=never
 gui:
+  nerdFontsVersion: "3"
   theme:
     activeBorderColor:
       - "#fab387"
